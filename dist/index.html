@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#244c39">
+  <meta name="description" content="拾味交互演示：用手头食材，搭配刚刚好的一餐。所有识别、推荐与健康数据均为模拟。">
+  <title>拾味 · 今天吃什么</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="拾味首页"><span class="brand-mark">拾</span><span>拾味<small>SHIWEI KITCHEN</small></span></a>
+    <nav aria-label="主导航"><button class="nav-item active" data-action="home">做饭工作台</button><button class="nav-item" data-action="favorites">我的收藏 <span id="favorite-count">0</span></button></nav>
+    <div class="header-actions"><span class="demo-badge">交互演示</span><button class="avatar" data-action="profile" aria-label="个人设置">我</button></div>
+  </header>
+  <main id="main-content">
+    <section class="page-intro"><div><div class="eyebrow">A LITTLE INSPIRATION, EVERY DAY</div><h1>今天，吃点什么？<span class="sun-icon">✳</span></h1><p>打开冰箱，把手边的食材变成一顿好饭。</p></div><button class="health-entry" id="health-entry" data-action="health"><span class="health-symbol">♡</span><span><strong>健康模式</strong><small id="health-status">按需开启，照顾你的饮食限制</small></span><span class="switch" id="health-switch" aria-hidden="true"></span></button></section>
+    <section class="hero-banner"><div class="hero-copy"><span class="hero-tag"><i></i> 少一点纠结，多一点烟火气</span><h2>有啥，做啥。<br>好好吃一餐。</h2><p>食材不浪费，搭配刚刚好。</p></div><div class="hero-photo" role="img" aria-label="番茄炒蛋、时蔬和汤的家常餐食示意"><div class="photo-note">家常滋味 · 图片为示意</div></div><span class="hero-doodle" aria-hidden="true">✳</span></section>
+    <div class="workspace">
+      <aside class="input-column">
+        <section class="panel ingredient-panel"><div class="section-heading"><h2><span class="step-number">01</span> 看看有什么食材</h2><span class="subtle" id="ingredient-count">0 种</span></div>
+          <div class="input-tabs" role="tablist" aria-label="输入方式"><button role="tab" aria-selected="true" class="selected" data-input="photo">拍照 / 上传</button><button role="tab" aria-selected="false" data-input="text">文字输入</button></div>
+          <div id="photo-input"><div class="upload-zone"><span class="upload-icon" id="upload-icon"></span><strong>拍下食材，灵感就来了</strong><span>支持 JPG、PNG、WebP · 仅本次使用</span><span class="upload-buttons"><button class="mini-button" data-action="upload">选择图片</button><button class="camera-button" id="camera-trigger">手机拍照</button></span></div><input id="food-upload" type="file" accept="image/jpeg,image/png,image/webp" hidden><input id="camera-upload" type="file" accept="image/*" capture="environment" hidden><div id="photo-preview" hidden></div></div>
+          <div id="text-input" hidden><label class="sr-only" for="ingredient-text">输入食材</label><textarea id="ingredient-text" placeholder="例如：西红柿2个、鸡蛋3个、菠菜一把…" rows="3"></textarea><button class="button small outline full" data-action="parse">整理食材清单 <span>↗</span></button></div>
+          <button class="example-button" data-action="example"><span>✧</span> 没想好？用示例食材试一试 <span>→</span></button>
+          <div id="recognition-note" class="inline-note" hidden></div>
+          <div class="list-label"><strong>我的食材</strong><span>用量选填，可直接修改</span></div><div id="ingredient-list"></div>
+          <form id="add-ingredient" class="add-row"><label class="sr-only" for="new-ingredient">新增食材</label><input id="new-ingredient" placeholder="添加其他食材" maxlength="20"><button type="submit" aria-label="添加食材">＋</button></form>
+          <div class="ingredient-confirm" id="ingredient-confirm" hidden>请核对食材名称，确认后再推荐。</div>
+        </section>
+        <section class="panel preference-panel"><div class="section-heading"><h2><span class="step-number">02</span> 这一餐的偏好</h2><button class="text-button" data-action="profile">个人设置 ↗</button></div>
+          <div class="preference-row"><label for="servings">几个人吃</label><div class="stepper"><button data-action="servings-down" aria-label="减少人数">−</button><input id="servings" type="number" min="1" max="12" value="1" aria-label="就餐人数"><button data-action="servings-up" aria-label="增加人数">＋</button></div></div>
+          <div class="preference-row flavor-row"><label>今天的口味</label><div id="input-flavors" class="flavor-options"></div></div>
+          <details class="secondary-settings"><summary>调味料与饮食限制 <span>按需调整</span></summary><div class="details-body"><fieldset><legend>调味料库存</legend><label class="radio-line"><input type="radio" name="seasoning-mode" value="ignore" checked> 不检查库存 <small>菜谱仍列出所需调味料</small></label><label class="radio-line"><input type="radio" name="seasoning-mode" value="check"> 使用我的清单</label><div id="seasoning-checks" class="check-grid"></div></fieldset><label class="field-label" for="quick-allergies">本人的过敏 / 明确忌口</label><input id="quick-allergies" placeholder="如：花生、虾，用逗号分隔"><label class="checkbox-line"><input id="include-others" type="checkbox"> 合并已保存的他人过敏忌口</label><div id="others-summary" class="subtle"></div></div></details>
+          <div id="health-summary" class="health-summary" hidden></div>
+          <button class="button primary full generate-button" id="generate-button" data-action="generate">确认食材，搭配这一餐 <span>✧</span></button><p class="privacy-note">模拟推荐 · 不检查食材新鲜度或实际健康适宜性</p>
+        </section>
+      </aside>
+      <section class="results-column" aria-label="推荐结果"><div class="results-heading"><div><div class="eyebrow">MADE FOR YOUR TABLE</div><h2>这一餐，安排好了</h2></div><span class="subtle">从手边食材开始</span></div>
+        <div class="result-toolbar"><div class="segmented" role="tablist" aria-label="推荐模式"><button role="tab" aria-selected="true" class="active" data-mode="meal">✧ 一键搭配</button><button role="tab" aria-selected="false" data-mode="browse">多菜候选</button></div><button class="text-button" data-action="custom-counts" id="counts-toggle">荤素汤搭配 <span>⌄</span></button></div>
+        <div id="custom-counts" class="count-settings" hidden><span>不指定时，自动搭配三道菜</span><div class="counts-fields"><label>荤菜<input id="count-meat" type="number" min="0" max="6" placeholder="自动"></label><label>素菜<input id="count-veg" type="number" min="0" max="6" placeholder="自动"></label><label>汤<input id="count-soup" type="number" min="0" max="6" placeholder="自动"></label></div><small>演示最多搭配6道菜；按菜品分类区分荤素汤。</small></div>
+        <div id="result-meta"></div><div id="result-content" aria-live="polite"></div><div id="result-actions"></div>
+      </section>
+    </div>
+    <section class="demo-lab"><div><span class="lab-label">体验实验室</span><span>试试不同场景，看看流程是否顺手</span></div><div class="scenario-buttons"><button data-scenario="normal">日常一餐</button><button data-scenario="recognition">识别不完整</button><button data-scenario="shortage">食材不足</button><button data-scenario="allergy">过敏限制</button><button data-scenario="unsupported">疾病暂不支持</button><button data-scenario="conflict">多疾病冲突</button></div><button class="text-button reset-button" data-action="reset">重置 Demo ↺</button></section>
+  </main>
+  <footer><span class="footer-brand">拾味 <span>把日子，过得有滋有味。</span></span><span>交互演示 · 识别、推荐、营养及健康流程均为模拟</span></footer>
+  <dialog id="modal"><div id="modal-body"></div></dialog><div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

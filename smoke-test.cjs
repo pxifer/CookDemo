@@ -1,0 +1,23 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const ctx={window:{}};vm.createContext(ctx);
+for(const file of ['data.js','engine.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'dist',file),'utf8'),ctx);
+const W=ctx.window,E=W.ShiweiEngine,R=W.RECIPES;
+const base={ingredients:W.EXAMPLE_INGREDIENTS,servings:1,flavor:'不限',seasoningMode:'ignore',seasonings:W.SEASONINGS,allergies:'',others:'',includeOthers:false,health:false,allowBuy:false,goal:'日常均衡'};
+assert.equal(R.length,24);assert.equal(R.filter(r=>!r.special).length,16);assert.equal(R.filter(r=>r.special).length,8);
+assert.equal(E.parseIngredients('西红柿2个、鸡蛋3个')[0].name,'西红柿');assert.equal(E.parseIngredients('西红柿2个、鸡蛋3个')[1].amount,'3个');
+for(let i=0;i<12;i++){const meal=E.buildMeal(R,base,i);assert.equal(meal.selected.length,3,'choose a feasible full default combination');assert.equal(new Set(meal.selected.map(r=>r.id)).size,3);}
+const vegan={...base,ingredients:base.ingredients.filter(x=>x.name!=='鸡肉')};assert(E.buildMeal(R,vegan,0).selected.every(r=>r.type!=='meat'));
+const restricted={...base,allergies:'鸡蛋、花生',allowBuy:true};assert(E.eligible(R,restricted).every(r=>!r.ingredients.includes('鸡蛋')&&!r.ingredients.includes('花生')&&!r.uncertain));
+assert(!E.eligible(R,{...base,others:'鸡蛋',includeOthers:true}).some(r=>r.ingredients.includes('鸡蛋')));
+assert(E.eligible(R,{...base,others:'鸡蛋',includeOthers:false}).some(r=>r.ingredients.includes('鸡蛋')));
+assert(E.eligible(R,{...base,flavor:'微辣'}).every(r=>r.flavors.includes('微辣')));
+assert.equal(E.eligible(R,{...base,seasoningMode:'check',seasonings:[]}).length,0);
+assert(E.eligible(R,{...restricted,seasoningMode:'check',seasonings:[]}).length>0,'buying enables missing stock, never allergies');
+const shortage={...base,ingredients:[{name:'土豆',amount:'150g'}]};assert(E.buildMeal(R,shortage,0,{meat:1,veg:1,soup:1}).selected.length<3);
+assert.equal(E.eligible(R,{...base,ingredients:[{name:'鸡蛋',amount:'1个'},{name:'西红柿',amount:'1个'}],servings:2}).length,0,'quantity scales with people');
+const eggs={...base,ingredients:[{name:'鸡蛋',amount:'2个'},{name:'西红柿',amount:'2个'}]};const shared=E.buildMeal(R,eggs,0,{meat:0,veg:1,soup:1});assert.equal(shared.selected.length,2);
+const insufficient={...eggs,ingredients:[{name:'鸡蛋',amount:'1个'},{name:'西红柿',amount:'1个'}]};assert.equal(E.buildMeal(R,insufficient,0,{meat:0,veg:1,soup:1}).selected.length,1,'shared stock is counted across the meal');
+assert.notEqual(E.buildMeal(R,base,0).selected.map(r=>r.id).join(','),E.buildMeal(R,base,1).selected.map(r=>r.id).join(','));
+console.log('PASS: 24 recipe fixtures; parsing; valid default meals; meat/veg classification; allergies; uncertain ingredients; other-person opt-in; flavor; seasoning inventory; shortage; servings; shared quantities; regeneration.');
