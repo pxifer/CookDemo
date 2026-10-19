@@ -1,0 +1,44 @@
+{
+  "target": "https://cookdemo.pages.dev/",
+  "checks": [
+    {
+      "id": "EXACT_QUANTITY_PURCHASE_GAP",
+      "facts": {
+        "card": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n清淡 / 浓香\n查看做法 ↗",
+        "detail": "香菇滑鸡\n×\n餐食示意 · 模拟菜谱\n荤菜 · 约20分钟 · 12人份\n约 245 kcal / 人份\n\n菌菇鲜香，鸡肉嫩滑。\n\n准备这些食材\n鸡肉\n1440g\n香菇\n720g\n\n调味料：食用油、盐、生抽（按口味适量，未作精确营养核算）\n\n以上为演示建议用量，套餐内食材可能复用；未填写或无法解析库存数量时，尚未核实是否够量。\n\n一步一步，慢慢来\n鸡肉切片，香菇切片。\n鸡肉用生抽拌匀，热锅加油炒至变色。\n加入香菇翻炒，加少量水焖熟，调味出锅。\n♡ 收藏这道菜\n知道了，开始准备"
+      }
+    },
+    {
+      "id": "NATURAL_ALLERGY_NEGATION",
+      "facts": {
+        "allowedEgg": "找到 15 道 · 家常菜优先，风味灵感随后\n接受补买\n♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n清淡 / 浓香\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n待补：土豆\n\n清淡 / 微辣\n查看做法 ↗\n♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n待补：菠菜\n\n清淡 / 浓香\n查看做法 ↗\n♡\n素菜 · 家常味道\n清炒双菇\n◷ 12 分钟\n约 95 kcal / 人份\n\n待补：蘑菇\n\n清淡 / 浓香\n查看做法 ↗\n♡\n素菜 · 家常味道\n拍黄瓜\n◷ 8 分钟\n约 48 kcal / 人份\n\n待补：黄瓜\n\n清淡 / 微辣\n查看做法 ↗\n♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n待补：豆腐\n\n浓香 / 微辣\n查看做法 ↗",
+        "negation": "12 人份\n口味：不限\n本人资料\n排除：不对花生过敏"
+      }
+    },
+    {
+      "id": "FAVORITE_PERSISTENCE_AND_RESET",
+      "facts": {
+        "beforeReload": "1",
+        "afterReload": "1",
+        "afterReset": "0"
+      }
+    },
+    {
+      "id": "MOBILE_SCROLL_AND_CTA",
+      "facts": {
+        "buttonBeforeGenerate": {
+          "x": 39,
+          "y": 1141,
+          "width": 312,
+          "height": 46
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "scrollAfter": 1731
+      }
+    }
+  ],
+  "errors": []
+}

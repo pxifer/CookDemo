@@ -1,0 +1,1036 @@
+{
+  "target": "https://cookdemo.pages.dev/",
+  "started": "2026-10-18T07:15:00.921Z",
+  "browser": "155.0.4283.45",
+  "initialViewport": "390x844, mobile/touch emulation",
+  "checks": [
+    {
+      "id": "SOURCE_DEPLOYMENT_MATCH",
+      "status": "executed",
+      "facts": {
+        "index.html": {
+          "http": 200,
+          "normalizedMatchesLocal": true,
+          "localRawHash": "b3cd2c5cc743f6a81a6eaa63451ece156dc38d54421aedafc5afe2d5becc948f"
+        },
+        "styles.css": {
+          "http": 200,
+          "normalizedMatchesLocal": true,
+          "localRawHash": "04ac59efe6c9e77427926723e54305b359045a455cbdaeae554b90a8027bda6a"
+        },
+        "data.js": {
+          "http": 200,
+          "normalizedMatchesLocal": true,
+          "localRawHash": "9eff484615c77a2d396c5f16d699dfb5424244fe31df2f55a8cf080a5a2c7802"
+        },
+        "engine.js": {
+          "http": 200,
+          "normalizedMatchesLocal": true,
+          "localRawHash": "3371c73b96fd5c70973be36c59684068fcccf3cabba75210ccc5be50f28b8618"
+        },
+        "app.js": {
+          "http": 200,
+          "normalizedMatchesLocal": true,
+          "localRawHash": "7d37a271c7058cdedfdb9518d6c1da37c48b3cfb2f603f80e723979a7050cf61"
+        }
+      }
+    },
+    {
+      "id": "DESKTOP_INITIAL_EMPTY",
+      "status": "executed",
+      "facts": {
+        "layout": {
+          "url": "https://cookdemo.pages.dev/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "scrollWidth": 390,
+          "overflow": [],
+          "styles": [
+            {
+              "selector": ".subtle",
+              "color": "rgb(130, 139, 128)",
+              "fontSize": "11px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".privacy-note",
+              "color": "rgb(160, 168, 149)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            null,
+            null
+          ],
+          "targets": [
+            null,
+            null,
+            {
+              "selector": ".stepper button",
+              "width": 29,
+              "height": 29
+            },
+            null
+          ]
+        },
+        "emptyFeedback": "先添加至少一种食材吧",
+        "activeElement": "new-ingredient"
+      }
+    },
+    {
+      "id": "INPUT_WITHOUT_SEPARATORS",
+      "status": "executed",
+      "facts": [
+        {
+          "label": "食材1名称",
+          "value": "西红柿"
+        },
+        {
+          "label": "西红柿用量",
+          "value": "2个鸡蛋3个菠菜一把"
+        }
+      ]
+    },
+    {
+      "id": "INGREDIENT_EDIT_ADD_DELETE",
+      "status": "executed",
+      "facts": {
+        "parsed": [
+          {
+            "label": "食材1名称",
+            "value": "西红柿"
+          },
+          {
+            "label": "西红柿用量",
+            "value": "2个"
+          },
+          {
+            "label": "食材2名称",
+            "value": "鸡蛋"
+          },
+          {
+            "label": "鸡蛋用量",
+            "value": "3个"
+          },
+          {
+            "label": "食材3名称",
+            "value": "菠菜"
+          },
+          {
+            "label": "菠菜用量",
+            "value": "200g"
+          }
+        ],
+        "edited": [
+          {
+            "label": "食材1名称",
+            "value": "土豆"
+          },
+          {
+            "label": "土豆用量",
+            "value": "2个"
+          },
+          {
+            "label": "食材2名称",
+            "value": "鸡蛋"
+          },
+          {
+            "label": "鸡蛋用量",
+            "value": "3个"
+          },
+          {
+            "label": "食材3名称",
+            "value": "黄瓜"
+          },
+          {
+            "label": "黄瓜用量",
+            "value": "100g"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NORMAL_MEAL_REPLACE_FLAVOR_BROWSE",
+      "status": "executed",
+      "facts": {
+        "initial": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "荤素搭配，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n590kcal / 人份\n♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n食材数量未填或单位无法核对，尚未核实是否够量。 热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "香菇滑鸡",
+              "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "swapped": [
+          {
+            "name": "香菇滑鸡",
+            "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗"
+          },
+          {
+            "name": "清炒双菇",
+            "text": "♡\n素菜 · 家常味道\n清炒双菇\n◷ 12 分钟\n约 95 kcal / 人份\n\n手边就有 · 香菇、蘑菇\n\n↻ 换一道\n查看做法 ↗"
+          },
+          {
+            "name": "醋溜土豆丝",
+            "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗"
+          }
+        ],
+        "regenerated": [
+          {
+            "name": "香菇滑鸡",
+            "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗"
+          },
+          {
+            "name": "蒜蓉菠菜",
+            "text": "♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗"
+          },
+          {
+            "name": "清炒双菇",
+            "text": "♡\n素菜 · 家常味道\n清炒双菇\n◷ 12 分钟\n约 95 kcal / 人份\n\n手边就有 · 香菇、蘑菇\n\n↻ 换一道\n查看做法 ↗"
+          }
+        ],
+        "flavored": {
+          "meta": "1 人份\n口味：微辣\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n388kcal / 人份\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n拍黄瓜\n◷ 8 分钟\n约 48 kcal / 人份\n\n手边就有 · 黄瓜\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n食材数量未填或单位无法核对，尚未核实是否够量。 热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "拍黄瓜",
+              "text": "♡\n素菜 · 家常味道\n拍黄瓜\n◷ 8 分钟\n约 48 kcal / 人份\n\n手边就有 · 黄瓜\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "家常烧豆腐",
+              "text": "♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "page1": [
+          {
+            "name": "番茄炒蛋",
+            "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗"
+          },
+          {
+            "name": "香菇滑鸡",
+            "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n清淡 / 浓香\n查看做法 ↗"
+          },
+          {
+            "name": "醋溜土豆丝",
+            "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n清淡 / 微辣\n查看做法 ↗"
+          },
+          {
+            "name": "蒜蓉菠菜",
+            "text": "♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n清淡 / 浓香\n查看做法 ↗"
+          },
+          {
+            "name": "清炒双菇",
+            "text": "♡\n素菜 · 家常味道\n清炒双菇\n◷ 12 分钟\n约 95 kcal / 人份\n\n手边就有 · 香菇、蘑菇\n\n清淡 / 浓香\n查看做法 ↗"
+          },
+          {
+            "name": "拍黄瓜",
+            "text": "♡\n素菜 · 家常味道\n拍黄瓜\n◷ 8 分钟\n约 48 kcal / 人份\n\n手边就有 · 黄瓜\n\n清淡 / 微辣\n查看做法 ↗"
+          }
+        ],
+        "page2": [
+          {
+            "name": "家常烧豆腐",
+            "text": "♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n浓香 / 微辣\n查看做法 ↗"
+          },
+          {
+            "name": "番茄蛋花汤",
+            "text": "♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗"
+          },
+          {
+            "name": "菠菜豆腐汤",
+            "text": "♡\n汤 · 家常味道\n菠菜豆腐汤\n◷ 15 分钟\n约 90 kcal / 人份\n\n手边就有 · 菠菜、豆腐\n\n清淡\n查看做法 ↗"
+          },
+          {
+            "name": "鲜菇清汤",
+            "text": "♡\n汤 · 家常味道\n鲜菇清汤\n◷ 15 分钟\n约 55 kcal / 人份\n\n手边就有 · 香菇、蘑菇\n\n清淡 / 浓香\n查看做法 ↗"
+          },
+          {
+            "name": "彩蔬豆腐沙拉",
+            "text": "♡\n素菜 · 风味灵感\n彩蔬豆腐沙拉\n◷ 15 分钟\n约 165 kcal / 人份\n\n手边就有 · 豆腐、黄瓜、西红柿\n\n清淡\n查看做法 ↗"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SERVINGS_INTEGER_AND_FRACTIONAL",
+      "status": "executed",
+      "facts": {
+        "twoPeople": {
+          "meta": "2 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 3 道 · 2 人份 · 图片为餐食示意\n453kcal / 人份\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "蒜蓉菠菜",
+              "text": "♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "家常烧豆腐",
+              "text": "♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "detail": "番茄炒蛋\n×\n餐食示意 · 模拟菜谱\n素菜 · 约12分钟 · 2人份\n约 190 kcal / 人份\n\n酸甜开胃，永远吃不腻的家常味。\n\n准备这些食材\n西红柿\n2个\n鸡蛋\n2个\n\n调味料：食用油、盐（按口味适量，未作精确营养核算）\n\n以上为演示建议用量，套餐内食材可能复用；未填写或无法解析库存数量时，尚未核实是否够量。\n\n一步一步，慢慢来\n将西红柿切块，鸡蛋打散。\n热锅加油，倒入蛋液炒至凝固，盛出。\n翻炒西红柿至出汁，放回鸡蛋，少量盐调味。\n♡ 收藏这道菜\n知道了，开始准备",
+        "fractional": {
+          "meta": "1.5 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 3 道 · 1.5 人份 · 图片为餐食示意\n353kcal / 人份\n♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗\n♡\n汤 · 家常味道\n菠菜豆腐汤\n◷ 15 分钟\n约 90 kcal / 人份\n\n手边就有 · 菠菜、豆腐\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "蒜蓉菠菜",
+              "text": "♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "家常烧豆腐",
+              "text": "♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "菠菜豆腐汤",
+              "text": "♡\n汤 · 家常味道\n菠菜豆腐汤\n◷ 15 分钟\n约 90 kcal / 人份\n\n手边就有 · 菠菜、豆腐\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "UNIT_COMPATIBILITY_AND_MISSING_HINT",
+      "status": "executed",
+      "facts": {
+        "mismatch": {
+          "meta": "12 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 2 道 · 12 人份 · 图片为餐食示意\n265kcal / 人份\n先做得了的，这次搭配了 2 道菜。\n按当前食材、数量、口味和限制，暂时凑不齐 3 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "番茄蛋花汤",
+              "text": "♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "bareOrApproximate": {
+          "inputs": [
+            {
+              "label": "食材1名称",
+              "value": "鸡肉"
+            },
+            {
+              "label": "鸡肉用量",
+              "value": "500"
+            },
+            {
+              "label": "食材2名称",
+              "value": "香菇"
+            },
+            {
+              "label": "香菇用量",
+              "value": "一把"
+            }
+          ],
+          "result": {
+            "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+            "content": "荤素搭配，刚刚好的一餐\n共 1 道 · 1 人份 · 图片为餐食示意\n245kcal / 人份\n先做得了的，这次搭配了 1 道菜。\n按当前食材、数量、口味和限制，暂时凑不齐 3 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗",
+            "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n食材数量未填或单位无法核对，尚未核实是否够量。 热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+            "cards": [
+              {
+                "name": "香菇滑鸡",
+                "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "SEASONING_INVENTORY_AND_IGNORE",
+      "status": "executed",
+      "facts": {
+        "emptyInventory": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "先做得了的，这次还没有可做的菜。\n按当前食材、数量、口味和限制，暂时凑不齐 3 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n🌿\n换一点条件，灵感就会来\n\n没有符合当前全部条件的菜谱。\n试试增加食材、调整口味或接受补买。\n过敏与明确忌口不会被自动放宽。\n\n接受补买\n修改食材 ↑",
+          "notes": "",
+          "cards": []
+        },
+        "ignoreInventory": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 2 道 · 1 人份 · 图片为餐食示意\n265kcal / 人份\n先做得了的，这次搭配了 2 道菜。\n按当前食材、数量、口味和限制，暂时凑不齐 3 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "番茄蛋花汤",
+              "text": "♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ALLERGY_KNOWN_AND_UNKNOWN_ALIAS",
+      "status": "executed",
+      "facts": {
+        "known": {
+          "meta": "1 人份\n口味：不限\n本人资料\n排除：鸡蛋",
+          "content": "清爽素食，刚刚好的一餐\n共 1 道 · 1 人份 · 图片为餐食示意\n155kcal / 人份\n先做得了的，这次搭配了 1 道菜。\n按当前食材、数量、口味和限制，暂时凑不齐 3 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "alias": {
+          "meta": "1 人份\n口味：不限\n本人资料\n排除：海产品",
+          "content": "找到 5 道 · 家常菜优先，风味灵感随后\n接受补买\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n清淡 / 微辣\n查看做法 ↗\n♡\n荤菜 · 家常味道\n虾仁滑蛋\n◷ 15 分钟\n约 210 kcal / 人份\n\n手边就有 · 虾、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗\n♡\n荤菜 · 家常味道\n清蒸鲜鱼\n◷ 25 分钟\n约 175 kcal / 人份\n\n手边就有 · 鱼\n\n清淡\n查看做法 ↗\n♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗",
+          "notes": "← 上一页\n1 / 1\n下一页 →\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗"
+            },
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n清淡 / 微辣\n查看做法 ↗"
+            },
+            {
+              "name": "虾仁滑蛋",
+              "text": "♡\n荤菜 · 家常味道\n虾仁滑蛋\n◷ 15 分钟\n约 210 kcal / 人份\n\n手边就有 · 虾、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗"
+            },
+            {
+              "name": "清蒸鲜鱼",
+              "text": "♡\n荤菜 · 家常味道\n清蒸鲜鱼\n◷ 25 分钟\n约 175 kcal / 人份\n\n手边就有 · 鱼\n\n清淡\n查看做法 ↗"
+            },
+            {
+              "name": "番茄蛋花汤",
+              "text": "♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n清淡 / 浓香\n查看做法 ↗"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "OTHERS_RESTRICTIONS_OPT_IN",
+      "status": "executed",
+      "facts": {
+        "defaultSelf": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n420kcal / 人份\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗\n♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "番茄蛋花汤",
+              "text": "♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "merged": {
+          "meta": "1 人份\n口味：不限\n本人 + 已选他人限制\n排除：鸡蛋",
+          "content": "清爽素食，刚刚好的一餐\n共 1 道 · 1 人份 · 图片为餐食示意\n155kcal / 人份\n先做得了的，这次搭配了 1 道菜。\n按当前食材、数量、口味和限制，暂时凑不齐 3 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "SCENARIO_PERSISTENCE_ALLERGY_LOSS",
+      "status": "executed",
+      "facts": {
+        "originalSaved": "虾",
+        "afterScenario": "",
+        "scenarioMessage": "已载入演示场景，不改变已保存的个人设置",
+        "afterReload": ""
+      }
+    },
+    {
+      "id": "HEALTH_NATURAL_TEXT_CONFIRMATION_AND_DRAFT",
+      "status": "executed",
+      "facts": {
+        "natural": "未能识别“高血压和糖尿病”。请检查名称、换种表述，或使用列表选择。未识别名称不会应用。",
+        "normalized": "识别为以下名称，请核对：\n\n高血压\n确认并加入",
+        "lostDraft": "",
+        "focus": {
+          "tag": "BODY",
+          "id": ""
+        },
+        "aria": {
+          "label": null,
+          "labelledBy": null,
+          "role": null
+        },
+        "selectedMultiple": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口\n♡ 健康演示已开启",
+          "content": "荤素搭配，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n590kcal / 人份\n♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n蛋白质 27g\n脂肪 12g\n碳水 7g\n营养及筛选为模拟示意\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n蛋白质 12g\n脂肪 13g\n碳水 8g\n营养及筛选为模拟示意\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n蛋白质 3g\n脂肪 5g\n碳水 24g\n营养及筛选为模拟示意\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n食材数量未填或单位无法核对，尚未核实是否够量。 热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。 健康筛选、营养与注意事项均为交互演示，不代表实际健康适宜性。",
+          "cards": [
+            {
+              "name": "香菇滑鸡",
+              "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n蛋白质 27g\n脂肪 12g\n碳水 7g\n营养及筛选为模拟示意\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n蛋白质 12g\n脂肪 13g\n碳水 8g\n营养及筛选为模拟示意\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "醋溜土豆丝",
+              "text": "♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n蛋白质 3g\n脂肪 5g\n碳水 24g\n营养及筛选为模拟示意\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "healthDetail": "香菇滑鸡\n×\n餐食示意 · 模拟菜谱\n荤菜 · 约20分钟 · 1人份\n约 245 kcal / 人份\n\n菌菇鲜香，鸡肉嫩滑。\n\n准备这些食材\n鸡肉\n120g\n香菇\n60g\n\n调味料：食用油、盐、生抽（按口味适量，未作精确营养核算）\n\n以上为演示建议用量，套餐内食材可能复用；未填写或无法解析库存数量时，尚未核实是否够量。\n\n一步一步，慢慢来\n鸡肉切片，香菇切片。\n鸡肉用生抽拌匀，热锅加油炒至变色。\n加入香菇翻炒，加少量水焖熟，调味出锅。\n营养信息 · 模拟估算 / 人份\n245\nkcal 热量\n27g\n蛋白质\n12g\n脂肪\n7g\n碳水\n健康注意事项：此处演示与“高血压、糖尿病”相关的提示位置。尚未接入或验证真实依据，不提供本菜谱适宜性的结论。\n查看依据说明 ↗\n♡ 收藏这道菜\n知道了，开始准备",
+        "evidence": "健康依据说明\n×\n演示占位，待验证\n\n正式产品应在此展示每条关键健康结论对应的可靠来源，并区分：\n\n来源中的一般饮食建议\n该建议与当前菜谱之间的判断过程\n适用范围、限制与来源更新时间\n\n本 Demo 未接入真实文献，没有可供核验的医学结论，也不会展示虚构引用。\n\n了解"
+      }
+    },
+    {
+      "id": "HEALTH_UNSUPPORTED_AND_CONFLICT",
+      "status": "executed",
+      "facts": {
+        "unsupported": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口\n♡ 健康演示已开启",
+          "content": "♡\n暂不支持：偏头痛\n\n演示名录可以识别这个名称，但尚未提供对应的可靠依据。你可以修改信息，或切回普通推荐；过敏与明确忌口仍然生效。\n\n修改健康信息\n切回普通推荐",
+          "notes": "",
+          "cards": []
+        },
+        "recovered": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "荤素搭配，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n418kcal / 人份\n♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n清炒双菇\n◷ 12 分钟\n约 95 kcal / 人份\n\n手边就有 · 香菇、蘑菇\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n食材数量未填或单位无法核对，尚未核实是否够量。 热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "香菇滑鸡",
+              "text": "♡\n荤菜 · 家常味道\n香菇滑鸡\n◷ 20 分钟\n约 245 kcal / 人份\n\n手边就有 · 鸡肉、香菇\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "蒜蓉菠菜",
+              "text": "♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "清炒双菇",
+              "text": "♡\n素菜 · 家常味道\n清炒双菇\n◷ 12 分钟\n约 95 kcal / 人份\n\n手边就有 · 香菇、蘑菇\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "conflict": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口\n♡ 健康演示已开启",
+          "content": "♡\n当前演示规则无法同时满足\n\n此场景模拟多条规则相互冲突，已停止健康推荐。这不是关于所选疾病本身能否兼顾的医学结论。请修改条件或主动切回普通模式。\n\n修改健康信息\n切回普通推荐",
+          "notes": "",
+          "cards": []
+        }
+      }
+    },
+    {
+      "id": "SHORTAGE_AND_QUANTITY_PURCHASE_GAP",
+      "status": "executed",
+      "facts": {
+        "shortage": {
+          "meta": "12 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "先做得了的，这次还没有可做的菜。\n按当前食材、数量、口味和限制，暂时凑不齐 1 道。可以补充食材，或主动接受补买。\n接受补买，再搭配\n修改食材 ↑\n🌿\n换一点条件，灵感就会来\n\n没有符合当前全部条件的菜谱。\n试试增加食材、调整口味或接受补买。\n过敏与明确忌口不会被自动放宽。\n\n接受补买\n修改食材 ↑",
+          "notes": "",
+          "cards": []
+        },
+        "purchased": {
+          "meta": "12 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "荤素搭配，刚刚好的一餐\n共 1 道 · 12 人份 · 图片为餐食示意\n260kcal / 人份\n♡\n荤菜 · 家常味道\n青椒肉丝\n◷ 18 分钟\n约 260 kcal / 人份\n\n待补：猪肉、青椒\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "青椒肉丝",
+              "text": "♡\n荤菜 · 家常味道\n青椒肉丝\n◷ 18 分钟\n约 260 kcal / 人份\n\n待补：猪肉、青椒\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "detail": "青椒肉丝\n×\n餐食示意 · 模拟菜谱\n荤菜 · 约18分钟 · 12人份\n约 260 kcal / 人份\n\n熟悉的下饭香，一盘就很满足。\n\n当前缺少：猪肉、青椒。查看详情不代表已接受补买。\n准备这些食材\n猪肉\n1200g\n青椒\n960g\n\n调味料：食用油、盐、生抽（按口味适量，未作精确营养核算）\n\n以上为演示建议用量，套餐内食材可能复用；未填写或无法解析库存数量时，尚未核实是否够量。\n\n一步一步，慢慢来\n猪肉与青椒切丝。\n猪肉用少量生抽拌匀，入锅炒至变色。\n加入青椒炒熟，适量盐调味后出锅。\n♡ 收藏这道菜\n知道了，开始准备"
+      }
+    },
+    {
+      "id": "UPLOAD_PREVIEW_OVERWRITE",
+      "status": "executed",
+      "facts": {
+        "beforeInputs": [
+          {
+            "label": "食材1名称",
+            "value": "牛肉"
+          },
+          {
+            "label": "牛肉用量",
+            "value": "500g"
+          }
+        ],
+        "afterInputs": [
+          {
+            "label": "食材1名称",
+            "value": "鸡肉"
+          },
+          {
+            "label": "鸡肉用量",
+            "value": ""
+          },
+          {
+            "label": "食材2名称",
+            "value": "西红柿"
+          },
+          {
+            "label": "西红柿用量",
+            "value": ""
+          },
+          {
+            "label": "食材3名称",
+            "value": "鸡蛋"
+          },
+          {
+            "label": "鸡蛋用量",
+            "value": ""
+          },
+          {
+            "label": "食材4名称",
+            "value": "菠菜"
+          },
+          {
+            "label": "菠菜用量",
+            "value": ""
+          },
+          {
+            "label": "食材5名称",
+            "value": "香菇"
+          },
+          {
+            "label": "香菇用量",
+            "value": ""
+          }
+        ],
+        "recognitionNote": "图片不会上传。以下将展示固定示例识别结果，不分析你实际上传的内容。",
+        "previewVisible": true
+      }
+    },
+    {
+      "id": "ACCESSIBILITY_DESKTOP",
+      "status": "executed",
+      "facts": {
+        "afterArrow": [
+          {
+            "text": "拍照 / 上传",
+            "selected": "true",
+            "controls": null,
+            "tabIndex": 0
+          },
+          {
+            "text": "文字输入",
+            "selected": "false",
+            "controls": null,
+            "tabIndex": 0
+          }
+        ],
+        "layout": {
+          "url": "https://cookdemo.pages.dev/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "scrollWidth": 390,
+          "overflow": [],
+          "styles": [
+            {
+              "selector": ".subtle",
+              "color": "rgb(130, 139, 128)",
+              "fontSize": "11px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".privacy-note",
+              "color": "rgb(160, 168, 149)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".result-bottom-note",
+              "color": "rgb(157, 165, 145)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".recipe-card-meta",
+              "color": "rgb(152, 162, 141)",
+              "fontSize": "10px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "targets": [
+            {
+              "selector": ".favorite-button",
+              "width": 33,
+              "height": 33
+            },
+            {
+              "selector": ".remove-ingredient",
+              "width": 30,
+              "height": 35
+            },
+            {
+              "selector": ".stepper button",
+              "width": 29,
+              "height": 29
+            },
+            null
+          ]
+        },
+        "dialog": {
+          "ariaLabel": null,
+          "ariaLabelledBy": null,
+          "accessibleTitle": "香菇滑鸡"
+        }
+      }
+    },
+    {
+      "id": "MOBILE_390_MAIN_FLOW",
+      "status": "executed",
+      "facts": {
+        "initial": {
+          "url": "https://cookdemo.pages.dev/",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "scrollWidth": 390,
+          "overflow": [],
+          "styles": [
+            {
+              "selector": ".subtle",
+              "color": "rgb(130, 139, 128)",
+              "fontSize": "11px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".privacy-note",
+              "color": "rgb(160, 168, 149)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            null,
+            null
+          ],
+          "targets": [
+            null,
+            null,
+            {
+              "selector": ".stepper button",
+              "width": 29,
+              "height": 29
+            },
+            null
+          ]
+        },
+        "generated": {
+          "meta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+          "content": "清爽素食，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n453kcal / 人份\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗",
+          "notes": "想换个搭配？再找一点新灵感。\n保留食材和偏好，只更新这一餐。\n\n↻ 整套重推\n\n热量按模拟菜谱建议用量估算，不代表实际摄入。未检查调味料库存，请查看做法中的调味料清单。",
+          "cards": [
+            {
+              "name": "番茄炒蛋",
+              "text": "♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "蒜蓉菠菜",
+              "text": "♡\n素菜 · 家常味道\n蒜蓉菠菜\n◷ 10 分钟\n约 78 kcal / 人份\n\n手边就有 · 菠菜\n\n↻ 换一道\n查看做法 ↗"
+            },
+            {
+              "name": "家常烧豆腐",
+              "text": "♡\n素菜 · 家常味道\n家常烧豆腐\n◷ 18 分钟\n约 185 kcal / 人份\n\n手边就有 · 豆腐\n\n↻ 换一道\n查看做法 ↗"
+            }
+          ]
+        },
+        "modal": {
+          "text": "番茄炒蛋\n×\n餐食示意 · 模拟菜谱\n素菜 · 约12分钟 · 1人份\n约 190 kcal / 人份\n\n酸甜开胃，永远吃不腻的家常味。\n\n准备这些食材\n西红柿\n1个\n鸡蛋\n1个\n\n调味料：食用油、盐（按口味适量，未作精确营养核算）\n\n以上为演示建议用量，套餐内食材可能复用；未填写或无法解析库存数量时，尚未核实是否够量。\n\n一步一步，慢慢来\n将西红柿切块，鸡蛋打散。\n热锅加油，倒入蛋液炒至凝固，盛出。\n翻炒西红柿至出汁，放回鸡蛋，少量盐调味。\n♡ 收藏这道菜\n知道了，开始准备",
+          "layout": {
+            "url": "https://cookdemo.pages.dev/",
+            "viewport": {
+              "width": 390,
+              "height": 844
+            },
+            "scrollWidth": 390,
+            "overflow": [],
+            "styles": [
+              {
+                "selector": ".subtle",
+                "color": "rgb(130, 139, 128)",
+                "fontSize": "11px",
+                "background": "rgba(0, 0, 0, 0)"
+              },
+              {
+                "selector": ".privacy-note",
+                "color": "rgb(160, 168, 149)",
+                "fontSize": "9px",
+                "background": "rgba(0, 0, 0, 0)"
+              },
+              {
+                "selector": ".result-bottom-note",
+                "color": "rgb(157, 165, 145)",
+                "fontSize": "9px",
+                "background": "rgba(0, 0, 0, 0)"
+              },
+              {
+                "selector": ".recipe-card-meta",
+                "color": "rgb(152, 162, 141)",
+                "fontSize": "10px",
+                "background": "rgba(0, 0, 0, 0)"
+              }
+            ],
+            "targets": [
+              {
+                "selector": ".favorite-button",
+                "width": 33,
+                "height": 33
+              },
+              {
+                "selector": ".remove-ingredient",
+                "width": 30,
+                "height": 35
+              },
+              {
+                "selector": ".stepper button",
+                "width": 29,
+                "height": 29
+              },
+              {
+                "selector": ".modal-close",
+                "width": 34,
+                "height": 34
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "MOBILE_320_AND_768_LAYOUT",
+      "status": "executed",
+      "facts": [
+        {
+          "url": "https://cookdemo.pages.dev/",
+          "viewport": {
+            "width": 320,
+            "height": 900
+          },
+          "scrollWidth": 320,
+          "overflow": [],
+          "styles": [
+            {
+              "selector": ".subtle",
+              "color": "rgb(130, 139, 128)",
+              "fontSize": "11px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".privacy-note",
+              "color": "rgb(160, 168, 149)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".result-bottom-note",
+              "color": "rgb(157, 165, 145)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".recipe-card-meta",
+              "color": "rgb(152, 162, 141)",
+              "fontSize": "10px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "targets": [
+            {
+              "selector": ".favorite-button",
+              "width": 33,
+              "height": 33.00001525878906
+            },
+            {
+              "selector": ".remove-ingredient",
+              "width": 30,
+              "height": 35
+            },
+            {
+              "selector": ".stepper button",
+              "width": 29,
+              "height": 29
+            },
+            {
+              "selector": ".modal-close",
+              "width": 0,
+              "height": 0
+            }
+          ]
+        },
+        {
+          "url": "https://cookdemo.pages.dev/",
+          "viewport": {
+            "width": 768,
+            "height": 900
+          },
+          "scrollWidth": 768,
+          "overflow": [],
+          "styles": [
+            {
+              "selector": ".subtle",
+              "color": "rgb(130, 139, 128)",
+              "fontSize": "11px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".privacy-note",
+              "color": "rgb(160, 168, 149)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".result-bottom-note",
+              "color": "rgb(157, 165, 145)",
+              "fontSize": "9px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "selector": ".recipe-card-meta",
+              "color": "rgb(152, 162, 141)",
+              "fontSize": "10px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "targets": [
+            {
+              "selector": ".favorite-button",
+              "width": 29,
+              "height": 29
+            },
+            {
+              "selector": ".remove-ingredient",
+              "width": 22,
+              "height": 28
+            },
+            {
+              "selector": ".stepper button",
+              "width": 29,
+              "height": 29
+            },
+            {
+              "selector": ".modal-close",
+              "width": 0,
+              "height": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "RESET_STORAGE_AND_RETURN_FLOW",
+      "status": "executed",
+      "facts": {
+        "beforeReset": "我的饮食设置\n×\n\n仅保存在当前浏览器。默认应用本人资料，他人限制由你主动选择后合并。\n\n请使用虚构资料体验，演示账户不代表真实注册或跨设备同步。\n本人过敏 / 明确忌口\n他人附加过敏 / 忌口\n饮食偏好\n日常均衡\n偏清淡\n偏少油\n默认口味\n不限\n清淡\n微辣\n浓香\n默认调味料清单\n食用油\n盐\n生抽\n醋\n大蒜\n姜\n葱\n糖\n辣椒\n豆瓣酱\n咖喱酱\n韩式辣酱\n账户与疾病资料\n\n当前为游客 · 普通推荐可直接使用\n已保存演示疾病：未设置\n\n登录并体验健康模式 →\n取消\n保存设置",
+        "resetPrompt": "重新开始这次体验？\n×\n\n将清除当前浏览器中的 Demo 设置、演示登录、收藏和本次食材。原始照片不会被长期保存。\n\n取消\n清除并重置",
+        "cancelledValue": "虾",
+        "afterReset": "",
+        "afterReload": "",
+        "account": "我的饮食设置\n×\n\n仅保存在当前浏览器。默认应用本人资料，他人限制由你主动选择后合并。\n\n请使用虚构资料体验，演示账户不代表真实注册或跨设备同步。\n本人过敏 / 明确忌口\n他人附加过敏 / 忌口\n饮食偏好\n日常均衡\n偏清淡\n偏少油\n默认口味\n不限\n清淡\n微辣\n浓香\n默认调味料清单\n食用油\n盐\n生抽\n醋\n大蒜\n姜\n葱\n糖\n辣椒\n豆瓣酱\n咖喱酱\n韩式辣酱\n账户与疾病资料\n\n当前为游客 · 普通推荐可直接使用\n已保存演示疾病：未设置\n\n登录并体验健康模式 →\n取消\n保存设置",
+        "ingredientCount": "0 种",
+        "favoriteCount": "0"
+      }
+    }
+  ],
+  "screenshots": [
+    "m-01-desktop-initial.png",
+    "m-02-input-no-separators.png",
+    "m-03-desktop-meal.png",
+    "m-04-unit-mismatch.png",
+    "m-05-allergy-unrecognized-alias.png",
+    "m-06-saved-allergy-lost.png",
+    "m-07-disease-conflict.png",
+    "m-08-quantity-purchase-gap.png",
+    "m-09-upload-edit-flow.png",
+    "m-10-mobile-initial.png",
+    "m-11-mobile-results.png",
+    "m-12-mobile-detail.png",
+    "m-13-layout-320.png",
+    "m-13-layout-768.png",
+    "m-14-mobile-reset.png"
+  ],
+  "errors": [],
+  "source": {
+    "index.html": {
+      "http": 200,
+      "normalizedMatchesLocal": true,
+      "localRawHash": "b3cd2c5cc743f6a81a6eaa63451ece156dc38d54421aedafc5afe2d5becc948f"
+    },
+    "styles.css": {
+      "http": 200,
+      "normalizedMatchesLocal": true,
+      "localRawHash": "04ac59efe6c9e77427926723e54305b359045a455cbdaeae554b90a8027bda6a"
+    },
+    "data.js": {
+      "http": 200,
+      "normalizedMatchesLocal": true,
+      "localRawHash": "9eff484615c77a2d396c5f16d699dfb5424244fe31df2f55a8cf080a5a2c7802"
+    },
+    "engine.js": {
+      "http": 200,
+      "normalizedMatchesLocal": true,
+      "localRawHash": "3371c73b96fd5c70973be36c59684068fcccf3cabba75210ccc5be50f28b8618"
+    },
+    "app.js": {
+      "http": 200,
+      "normalizedMatchesLocal": true,
+      "localRawHash": "7d37a271c7058cdedfdb9518d6c1da37c48b3cfb2f603f80e723979a7050cf61"
+    }
+  },
+  "notes": [
+    "Independent browser context; fictitious data only. No application files changed."
+  ],
+  "appFilesUnchanged": {
+    "index.html": true,
+    "styles.css": true,
+    "data.js": true,
+    "engine.js": true,
+    "app.js": true
+  },
+  "finished": "2026-10-18T07:15:45.080Z"
+}

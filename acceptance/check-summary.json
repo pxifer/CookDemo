@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-19",
+  "timezone": "Asia/Shanghai",
+  "scope": "Local constructed-data development acceptance, not full PRD or production approval",
+  "command": "scripts/run.ps1 check",
+  "exitCode": 0,
+  "build": "passed",
+  "unitApiDatabase": { "passed": 35, "failed": 0, "skipped": 0 },
+  "browser": { "passed": 20, "failed": 0, "retries": 0, "details": "browser-results.json" },
+  "runtime": "Node.js v24.19.0",
+  "browserVersion": "Microsoft Edge 155.0.4283.62",
+  "legacySmoke": "passed; original prototype unchanged",
+  "notRun": ["real model recognition", "cloud integration and billing", "real account synchronization", "full restore drill", "professional health review", "real-device and full accessibility audit"]
+}

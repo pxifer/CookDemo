@@ -9,3 +9,7 @@ qa/
 .env.*
 !.env.example
 .dev.vars
+build/
+test-results/
+playwright-report/
+.local-data/

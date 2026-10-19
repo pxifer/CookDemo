@@ -1,0 +1,459 @@
+{
+  "target": "https://cookdemo.pages.dev/",
+  "started": "2026-10-18T07:35:31.680Z",
+  "checks": [
+    {
+      "id": "PROFILE_SEASONINGS_FLAVOR_RELOAD",
+      "mobile": false,
+      "status": "executed",
+      "facts": {
+        "restored": {
+          "ingredients": [],
+          "servings": "1",
+          "allergies": "虾",
+          "others": false,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "profile": {
+          "allergies": "虾",
+          "others": "花生",
+          "flavor": "清淡",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ]
+        }
+      }
+    },
+    {
+      "id": "HEALTH_NONDEFAULT_STATE_PRESERVED",
+      "mobile": false,
+      "status": "executed",
+      "facts": {
+        "before": {
+          "ingredients": [
+            "鸡肉",
+            "",
+            "西红柿",
+            "",
+            "鸡蛋",
+            "",
+            "菠菜",
+            "",
+            "香菇",
+            "",
+            "蘑菇",
+            "",
+            "土豆",
+            "",
+            "黄瓜",
+            "",
+            "豆腐",
+            ""
+          ],
+          "servings": "2",
+          "allergies": "虾",
+          "others": true,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "healthy": {
+          "ingredients": [
+            "鸡肉",
+            "",
+            "西红柿",
+            "",
+            "鸡蛋",
+            "",
+            "菠菜",
+            "",
+            "香菇",
+            "",
+            "蘑菇",
+            "",
+            "土豆",
+            "",
+            "黄瓜",
+            "",
+            "豆腐",
+            ""
+          ],
+          "servings": "2",
+          "allergies": "虾",
+          "others": true,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "ordinary": {
+          "ingredients": [
+            "鸡肉",
+            "",
+            "西红柿",
+            "",
+            "鸡蛋",
+            "",
+            "菠菜",
+            "",
+            "香菇",
+            "",
+            "蘑菇",
+            "",
+            "土豆",
+            "",
+            "黄瓜",
+            "",
+            "豆腐",
+            ""
+          ],
+          "servings": "2",
+          "allergies": "虾",
+          "others": true,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "savedHealth": "我的饮食设置\n×\n\n仅保存在当前浏览器。默认应用本人资料，他人限制由你主动选择后合并。\n\n请使用虚构资料体验，演示账户不代表真实注册或跨设备同步。\n本人过敏 / 明确忌口\n他人附加过敏 / 忌口\n饮食偏好\n日常均衡\n偏清淡\n偏少油\n默认口味\n不限\n清淡\n微辣\n浓香\n默认调味料清单\n食用油\n盐\n生抽\n醋\n大蒜\n姜\n葱\n糖\n辣椒\n豆瓣酱\n咖喱酱\n韩式辣酱\n账户与疾病资料\n\n演示账户已登录\n已保存演示疾病：高血压\n\n编辑疾病资料 →\n取消\n保存设置"
+      }
+    },
+    {
+      "id": "PARTIAL_RECOGNITION_AND_MANUAL_RECOVERY",
+      "mobile": false,
+      "status": "executed",
+      "facts": {
+        "notice": "演示：图片中另一种食材无法确认。已保留番茄与鸡蛋，可补拍、重传或手动补录，未知内容不参与推荐。",
+        "retained": [
+          "西红柿",
+          "",
+          "鸡蛋",
+          ""
+        ],
+        "edited": [
+          "西红柿",
+          "",
+          "鸡蛋",
+          "",
+          "土豆",
+          "200g"
+        ],
+        "result": "清爽素食，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n420kcal / 人份\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗\n♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+      }
+    },
+    {
+      "id": "CONFLICT_EXIT_TO_ORDINARY",
+      "mobile": false,
+      "status": "executed",
+      "facts": {
+        "conflict": "♡\n当前演示规则无法同时满足\n\n此场景模拟多条规则相互冲突，已停止健康推荐。这不是关于所选疾病本身能否兼顾的医学结论。请修改条件或主动切回普通模式。\n\n修改健康信息\n切回普通推荐",
+        "recoveredMeta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+        "recoveredCards": [
+          "香菇滑鸡",
+          "拍黄瓜",
+          "家常烧豆腐"
+        ]
+      }
+    },
+    {
+      "id": "PROFILE_SEASONINGS_FLAVOR_RELOAD",
+      "mobile": true,
+      "status": "executed",
+      "facts": {
+        "restored": {
+          "ingredients": [],
+          "servings": "1",
+          "allergies": "虾",
+          "others": false,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "profile": {
+          "allergies": "虾",
+          "others": "花生",
+          "flavor": "清淡",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ]
+        }
+      }
+    },
+    {
+      "id": "HEALTH_NONDEFAULT_STATE_PRESERVED",
+      "mobile": true,
+      "status": "executed",
+      "facts": {
+        "before": {
+          "ingredients": [
+            "鸡肉",
+            "",
+            "西红柿",
+            "",
+            "鸡蛋",
+            "",
+            "菠菜",
+            "",
+            "香菇",
+            "",
+            "蘑菇",
+            "",
+            "土豆",
+            "",
+            "黄瓜",
+            "",
+            "豆腐",
+            ""
+          ],
+          "servings": "2",
+          "allergies": "虾",
+          "others": true,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "healthy": {
+          "ingredients": [
+            "鸡肉",
+            "",
+            "西红柿",
+            "",
+            "鸡蛋",
+            "",
+            "菠菜",
+            "",
+            "香菇",
+            "",
+            "蘑菇",
+            "",
+            "土豆",
+            "",
+            "黄瓜",
+            "",
+            "豆腐",
+            ""
+          ],
+          "servings": "2",
+          "allergies": "虾",
+          "others": true,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "ordinary": {
+          "ingredients": [
+            "鸡肉",
+            "",
+            "西红柿",
+            "",
+            "鸡蛋",
+            "",
+            "菠菜",
+            "",
+            "香菇",
+            "",
+            "蘑菇",
+            "",
+            "土豆",
+            "",
+            "黄瓜",
+            "",
+            "豆腐",
+            ""
+          ],
+          "servings": "2",
+          "allergies": "虾",
+          "others": true,
+          "seasoningMode": "check",
+          "seasonings": [
+            "食用油",
+            "盐",
+            "生抽"
+          ],
+          "flavor": "清淡"
+        },
+        "savedHealth": "我的饮食设置\n×\n\n仅保存在当前浏览器。默认应用本人资料，他人限制由你主动选择后合并。\n\n请使用虚构资料体验，演示账户不代表真实注册或跨设备同步。\n本人过敏 / 明确忌口\n他人附加过敏 / 忌口\n饮食偏好\n日常均衡\n偏清淡\n偏少油\n默认口味\n不限\n清淡\n微辣\n浓香\n默认调味料清单\n食用油\n盐\n生抽\n醋\n大蒜\n姜\n葱\n糖\n辣椒\n豆瓣酱\n咖喱酱\n韩式辣酱\n账户与疾病资料\n\n演示账户已登录\n已保存演示疾病：高血压\n\n编辑疾病资料 →\n取消\n保存设置"
+      }
+    },
+    {
+      "id": "PARTIAL_RECOGNITION_AND_MANUAL_RECOVERY",
+      "mobile": true,
+      "status": "executed",
+      "facts": {
+        "notice": "演示：图片中另一种食材无法确认。已保留番茄与鸡蛋，可补拍、重传或手动补录，未知内容不参与推荐。",
+        "retained": [
+          "西红柿",
+          "",
+          "鸡蛋",
+          ""
+        ],
+        "edited": [
+          "西红柿",
+          "",
+          "鸡蛋",
+          "",
+          "土豆",
+          "200g"
+        ],
+        "result": "清爽素食，刚刚好的一餐\n共 3 道 · 1 人份 · 图片为餐食示意\n420kcal / 人份\n♡\n素菜 · 家常味道\n番茄炒蛋\n◷ 12 分钟\n约 190 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗\n♡\n素菜 · 家常味道\n醋溜土豆丝\n◷ 15 分钟\n约 155 kcal / 人份\n\n手边就有 · 土豆\n\n↻ 换一道\n查看做法 ↗\n♡\n汤 · 家常味道\n番茄蛋花汤\n◷ 12 分钟\n约 75 kcal / 人份\n\n手边就有 · 西红柿、鸡蛋\n\n↻ 换一道\n查看做法 ↗"
+      }
+    },
+    {
+      "id": "CONFLICT_EXIT_TO_ORDINARY",
+      "mobile": true,
+      "status": "executed",
+      "facts": {
+        "conflict": "♡\n当前演示规则无法同时满足\n\n此场景模拟多条规则相互冲突，已停止健康推荐。这不是关于所选疾病本身能否兼顾的医学结论。请修改条件或主动切回普通模式。\n\n修改健康信息\n切回普通推荐",
+        "recoveredMeta": "1 人份\n口味：不限\n本人资料\n未设置过敏忌口",
+        "recoveredCards": [
+          "香菇滑鸡",
+          "拍黄瓜",
+          "家常烧豆腐"
+        ]
+      }
+    },
+    {
+      "id": "UNCERTAIN_ALLERGEN_CANDIDATES",
+      "mobile": false,
+      "status": "executed",
+      "facts": {
+        "baseline": [
+          "番茄炒蛋",
+          "香菇滑鸡",
+          "醋溜土豆丝",
+          "蒜蓉菠菜",
+          "清炒双菇",
+          "拍黄瓜",
+          "家常烧豆腐",
+          "手撕包菜",
+          "胡萝卜炒蛋",
+          "清炒西兰花",
+          "青椒肉丝",
+          "虾仁滑蛋",
+          "清蒸鲜鱼",
+          "番茄蛋花汤",
+          "菠菜豆腐汤",
+          "鲜菇清汤",
+          "宫保鸡丁",
+          "韩式辣炒鸡",
+          "日式亲子饭",
+          "意式番茄蘑菇面",
+          "泰式咖喱虾",
+          "彩蔬豆腐沙拉",
+          "北非番茄煎蛋",
+          "水煮牛肉"
+        ],
+        "restricted": [
+          "香菇滑鸡",
+          "醋溜土豆丝",
+          "蒜蓉菠菜",
+          "清炒双菇",
+          "拍黄瓜",
+          "家常烧豆腐",
+          "手撕包菜",
+          "清炒西兰花",
+          "青椒肉丝",
+          "清蒸鲜鱼",
+          "菠菜豆腐汤",
+          "鲜菇清汤",
+          "宫保鸡丁",
+          "意式番茄蘑菇面",
+          "彩蔬豆腐沙拉"
+        ],
+        "meta": "1 人份\n口味：不限\n本人资料\n排除：鸡蛋"
+      }
+    },
+    {
+      "id": "UNCERTAIN_ALLERGEN_CANDIDATES",
+      "mobile": true,
+      "status": "executed",
+      "facts": {
+        "baseline": [
+          "番茄炒蛋",
+          "香菇滑鸡",
+          "醋溜土豆丝",
+          "蒜蓉菠菜",
+          "清炒双菇",
+          "拍黄瓜",
+          "家常烧豆腐",
+          "手撕包菜",
+          "胡萝卜炒蛋",
+          "清炒西兰花",
+          "青椒肉丝",
+          "虾仁滑蛋",
+          "清蒸鲜鱼",
+          "番茄蛋花汤",
+          "菠菜豆腐汤",
+          "鲜菇清汤",
+          "宫保鸡丁",
+          "韩式辣炒鸡",
+          "日式亲子饭",
+          "意式番茄蘑菇面",
+          "泰式咖喱虾",
+          "彩蔬豆腐沙拉",
+          "北非番茄煎蛋",
+          "水煮牛肉"
+        ],
+        "restricted": [
+          "香菇滑鸡",
+          "醋溜土豆丝",
+          "蒜蓉菠菜",
+          "清炒双菇",
+          "拍黄瓜",
+          "家常烧豆腐",
+          "手撕包菜",
+          "清炒西兰花",
+          "青椒肉丝",
+          "清蒸鲜鱼",
+          "菠菜豆腐汤",
+          "鲜菇清汤",
+          "宫保鸡丁",
+          "意式番茄蘑菇面",
+          "彩蔬豆腐沙拉"
+        ],
+        "meta": "1 人份\n口味：不限\n本人资料\n排除：鸡蛋"
+      }
+    }
+  ],
+  "errors": [],
+  "finished": "2026-10-18T07:38:40.602Z",
+  "reruns": [
+    {
+      "id": "UNCERTAIN_ALLERGEN_CANDIDATES",
+      "started": "2026-10-18T07:38:28.483Z",
+      "reason": "Corrected harness to use the visible browse purchase checkbox."
+    }
+  ]
+}

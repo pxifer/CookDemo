@@ -1,10 +1,29 @@
-# 拾味 · 交互式 UI Demo
+# 拾味 · 本地开发版与历史 UI Demo
+
+2026-10-19 新增 React/TypeScript/Vite + Fastify 正式工程与 PostgreSQL 机制测试。旧 `dist/` 原型及线上 Demo 保留，不覆盖历史审查证据。
+
+```powershell
+.\scripts\run.ps1 install
+.\scripts\run.ps1 build
+.\scripts\run.ps1 start
+# 打开 http://127.0.0.1:4175
+```
+
+使用 Node.js 24 LTS；启动脚本可使用已安装的 Codex Node 24。当前本地版提供输入确认、推荐、换菜、真实配方口味变体、本机收藏及草稿/默认/演示隔离。内容为 17 道构造菜谱，图片模型、真实账户、云同步、正式营养和健康支持未准入，不模拟成功。
+
+开发、复跑测试与剩余门槛见 [DEVELOPMENT.md](docs/DEVELOPMENT.md)，验收范围及证据见 [ACCEPTANCE-v0.1.md](docs/ACCEPTANCE-v0.1.md)。**下面原有 Cloudflare 说明只适用于历史 dist 静态原型，不能用于发布新后端。**
+
+后续按用户要求沿用原 UI Demo 的界面，调整记录及20项桌面/手机回归见 [UI-DEMO-ALIGNMENT.md](docs/UI-DEMO-ALIGNMENT.md)。
+
+## 历史 UI Demo
 
 手机优先的浏览器原型，原生 HTML / CSS / JavaScript，无需安装依赖或配置 API 密钥。
 
 ## Cloudflare 从 GitHub 部署
 
 仓库：<https://github.com/pxifer/CookDemo>
+
+线上地址：<https://cookdemo.pages.dev/>（用户已确认部署成功）。
 
 推荐使用 **Cloudflare Pages → 导入 Git 仓库**，选择 `pxifer/CookDemo`：
 

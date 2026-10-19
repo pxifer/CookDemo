@@ -1,0 +1,22 @@
+{
+  "measuredAt": "2026-10-19T13:07:08.358Z",
+  "runtime": "v24.19.0",
+  "platform": "win32",
+  "sample": "17 constructed recipes / 34 variants; 50 warm in-process recommendations",
+  "warmP50Ms": 93.38,
+  "warmP95Ms": 169.06,
+  "maxSearchNodes": 6019,
+  "cancellationBoundary": {
+    "parents": 100,
+    "target": 6,
+    "status": "cancelled",
+    "cancelMs": 8.54,
+    "nodes": 128
+  },
+  "eventLoopMaxMs": 20.82,
+  "limitations": [
+    "In-process synthetic data, not HTTP or cloud latency",
+    "No model calls, cold starts, concurrent load, or billing measurements",
+    "Not production SLO evidence"
+  ]
+}
