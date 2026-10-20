@@ -6,7 +6,7 @@ export interface Food {
   nutrition: Partial<Record<'kcal' | 'protein' | 'sodium', number>>;
 }
 export interface Ingredient {
-  id: string; foodId: string | null; name: string; amount: string;
+  id: string; foodId: string | null; name: string; amount: string; quantityUnit?: string;
   basis: Basis; form: string; status: 'pending' | 'confirmed' | 'conflict';
   alternative?: string; original: string;
 }
@@ -36,6 +36,7 @@ export interface Recipe {
 }
 export interface Meal {
   version: number; raw: string; ingredients: Ingredient[]; restrictions: Restriction[];
+  // Diners guide dish count only; recipe batch quantities never scale with this value.
   servings: number; mode: 'meal' | 'candidates'; health: boolean; diseases: string[];
   flavor: string; overrides: Record<string, string>; includeAdditional: boolean;
   checkSeasonings: boolean; seasonings: string[]; allowBuy: boolean;
@@ -57,6 +58,7 @@ export interface RecommendationRequest {
   page: number; cursor?: string; previous: string[];
 }
 export interface RecommendationResult {
+  healthAssessment?: { state: 'test_only'; message: string };
   operationId: string; mealVersion: number; contentVersion: string;
   status: 'completed' | 'needs_confirmation' | 'no_results' | 'unavailable' | 'cancelled';
   search: 'complete' | 'incomplete'; target: number; targetMet: boolean;

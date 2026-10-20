@@ -89,7 +89,7 @@ test('AC-11 / AC-12: 必需调料缺失排除，可省配料明确省略', () =>
 });
 test('B04 / AC-14: 非法人数及组合被服务端拒绝', async () => {
   for (const servings of [0, 1.5, 13, NaN]) await assert.rejects(recommend(recipes, request({ ...mealWith(), servings })), /人数/);
-  await assert.rejects(recommend(recipes, request({ ...mealWith(), counts: { meat: 6, veg: 6, soup: 0 } })), /数量|总数/);
+  await assert.rejects(recommend(recipes, request({ ...mealWith(), composition: 'custom', counts: { meat: 10, veg: 11, soup: 0 } })), /数量|合计/);
 });
 test('用户新确认: 默认一荤两素，库存不足按可行性调整', async () => {
   const full = await recommend(recipes, request());
@@ -106,11 +106,11 @@ test('AC-10: 套餐累计库存不能由逐菜通过替代', async () => {
   assert.equal(res.dishes.length, 1); assert.equal(res.targetMet, false);
   assert.equal(checkSet(catalog.map(r => checkDish(r, r.variants[0], m).dish!), m).valid, false);
 });
-test('B06 / AC-13: 补买显示精确可食净量差额（12人）', async () => {
+test('B06 / D7-14: 补买按固定菜谱量计算差额，不随12人放大', async () => {
   const m = mealWith('鸡肉1g香菇1g'); m.servings = 12; m.allowBuy = true; m.mode = 'candidates';
   const r = await recommend(recipes, request(m)); const d = r.dishes.find(d => d.recipe.id === 'chicken-mushroom')!;
-  assert.equal(d.checks.find(c => c.foodId === 'chicken')?.shortage, 1439);
-  assert.equal(d.checks.find(c => c.foodId === 'mushroom')?.shortage, 719);
+  assert.equal(d.checks.find(c => c.foodId === 'chicken')?.shortage, 119);
+  assert.equal(d.checks.find(c => c.foodId === 'mushroom')?.shortage, 59);
   m.ingredients.forEach(i => { i.basis = 'unknown'; });
   const unknown = await recommend(recipes, request(m));
   assert(unknown.dishes[0].checks.every(c => c.shortage === null));
@@ -119,7 +119,7 @@ test('AC-13: 套餐整体复用与候选逐道复用不同，盐油不充数', a
   const catalog = [simpleRecipe('a', [['egg', 1]]), simpleRecipe('b', [['potato', 100]])];
   const m = mealWith('鸡蛋2个'); m.allowBuy = true; m.composition = 'custom'; m.counts = { meat: 0, veg: 2, soup: 0 };
   assert.equal((await recommend(catalog, request(m))).dishes.length, 2);
-  m.mode = 'candidates'; assert.equal((await recommend(catalog, request(m))).dishes.length, 1);
+  m.mode = 'candidates'; m.composition = 'auto'; assert.equal((await recommend(catalog, request(m))).dishes.length, 1);
   const onlySalt = mealWith('盐10g'); onlySalt.allowBuy = true;
   assert.equal((await recommend(catalog, request(onlySalt))).dishes.length, 0);
 });

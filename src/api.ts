@@ -1,9 +1,10 @@
 import type { Extraction, RecommendationRequest, RecommendationResult } from '../shared/types';
+import type { SessionInfo } from '../shared/session';
 let csrf: string | null = null;
-export async function establishSession() {
+export async function establishSession(): Promise<SessionInfo> {
   const response = await fetch('/api/v1/auth/session');
   if (!response.ok) throw new Error('本机会话建立失败，请刷新重试');
-  const data = await response.json(); csrf = data.csrfToken;
+  const data: SessionInfo = await response.json(); csrf = data.csrfToken; return data;
 }
 async function post(url: string, body: unknown, signal?: AbortSignal, stream = false) {
   if (!csrf) await establishSession();
@@ -15,6 +16,14 @@ async function post(url: string, body: unknown, signal?: AbortSignal, stream = f
   return response;
 }
 export async function extract(text: string): Promise<Extraction> { return (await post('recognitions/text', { text })).json(); }
+export async function loginForLocalTest(): Promise<SessionInfo> {
+  await post('auth/login', { mode: 'local-test' });
+  return establishSession();
+}
+export async function logout(): Promise<SessionInfo> {
+  await post('auth/logout', {});
+  return establishSession();
+}
 export async function requestRecommendation(body: RecommendationRequest, signal: AbortSignal, progress: (s: string) => void): Promise<RecommendationResult> {
   const response = await post('recommendations', body, signal, true);
   if (!response.body) throw new Error('结果连接未建立，请主动重试');

@@ -40,7 +40,7 @@ const recipe = (id: string, name: string, category: Recipe['category'], inputs: 
     variants: [
       { id: `${id}-light`, flavor: '清淡', lines: base, steps },
       { id: `${id}-spicy`, flavor: '微辣', lines: [...base.map(l => l.foodId === 'oil' ? { ...l, amount: 8 } : l), seasoning('chilli', 1)],
-        steps: ['干辣椒剪段；热锅加入食用油，以小火煸出香味，避免烧焦。', ...steps, '出锅前拌匀辣椒，按当前人数分装。'] },
+        steps: ['干辣椒剪段；热锅加入食用油，以小火煸出香味，避免烧焦。', ...steps, '出锅前拌匀辣椒，装盘即可。'] },
     ],
   };
 };

@@ -1,0 +1,467 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "拾味本地开发 API",
+    "version": "0.1.0",
+    "description": "仅构造内容；真实账户、模型和健康支持尚未准入。"
+  },
+  "components": {
+    "schemas": {}
+  },
+  "paths": {
+    "/healthz": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/readyz": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/session": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/catalog/recipes": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/openapi.json": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/recognitions/text": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 5000
+                  }
+                },
+                "required": [
+                  "text"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/recognitions/image": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/v1/recommendations": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "operationId": {
+                    "type": "string",
+                    "minLength": 8,
+                    "maxLength": 80,
+                    "pattern": "^[a-zA-Z0-9-]+$"
+                  },
+                  "meal": {
+                    "type": "object",
+                    "properties": {
+                      "version": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      },
+                      "raw": {
+                        "type": "string",
+                        "maxLength": 5000
+                      },
+                      "ingredients": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "maxLength": 80
+                            },
+                            "foodId": {
+                              "type": "string",
+                              "maxLength": 80,
+                              "nullable": true
+                            },
+                            "name": {
+                              "type": "string",
+                              "maxLength": 100
+                            },
+                            "amount": {
+                              "type": "string",
+                              "maxLength": 100
+                            },
+                            "basis": {
+                              "type": "string",
+                              "enum": [
+                                "edible",
+                                "as_purchased",
+                                "unknown"
+                              ]
+                            },
+                            "form": {
+                              "type": "string",
+                              "enum": [
+                                "raw",
+                                "cooked",
+                                "bone_in",
+                                "skin_on"
+                              ]
+                            },
+                            "status": {
+                              "type": "string",
+                              "enum": [
+                                "pending",
+                                "confirmed",
+                                "conflict"
+                              ]
+                            },
+                            "alternative": {
+                              "type": "string",
+                              "maxLength": 200
+                            },
+                            "original": {
+                              "type": "string",
+                              "maxLength": 1000
+                            },
+                            "quantityUnit": {
+                              "type": "string",
+                              "enum": [
+                                "g",
+                                "kg",
+                                "斤",
+                                "个",
+                                "ml",
+                                "l",
+                                "把",
+                                "根",
+                                "块"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "foodId",
+                            "name",
+                            "amount",
+                            "basis",
+                            "form",
+                            "status",
+                            "original"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 100
+                      },
+                      "restrictions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "maxLength": 80
+                            },
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "allergy",
+                                "avoid",
+                                "unclassified"
+                              ]
+                            },
+                            "name": {
+                              "type": "string",
+                              "maxLength": 200
+                            },
+                            "targets": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "maxLength": 80
+                              },
+                              "maxItems": 50
+                            },
+                            "status": {
+                              "type": "string",
+                              "enum": [
+                                "pending",
+                                "confirmed",
+                                "unknown",
+                                "conflict"
+                              ]
+                            },
+                            "scope": {
+                              "type": "string",
+                              "enum": [
+                                "self",
+                                "additional"
+                              ]
+                            },
+                            "original": {
+                              "type": "string",
+                              "maxLength": 1000
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "kind",
+                            "name",
+                            "targets",
+                            "status",
+                            "scope",
+                            "original"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 50
+                      },
+                      "servings": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 12
+                      },
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "meal",
+                          "candidates"
+                        ]
+                      },
+                      "health": {
+                        "type": "boolean"
+                      },
+                      "diseases": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "maxLength": 100
+                        },
+                        "maxItems": 20
+                      },
+                      "flavor": {
+                        "type": "string",
+                        "enum": [
+                          "不限",
+                          "清淡",
+                          "微辣"
+                        ]
+                      },
+                      "overrides": {
+                        "type": "object",
+                        "maxProperties": 100,
+                        "additionalProperties": {
+                          "type": "string",
+                          "maxLength": 100
+                        },
+                        "propertyNames": {
+                          "pattern": "^[a-z0-9-]+$"
+                        }
+                      },
+                      "includeAdditional": {
+                        "type": "boolean"
+                      },
+                      "checkSeasonings": {
+                        "type": "boolean"
+                      },
+                      "seasonings": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "maxLength": 80
+                        },
+                        "maxItems": 50
+                      },
+                      "allowBuy": {
+                        "type": "boolean"
+                      },
+                      "composition": {
+                        "type": "string",
+                        "enum": [
+                          "auto",
+                          "custom"
+                        ]
+                      },
+                      "counts": {
+                        "type": "object",
+                        "properties": {
+                          "meat": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 6
+                          },
+                          "veg": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 6
+                          },
+                          "soup": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 6
+                          }
+                        },
+                        "required": [
+                          "meat",
+                          "veg",
+                          "soup"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "version",
+                      "raw",
+                      "ingredients",
+                      "restrictions",
+                      "servings",
+                      "mode",
+                      "health",
+                      "diseases",
+                      "flavor",
+                      "overrides",
+                      "includeAdditional",
+                      "checkSeasonings",
+                      "seasonings",
+                      "allowBuy",
+                      "composition",
+                      "counts"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "generate",
+                      "reroll",
+                      "replace",
+                      "page",
+                      "variant"
+                    ]
+                  },
+                  "selected": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "recipeId": {
+                          "type": "string",
+                          "maxLength": 80
+                        },
+                        "variantId": {
+                          "type": "string",
+                          "maxLength": 100
+                        }
+                      },
+                      "required": [
+                        "recipeId",
+                        "variantId"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 6
+                  },
+                  "replaceId": {
+                    "type": "string",
+                    "maxLength": 80
+                  },
+                  "page": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000
+                  },
+                  "cursor": {
+                    "type": "string",
+                    "maxLength": 100
+                  },
+                  "previous": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "maxLength": 80
+                    },
+                    "maxItems": 6
+                  }
+                },
+                "required": [
+                  "operationId",
+                  "meal",
+                  "action",
+                  "selected",
+                  "page",
+                  "previous"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    }
+  }
+}

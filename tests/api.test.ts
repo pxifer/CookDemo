@@ -55,3 +55,49 @@ test('服务端不信任客户端确认后的伪造限制范围和重复食材',
     assert.equal((await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) })).statusCode, 400);
   } finally { await app.close(); }
 });
+
+test('本机测试身份：显式启用、不可伪造、绑定游客、退出撤销且不返回凭证', async () => {
+  const app = await createApp({ localTestFeatures: true });
+  try {
+    const session = await app.inject('/api/v1/auth/session');
+    const guest = session.headers['set-cookie']!.toString().split(';')[0];
+    const headers = { cookie: guest, origin: 'http://localhost:80', 'x-csrf-token': session.json().csrfToken };
+    assert.equal(session.json().identity, 'guest'); assert.equal(session.json().localTestFeatures, true);
+    const spoof = await app.inject({ method: 'POST', url: '/api/v1/auth/login', headers, payload: { mode: 'local-test', identity: 'admin' } });
+    assert.equal(spoof.statusCode, 400);
+    const login = await app.inject({ method: 'POST', url: '/api/v1/auth/login', headers, payload: { mode: 'local-test' } });
+    assert.equal(login.statusCode, 200); assert.equal(login.json().identity, 'local-test');
+    assert(!('token' in login.json())); assert.match(login.headers['set-cookie']!.toString(), /HttpOnly; SameSite=Strict/);
+    const cookie = `${guest}; ${login.headers['set-cookie']!.toString().split(';')[0]}`;
+    assert.equal((await app.inject({ url: '/api/v1/auth/session', headers: { cookie } })).json().identity, 'local-test');
+    const other = await app.inject('/api/v1/auth/session');
+    const stolen = `${other.headers['set-cookie']!.toString().split(';')[0]}; ${login.headers['set-cookie']!.toString().split(';')[0]}`;
+    assert.equal((await app.inject({ url: '/api/v1/auth/session', headers: { cookie: stolen } })).json().identity, 'guest');
+    const logout = await app.inject({ method: 'POST', url: '/api/v1/auth/logout', headers: { ...headers, cookie }, payload: {} });
+    assert.equal(logout.statusCode, 200); assert.match(logout.headers['set-cookie']!.toString(), /Max-Age=0/);
+    assert.equal((await app.inject({ url: '/api/v1/auth/session', headers: { cookie } })).json().identity, 'guest');
+  } finally { await app.close(); }
+  await assert.rejects(createApp({ localTestFeatures: true, origin: 'https://example.com' }), /loopback/);
+});
+
+test('健康测试只接受服务端登录，保留硬限制并明确没有执行疾病规则', async () => {
+  const app = await createApp({ localTestFeatures: true });
+  try {
+    const session = await app.inject('/api/v1/auth/session');
+    const guest = session.headers['set-cookie']!.toString().split(';')[0];
+    const headers = { cookie: guest, origin: 'http://localhost:80', 'x-csrf-token': session.json().csrfToken };
+    const m = mealWith(); m.health = true; m.diseases = ['高血压'];
+    const before = await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) });
+    assert.equal(before.statusCode, 401); assert.equal(before.json().error.code, 'LOGIN_REQUIRED');
+    const login = await app.inject({ method: 'POST', url: '/api/v1/auth/login', headers, payload: { mode: 'local-test' } });
+    headers.cookie = `${guest}; ${login.headers['set-cookie']!.toString().split(';')[0]}`;
+    const result = await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) });
+    assert.equal(result.statusCode, 200); assert.equal(result.json().status, 'completed');
+    assert.equal(result.json().healthAssessment.state, 'test_only'); assert.match(result.json().healthAssessment.message, /尚未按疾病规则筛选/);
+    m.version++; m.restrictions = [{ id: 'r', kind: 'allergy', name: '未知', targets: [], status: 'unknown', scope: 'self', original: '未知' }];
+    const blocked = await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) });
+    assert.equal(blocked.json().status, 'needs_confirmation'); assert.equal(blocked.json().dishes.length, 0);
+    await app.inject({ method: 'POST', url: '/api/v1/auth/logout', headers, payload: {} });
+    m.version++; assert.equal((await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) })).statusCode, 401);
+  } finally { await app.close(); }
+});

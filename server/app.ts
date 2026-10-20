@@ -10,17 +10,21 @@ import { CONTENT_VERSION, type RecommendationRequest } from '../shared/types';
 import { extractionSchema, recommendationSchema } from '../shared/schema';
 import { assertMeal, DomainError, recommend } from './recommendation';
 
-export async function createApp(options: { staticRoot?: string; origin?: string } = {}) {
+export async function createApp(options: { staticRoot?: string; origin?: string; localTestFeatures?: boolean } = {}) {
+  const localTestFeatures = options.localTestFeatures === true;
+  if (localTestFeatures && options.origin && !['localhost', '127.0.0.1', '[::1]'].includes(new URL(options.origin).hostname)) throw new Error('Local test identity is restricted to loopback origins');
   const app = Fastify({ logger: false, bodyLimit: 64 * 1024, ajv: { customOptions: { coerceTypes: false, removeAdditional: false } } });
   const secret = randomBytes(32);
   const sign = (s: string) => createHmac('sha256', secret).update(s).digest('base64url');
   const equal = (a: string, b: string) => a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));
   const latest = new Map<string, { version: number; operation: string; touched: number }>();
   const rate = new Map<string, { at: number; count: number }>();
+  const testSessions = new Map<string, { guest: string; expires: number }>();
   const prune = setInterval(() => {
     const cutoff = Date.now() - 30 * 60_000;
     for (const [k, v] of latest) if (v.touched < cutoff) latest.delete(k);
     for (const [k, v] of rate) if (v.at < cutoff) rate.delete(k);
+    for (const [k, v] of testSessions) if (v.expires <= Date.now()) testSessions.delete(k);
   }, 60_000).unref();
   app.addHook('onClose', async () => { clearInterval(prune); });
   app.addHook('onSend', async (_req, reply) => {
@@ -34,6 +38,14 @@ export async function createApp(options: { staticRoot?: string; origin?: string 
     const parts = token.split('.');
     return parts.length === 2 && /^[a-f0-9]{32}$/.test(parts[0]) && equal(parts[1], sign(parts[0])) ? parts[0] : null;
   };
+  const testSession = (cookie: string | undefined) => {
+    if (!localTestFeatures) return null;
+    const token = cookie?.split(';').map(s => s.trim()).find(s => s.startsWith('shiwei_test_session='))?.slice('shiwei_test_session='.length);
+    if (!token) return null;
+    const current = testSessions.get(token);
+    return current && current.guest === session(cookie) && current.expires > Date.now() ? token : null;
+  };
+  const testCookie = (token: string, maxAge: number) => `shiwei_test_session=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=${maxAge}${options.origin?.startsWith('https:') ? '; Secure' : ''}`;
   app.addHook('preHandler', async (req, reply) => {
     if (!req.url.startsWith('/api/') || ['GET', 'HEAD', 'OPTIONS'].includes(req.method)) return;
     const subject = session(req.headers.cookie);
@@ -52,23 +64,40 @@ export async function createApp(options: { staticRoot?: string; origin?: string 
   });
   await app.register(swagger, { openapi: { info: { title: '拾味本地开发 API', version: '0.1.0', description: '仅构造内容；真实账户、模型和健康支持尚未准入。' } } });
   app.get('/healthz', async () => ({ status: 'ok' }));
-  app.get('/readyz', async () => ({ status: 'local_only', contentVersion: CONTENT_VERSION, gates: { model: false, cloud: false, accounts: false, health: false } }));
+  app.get('/readyz', async () => ({ status: 'local_only', contentVersion: CONTENT_VERSION, localTestFeatures, gates: { model: false, cloud: false, accounts: false, health: false } }));
   app.get('/api/v1/auth/session', async (req, reply) => {
     const id = session(req.headers.cookie) ?? randomBytes(16).toString('hex');
     reply.header('Set-Cookie', `shiwei_guest=${id}.${sign(id)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=1800${options.origin?.startsWith('https:') ? '; Secure' : ''}`);
-    return { identity: 'guest', csrfToken: sign(`csrf:${id}`), accountAvailable: false };
+    const loggedIn = Boolean(testSession(req.headers.cookie));
+    return { identity: loggedIn ? 'local-test' : 'guest', ...(loggedIn ? { displayName: '本机测试账号' } : {}), csrfToken: sign(`csrf:${id}`), accountAvailable: localTestFeatures, localTestFeatures };
   });
   app.get('/api/v1/catalog/recipes', async () => ({ contentVersion: CONTENT_VERSION, contentState: 'constructed', recipes, foods, categories }));
   app.get('/api/v1/openapi.json', async () => app.swagger());
   app.post<{ Body: { text: string } }>('/api/v1/recognitions/text', { schema: { body: extractionSchema } }, async req => extractText(req.body.text));
   app.post('/api/v1/recognitions/image', async () => { throw new DomainError('MODEL_NOT_ADMITTED', 503, '图片识别尚未准入，请保留图片并使用文字或人工录入'); });
-  app.post('/api/v1/auth/login', async () => { throw new DomainError('AUTH_NOT_ADMITTED', 503, '真实账户服务尚未准入，本机收藏和默认资料可继续使用'); });
+  app.post<{ Body: { mode: 'local-test' } }>('/api/v1/auth/login', async (req, reply) => {
+    if (!localTestFeatures) throw new DomainError('AUTH_NOT_ADMITTED', 503, '账户服务暂不可用，本机收藏和常用偏好可继续使用');
+    if (!req.body || req.body.mode !== 'local-test' || Object.keys(req.body).length !== 1) throw new DomainError('INVALID_LOGIN', 400, '请选择本机测试登录');
+    if (testSessions.size >= 1000) throw new DomainError('TEST_SESSION_LIMIT', 503, '测试会话已满，请稍后重试');
+    const old = testSession(req.headers.cookie); if (old) testSessions.delete(old);
+    const token = randomBytes(32).toString('base64url');
+    testSessions.set(token, { guest: session(req.headers.cookie)!, expires: Date.now() + 30 * 60_000 });
+    reply.header('Set-Cookie', testCookie(token, 1800));
+    return { identity: 'local-test', displayName: '本机测试账号' };
+  });
+  app.post('/api/v1/auth/logout', async (req, reply) => {
+    const token = testSession(req.headers.cookie); if (token) testSessions.delete(token);
+    reply.header('Set-Cookie', testCookie('', 0));
+    return { identity: 'guest' };
+  });
   app.post<{ Body: RecommendationRequest }>('/api/v1/recommendations', { schema: { body: recommendationSchema } }, async (req, reply) => {
     const subject = session(req.headers.cookie)!;
     const current = latest.get(subject);
     if (current && req.body.meal.version < current.version) throw new DomainError('STALE_MEAL', 409, '本餐已有新版本，请按当前条件重新生成');
     latest.set(subject, { version: req.body.meal.version, operation: req.body.operationId, touched: Date.now() });
     assertMeal(req.body.meal);
+    const localHealthTest = req.body.meal.health && localTestFeatures;
+    if (localHealthTest && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式测试');
     const controller = new AbortController();
     const onClose = () => { if (!reply.raw.writableEnded) controller.abort(); };
     reply.raw.on('close', onClose);
@@ -79,7 +108,8 @@ export async function createApp(options: { staticRoot?: string; origin?: string 
       reply.raw.write(JSON.stringify({ type: 'progress', stage: '输入格式已校验，正在核对目录与库存' }) + '\n');
     }
     try {
-      let result = await recommend(recipes, req.body, { signal: controller.signal });
+      let result = await recommend(recipes, req.body, { signal: controller.signal, localHealthTest });
+      if (localHealthTest && !testSession(req.headers.cookie)) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['登录已失效，请重新登录后再试'] };
       const newest = latest.get(subject);
       if (newest?.operation !== req.body.operationId || newest?.version !== req.body.meal.version) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['旧操作已被新条件取代'] };
       if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'result', result }) + '\n'); return; }
