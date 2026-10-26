@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { libraryUrl, readLibraryState, type LibraryState } from './library-state';
 import { DishImage } from './recipe-photo';
 import { requiredIngredientText } from '../shared/recipe-ingredients';
@@ -66,19 +66,22 @@ export function CandidateLibrary() {
   const summary=useRef<HTMLParagraphElement>(null);
   const detailHeading=useRef<HTMLHeadingElement>(null),grid=useRef<HTMLDivElement>(null);
   const previousDish=useRef<string|null>(null);
+  const pagePositionPending=useRef(false);
   const {query,ingredient,method,flavor,category,page,selected,variant}=route;
   const change=(patch:Partial<LibraryState>,replace=false)=>{
     const next={...routeRef.current,...patch};routeRef.current=next;
-    history[replace?'replaceState':'pushState']({},'',libraryUrl(next));setRoute(next);
+    history[replace?'replaceState':'pushState'](replace?history.state:{},'',libraryUrl(next));setRoute(next);
   };
   const setQuery=(query:string)=>change({query,page:0},true),setIngredient=(ingredient:string)=>change({ingredient,page:0}),
     setMethod=(method:string)=>change({method,page:0}),setFlavor=(flavor:string)=>change({flavor,page:0}),setCategory=(category:string)=>change({category,page:0});
   useEffect(()=>{document.title=selected?`${selected} · 菜谱图鉴｜拾味`:'菜谱图鉴｜拾味';},[selected]);
   useEffect(()=>{
+    const restoration=history.scrollRestoration;
+    history.scrollRestoration='manual';
     const c=new AbortController();
     void fetch('/api/v1/local/candidate-recipes',{signal:AbortSignal.any([c.signal,AbortSignal.timeout(8000)])}).then(async r=>{if(!r.ok)throw new Error();const result=await r.json() as Response;if(!Array.isArray(result.recipes))throw new Error();return result;}).then(setData).catch(()=>{if(!c.signal.aborted)setError('图鉴暂时读取失败，请重试；已有筛选仍保留。');});
-    const back=()=>{const next=readLibraryState(location.search);routeRef.current=next;setRoute(next);}; window.addEventListener('popstate',back);
-    return()=>{c.abort();window.removeEventListener('popstate',back);};
+    const back=()=>{const next=readLibraryState(location.search);if(!next.selected&&!routeRef.current.selected&&next.page!==routeRef.current.page)pagePositionPending.current=true;routeRef.current=next;setRoute(next);}; window.addEventListener('popstate',back);
+    return()=>{c.abort();window.removeEventListener('popstate',back);history.scrollRestoration=restoration;};
   },[]);
   const rows=useMemo(()=>(data?.recipes??[]).map(row=>({...row,traits:traits(row)})),[data]);
   const options={ingredients:[...new Set(rows.flatMap(r=>r.traits.ingredients))],methods:[...new Set(rows.map(r=>r.traits.method))],flavors:[...new Set(rows.map(r=>r.flavor))],categories:[...new Set(rows.map(r=>r.traits.category))]};
@@ -105,11 +108,15 @@ export function CandidateLibrary() {
   const lastPage=Math.max(0,Math.ceil(dishes.length/24)-1);
   useEffect(()=>{if(data&&page>lastPage)change({page:lastPage},true);},[data,page,lastPage]);
   const open=(name:string|null,selectedFlavor?:string)=>{
+    if(name===null&&history.state?.libraryReturn){history.back();return;}
+    if(name&&!selected){
+      history.replaceState({...history.state,libraryScrollY:window.scrollY},'',location.href);
+    }
     const matchedFlavor=name?selectedFlavor??dishes.find(d=>d.name===name)?.variants[0]?.flavor??'':'';
     change({selected:name,variant:matchedFlavor},name===null);
-    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    if(name)history.replaceState({...history.state,libraryReturn:true},'',location.href);
   };
-  const goPage=(page:number)=>{change({page});queueMicrotask(()=>{summary.current?.focus({preventScroll:true});summary.current?.scrollIntoView({block:'start'});});};
+  const goPage=(page:number)=>{pagePositionPending.current=true;change({page});};
   const favoriteButton=(name:string,flavor:string)=>{
     const key=galleryFavoriteKey(name,flavor),active=favoriteKeys.includes(key);
     return <button type="button" disabled={pendingFavoriteKeys.has(key)} aria-pressed={active} aria-label={`${active?'取消收藏':'收藏'} ${name}`} onClick={()=>void saveFavorite(name,flavor)}>{active?'已收藏 ♥':'收藏 ♡'}</button>;
@@ -118,14 +125,19 @@ export function CandidateLibrary() {
   const variants=allVariants.filter((r,i)=>allVariants.findIndex(v=>v.flavor===r.flavor)===i);
   const detail=variants.find(r=>r.flavor===variant)??variants[0];
   const references=detail?allVariants.filter(r=>r.flavor===detail.flavor&&r.raw_record.id!==detail.raw_record.id):[];
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     if(!data)return;
-    if(selected){previousDish.current=selected;detailHeading.current?.focus({preventScroll:true});}
+    if(selected){previousDish.current=selected;window.scrollTo({top:0,behavior:'instant'});detailHeading.current?.focus({preventScroll:true});}
     else if(previousDish.current){
       const card=[...(grid.current?.querySelectorAll<HTMLButtonElement>('button[data-dish]')??[])].find(b=>b.dataset.dish===previousDish.current);
       (card??summary.current)?.focus({preventScroll:true});previousDish.current=null;
+      window.scrollTo({top:history.state?.libraryScrollY??0,behavior:'instant'});
     }
-  },[selected,data]);
+    else if(pagePositionPending.current){
+      pagePositionPending.current=false;summary.current?.focus({preventScroll:true});
+      if(grid.current)window.scrollTo({top:window.scrollY+grid.current.getBoundingClientRect().top-16,behavior:'instant'});
+    }
+  },[selected,data,page]);
   const filter=(label:string,value:string,values:string[],change:(v:string)=>void)=><label className="library-filter">{label}<select aria-label={`按${label}筛选`} value={value} onChange={e=>change(e.target.value)}><option value="">全部{label}</option>{values.map(v=><option key={v}>{v}</option>)}</select></label>;
   return <section className="candidate-library library-page" aria-label="菜谱图鉴">
     <div className="candidate-library-head"><div><span className="eyebrow">SHIWEI RECIPE COLLECTION</span><h1>菜谱图鉴</h1><p>从手边食材，到喜欢的那一味。</p></div><a className="library-home" href="/">返回做饭工作台 ↗</a></div>
@@ -135,12 +147,13 @@ export function CandidateLibrary() {
     {selected&&detail?<article className="library-recipe-detail">
       <button className="library-back" onClick={()=>open(null)}>← 返回菜谱图鉴</button>
       <div className="library-recipe-heading"><h2 ref={detailHeading} tabIndex={-1}>{detail.dish_key}</h2>{variants.length>1?<label>单菜口味<select aria-label={`${detail.dish_key}口味`} value={detail.flavor} onChange={e=>change({variant:e.target.value},true)}>{variants.map(v=><option key={v.flavor} value={v.flavor}>{v.flavor}</option>)}</select></label>:<span className="library-flavor">{detail.flavor}</span>}</div>
-      {detail.publicAttribution&&<p className="recipe-source">来源：<a href={detail.publicAttribution.url} target="_blank" rel="noreferrer">{detail.publicAttribution.label} ↗</a></p>}
+      {detail.publicAttribution&&<p className="recipe-source">来源：{detail.publicAttribution.label}</p>}
       {data?.recommendationAvailable&&<button className="library-save" type="button" disabled={pendingFavoriteKeys.has(galleryFavoriteKey(detail.dish_key,detail.flavor))} aria-pressed={favoriteKeys.includes(galleryFavoriteKey(detail.dish_key,detail.flavor))} onClick={()=>void saveFavorite(detail.dish_key,detail.flavor)}>{favoriteKeys.includes(galleryFavoriteKey(detail.dish_key,detail.flavor))?'已收藏 · 点击取消 ♥':'收藏此口味 ♡'}</button>}
       {detail.image_url&&<DishImage name={detail.dish_key} src={detail.image_url} className="candidate-detail-image" fallback={<p className="candidate-state">这道菜的配图暂不可用，食材和步骤仍可查看。</p>}/>}
       <div className="library-recipe-columns"><section><h3>食材</h3><h4>主料</h4><ul>{(detail.raw_record.main??[]).map((s,i)=><li key={i}>{s}</li>)}</ul>{!!detail.raw_record.aux?.length&&<><h4>辅料</h4><ul>{detail.raw_record.aux.map((s,i)=><li key={i}>{s}</li>)}</ul></>}{!!detail.raw_record.seasonings?.length&&<><h4>调料</h4><ul>{detail.raw_record.seasonings.map((s,i)=><li key={i}>{s}</li>)}</ul></>}</section><section><h3>{detail.raw_record.main_method_label?`做法一 · ${detail.raw_record.main_method_label}`:detail.raw_record.steps?.length?'一步步做':'选择下方做法参考'}</h3><ol className="steps">{(detail.raw_record.steps??[]).map((s,i)=><li key={i}>{s}</li>)}</ol></section></div>
       {!!detail.raw_record.method_options?.length&&<section className="library-method-references" aria-label="另一种做法"><h3>另一种做法</h3><div className="library-method-options">{detail.raw_record.method_options.map((method,i)=><details key={method.label} open={i===0}><summary>做法{i+2}{method.label?` · ${method.label}`:''}</summary><ol className="steps">{method.steps.map((s,n)=><li key={n}>{s}</li>)}</ol></details>)}</div></section>}
       {!!references.length&&<details className="library-method-references"><summary>其他做法（{references.length}）</summary>{references.map((r,i)=><section key={r.raw_record.id??i}><h3>做法 {i+2}</h3><p>{[...(r.raw_record.main??[]),...(r.raw_record.aux??[]),...(r.raw_record.seasonings??[])].join('、')}</p><ol>{(r.raw_record.steps??[]).map((s,n)=><li key={n}>{s}</li>)}</ol></section>)}</details>}
+      <div className="library-detail-footer"><button className="library-back" onClick={()=>open(null)}>返回菜谱图鉴 →</button></div>
     </article>:data&&selected?<div className="candidate-state" role="status"><h2>没有找到这道菜谱</h2><p>这道菜可能已调整或暂不可用，可以返回图鉴继续查找。</p><button onClick={()=>open(null)}>返回菜谱图鉴</button></div>:<>
       <label className="library-search">搜索菜名<input type="search" maxLength={80} value={query} onChange={e=>setQuery(e.target.value)} placeholder="想做哪道菜？"/></label>
       <div className="library-filters">{filter('食材',ingredient,options.ingredients,setIngredient)}{filter('做法',method,options.methods,setMethod)}{filter('口味',flavor,options.flavors,setFlavor)}{filter('菜品类型',category,options.categories,setCategory)}</div>

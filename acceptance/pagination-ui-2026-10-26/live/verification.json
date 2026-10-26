@@ -1,0 +1,136 @@
+[
+  {
+    "name": "desktop",
+    "workspaceNext": {
+      "button": "下一页",
+      "elapsedMs": 1045,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 677.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "workspacePrevious": {
+      "button": "上一页",
+      "elapsedMs": 915,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 677.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryNext": {
+      "button": "下一页",
+      "elapsedMs": 105,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 560.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryPrevious": {
+      "button": "上一页",
+      "elapsedMs": 166,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 560.1875,
+          "behavior": "instant"
+        }
+      ]
+    }
+  },
+  {
+    "name": "mobile",
+    "workspaceNext": {
+      "button": "下一页",
+      "elapsedMs": 442,
+      "firstPaint": 16.203125,
+      "samples": [
+        16.203125,
+        16.203125,
+        16.203125
+      ],
+      "calls": [
+        {
+          "top": 1680.203125,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "workspacePrevious": {
+      "button": "上一页",
+      "elapsedMs": 900,
+      "firstPaint": 16.203125,
+      "samples": [
+        16.203125,
+        16.203125,
+        16.203125
+      ],
+      "calls": [
+        {
+          "top": 1680.203125,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryNext": {
+      "button": "下一页",
+      "elapsedMs": 139,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 616.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryPrevious": {
+      "button": "上一页",
+      "elapsedMs": 97,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 616.1875,
+          "behavior": "instant"
+        }
+      ]
+    }
+  }
+]

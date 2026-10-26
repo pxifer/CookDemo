@@ -1,0 +1,7 @@
+{
+  "baseline": "unmodified HEAD engine exported to isolated directory",
+  "comparisons": 24,
+  "allSameOrderAndVariants": true,
+  "inventoryChecksIdentical": true,
+  "noCrossRequestCache": true
+}

@@ -19,7 +19,7 @@ import { inspectDatabase } from './deployment';
 import { ContentRepository } from './content-repository';
 import { GALLERY_RELEASE, GalleryContentRepository, readCandidateRows } from './gallery-content';
 import { recipeImage } from '../shared/recipe-images';
-import { ingredientDisplayText } from '../shared/recipe-copy';
+import { fixedRecipeText, ingredientDisplayText } from '../shared/recipe-copy';
 import methodReview from '../docs/data/recipe-step-review-v28.json';
 
 type MethodCopy={steps:string[];method_options?:{label:string;steps:string[]}[]};
@@ -31,7 +31,7 @@ const reviewedMethod=(id:string|undefined)=>{
 
 const publicAttribution=(author:string|undefined,uri:string|undefined)=>uri?.startsWith('https://')&&author&&!/(拾味|候选|未试做|自编|内部|待核)/.test(author)
   ? {label:author.replace(/\s*[·•]?\s*公开配方资料[；;]\s*保留原始出处\s*$/,'').trim(),url:uri} : undefined;
-const publicText=(value:string)=>value.replace(/[（(][^）)]*(?:待核|未试做|内部候选|许可核验|原文名称)[^）)]*[）)]/g,'')
+const publicText=(value:string)=>fixedRecipeText(value).replace(/[（(][^）)]*(?:待核|未试做|内部候选|许可核验|原文名称)[^）)]*[）)]/g,'')
   .replace(/来源此支/g,'').replace(/按来源/g,'').replace(/来源两面/g,'两面').replace(/来源用约/g,'用约')
   .replace(/来源加盖/g,'加盖').replace(/来源两段/g,'两段').replace(/来源允许自行选加料酒、胡椒粉/g,'料酒、胡椒粉可按口味添加')
   .replace(/来源允许出锅前少量花椒油/g,'出锅前可放少量花椒油').replace(/按原简介/g,'').trim();

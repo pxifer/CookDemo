@@ -116,19 +116,18 @@ const buying = (d: Dish) => d.checks.filter(c => c.state === 'missing' || c.stat
 function compareDish(a: Dish, b: Dish) {
   return Number(b.recipe.homeStyle) - Number(a.recipe.homeStyle) || buying(a) - buying(b);
 }
-function compareCandidateRelevance(a: Dish, b: Dish, meal: Meal, context: ContentContext) {
-  const score = (dish: Dish) => {
+function candidateRelevance(dish: Dish, meal: Meal, context: ContentContext) {
     const main = actualLines(dish.variant, meal, context).lines.filter(line => line.role === 'main' && !line.optional);
     const uniqueMain = [...new Map(main.map(line => [line.foodId, line])).values()];
     const matches = uniqueMain.map(line => ({ line, match: findPantryIngredient(line, meal.ingredients, context.foodById) })).filter(item => item.match);
     const exact = matches.filter(item => item.match?.kind === 'exact').length;
-    return { matched: matches.length, total: uniqueMain.length, exact };
-  };
-  const left = score(a), right = score(b);
+    return { matched: matches.length, total: uniqueMain.length, exact, homeStyle:Number(dish.recipe.homeStyle),buying:buying(dish) };
+}
+function compareCandidateRelevance(left:ReturnType<typeof candidateRelevance>,right:ReturnType<typeof candidateRelevance>) {
   return right.matched - left.matched
     || right.matched / Math.max(right.total, 1) - left.matched / Math.max(left.total, 1)
     || right.exact - left.exact
-    || compareDish(a, b);
+    || right.homeStyle-left.homeStyle || left.buying-right.buying;
 }
 export async function recommend(catalog: Recipe[], req: RecommendationRequest, options: { signal?: AbortSignal; maxNodes?: number; deadlineMs?: number; beforePublish?: () => void; localHealthTest?: boolean; context?: ContentContext; cursorSecret?: Uint8Array } = {}): Promise<RecommendationResult> {
   const start = performance.now(), meal = req.meal, context = options.context ?? constructedContent;
@@ -143,7 +142,9 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   const cursor = `${variation}.${sign({ variation, meal: { ...meal, version: 0 }, content: context.contentVersion, catalog })}`;
   if (req.cursor && req.cursor !== cursor) throw new DomainError('CURSOR_EXPIRED', 409, '条件、内容或服务会话已变化，请重新生成第一页');
   const rank = (value: unknown) => parseInt(sign({ variation, value }).slice(0,8),16) / 0x1_0000_0000;
-  const variedOrder = (a: Dish, b: Dish) => rank(a.recipe.id) - rank(b.recipe.id);
+  const dishRanks=new Map<string,number>();
+  const dishRank=(id:string)=>{if(!dishRanks.has(id))dishRanks.set(id,rank(id));return dishRanks.get(id)!;};
+  const variedOrder = (a: Dish, b: Dish) => dishRank(a.recipe.id) - dishRank(b.recipe.id);
   const businessOrder = (a: Dish, b: Dish) => compareDish(a,b) || variedOrder(a,b);
   let nodes = 0;
   const result = (values: Partial<RecommendationResult>): RecommendationResult => ({
@@ -160,19 +161,34 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   if (meal.health && !options.localHealthTest) return result({ status: 'unavailable', reasons: ['真实账户与经审核的健康规则尚未准入，当前不提供健康推荐。可主动返回普通模式，过敏与忌口继续生效。'] });
   if (options.signal?.aborted) return result({ status: 'cancelled', search: 'incomplete', reasons: ['操作已取消'] });
 
-  const pool: Dish[] = [],relevantExclusions=new Set<string>();
+  const pool: Dish[] = [];
   for (const r of catalog) {
     const override = meal.overrides[r.id];
     const variants = override ? r.variants.filter(v => v.id === override) : r.variants.filter(v => meal.flavor === '不限' || v.flavor === meal.flavor);
     for (const v of variants) {
       const checked = checkDish(r, v, meal, context);
       if (checked.dish) pool.push(checked.dish);
-      if(actualLines(v,meal,context).lines.some(line=>line.role==='main'&&findPantryIngredient(line,meal.ingredients,context.foodById)))for(const reason of checked.reasons)relevantExclusions.add(reason);
     }
   }
   // Complete structured qualification precedes business ordering and parent grouping (AR-M02).
-  pool.sort(candidateMode ? (a, b) => compareCandidateRelevance(a, b, meal, context) || variedOrder(a,b) : businessOrder);
-  const grouped = [...new Set(pool.map(d => d.recipe.id))].map(id => pool.find(d => d.recipe.id === id)!);
+  // Request-local scores avoid repeating ingredient matching inside every sort comparison.
+  // All dishes were freshly checked above; nothing is reused across requests.
+  const relevance=candidateMode?new Map(pool.map(d=>[d,candidateRelevance(d,meal,context)])):null;
+  pool.sort(relevance ? (a, b) => compareCandidateRelevance(relevance.get(a)!,relevance.get(b)!) || variedOrder(a,b) : businessOrder);
+  const byRecipe=new Map<string,Dish>();
+  for(const dish of pool)if(!byRecipe.has(dish.recipe.id))byRecipe.set(dish.recipe.id,dish);
+  const grouped = [...byRecipe.values()];
+  if(req.action==='variant'){
+    if(!req.selected.length||new Set(req.selected.map(s=>s.recipeId)).size!==req.selected.length)throw new DomainError('INVALID_SELECTION',400,'请重新选择要查看的菜谱');
+    const dishes=req.selected.map(s=>pool.find(d=>d.recipe.id===s.recipeId&&d.variant.id===(meal.overrides[s.recipeId]??s.variantId)));
+    const retained=dishes.filter((d):d is Dish=>!!d);
+    const rejected=()=>result({status:'needs_confirmation',changed:false,reasons:['这个口味暂不适合当前搭配，已保留原口味。']});
+    if(retained.length!==dishes.length||candidateMode&&retained.some(d=>!d.reused.length&&!buyWithoutInventory(meal))||!candidateMode&&!checkSet(retained,meal,context).valid)return rejected();
+    options.beforePublish?.();
+    if(retained.some(d=>!checkDish(d.recipe,d.variant,meal,context).dish)||!candidateMode&&!checkSet(retained,meal,context).valid)return rejected();
+    return result({dishes:retained,checks:candidateMode?[]:checkSet(retained,meal,context).checks,
+      total:candidateMode?grouped.filter(d=>d.reused.length>0||buyWithoutInventory(meal)).length:retained.length,target:req.selected.length,targetMet:true});
+  }
   if (candidateMode) {
     const candidates = grouped.filter(d => d.reused.length > 0 || buyWithoutInventory(meal));
     if (candidates.length && req.page * 6 >= candidates.length) throw new DomainError('PAGE_EXPIRED', 409, '当前页超出结果范围，请重新生成第一页');
@@ -180,10 +196,10 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     options.beforePublish?.();
     if (dishes.some(d => !checkDish(d.recipe, d.variant, meal, context).dish)) return result({ status: 'unavailable', reasons: ['内容在发布前变化，请重新核对'] });
     return result({ status: dishes.length ? 'completed' : 'no_results', targetMet: dishes.length === 6, dishes, total: candidates.length,
-      reasons: dishes.length ? [] : ['当前可核对的菜谱中，暂未找到同时符合食材和饮食要求的菜品', ...[...relevantExclusions].slice(0, 3)] });
+      reasons: dishes.length ? [] : ['暂时没有找到合适的菜谱，可以调整食材或口味后再试。'] });
   }
 
-  const lockedIds = req.action === 'replace' ? req.selected.filter(d => d.recipeId !== req.replaceId) : req.action === 'variant' ? req.selected : [];
+  const lockedIds = req.action === 'replace' ? req.selected.filter(d => d.recipeId !== req.replaceId) : [];
   if (req.action === 'replace' && (!req.replaceId || !req.selected.some(s => s.recipeId === req.replaceId))) throw new DomainError('INVALID_REPLACEMENT', 400, '请指定要替换的菜');
   if (new Set(lockedIds.map(s => s.recipeId)).size !== lockedIds.length) throw new DomainError('DUPLICATE_SELECTION', 400, '已选菜谱不能重复');
   const locked: Dish[] = [];
@@ -193,9 +209,9 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     if (!d) return result({ status: 'needs_confirmation', reasons: ['保留菜或所选口味不符合当前条件，请调整后重新生成'], changed: false });
     locked.push(d);
   }
-  const effectiveTarget = req.action === 'replace' || req.action === 'variant' ? req.selected.length : target;
+  const effectiveTarget = req.action === 'replace' ? req.selected.length : target;
   if (effectiveTarget > MAX_DISHES) throw new DomainError('INVALID_COMPOSITION', 400, '一餐最多搭配 20 道菜');
-  const automatic = meal.composition === 'auto' && req.action !== 'replace' && req.action !== 'variant';
+  const automatic = meal.composition === 'auto' && req.action !== 'replace';
   const searchLimit = automatic ? MAX_DISHES : effectiveTarget;
   const footprints = new Set<string>();
   const remaining = pool.filter(d => {
@@ -215,7 +231,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   const counts = (set: Dish[]) => ({ meat: set.filter(d => d.recipe.category === 'meat').length, veg: set.filter(d => d.recipe.category === 'veg').length, soup: set.filter(d => d.recipe.category === 'soup').length });
   const accept = (set: Dish[]) => {
     if (!set.length || !checkSet(set, meal, context).valid) return;
-    if ((req.action === 'replace' || req.action === 'variant') && set.length !== effectiveTarget) return;
+    if ((req.action === 'replace') && set.length !== effectiveTarget) return;
     if (req.action === 'reroll' && set.map(d => d.recipe.id).sort().join(',') === previousSet) return;
     const c = counts(set);
     const distance = meal.composition === 'auto' ? Math.abs(c.meat - guide.counts.meat) + Math.abs(c.veg - guide.counts.veg) + Math.abs(c.soup - guide.counts.soup) : 0;
@@ -287,9 +303,9 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   if (options.signal?.aborted) return result({ status: 'cancelled', search: 'incomplete', reasons: ['操作已取消'] });
   options.beforePublish?.();
   if (best.some(d => !checkDish(d.recipe, d.variant, meal, context).dish) || (best.length && !checkSet(best, meal, context).valid)) return result({ status: 'unavailable', reasons: ['内容在最终检查前变化，请重新生成'] });
-  const replacingFailed = !best.length && (req.action === 'replace' || req.action === 'reroll' || req.action === 'variant');
+  const replacingFailed = !best.length && (req.action === 'replace' || req.action === 'reroll');
   const replacement = req.action === 'replace' ? best.find(d => !req.selected.some(s => s.recipeId === d.recipe.id)) : undefined;
-  const orderedBest = req.action === 'replace' || req.action === 'variant'
+  const orderedBest = req.action === 'replace'
     ? req.selected.flatMap(s => {
       const dish = s.recipeId === req.replaceId ? replacement : best.find(d => d.recipe.id === s.recipeId);
       return dish ? [dish] : [];
@@ -300,12 +316,11 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     targetMet: automatic ? best.length >= effectiveTarget : best.length === effectiveTarget, changed: !replacingFailed,
     reasons: [
       ...(incomplete ? [best.length ? '还可以再试一次，看看其他搭配。' : '这次查找未完成，请再试一次。'] : []),
-      ...(!best.length ? [replacingFailed ? '当前范围内没有其他可行方案，保留原方案' : '当前可核对的菜谱中，暂未找到同时符合食材和饮食要求的搭配', ...[...relevantExclusions].slice(0, 3)] : []),
+      ...(!best.length ? [replacingFailed ? '暂时没有其他合适的方案，已保留当前搭配。' : '暂时没有找到合适的搭配，可以调整食材、口味或搭配数量后再试。'] : []),
       ...(meal.composition === 'custom' && best.length < effectiveTarget && !incomplete ? [meal.allowBuy
-        ? `你指定了 ${effectiveTarget} 道，当前菜谱和饮食限制下只能搭配 ${best.length} 道；允许补买不会增加目录外菜谱或放宽过敏、忌口`
-        : `你指定了 ${effectiveTarget} 道，按现有食材和填写用量只能搭配 ${best.length} 道。允许补买后可按指定数量继续搭配`] : []),
+        ? `你指定了 ${effectiveTarget} 道，目前可搭配 ${best.length} 道。可以减少菜数或调整口味后再试。`
+        : `你指定了 ${effectiveTarget} 道，目前可搭配 ${best.length} 道。可以允许补买，或调整荤素汤数量。`] : []),
       ...(meal.composition === 'custom' && best.length < effectiveTarget && incomplete ? [`你指定了 ${effectiveTarget} 道，本次已核验 ${best.length} 道；搜索尚未完成，可以重新查找`] : []),
-      ...(meal.composition === 'custom' && best.length < effectiveTarget && !meal.allowBuy ? [...relevantExclusions].slice(0, 3) : []),
     ],
   });
 }

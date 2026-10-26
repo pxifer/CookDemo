@@ -61,6 +61,36 @@
 .shopping-list .checks li { padding: 8px 0; }
 .card-photo .image-caption { max-width: calc(100% - 24px); padding: 5px 10px; border-radius: 6px; background: #284936e8; color: #fff; font-size: .82rem; }
 .recipe-card .flavor-label:has(strong) { display: none; }
+.card-photo { height: auto; aspect-ratio: 4 / 3; flex-shrink: 0; }
+.card-photo img { object-fit: contain; }
+.card-photo .recipe-photo-pending { min-height: 0; }
+.modal-content .detail-photo { height: auto; max-height: none; object-fit: contain; }
+.modal-content .recipe-photo-pending.detail-photo { height: 230px; }
+.library-recipe-detail .candidate-detail-image { display: block; height: auto; max-height: none; object-fit: contain; }
+.library-detail-footer { display: flex; justify-content: flex-end; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+.library-detail-footer .library-back { border: 1px solid var(--line); border-radius: 8px; padding: 10px 18px; min-height: 44px; }
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.recipe-card{display:flex;flex-direction:column}
+.recipe-card .card-body{flex:1;padding:14px;gap:8px}
+.recipe-card .card-body h4,.recipe-card .card-tags,.recipe-card .card-ingredients,.recipe-card .nutrition-note{margin:0}
+.recipe-card .card-ingredients{min-height:3.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-options{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:38px;margin-top:auto}
+.card-flavor{min-width:0;max-width:60%;font-size:12px;color:var(--green)}
+.card-flavor>span:not(.sr-only){display:inline-block;padding:6px 0}
+.card-flavor select{width:100%;max-width:100%;min-height:36px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:#fafbf7;color:inherit;font-size:12px}
+.card-options .shopping-list{margin:0;padding:0;border:0;border-radius:0;flex-shrink:0}
+.card-options .shopping-list summary{font-size:12px;color:var(--green);min-height:36px;line-height:36px}
+.card-options .shopping-list .checks{position:absolute;right:0;bottom:100%;z-index:3;margin:0 0 5px;padding:8px 14px;max-height:160px;width:min(260px,100%);overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fffdf7;box-shadow:0 6px 20px #243b3120}
+.recipe-card .card-actions{margin-top:0;padding-top:6px;min-height:40px;flex-wrap:nowrap}
+.recipe-card .card-actions button{white-space:nowrap}
+.food-picker{margin-top:12px}
+.food-picker-select{display:grid;grid-template-columns:minmax(78px,.8fr) minmax(0,1.3fr) auto;gap:7px;align-items:end}
+.food-picker-select label{display:grid;gap:5px;min-width:0;font-size:11px;color:var(--muted)}
+.food-picker-select select{width:100%;min-width:0;min-height:42px;padding:6px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;color:var(--green);font-size:12px}
+.food-picker-add{min-height:42px;padding:7px 10px;border-radius:6px;background:var(--green);color:white;font-size:12px}
+.food-picker-manual{margin-top:8px;font-size:12px;color:var(--muted)}
+.food-picker-manual>summary{cursor:pointer;min-height:32px;line-height:32px}
+.food-picker-manual .manual-add{margin-top:4px}
 .account-form { display: grid; gap: 12px; }
 .account-form label { display: grid; gap: 6px; }
 .account-form input { width: 100%; min-width: 0; }

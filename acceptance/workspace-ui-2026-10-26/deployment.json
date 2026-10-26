@@ -1,0 +1,14 @@
+{
+  "deployed": true,
+  "liveBuildMatches": true,
+  "script": "/assets/index-CZ4JL_ls.js",
+  "css": "/assets/index-Bp1VTSvM.css",
+  "readiness": "preview_ready",
+  "configurationUnchanged": true,
+  "contentVersion": "gallery-listed-foods-20261026-v27",
+  "databaseWrites": false,
+  "realAccountsUsed": false,
+  "freePlanChecked": true,
+  "overrunDisabled": true,
+  "autoRenewDisabled": true
+}

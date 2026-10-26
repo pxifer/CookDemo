@@ -1,0 +1,10 @@
+{
+  "deployed": true,
+  "liveBuildMatches": true,
+  "script": "/assets/index-CfmtTBQd.js",
+  "css": "/assets/index-Bp1VTSvM.css",
+  "readiness": "preview_ready",
+  "configurationUnchanged": true,
+  "databaseWrites": false,
+  "realAccountsUsed": false
+}

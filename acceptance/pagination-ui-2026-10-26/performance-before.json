@@ -1,0 +1,42 @@
+{
+  "sample": "six pantry ingredients: pork, cabbage, vermicelli, egg, potato, beef",
+  "local": [
+    {
+      "page": 0,
+      "calculationMs": 131.69
+    },
+    {
+      "page": 1,
+      "calculationMs": 106.51
+    },
+    {
+      "page": 0,
+      "calculationMs": 99.7
+    },
+    {
+      "page": 1,
+      "calculationMs": 111.22
+    },
+    {
+      "page": 0,
+      "calculationMs": 104.26
+    }
+  ],
+  "live": [
+    {
+      "page": 0,
+      "totalMs": 1270,
+      "calculationMs": 951.91
+    },
+    {
+      "page": 1,
+      "totalMs": 685,
+      "calculationMs": 415.48
+    },
+    {
+      "page": 0,
+      "totalMs": 604,
+      "calculationMs": 336.36
+    }
+  ]
+}

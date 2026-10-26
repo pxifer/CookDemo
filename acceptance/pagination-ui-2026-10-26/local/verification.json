@@ -1,0 +1,140 @@
+[
+  {
+    "name": "desktop",
+    "workspaceNext": {
+      "button": "下一页",
+      "elapsedMs": 310,
+      "calculationMs": 81.8,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 677.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "workspacePrevious": {
+      "button": "上一页",
+      "elapsedMs": 206,
+      "calculationMs": 91.41,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 677.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryNext": {
+      "button": "下一页",
+      "elapsedMs": 238,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 560.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryPrevious": {
+      "button": "上一页",
+      "elapsedMs": 108,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 560.1875,
+          "behavior": "instant"
+        }
+      ]
+    }
+  },
+  {
+    "name": "mobile",
+    "workspaceNext": {
+      "button": "下一页",
+      "elapsedMs": 189,
+      "calculationMs": 54.3,
+      "firstPaint": 16.203125,
+      "samples": [
+        16.203125,
+        16.203125,
+        16.203125
+      ],
+      "calls": [
+        {
+          "top": 1680.203125,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "workspacePrevious": {
+      "button": "上一页",
+      "elapsedMs": 140,
+      "calculationMs": 53.18,
+      "firstPaint": 16.203125,
+      "samples": [
+        16.203125,
+        16.203125,
+        16.203125
+      ],
+      "calls": [
+        {
+          "top": 1680.203125,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryNext": {
+      "button": "下一页",
+      "elapsedMs": 180,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 616.1875,
+          "behavior": "instant"
+        }
+      ]
+    },
+    "libraryPrevious": {
+      "button": "上一页",
+      "elapsedMs": 113,
+      "firstPaint": 16.1875,
+      "samples": [
+        16.1875,
+        16.1875,
+        16.1875
+      ],
+      "calls": [
+        {
+          "top": 616.1875,
+          "behavior": "instant"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "foodCategoryPicker": true,
+    "variantOnlyUpdatesTargetCard": true,
+    "alignedCompactCards": true,
+    "emptyMessagesClean": true,
+    "name": "desktop",
+    "listY": 1880,
+    "firstPaint": {
+      "y": 0,
+      "heading": 449.890625
+    },
+    "historyAndBothReturnButtonsRestorePosition": true,
+    "sourceTextOnly": true,
+    "imagesUncropped": true,
+    "singleShoppingDisclosure": true,
+    "noHorizontalOverflow": true
+  },
+  {
+    "foodCategoryPicker": true,
+    "variantOnlyUpdatesTargetCard": true,
+    "alignedCompactCards": true,
+    "emptyMessagesClean": true,
+    "name": "mobile",
+    "listY": 2804,
+    "firstPaint": {
+      "y": 0,
+      "heading": 410.75
+    },
+    "historyAndBothReturnButtonsRestorePosition": true,
+    "sourceTextOnly": true,
+    "imagesUncropped": true,
+    "singleShoppingDisclosure": true,
+    "noHorizontalOverflow": true
+  }
+]

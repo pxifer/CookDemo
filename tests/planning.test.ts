@@ -81,7 +81,7 @@ test('自定义20道：库存不足说明，补买遵循指定数量而非候选
 test('补买不越过内容类别与过敏限制，不通过重复菜谱凑20道', async () => {
   const m = mealWith('土豆200g'); m.allowBuy = true; m.composition = 'custom'; m.counts = { meat: 0, veg: 20, soup: 0 };
   const result = await recommend([simpleRecipe('a', [['potato', 100]])], request(m));
-  assert.equal(result.dishes.length, 1); assert(!result.targetMet); assert(result.reasons.some(r => r.includes('目录外菜谱')));
+  assert.equal(result.dishes.length, 1); assert(!result.targetMet); assert(result.reasons.some(r => r.includes('目前可搭配 1 道')));
   m.restrictions = [{ id: 'r', kind: 'allergy', name: '土豆', targets: ['potato'], status: 'confirmed', scope: 'self', original: '土豆' }];
   assert.equal(checkDish(simpleRecipe('a', [['potato', 100]]), simpleRecipe('a', [['potato', 100]]).variants[0], m).dish, undefined);
 });
