@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="V-01 / V-09: 运行时Schema、来源和CSRF拒绝、无秘密错误输出、OpenAPI" time="0.830521" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\api.test.ts"/>
+	<testcase name="V-04 / V-07: NDJSON唯一终态、真实完整结果、旧版本拒绝" time="0.113278" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\api.test.ts"/>
+	<testcase name="服务端不信任客户端确认后的伪造限制范围和重复食材" time="0.029942" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\api.test.ts"/>
+	<testcase name="本机测试身份：显式启用、不可伪造、绑定游客、退出撤销且不返回凭证" time="0.034738" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\api.test.ts"/>
+	<testcase name="健康测试只接受服务端登录，保留硬限制并明确没有执行疾病规则" time="0.072140" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\api.test.ts"/>
+	<testcase name="加密备份可恢复二进制，独立随机nonce；拒绝覆盖已有归档和恢复目标" time="0.620923" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\backup-archive.test.ts"/>
+	<testcase name="错误密钥、头部/密文/认证标签篡改及截断均在恢复前拒绝，清理不完整明文" time="0.223298" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\backup-archive.test.ts"/>
+	<testcase name="导出途中失败不发布归档，已有文件与部分输出清理边界保持正确" time="0.020724" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\backup-archive.test.ts"/>
+	<testcase name="候选纠错保留原文指纹，切法不变食材，数量区间不拆行，味型与配料一致" time="0.009921" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-curation.test.ts"/>
+	<testcase name="纠错原记录发生变化则停止，不能将旧补丁套到新原方" time="0.000930" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-curation.test.ts"/>
+	<testcase name="candidate gallery reads unapproved recipes only in local mode and keeps them unpublished" time="0.716885" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-library.test.ts"/>
+	<testcase name="candidate gallery route is absent outside local environment" time="0.042729" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-library.test.ts"/>
+	<testcase name="real local PostgreSQL candidate rows and generated image paths are served" time="9.501937" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-library.test.ts"/>
+	<testcase name="candidate database failure is a recoverable 503 without driver details" time="0.038655" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-library.test.ts"/>
+	<testcase name="空食材允许补买可看默认候选；不允许时提示，未知食材不冒充空清单" time="0.012110" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\catalog-ui.test.ts"/>
+	<testcase name="空食材补买仍执行过敏、口味、调料与健康准入；自定义不受复用门槛误拦" time="0.021597" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\catalog-ui.test.ts"/>
+	<testcase name="本地新版口味来自菜谱变体，调料只展示目录内记录，旧草稿清除失效覆盖" time="0.001405" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\catalog-ui.test.ts"/>
+	<testcase name="内容导入保持草稿隔离，发布后读取食材/营养/步骤/变体，不回退源码目录" time="2.629262" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\content.test.ts"/>
+	<testcase name="非法内容与中途SQL失败整体回滚；发布失败仍为草稿；撤回后不能发布或回滚复活" time="1.570440" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\content.test.ts"/>
+	<testcase name="数据库内容错误有明确503/409，空内容、来源撤回和数据篡改不返回构造备用结果" time="2.512506" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\content.test.ts"/>
+	<testcase name="并行内容上下文不污染全局目录；成分包含限制及跨版本游标有效" time="0.010369" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\content.test.ts"/>
+	<testcase name="部署配置：生产入口拒绝测试身份、构造数据、缺密钥及不可信来源" time="0.002253" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\deployment.test.ts"/>
+	<testcase name="配置失败不回显连接串、密码或不可读取的秘密文件路径" time="0.001033" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\deployment.test.ts"/>
+	<testcase name="版本迁移可重复、保留既有数据、漂移拒绝；空表不等于正式内容" time="2.438758" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\deployment.test.ts"/>
+	<testcase name="历史001需显式接管，建表失败整体回滚；非法配料关系不进入结构" time="2.298078" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\deployment.test.ts"/>
+	<testcase name="部署探针区分结构/正式开放；待录入环境不回退构造菜谱" time="2.164955" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\deployment.test.ts"/>
+	<testcase name="数据库故障返回503且不泄露上游错误；会话签名可跨实例验证" time="0.086449" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\deployment.test.ts"/>
+	<testcase name="AC-02: 连续中文拆分、约量与原文保留" time="0.036740" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-03: 混合类型、人数与疾病名称只形成候选" time="0.002075" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-07: 否定与允许表达不能变成新过敏或清除旧限制" time="0.000678" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="连续食材后紧接过敏短语仍按类型拆分" time="0.000647" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-04: 同名数量冲突保留旧值不相加" time="0.000940" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-05: 未理解片段留待归类，不静默吞掉限制" time="0.000450" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-09: 精确单位、选填、约量、无单位及精度" time="0.000702" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AR-M01: 相同单位但毛净重、带骨、生熟或未知基准不可比较" time="0.000985" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="B03 / AC-10: 鸡蛋克与个不可比较，允许推荐但结果标未核实" time="0.005841" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="B01 / D0-01: 未知过敏、忌口、未分类和待确认范围阻断" time="0.015427" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-06 / AC-08: 已确认类别排除范围，本人与附加限制并集" time="0.026238" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-12: 调味料库存关闭仍检查过敏成分与未知复合配料" time="0.000770" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-11 / AC-12: 必需调料缺失排除，可省配料明确省略" time="0.000690" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="B04 / AC-14: 非法人数及组合被服务端拒绝" time="0.014649" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="用户新确认: 默认一荤两素，库存不足按可行性调整" time="0.073333" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-10: 套餐累计库存不能由逐菜通过替代" time="0.000909" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="B06 / D7-14: 补买按固定菜谱量计算差额，不随12人放大" time="0.001278" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-13: 套餐整体复用与候选逐道复用不同，盐油不充数" time="0.000820" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AR-M02 / AC-17: 首批超过60个创意候选仍召回全部家常层，六张父菜谱分页" time="0.003920" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-18: 单换固定其余菜，实际更新；重推存在替代时改变组合" time="0.111227" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AC-19 / AC-20: 变体改变调料与步骤，手动口味优先且全套复核" time="0.004045" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AR-O03 / D4-08: 搜索超限仍只发布已核验小套餐，不伪报无解；取消响应" time="0.004578" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="撤回独立于固定内容版本，最终发布前再次核验" time="0.000881" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="D4-09: 独立穷举小目录对照自定义组合和未知量" time="0.013050" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="D1-04: 单项营养缺失不以部分和冒充总量，完整项保留" time="0.000810" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="变体主料不可悄悄改变" time="0.000388" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="AR-M04: 完整规则发布绑定、漏项、混版、组合、条件与撤回负例" time="0.000602" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\domain.test.ts"/>
+	<testcase name="图鉴全部145道进入本机推荐，每个父菜谱均可翻页召回，旧收藏ID保持" time="0.444476" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\gallery-content.test.ts"/>
+	<testcase name="未核对配料不绕过过敏/忌口；未知原方量不当0或足量，混合累计保留未知" time="0.142414" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\gallery-content.test.ts"/>
+	<testcase name="食材分类忽略可省/可选项，主料部位选项不等于整项可省" time="0.000410" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\gallery-content.test.ts"/>
+	<testcase name="图鉴链接往返保留搜索筛选、页码、菜名和真实口味，内部来源地址不进入链接" time="0.003215" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\library-state.test.ts"/>
+	<testcase name="有限链接边界：负数、小数、超长和非数字页码受限，输入长度与控制符受限" time="0.000969" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\library-state.test.ts"/>
+	<testcase name="D7-04: 已知食材直接使用，未知名称不伪造标准食材，调料不进入主料清单" time="0.007556" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\meal-input.test.ts"/>
+	<testcase name="D7-04: 选填单位空值保持空值，g/kg换算、约量和带单位粘贴保留" time="0.000601" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\meal-input.test.ts"/>
+	<testcase name="D7-04: 同名不同数量保留原值、换算相同不冲突、重复空值不清空" time="0.010865" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\meal-input.test.ts"/>
+	<testcase name="D7-04: 去掉基准控件不假定净量，也不把克数当鸡蛋个数" time="0.004005" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\meal-input.test.ts"/>
+	<testcase name="D7-06: 恢复旧本餐时按补买切换模式，不改变数量冲突或同行人开关" time="0.007051" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\meal-input.test.ts"/>
+	<testcase name="V-09: AES-GCM绑定用户、用途、版本，防改密文与随机nonce" time="0.004523" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\persistence.test.ts"/>
+	<testcase name="V-05: PostgreSQL迁移、版本冲突、用户隔离、加密存储、禁用后迟到写入" time="2.563012" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\persistence.test.ts"/>
+	<testcase name="AR-M05 / V-03: 同操作不可变、原子认领、全局额度、共享两次预算与未知状态" time="1.210754" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\persistence.test.ts"/>
+	<testcase name="AR-M05: 多主体共享平台额度；BYOK失败没有自动补救" time="1.120360" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\persistence.test.ts"/>
+	<testcase name="AR-M06: 清除意图持久、身份即时禁用、故障后续办、未知撤销覆盖拒绝开放恢复" time="1.426752" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\persistence.test.ts"/>
+	<testcase name="人数参考覆盖1～12人，2/3人两荤三素，参考不是自定义限制" time="0.002811" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="取消自定义忽略残留空值/超量，恢复为自动且保留食材与补买选择" time="0.010314" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="自动按人数与累计食材量调整：2人五道、4人七道，量少则减少" time="0.092243" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="自动参考是软目标，可为更多现有主料选择超过参考的菜数" time="0.001494" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="未核实重量仍用于保守搭配估算，不伪造净量或可比单位" time="0.001642" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="自定义20道：库存不足说明，补买遵循指定数量而非候选六道，换菜保留19道" time="0.039396" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="补买不越过内容类别与过敏限制，不通过重复菜谱凑20道" time="0.000837" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="等价口味优化不丢失用量不同的变体，手选口味保留并复核整套库存" time="0.000902" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="API接受20道请求和20个已选项，自动模式不再校验自定义总数" time="1.022606" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="D7-14: 1/2/3/12人使用同一菜谱整道量、营养与累计补买差额，不按人数或标准份数缩放" time="0.033661" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="D7-14: 固定自定义菜数时，人数不影响选菜、口味、用量或库存结果" time="0.001588" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\planning.test.ts"/>
+	<testcase name="真实社区资料只导入核过的用量步骤，不导入构造营养或简介功效" time="0.011011" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\reviewed-content.test.ts"/>
+	<testcase name="社区来源经事务发布回读；撤证据立即失效，拒绝伪造reviewed标记" time="2.706772" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\reviewed-content.test.ts"/>
+	<!-- tests 82 -->
+	<!-- suites 0 -->
+	<!-- pass 82 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 11601.7316 -->
+</testsuites>

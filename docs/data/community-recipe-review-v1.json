@@ -1,0 +1,218 @@
+{
+  "checkedAt": "2026-10-22T17:24:15.388Z",
+  "reviewLevel": "source-and-structure",
+  "professionalReview": false,
+  "selections": [
+    {
+      "id": "R270",
+      "recipeId": "community-spinach-eggs",
+      "minutes": 15,
+      "servings": 1,
+      "flavor": "咸鲜",
+      "blobSha": "5bd71d3b27ed568014bcfd054db4995dc5440d80",
+      "imageUrl": "/assets/recipes/spinach-scrambled-eggs-finedining-v1.png",
+      "lines": [
+        {
+          "foodId": "spinach",
+          "amount": 350,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "egg",
+          "amount": 2,
+          "unit": "个",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "oil",
+          "amount": 15,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "salt",
+          "amount": 5,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "water",
+          "amount": 100,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        }
+      ],
+      "reviewNotes": [
+        "按原文补入步骤中的饮用水100ml；未保留简介健康功效和预估热量",
+        "原文按1份；整道配方不按用餐人数缩放"
+      ],
+      "cardSha256": "e8517d15192cbf3cdd9abfa8672ca57079d1b2ac6630f5794d599e2a3611366d"
+    },
+    {
+      "id": "R391",
+      "recipeId": "community-qianlong-cabbage",
+      "minutes": 10,
+      "servings": 2,
+      "flavor": "麻酱酸甜",
+      "blobSha": "6ed9095b7bbc66f66b4711e0aa0e7c0324774fbc",
+      "imageUrl": "/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png",
+      "lines": [
+        {
+          "foodId": "cabbage",
+          "amount": 300,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "sesame-paste",
+          "amount": 30,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "aged-vinegar",
+          "amount": 45,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "sugar",
+          "amount": 5,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "sesame-oil",
+          "amount": 5,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "salt",
+          "amount": 1,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "toasted-sesame",
+          "amount": 3,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": true
+        }
+      ],
+      "reviewNotes": [
+        "原文明确酸甜、麻酱风味，将此前粗分的咸鲜纠正为麻酱酸甜",
+        "仅取白菜嫩叶；计量基准不推定为可食净量",
+        "芝麻酱具体产品成分未知，保持复合配料未知状态"
+      ],
+      "cardSha256": "9852197838749da52aa16aa0e440669f56ce44bd1e4ecf83abc9e91eae14df06"
+    },
+    {
+      "id": "R332",
+      "recipeId": "community-winter-melon-chicken",
+      "minutes": 35,
+      "servings": 2,
+      "flavor": "咸鲜",
+      "blobSha": "a1587d1cb65d60013ff98ac92cf69fa47666b115",
+      "imageUrl": "/assets/recipes/winter-melon-steamed-chicken-finedining-v1.png",
+      "lines": [
+        {
+          "foodId": "chicken",
+          "amount": 400,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "winter-melon",
+          "amount": 300,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "cordyceps-flower",
+          "amount": 30,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "ginger",
+          "amount": 10,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "soy",
+          "amount": 15,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "oyster-sauce",
+          "amount": 10,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "salt",
+          "amount": 3,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        },
+        {
+          "foodId": "oil",
+          "amount": 10,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw"
+        }
+      ],
+      "reviewNotes": [
+        "35分钟和2份依据原文；不补写备菜时间",
+        "姜丝按调料管理，蚝油10g不改成ml",
+        "鸡肉未给毛净重及带骨信息，不臆测换算，库存保持未核实"
+      ],
+      "cardSha256": "33eda3e6ece443635e94acf0ac673c4494c1cfced2b7797a611687fbd0962d05"
+    }
+  ]
+}

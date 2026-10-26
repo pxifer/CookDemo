@@ -1,0 +1,16 @@
+{
+  "releaseId": "composition-review-20261024-v1",
+  "hash": "53ce824bff66238765091a9b145c4a38f57e0e4d8819de936a1721a688007c07",
+  "baseHash": "a8672d832d83d0e77fcd331334612a5a3697e89b301d2c49183cd0f830b1063b",
+  "variantRecords": 146,
+  "verifiedRecipes": [
+    "gallery-219f834a020d8a1e",
+    "gallery-7883a9dc2be771ba"
+  ],
+  "pendingRecords": 144,
+  "globalCompletenessChanged": false,
+  "unknownCompoundStillBlocked": true,
+  "nutritionInferred": false,
+  "sqlRoundTrip": true,
+  "anonWriteDenied": true
+}

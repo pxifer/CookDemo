@@ -1,0 +1,29 @@
+[
+  {
+    "id": "R354",
+    "dish": "上汤娃娃菜",
+    "name": "baby-napa-cabbage-superior-broth-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining restaurant menu photo of 上汤娃娃菜: tender pale yellow baby napa cabbage quarters neatly arranged in a small ivory porcelain bowl with a clear light golden broth, a few fine enoki mushrooms, small pink luncheon-meat cubes and small dark translucent century-egg pieces, tiny scallion garnish. Ingredients must visibly match this exact dish. Elegant high-end restaurant styling, warm directional window light, generous restrained negative space, realistic succulent texture, clean beige stone tabletop, beautiful sophisticated editorial food photography. No broccoli, no tomato, no unrelated vegetables, no text, no logo, no people, no watermark. Landscape 4:3.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/baby-napa-cabbage-superior-broth-finedining-v1.png",
+    "review": "视觉核对主料及菜名匹配；仍待内容审核"
+  },
+  {
+    "id": "R391",
+    "dish": "乾隆白菜",
+    "name": "qianlong-sesame-napa-cabbage-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining restaurant menu photo of authentic 乾隆白菜: raw tender pale yellow inner napa cabbage leaves torn by hand, lightly and evenly coated in a creamy tan sesame-paste and aged-vinegar dressing, topped only with a tiny sprinkle of toasted white sesame seeds. Small beautifully sculptural salad on refined wide ivory ceramic plate with intentional negative space. Must look like fresh tender raw cabbage leaves dressed in tahini, not cooked green vegetables. High-end tasting menu editorial photograph, warm soft window side light, premium tactile detail, elegant calm stone tabletop. No meat, no chili, no unrelated garnish, no text, logo, watermark or people. Landscape 4:3.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png",
+    "review": "视觉核对主料及菜名匹配；仍待内容审核"
+  },
+  {
+    "id": "R332",
+    "dish": "冬瓜桑拿鸡",
+    "name": "winter-melon-steamed-chicken-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining restaurant menu photo of authentic 冬瓜桑拿鸡: juicy steamed small chicken pieces resting on thin translucent winter melon slices, vivid fine orange cordyceps flower mushroom strands between chicken and melon, a few fine ginger slivers, small amount of clear golden steaming juices. All ingredients visible and identifiable, no additional vegetables or herbs. Elegant layered presentation in a shallow wide ivory porcelain bowl, Michelin-level Chinese restaurant menu styling, restrained negative space, beautiful warm directional natural light, appetizing realistic chicken texture, neutral stone background. No broccoli, no tomato, no text, no logos, no people, no watermark. Landscape 4:3.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/winter-melon-steamed-chicken-finedining-v1.png",
+    "review": "视觉核对主料及菜名匹配；仍待内容审核"
+  }
+]

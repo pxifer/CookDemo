@@ -1,0 +1,38 @@
+[
+  {
+    "id": "R411",
+    "dish": "宫保鸡丁",
+    "name": "kung-pao-chicken-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Gong bao chicken, simple recipe reference: small succulent chicken cubes in glossy reddish-brown light sauce, golden roasted peanuts, chunky round white scallion segments, dried red chili sections and a few Sichuan peppercorns. Carefully arranged compact low mound. No cucumber, carrots, lettuce, green peas, sesame or rice.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/kung-pao-chicken-finedining-v1.png",
+    "review": "按对应候选原方核对主料形态及额外配料，原创生成成品示意，仍待审核"
+  },
+  {
+    "id": "R412",
+    "dish": "麻婆豆腐",
+    "name": "silken-tofu-pork-duck-egg-white-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. This particular mapo-style recipe uses very soft ivory silken tofu cubes, tiny fully cooked minced pork, finely crumbled cooked salted duck egg WHITE, minced ginger and garlic, small red bird's-eye chili slices and Sichuan peppercorns in a light reddish savory sauce. Shallow elegant porcelain bowl. No egg yolk, no whole egg, no scallions, no sesame, not firm fried tofu.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/silken-tofu-pork-duck-egg-white-finedining-v1.png",
+    "review": "按对应候选原方核对主料形态及额外配料，原创生成成品示意，仍待审核"
+  },
+  {
+    "id": "R413",
+    "dish": "回锅肉",
+    "name": "twice-cooked-pork-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Sichuan twice-cooked pork: thin gently curled pork belly slices with distinct lean meat and translucent rendered fat, bright green garlic shoot segments, green and red chili pieces, tiny ginger, a glossy reddish fermented broad-bean chili sauce coating. Refined low arrangement, no black fermented beans, no cabbage, no carrots, no rice.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/twice-cooked-pork-finedining-v1.png",
+    "review": "按对应候选原方核对主料形态及额外配料，原创生成成品示意，仍待审核"
+  },
+  {
+    "id": "R414",
+    "dish": "手撕包菜",
+    "name": "torn-cabbage-pork-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Hand-torn cabbage stir-fried WITH pork belly: irregular tender bright green and pale cabbage leaves with gently blistered edges, thin well-cooked pork belly slices, a few dried red chili sections, garlic slices, tiny ginger and green garlic shoot segments. Clear light savory sheen, refined compact low mound. No carrots, no broccoli, no sesame. Pork must be visibly present.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/torn-cabbage-pork-finedining-v1.png",
+    "review": "按对应候选原方核对主料形态及额外配料，原创生成成品示意，仍待审核"
+  }
+]

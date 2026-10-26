@@ -1,0 +1,12 @@
+{
+  "runtime": "v24.22.1",
+  "tests": 124,
+  "passed": 123,
+  "failed": 0,
+  "skipped": 1,
+  "strictTypecheckPassed": true,
+  "frontendBuildPassed": true,
+  "compositionTestsPassed": 6,
+  "healthModeOpened": false,
+  "globalFoodCompletenessMutated": false
+}

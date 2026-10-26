@@ -1,0 +1,21 @@
+{
+  "verifiedAt": "2026-10-24T12:45:11.412Z",
+  "phase": "after",
+  "network": "local-client-to-Shanghai",
+  "sampleCount": 1,
+  "times": {
+    "guestSessionMs": 322,
+    "loginPostMs": 952,
+    "confirmedSessionMs": 167,
+    "totalLoginPathMs": 1119,
+    "saveSettingsMs": 248,
+    "otherDeviceGuestMs": 81,
+    "otherDeviceLoginMs": 558,
+    "otherDeviceSettingsMs": 145,
+    "otherDeviceLogoutMs": 143
+  },
+  "syntheticAccount": true,
+  "personalSettingsVerified": true,
+  "personalContentsPrinted": false,
+  "includesColdStartUncontrolled": true
+}

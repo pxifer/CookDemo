@@ -1,4 +1,5 @@
 import { CONTENT_VERSION, type Food, type Line, type Recipe } from './types';
+import { contentContext } from './content';
 
 // All entries are constructed development content. No medical or nutrition claims.
 const food = (id: string, name: string, aliases: string[] = [], unit: Food['unit'] = 'g', allergens: string[] = []): Food =>
@@ -74,8 +75,9 @@ export function validateCatalog(catalog: Recipe[]) {
     for (const v of r.variants) {
       if (variants.has(v.id) || !v.steps.length || mains(v.lines) !== mains(r.variants[0].lines)) throw new Error('Variant changes main ingredients');
       variants.add(v.id);
-      for (const l of v.lines) if (!foodById.has(l.foodId) || !Number.isFinite(l.amount) || l.amount <= 0) throw new Error('Invalid ingredient');
+      for (const l of v.lines) if (!foodById.has(l.foodId) || l.amount === null || !Number.isFinite(l.amount) || l.amount <= 0) throw new Error('Invalid ingredient');
     }
   }
 }
 validateCatalog(recipes);
+export const constructedContent = contentContext({ contentVersion: CONTENT_VERSION, contentState: 'constructed', foods, recipes, categories });

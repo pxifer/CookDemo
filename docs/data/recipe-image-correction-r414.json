@@ -1,0 +1,11 @@
+{
+  "id": "R414",
+  "dish": "手撕包菜",
+  "name": "torn-cabbage-pork-finedining-v2.png",
+  "prompt": "Edit this dish photograph: replace every dried dark-red chili section with small fresh bright-red bird's-eye chili slices, matching the recipe. Preserve torn cabbage, pork belly, garlic slices, ginger, green garlic shoots, fine-dining ivory plate, composition and lighting. No dried chilies should remain.",
+  "tool": "built-in image_gen",
+  "asset": "public/assets/recipes/torn-cabbage-pork-finedining-v2.png",
+  "review": "v1误呈干辣椒，v2改为原方小米辣；其余食材与摆盘保留，仍待审核",
+  "initialPrompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Hand-torn cabbage stir-fried WITH pork belly: irregular tender bright green and pale cabbage leaves with gently blistered edges, thin well-cooked pork belly slices, a few dried red chili sections, garlic slices, tiny ginger and green garlic shoot segments. Clear light savory sheen, refined compact low mound. No carrots, no broccoli, no sesame. Pork must be visibly present.",
+  "rejectedAsset": "acceptance/continuous-2026-10-23/image-rejected/torn-cabbage-pork-finedining-v1.png"
+}

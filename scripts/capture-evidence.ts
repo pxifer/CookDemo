@@ -7,7 +7,10 @@ async function files(folder: string): Promise<string[]> {
   const nested = await Promise.all(entries.map(e => e.isDirectory() ? files(`${folder}${e.name}/`) : [`${folder}${e.name}`]));
   return nested.flat();
 }
-const paths = ['package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts', 'playwright.config.ts', 'docs/PRD.md', ...await files('src/'), ...await files('shared/'), ...await files('server/'), ...await files('tests/'), ...await files('scripts/'), ...['index.html', 'styles.css', 'data.js', 'engine.js', 'app.js'].map(f => `dist/${f}`)];
+const paths = ['package.json', 'package-lock.json', 'tsconfig.json', 'vite.config.ts', 'playwright.config.ts', 'docs/PRD.md',
+  'Dockerfile', '.dockerignore', '.gitattributes', '.env.example', 'docs/DEPLOYMENT-RUNBOOK.md', 'docs/DEPLOYMENT-STATUS.md',
+  'playwright.business.config.ts', 'docs/ACCEPTANCE-local-business.md',
+  ...await files('deploy/'), ...await files('cloudbase/migrations/'), ...await files('src/'), ...await files('shared/'), ...await files('server/'), ...await files('tests/'), ...await files('scripts/'), ...['index.html', 'styles.css', 'data.js', 'engine.js', 'app.js'].map(f => `dist/${f}`)];
 const hashes: Record<string, string> = {};
 for (const path of paths.sort()) hashes[path] = createHash('sha256').update(await readFile(new URL(path, root))).digest('hex');
 const evidenceRoot = new URL(`${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/`, root);

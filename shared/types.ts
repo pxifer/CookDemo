@@ -4,6 +4,7 @@ export interface Food {
   id: string; name: string; aliases: string[]; unit: 'g' | '个' | 'ml';
   form: string; allergens: string[]; componentsComplete: boolean;
   nutrition: Partial<Record<'kcal' | 'protein' | 'sodium', number>>;
+  nutritionSources?: Partial<Record<'kcal' | 'protein' | 'sodium', { sourceId: string; sourceVersion: string; recordId: string; unit: string; basisGrams: 100 }>>;
 }
 export interface Ingredient {
   id: string; foodId: string | null; name: string; amount: string; quantityUnit?: string;
@@ -21,18 +22,24 @@ export interface Extraction {
   method: 'local-dictionary';
 }
 export interface Line {
-  foodId: string; amount: number; unit: 'g' | '个' | 'ml';
+  foodId: string; amount: number | null; unit: 'g' | '个' | 'ml';
   role: 'main' | 'auxiliary' | 'seasoning'; basis: Basis; form: string;
-  optional?: boolean; edibleGrams?: number;
+  optional?: boolean; edibleGrams?: number; sourceText?: string;
 }
 export interface Variant {
   id: string; flavor: string; lines: Line[]; steps: string[];
+  methodLabel?: string;
+  methodOptions?: { label: string; steps: string[] }[];
+  ingredientNotes?: string[]; reviewNotes?: string[];
 }
 export interface Recipe {
   id: string; name: string; category: Category; homeStyle: boolean;
-  minutes: number; servings: number; image: 'meat' | 'veg' | 'meal';
+  minutes: number | null; servings: number; image: 'meat' | 'veg' | 'meal';
+  imageUrl?: string;
   version: string; state: 'published' | 'withdrawn'; variants: Variant[];
-  source: { kind: 'constructed'; author: string; license: string; reviewed: false };
+  publicAttribution?: { label: string; url: string };
+  source: { kind: 'constructed' | 'community' | 'local-candidate'; author: string; license: string; reviewed: boolean;
+    uri?: string; reviewBasis?: 'source-and-structure'; commit?: string; recordId?: string };
 }
 export interface Meal {
   version: number; raw: string; ingredients: Ingredient[]; restrictions: Restriction[];
@@ -44,7 +51,7 @@ export interface Meal {
 }
 export interface QuantityCheck {
   foodId: string; name: string; state: 'enough' | 'shortage' | 'unverified' | 'missing';
-  needed: number; available: number | null; shortage: number | null; unit: string;
+  needed: number | null; available: number | null; shortage: number | null; unit: string;
   reason: string; basis: Basis;
 }
 export interface Dish {
@@ -53,6 +60,7 @@ export interface Dish {
   reused: string[]; omitted: string[];
 }
 export interface RecommendationRequest {
+  contentVersion?: string;
   operationId: string; meal: Meal; action: 'generate' | 'reroll' | 'replace' | 'page' | 'variant';
   selected: { recipeId: string; variantId: string }[]; replaceId?: string;
   page: number; cursor?: string; previous: string[];

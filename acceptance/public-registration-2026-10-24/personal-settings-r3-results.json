@@ -1,0 +1,436 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.registration.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.registration.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/public-registration-2026-10-24/personal-settings-r3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/public-registration-2026-10-24/personal-settings-r3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-r3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-r3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/public-registration-2026-10-24/personal-settings-r3-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx tests/registration-server.ts",
+      "url": "http://127.0.0.1:4178/healthz",
+      "reuseExistingServer": false,
+      "env": {
+        "REGISTRATION_E2E_TEST": "1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "registration-browser.spec.ts",
+      "file": "registration-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4912,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:33:27.329Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-84b6ac73e7da90fce51d",
+          "file": "registration-browser.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60304,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 45,
+                        "line": 82
+                      },
+                      "message": "Error: locator.uncheck: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('食用盐', { exact: true })\u001b[22m\n\n\n  80 |   }\n  81 |   await page.locator('.preference-shortcuts').getByRole('button',{name:/调料/}).click();await page.getByLabel('只使用家里现有的调料',{exact:true}).check();\n> 82 |   await page.getByLabel('盐',{exact:true}).uncheck();await page.getByRole('button',{name:'完成',exact:true}).click();\n     |                                             ^\n  83 |   await expect.poll(async()=>{const data=await(await page.request.get('/api/v1/account/state')).json();return data.value.defaults;}).toMatchObject({flavor:'微辣',checkSeasonings:true,restrictions:[{name:'花生'},{name:'牛肉'}]});\n  84 |   await expect.poll(()=>uploads.length).toBeGreaterThan(0);\n  85 |   for(const body of uploads){expect(Object.keys(body.value.defaults).sort()).toEqual(['checkSeasonings','flavor','restrictions','seasonings']);}\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:82:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:33:33.134Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-r3\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-r3\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-bf21711c7f9bde118697",
+          "file": "registration-browser.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:34:35.283Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-1e52c28fdf746df3ca50",
+          "file": "registration-browser.spec.ts",
+          "line": 99,
+          "column": 1
+        },
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5933,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:34:41.346Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-cba979c78d9f2d352437",
+          "file": "registration-browser.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60142,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 45,
+                        "line": 82
+                      },
+                      "message": "Error: locator.uncheck: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('食用盐', { exact: true })\u001b[22m\n\n\n  80 |   }\n  81 |   await page.locator('.preference-shortcuts').getByRole('button',{name:/调料/}).click();await page.getByLabel('只使用家里现有的调料',{exact:true}).check();\n> 82 |   await page.getByLabel('盐',{exact:true}).uncheck();await page.getByRole('button',{name:'完成',exact:true}).click();\n     |                                             ^\n  83 |   await expect.poll(async()=>{const data=await(await page.request.get('/api/v1/account/state')).json();return data.value.defaults;}).toMatchObject({flavor:'微辣',checkSeasonings:true,restrictions:[{name:'花生'},{name:'牛肉'}]});\n  84 |   await expect.poll(()=>uploads.length).toBeGreaterThan(0);\n  85 |   for(const body of uploads){expect(Object.keys(body.value.defaults).sort()).toEqual(['checkSeasonings','flavor','restrictions','seasonings']);}\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:82:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:34:48.211Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-r3\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-r3\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-32f6f210c62062bbaa5c",
+          "file": "registration-browser.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1409,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:35:50.179Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-772c42dc92ae87ae76c0",
+          "file": "registration-browser.spec.ts",
+          "line": 99,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T12:33:23.483Z",
+    "duration": 151073.524,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R288",
+    "dish": "蒜蓉炒芹菜",
+    "name": "garlic-chinese-celery-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic appetizing texture, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, logos, people, utensils or unrelated garnish. Garlic stir-fried Chinese small-stalk celery: slim crisp vivid green celery stems cut 4-5cm long, a few tender celery leaves and finely minced garlic in a clear light glossy coating. Refined compact aligned low mound on an ivory plate. No meat, chili, carrots, onion, sesame or thick brown sauce.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/garlic-chinese-celery-finedining-v1.png",
+    "review": "核原方芹菜细梗、土豆糖丝、茶树菇、洋葱花、无辣金针菇及去皮糖番茄；生成示意仍待审核"
+  },
+  {
+    "id": "R303",
+    "dish": "拔丝土豆",
+    "name": "caramelized-potato-sugar-threads-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic appetizing texture, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, logos, people, utensils or unrelated garnish. Chinese ba si potatoes: golden fried irregular potato chunks coated in a thin glossy amber caramel shell, delicate fine pulled caramel threads connecting a few pieces, lightly sprinkled white sesame seeds. Elegant small arrangement on a broad ivory plate. Clearly potato, not sweet potato; no cheese, chocolate, fruit, herbs, forks or hands.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/caramelized-potato-sugar-threads-finedining-v1.png",
+    "review": "核原方芹菜细梗、土豆糖丝、茶树菇、洋葱花、无辣金针菇及去皮糖番茄；生成示意仍待审核"
+  },
+  {
+    "id": "R305",
+    "dish": "芹菜拌茶树菇",
+    "name": "celery-tea-tree-mushroom-salad-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic appetizing texture, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, logos, people, utensils or unrelated garnish. Chinese celery and prepared tea-tree mushroom salad: slender tender green celery stems and a few celery leaves mixed with long thin brown tea-tree mushroom stems and small tan-brown caps, lightly dressed in a clear brown savory sesame-soy dressing. Delicately twirled low mound on a shallow ivory plate. No shiitake slices, meat, chili, sesame seeds or carrots.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/celery-tea-tree-mushroom-salad-finedining-v1.png",
+    "review": "核原方芹菜细梗、土豆糖丝、茶树菇、洋葱花、无辣金针菇及去皮糖番茄；生成示意仍待审核"
+  },
+  {
+    "id": "R310",
+    "dish": "炸洋葱花",
+    "name": "crispy-blooming-onion-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic appetizing texture, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, logos, people, utensils or unrelated garnish. One whole blooming onion fried to crisp golden brown, many thin naturally opened onion petals arranged like a flower around an intact base, fine craggy light batter dusted with tiny black pepper and paprika flecks. Small central pool of red tomato dipping sauce directly between the petals, no separate dipping bowl. Elegant wide ivory plate. No herbs, cheese, meat or text.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/crispy-blooming-onion-finedining-v1.png",
+    "review": "核原方芹菜细梗、土豆糖丝、茶树菇、洋葱花、无辣金针菇及去皮糖番茄；生成示意仍待审核"
+  },
+  {
+    "id": "R358",
+    "dish": "凉拌金针菇",
+    "name": "chilled-enoki-garlic-salad-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic appetizing texture, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, logos, people, utensils or unrelated garnish. Cold dressed fully cooked enoki mushrooms: long fine creamy ivory stems with tiny round caps, neatly gathered into a graceful low mound, finely minced garlic and fine green scallion bits on top, light soy-vinegar-sesame dressing. This is the non-chili reference, no chili oil, no red pepper, no meat, cucumber or sesame seeds.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/chilled-enoki-garlic-salad-finedining-v1.png",
+    "review": "核原方芹菜细梗、土豆糖丝、茶树菇、洋葱花、无辣金针菇及去皮糖番茄；生成示意仍待审核"
+  },
+  {
+    "id": "R380",
+    "dish": "糖拌番茄",
+    "name": "sugared-tomato-salad-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic appetizing texture, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, logos, people, utensils or unrelated garnish. Chinese sugared tomato salad: peeled ripe red tomato wedges with natural juicy seed chambers visible, elegantly overlapped in a shallow circular arrangement on a broad ivory plate, small sparkling white sugar crystals lightly melting on their surfaces, a little clear pink tomato juice at base. No green skins, no basil, mint, cheese, chili or savory dressing.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/sugared-tomato-salad-finedining-v1.png",
+    "review": "核原方芹菜细梗、土豆糖丝、茶树菇、洋葱花、无辣金针菇及去皮糖番茄；生成示意仍待审核"
+  }
+]

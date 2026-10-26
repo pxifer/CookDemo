@@ -1,0 +1,241 @@
+{
+  "config": {
+    "argv": [
+      "D:\\software\\node\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.cloudbase.config.ts",
+      "--grep",
+      "点击下一页"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.cloudbase.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/cloudbase-pagination-v24/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/cloudbase-preview.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/cloudbase-pagination-v24/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/cloudbase-preview.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/cloudbase-preview.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/cloudbase-preview.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/cloudbase-pagination-v24/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cloudbase-preview.spec.ts",
+      "file": "cloudbase-preview.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "云端：点击下一页会请求并显示下一组菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11339,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:29:04.076Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-905d3268053cb9a3e2d6",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 84,
+          "column": 1
+        },
+        {
+          "title": "云端：点击下一页会请求并显示下一组菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7282,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:29:17.460Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-748ae0c7a64a2a0bc891",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 84,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T07:29:03.377Z",
+    "duration": 22744.896,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

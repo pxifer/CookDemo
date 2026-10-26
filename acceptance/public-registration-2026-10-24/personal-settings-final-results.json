@@ -1,0 +1,542 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.registration.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.registration.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/public-registration-2026-10-24/personal-settings-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/public-registration-2026-10-24/personal-settings-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/public-registration-2026-10-24/personal-settings-final-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx tests/registration-server.ts",
+      "url": "http://127.0.0.1:4178/healthz",
+      "reuseExistingServer": false,
+      "env": {
+        "REGISTRATION_E2E_TEST": "1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "registration-browser.spec.ts",
+      "file": "registration-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11267,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '登录并同步', exact: true })\nExpected: visible\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '登录并同步', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '登录并同步', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '登录并同步', exact: true })\nExpected: visible\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '登录并同步', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '登录并同步', exact: true })\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:55:144",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                      "column": 144,
+                      "line": 55
+                    },
+                    "snippet": "  53 |     const separate=await(await otherPage.request.get('/api/v1/account/state')).json();expect(separate.value.favorites).toEqual([]);expect(separate.value.defaults.restrictions).toEqual([]);\n  54 |     const firstSession=await(await secondPage.request.get('/api/v1/auth/session')).json(),otherSession=await(await otherPage.request.get('/api/v1/auth/session')).json();expect(firstSession.userId).not.toBe(otherSession.userId);\n> 55 |     await otherPage.getByRole('button',{name:'退出登录',exact:true}).click();await expect(otherPage.getByRole('button',{name:'登录并同步',exact:true})).toBeVisible();\n     |                                                                                                                                                ^\n  56 |     expect((await otherPage.request.get('/api/v1/account/state')).status()).toBe(401);\n  57 |   }finally{await second.close();await other.close();}\n  58 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 144,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '登录并同步', exact: true })\nExpected: visible\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '登录并同步', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '登录并同步', exact: true })\u001b[22m\n\n\n  53 |     const separate=await(await otherPage.request.get('/api/v1/account/state')).json();expect(separate.value.favorites).toEqual([]);expect(separate.value.defaults.restrictions).toEqual([]);\n  54 |     const firstSession=await(await secondPage.request.get('/api/v1/auth/session')).json(),otherSession=await(await otherPage.request.get('/api/v1/auth/session')).json();expect(firstSession.userId).not.toBe(otherSession.userId);\n> 55 |     await otherPage.getByRole('button',{name:'退出登录',exact:true}).click();await expect(otherPage.getByRole('button',{name:'登录并同步',exact:true})).toBeVisible();\n     |                                                                                                                                                ^\n  56 |     expect((await otherPage.request.get('/api/v1/account/state')).status()).toBe(401);\n  57 |   }finally{await second.close();await other.close();}\n  58 | });\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:55:144"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:31:09.644Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-desktop\\test-failed-2.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-desktop\\test-failed-3.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                    "column": 144,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-84b6ac73e7da90fce51d",
+          "file": "registration-browser.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2207,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:71:105",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                      "column": 105,
+                      "line": 71
+                    },
+                    "snippet": "  69 |   let navigations=0,catalogRequests=0;page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations++;});page.on('request',r=>{if(r.url().includes('/catalog/recipes'))catalogRequests++;});\n  70 |   await page.getByRole('button',{name:'注册并登录',exact:true}).click();await expect(page.locator('.account-state')).toContainText(name);\n> 71 |   await expect(page.getByRole('status').filter({hasText:'注册成功，已登录'})).toBeVisible();expect(navigations).toBe(0);expect(catalogRequests).toBe(0);\n     |                                                                                                         ^\n  72 |   await expect(page.getByRole('button',{name:'立即同步',exact:true})).toHaveCount(0);await page.keyboard.press('Escape');\n  73 |   const uploads:any[]=[];page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/account/state'))uploads.push(r.postDataJSON());});\n  74 |   await page.getByRole('button',{name:'微辣',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 105,
+                        "line": 71
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  69 |   let navigations=0,catalogRequests=0;page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations++;});page.on('request',r=>{if(r.url().includes('/catalog/recipes'))catalogRequests++;});\n  70 |   await page.getByRole('button',{name:'注册并登录',exact:true}).click();await expect(page.locator('.account-state')).toContainText(name);\n> 71 |   await expect(page.getByRole('status').filter({hasText:'注册成功，已登录'})).toBeVisible();expect(navigations).toBe(0);expect(catalogRequests).toBe(0);\n     |                                                                                                         ^\n  72 |   await expect(page.getByRole('button',{name:'立即同步',exact:true})).toHaveCount(0);await page.keyboard.press('Escape');\n  73 |   const uploads:any[]=[];page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/account/state'))uploads.push(r.postDataJSON());});\n  74 |   await page.getByRole('button',{name:'微辣',exact:true}).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:71:105"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:31:23.928Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                    "column": 105,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-bf21711c7f9bde118697",
+          "file": "registration-browser.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3103,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:31:29.637Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-1e52c28fdf746df3ca50",
+          "file": "registration-browser.spec.ts",
+          "line": 99,
+          "column": 1
+        },
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12154,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '登录并同步', exact: true })\nExpected: visible\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '登录并同步', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '登录并同步', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '登录并同步', exact: true })\nExpected: visible\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '登录并同步', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '登录并同步', exact: true })\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:55:144",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                      "column": 144,
+                      "line": 55
+                    },
+                    "snippet": "  53 |     const separate=await(await otherPage.request.get('/api/v1/account/state')).json();expect(separate.value.favorites).toEqual([]);expect(separate.value.defaults.restrictions).toEqual([]);\n  54 |     const firstSession=await(await secondPage.request.get('/api/v1/auth/session')).json(),otherSession=await(await otherPage.request.get('/api/v1/auth/session')).json();expect(firstSession.userId).not.toBe(otherSession.userId);\n> 55 |     await otherPage.getByRole('button',{name:'退出登录',exact:true}).click();await expect(otherPage.getByRole('button',{name:'登录并同步',exact:true})).toBeVisible();\n     |                                                                                                                                                ^\n  56 |     expect((await otherPage.request.get('/api/v1/account/state')).status()).toBe(401);\n  57 |   }finally{await second.close();await other.close();}\n  58 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 144,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '登录并同步', exact: true })\nExpected: visible\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: '登录并同步', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '登录并同步', exact: true })\u001b[22m\n\n\n  53 |     const separate=await(await otherPage.request.get('/api/v1/account/state')).json();expect(separate.value.favorites).toEqual([]);expect(separate.value.defaults.restrictions).toEqual([]);\n  54 |     const firstSession=await(await secondPage.request.get('/api/v1/auth/session')).json(),otherSession=await(await otherPage.request.get('/api/v1/auth/session')).json();expect(firstSession.userId).not.toBe(otherSession.userId);\n> 55 |     await otherPage.getByRole('button',{name:'退出登录',exact:true}).click();await expect(otherPage.getByRole('button',{name:'登录并同步',exact:true})).toBeVisible();\n     |                                                                                                                                                ^\n  56 |     expect((await otherPage.request.get('/api/v1/account/state')).status()).toBe(401);\n  57 |   }finally{await second.close();await other.close();}\n  58 | });\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:55:144"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:31:35.851Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-mobile\\test-failed-2.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-mobile\\test-failed-3.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-mobile\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                    "column": 144,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-cba979c78d9f2d352437",
+          "file": "registration-browser.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1909,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:71:105",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                      "column": 105,
+                      "line": 71
+                    },
+                    "snippet": "  69 |   let navigations=0,catalogRequests=0;page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations++;});page.on('request',r=>{if(r.url().includes('/catalog/recipes'))catalogRequests++;});\n  70 |   await page.getByRole('button',{name:'注册并登录',exact:true}).click();await expect(page.locator('.account-state')).toContainText(name);\n> 71 |   await expect(page.getByRole('status').filter({hasText:'注册成功，已登录'})).toBeVisible();expect(navigations).toBe(0);expect(catalogRequests).toBe(0);\n     |                                                                                                         ^\n  72 |   await expect(page.getByRole('button',{name:'立即同步',exact:true})).toHaveCount(0);await page.keyboard.press('Escape');\n  73 |   const uploads:any[]=[];page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/account/state'))uploads.push(r.postDataJSON());});\n  74 |   await page.getByRole('button',{name:'微辣',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 105,
+                        "line": 71
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  69 |   let navigations=0,catalogRequests=0;page.on('framenavigated',frame=>{if(frame===page.mainFrame())navigations++;});page.on('request',r=>{if(r.url().includes('/catalog/recipes'))catalogRequests++;});\n  70 |   await page.getByRole('button',{name:'注册并登录',exact:true}).click();await expect(page.locator('.account-state')).toContainText(name);\n> 71 |   await expect(page.getByRole('status').filter({hasText:'注册成功，已登录'})).toBeVisible();expect(navigations).toBe(0);expect(catalogRequests).toBe(0);\n     |                                                                                                         ^\n  72 |   await expect(page.getByRole('button',{name:'立即同步',exact:true})).toHaveCount(0);await page.keyboard.press('Escape');\n  73 |   const uploads:any[]=[];page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/account/state'))uploads.push(r.postDataJSON());});\n  74 |   await page.getByRole('button',{name:'微辣',exact:true}).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:71:105"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:31:50.738Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings-final\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                    "column": 105,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-32f6f210c62062bbaa5c",
+          "file": "registration-browser.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:31:55.516Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-772c42dc92ae87ae76c0",
+          "file": "registration-browser.spec.ts",
+          "line": 99,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T12:31:05.791Z",
+    "duration": 56153.67,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

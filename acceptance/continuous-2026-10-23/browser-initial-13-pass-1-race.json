@@ -1,0 +1,687 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.ui.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.ui.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/ui-revision.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/ui-revision.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/ui-revision.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/ui-revision.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/continuous-2026-10-23/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui-revision.spec.ts",
+      "file": "ui-revision.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "空食材补买默认推荐、动态口味与真实单菜变体",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1607,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:47:49.356Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-13603c90d41a4e836f76",
+          "file": "ui-revision.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "调料分组含真实目录内29种选项，单口味菜不伪造下拉",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1303,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:47:51.676Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-537b0e4ff33735f995a9",
+          "file": "ui-revision.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "图鉴独立页面、四栏筛选和详情、无来源链接且可刷新",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2650,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:47:52.995Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-25343362685e5747ad73",
+          "file": "ui-revision.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "图鉴筛选与第二页在刷新和浏览器返回后保留，翻页后回到结果区域",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2092,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:47:55.667Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-9827ece97b2512606cf1",
+          "file": "ui-revision.spec.ts",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "图鉴坏链接、失效筛选和超大页码给出可恢复状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1075,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:47:57.782Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-eb1f1cca25c20f7e8ebb",
+          "file": "ui-revision.spec.ts",
+          "line": 66,
+          "column": 1
+        },
+        {
+          "title": "图鉴不依赖推荐目录或会话，读取失败重试仍保留搜索",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1480,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"session\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"session\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:85:22",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 22,
+                      "line": 85
+                    },
+                    "snippet": "  83 |   await expect(page.locator('.candidate-card')).toHaveCount(1);\n  84 |   await expect(page.getByLabel('搜索菜名',{exact:true})).toHaveValue('干锅花菜');\n> 85 |   expect(unexpected).toEqual([]);\n     |                      ^\n  86 | });\n  87 |\n  88 | test('配图失效不显示破图或其他菜，图鉴步骤和推荐仍可使用',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 22,
+                        "line": 85
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"session\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  83 |   await expect(page.locator('.candidate-card')).toHaveCount(1);\n  84 |   await expect(page.getByLabel('搜索菜名',{exact:true})).toHaveValue('干锅花菜');\n> 85 |   expect(unexpected).toEqual([]);\n     |                      ^\n  86 | });\n  87 |\n  88 | test('配图失效不显示破图或其他菜，图鉴步骤和推荐仍可使用',async({page})=>{\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:85:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:47:58.879Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴不依赖推荐目录或会话，读取失败重试仍保留搜索-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴不依赖推荐目录或会话，读取失败重试仍保留搜索-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴不依赖推荐目录或会话，读取失败重试仍保留搜索-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 22,
+                    "line": 85
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-11ea8cda8d045967ce43",
+          "file": "ui-revision.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "配图失效不显示破图或其他菜，图鉴步骤和推荐仍可使用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:02.699Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-ce292f6d3a52e1cac7eb",
+          "file": "ui-revision.spec.ts",
+          "line": 88,
+          "column": 1
+        },
+        {
+          "title": "空食材补买默认推荐、动态口味与真实单菜变体",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1513,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:05.706Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-955ba9b9d71d5335ae3c",
+          "file": "ui-revision.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "调料分组含真实目录内29种选项，单口味菜不伪造下拉",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 950,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:07.767Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-44d2d4cffbe1f875506a",
+          "file": "ui-revision.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "图鉴独立页面、四栏筛选和详情、无来源链接且可刷新",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:08.730Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-e6ed90cd672e6ac0f00b",
+          "file": "ui-revision.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "图鉴筛选与第二页在刷新和浏览器返回后保留，翻页后回到结果区域",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1610,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:10.938Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-94a525ad555123e8e514",
+          "file": "ui-revision.spec.ts",
+          "line": 55,
+          "column": 1
+        },
+        {
+          "title": "图鉴坏链接、失效筛选和超大页码给出可恢复状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 978,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:12.569Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-732f228122daa2746a8b",
+          "file": "ui-revision.spec.ts",
+          "line": 66,
+          "column": 1
+        },
+        {
+          "title": "图鉴不依赖推荐目录或会话，读取失败重试仍保留搜索",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1012,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:13.571Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-071d4858bebe981577d4",
+          "file": "ui-revision.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "配图失效不显示破图或其他菜，图鉴步骤和推荐仍可使用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1322,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T17:48:14.598Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-aae39f7880d0d978cbf6",
+          "file": "ui-revision.spec.ts",
+          "line": 88,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T17:47:48.651Z",
+    "duration": 28462.609,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

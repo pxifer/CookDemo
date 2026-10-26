@@ -12,7 +12,18 @@
     "start": "tsx server/main.ts",
     "test": "tsx --test tests/*.test.ts",
     "test:e2e": "playwright test",
-    "check": "npm run build && npm test && npm run test:e2e"
+    "check": "npm run build && npm test && npm run test:e2e",
+    "db:prepare": "tsx scripts/prepare-local.ts",
+    "db:migrate": "tsx scripts/database.ts migrate",
+    "db:check": "tsx scripts/database.ts check",
+    "test:postgres": "tsx --test tests/postgres.integration.ts",
+    "test:business:postgres": "tsx --test tests/business-postgres.integration.ts",
+    "test:business:e2e": "playwright test --config playwright.business.config.ts",
+    "test:ui:e2e": "playwright test --config playwright.ui.config.ts",
+    "test:resume:e2e": "playwright test --config playwright.resume.config.ts",
+    "db:cloudbase:prepare": "tsx scripts/build-cloudbase-migrations.ts",
+    "test:cloudbase": "tsx --test tests/cloudbase-migrations.integration.ts",
+    "capture:evidence": "tsx scripts/capture-evidence.ts"
   },
   "dependencies": {
     "@fastify/static": "10.1.6",

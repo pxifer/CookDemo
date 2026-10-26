@@ -1,0 +1,49 @@
+{
+  "recipes": 145,
+  "variants": 146,
+  "newSourceChecks": 9,
+  "corrections": 6,
+  "knownContainsRelations": 17,
+  "ambiguousIngredients": 2,
+  "globalCompletenessChanged": false,
+  "nutritionInferred": false,
+  "sourceSnapshots": [
+    {
+      "id": "R396",
+      "sha256": "3ac67ce68b0837211daf0d62671806453aa5670e254ed53c19ac22d8f531acb7"
+    },
+    {
+      "id": "R318",
+      "sha256": "6aaba881967c8fda670a70bcf54bf2047d60c597eb671b27670385f8d4b03a8a"
+    },
+    {
+      "id": "R415",
+      "sha256": "b6adaa156b2a5d821069e12fd84544e323e02f7fe305c65645dc93fb03669561"
+    },
+    {
+      "id": "R270",
+      "sha256": "5f9053270d84462f8006f3bb69a9132d7c3d4f46497d39f6f31cb312c70e1bf7"
+    },
+    {
+      "id": "R308",
+      "sha256": "84c063778e12767e012fe968536af526e75645750b33e20df7aa9f05246c5302"
+    },
+    {
+      "id": "R271",
+      "sha256": "b68d4c0b7410c0e649006006ea17c8b094d31592515474780ac02d4fb39a6100"
+    },
+    {
+      "id": "R315",
+      "sha256": "36d75f3cbd182307c485074117fabbfccf2235aabc27f6a573d50036ab6eb29a"
+    },
+    {
+      "id": "R365",
+      "sha256": "8b83438660e9d15b9658644b4b9c8d16eecf1207cf33ac7e2fd526aa3f760020"
+    },
+    {
+      "id": "R299",
+      "sha256": "27692a58fc1659aee6d67ce67bf5cfebf114b12540370ba2a2ef9950a5dd5bc5"
+    }
+  ],
+  "dataHash": "ba4a513baa051eb1c3beaed638d9ca605da2d352747aa24b08bd3ab2835c6008"
+}

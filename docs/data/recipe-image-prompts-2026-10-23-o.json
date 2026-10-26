@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R297",
+    "dish": "洋葱炒猪肉",
+    "name": "onion-pork-stir-fry-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing fully cooked food texture, quiet beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, extra side dishes or unrelated garnish. Onion and pork stir-fry: thin fully cooked pork slices with generous soft translucent pale onion crescents, small crushed garlic pieces, glossy reddish-brown sweet soy-tomato glaze with fine black pepper flecks. Elegant low mound. No bell peppers, carrots, sesame seeds, green onions or mushrooms.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/onion-pork-stir-fry-finedining-v1.png",
+    "review": "核对洋葱、土豆薄片、黄瓜火腿半圆、熟四季豆粒、香干芹菜与青椒；生成示意仍待审核"
+  },
+  {
+    "id": "R329",
+    "dish": "瘦肉土豆片",
+    "name": "lean-pork-potato-slices-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing fully cooked food texture, quiet beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, extra side dishes or unrelated garnish. Lean pork and potato slice stir-fry: thin tender pale-golden half-round potato slices about 2mm thick, thin fully cooked lean pork slices, short green garlic shoot pieces, delicate light soy coating. Refined layered low mound. No chili, carrots, onions, mushrooms, sesame or leafy garnish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/lean-pork-potato-slices-finedining-v1.png",
+    "review": "核对洋葱、土豆薄片、黄瓜火腿半圆、熟四季豆粒、香干芹菜与青椒；生成示意仍待审核"
+  },
+  {
+    "id": "R330",
+    "dish": "鸡蛋火腿炒黄瓜",
+    "name": "egg-ham-cucumber-stir-fry-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing fully cooked food texture, quiet beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, extra side dishes or unrelated garnish. Egg, ham sausage and cucumber stir-fry: vivid green-skinned cucumber half-moon slices, fluffy fully cooked golden scrambled egg curds, pink Chinese ham-sausage half-moon slices. Thin light savory sheen, beautiful compact arrangement. Non-chili reference: no red pepper, no scallions, garlic, carrots or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/egg-ham-cucumber-stir-fry-finedining-v1.png",
+    "review": "核对洋葱、土豆薄片、黄瓜火腿半圆、熟四季豆粒、香干芹菜与青椒；生成示意仍待审核"
+  },
+  {
+    "id": "R338",
+    "dish": "榄菜肉末四季豆",
+    "name": "olive-pork-green-beans-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing fully cooked food texture, quiet beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, extra side dishes or unrelated garnish. Chinese preserved olive vegetable, minced pork and green bean stir-fry: finely diced thoroughly cooked tender green beans mixed with golden-brown cooked minced pork, small dark brown-black preserved olive vegetable flecks, tiny fresh red bird's-eye chili bits and minced garlic. Compact sculpted low mound. No whole olives, long bean pods, tofu, carrot cubes or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/olive-pork-green-beans-finedining-v1.png",
+    "review": "核对洋葱、土豆薄片、黄瓜火腿半圆、熟四季豆粒、香干芹菜与青椒；生成示意仍待审核"
+  },
+  {
+    "id": "R356",
+    "dish": "香干芹菜炒肉",
+    "name": "dried-tofu-celery-pork-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing fully cooked food texture, quiet beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, extra side dishes or unrelated garnish. Dried tofu, Chinese celery and pork stir-fry: slender tan-brown firm dried-tofu strips with ivory interiors, green Chinese celery stem segments without leaves, thin fully cooked pork strips, a few green chili pieces and minced garlic, glossy savory brown soy coating. Elegant aligned low mound. No carrots, mushrooms, sesame or cilantro.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/dried-tofu-celery-pork-finedining-v1.png",
+    "review": "核对洋葱、土豆薄片、黄瓜火腿半圆、熟四季豆粒、香干芹菜与青椒；生成示意仍待审核"
+  },
+  {
+    "id": "R370",
+    "dish": "青椒土豆炒肉",
+    "name": "green-pepper-potato-pork-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing fully cooked food texture, quiet beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, extra side dishes or unrelated garnish. Green pepper, potato and pork stir-fry: irregular bright green bell pepper pieces, thin pale golden potato slices, thin fully cooked pork slices, tiny scallion, ginger and garlic bits, light glossy soy glaze. Refined compact arrangement on an ivory plate. No red peppers, carrots, mushrooms, broccoli or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/green-pepper-potato-pork-finedining-v1.png",
+    "review": "核对洋葱、土豆薄片、黄瓜火腿半圆、熟四季豆粒、香干芹菜与青椒；生成示意仍待审核"
+  }
+]

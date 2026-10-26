@@ -1,0 +1,591 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.resume.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.resume.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/resume.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/resume.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/resume.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/resume.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/resume-2026-10-23/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "resume.spec.ts",
+      "file": "resume.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "三个页面导航位置一致且手机无横向溢出，收藏可直接刷新",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1959,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:40:58.135Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-a8cba0107bf9a5de4b05",
+          "file": "resume.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "可省胡萝卜不将松仁玉米归入根茎瓜果，原方仍显示可省说明",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 491,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:00.767Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-ad03466abab90975653b",
+          "file": "resume.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "真实数据库图鉴145道均可在工作台候选分页推荐，数量不伪造",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2655,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:01.265Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-2db13a6a9f95347bc543",
+          "file": "resume.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 581,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已收藏：凉拌黄瓜\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\" class=\"library-review-note\">已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。</p> aka getByText('已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。')\n    2) <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p> aka getByText('道菜 · 1 条口味做法')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p>\u001b[22m\n\u001b[2m      - unexpected value \"1 道菜 · 1 条口味做法\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已收藏：凉拌黄瓜\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\" class=\"library-review-note\">已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。</p> aka getByText('已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。')\n    2) <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p> aka getByText('道菜 · 1 条口味做法')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p>\u001b[22m\n\u001b[2m      - unexpected value \"1 道菜 · 1 条口味做法\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts:50:42",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts",
+                      "column": 42,
+                      "line": 50
+                    },
+                    "snippet": "  48 |   await page.goto('/recipes?q='+encodeURIComponent('凉拌黄瓜'));\n  49 |   await page.getByRole('button',{name:'收藏 凉拌黄瓜',exact:true}).click();\n> 50 |   await expect(page.getByRole('status')).toContainText('已收藏：凉拌黄瓜');\n     |                                          ^\n  51 |   await page.getByRole('link',{name:'我的收藏',exact:false}).click();\n  52 |   await expect(page).toHaveURL(/\\/favorites$/);await page.reload();\n  53 |   await expect(page.locator('.favorite-row')).toContainText('凉拌黄瓜');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts",
+                        "column": 42,
+                        "line": 50
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已收藏：凉拌黄瓜\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\" class=\"library-review-note\">已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。</p> aka getByText('已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。')\n    2) <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p> aka getByText('道菜 · 1 条口味做法')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p>\u001b[22m\n\u001b[2m      - unexpected value \"1 道菜 · 1 条口味做法\"\u001b[22m\n\n\n  48 |   await page.goto('/recipes?q='+encodeURIComponent('凉拌黄瓜'));\n  49 |   await page.getByRole('button',{name:'收藏 凉拌黄瓜',exact:true}).click();\n> 50 |   await expect(page.getByRole('status')).toContainText('已收藏：凉拌黄瓜');\n     |                                          ^\n  51 |   await page.getByRole('link',{name:'我的收藏',exact:false}).click();\n  52 |   await expect(page).toHaveURL(/\\/favorites$/);await page.reload();\n  53 |   await expect(page.locator('.favorite-row')).toContainText('凉拌黄瓜');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts:50:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:03.929Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts",
+                    "column": 42,
+                    "line": 50
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-4fd048200ca17738cb85",
+          "file": "resume.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "图片选择和拍照入口可用，预览不上传，错误保留原图且刷新不保留照片",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1561,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:05.829Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-d0a6e8a89a1ce2f0f204",
+          "file": "resume.spec.ts",
+          "line": 62,
+          "column": 1
+        },
+        {
+          "title": "三个页面导航位置一致且手机无横向溢出，收藏可直接刷新",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1580,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:09.028Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-b9770e05b904e6efc0d1",
+          "file": "resume.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "可省胡萝卜不将松仁玉米归入根茎瓜果，原方仍显示可省说明",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 437,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:11.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-6a53a240c3c027efafc6",
+          "file": "resume.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "真实数据库图鉴145道均可在工作台候选分页推荐，数量不伪造",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:11.618Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-836d2c7f27abfc6956ec",
+          "file": "resume.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 612,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已收藏：凉拌黄瓜\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\" class=\"library-review-note\">已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。</p> aka getByText('已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。')\n    2) <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p> aka getByText('道菜 · 1 条口味做法')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p>\u001b[22m\n\u001b[2m      - unexpected value \"1 道菜 · 1 条口味做法\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已收藏：凉拌黄瓜\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\" class=\"library-review-note\">已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。</p> aka getByText('已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。')\n    2) <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p> aka getByText('道菜 · 1 条口味做法')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p>\u001b[22m\n\u001b[2m      - unexpected value \"1 道菜 · 1 条口味做法\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts:50:42",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts",
+                      "column": 42,
+                      "line": 50
+                    },
+                    "snippet": "  48 |   await page.goto('/recipes?q='+encodeURIComponent('凉拌黄瓜'));\n  49 |   await page.getByRole('button',{name:'收藏 凉拌黄瓜',exact:true}).click();\n> 50 |   await expect(page.getByRole('status')).toContainText('已收藏：凉拌黄瓜');\n     |                                          ^\n  51 |   await page.getByRole('link',{name:'我的收藏',exact:false}).click();\n  52 |   await expect(page).toHaveURL(/\\/favorites$/);await page.reload();\n  53 |   await expect(page.locator('.favorite-row')).toContainText('凉拌黄瓜');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts",
+                        "column": 42,
+                        "line": 50
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已收藏：凉拌黄瓜\"\u001b[39m\nError: strict mode violation: getByRole('status') resolved to 2 elements:\n    1) <p role=\"status\" class=\"library-review-note\">已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。</p> aka getByText('已收藏：凉拌黄瓜 · 醋香咸鲜，可在「我的收藏」查看。')\n    2) <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p> aka getByText('道菜 · 1 条口味做法')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\u001b[2m    2 × locator resolved to <p tabindex=\"-1\" role=\"status\" class=\"candidate-library-count\">1 道菜 · 1 条口味做法</p>\u001b[22m\n\u001b[2m      - unexpected value \"1 道菜 · 1 条口味做法\"\u001b[22m\n\n\n  48 |   await page.goto('/recipes?q='+encodeURIComponent('凉拌黄瓜'));\n  49 |   await page.getByRole('button',{name:'收藏 凉拌黄瓜',exact:true}).click();\n> 50 |   await expect(page.getByRole('status')).toContainText('已收藏：凉拌黄瓜');\n     |                                          ^\n  51 |   await page.getByRole('link',{name:'我的收藏',exact:false}).click();\n  52 |   await expect(page).toHaveURL(/\\/favorites$/);await page.reload();\n  53 |   await expect(page.locator('.favorite-row')).toContainText('凉拌黄瓜');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts:50:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:14.199Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\resume.spec.ts",
+                    "column": 42,
+                    "line": 50
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-aae357d745938559db14",
+          "file": "resume.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "图片选择和拍照入口可用，预览不上传，错误保留原图且刷新不保留照片",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1986,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T05:41:16.028Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-1e9121d8c7c7e20f6636",
+          "file": "resume.spec.ts",
+          "line": 62,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-23T05:40:57.522Z",
+    "duration": 22009.928,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

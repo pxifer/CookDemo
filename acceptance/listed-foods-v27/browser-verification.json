@@ -1,0 +1,22 @@
+{
+  "origin": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+  "results": [
+    {
+      "name": "desktop",
+      "newRecipeVisible": true,
+      "methodAndIngredientsVisible": true,
+      "restrictionScopeVisible": true,
+      "restrictionAdded": true,
+      "noOverflow": true
+    },
+    {
+      "name": "mobile",
+      "newRecipeVisible": true,
+      "methodAndIngredientsVisible": true,
+      "restrictionScopeVisible": true,
+      "restrictionAdded": true,
+      "noOverflow": true
+    }
+  ],
+  "realAccountsUsed": false
+}

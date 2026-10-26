@@ -1,0 +1,56 @@
+{
+  "foods": 372,
+  "variants": 146,
+  "table_rls": [
+    {
+      "rls": true,
+      "name": "shiwei_account_sessions",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_account_state",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_ingredient_inventory",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_ingredient_proposals",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_recipe_ingredient_lines",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_recipe_inventory",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_source_ingredient_entries",
+      "force_rls": true
+    },
+    {
+      "rls": true,
+      "name": "shiwei_source_recipe_records",
+      "force_rls": true
+    }
+  ],
+  "source_entries": 1726,
+  "source_records": 147,
+  "ingredient_lines": 1762,
+  "pending_proposals": 372,
+  "nutrition_inferred": false,
+  "anon_private_access": null,
+  "allergy_gate_changed": false,
+  "anon_inventory_writes": null,
+  "unmatched_source_entries": 6,
+  "account_plaintext_columns": null
+}

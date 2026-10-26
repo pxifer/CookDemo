@@ -1,0 +1,19 @@
+{
+  "databaseReadback": true,
+  "releaseId": "composition-review-20261024-v8",
+  "hash": "2196cd010497f193b36f506a80929caaca6def9a854d7c60c4405aa8c6112188",
+  "recipeCount": 145,
+  "variantCount": 146,
+  "verifiedIngredientIdentities": 186,
+  "fishAllergyAndCornAvoidEligible": [
+    "金针菇汤",
+    "糖拌番茄"
+  ],
+  "fishAvoidAndCornAllergyEligible": [
+    "糖拌番茄",
+    "金针菇汤"
+  ],
+  "bothRestrictionModesPassed": true,
+  "excludedIngredientsChecked": true,
+  "rawCredentialsPrinted": false
+}

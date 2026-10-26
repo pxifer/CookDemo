@@ -1,0 +1,457 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.ui.config.ts",
+      "--grep",
+      "图鉴打开筛选|图鉴独立页面|图鉴筛选与第二页"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.ui.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/ui-revision.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/ui-revision.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/ui-revision.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/ui-revision.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/continuous-2026-10-23/gallery-matched-flavor/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui-revision.spec.ts",
+      "file": "ui-revision.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "图鉴独立页面、四栏筛选和详情、无来源链接且可刷新",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1885,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T20:11:45.593Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-25343362685e5747ad73",
+          "file": "ui-revision.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "图鉴筛选与第二页在刷新和浏览器返回后保留，翻页后回到结果区域",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T20:11:48.059Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-9827ece97b2512606cf1",
+          "file": "ui-revision.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "图鉴打开筛选命中的实际口味，辅料也能用于食材分栏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 947,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"清鲜\",\u001b[39m\n\u001b[2m    \"咸鲜带辣\",\u001b[22m\n\u001b[31m+   \"清鲜\",\u001b[39m\n\u001b[2m  ]\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"清鲜\",\u001b[39m\n\u001b[2m    \"咸鲜带辣\",\u001b[22m\n\u001b[31m+   \"清鲜\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:168:62",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 62,
+                      "line": 168
+                    },
+                    "snippet": "  166 |   const flavor=page.getByLabel('清蒸鳜鱼口味',{exact:true});\n  167 |   await expect(flavor).toHaveValue('咸鲜带辣');\n> 168 |   expect(await flavor.getByRole('option').allTextContents()).toEqual(['清鲜','咸鲜带辣']);\n      |                                                              ^\n  169 |   await flavor.selectOption('清鲜');await expect(flavor).toHaveValue('清鲜');\n  170 |   await page.getByRole('button',{name:'← 返回菜谱图鉴',exact:true}).click();\n  171 |   await expect(page.getByLabel('按口味筛选',{exact:true})).toHaveValue('咸鲜带辣');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 62,
+                        "line": 168
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"清鲜\",\u001b[39m\n\u001b[2m    \"咸鲜带辣\",\u001b[22m\n\u001b[31m+   \"清鲜\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\n  166 |   const flavor=page.getByLabel('清蒸鳜鱼口味',{exact:true});\n  167 |   await expect(flavor).toHaveValue('咸鲜带辣');\n> 168 |   expect(await flavor.getByRole('option').allTextContents()).toEqual(['清鲜','咸鲜带辣']);\n      |                                                              ^\n  169 |   await flavor.selectOption('清鲜');await expect(flavor).toHaveValue('清鲜');\n  170 |   await page.getByRole('button',{name:'← 返回菜谱图鉴',exact:true}).click();\n  171 |   await expect(page.getByLabel('按口味筛选',{exact:true})).toHaveValue('咸鲜带辣');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:168:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T20:11:49.825Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴打开筛选命中的实际口味，辅料也能用于食材分栏-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴打开筛选命中的实际口味，辅料也能用于食材分栏-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴打开筛选命中的实际口味，辅料也能用于食材分栏-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 62,
+                    "line": 168
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-1070f0144c025513c721",
+          "file": "ui-revision.spec.ts",
+          "line": 162,
+          "column": 1
+        },
+        {
+          "title": "图鉴独立页面、四栏筛选和详情、无来源链接且可刷新",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1734,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T20:11:52.474Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-e6ed90cd672e6ac0f00b",
+          "file": "ui-revision.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "图鉴筛选与第二页在刷新和浏览器返回后保留，翻页后回到结果区域",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1216,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T20:11:54.809Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-94a525ad555123e8e514",
+          "file": "ui-revision.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "图鉴打开筛选命中的实际口味，辅料也能用于食材分栏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 902,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"清鲜\",\u001b[39m\n\u001b[2m    \"咸鲜带辣\",\u001b[22m\n\u001b[31m+   \"清鲜\",\u001b[39m\n\u001b[2m  ]\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"清鲜\",\u001b[39m\n\u001b[2m    \"咸鲜带辣\",\u001b[22m\n\u001b[31m+   \"清鲜\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:168:62",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 62,
+                      "line": 168
+                    },
+                    "snippet": "  166 |   const flavor=page.getByLabel('清蒸鳜鱼口味',{exact:true});\n  167 |   await expect(flavor).toHaveValue('咸鲜带辣');\n> 168 |   expect(await flavor.getByRole('option').allTextContents()).toEqual(['清鲜','咸鲜带辣']);\n      |                                                              ^\n  169 |   await flavor.selectOption('清鲜');await expect(flavor).toHaveValue('清鲜');\n  170 |   await page.getByRole('button',{name:'← 返回菜谱图鉴',exact:true}).click();\n  171 |   await expect(page.getByLabel('按口味筛选',{exact:true})).toHaveValue('咸鲜带辣');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 62,
+                        "line": 168
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[32m-   \"清鲜\",\u001b[39m\n\u001b[2m    \"咸鲜带辣\",\u001b[22m\n\u001b[31m+   \"清鲜\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\n  166 |   const flavor=page.getByLabel('清蒸鳜鱼口味',{exact:true});\n  167 |   await expect(flavor).toHaveValue('咸鲜带辣');\n> 168 |   expect(await flavor.getByRole('option').allTextContents()).toEqual(['清鲜','咸鲜带辣']);\n      |                                                              ^\n  169 |   await flavor.selectOption('清鲜');await expect(flavor).toHaveValue('清鲜');\n  170 |   await page.getByRole('button',{name:'← 返回菜谱图鉴',exact:true}).click();\n  171 |   await expect(page.getByLabel('按口味筛选',{exact:true})).toHaveValue('咸鲜带辣');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:168:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T20:11:56.039Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴打开筛选命中的实际口味，辅料也能用于食材分栏-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴打开筛选命中的实际口味，辅料也能用于食材分栏-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴打开筛选命中的实际口味，辅料也能用于食材分栏-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 62,
+                    "line": 168
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-ad4362618dd948981e6f",
+          "file": "ui-revision.spec.ts",
+          "line": 162,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T20:11:45.049Z",
+    "duration": 13678.042,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

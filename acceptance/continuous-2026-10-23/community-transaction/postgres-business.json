@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-23T04:33:46.850Z",
+  "realPostgres": true,
+  "databaseScope": "random-isolated-local-business-test",
+  "completed": [
+    "empty-content-not-ready",
+    "import-publish-readonly",
+    "transaction-rollback",
+    "api-recommendation-constraints-nutrition",
+    "explicit-version-rollback-revocation",
+    "real-community-draft-publish-rollback-withdraw",
+    "stream-and-real-pool-failure"
+  ],
+  "constructedRecipes": 18,
+  "constructedVariants": 36,
+  "communityRecipes": 3,
+  "production": false,
+  "professionalReview": false,
+  "models": false,
+  "healthRules": false
+}

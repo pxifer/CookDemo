@@ -1,0 +1,32 @@
+name: shiwei-local
+services:
+  db:
+    image: pgvector/pgvector:0.8.7-pg17@sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d
+    environment:
+      POSTGRES_DB: shiwei_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_admin_password
+    secrets:
+      - db_admin_password
+      - db_owner_password
+      - db_app_password
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - shiwei_pg17:/var/lib/postgresql/data
+      - ./deploy/db/init.sh:/docker-entrypoint-initdb.d/01-shiwei.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d shiwei_dev"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+secrets:
+  db_admin_password:
+    file: ./.local-data/deployment/db-admin-password
+  db_owner_password:
+    file: ./.local-data/deployment/db-owner-password
+  db_app_password:
+    file: ./.local-data/deployment/db-app-password
+volumes:
+  shiwei_pg17:

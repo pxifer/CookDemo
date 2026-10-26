@@ -6,5 +6,5 @@
     "resolveJsonModule": true, "allowImportingTsExtensions": true, "noEmit": true,
     "types": ["node", "vite/client"]
   },
-  "include": ["src", "server", "shared", "tests", "vite.config.ts", "playwright.config.ts"]
+  "include": ["src", "server", "shared", "tests", "vite.config.ts", "playwright.config.ts", "playwright.cloudbase.config.ts", "playwright.account-cloud.config.ts", "cloudbase/http-main.ts", "scripts/prepare-http-release.ts", "scripts/build-http-seed.ts", "scripts/configure-http-preview.ts", "scripts/prepare-account-http.ts", "scripts/build-account-ingredient-release.ts", "scripts/verify-account-release-local.ts", "scripts/probe-cloudbase-accounts.ts", "scripts/verify-cloudbase-accounts-live.ts", "scripts/build-composition-release.ts", "scripts/configure-composition-http.ts", "scripts/verify-account-secrets-local.ts", "scripts/configure-public-registration.ts", "scripts/enable-public-registration.ts", "scripts/verify-password-policy-live.ts", "scripts/measure-account-latency.ts", "scripts/verify-conventional-login-live.ts", "scripts/prepare-composition-v2.ts", "scripts/build-composition-v2-release.ts", "scripts/finalize-composition-units.ts", "scripts/verify-composition-cloud.ts", "playwright.registration.config.ts", "playwright.registration-live.config.ts", "playwright.composition-v2.config.ts"]
 }

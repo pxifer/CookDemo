@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R290",
+    "dish": "玉米排骨汤",
+    "name": "corn-pork-rib-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, restrained fine-dining plating in beautiful warm ivory ceramics, warm soft directional daylight, realistic appetizing edible textures, quiet beige stone table, elegant negative space. Landscape 4:3. No text, logo, watermark, people, hands or unrelated food. Dish: 玉米排骨汤: clear lightly golden pork rib broth in a refined wide shallow porcelain bowl, small bone-in pork rib pieces, several bright yellow corn-on-the-cob rounds and a few orange carrot chunks, delicate tiny green scallion garnish, faint black pepper specks. No red dates, goji berries, herbs, noodles or mushrooms.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/corn-pork-rib-soup-finedining-v1.png",
+    "review": "视觉核对菜名与配料；原方疑点另列，所有图仍待审核"
+  },
+  {
+    "id": "R296",
+    "dish": "土豆炖排骨",
+    "name": "potato-braised-pork-ribs-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, restrained fine-dining plating in beautiful warm ivory ceramics, warm soft directional daylight, realistic appetizing edible textures, quiet beige stone table, elegant negative space. Landscape 4:3. No text, logo, watermark, people, hands or unrelated food. Dish: 土豆炖排骨: succulent small bone-in pork ribs and irregular golden potato chunks coated in rich glossy caramel-brown soy braising sauce, a few small dried red chili sections and delicate chopped scallions. A carefully arranged modest portion on a broad ivory porcelain plate, attractive meat and potato texture. No carrot, no mushrooms, no chicken, no peas.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/potato-braised-pork-ribs-finedining-v1.png",
+    "review": "视觉核对菜名与配料；原方疑点另列，所有图仍待审核"
+  },
+  {
+    "id": "R308",
+    "dish": "西葫芦炒鸡蛋",
+    "name": "zucchini-scrambled-eggs-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, restrained fine-dining plating in beautiful warm ivory ceramics, warm soft directional daylight, realistic appetizing edible textures, quiet beige stone table, elegant negative space. Landscape 4:3. No text, logo, watermark, people, hands or unrelated food. Dish: 西葫芦炒鸡蛋: tender diamond-shaped zucchini slices with pale green skin, soft fluffy golden scrambled egg curds and a smaller amount of softened red tomato chunks. Light natural vegetable juices, not a dark sauce. Beautiful low sculptural mound on an ivory plate. No onions, no peppers, no herbs, no sesame, no mushrooms.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/zucchini-scrambled-eggs-finedining-v1.png",
+    "review": "视觉核对菜名与配料；原方疑点另列，所有图仍待审核"
+  },
+  {
+    "id": "R350",
+    "dish": "蚝油生菜",
+    "name": "oyster-sauce-lettuce-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, restrained fine-dining plating in beautiful warm ivory ceramics, warm soft directional daylight, realistic appetizing edible textures, quiet beige stone table, elegant negative space. Landscape 4:3. No text, logo, watermark, people, hands or unrelated food. Dish: 蚝油生菜: tender bright green blanched Chinese leaf lettuce with broad delicate ruffled leaves and light stems, elegantly folded and arranged in a fan, lightly coated in glossy light brown oyster-soy sauce and finely minced garlic. No bok choy, no broccoli, no meat, no red chili, no mushrooms. Sophisticated restrained porcelain plating.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/oyster-sauce-lettuce-finedining-v1.png",
+    "review": "视觉核对菜名与配料；原方疑点另列，所有图仍待审核"
+  },
+  {
+    "id": "R353",
+    "dish": "鸡蛋羹",
+    "name": "steamed-egg-custard-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, restrained fine-dining plating in beautiful warm ivory ceramics, warm soft directional daylight, realistic appetizing edible textures, quiet beige stone table, elegant negative space. Landscape 4:3. No text, logo, watermark, people, hands or unrelated food. Dish: 鸡蛋羹: silky perfectly smooth pale golden Chinese steamed egg custard in a small elegant ivory porcelain bowl, flawless delicate glossy surface, a restrained thin pool of light soy sauce at one edge, slight clear oil glisten. One pristine custard, no holes, no meat, no shrimp, no scallions, no garnish, no burnt top. Refined minimalist culinary photograph.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/steamed-egg-custard-finedining-v1.png",
+    "review": "视觉核对菜名与配料；原方疑点另列，所有图仍待审核"
+  },
+  {
+    "id": "R368",
+    "dish": "松仁玉米",
+    "name": "pine-nut-sweet-corn-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, restrained fine-dining plating in beautiful warm ivory ceramics, warm soft directional daylight, realistic appetizing edible textures, quiet beige stone table, elegant negative space. Landscape 4:3. No text, logo, watermark, people, hands or unrelated food. Dish: 松仁玉米: glossy bright golden sweet corn kernels tossed with pale golden toasted pine nuts and a few finely diced orange carrots, a very light clear glossy sauce. Precisely arranged as an elegant low oval mound on a wide ivory porcelain plate. Clearly visible elongated pine nuts, no green peas, no bell peppers, no scallions, no meat, no herbs.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/pine-nut-sweet-corn-finedining-v1.png",
+    "review": "视觉核对菜名与配料；原方疑点另列，所有图仍待审核"
+  }
+]

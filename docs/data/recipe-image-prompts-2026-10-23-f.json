@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R276",
+    "dish": "咕噜肉",
+    "name": "cantonese-sweet-sour-pork-finedining-v1.png",
+    "prompt": "Photorealistic premium Chinese restaurant menu photograph, beautifully restrained fine-dining presentation in warm ivory porcelain, warm natural side light, tactile realistic food detail, quiet beige stone table, harmonious composition with negative space. Landscape 4:3. No words, logos, watermark, people, utensils or unrelated food. Dish: 咕噜肉: crisp bite-sized pork cubes in a translucent glossy red-orange sweet-sour tomato glaze, golden pineapple chunks and small green bell pepper pieces. Elegantly arranged in a compact mound. Clearly pineapple-and-green-pepper Cantonese sweet sour pork, not long pork strips, no sesame seeds, no red or yellow peppers.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/cantonese-sweet-sour-pork-finedining-v1.png",
+    "review": "视觉核对肉类形态、虾去壳与否、主辅料及酱汁；仍为待审核原创示意"
+  },
+  {
+    "id": "R302",
+    "dish": "梅菜扣肉",
+    "name": "preserved-mustard-pork-belly-finedining-v1.png",
+    "prompt": "Photorealistic premium Chinese restaurant menu photograph, beautifully restrained fine-dining presentation in warm ivory porcelain, warm natural side light, tactile realistic food detail, quiet beige stone table, harmonious composition with negative space. Landscape 4:3. No words, logos, watermark, people, utensils or unrelated food. Dish: 梅菜扣肉: neatly overlapping thick slices of tender steamed pork belly with alternating glossy dark caramel skin, creamy fat and brown lean meat, formed into a small elegant domed fan over finely chopped dark preserved mustard greens. Rich glossy brown braising sauce, tiny traces of garlic and red chili mixed into the preserved greens. No lettuce base, no unrelated garnish, no sesame, no large vegetables.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/preserved-mustard-pork-belly-finedining-v1.png",
+    "review": "视觉核对肉类形态、虾去壳与否、主辅料及酱汁；仍为待审核原创示意"
+  },
+  {
+    "id": "R309",
+    "dish": "油焖大虾",
+    "name": "oil-braised-whole-prawns-finedining-v1.png",
+    "prompt": "Photorealistic premium Chinese restaurant menu photograph, beautifully restrained fine-dining presentation in warm ivory porcelain, warm natural side light, tactile realistic food detail, quiet beige stone table, harmonious composition with negative space. Landscape 4:3. No words, logos, watermark, people, utensils or unrelated food. Dish: 油焖大虾: large whole head-on shell-on prawns with antennae trimmed, luminous orange-red shells, bent bodies neatly layered in an elegant sweeping fan, lightly glazed in a glossy amber-orange reduced prawn sauce, very fine tiny ginger bits. Heads and shells intact; no peeled shrimp, no butter sauce, no lemons, no parsley, no chili garnish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/oil-braised-whole-prawns-finedining-v1.png",
+    "review": "视觉核对肉类形态、虾去壳与否、主辅料及酱汁；仍为待审核原创示意"
+  },
+  {
+    "id": "R325",
+    "dish": "蒜香黄油虾",
+    "name": "garlic-butter-peeled-prawns-finedining-v1.png",
+    "prompt": "Photorealistic premium Chinese restaurant menu photograph, beautifully restrained fine-dining presentation in warm ivory porcelain, warm natural side light, tactile realistic food detail, quiet beige stone table, harmonious composition with negative space. Landscape 4:3. No words, logos, watermark, people, utensils or unrelated food. Dish: 蒜香黄油虾: plump peeled headless prawns with tails left on, pink-orange and lightly seared, coated in a delicate golden garlic-butter sauce with fine toasted minced garlic, a small lemon wedge at the side. Sophisticated low arrangement on a wide ivory plate. Must be peeled prawns, no whole prawn heads or body shells, no parsley, no chili, no vegetables.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/garlic-butter-peeled-prawns-finedining-v1.png",
+    "review": "视觉核对肉类形态、虾去壳与否、主辅料及酱汁；仍为待审核原创示意"
+  },
+  {
+    "id": "R373",
+    "dish": "鱼香茄子",
+    "name": "fish-fragrant-eggplant-finedining-v1.png",
+    "prompt": "Photorealistic premium Chinese restaurant menu photograph, beautifully restrained fine-dining presentation in warm ivory porcelain, warm natural side light, tactile realistic food detail, quiet beige stone table, harmonious composition with negative space. Landscape 4:3. No words, logos, watermark, people, utensils or unrelated food. Dish: 鱼香茄子: luscious long eggplant batons retaining glossy purple skin, in a rich reddish-brown bean-chili sweet-vinegar sauce, a small amount of finely minced cooked meat, tiny chopped garlic, ginger and red chili, delicate green scallion flecks. Refined low sculptural arrangement with a little glossy sauce. No fish, no whole pork slices, no bell peppers, no sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/fish-fragrant-eggplant-finedining-v1.png",
+    "review": "视觉核对肉类形态、虾去壳与否、主辅料及酱汁；仍为待审核原创示意"
+  },
+  {
+    "id": "R387",
+    "dish": "口水鸡",
+    "name": "sichuan-chili-chicken-finedining-v1.png",
+    "prompt": "Photorealistic premium Chinese restaurant menu photograph, beautifully restrained fine-dining presentation in warm ivory porcelain, warm natural side light, tactile realistic food detail, quiet beige stone table, harmonious composition with negative space. Landscape 4:3. No words, logos, watermark, people, utensils or unrelated food. Dish: 口水鸡: neatly chopped slices of fully cooked skin-on chicken arranged elegantly, pale tender white meat beneath thin golden skin, generously but delicately dressed in vivid red Sichuan chili oil sauce, scattered chopped toasted peanuts, minced garlic and a few small cilantro leaves. Restaurant appetizer in a wide ivory shallow bowl. No sesame seeds, no cucumbers, no noodles, no raw or pink chicken, no fried coating.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/sichuan-chili-chicken-finedining-v1.png",
+    "review": "视觉核对肉类形态、虾去壳与否、主辅料及酱汁；仍为待审核原创示意"
+  }
+]

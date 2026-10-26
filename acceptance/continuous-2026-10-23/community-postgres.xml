@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="本机真实社区发布：只读应用账号回读、真实推荐、约束、固定量与旧版本回退" time="0.798126" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\community-local-postgres.integration.ts"/>
+	<!-- tests 1 -->
+	<!-- suites 0 -->
+	<!-- pass 1 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 1392.9037 -->
+</testsuites>

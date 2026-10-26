@@ -1,0 +1,40 @@
+{
+  "verifiedAt": "2026-10-23T10:27:22.374Z",
+  "environment": {
+    "id": "shiwei-d2gmiun66b7dc6a4f",
+    "region": "ap-shanghai",
+    "package": "baas_trial",
+    "overrun": false,
+    "autoRenew": false,
+    "expires": "2027-04-21 23:59:59"
+  },
+  "function": {
+    "name": "shiwei-http-preview",
+    "status": "Active",
+    "runtime": "Nodejs24.11",
+    "type": "HTTP",
+    "memoryMiB": 256,
+    "timeoutSeconds": 20
+  },
+  "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com/",
+  "permissions": {
+    "releases": 1,
+    "sourceRows": 147,
+    "anonRead": true,
+    "anonInsert": false,
+    "anonUpdate": false,
+    "anonAccounts": false,
+    "rls": true
+  },
+  "assets": {
+    "total": 182,
+    "success": 182,
+    "failed": 0,
+    "verified": true
+  },
+  "browser": {
+    "expected": 6,
+    "unexpected": 0,
+    "skipped": 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-24T11:47:32.3815176Z",
+  "release": "release-20261024-account-v6",
+  "functionName": "shiwei-http-preview",
+  "packageId": "baas_trial",
+  "enableOverrun": false,
+  "isAutoRenew": false,
+  "configAndKeysPreserved": true,
+  "databaseMigrationsChanged": false,
+  "secretsPrinted": false
+}

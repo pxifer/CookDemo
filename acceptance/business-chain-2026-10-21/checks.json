@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-21T14:53:34.586Z",
+  "build": "passed",
+  "projectTypes": "passed",
+  "toolTypes": "passed",
+  "unitTests": {
+    "passed": 66,
+    "failed": 0,
+    "skipped": 0
+  },
+  "contentTestsFinal": {
+    "passed": 4,
+    "failed": 0
+  },
+  "postgres": {
+    "passed": 7,
+    "businessSubtests": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "databaseBrowser": {
+    "passed": 8,
+    "failed": 0
+  },
+  "baselineBrowser": {
+    "passed": 32,
+    "failed": 0
+  },
+  "preservedFiles": [
+    "server/migrations/001-initial.sql",
+    "server/migrations/002-content-structure.sql",
+    "server/migrations/003-vector-structure.sql",
+    "cloudbase/migrations/20261021123000_shiwei_core.sql",
+    "cloudbase/migrations/20261021123100_shiwei_vector.sql",
+    "dist/index.html",
+    "dist/styles.css",
+    "dist/data.js",
+    "dist/engine.js",
+    "dist/app.js"
+  ],
+  "cloudAccessed": false,
+  "formalDataImported": false,
+  "modelCalled": false,
+  "healthAdviceEnabled": false,
+  "applicationImageRebuilt": false
+}

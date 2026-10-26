@@ -1,0 +1,2326 @@
+{
+  "checkedAt": "2026-10-22T20:15:27.056Z",
+  "sourceCount": 147,
+  "sourceUnchanged": true,
+  "publications": 0,
+  "supplementalCards": 8,
+  "curated": 9,
+  "fragmentCards": 0,
+  "stepInferredCards": 90,
+  "manualReviewCards": 10,
+  "note": "机械提示只辅助逐项核方；没有提示不代表完整、准确或可发布。步骤补出的原料可能只是切法／工具误识别，不自动删料。",
+  "results": [
+    {
+      "id": "R258",
+      "name": "地三鲜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%9C%B0%E4%B8%89%E9%B2%9C/%E5%9C%B0%E4%B8%89%E9%B2%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "蒜蓉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "青椒（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "红油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R259",
+      "name": "印度土豆花菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%8D%B0%E5%BA%A6%E5%9C%9F%E8%B1%86%E8%8A%B1%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R260",
+      "name": "水煮牛肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%B0%B4%E7%85%AE%E7%89%9B%E8%82%89/%E6%B0%B4%E7%85%AE%E7%89%9B%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R261",
+      "name": "柱候牛腩",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%9F%B1%E5%80%99%E7%89%9B%E8%85%A9/%E6%9F%B1%E5%80%99%E7%89%9B%E8%85%A9.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "土豆（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "萝卜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R262",
+      "name": "山西过油肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B1%B1%E8%A5%BF%E8%BF%87%E6%B2%B9%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R263",
+      "name": "红烧猪蹄",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%BA%A2%E7%83%A7%E7%8C%AA%E8%B9%84/%E7%BA%A2%E7%83%A7%E7%8C%AA%E8%B9%84.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R264",
+      "name": "包菜炒鸡蛋粉丝",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%8C%85%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B%E7%B2%89%E4%B8%9D/%E5%8C%85%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B%E7%B2%89%E4%B8%9D.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R265",
+      "name": "麻辣香锅",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%BA%BB%E8%BE%A3%E9%A6%99%E9%94%85.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R266",
+      "name": "山药玉米排骨汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E6%8E%92%E9%AA%A8%E5%B1%B1%E8%8D%AF%E7%8E%89%E7%B1%B3%E6%B1%A4/%E6%8E%92%E9%AA%A8%E5%B1%B1%E8%8D%AF%E7%8E%89%E7%B1%B3%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R267",
+      "name": "印度葫芦丸子",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%8D%B0%E5%BA%A6%E8%91%AB%E8%8A%A6%E4%B8%B8%E5%AD%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R268",
+      "name": "肉饼炖蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%82%89%E9%A5%BC%E7%82%96%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R269",
+      "name": "奥尔良风味烤鸡腿",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%A5%A5%E5%B0%94%E8%89%AF%E9%A3%8E%E5%91%B3%E7%83%A4%E9%B8%A1%E8%85%BF/%E5%A5%A5%E5%B0%94%E8%89%AF%E9%A3%8E%E5%91%B3%E7%83%A4%E9%B8%A1%E8%85%BF.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R270",
+      "name": "菠菜炒鸡蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R271",
+      "name": "金针菇汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E9%87%91%E9%92%88%E8%8F%87%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": [
+        "主料表列可选鸡蛋，但卡片步骤没有使用鸡蛋的路线；不自行补入。"
+      ]
+    },
+    {
+      "id": "R272",
+      "name": "番茄炖牛腩",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E7%89%9B%E8%85%A9/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E7%89%9B%E8%85%A9.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R273",
+      "name": "醉排骨",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%86%89%E6%8E%92%E9%AA%A8/%E9%86%89%E6%8E%92%E9%AA%A8.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R274",
+      "name": "无骨鸡爪",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%97%A0%E9%AA%A8%E9%B8%A1%E7%88%AA/%E6%97%A0%E9%AA%A8%E9%B8%A1%E7%88%AA.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "柠檬汁（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R275",
+      "name": "小米辣炒肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B0%8F%E7%B1%B3%E8%BE%A3%E7%82%92%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "豆瓣酱（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R276",
+      "name": "咕噜肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%92%95%E5%99%9C%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R277",
+      "name": "黄瓜炒肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%BB%84%E7%93%9C%E7%82%92%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "小米辣（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "蒜蓉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "黄瓜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R278",
+      "name": "金钱蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%87%91%E9%92%B1%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R279",
+      "name": "番茄豆腐汤羹",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E8%B1%86%E8%85%90%E6%B1%A4%E7%BE%B9/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E8%B1%86%E8%85%90%E6%B1%A4%E7%BE%B9.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R280",
+      "name": "黄油煎虾",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E9%BB%84%E6%B2%B9%E7%85%8E%E8%99%BE/%E9%BB%84%E6%B2%B9%E7%85%8E%E8%99%BE.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R281",
+      "name": "带把肘子",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B8%A6%E6%8A%8A%E8%82%98%E5%AD%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "肘子（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R283",
+      "name": "红烧鲤鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E7%BA%A2%E7%83%A7%E9%B2%A4%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "味极鲜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R284",
+      "name": "金针菇日本豆腐煲",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%87%91%E9%92%88%E8%8F%87%E6%97%A5%E6%9C%AC%E8%B1%86%E8%85%90%E7%85%B2.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R285",
+      "name": "小酥肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B0%8F%E9%85%A5%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "葱姜水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R286",
+      "name": "虎皮青椒",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%99%8E%E7%9A%AE%E9%9D%92%E6%A4%92/%E8%99%8E%E7%9A%AE%E9%9D%92%E6%A4%92.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R287",
+      "name": "酱排骨",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%85%B1%E6%8E%92%E9%AA%A8/%E9%85%B1%E6%8E%92%E9%AA%A8.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R288",
+      "name": "蒜蓉炒芹菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%92%9C%E8%93%89%E7%82%92%E8%8A%B9%E8%8F%9C/%E8%92%9C%E8%93%89%E7%82%92%E8%8A%B9%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R289",
+      "name": "香辣鸡爪煲",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%A6%99%E8%BE%A3%E9%B8%A1%E7%88%AA%E7%85%B2/%E9%A6%99%E8%BE%A3%E9%B8%A1%E7%88%AA%E7%85%B2.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "鸡汤（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R290",
+      "name": "玉米排骨汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E7%8E%89%E7%B1%B3%E6%8E%92%E9%AA%A8%E6%B1%A4/%E7%8E%89%E7%B1%B3%E6%8E%92%E9%AA%A8%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "小葱（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R291",
+      "name": "糖醋排骨",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%B3%96%E9%86%8B%E6%8E%92%E9%AA%A8/%E7%B3%96%E9%86%8B%E6%8E%92%E9%AA%A8.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R292",
+      "name": "白菜猪肉炖粉条",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%99%BD%E8%8F%9C%E7%8C%AA%E8%82%89%E7%82%96%E7%B2%89%E6%9D%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R293",
+      "name": "可乐鸡翅",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%8F%AF%E4%B9%90%E9%B8%A1%E7%BF%85.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R294",
+      "name": "勾芡香菇汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E5%8B%BE%E8%8A%A1%E9%A6%99%E8%8F%87%E6%B1%A4/%E5%8B%BE%E8%8A%A1%E9%A6%99%E8%8F%87%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": [
+        "表中盐3g，步骤另有浸泡2g及末步3g；末步“3g”后缺配料名，需核固定原文，不猜为鸡精。"
+      ]
+    },
+    {
+      "id": "R295",
+      "name": "小炒鸡肝",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B0%8F%E7%82%92%E9%B8%A1%E8%82%9D/%E5%B0%8F%E7%82%92%E9%B8%A1%E8%82%9D.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R296",
+      "name": "土豆炖排骨",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%9C%9F%E8%B1%86%E7%82%96%E6%8E%92%E9%AA%A8/%E5%9C%9F%E8%B1%86%E7%82%96%E6%8E%92%E9%AA%A8.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": [
+        "黄豆酱在原料表为5g、步骤为5ml；不作密度换算或选定其一。"
+      ]
+    },
+    {
+      "id": "R297",
+      "name": "洋葱炒猪肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%B4%8B%E8%91%B1%E7%82%92%E7%8C%AA%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R298",
+      "name": "冬瓜酿肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%86%AC%E7%93%9C%E9%85%BF%E8%82%89/%E5%86%AC%E7%93%9C%E9%85%BF%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": [
+        "冬瓜片原文尺寸与卷制动作不自洽，需核原方。"
+      ]
+    },
+    {
+      "id": "R299",
+      "name": "番茄蛋花汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E9%B8%A1%E8%9B%8B%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R300",
+      "name": "罗宋汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E7%BD%97%E5%AE%8B%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": [
+        "原料表有牛肉高汤500ml，步骤写加水未交代高汤使用位置；不自动用高汤替换水。"
+      ]
+    },
+    {
+      "id": "R301",
+      "name": "鳊鱼炖豆腐",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E9%B3%8A%E9%B1%BC%E7%82%96%E8%B1%86%E8%85%90/%E9%B3%8A%E9%B1%BC%E7%82%96%E8%B1%86%E8%85%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "干辣椒（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "食盐（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R302",
+      "name": "梅菜扣肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%A2%85%E8%8F%9C%E6%89%A3%E8%82%89/%E6%A2%85%E8%8F%9C%E6%89%A3%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "梅干菜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "蒜蓉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": [
+        "原料表有生抽20ml，原文步骤未交代使用位置，不擅自补入。"
+      ]
+    },
+    {
+      "id": "R303",
+      "name": "拔丝土豆",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%8B%94%E4%B8%9D%E5%9C%9F%E8%B1%86/%E6%8B%94%E4%B8%9D%E5%9C%9F%E8%B1%86.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R304",
+      "name": "虎皮肘子",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%99%8E%E7%9A%AE%E8%82%98%E5%AD%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "猪肘（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R305",
+      "name": "芹菜拌茶树菇",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8A%B9%E8%8F%9C%E6%8B%8C%E8%8C%B6%E6%A0%91%E8%8F%87/%E8%8A%B9%E8%8F%9C%E6%8B%8C%E8%8C%B6%E6%A0%91%E8%8F%87.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食盐（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R306",
+      "name": "荷兰豆炒腊肠",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%8D%B7%E5%85%B0%E8%B1%86%E7%82%92%E8%85%8A%E8%82%A0/%E8%8D%B7%E5%85%B0%E8%B1%86%E7%82%92%E8%85%8A%E8%82%A0.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R307",
+      "name": "山药南瓜炖鸡汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E5%B1%B1%E8%8D%AF%E5%8D%97%E7%93%9C%E7%82%96%E9%B8%A1%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R308",
+      "name": "西葫芦炒鸡蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%A5%BF%E8%91%AB%E8%8A%A6%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%A5%BF%E8%91%AB%E8%8A%A6%E7%82%92%E9%B8%A1%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R309",
+      "name": "油焖大虾",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E6%B2%B9%E7%84%96%E5%A4%A7%E8%99%BE/%E6%B2%B9%E7%84%96%E5%A4%A7%E8%99%BE.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "葱油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R310",
+      "name": "炸洋葱花",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%82%B8%E6%B4%8B%E8%91%B1%E8%8A%B1/%E7%82%B8%E6%B4%8B%E8%91%B1%E8%8A%B1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "番茄酱（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "蜂蜜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": [
+        "切法中45度间隔、16刀及后续补8刀的瓣数表述需核；不将其默认为已验证操作。"
+      ]
+    },
+    {
+      "id": "R311",
+      "name": "黄瓜皮蛋汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E9%BB%84%E7%93%9C%E7%9A%AE%E8%9B%8B%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R312",
+      "name": "蒲烧茄子",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%92%B2%E7%83%A7%E8%8C%84%E5%AD%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R313",
+      "name": "日本豆腐",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%AE%B6%E5%B8%B8%E6%97%A5%E6%9C%AC%E8%B1%86%E8%85%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "尖椒（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R314",
+      "name": "清蒸鲈鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E6%B8%85%E8%92%B8%E9%B2%88%E9%B1%BC/%E6%B8%85%E8%92%B8%E9%B2%88%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R315",
+      "name": "排骨苦瓜汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E6%8E%92%E9%AA%A8%E8%8B%A6%E7%93%9C%E6%B1%A4/%E6%8E%92%E9%AA%A8%E8%8B%A6%E7%93%9C%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "白胡椒（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R316",
+      "name": "清蒸鳜鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%B8%85%E8%92%B8%E9%B3%9C%E9%B1%BC/%E6%B8%85%E8%92%B8%E9%B3%9C%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "红椒（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "蒸鱼豉油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "猪油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R317",
+      "name": "擂椒皮蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%9B%B7%E6%A4%92%E7%9A%AE%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R318",
+      "name": "清炒花菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%B8%85%E7%82%92%E8%8A%B1%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R319",
+      "name": "萝卜炖羊排",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%90%9D%E5%8D%9C%E7%82%96%E7%BE%8A%E6%8E%92.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "羊肉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "食盐（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R320",
+      "name": "黄油鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%BB%84%E6%B2%B9%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "番茄酱（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R321",
+      "name": "牛排",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%89%9B%E6%8E%92/%E7%89%9B%E6%8E%92.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "蘑菇（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "海盐（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R322",
+      "name": "干煎阿根廷红虾",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E5%B9%B2%E7%85%8E%E9%98%BF%E6%A0%B9%E5%BB%B7%E7%BA%A2%E8%99%BE/%E5%B9%B2%E7%85%8E%E9%98%BF%E6%A0%B9%E5%BB%B7%E7%BA%A2%E8%99%BE.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "橄榄油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R323",
+      "name": "清蒸生蚝",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E6%B8%85%E8%92%B8%E7%94%9F%E8%9A%9D.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": [
+        "生蚝酱油用量表述每个1ml、步骤每个5ml，需核方。"
+      ]
+    },
+    {
+      "id": "R324",
+      "name": "烤茄子",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%83%A4%E8%8C%84%E5%AD%90/%E7%83%A4%E8%8C%84%E5%AD%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R325",
+      "name": "蒜香黄油虾",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E8%92%9C%E9%A6%99%E9%BB%84%E6%B2%B9%E8%99%BE/%E8%92%9C%E9%A6%99%E9%BB%84%E6%B2%B9%E8%99%BE.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "柠檬汁（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R326",
+      "name": "香煎五花肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%A6%99%E7%85%8E%E4%BA%94%E8%8A%B1%E8%82%89/%E9%A6%99%E7%85%8E%E4%BA%94%E8%8A%B1%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "生菜叶（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "大蒜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R327",
+      "name": "腐乳肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%85%90%E4%B9%B3%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R328",
+      "name": "湘祁米夫鸭",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%B9%98%E7%A5%81%E7%B1%B3%E5%A4%AB%E9%B8%AD/%E6%B9%98%E7%A5%81%E7%B1%B3%E5%A4%AB%E9%B8%AD.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "鸭肉（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R329",
+      "name": "瘦肉土豆片",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%98%A6%E8%82%89%E5%9C%9F%E8%B1%86%E7%89%87/%E7%98%A6%E8%82%89%E5%9C%9F%E8%B1%86%E7%89%87.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R330",
+      "name": "鸡蛋火腿炒黄瓜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%81%AB%E8%85%BF%E7%82%92%E9%BB%84%E7%93%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "辣椒（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R331",
+      "name": "烤鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E6%B7%B7%E5%90%88%E7%83%A4%E9%B1%BC/%E7%83%A4%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "香菜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "生抽（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "食盐（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "白糖（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "红油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R332",
+      "name": "冬瓜桑拿鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%86%AC%E7%93%9C%E6%A1%91%E6%8B%BF%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R333",
+      "name": "茭白炒肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%8C%AD%E7%99%BD%E7%82%92%E8%82%89/%E8%8C%AD%E7%99%BD%E7%82%92%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R334",
+      "name": "空气炸锅脆皮现腌炸鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E8%84%86%E7%9A%AE%E7%8E%B0%E8%85%8C%E7%82%B8%E9%B8%A1/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E8%84%86%E7%9A%AE%E7%8E%B0%E8%85%8C%E7%82%B8%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R335",
+      "name": "糖醋里脊",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%B3%96%E9%86%8B%E9%87%8C%E8%84%8A.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "猪里脊（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R336",
+      "name": "小炒黄牛肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B0%8F%E7%82%92%E9%BB%84%E7%89%9B%E8%82%89/%E5%B0%8F%E7%82%92%E9%BB%84%E7%89%9B%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R337",
+      "name": "黄焖鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%BB%84%E7%84%96%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "老抽（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "香菇水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R338",
+      "name": "榄菜肉末四季豆",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%A6%84%E8%8F%9C%E8%82%89%E6%9C%AB%E5%9B%9B%E5%AD%A3%E8%B1%86/%E6%A6%84%E8%8F%9C%E8%82%89%E6%9C%AB%E5%9B%9B%E5%AD%A3%E8%B1%86.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "鸡精（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "酱油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "猪油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R339",
+      "name": "酸辣土豆丝",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%85%B8%E8%BE%A3%E5%9C%9F%E8%B1%86%E4%B8%9D.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R340",
+      "name": "蒜蓉西兰花",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%92%9C%E8%93%89%E8%A5%BF%E5%85%B0%E8%8A%B1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "蒜蓉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R341",
+      "name": "芥末黄油罗氏虾",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E8%8A%A5%E6%9C%AB%E9%BB%84%E6%B2%B9%E7%BD%97%E6%B0%8F%E8%99%BE/%E8%8A%A5%E6%9C%AB%E9%BB%84%E6%B2%B9%E7%BD%97%E6%B0%8F%E8%99%BE.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "酱油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R342",
+      "name": "豉汁蒸白鱔",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%B1%89%E6%B1%81%E8%92%B8%E7%99%BD%E9%B1%94/%E8%B1%89%E6%B1%81%E8%92%B8%E7%99%BD%E9%B1%94.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R343",
+      "name": "羊肉汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E7%BE%8A%E8%82%89%E6%B1%A4/%E7%BE%8A%E8%82%89%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R344",
+      "name": "糖醋鲤鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E7%B3%96%E9%86%8B%E9%B2%A4%E9%B1%BC/%E7%B3%96%E9%86%8B%E9%B2%A4%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "鸡蛋（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R345",
+      "name": "奶油蘑菇汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E5%A5%B6%E6%B2%B9%E8%98%91%E8%8F%87%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R346",
+      "name": "姜葱捞鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%A7%9C%E8%91%B1%E6%8D%9E%E9%B8%A1/%E5%A7%9C%E8%91%B1%E6%8D%9E%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R347",
+      "name": "红烧鱼头",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E7%BA%A2%E7%83%A7%E9%B1%BC%E5%A4%B4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R348",
+      "name": "大盘鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%96%B0%E7%96%86%E5%A4%A7%E7%9B%98%E9%B8%A1/%E6%96%B0%E7%96%86%E5%A4%A7%E7%9B%98%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "生抽（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "辣椒（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "料酒（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "啤酒（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "蚝油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R349",
+      "name": "干锅花菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%B9%B2%E9%94%85%E8%8A%B1%E8%8F%9C/%E5%B9%B2%E9%94%85%E8%8A%B1%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "大葱（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "大蒜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R350",
+      "name": "蚝油生菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%9A%9D%E6%B2%B9%E7%94%9F%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "生菜叶（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": [
+        "生抽在原料表6ml、调汁步骤10ml；调好的碗汁何时入锅未明确。"
+      ]
+    },
+    {
+      "id": "R351",
+      "name": "蛏抱蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E8%9B%8F%E6%8A%B1%E8%9B%8B/%E8%9B%8F%E6%8A%B1%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R352",
+      "name": "凉拌木耳",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E6%9C%A8%E8%80%B3/%E5%87%89%E6%8B%8C%E6%9C%A8%E8%80%B3.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R353",
+      "name": "鸡蛋羹",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%BE%B9/%E8%92%B8%E7%AE%B1%E9%B8%A1%E8%9B%8B%E7%BE%B9.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R354",
+      "name": "上汤娃娃菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B8%8A%E6%B1%A4%E5%A8%83%E5%A8%83%E8%8F%9C/%E4%B8%8A%E6%B1%A4%E5%A8%83%E5%A8%83%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "味精（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "蚝油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R355",
+      "name": "蒜蓉空心菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%92%9C%E8%93%89%E7%A9%BA%E5%BF%83%E8%8F%9C/%E8%92%9C%E8%93%89%E7%A9%BA%E5%BF%83%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R356",
+      "name": "香干芹菜炒肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%A6%99%E5%B9%B2%E8%8A%B9%E8%8F%9C%E7%82%92%E8%82%89/%E9%A6%99%E5%B9%B2%E8%8A%B9%E8%8F%9C%E7%82%92%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "豆瓣酱（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R357",
+      "name": "蚝油三鲜菇",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%9A%9D%E6%B2%B9%E4%B8%89%E9%B2%9C%E8%8F%87/%E8%9A%9D%E6%B2%B9%E4%B8%89%E9%B2%9C%E8%8F%87.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R358",
+      "name": "凉拌金针菇",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E9%87%91%E9%92%88%E8%8F%87.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R359",
+      "name": "小炒脆藕丁",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%B0%8F%E7%82%92%E8%97%95%E4%B8%81/%E5%B0%8F%E7%82%92%E8%97%95%E4%B8%81.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R360",
+      "name": "枝竹羊腩煲",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%9E%9D%E7%AB%B9%E7%BE%8A%E8%85%A9%E7%85%B2/%E6%9E%9D%E7%AB%B9%E7%BE%8A%E8%85%A9%E7%85%B2.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "香菜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R361",
+      "name": "炒滑蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%82%92%E6%BB%91%E8%9B%8B/%E7%82%92%E6%BB%91%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R362",
+      "name": "葱烧鸡腿",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%91%B1%E7%83%A7%E9%B8%A1%E8%85%BF.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "鸡腿肉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "白芝麻（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R363",
+      "name": "鸡蛋羹",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%BE%B9/%E9%B8%A1%E8%9B%8B%E7%BE%B9.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "米醋（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R364",
+      "name": "红烧冬瓜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%BA%A2%E7%83%A7%E5%86%AC%E7%93%9C/%E7%BA%A2%E7%83%A7%E5%86%AC%E7%93%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R365",
+      "name": "紫菜蛋花汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E7%B4%AB%E8%8F%9C%E8%9B%8B%E8%8A%B1%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "虾皮（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "香油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R366",
+      "name": "猪肉烩酸菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%8C%AA%E8%82%89%E7%83%A9%E9%85%B8%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "大蒜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "生姜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R367",
+      "name": "响油鳝丝",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E5%93%8D%E6%B2%B9%E9%B3%9D%E4%B8%9D.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "鳝鱼（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "蒜蓉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "香油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R368",
+      "name": "松仁玉米",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%9D%BE%E4%BB%81%E7%8E%89%E7%B1%B3.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R369",
+      "name": "豉汁排骨",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%B1%89%E6%B1%81%E6%8E%92%E9%AA%A8.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R370",
+      "name": "青椒土豆炒肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%9D%92%E6%A4%92%E5%9C%9F%E8%B1%86%E7%82%92%E8%82%89/%E9%9D%92%E6%A4%92%E5%9C%9F%E8%B1%86%E7%82%92%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R371",
+      "name": "阳朔啤酒鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E9%98%B3%E6%9C%94%E5%95%A4%E9%85%92%E9%B1%BC/%E9%98%B3%E6%9C%94%E5%95%A4%E9%85%92%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "红油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R372",
+      "name": "油醋爆蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%B2%B9%E9%86%8B%E7%88%86%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "香葱（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R373",
+      "name": "鱼香茄子",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%B1%BC%E9%A6%99%E8%8C%84%E5%AD%90/%E9%B1%BC%E9%A6%99%E8%8C%84%E5%AD%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "葱姜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R374",
+      "name": "湖南红烧肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E6%B9%96%E5%8D%97%E5%AE%B6%E5%B8%B8%E7%BA%A2%E7%83%A7%E8%82%89/%E6%B9%96%E5%8D%97%E5%AE%B6%E5%B8%B8%E7%BA%A2%E7%83%A7%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R375",
+      "name": "芥末罗氏虾",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%8A%A5%E6%9C%AB%E7%BD%97%E6%B0%8F%E8%99%BE/%E8%8A%A5%E6%9C%AB%E7%BD%97%E6%B0%8F%E8%99%BE.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "大蒜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "蒜蓉（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R376",
+      "name": "白灼菜心",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%99%BD%E7%81%BC%E8%8F%9C%E5%BF%83/%E7%99%BD%E7%81%BC%E8%8F%9C%E5%BF%83.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "洋葱（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R377",
+      "name": "巴基斯坦牛肉咖喱",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E7%89%9B%E8%82%89%E5%92%96%E5%96%B1/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E7%89%9B%E8%82%89%E5%92%96%E5%96%B1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R378",
+      "name": "香煎翘嘴鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E9%A6%99%E7%85%8E%E7%BF%98%E5%98%B4%E9%B1%BC/%E9%A6%99%E7%85%8E%E7%BF%98%E5%98%B4%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "十三香（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "aux",
+          "text": "香菜（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "鸡精（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "陈醋（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R379",
+      "name": "红烧肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%BE%BD%E6%B4%BE%E7%BA%A2%E7%83%A7%E8%82%89/%E5%BE%BD%E6%B4%BE%E7%BA%A2%E7%83%A7%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R380",
+      "name": "糖拌番茄",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%B3%96%E6%8B%8C%E8%A5%BF%E7%BA%A2%E6%9F%BF/%E7%B3%96%E6%8B%8C%E8%A5%BF%E7%BA%A2%E6%9F%BF.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "白糖（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R381",
+      "name": "辣椒炒肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B0%8F%E7%82%92%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "豆瓣酱（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "豆豉（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R382",
+      "name": "清蒸南瓜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%B8%85%E8%92%B8%E5%8D%97%E7%93%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R383",
+      "name": "清蒸鳜鱼",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E8%91%B1%E6%B2%B9%E6%A1%82%E9%B1%BC/%E8%91%B1%E6%B2%B9%E6%A1%82%E9%B1%BC.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "味精（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "葱油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R384",
+      "name": "酱炖蟹",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E9%85%B1%E7%82%96%E8%9F%B9.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R385",
+      "name": "素炒长豆角",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%B4%A0%E7%82%92%E8%B1%86%E8%A7%92.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R386",
+      "name": "凉拌鸡丝",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%87%89%E6%8B%8C%E9%B8%A1%E4%B8%9D/%E5%87%89%E6%8B%8C%E9%B8%A1%E4%B8%9D.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R387",
+      "name": "口水鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%8F%A3%E6%B0%B4%E9%B8%A1/%E5%8F%A3%E6%B0%B4%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "香油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "红油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R388",
+      "name": "咖喱肥牛",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%92%96%E5%96%B1%E8%82%A5%E7%89%9B/%E5%92%96%E5%96%B1%E8%82%A5%E7%89%9B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "开水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R389",
+      "name": "广式萝卜牛腩",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B9%BF%E5%BC%8F%E8%90%9D%E5%8D%9C%E7%89%9B%E8%85%A9/%E5%B9%BF%E5%BC%8F%E8%90%9D%E5%8D%9C%E7%89%9B%E8%85%A9.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "白糖（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "热水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R390",
+      "name": "昂刺鱼豆腐汤",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/soup/%E6%98%82%E5%88%BA%E9%B1%BC%E8%B1%86%E8%85%90%E6%B1%A4/%E6%98%82%E5%88%BA%E9%B1%BC%E8%B1%86%E8%85%90%E6%B1%A4.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R391",
+      "name": "乾隆白菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": true,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R392",
+      "name": "干煸仔鸡",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%B9%B2%E7%85%B8%E4%BB%94%E9%B8%A1/%E5%B9%B2%E7%85%B8%E4%BB%94%E9%B8%A1.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "清水（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R393",
+      "name": "甜辣烤全翅",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E7%94%9C%E8%BE%A3%E7%83%A4%E5%85%A8%E7%BF%85.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R394",
+      "name": "鲤鱼炖白菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/aquatic/%E9%B2%A4%E9%B1%BC%E7%82%96%E7%99%BD%E8%8F%9C/%E9%B2%A4%E9%B1%BC%E7%82%96%E7%99%BD%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R395",
+      "name": "蚂蚁上树",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E8%9A%82%E8%9A%81%E4%B8%8A%E6%A0%91.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "seasonings",
+          "text": "红油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R396",
+      "name": "凉拌莴笋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E8%8E%B4%E7%AC%8B/%E5%87%89%E6%8B%8C%E8%8E%B4%E7%AC%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": [
+        "萝卜最初切条腌制，后续清洗、加热及合拌未明确。"
+      ]
+    },
+    {
+      "id": "R397",
+      "name": "啤酒鸭",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%95%A4%E9%85%92%E9%B8%AD/%E5%95%A4%E9%85%92%E9%B8%AD.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [
+        {
+          "field": "aux",
+          "text": "姜片（步骤另提及，未单列固定用量）"
+        },
+        {
+          "field": "seasonings",
+          "text": "食用油（步骤另提及，未单列固定用量）"
+        }
+      ],
+      "manual": []
+    },
+    {
+      "id": "R411",
+      "name": "宫保鸡丁",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%AE%AB%E4%BF%9D%E9%B8%A1%E4%B8%81/%E5%AE%AB%E4%BF%9D%E9%B8%A1%E4%B8%81.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R412",
+      "name": "麻婆豆腐",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R413",
+      "name": "回锅肉",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/meat_dish/%E5%9B%9E%E9%94%85%E8%82%89/%E5%9B%9E%E9%94%85%E8%82%89.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R414",
+      "name": "手撕包菜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%89%8B%E6%92%95%E5%8C%85%E8%8F%9C/%E6%89%8B%E6%92%95%E5%8C%85%E8%8F%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R415",
+      "name": "韭菜炒蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E9%9F%AD%E8%8F%9C%E7%82%92%E8%9B%8B/%E9%9F%AD%E8%8F%9C%E7%82%92%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R416",
+      "name": "葱煎豆腐",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%91%B1%E7%85%8E%E8%B1%86%E8%85%90.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R417",
+      "name": "凉拌黄瓜",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E9%BB%84%E7%93%9C.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    },
+    {
+      "id": "R418",
+      "name": "洋葱炒鸡蛋",
+      "source": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%B4%8B%E8%91%B1%E7%82%92%E9%B8%A1%E8%9B%8B/%E6%B4%8B%E8%91%B1%E7%82%92%E9%B8%A1%E8%9B%8B.md",
+      "state": "pending_review",
+      "curated": false,
+      "fragments": [],
+      "stepInferred": [],
+      "manual": []
+    }
+  ]
+}

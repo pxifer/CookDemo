@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-21T14:40:30.838Z",
+  "realPostgres": true,
+  "databaseScope": "random-isolated-local-business-test",
+  "completed": [
+    "empty-content-not-ready",
+    "import-publish-readonly",
+    "transaction-rollback",
+    "api-recommendation-constraints-nutrition",
+    "explicit-version-rollback-revocation",
+    "stream-and-real-pool-failure"
+  ],
+  "recipes": 18,
+  "variants": 36,
+  "formalData": false,
+  "models": false,
+  "healthRules": false
+}

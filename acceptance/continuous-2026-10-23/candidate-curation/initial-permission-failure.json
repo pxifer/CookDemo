@@ -1,0 +1,469 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.ui.config.ts",
+      "--grep",
+      "候选原料纠错|图鉴独立页面"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.ui.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/ui-revision.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/ui-revision.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/ui-revision.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/ui-revision.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/continuous-2026-10-23/candidate-curation/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui-revision.spec.ts",
+      "file": "ui-revision.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "图鉴独立页面、四栏筛选和详情、无来源链接且可刷新",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8600,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.candidate-card')\nExpected: \u001b[32m24\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  7000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.candidate-card') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.candidate-card')\u001b[22m\n\u001b[2m    18 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.candidate-card')\nExpected: \u001b[32m24\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  7000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.candidate-card') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.candidate-card')\u001b[22m\n\u001b[2m    18 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:39:103",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 103,
+                      "line": 39
+                    },
+                    "snippet": "  37 | test('图鉴独立页面、四栏筛选和详情、无来源链接且可刷新',async({page},info)=>{\n  38 |   await page.getByRole('link',{name:'菜谱图鉴',exact:true}).click();await expect(page).toHaveURL(/\\/recipes$/);\n> 39 |   await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.locator('.candidate-card')).toHaveCount(24);\n     |                                                                                                       ^\n  40 |   const db=await(await page.request.get('/api/v1/local/candidate-recipes')).json();\n  41 |   expect(new Set(await page.getByLabel('按口味筛选').locator('option').allTextContents())).toEqual(new Set(['全部口味',...db.recipes.map((r:any)=>r.flavor)]));\n  42 |   await expect(page.locator('.candidate-library a[href^=\"https:\"]')).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 103,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.candidate-card')\nExpected: \u001b[32m24\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  7000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.candidate-card') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.candidate-card')\u001b[22m\n\u001b[2m    18 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  37 | test('图鉴独立页面、四栏筛选和详情、无来源链接且可刷新',async({page},info)=>{\n  38 |   await page.getByRole('link',{name:'菜谱图鉴',exact:true}).click();await expect(page).toHaveURL(/\\/recipes$/);\n> 39 |   await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.locator('.candidate-card')).toHaveCount(24);\n     |                                                                                                       ^\n  40 |   const db=await(await page.request.get('/api/v1/local/candidate-recipes')).json();\n  41 |   expect(new Set(await page.getByLabel('按口味筛选').locator('option').allTextContents())).toEqual(new Set(['全部口味',...db.recipes.map((r:any)=>r.flavor)]));\n  42 |   await expect(page.locator('.candidate-library a[href^=\"https:\"]')).toHaveCount(0);\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:39:103"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T18:18:28.088Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴独立页面、四栏筛选和详情、无来源链接且可刷新-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴独立页面、四栏筛选和详情、无来源链接且可刷新-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴独立页面、四栏筛选和详情、无来源链接且可刷新-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 103,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-25343362685e5747ad73",
+          "file": "ui-revision.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "候选原料纠错与数据库味型一致，仍明确待审核",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7890,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.library-flavor')\nExpected: \u001b[32m\"麻酱酸甜\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.library-flavor') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.library-flavor')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.library-flavor')\nExpected: \u001b[32m\"麻酱酸甜\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.library-flavor') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.library-flavor')\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:122:49",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 49,
+                      "line": 122
+                    },
+                    "snippet": "  120 | test('候选原料纠错与数据库味型一致，仍明确待审核',async({page})=>{\n  121 |   await page.goto('/recipes?dish='+encodeURIComponent('乾隆白菜'));\n> 122 |   await expect(page.locator('.library-flavor')).toHaveText('麻酱酸甜');\n      |                                                 ^\n  123 |   await expect(page.getByText('已校正原料或口味展示；仍为待审核候选。')).toBeVisible();\n  124 |   await page.goto('/recipes?dish='+encodeURIComponent('黄焖鸡'));\n  125 |   const ingredients=page.locator('.library-recipe-columns section').first();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 49,
+                        "line": 122
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.library-flavor')\nExpected: \u001b[32m\"麻酱酸甜\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.library-flavor') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.library-flavor')\u001b[22m\n\n\n  120 | test('候选原料纠错与数据库味型一致，仍明确待审核',async({page})=>{\n  121 |   await page.goto('/recipes?dish='+encodeURIComponent('乾隆白菜'));\n> 122 |   await expect(page.locator('.library-flavor')).toHaveText('麻酱酸甜');\n      |                                                 ^\n  123 |   await expect(page.getByText('已校正原料或口味展示；仍为待审核候选。')).toBeVisible();\n  124 |   await page.goto('/recipes?dish='+encodeURIComponent('黄焖鸡'));\n  125 |   const ingredients=page.locator('.library-recipe-columns section').first();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:122:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T18:18:39.771Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-候选原料纠错与数据库味型一致，仍明确待审核-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-候选原料纠错与数据库味型一致，仍明确待审核-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-候选原料纠错与数据库味型一致，仍明确待审核-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 49,
+                    "line": 122
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-165a8ea8ea4f3af7c853",
+          "file": "ui-revision.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "图鉴独立页面、四栏筛选和详情、无来源链接且可刷新",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8501,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.candidate-card')\nExpected: \u001b[32m24\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  7000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.candidate-card') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.candidate-card')\u001b[22m\n\u001b[2m    17 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.candidate-card')\nExpected: \u001b[32m24\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  7000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.candidate-card') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.candidate-card')\u001b[22m\n\u001b[2m    17 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:39:103",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 103,
+                      "line": 39
+                    },
+                    "snippet": "  37 | test('图鉴独立页面、四栏筛选和详情、无来源链接且可刷新',async({page},info)=>{\n  38 |   await page.getByRole('link',{name:'菜谱图鉴',exact:true}).click();await expect(page).toHaveURL(/\\/recipes$/);\n> 39 |   await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.locator('.candidate-card')).toHaveCount(24);\n     |                                                                                                       ^\n  40 |   const db=await(await page.request.get('/api/v1/local/candidate-recipes')).json();\n  41 |   expect(new Set(await page.getByLabel('按口味筛选').locator('option').allTextContents())).toEqual(new Set(['全部口味',...db.recipes.map((r:any)=>r.flavor)]));\n  42 |   await expect(page.locator('.candidate-library a[href^=\"https:\"]')).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 103,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.candidate-card')\nExpected: \u001b[32m24\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  7000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.candidate-card') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.candidate-card')\u001b[22m\n\u001b[2m    17 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  37 | test('图鉴独立页面、四栏筛选和详情、无来源链接且可刷新',async({page},info)=>{\n  38 |   await page.getByRole('link',{name:'菜谱图鉴',exact:true}).click();await expect(page).toHaveURL(/\\/recipes$/);\n> 39 |   await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.locator('.candidate-card')).toHaveCount(24);\n     |                                                                                                       ^\n  40 |   const db=await(await page.request.get('/api/v1/local/candidate-recipes')).json();\n  41 |   expect(new Set(await page.getByLabel('按口味筛选').locator('option').allTextContents())).toEqual(new Set(['全部口味',...db.recipes.map((r:any)=>r.flavor)]));\n  42 |   await expect(page.locator('.candidate-library a[href^=\"https:\"]')).toHaveCount(0);\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:39:103"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T18:18:50.296Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴独立页面、四栏筛选和详情、无来源链接且可刷新-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴独立页面、四栏筛选和详情、无来源链接且可刷新-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-图鉴独立页面、四栏筛选和详情、无来源链接且可刷新-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 103,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-e6ed90cd672e6ac0f00b",
+          "file": "ui-revision.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "候选原料纠错与数据库味型一致，仍明确待审核",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7844,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.library-flavor')\nExpected: \u001b[32m\"麻酱酸甜\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.library-flavor') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.library-flavor')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.library-flavor')\nExpected: \u001b[32m\"麻酱酸甜\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.library-flavor') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.library-flavor')\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:122:49",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                      "column": 49,
+                      "line": 122
+                    },
+                    "snippet": "  120 | test('候选原料纠错与数据库味型一致，仍明确待审核',async({page})=>{\n  121 |   await page.goto('/recipes?dish='+encodeURIComponent('乾隆白菜'));\n> 122 |   await expect(page.locator('.library-flavor')).toHaveText('麻酱酸甜');\n      |                                                 ^\n  123 |   await expect(page.getByText('已校正原料或口味展示；仍为待审核候选。')).toBeVisible();\n  124 |   await page.goto('/recipes?dish='+encodeURIComponent('黄焖鸡'));\n  125 |   const ingredients=page.locator('.library-recipe-columns section').first();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                        "column": 49,
+                        "line": 122
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.library-flavor')\nExpected: \u001b[32m\"麻酱酸甜\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.library-flavor') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.library-flavor')\u001b[22m\n\n\n  120 | test('候选原料纠错与数据库味型一致，仍明确待审核',async({page})=>{\n  121 |   await page.goto('/recipes?dish='+encodeURIComponent('乾隆白菜'));\n> 122 |   await expect(page.locator('.library-flavor')).toHaveText('麻酱酸甜');\n      |                                                 ^\n  123 |   await expect(page.getByText('已校正原料或口味展示；仍为待审核候选。')).toBeVisible();\n  124 |   await page.goto('/recipes?dish='+encodeURIComponent('黄焖鸡'));\n  125 |   const ingredients=page.locator('.library-recipe-columns section').first();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts:122:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-22T18:19:01.662Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-候选原料纠错与数据库味型一致，仍明确待审核-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-候选原料纠错与数据库味型一致，仍明确待审核-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\ui-revision\\ui-revision-候选原料纠错与数据库味型一致，仍明确待审核-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-revision.spec.ts",
+                    "column": 49,
+                    "line": 122
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "725cd46cf8bc93a05350-bff768a03474a807b5a2",
+          "file": "ui-revision.spec.ts",
+          "line": 120,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-22T18:18:27.564Z",
+    "duration": 44048.106,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

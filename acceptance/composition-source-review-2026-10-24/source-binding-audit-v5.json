@@ -1,0 +1,13 @@
+{
+  "version": "source-binding-audit-v5",
+  "definitionCount": 134,
+  "quarantinedVariantCount": 1,
+  "quarantinedVariants": [
+    {
+      "recipeId": "gallery-de8b31dcd19279be",
+      "variantId": "gallery-de8b31dcd19279be-r316",
+      "reason": "现有菜谱来源指向葱油桂鱼，食材步骤却来自清蒸鳜鱼；来源未重新绑定到固定提交的独立原文，因此不予放行。"
+    }
+  ],
+  "policy": "只有菜谱来源、配方版本与逐项原文一致的配方才生成核验批准；来源错绑留在待核状态。"
+}

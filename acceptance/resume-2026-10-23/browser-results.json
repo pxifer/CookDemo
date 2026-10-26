@@ -1,0 +1,385 @@
+{
+  "config": {
+    "argv": [
+      "D:\\software\\node\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.resume.config.ts",
+      "--grep",
+      "图鉴收藏"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.resume.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/resume.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/resume.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/resume.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/resume.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4176",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/resume-2026-10-23/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "resume.spec.ts",
+      "file": "resume.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6,
+                  "error": {
+                    "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-NDtOlH --remote-debugging-pipe --no-startup-window\n<launched> pid=45640\n[pid=45640][err] [1023/144714.658:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-NDtOlH --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=45640\u001b[22m\n\u001b[2m  - [pid=45640][err] [1023/144714.658:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=45640] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=45640] <kill>\u001b[22m\n\u001b[2m  - [pid=45640] <will force kill>\u001b[22m\n\u001b[2m  - [pid=45640] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=45640] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45640] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45640] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-NDtOlH --remote-debugging-pipe --no-startup-window\n<launched> pid=45640\n[pid=45640][err] [1023/144714.658:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-NDtOlH --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=45640\u001b[22m\n\u001b[2m  - [pid=45640][err] [1023/144714.658:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=45640] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=45640] <kill>\u001b[22m\n\u001b[2m  - [pid=45640] <will force kill>\u001b[22m\n\u001b[2m  - [pid=45640] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=45640] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45640] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45640] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-NDtOlH --remote-debugging-pipe --no-startup-window\n<launched> pid=45640\n[pid=45640][err] [1023/144714.658:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-NDtOlH --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=45640\u001b[22m\n\u001b[2m  - [pid=45640][err] [1023/144714.658:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=45640] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=45640] <kill>\u001b[22m\n\u001b[2m  - [pid=45640] <will force kill>\u001b[22m\n\u001b[2m  - [pid=45640] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=45640] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45640] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=45640] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T06:47:13.419Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-4fd048200ca17738cb85",
+          "file": "resume.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "图鉴收藏立即反馈且只锁定当前卡片",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3,
+                  "error": {
+                    "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-l2P76D --remote-debugging-pipe --no-startup-window\n<launched> pid=74344\n[pid=74344][err] [1023/144726.786:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-l2P76D --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=74344\u001b[22m\n\u001b[2m  - [pid=74344][err] [1023/144726.786:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=74344] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=74344] <kill>\u001b[22m\n\u001b[2m  - [pid=74344] <will force kill>\u001b[22m\n\u001b[2m  - [pid=74344] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=74344] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=74344] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=74344] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-l2P76D --remote-debugging-pipe --no-startup-window\n<launched> pid=74344\n[pid=74344][err] [1023/144726.786:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-l2P76D --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=74344\u001b[22m\n\u001b[2m  - [pid=74344][err] [1023/144726.786:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=74344] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=74344] <kill>\u001b[22m\n\u001b[2m  - [pid=74344] <will force kill>\u001b[22m\n\u001b[2m  - [pid=74344] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=74344] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=74344] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=74344] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-l2P76D --remote-debugging-pipe --no-startup-window\n<launched> pid=74344\n[pid=74344][err] [1023/144726.786:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-l2P76D --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=74344\u001b[22m\n\u001b[2m  - [pid=74344][err] [1023/144726.786:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=74344] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=74344] <kill>\u001b[22m\n\u001b[2m  - [pid=74344] <will force kill>\u001b[22m\n\u001b[2m  - [pid=74344] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=74344] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=74344] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=74344] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T06:47:26.258Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏立即反馈且只锁定当前卡片-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏立即反馈且只锁定当前卡片-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-42958fda728d31ef4b43",
+          "file": "resume.spec.ts",
+          "line": 79,
+          "column": 1
+        },
+        {
+          "title": "图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2,
+                  "error": {
+                    "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-zhX4k0 --remote-debugging-pipe --no-startup-window\n<launched> pid=27352\n[pid=27352][err] [1023/144738.745:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-zhX4k0 --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=27352\u001b[22m\n\u001b[2m  - [pid=27352][err] [1023/144738.745:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=27352] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=27352] <kill>\u001b[22m\n\u001b[2m  - [pid=27352] <will force kill>\u001b[22m\n\u001b[2m  - [pid=27352] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=27352] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=27352] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=27352] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-zhX4k0 --remote-debugging-pipe --no-startup-window\n<launched> pid=27352\n[pid=27352][err] [1023/144738.745:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-zhX4k0 --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=27352\u001b[22m\n\u001b[2m  - [pid=27352][err] [1023/144738.745:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=27352] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=27352] <kill>\u001b[22m\n\u001b[2m  - [pid=27352] <will force kill>\u001b[22m\n\u001b[2m  - [pid=27352] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=27352] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=27352] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=27352] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-zhX4k0 --remote-debugging-pipe --no-startup-window\n<launched> pid=27352\n[pid=27352][err] [1023/144738.745:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-zhX4k0 --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=27352\u001b[22m\n\u001b[2m  - [pid=27352][err] [1023/144738.745:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=27352] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=27352] <kill>\u001b[22m\n\u001b[2m  - [pid=27352] <will force kill>\u001b[22m\n\u001b[2m  - [pid=27352] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=27352] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=27352] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=27352] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T06:47:38.206Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏进入独立页面，刷新复查且移除后持久保留其他收藏-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-aae357d745938559db14",
+          "file": "resume.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "图鉴收藏立即反馈且只锁定当前卡片",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5,
+                  "error": {
+                    "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-dtyZMn --remote-debugging-pipe --no-startup-window\n<launched> pid=75540\n[pid=75540][err] [1023/144750.531:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-dtyZMn --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=75540\u001b[22m\n\u001b[2m  - [pid=75540][err] [1023/144750.531:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=75540] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=75540] <kill>\u001b[22m\n\u001b[2m  - [pid=75540] <will force kill>\u001b[22m\n\u001b[2m  - [pid=75540] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=75540] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=75540] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=75540] <gracefully close end>\u001b[22m\n",
+                    "stack": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-dtyZMn --remote-debugging-pipe --no-startup-window\n<launched> pid=75540\n[pid=75540][err] [1023/144750.531:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-dtyZMn --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=75540\u001b[22m\n\u001b[2m  - [pid=75540][err] [1023/144750.531:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=75540] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=75540] <kill>\u001b[22m\n\u001b[2m  - [pid=75540] <will force kill>\u001b[22m\n\u001b[2m  - [pid=75540] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=75540] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=75540] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=75540] <gracefully close end>\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserType.launch: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-dtyZMn --remote-debugging-pipe --no-startup-window\n<launched> pid=75540\n[pid=75540][err] [1023/144750.531:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Packages\\sandbox.{509ed8aa-26ed-41b6-948d-3cdedcc62df2}\\AC\\Temp\\playwright_chromiumdev_profile-dtyZMn --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=75540\u001b[22m\n\u001b[2m  - [pid=75540][err] [1023/144750.531:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: 管道已结束。 (0x6D)\u001b[22m\n\u001b[2m  - [pid=75540] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=75540] <kill>\u001b[22m\n\u001b[2m  - [pid=75540] <will force kill>\u001b[22m\n\u001b[2m  - [pid=75540] <process did exit: exitCode=0, signal=null>\u001b[22m\n\u001b[2m  - [pid=75540] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=75540] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=75540] <gracefully close end>\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-23T06:47:50.072Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏立即反馈且只锁定当前卡片-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\resume\\resume-图鉴收藏立即反馈且只锁定当前卡片-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2352191a150b5313c38a-be9e99f6f9a92455c398",
+          "file": "resume.spec.ts",
+          "line": 79,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-23T06:47:12.367Z",
+    "duration": 49413.926,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

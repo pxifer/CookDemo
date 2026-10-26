@@ -1,0 +1,675 @@
+{
+  "definitions": [
+    {
+      "reviewId": "composition-r396-v2",
+      "recipeId": "gallery-5da7d9809edda8a0",
+      "variantId": "gallery-5da7d9809edda8a0-r396",
+      "sourceRecord": "R396",
+      "sourceSha256": "3ac67ce68b0837211daf0d62671806453aa5670e254ed53c19ac22d8f531acb7",
+      "sourceCoverage": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-53f356a4dfae8657",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。"
+        },
+        {
+          "foodId": "gallery-food-945004d215c8e0cb",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。",
+          "verified": false
+        },
+        {
+          "foodId": "gallery-food-a23bb4094d053220",
+          "equivalentIds": [
+            "chilli"
+          ],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。"
+        },
+        {
+          "foodId": "ginger",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。"
+        },
+        {
+          "foodId": "gallery-food-73a2b08d27623cda",
+          "equivalentIds": [
+            "garlic"
+          ],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。"
+        },
+        {
+          "foodId": "gallery-food-35b2ab711b4cee33",
+          "equivalentIds": [
+            "ginger"
+          ],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。"
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        }
+      ],
+      "fingerprint": "648cca74f529f014204cee302d9c1fbdd7e83c036dd4fde98fe918726ea6a0be"
+    },
+    {
+      "reviewId": "composition-r318-v2",
+      "recipeId": "gallery-ced1de5a054d38d9",
+      "variantId": "gallery-ced1de5a054d38d9-r318",
+      "sourceRecord": "R318",
+      "sourceSha256": "6aaba881967c8fda670a70bcf54bf2047d60c597eb671b27670385f8d4b03a8a",
+      "sourceCoverage": "核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-a9f421d1a777f653",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。"
+        },
+        {
+          "foodId": "water",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。"
+        },
+        {
+          "foodId": "garlic",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。"
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        }
+      ],
+      "fingerprint": "a79fca810238516800071bda0dbdd6ea116e833b57b28933418f14d9859104ec"
+    },
+    {
+      "reviewId": "composition-r415-v2",
+      "recipeId": "gallery-8a63f4a675c253b3",
+      "variantId": "gallery-8a63f4a675c253b3-r415",
+      "sourceRecord": "R415",
+      "sourceSha256": "b6adaa156b2a5d821069e12fd84544e323e02f7fe305c65645dc93fb03669561",
+      "sourceCoverage": "核必备、计算及9步；韭菜、鸡蛋、油、盐完整。油10ml与步骤另加5ml总量未定，只核成分，不推算用量或营养。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-584954c44840c42d",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；韭菜、鸡蛋、油、盐完整。油10ml与步骤另加5ml总量未定，只核成分，不推算用量或营养。"
+        },
+        {
+          "foodId": "egg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；韭菜、鸡蛋、油、盐完整。油10ml与步骤另加5ml总量未定，只核成分，不推算用量或营养。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；韭菜、鸡蛋、油、盐完整。油10ml与步骤另加5ml总量未定，只核成分，不推算用量或营养。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；韭菜、鸡蛋、油、盐完整。油10ml与步骤另加5ml总量未定，只核成分，不推算用量或营养。"
+        }
+      ],
+      "fingerprint": "e2a833b298d891962ba8683347ba5e86d05311adc661ddaa93198622d5a17436"
+    },
+    {
+      "reviewId": "composition-r270-v2",
+      "recipeId": "community-spinach-eggs",
+      "variantId": "community-spinach-eggs-original",
+      "sourceRecord": "R270",
+      "sourceSha256": "5f9053270d84462f8006f3bb69a9132d7c3d4f46497d39f6f31cb312c70e1bf7",
+      "sourceCoverage": "核必备、计算及8步；菠菜、鸡蛋、油15ml、盐5g、投料水100ml与既有来源版本一致。",
+      "leaves": [
+        {
+          "foodId": "spinach",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；菠菜、鸡蛋、油15ml、盐5g、投料水100ml与既有来源版本一致。"
+        },
+        {
+          "foodId": "egg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；菠菜、鸡蛋、油15ml、盐5g、投料水100ml与既有来源版本一致。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；菠菜、鸡蛋、油15ml、盐5g、投料水100ml与既有来源版本一致。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；菠菜、鸡蛋、油15ml、盐5g、投料水100ml与既有来源版本一致。"
+        },
+        {
+          "foodId": "water",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；菠菜、鸡蛋、油15ml、盐5g、投料水100ml与既有来源版本一致。"
+        }
+      ],
+      "fingerprint": "d5f6742f57cf3fcc3974f2f68ea378c20fad007020fe0f6ee660215ba27cc058"
+    },
+    {
+      "reviewId": "composition-r308-v2",
+      "recipeId": "gallery-8f2b487749986928",
+      "variantId": "gallery-8f2b487749986928-r308",
+      "sourceRecord": "R308",
+      "sourceSha256": "84c063778e12767e012fe968536af526e75645750b33e20df7aa9f05246c5302",
+      "sourceCoverage": "核必备、计算及9步；西红柿在必备中明确可选，未放时跳过对应处理；食用盐对应盐。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-36977dd6259e593e",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；西红柿在必备中明确可选，未放时跳过对应处理；食用盐对应盐。"
+        },
+        {
+          "foodId": "tomato",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；西红柿在必备中明确可选，未放时跳过对应处理；食用盐对应盐。"
+        },
+        {
+          "foodId": "egg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；西红柿在必备中明确可选，未放时跳过对应处理；食用盐对应盐。"
+        },
+        {
+          "foodId": "gallery-food-e5d206220a59b405",
+          "equivalentIds": [
+            "salt"
+          ],
+          "evidence": "核必备、计算及9步；西红柿在必备中明确可选，未放时跳过对应处理；食用盐对应盐。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及9步；西红柿在必备中明确可选，未放时跳过对应处理；食用盐对应盐。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        }
+      ],
+      "fingerprint": "976a557dc45f050a442e8975a6fa9ca285de90a09dbd1de2dda595f0c43bce2c"
+    },
+    {
+      "reviewId": "composition-r271-v2",
+      "recipeId": "gallery-42f00fe7bb66955e",
+      "variantId": "gallery-42f00fe7bb66955e-r271",
+      "sourceRecord": "R271",
+      "sourceSha256": "b68d4c0b7410c0e649006006ea17c8b094d31592515474780ac02d4fb39a6100",
+      "sourceCoverage": "核必备、计算、5步及附加鸡蛋说明；鸡蛋明确可省，补收步骤3的水。不包含附加的自由滴油变体。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-23b9bdcaf47717b8",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步及附加鸡蛋说明；鸡蛋明确可省，补收步骤3的水。不包含附加的自由滴油变体。"
+        },
+        {
+          "foodId": "egg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步及附加鸡蛋说明；鸡蛋明确可省，补收步骤3的水。不包含附加的自由滴油变体。"
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步及附加鸡蛋说明；鸡蛋明确可省，补收步骤3的水。不包含附加的自由滴油变体。"
+        },
+        {
+          "foodId": "msg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步及附加鸡蛋说明；鸡蛋明确可省，补收步骤3的水。不包含附加的自由滴油变体。"
+        },
+        {
+          "foodId": "water",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步及附加鸡蛋说明；鸡蛋明确可省，补收步骤3的水。不包含附加的自由滴油变体。"
+        }
+      ],
+      "fingerprint": "231779c27282249b9c36ffe0762625ae635f7f0051788539e2cd5929970e613d"
+    },
+    {
+      "reviewId": "composition-r315-v2",
+      "recipeId": "gallery-4cb1316d5cbf0f5d",
+      "variantId": "gallery-4cb1316d5cbf0f5d-r315",
+      "sourceRecord": "R315",
+      "sourceSha256": "36d75f3cbd182307c485074117fabbfccf2235aabc27f6a573d50036ab6eb29a",
+      "sourceCoverage": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-a54c86557dfa320a",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。",
+          "verified": false
+        },
+        {
+          "foodId": "gallery-food-844bb771219ba31c",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。"
+        },
+        {
+          "foodId": "gallery-food-dcf41ad0998f371a",
+          "equivalentIds": [
+            "shrimp"
+          ],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。"
+        },
+        {
+          "foodId": "ginger",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。"
+        },
+        {
+          "foodId": "white-pepper",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。"
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。"
+        },
+        {
+          "foodId": "water",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、备料及汤锅/电压力锅两个分支；补收出锅的盐和炖汤水。排骨动物身份未由原文明确，保留未核准，不因此放行。只核虾皮原方，不使用附加瑶柱替换；虾皮属虾，不冒充鱼类。"
+        }
+      ],
+      "fingerprint": "8e074f7a6e06a510d79420292eea173ba5fb682215423e4553a4d1f741326d9f"
+    },
+    {
+      "reviewId": "composition-r365-v2",
+      "recipeId": "gallery-f3d1d10011b24172",
+      "variantId": "gallery-f3d1d10011b24172-r365",
+      "sourceRecord": "R365",
+      "sourceSha256": "8b83438660e9d15b9658644b4b9c8d16eecf1207cf33ac7e2fd526aa3f760020",
+      "sourceCoverage": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。",
+      "leaves": [
+        {
+          "foodId": "gallery-food-ca25158e8e17ba8f",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "egg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "gallery-food-327313f812dfcb0d",
+          "equivalentIds": [
+            "scallion"
+          ],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "gallery-food-dcf41ad0998f371a",
+          "equivalentIds": [
+            "shrimp"
+          ],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "gallery-food-6346b69a1ad66d34",
+          "equivalentIds": [
+            "water"
+          ],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        },
+        {
+          "foodId": "sesame-oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "gallery-food-0b743f4b1b27c094",
+          "equivalentIds": [
+            "water"
+          ],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        },
+        {
+          "foodId": "shrimp",
+          "equivalentIds": [],
+          "evidence": "核必备、计算、5步和可选虾说明；葱花对应葱，清水/水对应饮用水；补收原方明确可选虾仁，虾皮亦可省。不采用附加浓稠加淀粉方案。"
+        }
+      ],
+      "fingerprint": "f5479198167716f9c7768b7d7b22d70fbbf16fa4db1ca8112aebfd8aea1ea24b"
+    },
+    {
+      "reviewId": "composition-r299-v2",
+      "recipeId": "gallery-864a4ab520484c3a",
+      "variantId": "gallery-864a4ab520484c3a-r299",
+      "sourceRecord": "R299",
+      "sourceSha256": "27692a58fc1659aee6d67ce67bf5cfebf114b12540370ba2a2ef9950a5dd5bc5",
+      "sourceCoverage": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。",
+      "leaves": [
+        {
+          "foodId": "tomato",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "egg",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "gallery-food-04bf1bcc3fe14f82",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。",
+          "verified": false
+        },
+        {
+          "foodId": "scallion",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "ginger",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "garlic",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "sesame-oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "salt",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        },
+        {
+          "foodId": "oil",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。 食用油来源未定，不据此核验记录放行。",
+          "verified": false
+        },
+        {
+          "foodId": "water",
+          "equivalentIds": [],
+          "evidence": "核必备、计算及8步；补收步骤4油15ml、步骤6水及步骤8关火。味素可省且来源未核，只在实际省略时通过，不能据本审查放行未知味素。"
+        }
+      ],
+      "fingerprint": "6c5b89d6fec8f09c91b6c63d09b7f05f019946175faf9a91898c758eb44824b7"
+    }
+  ],
+  "corrections": [
+    {
+      "recipeId": "gallery-5da7d9809edda8a0",
+      "variantId": "gallery-5da7d9809edda8a0-r396",
+      "baseFingerprint": "9e3a4a4ab442f89d97ac203e843a573804f60066a5091d689bea527a39dc1caf",
+      "sourceRecord": "R396",
+      "sourceSha256": "3ac67ce68b0837211daf0d62671806453aa5670e254ed53c19ac22d8f531acb7",
+      "optionalFoodIds": [
+        "gallery-food-945004d215c8e0cb"
+      ],
+      "addLines": []
+    },
+    {
+      "recipeId": "gallery-8f2b487749986928",
+      "variantId": "gallery-8f2b487749986928-r308",
+      "baseFingerprint": "0417565ba005462b49858c7a4766f5a29ce2188ae1aa653d77ffe262c1a03a15",
+      "sourceRecord": "R308",
+      "sourceSha256": "84c063778e12767e012fe968536af526e75645750b33e20df7aa9f05246c5302",
+      "optionalFoodIds": [
+        "tomato"
+      ],
+      "addLines": []
+    },
+    {
+      "recipeId": "gallery-42f00fe7bb66955e",
+      "variantId": "gallery-42f00fe7bb66955e-r271",
+      "baseFingerprint": "35e0a8c0c1bfd910b434a8463a2c850f5c4f12dd55ebed3f40c909f7fdef9ae1",
+      "sourceRecord": "R271",
+      "sourceSha256": "b68d4c0b7410c0e649006006ea17c8b094d31592515474780ac02d4fb39a6100",
+      "optionalFoodIds": [
+        "egg"
+      ],
+      "addLines": [
+        {
+          "foodId": "water",
+          "amount": null,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "步骤3：加水没过食材总高度约1.1倍"
+        }
+      ]
+    },
+    {
+      "recipeId": "gallery-4cb1316d5cbf0f5d",
+      "variantId": "gallery-4cb1316d5cbf0f5d-r315",
+      "baseFingerprint": "7098b188588961330e859530b46817cc978eac52e1de81a8ba7c162b4efb869a",
+      "sourceRecord": "R315",
+      "sourceSha256": "36d75f3cbd182307c485074117fabbfccf2235aabc27f6a573d50036ab6eb29a",
+      "optionalFoodIds": [],
+      "addLines": [
+        {
+          "foodId": "salt",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "出锅调味：每250ml汤，盐约0.3～0.6g"
+        },
+        {
+          "foodId": "water",
+          "amount": null,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "汤锅1100ml水或电压力锅1000ml水，二选一"
+        }
+      ]
+    },
+    {
+      "recipeId": "gallery-f3d1d10011b24172",
+      "variantId": "gallery-f3d1d10011b24172-r365",
+      "baseFingerprint": "fb997fb43ce79ab354c482a2f6d5790e4f3ba113be99d6eca0ede93f2166f355",
+      "sourceRecord": "R365",
+      "sourceSha256": "8b83438660e9d15b9658644b4b9c8d16eecf1207cf33ac7e2fd526aa3f760020",
+      "optionalFoodIds": [
+        "gallery-food-dcf41ad0998f371a"
+      ],
+      "addLines": [
+        {
+          "foodId": "shrimp",
+          "amount": null,
+          "unit": "g",
+          "role": "auxiliary",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": true,
+          "sourceText": "原方必备：虾仁（个人口味，可加可不加）"
+        }
+      ]
+    },
+    {
+      "recipeId": "gallery-864a4ab520484c3a",
+      "variantId": "gallery-864a4ab520484c3a-r299",
+      "baseFingerprint": "0c6d3fc3ced58408ba0be3534ddb6a4a741e02a41b3c3787186bd59a0a7a947f",
+      "sourceRecord": "R299",
+      "sourceSha256": "27692a58fc1659aee6d67ce67bf5cfebf114b12540370ba2a2ef9950a5dd5bc5",
+      "optionalFoodIds": [],
+      "addLines": [
+        {
+          "foodId": "oil",
+          "amount": null,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "步骤4：放入15毫升油"
+        },
+        {
+          "foodId": "water",
+          "amount": null,
+          "unit": "ml",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "步骤6：水高约为锅内菜品高度的1.2倍"
+        }
+      ],
+      "appendSteps": [
+        "等待30秒，关火出锅。"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "foodId": "gallery-food-89acdca4a2a170d7",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-987af8b4a6fb1da1",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-a3c70925d9cc526e",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-bd3dc404c92e2ee4",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-dd894efde017e275",
+      "relatedFoodId": "gallery-food-0384636e421ad642",
+      "kind": "contains",
+      "evidence": "原方明确命名玉米/玉米粒/玉米淀粉；只确认玉米来源，不把库存简名匹配当作成分证明。"
+    },
+    {
+      "foodId": "gallery-food-982aa51e6712af49",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-fd7cae30bad8386c",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-d58a372133c9ada0",
+      "relatedFoodId": "gallery-food-0384636e421ad642",
+      "kind": "contains",
+      "evidence": "原方明确命名玉米/玉米粒/玉米淀粉；只确认玉米来源，不把库存简名匹配当作成分证明。"
+    },
+    {
+      "foodId": "gallery-food-04b12dbad56b6c1b",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-9e41272b06c152d9",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-eacc8fde976fcc24",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-a21cde6955c9c43b",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-f072a07f1f4b1718",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-7107f822c4c63380",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-ddc8f1f8344af119",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-669e714d5a5027fd",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    },
+    {
+      "foodId": "gallery-food-9548fc05ff32f0e7",
+      "relatedFoodId": "fish",
+      "kind": "contains",
+      "evidence": "原方配料明确命名鱼种、鱼露或鱼丸；仅确认含鱼，不据此断言其余成分完整。"
+    }
+  ],
+  "unresolvedComponents": [
+    {
+      "foodId": "starch",
+      "evidence": "通用淀粉/生粉未指明谷类、薯类或豆类来源；不能宣称不含玉米或小麦。市场监管总局淀粉及淀粉制品审查细则。"
+    },
+    {
+      "foodId": "gallery-food-4479091090eaa0e0",
+      "evidence": "通用淀粉/生粉未指明谷类、薯类或豆类来源；不能宣称不含玉米或小麦。市场监管总局淀粉及淀粉制品审查细则。"
+    },
+    {
+      "foodId": "oil",
+      "evidence": "原方仅写食用油，未明确植物来源，可能含玉米油、花生油、大豆油或调和油。市场监管总局食用植物油生产许可审查细则及预包装油标签说明；不能据通用油名证明不含限制成分。"
+    }
+  ]
+}

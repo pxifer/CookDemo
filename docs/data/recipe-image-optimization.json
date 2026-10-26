@@ -1,0 +1,1473 @@
+{
+  "checkedAt": "2026-10-25T16:43:10.482Z",
+  "tool": "sharp 0.35.5",
+  "quality": 90,
+  "maxWidth": 1280,
+  "originalsPreserved": true,
+  "count": 146,
+  "sourceBytes": 361288575,
+  "webpBytes": 36075466,
+  "savedPercent": 90,
+  "entries": [
+    {
+      "source": "aloo-gobi-potato-cauliflower-finedining-v1.png",
+      "sourceSha256": "4d3e789c6c96b804813b1f5cb3732b234ff638c5605299d568ca980f50fe25e1",
+      "webp": "aloo-gobi-potato-cauliflower-finedining-v1.webp",
+      "webpSha256": "bd808d47e3162222adcd1083b3a60c522b4acbeeba57e7a8ef261a38de819243",
+      "sourceBytes": 2336564,
+      "webpBytes": 228694,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "baby-napa-cabbage-superior-broth-finedining-v1.png",
+      "sourceSha256": "b306d1768c844ea6ab2724f9702d9b76ba198b09e25706e139a21d44ba11a171",
+      "webp": "baby-napa-cabbage-superior-broth-finedining-v1.webp",
+      "webpSha256": "9a9279fad59892834dfac6b893cf0dfe06082cda15a976b4708aae63d2f2a70d",
+      "sourceBytes": 2241769,
+      "webpBytes": 180456,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "birds-eye-chili-pork-stir-fry-finedining-v1.png",
+      "sourceSha256": "974bbc3528b44e32df2d98ff56a93975047c06c9c57d2740c7d64d1daa8eac91",
+      "webp": "birds-eye-chili-pork-stir-fry-finedining-v1.webp",
+      "webpSha256": "11cd4483f5bd11088b9bc62a5bded13d9189a3290317ceb2334764b144d5d7aa",
+      "sourceBytes": 2438115,
+      "webpBytes": 253490,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "bitter-melon-pork-rib-soup-finedining-v1.png",
+      "sourceSha256": "032a2928b8c812908be3ca96cb26375b950225339f68fa5743e065822db1f7fc",
+      "webp": "bitter-melon-pork-rib-soup-finedining-v1.webp",
+      "webpSha256": "5645de974952d1c43339fa8b24cf9bd6236ef233b2965614cced6de7c6409afc",
+      "sourceBytes": 2398819,
+      "webpBytes": 214572,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "black-pepper-butter-prawns-finedining-v1.png",
+      "sourceSha256": "2733abae65ab1f2d12ca6fdb600709bbc874130a0ff313700ea19174ffad17a3",
+      "webp": "black-pepper-butter-prawns-finedining-v1.webp",
+      "webpSha256": "c9d3c72c350c5d078320feed030e045fbe77abbc118d79c40077d781ce8b0887",
+      "sourceBytes": 2469622,
+      "webpBytes": 275528,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "blanched-chinese-cabbage-finedining-v1.png",
+      "sourceSha256": "19217e1d71e121beb565ed29f9364e6ca14a04b0bf1cd76f448f4785dca5275d",
+      "webp": "blanched-chinese-cabbage-finedining-v1.webp",
+      "webpSha256": "610eea2fb9e966c378fee7636902ddaffa433b3c571bfa2c6e063fc654165f38",
+      "sourceBytes": 2322787,
+      "webpBytes": 220686,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "blistered-green-peppers-finedining-v1.png",
+      "sourceSha256": "68624d3a14019fddb48758400b76787371780adacf261e52e06b36520dd3e496",
+      "webp": "blistered-green-peppers-finedining-v1.webp",
+      "webpSha256": "43b4699692b5f856a7238d9edda897d4bb4b664f8fa8f5406a5ef06be9e47f42",
+      "sourceBytes": 2528847,
+      "webpBytes": 278850,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "braised-chicken-mushroom-potato-finedining-v1.png",
+      "sourceSha256": "192adbec0f14eb7d8f490fe7c4bd07fb889261941da8fe39020e2107e7ee71fe",
+      "webp": "braised-chicken-mushroom-potato-finedining-v1.webp",
+      "webpSha256": "252184b1a2d9ac6bd5fbb994ad5a1e78a04d5c7c310dd1a8a20d4606d6094bc7",
+      "sourceBytes": 2471921,
+      "webpBytes": 242598,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "braised-pork-trotter-finedining-v1.png",
+      "sourceSha256": "3ad6281d9654e8c4a66e24eb68d48b1fa5e5cd050427077e877572bbfdbe273a",
+      "webp": "braised-pork-trotter-finedining-v1.webp",
+      "webpSha256": "d58462d823045904b7caa203cea95a2c518e03cb1cc03d1305eeb0f67de064e0",
+      "sourceBytes": 2270403,
+      "webpBytes": 211786,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "cabbage-egg-glass-noodles-finedining-v1.png",
+      "sourceSha256": "d88ad2eff65e436f7bbdd30346b84cceb0a24318782041768576a2fb96df9e51",
+      "webp": "cabbage-egg-glass-noodles-finedining-v1.webp",
+      "webpSha256": "7e2493489db1b36873317e0e7451a3f6b7e419f423c941bace3c61ca2e30df64",
+      "sourceBytes": 2458277,
+      "webpBytes": 250752,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "cantonese-sweet-sour-pork-finedining-v1.png",
+      "sourceSha256": "77ca8e58486291e7785596c9d658b217360eba8f77d422188330fa78a064d074",
+      "webp": "cantonese-sweet-sour-pork-finedining-v1.webp",
+      "webpSha256": "d072bdc6c5a75a540b94a697cb3555dfbaeb829dac64844c374a9ce89cc18023",
+      "sourceBytes": 2344331,
+      "webpBytes": 229906,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "caramelized-potato-sugar-threads-finedining-v1.png",
+      "sourceSha256": "6438d7ee3ad5778709c1642401fdfcb1810ebc1b6dc97b06293908aa0a1d6c74",
+      "webp": "caramelized-potato-sugar-threads-finedining-v1.webp",
+      "webpSha256": "436922de818564590723555892cc64cbc800b00d9a42270bd04e070b35c9c87a",
+      "sourceBytes": 2380627,
+      "webpBytes": 218300,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "celery-tea-tree-mushroom-salad-finedining-v1.png",
+      "sourceSha256": "24853c261da3292c8c5ccfa538ae63087a1b2ef55213672d43eb708301f0fd2c",
+      "webp": "celery-tea-tree-mushroom-salad-finedining-v1.webp",
+      "webpSha256": "013466e5209f3d40118c4c60d2bffd6e16f5029a68f58cffc6f6f25b0877bff8",
+      "sourceBytes": 2300915,
+      "webpBytes": 191742,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "celtuce-salad-finedining-v1.png",
+      "sourceSha256": "b64e17384e96c92ade905ebe6cb85540b94a3cd1e4a4f3bb41a0f10977297315",
+      "webp": "celtuce-salad-finedining-v1.webp",
+      "webpSha256": "60ddfb7d935bd9fb5219bfed3b79cf5b8ef6f245f2b8b8edb7ca15fbdabb130d",
+      "sourceBytes": 2200962,
+      "webpBytes": 175872,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "chilled-enoki-garlic-salad-finedining-v1.png",
+      "sourceSha256": "3b756455ec3c9573fde478adbddc89cad7e181caf2cf8ee3a4e81a491ce8e8da",
+      "webp": "chilled-enoki-garlic-salad-finedining-v1.webp",
+      "webpSha256": "bcfc58cf30f73a7d6bc48ff5a8fa48f87e06f1fdc19f965424606cc36bb7d3a1",
+      "sourceBytes": 2361754,
+      "webpBytes": 210790,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "chinese-chives-scrambled-eggs-finedining-v1.png",
+      "sourceSha256": "8dc212ee36d8f7ae0ade3d50172e763012320998ffe0aa6142da87ed90b81dfc",
+      "webp": "chinese-chives-scrambled-eggs-finedining-v1.webp",
+      "webpSha256": "2ddb0f4dad3995d5227b3f37a57ba6b763c7a7e1dfc902e993b5ffee4bac0f62",
+      "sourceBytes": 2396721,
+      "webpBytes": 223806,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "chinese-style-borscht-beef-soup-finedining-v1.png",
+      "sourceSha256": "867d60c0c0edf473bf6c0a83e2abbd8f268b308a8da4c6f14234c285bcb6abdb",
+      "webp": "chinese-style-borscht-beef-soup-finedining-v1.webp",
+      "webpSha256": "516cbeb228ae73848a0341eb2f4410df680d0282d7f88760e6fceba6d949a3a1",
+      "sourceBytes": 2360443,
+      "webpBytes": 222460,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "clear-enoki-mushroom-soup-finedining-v1.png",
+      "sourceSha256": "62e0b380ec2693bde8f64b20ef8a0c92966da2755ca8f5d5e5310f6b77b98c19",
+      "webp": "clear-enoki-mushroom-soup-finedining-v1.webp",
+      "webpSha256": "5044d4c9c21e666eee258ef69e4da6b08f98c6ac38578583fea7fd3c1e17f3c7",
+      "sourceBytes": 2273982,
+      "webpBytes": 186090,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "cola-chicken-wings-finedining-v1.png",
+      "sourceSha256": "3b27922fd61fabac464fcde1506fcf772680360ff0c70dcd7c5a31f9eecce1e2",
+      "webp": "cola-chicken-wings-finedining-v1.webp",
+      "webpSha256": "da0c6a4fbf128b37e1362c4a917023d924b567be16aa34b1576d00f2166eebbb",
+      "sourceBytes": 2336712,
+      "webpBytes": 223940,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "corn-pork-rib-soup-finedining-v1.png",
+      "sourceSha256": "9fb66118119f4ab2aa4f40bf3c9a89df6b153880f6b9cb5aedf0f86b3430ec63",
+      "webp": "corn-pork-rib-soup-finedining-v1.webp",
+      "webpSha256": "577c12dcf8ce2174d9f988a4c21d691365e05a490896bbf4f5e28ca3486f8c81",
+      "sourceBytes": 2484094,
+      "webpBytes": 241810,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "creamy-mushroom-soup-finedining-v1.png",
+      "sourceSha256": "d23bb50261c80b64ab07c22e37f605aaa124f92db13c034e4bf289ce86ed1937",
+      "webp": "creamy-mushroom-soup-finedining-v1.webp",
+      "webpSha256": "232aaa73a4b6570aebfba01b3faaba99b074d80ca4e1a867eebfff710c451b1e",
+      "sourceBytes": 2130691,
+      "webpBytes": 162196,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "crispy-blooming-onion-finedining-v1.png",
+      "sourceSha256": "d4afe3c7058f70114a00e52059877b53c15184710f430bc7810c125cecd07f51",
+      "webp": "crispy-blooming-onion-finedining-v1.webp",
+      "webpSha256": "f2b27ba864de7be7222a0400b33d9c81375519e551e8b33811be3fd885aa82f4",
+      "sourceBytes": 2610729,
+      "webpBytes": 318732,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "crispy-sichuan-pork-strips-finedining-v1.png",
+      "sourceSha256": "27281e03a8f6669e6692de03e2252a29c0b462f36225fcb7cd62bff2acbaedce",
+      "webp": "crispy-sichuan-pork-strips-finedining-v1.webp",
+      "webpSha256": "f96e8a4fc205ab98cb3820a6c8c2ccd8e3041fb2e883c1be7d009988eb01f5b4",
+      "sourceBytes": 2417718,
+      "webpBytes": 238600,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "cucumber-century-egg-soup-finedining-v1.png",
+      "sourceSha256": "025442deca3283ebb66e296ce94c1389c4a85a9c21ce571d4c5d05af9a047214",
+      "webp": "cucumber-century-egg-soup-finedining-v1.webp",
+      "webpSha256": "3915ccaaf3d4c0b4ca9338377361197026877640270a3b041244333dd838aa28",
+      "sourceBytes": 2379261,
+      "webpBytes": 202652,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "cucumber-pork-stir-fry-finedining-v1.png",
+      "sourceSha256": "735ce02920487f5f4355a05d8feec9cb6f8b83826c36b15a4c44bbc1c3f536bb",
+      "webp": "cucumber-pork-stir-fry-finedining-v1.webp",
+      "webpSha256": "29ed80d89252b8e996a2792629e949e0275842d9d890e9de9b696516f2d9e1fe",
+      "sourceBytes": 2488163,
+      "webpBytes": 238450,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "di-san-xian-finedining-v1.png",
+      "sourceSha256": "412aea8030fba8cc176220a987c79eeabed69e5e2f79fe3bb743f42a30394ad5",
+      "webp": "di-san-xian-finedining-v1.webp",
+      "webpSha256": "7998a6df62fa4458fd365a2ed96169cfea4e6cf28c6ce17a69d1ab0967be2c6e",
+      "sourceBytes": 2270454,
+      "webpBytes": 214982,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "dried-tofu-celery-pork-finedining-v1.png",
+      "sourceSha256": "ee938eb7c624838407073218860b5012aacb8386acabf2d1a4517e63badd2bce",
+      "webp": "dried-tofu-celery-pork-finedining-v1.webp",
+      "webpSha256": "d89b9f1d300b1768e343eb62caf4240a9bd976f97cbb407fc9f6013ca474cf59",
+      "sourceBytes": 2397216,
+      "webpBytes": 221918,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "dry-pot-cauliflower-finedining-v1.png",
+      "sourceSha256": "a81c185614e11c4dd29900620bf703857af4a213f5ac1f34ee0ba74ff5e63081",
+      "webp": "dry-pot-cauliflower-finedining-v1.webp",
+      "webpSha256": "2336ac97f9563f236896f6b322fe234f86ea1600294779744b3b2ee357b1fb28",
+      "sourceBytes": 2658117,
+      "webpBytes": 303252,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "egg-ham-cucumber-stir-fry-finedining-v1.png",
+      "sourceSha256": "8bf0549d9105ec5228bf8d27c0d41aff7a68c7a44e435605c54a79bc09fb7d2c",
+      "webp": "egg-ham-cucumber-stir-fry-finedining-v1.webp",
+      "webpSha256": "24ba35842a604dcb576d137392447c3e876fd070cbc01c9aac440509b68886d1",
+      "sourceBytes": 2544082,
+      "webpBytes": 250064,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "enoki-egg-tofu-casserole-finedining-v1.png",
+      "sourceSha256": "ca8238bd9898b347cea4d806df61bf9685a66360a474d02531b0ee29cb6adad1",
+      "webp": "enoki-egg-tofu-casserole-finedining-v1.webp",
+      "webpSha256": "a00ed03b80d05014a2a826a3bbbfcef73782f2d983233b009803edcb75098b1d",
+      "sourceBytes": 2413320,
+      "webpBytes": 226342,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "fish-fragrant-eggplant-finedining-v1.png",
+      "sourceSha256": "2fca5da36a7f0e71b5c812b4fdfe28a29d8d4fc678443498957cf5c0d7892a7c",
+      "webp": "fish-fragrant-eggplant-finedining-v1.webp",
+      "webpSha256": "a808d3872546b25fdf669239e199b3743131417f4da3bf1fba92d539f14f9462",
+      "sourceBytes": 2368556,
+      "webpBytes": 221856,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "fuzhou-crispy-sweet-sour-ribs-finedining-v1.png",
+      "sourceSha256": "39e9d0ef53c6abbf901cb12ebeab7d817aeb8d7bdb5cddeee97879ef904ef323",
+      "webp": "fuzhou-crispy-sweet-sour-ribs-finedining-v1.webp",
+      "webpSha256": "03d8460cd775b8d96dcb4308445b50a82ec63a3416df4c65db8e88e77b3c5e62",
+      "sourceBytes": 2577641,
+      "webpBytes": 282034,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "garlic-broccoli-finedining-v1.png",
+      "sourceSha256": "308cd4ce8fc4d249660b03ee1b68c1a6f7a8890947e2241b086440aeb5b1288e",
+      "webp": "garlic-broccoli-finedining-v1.webp",
+      "webpSha256": "b3b99e5aae17f227785f27d926866e166878a29aff3a0ffde766c91fe4032dac",
+      "sourceBytes": 2430547,
+      "webpBytes": 234002,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "garlic-butter-peeled-prawns-finedining-v1.png",
+      "sourceSha256": "f611f02b8870a8a22907fb81df5fa29826d6123777f386acd05be8ff33f39b62",
+      "webp": "garlic-butter-peeled-prawns-finedining-v1.webp",
+      "webpSha256": "d13bcff415175516218edcdf82c9d2619c03df4276967d7ebb7f7b6c6cc7c964",
+      "sourceBytes": 2280152,
+      "webpBytes": 206876,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "garlic-chinese-celery-finedining-v1.png",
+      "sourceSha256": "64d8e0e54cd12267dc0326906d34c1facfd14d92a5908cb674a2b330ec1b5637",
+      "webp": "garlic-chinese-celery-finedining-v1.webp",
+      "webpSha256": "f0aedd21c71a591fbf8d9e3e346fc0d5efe50c057eaf5cb4457a239ba66d549c",
+      "sourceBytes": 2238080,
+      "webpBytes": 178704,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "garlic-water-spinach-finedining-v1.png",
+      "sourceSha256": "1001a8b5a405b826556ca92e94e947775edcfb07a8a9f14cceae0011abdaf01e",
+      "webp": "garlic-water-spinach-finedining-v1.webp",
+      "webpSha256": "944a5c0ad64be8318f771ecce00da4d76fef4670cc3acc38f31504445e54ce73",
+      "sourceBytes": 2339553,
+      "webpBytes": 205286,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "garlic-white-cauliflower-finedining-v1.png",
+      "sourceSha256": "70f6ce8b07fe57da690c2fde8ff534a06cff41878f1af327921576cfe61577c1",
+      "webp": "garlic-white-cauliflower-finedining-v1.webp",
+      "webpSha256": "97eb2bae57cdac8c465287c3c2f3e9dfbb09d7dabf015ce37fb1420866e234da",
+      "sourceBytes": 2148499,
+      "webpBytes": 149090,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "golden-egg-coins-finedining-v1.png",
+      "sourceSha256": "18aa18f1e899d542b8e77bdcfd5e5c710499f99cb15b89c83c846fbf65de0d42",
+      "webp": "golden-egg-coins-finedining-v1.webp",
+      "webpSha256": "6f5a088ec6c153cc95f0d9ab4b50ad2f0ee661c97a0031c831c580169c9b70f0",
+      "sourceBytes": 2448263,
+      "webpBytes": 259776,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "green-pepper-potato-pork-finedining-v1.png",
+      "sourceSha256": "3500ac3ba4ef474a912ec2f933620e1c019a9297ca514d32b4b494c7577cdde7",
+      "webp": "green-pepper-potato-pork-finedining-v1.webp",
+      "webpSha256": "fb55a3dbf0c99e869f3b94bf136acfb573c16c5e58a838e12ffa09c38bd32051",
+      "sourceBytes": 2448949,
+      "webpBytes": 231342,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "kabayaki-eggplant-finedining-v1.png",
+      "sourceSha256": "5a3454b6677a8b189f07562790d845196c00ec399c40081a82a063baf38b2213",
+      "webp": "kabayaki-eggplant-finedining-v1.webp",
+      "webpSha256": "ab211063c8c8898e32ae5663a0c9a57c811cebfaf283ba28084afe5160147f37",
+      "sourceBytes": 2388281,
+      "webpBytes": 234312,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "kung-pao-chicken-finedining-v1.png",
+      "sourceSha256": "d79f3202a22a583c010966ae1dcbb39ce21652d0a79f9236633825befba008ef",
+      "webp": "kung-pao-chicken-finedining-v1.webp",
+      "webpSha256": "63762ec1dd5211ebbb2da1ae56ff7a7cc61334d5063a374959808f9817a3bdbc",
+      "sourceBytes": 2392804,
+      "webpBytes": 236198,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "lamb-ribs-daikon-soup-finedining-v1.png",
+      "sourceSha256": "447f4aa693468dea280fe2abf011e1dd157b4f55edc3451ec0b859727f862540",
+      "webp": "lamb-ribs-daikon-soup-finedining-v1.webp",
+      "webpSha256": "ec3c8c8408ef12b5169c8304bd0d9877876c082272ab1c69e1bd3f5a17df0f37",
+      "sourceBytes": 2305505,
+      "webpBytes": 185014,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "lean-pork-potato-slices-finedining-v1.png",
+      "sourceSha256": "cb2669fb822a3941164962796e081392544ee4f1cdcd0aed24ba3cf69b903fa4",
+      "webp": "lean-pork-potato-slices-finedining-v1.webp",
+      "webpSha256": "075a1c2b65c9d9ce09dc41cf72926c912cea119fe476f0ba75926616beeb6143",
+      "sourceBytes": 2561216,
+      "webpBytes": 249886,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "light-thickened-shiitake-soup-finedining-v1.png",
+      "sourceSha256": "b059efc3516507113af8ba6013c3a3843269765399c8999b1763cfa884446ece",
+      "webp": "light-thickened-shiitake-soup-finedining-v1.webp",
+      "webpSha256": "95a0f0105705a40c99cbf0c890a6dea7173ea745aaf9f439d98f8b3d79772465",
+      "sourceBytes": 2443584,
+      "webpBytes": 225844,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "napa-cabbage-pork-glass-noodles-finedining-v1.png",
+      "sourceSha256": "7d93ea4e8f824547b3d5667714032d54e0306f7b82f9d59661645630cd765357",
+      "webp": "napa-cabbage-pork-glass-noodles-finedining-v1.webp",
+      "webpSha256": "10a05281ed150272fa6bee62273d73e29dd782723e43430d664cd61473d52c59",
+      "sourceBytes": 2371042,
+      "webpBytes": 211430,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "oil-braised-whole-prawns-finedining-v1.png",
+      "sourceSha256": "843b43923c6b468b4e96422ee0e044e5423194e15e7eb3e578783a11a1ff8153",
+      "webp": "oil-braised-whole-prawns-finedining-v1.webp",
+      "webpSha256": "f2b28da411b32e15fd1c76629d7c4bf3a45576d9d45393834d46e1e7cc3ef7e6",
+      "sourceBytes": 2473497,
+      "webpBytes": 266136,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "olive-pork-green-beans-finedining-v1.png",
+      "sourceSha256": "d859eff666159ae75fcc0e21d085b23798b95759f517439ea8fd14ccbc4a9020",
+      "webp": "olive-pork-green-beans-finedining-v1.webp",
+      "webpSha256": "1a72fcc090ca98813dd509d3d3b4802fbf0e9b956bf27a6c20500e02fc050e25",
+      "sourceBytes": 2421804,
+      "webpBytes": 232704,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "onion-pork-stir-fry-finedining-v1.png",
+      "sourceSha256": "0c2942abf40f383f162b979dbb72129e2333d803bb4a44828df680104f70c008",
+      "webp": "onion-pork-stir-fry-finedining-v1.webp",
+      "webpSha256": "e19ec953878e7fc72132fdafda770e61e03bc2ed3b55d1bc87abf2271d347248",
+      "sourceBytes": 2359724,
+      "webpBytes": 226388,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "onion-scrambled-eggs-finedining-v1.png",
+      "sourceSha256": "2aae4ab13d06c0259034e5497c7320658fb3cc01a5e01332f96a6b92b4f138fa",
+      "webp": "onion-scrambled-eggs-finedining-v1.webp",
+      "webpSha256": "bf70afbedd96870f5cd15e9c3f817007608bb1281b21b9944129b74fdf692034",
+      "sourceBytes": 2315371,
+      "webpBytes": 209870,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "oyster-sauce-lettuce-finedining-v1.png",
+      "sourceSha256": "9aa85764dc61f0fd798bbb76d16adf7cf3de0777d34899246dc294a54d7f5d92",
+      "webp": "oyster-sauce-lettuce-finedining-v1.webp",
+      "webpSha256": "9e4e598a034224d45b82eadd1529c895fab40817cedfef5a2c815f1a77fc3e9b",
+      "sourceBytes": 2338738,
+      "webpBytes": 210336,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "oyster-sauce-three-mushrooms-finedining-v1.png",
+      "sourceSha256": "4fde8b7d951ea6fe6af292b8f254d1aacc5cb81636d9c9d7c0693193a3d66bfe",
+      "webp": "oyster-sauce-three-mushrooms-finedining-v1.webp",
+      "webpSha256": "7241e7fd0fd2cb822274f63fefdf1f6c5437edfcc58d89093ef5ee690c036a22",
+      "sourceBytes": 2415234,
+      "webpBytes": 223650,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "pan-seared-argentine-prawns-finedining-v1.png",
+      "sourceSha256": "8e8e8d577122c1e64b54e1a096a6c32dfa4574b8bf3c644460b0ba549dc62cf6",
+      "webp": "pan-seared-argentine-prawns-finedining-v1.webp",
+      "webpSha256": "6a9c1874d703c2e333e4fd1c2b483749e1795b4f8fa036da4cc95164e45ca24d",
+      "sourceBytes": 2604145,
+      "webpBytes": 293162,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "pine-nut-sweet-corn-finedining-v1.png",
+      "sourceSha256": "1e069e02a2d3d6d2e1c35ac5e07837ddf4378edfeed769d5e67a26cc4dd7a8bc",
+      "webp": "pine-nut-sweet-corn-finedining-v1.webp",
+      "webpSha256": "ee18f37488778da4de2daed8c1b4d5e3723d66cf42160ef68df68f6188309f7a",
+      "sourceBytes": 2105316,
+      "webpBytes": 160606,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "potato-braised-pork-ribs-finedining-v1.png",
+      "sourceSha256": "1a60e808ad897530f7cc0acb8d3b1c81e80e1d699c403e7616fc445f915586aa",
+      "webp": "potato-braised-pork-ribs-finedining-v1.webp",
+      "webpSha256": "e5a04ca3e640c52fda7c760af31b0f17901a055e83c162c58d715a2fcfb7b6f8",
+      "sourceBytes": 2537845,
+      "webpBytes": 255248,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "preserved-mustard-pork-belly-finedining-v1.png",
+      "sourceSha256": "d473308b974da2a1c9c93063d87a20283293a707382216a2cbda073ee1152037",
+      "webp": "preserved-mustard-pork-belly-finedining-v1.webp",
+      "webpSha256": "950d45f1abdc23074e266044fa24ea1759a04cd596beb0bb1183ae71c94177da",
+      "sourceBytes": 2610978,
+      "webpBytes": 290470,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "qianlong-sesame-napa-cabbage-finedining-v1.png",
+      "sourceSha256": "3d5df4aa2ddfdb8409b3ac3139005ecca694baba8517115464871ca3dfaa645e",
+      "webp": "qianlong-sesame-napa-cabbage-finedining-v1.webp",
+      "webpSha256": "fefdc1e51bebb8137cc7f62215f49edbdf9d9cb58aa61a82d03f51f731ed08d0",
+      "sourceBytes": 2094653,
+      "webpBytes": 154024,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r261-recipe-finedining-v1.png",
+      "sourceSha256": "223a691da549f2efc47b3c3ea556b74fc0f59fcde2a236862d6a8aacfc0d2827",
+      "webp": "r261-recipe-finedining-v1.webp",
+      "webpSha256": "deb6bf016f8bb8a56034242669808a4ebf6d04e143a73df095827d89158732c6",
+      "sourceBytes": 2572076,
+      "webpBytes": 271150,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r265-recipe-finedining-v1.png",
+      "sourceSha256": "b014dc4bb518747ae44368ff173ca691adc8372cc2aaef3040e3cff2b1a18879",
+      "webp": "r265-recipe-finedining-v1.webp",
+      "webpSha256": "190adbac605a7ba43866c3a219fb74e9edf9f54aa447aef37cc503963d480643",
+      "sourceBytes": 2754048,
+      "webpBytes": 313538,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r267-recipe-finedining-v1.png",
+      "sourceSha256": "db5c0717897f20d41cd7f8947ab576d8646b1ffaf7d3c9821a032a6433c9b8e9",
+      "webp": "r267-recipe-finedining-v1.webp",
+      "webpSha256": "06b3a49fec10e9107174aa9340ed33de98e4ed9a26cb2391f789f1c34ef9ad88",
+      "sourceBytes": 2781858,
+      "webpBytes": 326450,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r274-recipe-finedining-v1.png",
+      "sourceSha256": "9b0ff00ff3678970e6a711a8707137c866c8438da52810de5a5a51b995178d57",
+      "webp": "r274-recipe-finedining-v1.webp",
+      "webpSha256": "7cb8faf08e8f8f95f3d0866dc9fb626327f757c66bad913afbec86fea86ea1d9",
+      "sourceBytes": 2737378,
+      "webpBytes": 305738,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r281-recipe-finedining-v1.png",
+      "sourceSha256": "2741a072ec58c0d8ed6c65fe65b42f8cfb5b1bc03c641b4363e0b1abeeda6879",
+      "webp": "r281-recipe-finedining-v1.webp",
+      "webpSha256": "f8b27f984c8a50435be6e841f7f9c3af278f0004a2a88a56cda764a01d9c2177",
+      "sourceBytes": 2718587,
+      "webpBytes": 305190,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r287-recipe-finedining-v1.png",
+      "sourceSha256": "6b7f50a27646e5cf15969fba8d0a649dc184d5d6f79e410103d168156d036cf1",
+      "webp": "r287-recipe-finedining-v1.webp",
+      "webpSha256": "b504b291cae96e6b40af0e556b62037b951b47bf83e323456580930c6f34541d",
+      "sourceBytes": 2586129,
+      "webpBytes": 274088,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r289-recipe-finedining-v1.png",
+      "sourceSha256": "c3a65aad3b04b3b41c94be5d01749600d9c93c2ebddb94c5a0f2ed49eea21d78",
+      "webp": "r289-recipe-finedining-v1.webp",
+      "webpSha256": "2d3acac624537dc2437f0089134606e65eb5f3a41fc67c6a359e5655ad73df34",
+      "sourceBytes": 2669325,
+      "webpBytes": 293958,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r295-recipe-finedining-v1.png",
+      "sourceSha256": "f3512409c15227b2df9d0c2c2938e540988f0a4a57a14edb2b48210dbbbcfc82",
+      "webp": "r295-recipe-finedining-v1.webp",
+      "webpSha256": "04199db89ebcdfa01443290e0db6a1cec0a7585ad747454daaf15d81fbb122e2",
+      "sourceBytes": 2957003,
+      "webpBytes": 359278,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r301-recipe-finedining-v1.png",
+      "sourceSha256": "2a8eb482d76684615ea723345b828a464d999cd920cde1e68d669498dafad176",
+      "webp": "r301-recipe-finedining-v1.webp",
+      "webpSha256": "b7cc2df95392dc757322ab11fbd52884e51cb5311c22766feb9dc77486900a5f",
+      "sourceBytes": 2878874,
+      "webpBytes": 325592,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r304-recipe-finedining-v1.png",
+      "sourceSha256": "afd14ff125cad124726b6e5bdc77ead6a9d1e06cc3c0b986a650494af54388fe",
+      "webp": "r304-recipe-finedining-v1.webp",
+      "webpSha256": "054c1fa5440a8756d946e40536e4608e6b50e14bef92fc272081b678fcf1ddb9",
+      "sourceBytes": 2702658,
+      "webpBytes": 307268,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r313-recipe-finedining-v1.png",
+      "sourceSha256": "9e00c956e43f173358beec8e8ab4248846e0b750c5774ddbc8ebc629a1dddb2e",
+      "webp": "r313-recipe-finedining-v1.webp",
+      "webpSha256": "6d64126ecd562b01fdb9ff5bd2e91bedd339376608128e0bbed56ea2f4f68150",
+      "sourceBytes": 2378010,
+      "webpBytes": 236354,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r317-recipe-finedining-v1.png",
+      "sourceSha256": "e22971534ba406c3d9ad30cff82d5bbabc33da94c27e0c37aae59ffe6196d864",
+      "webp": "r317-recipe-finedining-v1.webp",
+      "webpSha256": "1f190aca29f0e94867c628f63ad70cfcfe092c71b42634bc8a226218a149bea4",
+      "sourceBytes": 2463991,
+      "webpBytes": 231668,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r320-recipe-finedining-v1.png",
+      "sourceSha256": "fc388b21d17b5af8596c578f73ed8fc4913f0f32489b6c834d61626ca87cea6d",
+      "webp": "r320-recipe-finedining-v1.webp",
+      "webpSha256": "7f6c7c7432aca16a16b948ae44dfbc5433e5c496db9f841ece0e36f2753a549e",
+      "sourceBytes": 2708570,
+      "webpBytes": 314188,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r321-recipe-finedining-v1.png",
+      "sourceSha256": "6d57ebb9cc17be99fcf0d6fbcea4e08269940a09039d80d040f4994736736fe6",
+      "webp": "r321-recipe-finedining-v1.webp",
+      "webpSha256": "406266095cb480c5a1b457f2af37e3d0bea8bca3f975558d1d40e6519711ca27",
+      "sourceBytes": 2862472,
+      "webpBytes": 345150,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r323-recipe-finedining-v1.png",
+      "sourceSha256": "95bedd37f831e264aea04fc729fb865b1ebbb12909b33fa6a31848d89ff38095",
+      "webp": "r323-recipe-finedining-v1.webp",
+      "webpSha256": "03df4cd90e37824a189e1c6da850026ca26d87289e57bf5facdc4dc7c0caf418",
+      "sourceBytes": 2548668,
+      "webpBytes": 256624,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r324-recipe-finedining-v1.png",
+      "sourceSha256": "acba48e32fb25413b3bb3056b44b30ded1388b64af77c243bb89f06ba9ae136f",
+      "webp": "r324-recipe-finedining-v1.webp",
+      "webpSha256": "d62517f2a7730a50ef1f4a58860fb0d0d3df8ade94923c0a31e27ffe88a1b0e5",
+      "sourceBytes": 2707210,
+      "webpBytes": 311546,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r326-recipe-finedining-v1.png",
+      "sourceSha256": "b5185d0d1b5345e7292009249d5665cccd6b321b20e2d3c405e7b1fd8f8942ed",
+      "webp": "r326-recipe-finedining-v1.webp",
+      "webpSha256": "b9e5f5c2144e892444fb9a931958b443d8401a51939a90e51c546aeddad65df8",
+      "sourceBytes": 2680849,
+      "webpBytes": 292016,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r327-recipe-finedining-v1.png",
+      "sourceSha256": "0b4a1bb7cc251d818aa5b2bde0c081c32c6a1f2ddb5e9faeebe2d2e7ec6ac9a9",
+      "webp": "r327-recipe-finedining-v1.webp",
+      "webpSha256": "b71c9308318a37163689b0f34ee2310305cd7ded09e95f938d1d88e7df7bec1d",
+      "sourceBytes": 2670394,
+      "webpBytes": 294030,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r328-recipe-finedining-v1.png",
+      "sourceSha256": "c9ca2ce4cdf4e0250f56dab37f695df5784128b4e2250048fb2193974ea8da86",
+      "webp": "r328-recipe-finedining-v1.webp",
+      "webpSha256": "071f1dc51af60763cecbb05ad16a5f8454e8866ae5a348b22c5865ec9505e5e8",
+      "sourceBytes": 2666449,
+      "webpBytes": 284648,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r331-recipe-finedining-v1.png",
+      "sourceSha256": "66f0d6a96f6e18426826ca7809e72b526b472673663b26cb89912a23a6d5a74e",
+      "webp": "r331-recipe-finedining-v1.webp",
+      "webpSha256": "9745e372dcd98da69bb1813f20553611db1410d44e0146e63abd8292d9b54895",
+      "sourceBytes": 2926369,
+      "webpBytes": 362030,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r334-recipe-finedining-v1.png",
+      "sourceSha256": "06a6cb34ba7b6b16173fdcd9db59a5393a4192a2135ebc74d42b6772880d0e6c",
+      "webp": "r334-recipe-finedining-v1.webp",
+      "webpSha256": "d86931d941882e956977dd9d75d70397af776a8b72390c4bb0f27d036e6d13bd",
+      "sourceBytes": 2801677,
+      "webpBytes": 332860,
+      "width": 1280,
+      "height": 962
+    },
+    {
+      "source": "r336-recipe-finedining-v1.png",
+      "sourceSha256": "56358d702c7347cb54a52a7c6f42f49e1a7c26d7e4193565b014dbc2af6f3c30",
+      "webp": "r336-recipe-finedining-v1.webp",
+      "webpSha256": "db8b3d2585677b08d3a8e66056b5ef5257af1a9bd417701e5c9f2d9758978e00",
+      "sourceBytes": 2675016,
+      "webpBytes": 296674,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r341-recipe-finedining-v1.png",
+      "sourceSha256": "fd1d2f95ae580639fecc4865371ed9dc745faac9b0295b146da206f949a14a9f",
+      "webp": "r341-recipe-finedining-v1.webp",
+      "webpSha256": "599e32fea15cc4c30005d478b85a54c8161afa31b7890483f5d2f37abb72c23b",
+      "sourceBytes": 2802710,
+      "webpBytes": 329578,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r342-recipe-finedining-v1.png",
+      "sourceSha256": "c4b90487c644978828fb2d7d636921a9bbce20ed4e86e5ac08d37109e7fa0964",
+      "webp": "r342-recipe-finedining-v1.webp",
+      "webpSha256": "fde5ae10f7e9619e14a88d40d8311df6b6faa397010cb5976613778f108c9ffa",
+      "sourceBytes": 2575350,
+      "webpBytes": 270606,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r343-recipe-finedining-v1.png",
+      "sourceSha256": "aca4dc95e5190cf6c4a79778a4faed064f45053fddc878278c1999ee8f1a2556",
+      "webp": "r343-recipe-finedining-v1.webp",
+      "webpSha256": "0eec5956dd9ac933be75e2a6d6053ce95353a6ede0d2b54883638119587ccf5b",
+      "sourceBytes": 2653986,
+      "webpBytes": 269774,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r344-recipe-finedining-v1.png",
+      "sourceSha256": "9333c28dffd597ae318708dd2479011c0a05e20a03ad32a985465373c1685023",
+      "webp": "r344-recipe-finedining-v1.webp",
+      "webpSha256": "360895fa5aa08f7469a72b41d53616dda2c51ac50f874045eafd514e9355c9f6",
+      "sourceBytes": 2443718,
+      "webpBytes": 244918,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r346-recipe-finedining-v1.png",
+      "sourceSha256": "cf8bc2a19f6591ff35ed8373fa153e9a72753d99cf71f0ae7c176f30620cca01",
+      "webp": "r346-recipe-finedining-v1.webp",
+      "webpSha256": "2ba5c3b722239b57becf5266b623b6a368f71b905e7d3f8e2f68337bb395bb57",
+      "sourceBytes": 2609172,
+      "webpBytes": 262390,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r347-recipe-finedining-v1.png",
+      "sourceSha256": "072c02c7b7e23d89c93943c6785be335605ebc6f8e0808597dfdfeb683373363",
+      "webp": "r347-recipe-finedining-v1.webp",
+      "webpSha256": "a4bb8709df0ba7855b9fb080e1cfbd0bfb3b7fb4f7dd5d6b4dc68134dd3a9d22",
+      "sourceBytes": 2803956,
+      "webpBytes": 322380,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r348-recipe-finedining-v1.png",
+      "sourceSha256": "dfd9ccf88afa4c20846a1528fc2b90a249fd37746d71fd9f7602ea99e043fa7c",
+      "webp": "r348-recipe-finedining-v1.webp",
+      "webpSha256": "3f6be391dcad9ceb40279a244cdde49180c45b8953a800ef349868a149313218",
+      "sourceBytes": 2662104,
+      "webpBytes": 290896,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r351-recipe-finedining-v1.png",
+      "sourceSha256": "546b8b4ac232cc92cdfc5becee1b5ef619b36649a6ab9bd1898edbb8276ee433",
+      "webp": "r351-recipe-finedining-v1.webp",
+      "webpSha256": "9f78b9355f60ba3d344d730562bbd0f1f6c0f03a665fa3e75364b9c63b765cfc",
+      "sourceBytes": 2832037,
+      "webpBytes": 323278,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r360-recipe-finedining-v1.png",
+      "sourceSha256": "beaeb231e8c1b8bb73edce5fd54b5749961650e7714c12b340dca0b3cb61f54f",
+      "webp": "r360-recipe-finedining-v1.webp",
+      "webpSha256": "80ec76f239748ed37b7301ec0c2f147ec6d076a5f95ef0438ec67b6317777b8a",
+      "sourceBytes": 2542563,
+      "webpBytes": 253326,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r361-recipe-finedining-v1.png",
+      "sourceSha256": "7a65ee59ce916bb914beb211ef94583dc248312a622c9e1c34b5b3a98f8d8aec",
+      "webp": "r361-recipe-finedining-v1.webp",
+      "webpSha256": "15f1267833583e67b220e4b41300643fa6184b76f4dad17ef4f28a00c51bfd35",
+      "sourceBytes": 2239406,
+      "webpBytes": 182324,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r362-recipe-finedining-v1.png",
+      "sourceSha256": "3d2d8bea8cb58b1c9dbd2f603ebccd5cb0cb8fabdd060d04793de724ef68bfd0",
+      "webp": "r362-recipe-finedining-v1.webp",
+      "webpSha256": "2c2029d92d14e9a6fabb405b16fbfa1b2bcfb7696671b0462e117033fe11670e",
+      "sourceBytes": 2720419,
+      "webpBytes": 304280,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r366-recipe-finedining-v1.png",
+      "sourceSha256": "d90a9b6331729cf7aaf056ee7a85b33127cebf91ff0767418bc33c9a017d6584",
+      "webp": "r366-recipe-finedining-v1.webp",
+      "webpSha256": "7ecd631bddaa99be2c5ce3f2e2be1aae9e282623cb29c22edfdfa2d71fc27334",
+      "sourceBytes": 2704720,
+      "webpBytes": 286754,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r367-recipe-finedining-v1.png",
+      "sourceSha256": "3d433ebd817a8fae6f882358ede2fe058b20b9d9ff4566c4a20eec4233dd88e6",
+      "webp": "r367-recipe-finedining-v1.webp",
+      "webpSha256": "8e897e68f2f655220db01989bdc9986ad8a0b9bfe5c18246ca4bfda35d845511",
+      "sourceBytes": 2552159,
+      "webpBytes": 269922,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r369-recipe-finedining-v1.png",
+      "sourceSha256": "a2bffd19c4773f11351dc09867d567b6ffb6e0372d8d25844a221db92df22edb",
+      "webp": "r369-recipe-finedining-v1.webp",
+      "webpSha256": "035f797873bced6001a49b40c95101ec7047ea3f5d12377c6ee208e5281b653a",
+      "sourceBytes": 2595737,
+      "webpBytes": 273076,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r371-recipe-finedining-v1.png",
+      "sourceSha256": "9b2fd73d7c6c7bb7cb863b9af00d2dce8f6af45b222ebd81ec99421250fe4709",
+      "webp": "r371-recipe-finedining-v1.webp",
+      "webpSha256": "f250379b272e5b09a6f72fc179bf1aff7730b54b45bb83a9df6335913405cbc3",
+      "sourceBytes": 2809526,
+      "webpBytes": 328020,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r372-recipe-finedining-v1.png",
+      "sourceSha256": "a0a534d88a5a34f9145c48cf3460f1c6c251bc115f0069f326af3676b33961f7",
+      "webp": "r372-recipe-finedining-v1.webp",
+      "webpSha256": "c7fa45cd0590087f05c41ced799b12fb4be463a50cc0c7402150af2fdee44828",
+      "sourceBytes": 2588280,
+      "webpBytes": 278854,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r374-recipe-finedining-v1.png",
+      "sourceSha256": "6f26a67dd1aaf0062a324e7435638b34dd83913f9a31bad6796a6c7eaef18305",
+      "webp": "r374-recipe-finedining-v1.webp",
+      "webpSha256": "181a5a8ff67cf41eaa32f8b86607e6af0fdb898defd4174d02432f919c12171b",
+      "sourceBytes": 2664041,
+      "webpBytes": 301956,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r375-recipe-finedining-v1.png",
+      "sourceSha256": "2bd87a8353b916d15f95f721bf55d4c92a50cc07ef517666b4b905eae93f9b51",
+      "webp": "r375-recipe-finedining-v1.webp",
+      "webpSha256": "ca696fe6edeaa928d682851635d8e2d2b46678aacc8f28ef7e61d4659160aee9",
+      "sourceBytes": 2707701,
+      "webpBytes": 312388,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r377-recipe-finedining-v1.png",
+      "sourceSha256": "fd66fe305c79c7da6b1ffe4b2ffe2a6b0c2fccfa0ac5a11ab526492164f0e255",
+      "webp": "r377-recipe-finedining-v1.webp",
+      "webpSha256": "0c103dad093e6581d497b7e158d6a25f27adba965d22aa18d859be5e81021511",
+      "sourceBytes": 2640688,
+      "webpBytes": 282160,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r378-recipe-finedining-v1.png",
+      "sourceSha256": "6840131ed861d9dfdc48d68c2220a08ace96ae59c82d6e512228ecd28382cc34",
+      "webp": "r378-recipe-finedining-v1.webp",
+      "webpSha256": "3c2b5f98ed8bd703d13534dd825f274ecfcaceb18ed46c329e745f8a3dd1d8d4",
+      "sourceBytes": 2723585,
+      "webpBytes": 305676,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r379-recipe-finedining-v1.png",
+      "sourceSha256": "2c4d2dea9f8bef7cd08676436fb5d2d63ef69f9fc23d1613a6b9a24956abc264",
+      "webp": "r379-recipe-finedining-v1.webp",
+      "webpSha256": "33683dd3050b86c67bacf1fd06240b8f3d126f09500a6e8d12cd22fa220be31b",
+      "sourceBytes": 2616688,
+      "webpBytes": 280600,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r381-recipe-finedining-v1.png",
+      "sourceSha256": "0ad38208212769c0e962e770d02f7f1f8dc21d2d77ab6e16abf8333839fcdb88",
+      "webp": "r381-recipe-finedining-v1.webp",
+      "webpSha256": "37ef122565184eb6a141d877583227fca1a85c033cf98a25594af79cebad9251",
+      "sourceBytes": 2483816,
+      "webpBytes": 260260,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r383-recipe-finedining-v1.png",
+      "sourceSha256": "7483439d7d67b707da34bf9c7fb49c263cfd0013d6e82de412f82341e604484e",
+      "webp": "r383-recipe-finedining-v1.webp",
+      "webpSha256": "eea602d8b5b5daf7dd142acf118ccb3c2276b35ccb54bf5a8d68fe3c5eaace4b",
+      "sourceBytes": 2576956,
+      "webpBytes": 250030,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r384-recipe-finedining-v1.png",
+      "sourceSha256": "db65cae73a6f35d3dbc88e5b4a4f46a60ac596f5b86bbea3d4446117bf06b9b4",
+      "webp": "r384-recipe-finedining-v1.webp",
+      "webpSha256": "4fbaef9511b4920562bd362f44592b570533f40ea9d020d67d3d4b7ce3219d33",
+      "sourceBytes": 2603243,
+      "webpBytes": 278570,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r385-recipe-finedining-v1.png",
+      "sourceSha256": "10683e0e8990e7d349353b9eca20ed57471d5c21f69c35c22c0ccef6af83a200",
+      "webp": "r385-recipe-finedining-v1.webp",
+      "webpSha256": "e1a592384b3a811cc911edb92a05dea042354fe952029671d6f4a4491d5510e8",
+      "sourceBytes": 2605709,
+      "webpBytes": 272834,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r386-recipe-finedining-v1.png",
+      "sourceSha256": "c21fcc52aa4db848ed1c81c92533f70f14e596ebed9c7cc83323515b9df798ef",
+      "webp": "r386-recipe-finedining-v1.webp",
+      "webpSha256": "f91dc968d87ff432799b0f7172efd7de074fea024ba6d9b3c00ed7bb745d8ea5",
+      "sourceBytes": 2377626,
+      "webpBytes": 207986,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r388-recipe-finedining-v1.png",
+      "sourceSha256": "2ca489f1bc250c8a22a9c781582af8c1803beaed5ec1459cc9208927e30c3cc3",
+      "webp": "r388-recipe-finedining-v1.webp",
+      "webpSha256": "d46b555ee543ddb39d0e0d0f9383307382f86de47425be862bef901c8f6bc737",
+      "sourceBytes": 2488732,
+      "webpBytes": 244488,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r389-recipe-finedining-v1.png",
+      "sourceSha256": "86cf57356cbe8b8df14fa764f2bf911f8de63e281b1bec31bd632faf79cae856",
+      "webp": "r389-recipe-finedining-v1.webp",
+      "webpSha256": "22203dd53690900793dfb1e186e48d053ad58e92a4c049b5b95614c41953585c",
+      "sourceBytes": 2698243,
+      "webpBytes": 303088,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r392-recipe-finedining-v1.png",
+      "sourceSha256": "50b85aa65a7a25138858b6309615d2bf05d95fb6a0f08d73152bb5690a24839d",
+      "webp": "r392-recipe-finedining-v1.webp",
+      "webpSha256": "2f42a0ad09ae39167cac489a395a207ed74948c0609f62463a90c2ad8008f1be",
+      "sourceBytes": 2631093,
+      "webpBytes": 297194,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r393-recipe-finedining-v1.png",
+      "sourceSha256": "fb1066ba6f88f1cedd4eda244903031cf0c68978926940bd81e7c8058bed98ac",
+      "webp": "r393-recipe-finedining-v1.webp",
+      "webpSha256": "290beaf0331005d1b7430f4f2ded8bd557b3738a477650ebaadb3080fd34adb2",
+      "sourceBytes": 2718106,
+      "webpBytes": 315846,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r394-recipe-finedining-v1.png",
+      "sourceSha256": "5ab3fad65d5c945c41315fd2b79ff3f991cae3207db45f94e42ee39489e2c603",
+      "webp": "r394-recipe-finedining-v1.webp",
+      "webpSha256": "8106f4639ceae203d7eb6c9ec5761199f146ca4a0d9af373386e7e867829c9f1",
+      "sourceBytes": 2712667,
+      "webpBytes": 309850,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r395-recipe-finedining-v1.png",
+      "sourceSha256": "228e27ef6f212b63db9ac94c58c1fddf43b742eef82836e9441f09a00c9544ce",
+      "webp": "r395-recipe-finedining-v1.webp",
+      "webpSha256": "18b84e186e51592fb0956a70dbbee595f7de96780f2d0e20cacc43ef38be48ef",
+      "sourceBytes": 2779891,
+      "webpBytes": 325320,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "r397-recipe-finedining-v1.png",
+      "sourceSha256": "b5944ad1c5400abb9165d094f118ddbe2a012af0d3ebbf6bfc4b8f2344cdd436",
+      "webp": "r397-recipe-finedining-v1.webp",
+      "webpSha256": "673d7cfb0e583e7816e87a9d2e94bfb9d4d325c7a34523a1e725d37a005885b7",
+      "sourceBytes": 2901491,
+      "webpBytes": 351612,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "red-braised-whole-carp-finedining-v1.png",
+      "sourceSha256": "43f5115eb5f3c651979b6e8b428b425f5b60e4d44eba70ae13035d82ea643e73",
+      "webp": "red-braised-whole-carp-finedining-v1.webp",
+      "webpSha256": "346a80c01f878d414e03a17dc7935933a28b136cb0b72cdeb24208147c6645a9",
+      "sourceBytes": 2552809,
+      "webpBytes": 277714,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "red-braised-winter-melon-finedining-v1.png",
+      "sourceSha256": "342c736bca26b2fc220e0a91289c8217dba511c753adaec5e6a8900899e5317d",
+      "webp": "red-braised-winter-melon-finedining-v1.webp",
+      "webpSha256": "1ca181b284c7b1077df6abdc1484467bd0f8cdc55c1f49c66c04bae5baf8a541",
+      "sourceBytes": 2509637,
+      "webpBytes": 256822,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "roasted-orleans-chicken-leg-finedining-v1.png",
+      "sourceSha256": "1c78106ea30a6598856caf28d5096ad8dc3d44885c2b2efc13ffbb1bb5bc1454",
+      "webp": "roasted-orleans-chicken-leg-finedining-v1.webp",
+      "webpSha256": "0e36290a4b40eed224f82e0bc09dda15ce0e2b089846865969f74b0c0a05595a",
+      "sourceBytes": 2370903,
+      "webpBytes": 240936,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "scallion-pan-fried-tofu-finedining-v1.png",
+      "sourceSha256": "d04130caecf34afc2cfa40626dbf870510aff99844c60efc4447cb0751760308",
+      "webp": "scallion-pan-fried-tofu-finedining-v1.webp",
+      "webpSha256": "1beabdff9fa4cf4302584a788c7d5860b3879b15577f74f1f881f8d596495f2f",
+      "sourceBytes": 2317232,
+      "webpBytes": 204418,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "seaweed-egg-drop-soup-finedining-v1.png",
+      "sourceSha256": "ee19ff4e14ff3ee2551a5c24c17f737b26e0debec0567e176f866d80f74600ee",
+      "webp": "seaweed-egg-drop-soup-finedining-v1.webp",
+      "webpSha256": "e80c4dd7790959c121091a213a1e100e2edbc5dc2f6f1df72cd66a831a9213fe",
+      "sourceBytes": 2414786,
+      "webpBytes": 216876,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "shanxi-pork-wood-ear-stir-fry-finedining-v1.png",
+      "sourceSha256": "f9f8b1dbcbe80588a9319f9998fd91baf7ac8075891a8418149a612159f2c215",
+      "webp": "shanxi-pork-wood-ear-stir-fry-finedining-v1.webp",
+      "webpSha256": "3364eca6c9330b3c432be063e075460ba8e56848adcb59a8b5fb689ca1a1d743",
+      "sourceBytes": 2305338,
+      "webpBytes": 201180,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "sichuan-chili-chicken-finedining-v1.png",
+      "sourceSha256": "a69474740548b9edca7911be779012f1c640927b1b920c16a388567f259ca5bf",
+      "webp": "sichuan-chili-chicken-finedining-v1.webp",
+      "webpSha256": "520dbc42fa779a73ff064ebb0ac68184a4ef2da2b03b856ab219a4450ddb1e1a",
+      "sourceBytes": 2426178,
+      "webpBytes": 251128,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "silken-tofu-pork-duck-egg-white-finedining-v1.png",
+      "sourceSha256": "fdcbe0857c4bde293512e276705bea779ea0784f0a9b01115013d3914f56e7f6",
+      "webp": "silken-tofu-pork-duck-egg-white-finedining-v1.webp",
+      "webpSha256": "6b77df1929ae6c5acf3ed39ee1970067890d1e5c6bd6d81ac4da9b098b102082",
+      "sourceBytes": 2488552,
+      "webpBytes": 250564,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "smashed-cucumber-garlic-salad-finedining-v1.png",
+      "sourceSha256": "49e06097f0b719acb9166bdbe4c2bc78d4b5a52f9a446ae249a5056b45e001b5",
+      "webp": "smashed-cucumber-garlic-salad-finedining-v1.webp",
+      "webpSha256": "899c89e5d108c38a0dcc83cba9bc192609ae4d27976b27df9257a19b76893dba",
+      "sourceBytes": 2425102,
+      "webpBytes": 232508,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "snow-peas-chinese-sausage-finedining-v1.png",
+      "sourceSha256": "9afa93eca9b3b86ccb3e14ae35b8af1df6fe910e23540542b436fb742d064ae5",
+      "webp": "snow-peas-chinese-sausage-finedining-v1.webp",
+      "webpSha256": "a29457f5bd63cff84707526bd79a84aba21aeeb891a864c0dc9d93c14739e96d",
+      "sourceBytes": 2455641,
+      "webpBytes": 224342,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "sour-spicy-potato-shreds-finedining-v1.png",
+      "sourceSha256": "ef53ec8c41d71de2468cca51a7ab57a59751c55c061fb91312e5dbd1897696fb",
+      "webp": "sour-spicy-potato-shreds-finedining-v1.webp",
+      "webpSha256": "4cde4526f0356fa5d36f6a9adf68a899990060670a94fa82785dcaf8bc96aa15",
+      "sourceBytes": 2270613,
+      "webpBytes": 191934,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "spicy-lotus-root-cubes-finedining-v1.png",
+      "sourceSha256": "9b9aa7d63a90cc0068d3332d8097c9c950b1feaea608d734a5ba542b91886cc1",
+      "webp": "spicy-lotus-root-cubes-finedining-v1.webp",
+      "webpSha256": "b1bf59bf60819b78de1c2f1774df8e72d4a55e502c9078577c494c3c3b572a0d",
+      "sourceBytes": 2326131,
+      "webpBytes": 206446,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "spinach-scrambled-eggs-finedining-v1.png",
+      "sourceSha256": "8bf3f54098a6d6bce068378720d912901af06c682e7df77372a2dfe0afc85352",
+      "webp": "spinach-scrambled-eggs-finedining-v1.webp",
+      "webpSha256": "59f3dfb376f70e58bd1712d73b1f839a9761ae168fc820c594a5dcfadac80eaa",
+      "sourceBytes": 2038276,
+      "webpBytes": 156774,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "steamed-egg-custard-finedining-v1.png",
+      "sourceSha256": "22fb0092fe7a19c7ac2614dcd420d244ec7a937314cc4e92cb140103b181463e",
+      "webp": "steamed-egg-custard-finedining-v1.webp",
+      "webpSha256": "41f34621bfe7f59b7d861b88bb26f56c24c1645ef993c1039489450d4fc3e137",
+      "sourceBytes": 2037412,
+      "webpBytes": 133182,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "steamed-pork-patty-egg-finedining-v1.png",
+      "sourceSha256": "fb9ef8ba86e9d53df0678d012510f70b46ddbef06c7e7246a83f735246bc1786",
+      "webp": "steamed-pork-patty-egg-finedining-v1.webp",
+      "webpSha256": "304feb82394b10740e92670879e639a805d4f1e936a6185e7e4a36da76cb6a1e",
+      "sourceBytes": 2272261,
+      "webpBytes": 184898,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "steamed-pumpkin-finedining-v1.png",
+      "sourceSha256": "09849ccdacaf5363f7e71fc713535d73363fee9da8e1b38c34d8a18dae760509",
+      "webp": "steamed-pumpkin-finedining-v1.webp",
+      "webpSha256": "2212015319ba4b133138553f8601c780691e3437c24f579aa0fd805e5c22c95c",
+      "sourceBytes": 2102182,
+      "webpBytes": 159258,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "steamed-sea-bass-finedining-v1.png",
+      "sourceSha256": "31d451aaabf431fe1dd9d744e92509de3bc525a7e19163c78956b6bf8d3eef01",
+      "webp": "steamed-sea-bass-finedining-v1.webp",
+      "webpSha256": "a3a790f8ea32d4fa6a3d86333d1f2653a769e185038c85f5757509e0504a4cda",
+      "sourceBytes": 2462826,
+      "webpBytes": 234458,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "sugared-tomato-salad-finedining-v1.png",
+      "sourceSha256": "c296cd232e9fc2b18d1df55bbc26be99ccbd465ec2078ec357f277493e74d5da",
+      "webp": "sugared-tomato-salad-finedining-v1.webp",
+      "webpSha256": "9e9c8a0910dc5f40148428038bc9cb7da7e3690e18b1572d84793fb8b82d1547",
+      "sourceBytes": 2352643,
+      "webpBytes": 226466,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "sweet-sour-pork-ribs-finedining-v1.png",
+      "sourceSha256": "751f93f9e59856dfbe6d4e07fc77bb0723e468760cc1076395640da4a4ab9b28",
+      "webp": "sweet-sour-pork-ribs-finedining-v1.webp",
+      "webpSha256": "cdfe8b6acce45eb05a401a3b01287dfb3c7f5eb8ea5bf4d9c35287950613bc61",
+      "sourceBytes": 2418321,
+      "webpBytes": 244964,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "sweet-sour-pork-tenderloin-finedining-v1.png",
+      "sourceSha256": "0e06301d9a2a2590b855097a78790379c1640636c66d0e88d2539286fd06832f",
+      "webp": "sweet-sour-pork-tenderloin-finedining-v1.webp",
+      "webpSha256": "b5e52742dedf639670fed84c1ce4014ec36f371709fefc64787d80e21620f6c6",
+      "sourceBytes": 2107863,
+      "webpBytes": 172692,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "tomato-braised-beef-finedining-v1.png",
+      "sourceSha256": "0395c4d17ffe2629b36c4d457b547504c1b911060973caaff7ce6cd018b8d582",
+      "webp": "tomato-braised-beef-finedining-v1.webp",
+      "webpSha256": "10884f39c83048441d31aea5d2e8854e7db626d5f0a582ef9bf5446362c35380",
+      "sourceBytes": 2513722,
+      "webpBytes": 258040,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "tomato-egg-drop-soup-finedining-v1.png",
+      "sourceSha256": "42ba30ec3a1720d7920c8535d6fdc58ca5f762c107ef3c1c208fbdd67afaf647",
+      "webp": "tomato-egg-drop-soup-finedining-v1.webp",
+      "webpSha256": "dceb759daa6efeed1a12e84b1cf458da68d9c8cfc029efcac8c7cbf34daad877",
+      "sourceBytes": 2333081,
+      "webpBytes": 218934,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "tomato-scrambled-eggs-finedining-v1.png",
+      "sourceSha256": "f5ec069748933560b4002925db1c48949da014723c1195107a1d52c489cea723",
+      "webp": "tomato-scrambled-eggs-finedining-v1.webp",
+      "webpSha256": "5b590d0907fc9992762de61558ac12673045ffbfff0db0859ed75a3c746abdd9",
+      "sourceBytes": 2025128,
+      "webpBytes": 161892,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "tomato-tofu-egg-soup-finedining-v1.png",
+      "sourceSha256": "0f4089a7c04ddafd3fd52433733513db56de6c73fb8e5ceb7d1af30a2cb53667",
+      "webp": "tomato-tofu-egg-soup-finedining-v1.webp",
+      "webpSha256": "0c73c66da2d921315b1f5d425a0de5c29b718f22e07d7c6eb6fea78022ca04ec",
+      "sourceBytes": 2265150,
+      "webpBytes": 195054,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "torn-cabbage-pork-finedining-v2.png",
+      "sourceSha256": "93e1f3190661d281c57b672461aa026742140c8c41ee8c3a074eb1d158abe25a",
+      "webp": "torn-cabbage-pork-finedining-v2.webp",
+      "webpSha256": "1c05854a5eb66394c3409300764d5f1258c35fe281f88ac7b903cb459c147a43",
+      "sourceBytes": 2379183,
+      "webpBytes": 235962,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "twice-cooked-pork-finedining-v1.png",
+      "sourceSha256": "a8b4e6227b3618a0e18fa296594bec5138abda9d348a079a28849ca762be9b8c",
+      "webp": "twice-cooked-pork-finedining-v1.webp",
+      "webpSha256": "70d0fc62522a91eef894f809b34531af87313b2bfe756992b902bd2a689b54bd",
+      "sourceBytes": 2452737,
+      "webpBytes": 262788,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "water-bamboo-pork-stir-fry-finedining-v1.png",
+      "sourceSha256": "a0dd097b053ce863f3a99381094b1fc076247935cc8ea9c1a17e91a29c98a9f7",
+      "webp": "water-bamboo-pork-stir-fry-finedining-v1.webp",
+      "webpSha256": "5f789b6e3ec0d7127236f17219f51c92039e8794b58002542170591db777a877",
+      "sourceBytes": 2071308,
+      "webpBytes": 142148,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "water-boiled-beef-finedining-v1.png",
+      "sourceSha256": "81f090f99014eea78c8a7a709b640b9e062fbf8ac99a3c116abd94da148d4b34",
+      "webp": "water-boiled-beef-finedining-v1.webp",
+      "webpSha256": "56bb831bf2a4a82d8afab95027e4b1c0bbd1825b4d74d15e4f320cd824b94c64",
+      "sourceBytes": 2428203,
+      "webpBytes": 248684,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "winter-melon-pork-rolls-finedining-v1.png",
+      "sourceSha256": "146c352a0e4525c84c566d47689ab553cf8b1c9d301e5eeb53093b0035096dfa",
+      "webp": "winter-melon-pork-rolls-finedining-v1.webp",
+      "webpSha256": "19a1d811065d895b06e4663a9a82d532e4aa8826c8cb0782f939c8073f4a9909",
+      "sourceBytes": 2281187,
+      "webpBytes": 194284,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "winter-melon-steamed-chicken-finedining-v1.png",
+      "sourceSha256": "a14a5bb5757ac99186a386878acea9492b3192b01888f4f9fff2ee3ea41b55ed",
+      "webp": "winter-melon-steamed-chicken-finedining-v1.webp",
+      "webpSha256": "b8ea155440f17d07ae18b8cd08fc3fd60ba2ac886594765c389c81a52ffdedb1",
+      "sourceBytes": 2430490,
+      "webpBytes": 233188,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "wood-ear-salad-finedining-v1.png",
+      "sourceSha256": "ea265c78b5ccbf9e71ac6665f8688fd44286191fb8beafa2b00229f21e5faee6",
+      "webp": "wood-ear-salad-finedining-v1.webp",
+      "webpSha256": "1b0e03fc8b79f845648931d4983c67a385c54a4fc24eec8bb9e1b436d499d9a0",
+      "sourceBytes": 2174969,
+      "webpBytes": 183806,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "yam-corn-pork-rib-soup-finedining-v1.png",
+      "sourceSha256": "a7182c37e681355d442a5afa8314155af3e1a8544ebb2954b7ec9c375fbd3785",
+      "webp": "yam-corn-pork-rib-soup-finedining-v1.webp",
+      "webpSha256": "6f9c1b78580201cc7ad7a8ba18e5bdac2394aeb934a762575e2277f680bce6e9",
+      "sourceBytes": 2308351,
+      "webpBytes": 190404,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "yam-pumpkin-chicken-soup-finedining-v1.png",
+      "sourceSha256": "5b17201b4de71f6ba565d680e88e35f45229c7d306cfd2c9024fe5d422181adc",
+      "webp": "yam-pumpkin-chicken-soup-finedining-v1.webp",
+      "webpSha256": "0e4e3c245d6c7d560c5407df09e23ca275a79ede360d705aacbe053716e2a7de",
+      "sourceBytes": 2233902,
+      "webpBytes": 190374,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "yellow-catfish-tofu-soup-finedining-v3.png",
+      "sourceSha256": "a45df6d523430ed811ead9691d38e36b1b3aff64bf6b6a1ee43e638c87c7ed73",
+      "webp": "yellow-catfish-tofu-soup-finedining-v3.webp",
+      "webpSha256": "d5742f5a4a37b582639c121edaa365e41c6006b12754ddbfa7807acab0fdf169",
+      "sourceBytes": 2153348,
+      "webpBytes": 147166,
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "source": "zucchini-scrambled-eggs-finedining-v1.png",
+      "sourceSha256": "60b2c796e201ad705eb486eaae54bea23266a0441900fdd39efb37c65f1aabd1",
+      "webp": "zucchini-scrambled-eggs-finedining-v1.webp",
+      "webpSha256": "27831ee7e4425dbf2d6a167cb969033dabd3f6be6f7cd30aa83a18bc4918948a",
+      "sourceBytes": 2361987,
+      "webpBytes": 221350,
+      "width": 1280,
+      "height": 960
+    }
+  ]
+}

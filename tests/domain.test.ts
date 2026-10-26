@@ -2,7 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { extractText, makeRestriction, mergeIngredients } from '../shared/extraction';
 import { foodById, recipes, validateCatalog } from '../shared/catalog';
-import { nutrition, parseQuantity, quantityCheck } from '../shared/quantity';
+import { constructedContent } from '../shared/catalog';
+import { contentContext } from '../shared/content';
+import { inventoryChecks, nutrition, parseQuantity, quantityCheck } from '../shared/quantity';
+import { findPantryIngredient } from '../shared/ingredient-matching';
 import { checkDish, checkSet, recommend } from '../server/recommendation';
 import { verifyHealthRelease, type HealthRelease, type HealthRule } from '../server/health';
 import { mealWith, request, simpleRecipe } from './fixtures';
@@ -54,6 +57,70 @@ test('AR-M01: 相同单位但毛净重、带骨、生熟或未知基准不可比
   }
   assert.equal(quantityCheck(l, 600, i).state, 'enough');
 });
+test('用户新确认：通用猪肉可匹配五花肉或里脊，但不伪造部位/数量足量', () => {
+  const lookup = new Map(foodById);
+  lookup.set('gallery-belly', { ...foodById.get('pork')!, id: 'gallery-belly', name: '五花肉', aliases: [] });
+  const line = { foodId: 'gallery-belly', amount: 500, unit: 'g' as const, role: 'main' as const, basis: 'unknown' as const, form: 'raw' };
+  const meal = mealWith('猪肉300g');
+  const match = findPantryIngredient(line, meal.ingredients, lookup);
+  assert.equal(match?.kind, 'broad');
+  const check = inventoryChecks([line], 1, meal, lookup)[0];
+  assert.equal(check.state, 'unverified');
+  assert.equal(check.available, null);
+  assert.equal(check.shortage, null);
+  assert.match(check.reason, /具体部位和用量待核实/);
+  lookup.set('gallery-beef-tenderloin', { ...foodById.get('beef')!, id: 'gallery-beef-tenderloin', name: '牛里脊', aliases: [] });
+  assert.equal(findPantryIngredient({ ...line, foodId: 'gallery-beef-tenderloin' }, meal.ingredients, lookup), undefined);
+  const snapshot = { ...constructedContent, foods: [...constructedContent.foods, lookup.get('gallery-belly')!] };
+  const context = contentContext(snapshot);
+  const recipe = simpleRecipe('pork-dish', [['pork', 500]]);
+  recipe.variants[0].lines[0].foodId = 'gallery-belly';
+  const fit = checkDish(recipe, recipe.variants[0], meal, context);
+  assert.equal(fit.dish?.reused[0], 'gallery-belly');
+  assert.equal(fit.dish?.checks[0].state, 'unverified');
+});
+test('食材大类只匹配明确同类部位，不把粉条与米粉混淆',()=>{
+  const cases=[['鸡肉','鸡腿肉'],['牛肉','牛腩'],['羊肉','羊腩'],['鱼','鳜鱼'],['虾','阿根廷红虾'],['土豆','小土豆'],['粉条','土豆干粉条']];
+  for(const [pantryName,recipeName] of cases){
+    const pantryId=`pantry-${pantryName}`,recipeId=`recipe-${recipeName}`;
+    const pantryFood={id:pantryId,name:pantryName,aliases:[],unit:'g' as const,form:'raw',allergens:[],componentsComplete:false,nutrition:{}};
+    const recipeFood={...pantryFood,id:recipeId,name:recipeName};
+    const lookup=new Map(foodById).set(pantryId,pantryFood).set(recipeId,recipeFood);
+    const item={id:'pantry-item',foodId:pantryId,name:pantryName,amount:'',basis:'unknown' as const,form:'raw',status:'confirmed' as const,original:pantryName};
+    const match=findPantryIngredient({foodId:recipeId,amount:null,unit:'g',role:'main',basis:'unknown',form:'raw'},[item],lookup);
+    assert.equal(match?.kind,'broad',`${pantryName} should cover ${recipeName}`);
+  }
+  const vermicelli={id:'pantry-vermicelli',name:'粉条',aliases:[],unit:'g' as const,form:'raw',allergens:[],componentsComplete:false,nutrition:{}};
+  const riceNoodles={...vermicelli,id:'rice-noodles',name:'米粉'};
+  const lookup=new Map(foodById).set(vermicelli.id,vermicelli).set(riceNoodles.id,riceNoodles);
+  const item={id:'pantry-item',foodId:vermicelli.id,name:'粉条',amount:'',basis:'unknown' as const,form:'raw',status:'confirmed' as const,original:'粉条'};
+  assert.equal(findPantryIngredient({foodId:riceNoodles.id,amount:null,unit:'g',role:'main',basis:'unknown',form:'raw'},[item],lookup),undefined);
+});
+test('工作台输入“猪肉、白菜、粉条”能召回对应的具体原方，数量仍未核实',async()=>{
+  const extraFoods=['五花肉','土豆干粉条'].map((name,index)=>({
+    id:['gallery-pork-belly','gallery-vermicelli'][index],name,aliases:[],unit:'g' as const,form:'raw',allergens:[],componentsComplete:false,nutrition:{},
+  }));
+  const recipe=simpleRecipe('gallery-braised-pork-cabbage-vermicelli',[[extraFoods[0].id,100],['cabbage',150],[extraFoods[1].id,100]],{
+    name:'白菜猪肉炖粉条',category:'meat',source:{kind:'local-candidate',author:'构造验收夹具',license:'test',reviewed:false},
+  });
+  const context=contentContext({...constructedContent,foods:[...constructedContent.foods,...extraFoods],recipes:[recipe]});
+  const extracted=extractText('猪肉，白菜，粉条',context);
+  const meal=mealWith('');meal.mode='candidates';meal.ingredients=extracted.ingredients.map(i=>({...i,status:'confirmed' as const}));
+  const result=await recommend([recipe],request(meal),{context});
+  assert.deepEqual(result.dishes.map(d=>d.recipe.name),['白菜猪肉炖粉条']);
+  assert.deepEqual(result.dishes[0].reused.sort(),['cabbage','gallery-pork-belly','gallery-vermicelli'].sort());
+  assert(result.dishes[0].checks.every(c=>c.state==='unverified'));
+});
+test('用量未知时仍区分有无库存，不显示虚假的补买量', () => {
+  const line = { foodId: 'pork', amount: null, unit: 'g' as const, role: 'main' as const, basis: 'unknown' as const, form: 'raw' };
+  const check = inventoryChecks([line], 1, mealWith(''), foodById)[0];
+  assert.equal(check.state, 'missing');
+  assert.equal(check.shortage, null);
+  assert.match(check.reason, /原方未注明用量/);
+  const withInventory = inventoryChecks([line], 1, mealWith('猪肉300g'), foodById)[0];
+  assert.equal(withInventory.state, 'unverified');
+  assert.match(withInventory.reason, /原方未注明用量/);
+});
 test('B03 / AC-10: 鸡蛋克与个不可比较，允许推荐但结果标未核实', async () => {
   const m = mealWith('鸡蛋1g'); m.mode = 'candidates'; m.servings = 12;
   const res = await recommend([simpleRecipe('egg', [['egg', 1]])], request(m));
@@ -75,8 +142,8 @@ test('AC-06 / AC-08: 已确认类别排除范围，本人与附加限制并集',
   m.includeAdditional = true;
   assert(!(await recommend(recipes, request(m))).dishes.some(d => d.variant.lines.some(l => l.foodId === 'shrimp' || l.foodId === 'fish')));
 });
-test('AC-12: 调味料库存关闭仍检查过敏成分与未知复合配料', () => {
-  const m = mealWith(); m.checkSeasonings = false; m.restrictions = [{ ...makeRestriction('花生', 'allergy'), status: 'confirmed' }];
+test('AC-12: 调味料库存关闭仍检查调料已知的过敏成分', () => {
+  const m = mealWith(); m.checkSeasonings = false; m.restrictions = [{ ...makeRestriction('大豆', 'allergy'), status: 'confirmed' }];
   const r = simpleRecipe('soy', [['egg', 1]]); r.variants[0].lines.push({ foodId: 'soy', amount: 5, unit: 'ml', role: 'seasoning', basis: 'edible', form: 'raw' });
   assert.equal(checkDish(r, r.variants[0], m).dish, undefined);
 });
@@ -159,7 +226,7 @@ test('AR-O03 / D4-08: 搜索超限仍只发布已核验小套餐，不伪报无�
   const m = mealWith();
   const res = await recommend(recipes, request(m), { maxNodes: 3 });
   assert.equal(res.search, 'incomplete'); assert(res.dishes.length > 0); assert.equal(checkSet(res.dishes, m).valid, true);
-  assert(res.reasons.some(r => r.includes('不代表无解')));
+  assert(res.reasons.some(r => r.includes('再试一次'))); // Preserve incomplete feedback in concise user language.
   const c = new AbortController(); c.abort();
   assert.equal((await recommend(recipes, request(m), { signal: c.signal })).status, 'cancelled');
 });
@@ -176,7 +243,7 @@ test('D4-09: 独立穷举小目录对照自定义组合和未知量', async () =
     for (let mask = 1; mask < 1 << catalog.length; mask++) {
       const chosen = catalog.filter((_, i) => mask & 1 << i); if (chosen.length > 2) continue;
       let eggNeed = 0, potatoNeed = 0;
-      for (const r of chosen) for (const l of r.variants[0].lines) { if (l.foodId === 'egg') eggNeed += l.amount; else potatoNeed += l.amount; }
+      for (const r of chosen) for (const l of r.variants[0].lines) { assert.notEqual(l.amount, null); if (l.foodId === 'egg') eggNeed += l.amount!; else potatoNeed += l.amount!; }
       if (eggNeed <= eggs && potatoNeed <= potato) expected = Math.max(expected, chosen.length);
     }
     const actual = await recommend(catalog, request(m)); assert.equal(actual.dishes.length, expected, `eggs=${eggs}, potato=${potato}`);

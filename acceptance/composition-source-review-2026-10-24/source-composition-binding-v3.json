@@ -1,0 +1,11 @@
+{
+  "newSourceBoundRecords": 135,
+  "totalSourceDocuments": 145,
+  "verifiedSourceGitBlobs": 143,
+  "ingredientLinesAnchoredByExactOriginalText": 1580,
+  "foodLeavesWithUnanchoredOrUnresolvedIdentity": 706,
+  "foodLeavesWithoutExactSourceText": 106,
+  "productLabelClaimsAdded": 0,
+  "unknownIngredientsRemainBlocked": true,
+  "hashBoundToRecipeVariant": true
+}

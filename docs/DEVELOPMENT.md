@@ -1,5 +1,7 @@
 # 本地开发交付 v0.1
 
+> 2026-10-20 上线结构增量：已补配置/数据库启动依赖、版本迁移和容器文件，详见 [结构操作手册](DEPLOYMENT-RUNBOOK.md) 与 [实施记录](DEPLOYMENT-STATUS.md)。原默认命令继续为本地构造模式；`scripts/run.ps1 -EnvFile` 可显式加载配置，未加该参数仍不自动读.env。真实建库、容器和云部署是否完成须看实施记录，不由下文历史描述推断。
+
 日期：2026-10-19（Asia/Shanghai）。依据：PRD、TDD v0.1、D0～D6A、UI_DEMO_REVIEW 与 architecture-review-v0.1。本次用户明确授权开发、交付前测试验收；开发不是云资源创建或收费调用授权。
 
 ## 运行
@@ -101,3 +103,27 @@ $env:LOCAL_TEST_FEATURES='1'
 ## 人数只影响菜数（D7-14）
 
 单道做法和用量固定，不随人数放大；营养、库存和补买按标准整道菜计算，多道菜累计。人数只调整自动配菜数量参考。做法和收藏不显示人数，收藏复查不依赖人数输入是否完整，但继续执行食材和饮食限制核对。原“按人数缩放/复查”的文档描述为历史状态，现以 D7-14 为准。报告见 [ACCEPTANCE-fixed-recipe.md](ACCEPTANCE-fixed-recipe.md)，证据目录 `acceptance/fixed-recipe`。
+
+## CloudBase空结构（2026-10-21）
+
+官方CLI已登录，云端26张表/vector0.8.2和权限已核验；应用/真实账号未开放。`.\scripts\cloudbase.ps1` 默认Inspect，只查询已绑定免费环境；另有Plan/History/Apply/Login，具体前置与使用见 [操作手册7.1](DEPLOYMENT-RUNBOOK.md#71-已落地的cloudbase数据库命令)。
+
+新增 `db:cloudbase:prepare` 生成/校验CloudBase原子迁移；`test:cloudbase` 需显式 `RUN_DOCKER_CLOUDBASE_TESTS=1`，仅在本机Docker创建随机隔离库、事务内模拟客户端角色，验证冲突/checksum/重跑及ACL/RLS/向量回滚，结束清理。本地0.8.7和云端0.8.2的证据分别记录，不将管理SQL通道当作Node原生连接或完整发布通过。
+
+`cloudbase.ps1 -Task Capabilities` 只读输出底层网络及SSL/账号/备份计划的可查询状态，拒绝访问按unknown记录，不视为能力不存在。`.\scripts\backup-encrypted.ps1 -VerifyRestore` 创建本机加密空结构归档并恢复演练；`-Archive <已有swbk路径>` 单独核验恢复，秘密目录保持Git忽略。仅schema-only/空库，不支持真实资料灾备。详见 [操作手册8.1](DEPLOYMENT-RUNBOOK.md#81-当前推荐加密结构归档)。归档测试随 `scripts/run.ps1 test` 执行，本轮62项通过；没有新增依赖或云服务。
+
+
+## 本地数据库业务（D9-01）
+
+当前主入口为scripts/business-local.ps1：Prepare准备独立构造库及发布v1，Start在127.0.0.1:4180运行；原4175为内存构造回归入口。食材/营养/步骤/变体及React详情实际读取PG，模型、真实账户与健康未接通。
+
+scripts/run.ps1 test为常规测试；显式设置RUN_BUSINESS_POSTGRES_TESTS=1后运行test:business:postgres，只创建并清理本次随机测试库。BUSINESS_BROWSER=1配合test:business:e2e使用独立4181服务和真实构造PG；测试结束停服务、保留持久业务库。本轮66项常规、7项真实PG（含父项）及8+32浏览器通过，详情及重跑命令见 [业务验收报告](ACCEPTANCE-local-business.md)。
+
+
+## 中断续接与图鉴推荐（2026-10-23，D13）
+
+本机联动入口：`.\scripts\business-local.ps1 -Task Start -Port 4176`，默认local-business-gallery-v1。它只读现有图鉴147条/145道及local-business-community-v1，需已有本地Docker数据库；不进行发布或迁移。原构造目录仍可显式指定`-Release local-business-ui-v2`，3道目录可指定`-Release local-business-community-v1`。
+
+打开`http://127.0.0.1:4176/`、`/recipes`及`/favorites`。空食材时勾选允许补买可查看完整候选；仍应用当前过敏/忌口/口味等条件，未核对配方不会冒充适用。图片入口仅本页预览，不调用识别。
+
+现有构建/常规回归命令保留；服务启动后用`.\scripts\run.ps1 test:resume:e2e`验证本轮五个桌面/手机场景。原工作台回归为`test:e2e`；真实数据库旧目录回归用`BUSINESS_BROWSER=1`和`test:business:e2e`。本轮状态及证据见[续接验收](ACCEPTANCE-resume-2026-10-23.md)。

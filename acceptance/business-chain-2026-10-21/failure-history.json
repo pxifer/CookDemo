@@ -1,0 +1,19 @@
+{
+  "resolved": [
+    {
+      "test": "Invalid variant main ingredients",
+      "initialFailures": 1,
+      "cause": "structuredClone preserved shared ingredient-line references; mutation changed both variants",
+      "fix": "replace one variant line to create the intended negative fixture",
+      "productRuleChanged": false
+    },
+    {
+      "test": "Database category browser confirmation",
+      "initialFailures": 2,
+      "cause": "assertion used alias/noncanonical order instead of normalized database names",
+      "fix": "assert the actual canonical target names and retain the confirmation/filter checks",
+      "productRuleChanged": false
+    }
+  ],
+  "unresolvedFailures": []
+}

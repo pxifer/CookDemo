@@ -1,0 +1,954 @@
+{
+  "kind": "recipe-composition-review",
+  "baseRelease": "gallery-preview-20261023",
+  "baseHash": "a8672d832d83d0e77fcd331334612a5a3697e89b301d2c49183cd0f830b1063b",
+  "records": [
+    {
+      "recipeId": "gallery-5e51391c8af2e2fd",
+      "variantId": "gallery-5e51391c8af2e2fd-r354",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "community-qianlong-cabbage",
+      "variantId": "community-qianlong-cabbage-original",
+      "state": "pending-source-review",
+      "reason": "沿用既有来源准入；本批次未新增成分审核结论。"
+    },
+    {
+      "recipeId": "community-winter-melon-chicken",
+      "variantId": "community-winter-melon-chicken-original",
+      "state": "pending-source-review",
+      "reason": "沿用既有来源准入；本批次未新增成分审核结论。"
+    },
+    {
+      "recipeId": "gallery-73249985a26e9027",
+      "variantId": "gallery-73249985a26e9027-r298",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d141ad8d4a9be642",
+      "variantId": "gallery-d141ad8d4a9be642-r352",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-5da7d9809edda8a0",
+      "variantId": "gallery-5da7d9809edda8a0-r396",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f1a79c1777840aac",
+      "variantId": "gallery-f1a79c1777840aac-r358",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-5ba82d7fefc61d9d",
+      "variantId": "gallery-5ba82d7fefc61d9d-r386",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-6e4d5739667470f9",
+      "variantId": "gallery-6e4d5739667470f9-r417",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c6f7b91f3b663915",
+      "variantId": "gallery-c6f7b91f3b663915-r294",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-7b38b489a1b09b42",
+      "variantId": "gallery-7b38b489a1b09b42-r264",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-681cfcbbd5107b13",
+      "variantId": "gallery-681cfcbbd5107b13-r259",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-220389d7154948d7",
+      "variantId": "gallery-220389d7154948d7-r267",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-2834a020554b81f3",
+      "variantId": "gallery-2834a020554b81f3-r387",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-58dc7474f86fb599",
+      "variantId": "gallery-58dc7474f86fb599-r293",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-a3f310fd4c73dac0",
+      "variantId": "gallery-a3f310fd4c73dac0-r276",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-edbb21768f83d813",
+      "variantId": "gallery-edbb21768f83d813-r388",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-eb74ab0f0fb109da",
+      "variantId": "gallery-eb74ab0f0fb109da-r367",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-89dc08779f867327",
+      "variantId": "gallery-89dc08779f867327-r397",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-fd2f6c7a4af6779d",
+      "variantId": "gallery-fd2f6c7a4af6779d-r413",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-4c8e1208d7ba8792",
+      "variantId": "gallery-4c8e1208d7ba8792-r296",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f07827c97ee6475e",
+      "variantId": "gallery-f07827c97ee6475e-r258",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f09ead55a692109c",
+      "variantId": "gallery-f09ead55a692109c-r348",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-493fa7c6d75c41d4",
+      "variantId": "gallery-493fa7c6d75c41d4-r269",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-0d1ca14a5a49a497",
+      "variantId": "gallery-0d1ca14a5a49a497-r345",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c0286daea8c12958",
+      "variantId": "gallery-c0286daea8c12958-r346",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-b434eb54f909fd32",
+      "variantId": "gallery-b434eb54f909fd32-r411",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-002f95f26e415096",
+      "variantId": "gallery-002f95f26e415096-r359",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-e4aa582ece173390",
+      "variantId": "gallery-e4aa582ece173390-r295",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-831a3e9df801d0f4",
+      "variantId": "gallery-831a3e9df801d0f4-r336",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-150e17619579d6a2",
+      "variantId": "gallery-150e17619579d6a2-r275",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-e9cfd02bb3d7e457",
+      "variantId": "gallery-e9cfd02bb3d7e457-r285",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-eb949323d770da7b",
+      "variantId": "gallery-eb949323d770da7b-r307",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-88feb147de3fdb95",
+      "variantId": "gallery-88feb147de3fdb95-r266",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d6f461ea41cdffe6",
+      "variantId": "gallery-d6f461ea41cdffe6-r262",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-e5c0fc95d63477e7",
+      "variantId": "gallery-e5c0fc95d63477e7-r377",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-e2b191c1c48a8b02",
+      "variantId": "gallery-e2b191c1c48a8b02-r281",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-27c8501f8a8c05ac",
+      "variantId": "gallery-27c8501f8a8c05ac-r322",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-a71766cea39d09f0",
+      "variantId": "gallery-a71766cea39d09f0-r392",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-a82bb88b771166a3",
+      "variantId": "gallery-a82bb88b771166a3-r349",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-ffe37c6a63012a03",
+      "variantId": "gallery-ffe37c6a63012a03-r389",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-89aa95b375201b95",
+      "variantId": "gallery-89aa95b375201b95-r414",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d0f0c44c1b9f9e51",
+      "variantId": "gallery-d0f0c44c1b9f9e51-r303",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-4cb1316d5cbf0f5d",
+      "variantId": "gallery-4cb1316d5cbf0f5d-r315",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-2c8ad12f5a290bd2",
+      "variantId": "gallery-2c8ad12f5a290bd2-r317",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f9977661db7f8502",
+      "variantId": "gallery-f9977661db7f8502-r274",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c9b12210b44d1aab",
+      "variantId": "gallery-c9b12210b44d1aab-r313",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-409141104436781c",
+      "variantId": "gallery-409141104436781c-r390",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-cfc0a6dd9cddda2a",
+      "variantId": "gallery-cfc0a6dd9cddda2a-r368",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-4b80ad3d55bde4ff",
+      "variantId": "gallery-4b80ad3d55bde4ff-r360",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-07f6010166014575",
+      "variantId": "gallery-07f6010166014575-r261",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-6b11680fa1096d51",
+      "variantId": "gallery-6b11680fa1096d51-r302",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-7cc95aff5a050f5b",
+      "variantId": "gallery-7cc95aff5a050f5b-r338",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-4992d3405148ca4f",
+      "variantId": "gallery-4992d3405148ca4f-r260",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-04525a0684aa2a05",
+      "variantId": "gallery-04525a0684aa2a05-r309",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-41744c72e4d48003",
+      "variantId": "gallery-41744c72e4d48003-r372",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-9f642a3b84688e99",
+      "variantId": "gallery-9f642a3b84688e99-r297",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-964e27e963df59e3",
+      "variantId": "gallery-964e27e963df59e3-r418",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-ced1de5a054d38d9",
+      "variantId": "gallery-ced1de5a054d38d9-r318",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-219f834a020d8a1e",
+      "variantId": "gallery-219f834a020d8a1e-r382",
+      "state": "verified-composition",
+      "approval": {
+        "reviewId": "composition-r382-v1",
+        "recipeId": "gallery-219f834a020d8a1e",
+        "variantId": "gallery-219f834a020d8a1e-r382",
+        "fingerprint": "338ab6c03169dd93120ff44d21a10f91f9df80595f89b690e4537146bd619235"
+      },
+      "evidence": {
+        "reviewId": "composition-r382-v1",
+        "recipeId": "gallery-219f834a020d8a1e",
+        "variantId": "gallery-219f834a020d8a1e-r382",
+        "fingerprint": "338ab6c03169dd93120ff44d21a10f91f9df80595f89b690e4537146bd619235",
+        "sourceRecord": "R382",
+        "sourceSha256": "00708225f67ba4aa10a61b7ea3885487f63bc0b9d4e6d01afa57325bb05d495f",
+        "leaves": [
+          {
+            "foodId": "gallery-food-1d740e0aaa9de330",
+            "equivalentIds": [],
+            "evidence": "原方必备原料、计算和步骤1–7：仅南瓜入盘；饮用水1000ml用于蒸锅，不作为投料。"
+          }
+        ],
+        "sourceCoverage": "南瓜300g；洗净去瓤籽、切片、摆盘、蒸15–20分钟；未添加油盐或复合调料。",
+        "sourceUri": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E6%B8%85%E8%92%B8%E5%8D%97%E7%93%9C.md",
+        "checkedAt": "2026-10-24",
+        "scope": "recipe-composition-only",
+        "nutritionImported": false,
+        "crossContactVerified": false
+      }
+    },
+    {
+      "recipeId": "gallery-6da8ce2aad743d29",
+      "variantId": "gallery-6da8ce2aad743d29-r323",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-9fd1d507b358520d",
+      "variantId": "gallery-9fd1d507b358520d-r314",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-de8b31dcd19279be",
+      "variantId": "gallery-de8b31dcd19279be-r383",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-de8b31dcd19279be",
+      "variantId": "gallery-de8b31dcd19279be-r316",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-3effb770e34fb9b7",
+      "variantId": "gallery-3effb770e34fb9b7-r374",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-e52e982933f4739a",
+      "variantId": "gallery-e52e982933f4739a-r328",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c16913d5f3ff568b",
+      "variantId": "gallery-c16913d5f3ff568b-r361",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-8d3817ce625d058b",
+      "variantId": "gallery-8d3817ce625d058b-r310",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-7528106d7d24c143",
+      "variantId": "gallery-7528106d7d24c143-r324",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-60f34f1dc1ae51a2",
+      "variantId": "gallery-60f34f1dc1ae51a2-r331",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-67577578036da711",
+      "variantId": "gallery-67577578036da711-r321",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d86d8f5c2647d942",
+      "variantId": "gallery-d86d8f5c2647d942-r366",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-0fb6c8b0242e69f0",
+      "variantId": "gallery-0fb6c8b0242e69f0-r290",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-ac8764ea3c34ccf9",
+      "variantId": "gallery-ac8764ea3c34ccf9-r393",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-22f4b521b0ccef58",
+      "variantId": "gallery-22f4b521b0ccef58-r272",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-864a4ab520484c3a",
+      "variantId": "gallery-864a4ab520484c3a-r299",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-9465938ff4b4edb8",
+      "variantId": "gallery-9465938ff4b4edb8-r279",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-0796bd89ef527ed8",
+      "variantId": "gallery-0796bd89ef527ed8-r329",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f1170fb2fa821995",
+      "variantId": "gallery-f1170fb2fa821995-r376",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c818c20bb971ee81",
+      "variantId": "gallery-c818c20bb971ee81-r292",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-1711b1837f71d986",
+      "variantId": "gallery-1711b1837f71d986-r334",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-7883a9dc2be771ba",
+      "variantId": "gallery-7883a9dc2be771ba-r380",
+      "state": "verified-composition",
+      "approval": {
+        "reviewId": "composition-r380-v1",
+        "recipeId": "gallery-7883a9dc2be771ba",
+        "variantId": "gallery-7883a9dc2be771ba-r380",
+        "fingerprint": "8005e35296ac8c0a319d3354e218c6e7bc04bec90243aacfa323004405ecbdfb"
+      },
+      "evidence": {
+        "reviewId": "composition-r380-v1",
+        "recipeId": "gallery-7883a9dc2be771ba",
+        "variantId": "gallery-7883a9dc2be771ba-r380",
+        "fingerprint": "8005e35296ac8c0a319d3354e218c6e7bc04bec90243aacfa323004405ecbdfb",
+        "sourceRecord": "R380",
+        "sourceSha256": "0a17cd82ca74f182fdd543842535beac063179b47bfdf55135f76b8a1101f822",
+        "leaves": [
+          {
+            "foodId": "tomato",
+            "equivalentIds": [],
+            "evidence": "必备原料、计算：西红柿2个共约200g，步骤1–5去皮切块摆盘。"
+          },
+          {
+            "foodId": "gallery-food-4f7a2bfbb8b66631",
+            "equivalentIds": [
+              "sugar"
+            ],
+            "evidence": "计算：白砂糖20g；步骤6称白糖，指向同一配料，不是另加一种糖。"
+          },
+          {
+            "foodId": "sugar",
+            "equivalentIds": [
+              "gallery-food-4f7a2bfbb8b66631"
+            ],
+            "evidence": "步骤6白糖对应计算栏白砂糖；仅在本配方内双向核对。"
+          },
+          {
+            "foodId": "gallery-food-900b6de53f9a9c3e",
+            "equivalentIds": [],
+            "evidence": "步骤2：开水冲30秒为去皮替代操作；保留已解析行并参与限制检查。"
+          }
+        ],
+        "sourceCoverage": "原方仅西红柿、白砂糖；步骤开水去皮、撒白糖、冷藏10分钟均核对，无油或复合调料。",
+        "sourceUri": "https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E7%B3%96%E6%8B%8C%E8%A5%BF%E7%BA%A2%E6%9F%BF/%E7%B3%96%E6%8B%8C%E8%A5%BF%E7%BA%A2%E6%9F%BF.md",
+        "checkedAt": "2026-10-24",
+        "scope": "recipe-composition-only",
+        "nutritionImported": false,
+        "crossContactVerified": false
+      }
+    },
+    {
+      "recipeId": "gallery-f3fff4cd28f4173e",
+      "variantId": "gallery-f3fff4cd28f4173e-r291",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f3fff1f7454b914e",
+      "variantId": "gallery-f3fff1f7454b914e-r335",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-8dd5d3e8aa28bf8d",
+      "variantId": "gallery-8dd5d3e8aa28bf8d-r344",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-5c60d94d1d0a65ca",
+      "variantId": "gallery-5c60d94d1d0a65ca-r385",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f3d1d10011b24172",
+      "variantId": "gallery-f3d1d10011b24172-r365",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-ce522f9cf8b0e632",
+      "variantId": "gallery-ce522f9cf8b0e632-r364",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-33e3198e19f1355e",
+      "variantId": "gallery-33e3198e19f1355e-r263",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c97560fe91eebece",
+      "variantId": "gallery-c97560fe91eebece-r379",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-72b7d37520852911",
+      "variantId": "gallery-72b7d37520852911-r347",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-de07d66a27ed3913",
+      "variantId": "gallery-de07d66a27ed3913-r283",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-b7faa43f6a1cdf48",
+      "variantId": "gallery-b7faa43f6a1cdf48-r300",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-95cbb7e4672e5a17",
+      "variantId": "gallery-95cbb7e4672e5a17-r343",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-243f1ece3078a09c",
+      "variantId": "gallery-243f1ece3078a09c-r268",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-032aae24412376da",
+      "variantId": "gallery-032aae24412376da-r327",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d5a2bd4f7a03c6e8",
+      "variantId": "gallery-d5a2bd4f7a03c6e8-r375",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-5ecbe8f1bfec1c33",
+      "variantId": "gallery-5ecbe8f1bfec1c33-r341",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-8955eb3bbc5acaa9",
+      "variantId": "gallery-8955eb3bbc5acaa9-r305",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-ac6bf9a794d64329",
+      "variantId": "gallery-ac6bf9a794d64329-r333",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-a08c32a208d43806",
+      "variantId": "gallery-a08c32a208d43806-r306",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "community-spinach-eggs",
+      "variantId": "community-spinach-eggs-original",
+      "state": "pending-source-review",
+      "reason": "沿用既有来源准入；本批次未新增成分审核结论。"
+    },
+    {
+      "recipeId": "gallery-307e91ebb27bbdd4",
+      "variantId": "gallery-307e91ebb27bbdd4-r319",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-4301b4ab737d7a3e",
+      "variantId": "gallery-4301b4ab737d7a3e-r362",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-8883ddef2db706c9",
+      "variantId": "gallery-8883ddef2db706c9-r416",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-dab5244ade4844da",
+      "variantId": "gallery-dab5244ade4844da-r288",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-671f9949c4d9b31f",
+      "variantId": "gallery-671f9949c4d9b31f-r355",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-3cdd52d3168962d6",
+      "variantId": "gallery-3cdd52d3168962d6-r340",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-163cd088842b1edb",
+      "variantId": "gallery-163cd088842b1edb-r325",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f7efe07251205d84",
+      "variantId": "gallery-f7efe07251205d84-r312",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-6772b2fadf90fdb1",
+      "variantId": "gallery-6772b2fadf90fdb1-r304",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f70182e7ca76098e",
+      "variantId": "gallery-f70182e7ca76098e-r286",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-e52f6caf75d5f02b",
+      "variantId": "gallery-e52f6caf75d5f02b-r395",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-9e86be6df5686af9",
+      "variantId": "gallery-9e86be6df5686af9-r357",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d9cd90c050ce8989",
+      "variantId": "gallery-d9cd90c050ce8989-r350",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-83abea194af36759",
+      "variantId": "gallery-83abea194af36759-r351",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-8f2b487749986928",
+      "variantId": "gallery-8f2b487749986928-r308",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-9fe26a13036a2d7e",
+      "variantId": "gallery-9fe26a13036a2d7e-r369",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-dedaff29055abfc7",
+      "variantId": "gallery-dedaff29055abfc7-r342",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-34732ee96e63723e",
+      "variantId": "gallery-34732ee96e63723e-r381",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-378338c90ab6e6c9",
+      "variantId": "gallery-378338c90ab6e6c9-r287",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-5f5395367336d1ec",
+      "variantId": "gallery-5f5395367336d1ec-r384",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-9eb8d2dc6c3ac5f6",
+      "variantId": "gallery-9eb8d2dc6c3ac5f6-r339",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-d40dfaf1fcd91eb2",
+      "variantId": "gallery-d40dfaf1fcd91eb2-r273",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-09f9c77ba64e1979",
+      "variantId": "gallery-09f9c77ba64e1979-r284",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-42f00fe7bb66955e",
+      "variantId": "gallery-42f00fe7bb66955e-r271",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-656ebbd6cc412ec0",
+      "variantId": "gallery-656ebbd6cc412ec0-r278",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-b858887afd0ad04c",
+      "variantId": "gallery-b858887afd0ad04c-r371",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-391029f5c89d52f1",
+      "variantId": "gallery-391029f5c89d52f1-r370",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-8a63f4a675c253b3",
+      "variantId": "gallery-8a63f4a675c253b3-r415",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-b59885e3e2e32571",
+      "variantId": "gallery-b59885e3e2e32571-r356",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-eeab65d35c71fd9e",
+      "variantId": "gallery-eeab65d35c71fd9e-r326",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-eef9ad8f4ee8333c",
+      "variantId": "gallery-eef9ad8f4ee8333c-r378",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-212f2861dda1ac97",
+      "variantId": "gallery-212f2861dda1ac97-r289",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c7c4852a992babdc",
+      "variantId": "gallery-c7c4852a992babdc-r373",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-db484966b2172da5",
+      "variantId": "gallery-db484966b2172da5-r394",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-fca25d2873cf7fb2",
+      "variantId": "gallery-fca25d2873cf7fb2-r301",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c10a62b79900dfdc",
+      "variantId": "gallery-c10a62b79900dfdc-r330",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-c4720120e7fa14c9",
+      "variantId": "gallery-c4720120e7fa14c9-r353",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-902e943027a6fccd",
+      "variantId": "gallery-902e943027a6fccd-r412",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-2230dd694800796b",
+      "variantId": "gallery-2230dd694800796b-r265",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-57c1e3ea98d445ca",
+      "variantId": "gallery-57c1e3ea98d445ca-r280",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-b7a2edb0f595dc1e",
+      "variantId": "gallery-b7a2edb0f595dc1e-r337",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-f1b23ae5b6b4836b",
+      "variantId": "gallery-f1b23ae5b6b4836b-r277",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    },
+    {
+      "recipeId": "gallery-4e274303b433ee2b",
+      "variantId": "gallery-4e274303b433ee2b-r311",
+      "state": "pending-source-review",
+      "reason": "原方覆盖或食材/复合调料成分证据尚未逐项核齐，维持原限制拦截。"
+    }
+  ]
+}

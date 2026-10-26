@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-10-23",
+  "type": "manual Playwright browser check",
+  "baseUrl": "http://127.0.0.1:4176",
+  "steps": "逐菜搜索、核对卡片heading、img.decode成功、currentSrc和naturalWidth、文档水平溢出",
+  "initialCheck": "首次脚本误选不存在的h3超时；改为卡片heading角色后8道成功。不是应用故障。",
+  "recipes": [
+    {
+      "id": "R411",
+      "dish": "宫保鸡丁",
+      "image": "/assets/recipes/kung-pao-chicken-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R412",
+      "dish": "麻婆豆腐",
+      "image": "/assets/recipes/silken-tofu-pork-duck-egg-white-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R413",
+      "dish": "回锅肉",
+      "image": "/assets/recipes/twice-cooked-pork-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R414",
+      "dish": "手撕包菜",
+      "image": "/assets/recipes/torn-cabbage-pork-finedining-v2.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R415",
+      "dish": "韭菜炒蛋",
+      "image": "/assets/recipes/chinese-chives-scrambled-eggs-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R416",
+      "dish": "葱煎豆腐",
+      "image": "/assets/recipes/scallion-pan-fried-tofu-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R417",
+      "dish": "凉拌黄瓜",
+      "image": "/assets/recipes/smashed-cucumber-garlic-salad-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    },
+    {
+      "id": "R418",
+      "dish": "洋葱炒鸡蛋",
+      "image": "/assets/recipes/onion-scrambled-eggs-finedining-v1.webp",
+      "decodedWidth": 1280,
+      "documentHorizontalOverflow": false
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R259",
+    "dish": "印度土豆花菜",
+    "name": "aloo-gobi-potato-cauliflower-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, recognizable authentic ingredients, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic succulent textures, quiet beige stone table, tasteful negative space. Landscape 4:3. No lettering, watermark, logos, people, utensils or unrelated garnish. Dish: Indian aloo gobi 印度土豆花菜: tender potato cubes and cauliflower florets lightly coated in golden turmeric and warm Indian spices, small softened tomato and onion bits, tiny green chili pieces, visible cumin seeds, a few fresh coriander leaves. Dry-style lightly glazed vegetables, not creamy curry gravy. Refined low mound on an ivory plate, no rice or naan.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/aloo-gobi-potato-cauliflower-finedining-v1.png",
+    "review": "视觉核对土豆花菜、粉丝、蒸蛋肉饼、鸡蛋片、虾壳及茭白形态；仍待审核"
+  },
+  {
+    "id": "R264",
+    "dish": "包菜炒鸡蛋粉丝",
+    "name": "cabbage-egg-glass-noodles-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, recognizable authentic ingredients, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic succulent textures, quiet beige stone table, tasteful negative space. Landscape 4:3. No lettering, watermark, logos, people, utensils or unrelated garnish. Dish: 包菜炒鸡蛋粉丝: thin glossy translucent brown glass noodles stir-fried with finely shredded tender cabbage, bright orange carrot shreds, fluffy golden egg curds, a few tiny dried red chili sections and fine garlic bits. Neatly twirled low mound on a broad ivory plate. No meat, no mushrooms, no broccoli, not wheat noodles.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/cabbage-egg-glass-noodles-finedining-v1.png",
+    "review": "视觉核对土豆花菜、粉丝、蒸蛋肉饼、鸡蛋片、虾壳及茭白形态；仍待审核"
+  },
+  {
+    "id": "R268",
+    "dish": "肉饼炖蛋",
+    "name": "steamed-pork-patty-egg-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, recognizable authentic ingredients, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic succulent textures, quiet beige stone table, tasteful negative space. Landscape 4:3. No lettering, watermark, logos, people, utensils or unrelated garnish. Dish: 肉饼炖蛋: a tender flat round steamed minced-pork patty in a shallow ivory porcelain dish, one cooked whole cracked egg set in a small well at its center with a fully set golden yolk and opaque white, a little clear light brown pork broth around the patty. Moist delicate cooked minced pork texture, elegant simple plating. No scallions, no chili, no vegetables, no fried crust.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/steamed-pork-patty-egg-finedining-v1.png",
+    "review": "视觉核对土豆花菜、粉丝、蒸蛋肉饼、鸡蛋片、虾壳及茭白形态；仍待审核"
+  },
+  {
+    "id": "R278",
+    "dish": "金钱蛋",
+    "name": "golden-egg-coins-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, recognizable authentic ingredients, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic succulent textures, quiet beige stone table, tasteful negative space. Landscape 4:3. No lettering, watermark, logos, people, utensils or unrelated garnish. Dish: 金钱蛋: thick oval slices of fully hard-boiled egg, bright firm golden yolks surrounded by white, edges lightly pan-fried golden and crisp, tossed in a thin glossy reddish-brown bean-chili sauce with small green chili and red bird's-eye chili rings and finely minced garlic. Beautiful compact layered arrangement on an ivory plate. Not scrambled eggs or deviled eggs, no meat or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/golden-egg-coins-finedining-v1.png",
+    "review": "视觉核对土豆花菜、粉丝、蒸蛋肉饼、鸡蛋片、虾壳及茭白形态；仍待审核"
+  },
+  {
+    "id": "R280",
+    "dish": "黄油煎虾",
+    "name": "black-pepper-butter-prawns-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, recognizable authentic ingredients, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic succulent textures, quiet beige stone table, tasteful negative space. Landscape 4:3. No lettering, watermark, logos, people, utensils or unrelated garnish. Dish: 黄油煎虾: large headless but shell-on prawns, backs neatly split and tails retained, lightly pan-seared bright orange shells, glossy butter-soy glaze with plentiful small cracked black pepper flecks. Elegantly arranged in a fan on a broad ivory plate. No prawn heads, no peeled body, no garlic, no lemon, no parsley, no chili, no vegetables.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/black-pepper-butter-prawns-finedining-v1.png",
+    "review": "视觉核对土豆花菜、粉丝、蒸蛋肉饼、鸡蛋片、虾壳及茭白形态；仍待审核"
+  },
+  {
+    "id": "R333",
+    "dish": "茭白炒肉",
+    "name": "water-bamboo-pork-stir-fry-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, recognizable authentic ingredients, restrained fine-dining styling in warm ivory ceramics, warm natural side light, realistic succulent textures, quiet beige stone table, tasteful negative space. Landscape 4:3. No lettering, watermark, logos, people, utensils or unrelated garnish. Dish: 茭白炒肉: smooth ivory-white angled oval slices of Chinese water bamboo stem (zizania shoots), with thin fully cooked lean pork strips and tiny ginger and minced garlic, a delicate clear savory glaze. Refined low mound on an elegant ivory plate, subtle pale green edges on some stem slices. No bamboo shoot triangles, no lotus-root holes, no brown soy sauce, no red peppers, no scallions.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/water-bamboo-pork-stir-fry-finedining-v1.png",
+    "review": "视觉核对土豆花菜、粉丝、蒸蛋肉饼、鸡蛋片、虾壳及茭白形态；仍待审核"
+  }
+]

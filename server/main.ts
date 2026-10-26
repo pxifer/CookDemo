@@ -1,8 +1,25 @@
 import { createApp } from './app';
-const port = Number(process.env.PORT ?? 4175);
-if (process.versions.node.split('.')[0] !== '24') throw new Error('请使用 Node.js 24 LTS；Windows 可运行 scripts/run.ps1');
-const app = await createApp({ origin: process.env.APP_ORIGIN, localTestFeatures: process.env.LOCAL_TEST_FEATURES === '1' });
-await app.listen({ port, host: '127.0.0.1' });
-console.log(`拾味本地开发版 http://127.0.0.1:${port}（构造内容；云、模型、账户与健康未开放）`);
-if (process.env.LOCAL_TEST_FEATURES === '1') console.log('本机测试登录与健康流程已开启；不连接真实认证、不执行疾病适宜性判断。');
-for (const signal of ['SIGTERM', 'SIGINT'] as const) process.on(signal, () => { void app.close(); });
+import { readConfig, ConfigurationError } from './config';
+import { connectDatabase, type Database } from './db';
+import { inspectDatabase } from './deployment';
+
+let database: Database | undefined;
+try {
+  if (process.versions.node.split('.')[0] !== '24') throw new ConfigurationError('NODE_24_LTS');
+  const config = readConfig();
+  if (config.databaseUrl) {
+    database = await connectDatabase(config.databaseUrl, config.database);
+    if (!(await inspectDatabase(database, config.requireVector)).ready) throw new ConfigurationError('DATABASE_SCHEMA_OR_CONNECTIVITY');
+  }
+  const app = await createApp({ origin: config.origin, localTestFeatures: config.localTestFeatures,
+    sessionSecret: config.sessionSecret, csrfSecret: config.csrfSecret, database,
+    environment: config.environment, contentSource: config.contentSource, contentRelease: config.contentRelease, requireVector: config.requireVector });
+  app.addHook('onClose', async () => { await database?.close(); });
+  await app.listen({ port: config.port, host: config.host });
+  console.log(`拾味已启动：${config.environment}；内容=${config.contentSource}；账户、模型与正式健康未开放。`);
+  for (const signal of ['SIGTERM', 'SIGINT'] as const) process.once(signal, () => { void app.close(); });
+} catch (error) {
+  await database?.close();
+  console.error(error instanceof ConfigurationError ? error.message : '启动失败，请检查数据库、端口和部署配置；连接信息不写入日志。');
+  process.exitCode = 1;
+}

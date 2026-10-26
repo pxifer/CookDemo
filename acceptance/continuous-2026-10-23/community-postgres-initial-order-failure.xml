@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="本机真实社区发布：只读应用账号回读、真实推荐、约束、固定量与旧版本回退" time="0.417548" classname="test" file="D:\codex_AI\菜谱推荐\CookDemo\tests\community-local-postgres.integration.ts" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;... Skipped lines&#10;&#10;  [&#10;    {&#10;      category: 'veg',&#10;      homeStyle: true,&#10;+     id: 'community-qianlong-cabbage',&#10;-     id: 'community-spinach-eggs',&#10;      image: 'veg',&#10;+     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',&#10;+     minutes: 10,&#10;+     name: '乾隆白菜',&#10;+     servings: 2,&#10;-     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',&#10;-     minutes: 15,&#10;-     name: '菠菜炒鸡蛋',&#10;-     servings: 1,&#10;      source: {&#10;        author: 'HowToCook 社区',&#10;        commit: '0e106eea348c734fe1586f781202994439cf98a5',&#10;        kind: 'community',&#10;        license: 'The Unlicense',&#10;+       recordId: 'R391',&#10;-       recordId: 'R270',&#10;        reviewBasis: 'source-and-structure',&#10;        reviewed: true,&#10;+       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'&#10;-       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'&#10;      },&#10;      state: 'published',&#10;      variants: [&#10;        {&#10;+         flavor: '麻酱酸甜',&#10;+         id: 'community-qianlong-cabbage-original',&#10;-         flavor: '咸鲜',&#10;-         id: 'community-spinach-eggs-original',&#10;          lines: [&#10;            {&#10;+             amount: 300,&#10;-             amount: 350,&#10;              basis: 'unknown',&#10;+             foodId: 'cabbage',&#10;-             foodId: 'spinach',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 30,&#10;-             amount: 2,&#10;              basis: 'unknown',&#10;+             foodId: 'sesame-paste',&#10;-             foodId: 'egg',&#10;              form: 'raw',&#10;+             optional: false,&#10;+             role: 'seasoning',&#10;+             unit: 'g'&#10;-             role: 'main',&#10;-             unit: '个'&#10;            },&#10;            {&#10;+             amount: 45,&#10;-             amount: 15,&#10;              basis: 'unknown',&#10;+             foodId: 'aged-vinegar',&#10;-             foodId: 'oil',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;            {&#10;              amount: 5,&#10;              basis: 'unknown',&#10;+             foodId: 'sugar',&#10;-             foodId: 'salt',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 5,&#10;-             amount: 100,&#10;              basis: 'unknown',&#10;+             foodId: 'sesame-oil',&#10;-             foodId: 'water',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;+           {&#10;+             amount: 1,&#10;+             basis: 'unknown',&#10;+             foodId: 'salt',&#10;+             form: 'raw',&#10;+             optional: false,&#10;+             role: 'seasoning',&#10;+             unit: 'g'&#10;+           },&#10;+           {&#10;+             amount: 3,&#10;+             basis: 'unknown',&#10;+             foodId: 'toasted-sesame',&#10;+             form: 'raw',&#10;+             optional: true,&#10;+             role: 'seasoning',&#10;+             unit: 'g'&#10;+           }&#10;          ],&#10;          steps: [&#10;+           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',&#10;+           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',&#10;+           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱&amp;quot;走油&amp;quot;）',&#10;+           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',&#10;+           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',&#10;+           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'&#10;-           '菠菜去根，洗净，放在篮子里，焯水',&#10;-           '将鸡蛋打入碗中，搅匀',&#10;-           '热锅，加入 10ml 油',&#10;-           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',&#10;-           '关火，将鸡蛋块 盛到盘子中，不要洗锅',&#10;-           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',&#10;-           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',&#10;-           '关火，盛盘'&#10;          ]&#10;        }&#10;      ],&#10;      version: 'local-business-community-v1'&#10;    },&#10;...&#10;      homeStyle: true,&#10;+     id: 'community-spinach-eggs',&#10;-     id: 'community-qianlong-cabbage',&#10;      image: 'veg',&#10;+     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',&#10;+     minutes: 15,&#10;+     name: '菠菜炒鸡蛋',&#10;+     servings: 1,&#10;-     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',&#10;-     minutes: 10,&#10;-     name: '乾隆白菜',&#10;-     servings: 2,&#10;      source: {&#10;        author: 'HowToCook 社区',&#10;        commit: '0e106eea348c734fe1586f781202994439cf98a5',&#10;        kind: 'community',&#10;        license: 'The Unlicense',&#10;+       recordId: 'R270',&#10;-       recordId: 'R391',&#10;        reviewBasis: 'source-and-structure',&#10;        reviewed: true,&#10;+       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'&#10;-       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'&#10;      },&#10;      state: 'published',&#10;      variants: [&#10;        {&#10;+         flavor: '咸鲜',&#10;+         id: 'community-spinach-eggs-original',&#10;-         flavor: '麻酱酸甜',&#10;-         id: 'community-qianlong-cabbage-original',&#10;          lines: [&#10;            {&#10;+             amount: 350,&#10;-             amount: 300,&#10;              basis: 'unknown',&#10;+             foodId: 'spinach',&#10;-             foodId: 'cabbage',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 2,&#10;-             amount: 30,&#10;              basis: 'unknown',&#10;+             foodId: 'egg',&#10;-             foodId: 'sesame-paste',&#10;              form: 'raw',&#10;+             optional: false,&#10;+             role: 'main',&#10;+             unit: '个'&#10;-             role: 'seasoning',&#10;-             unit: 'g'&#10;            },&#10;            {&#10;+             amount: 15,&#10;-             amount: 45,&#10;              basis: 'unknown',&#10;+             foodId: 'oil',&#10;-             foodId: 'aged-vinegar',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;            {&#10;              amount: 5,&#10;              basis: 'unknown',&#10;+             foodId: 'salt',&#10;-             foodId: 'sugar',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 100,&#10;-             amount: 5,&#10;              basis: 'unknown',&#10;+             foodId: 'water',&#10;-             foodId: 'sesame-oil',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;-           {&#10;-             amount: 1,&#10;-             basis: 'unknown',&#10;-             foodId: 'salt',&#10;-             form: 'raw',&#10;-             role: 'seasoning',&#10;-             unit: 'g'&#10;-           },&#10;-           {&#10;-             amount: 3,&#10;-             basis: 'unknown',&#10;-             foodId: 'toasted-sesame',&#10;-             form: 'raw',&#10;-             optional: true,&#10;-             role: 'seasoning',&#10;-             unit: 'g'&#10;-           }&#10;          ],&#10;          steps: [&#10;+           '菠菜去根，洗净，放在篮子里，焯水',&#10;+           '将鸡蛋打入碗中，搅匀',&#10;+           '热锅，加入 10ml 油',&#10;+           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',&#10;+           '关火，将鸡蛋块 盛到盘子中，不要洗锅',&#10;+           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',&#10;+           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',&#10;+           '关火，盛盘'&#10;-           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',&#10;-           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',&#10;-           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱&amp;quot;走油&amp;quot;）',&#10;-           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',&#10;-           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',&#10;-           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'&#10;          ]&#10;        }&#10;      ],&#10;      version: 'local-business-community-v1'&#10;    },&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 300,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 30,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 10,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 15,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;            {&#10;              amount: 10,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 3,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 10,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            }&#10;          ],&#10;          steps: [&#10;">
+		<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;... Skipped lines&#10;&#10;  [&#10;    {&#10;      category: 'veg',&#10;      homeStyle: true,&#10;+     id: 'community-qianlong-cabbage',&#10;-     id: 'community-spinach-eggs',&#10;      image: 'veg',&#10;+     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',&#10;+     minutes: 10,&#10;+     name: '乾隆白菜',&#10;+     servings: 2,&#10;-     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',&#10;-     minutes: 15,&#10;-     name: '菠菜炒鸡蛋',&#10;-     servings: 1,&#10;      source: {&#10;        author: 'HowToCook 社区',&#10;        commit: '0e106eea348c734fe1586f781202994439cf98a5',&#10;        kind: 'community',&#10;        license: 'The Unlicense',&#10;+       recordId: 'R391',&#10;-       recordId: 'R270',&#10;        reviewBasis: 'source-and-structure',&#10;        reviewed: true,&#10;+       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'&#10;-       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'&#10;      },&#10;      state: 'published',&#10;      variants: [&#10;        {&#10;+         flavor: '麻酱酸甜',&#10;+         id: 'community-qianlong-cabbage-original',&#10;-         flavor: '咸鲜',&#10;-         id: 'community-spinach-eggs-original',&#10;          lines: [&#10;            {&#10;+             amount: 300,&#10;-             amount: 350,&#10;              basis: 'unknown',&#10;+             foodId: 'cabbage',&#10;-             foodId: 'spinach',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 30,&#10;-             amount: 2,&#10;              basis: 'unknown',&#10;+             foodId: 'sesame-paste',&#10;-             foodId: 'egg',&#10;              form: 'raw',&#10;+             optional: false,&#10;+             role: 'seasoning',&#10;+             unit: 'g'&#10;-             role: 'main',&#10;-             unit: '个'&#10;            },&#10;            {&#10;+             amount: 45,&#10;-             amount: 15,&#10;              basis: 'unknown',&#10;+             foodId: 'aged-vinegar',&#10;-             foodId: 'oil',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;            {&#10;              amount: 5,&#10;              basis: 'unknown',&#10;+             foodId: 'sugar',&#10;-             foodId: 'salt',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 5,&#10;-             amount: 100,&#10;              basis: 'unknown',&#10;+             foodId: 'sesame-oil',&#10;-             foodId: 'water',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;+           {&#10;+             amount: 1,&#10;+             basis: 'unknown',&#10;+             foodId: 'salt',&#10;+             form: 'raw',&#10;+             optional: false,&#10;+             role: 'seasoning',&#10;+             unit: 'g'&#10;+           },&#10;+           {&#10;+             amount: 3,&#10;+             basis: 'unknown',&#10;+             foodId: 'toasted-sesame',&#10;+             form: 'raw',&#10;+             optional: true,&#10;+             role: 'seasoning',&#10;+             unit: 'g'&#10;+           }&#10;          ],&#10;          steps: [&#10;+           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',&#10;+           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',&#10;+           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱&amp;quot;走油&amp;quot;）',&#10;+           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',&#10;+           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',&#10;+           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'&#10;-           '菠菜去根，洗净，放在篮子里，焯水',&#10;-           '将鸡蛋打入碗中，搅匀',&#10;-           '热锅，加入 10ml 油',&#10;-           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',&#10;-           '关火，将鸡蛋块 盛到盘子中，不要洗锅',&#10;-           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',&#10;-           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',&#10;-           '关火，盛盘'&#10;          ]&#10;        }&#10;      ],&#10;      version: 'local-business-community-v1'&#10;    },&#10;...&#10;      homeStyle: true,&#10;+     id: 'community-spinach-eggs',&#10;-     id: 'community-qianlong-cabbage',&#10;      image: 'veg',&#10;+     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',&#10;+     minutes: 15,&#10;+     name: '菠菜炒鸡蛋',&#10;+     servings: 1,&#10;-     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',&#10;-     minutes: 10,&#10;-     name: '乾隆白菜',&#10;-     servings: 2,&#10;      source: {&#10;        author: 'HowToCook 社区',&#10;        commit: '0e106eea348c734fe1586f781202994439cf98a5',&#10;        kind: 'community',&#10;        license: 'The Unlicense',&#10;+       recordId: 'R270',&#10;-       recordId: 'R391',&#10;        reviewBasis: 'source-and-structure',&#10;        reviewed: true,&#10;+       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'&#10;-       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'&#10;      },&#10;      state: 'published',&#10;      variants: [&#10;        {&#10;+         flavor: '咸鲜',&#10;+         id: 'community-spinach-eggs-original',&#10;-         flavor: '麻酱酸甜',&#10;-         id: 'community-qianlong-cabbage-original',&#10;          lines: [&#10;            {&#10;+             amount: 350,&#10;-             amount: 300,&#10;              basis: 'unknown',&#10;+             foodId: 'spinach',&#10;-             foodId: 'cabbage',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 2,&#10;-             amount: 30,&#10;              basis: 'unknown',&#10;+             foodId: 'egg',&#10;-             foodId: 'sesame-paste',&#10;              form: 'raw',&#10;+             optional: false,&#10;+             role: 'main',&#10;+             unit: '个'&#10;-             role: 'seasoning',&#10;-             unit: 'g'&#10;            },&#10;            {&#10;+             amount: 15,&#10;-             amount: 45,&#10;              basis: 'unknown',&#10;+             foodId: 'oil',&#10;-             foodId: 'aged-vinegar',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;            {&#10;              amount: 5,&#10;              basis: 'unknown',&#10;+             foodId: 'salt',&#10;-             foodId: 'sugar',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;+             amount: 100,&#10;-             amount: 5,&#10;              basis: 'unknown',&#10;+             foodId: 'water',&#10;-             foodId: 'sesame-oil',&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;-           {&#10;-             amount: 1,&#10;-             basis: 'unknown',&#10;-             foodId: 'salt',&#10;-             form: 'raw',&#10;-             role: 'seasoning',&#10;-             unit: 'g'&#10;-           },&#10;-           {&#10;-             amount: 3,&#10;-             basis: 'unknown',&#10;-             foodId: 'toasted-sesame',&#10;-             form: 'raw',&#10;-             optional: true,&#10;-             role: 'seasoning',&#10;-             unit: 'g'&#10;-           }&#10;          ],&#10;          steps: [&#10;+           '菠菜去根，洗净，放在篮子里，焯水',&#10;+           '将鸡蛋打入碗中，搅匀',&#10;+           '热锅，加入 10ml 油',&#10;+           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',&#10;+           '关火，将鸡蛋块 盛到盘子中，不要洗锅',&#10;+           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',&#10;+           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',&#10;+           '关火，盛盘'&#10;-           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',&#10;-           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',&#10;-           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱&amp;quot;走油&amp;quot;）',&#10;-           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',&#10;-           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',&#10;-           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'&#10;          ]&#10;        }&#10;      ],&#10;      version: 'local-business-community-v1'&#10;    },&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 300,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 30,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'main',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 10,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 15,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            },&#10;            {&#10;              amount: 10,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 3,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'g'&#10;            },&#10;            {&#10;              amount: 10,&#10;...&#10;              form: 'raw',&#10;+             optional: false,&#10;              role: 'seasoning',&#10;              unit: 'ml'&#10;            }&#10;          ],&#10;          steps: [">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  [
+    {
+      category: 'veg',
+      homeStyle: true,
++     id: 'community-qianlong-cabbage',
+-     id: 'community-spinach-eggs',
+      image: 'veg',
++     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',
++     minutes: 10,
++     name: '乾隆白菜',
++     servings: 2,
+-     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',
+-     minutes: 15,
+-     name: '菠菜炒鸡蛋',
+-     servings: 1,
+      source: {
+        author: 'HowToCook 社区',
+        commit: '0e106eea348c734fe1586f781202994439cf98a5',
+        kind: 'community',
+        license: 'The Unlicense',
++       recordId: 'R391',
+-       recordId: 'R270',
+        reviewBasis: 'source-and-structure',
+        reviewed: true,
++       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'
+-       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'
+      },
+      state: 'published',
+      variants: [
+        {
++         flavor: '麻酱酸甜',
++         id: 'community-qianlong-cabbage-original',
+-         flavor: '咸鲜',
+-         id: 'community-spinach-eggs-original',
+          lines: [
+            {
++             amount: 300,
+-             amount: 350,
+              basis: 'unknown',
++             foodId: 'cabbage',
+-             foodId: 'spinach',
+              form: 'raw',
++             optional: false,
+              role: 'main',
+              unit: 'g'
+            },
+            {
++             amount: 30,
+-             amount: 2,
+              basis: 'unknown',
++             foodId: 'sesame-paste',
+-             foodId: 'egg',
+              form: 'raw',
++             optional: false,
++             role: 'seasoning',
++             unit: 'g'
+-             role: 'main',
+-             unit: '个'
+            },
+            {
++             amount: 45,
+-             amount: 15,
+              basis: 'unknown',
++             foodId: 'aged-vinegar',
+-             foodId: 'oil',
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'ml'
+            },
+            {
+              amount: 5,
+              basis: 'unknown',
++             foodId: 'sugar',
+-             foodId: 'salt',
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'g'
+            },
+            {
++             amount: 5,
+-             amount: 100,
+              basis: 'unknown',
++             foodId: 'sesame-oil',
+-             foodId: 'water',
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'ml'
+            },
++           {
++             amount: 1,
++             basis: 'unknown',
++             foodId: 'salt',
++             form: 'raw',
++             optional: false,
++             role: 'seasoning',
++             unit: 'g'
++           },
++           {
++             amount: 3,
++             basis: 'unknown',
++             foodId: 'toasted-sesame',
++             form: 'raw',
++             optional: true,
++             role: 'seasoning',
++             unit: 'g'
++           }
+          ],
+          steps: [
++           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',
++           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',
++           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱"走油"）',
++           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',
++           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',
++           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'
+-           '菠菜去根，洗净，放在篮子里，焯水',
+-           '将鸡蛋打入碗中，搅匀',
+-           '热锅，加入 10ml 油',
+-           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',
+-           '关火，将鸡蛋块 盛到盘子中，不要洗锅',
+-           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',
+-           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',
+-           '关火，盛盘'
+          ]
+        }
+      ],
+      version: 'local-business-community-v1'
+    },
+...
+      homeStyle: true,
++     id: 'community-spinach-eggs',
+-     id: 'community-qianlong-cabbage',
+      image: 'veg',
++     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',
++     minutes: 15,
++     name: '菠菜炒鸡蛋',
++     servings: 1,
+-     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',
+-     minutes: 10,
+-     name: '乾隆白菜',
+-     servings: 2,
+      source: {
+        author: 'HowToCook 社区',
+        commit: '0e106eea348c734fe1586f781202994439cf98a5',
+        kind: 'community',
+        license: 'The Unlicense',
++       recordId: 'R270',
+-       recordId: 'R391',
+        reviewBasis: 'source-and-structure',
+        reviewed: true,
++       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'
+-       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'
+      },
+      state: 'published',
+      variants: [
+        {
++         flavor: '咸鲜',
++         id: 'community-spinach-eggs-original',
+-         flavor: '麻酱酸甜',
+-         id: 'community-qianlong-cabbage-original',
+          lines: [
+            {
++             amount: 350,
+-             amount: 300,
+              basis: 'unknown',
++             foodId: 'spinach',
+-             foodId: 'cabbage',
+              form: 'raw',
++             optional: false,
+              role: 'main',
+              unit: 'g'
+            },
+            {
++             amount: 2,
+-             amount: 30,
+              basis: 'unknown',
++             foodId: 'egg',
+-             foodId: 'sesame-paste',
+              form: 'raw',
++             optional: false,
++             role: 'main',
++             unit: '个'
+-             role: 'seasoning',
+-             unit: 'g'
+            },
+            {
++             amount: 15,
+-             amount: 45,
+              basis: 'unknown',
++             foodId: 'oil',
+-             foodId: 'aged-vinegar',
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'ml'
+            },
+            {
+              amount: 5,
+              basis: 'unknown',
++             foodId: 'salt',
+-             foodId: 'sugar',
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'g'
+            },
+            {
++             amount: 100,
+-             amount: 5,
+              basis: 'unknown',
++             foodId: 'water',
+-             foodId: 'sesame-oil',
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'ml'
+            },
+-           {
+-             amount: 1,
+-             basis: 'unknown',
+-             foodId: 'salt',
+-             form: 'raw',
+-             role: 'seasoning',
+-             unit: 'g'
+-           },
+-           {
+-             amount: 3,
+-             basis: 'unknown',
+-             foodId: 'toasted-sesame',
+-             form: 'raw',
+-             optional: true,
+-             role: 'seasoning',
+-             unit: 'g'
+-           }
+          ],
+          steps: [
++           '菠菜去根，洗净，放在篮子里，焯水',
++           '将鸡蛋打入碗中，搅匀',
++           '热锅，加入 10ml 油',
++           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',
++           '关火，将鸡蛋块 盛到盘子中，不要洗锅',
++           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',
++           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',
++           '关火，盛盘'
+-           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',
+-           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',
+-           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱"走油"）',
+-           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',
+-           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',
+-           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'
+          ]
+        }
+      ],
+      version: 'local-business-community-v1'
+    },
+...
+              form: 'raw',
++             optional: false,
+              role: 'main',
+              unit: 'g'
+            },
+            {
+              amount: 300,
+...
+              form: 'raw',
++             optional: false,
+              role: 'main',
+              unit: 'g'
+            },
+            {
+              amount: 30,
+...
+              form: 'raw',
++             optional: false,
+              role: 'main',
+              unit: 'g'
+            },
+            {
+              amount: 10,
+...
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'g'
+            },
+            {
+              amount: 15,
+...
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'ml'
+            },
+            {
+              amount: 10,
+...
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'g'
+            },
+            {
+              amount: 3,
+...
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'g'
+            },
+            {
+              amount: 10,
+...
+              form: 'raw',
++             optional: false,
+              role: 'seasoning',
+              unit: 'ml'
+            }
+          ],
+          steps: [
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        category: 'veg',
+        homeStyle: true,
+  +     id: 'community-qianlong-cabbage',
+  -     id: 'community-spinach-eggs',
+        image: 'veg',
+  +     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',
+  +     minutes: 10,
+  +     name: '乾隆白菜',
+  +     servings: 2,
+  -     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',
+  -     minutes: 15,
+  -     name: '菠菜炒鸡蛋',
+  -     servings: 1,
+        source: {
+          author: 'HowToCook 社区',
+          commit: '0e106eea348c734fe1586f781202994439cf98a5',
+          kind: 'community',
+          license: 'The Unlicense',
+  +       recordId: 'R391',
+  -       recordId: 'R270',
+          reviewBasis: 'source-and-structure',
+          reviewed: true,
+  +       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'
+  -       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'
+        },
+        state: 'published',
+        variants: [
+          {
+  +         flavor: '麻酱酸甜',
+  +         id: 'community-qianlong-cabbage-original',
+  -         flavor: '咸鲜',
+  -         id: 'community-spinach-eggs-original',
+            lines: [
+              {
+  +             amount: 300,
+  -             amount: 350,
+                basis: 'unknown',
+  +             foodId: 'cabbage',
+  -             foodId: 'spinach',
+                form: 'raw',
+  +             optional: false,
+                role: 'main',
+                unit: 'g'
+              },
+              {
+  +             amount: 30,
+  -             amount: 2,
+                basis: 'unknown',
+  +             foodId: 'sesame-paste',
+  -             foodId: 'egg',
+                form: 'raw',
+  +             optional: false,
+  +             role: 'seasoning',
+  +             unit: 'g'
+  -             role: 'main',
+  -             unit: '个'
+              },
+              {
+  +             amount: 45,
+  -             amount: 15,
+                basis: 'unknown',
+  +             foodId: 'aged-vinegar',
+  -             foodId: 'oil',
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'ml'
+              },
+              {
+                amount: 5,
+                basis: 'unknown',
+  +             foodId: 'sugar',
+  -             foodId: 'salt',
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'g'
+              },
+              {
+  +             amount: 5,
+  -             amount: 100,
+                basis: 'unknown',
+  +             foodId: 'sesame-oil',
+  -             foodId: 'water',
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'ml'
+              },
+  +           {
+  +             amount: 1,
+  +             basis: 'unknown',
+  +             foodId: 'salt',
+  +             form: 'raw',
+  +             optional: false,
+  +             role: 'seasoning',
+  +             unit: 'g'
+  +           },
+  +           {
+  +             amount: 3,
+  +             basis: 'unknown',
+  +             foodId: 'toasted-sesame',
+  +             form: 'raw',
+  +             optional: true,
+  +             role: 'seasoning',
+  +             unit: 'g'
+  +           }
+            ],
+            steps: [
+  +           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',
+  +           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',
+  +           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱"走油"）',
+  +           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',
+  +           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',
+  +           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'
+  -           '菠菜去根，洗净，放在篮子里，焯水',
+  -           '将鸡蛋打入碗中，搅匀',
+  -           '热锅，加入 10ml 油',
+  -           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',
+  -           '关火，将鸡蛋块 盛到盘子中，不要洗锅',
+  -           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',
+  -           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',
+  -           '关火，盛盘'
+            ]
+          }
+        ],
+        version: 'local-business-community-v1'
+      },
+  ...
+        homeStyle: true,
+  +     id: 'community-spinach-eggs',
+  -     id: 'community-qianlong-cabbage',
+        image: 'veg',
+  +     imageUrl: '/assets/recipes/spinach-scrambled-eggs-finedining-v1.png',
+  +     minutes: 15,
+  +     name: '菠菜炒鸡蛋',
+  +     servings: 1,
+  -     imageUrl: '/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png',
+  -     minutes: 10,
+  -     name: '乾隆白菜',
+  -     servings: 2,
+        source: {
+          author: 'HowToCook 社区',
+          commit: '0e106eea348c734fe1586f781202994439cf98a5',
+          kind: 'community',
+          license: 'The Unlicense',
+  +       recordId: 'R270',
+  -       recordId: 'R391',
+          reviewBasis: 'source-and-structure',
+          reviewed: true,
+  +       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md'
+  -       uri: 'https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/dishes/vegetable_dish/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C/%E4%B9%BE%E9%9A%86%E7%99%BD%E8%8F%9C.md'
+        },
+        state: 'published',
+        variants: [
+          {
+  +         flavor: '咸鲜',
+  +         id: 'community-spinach-eggs-original',
+  -         flavor: '麻酱酸甜',
+  -         id: 'community-qianlong-cabbage-original',
+            lines: [
+              {
+  +             amount: 350,
+  -             amount: 300,
+                basis: 'unknown',
+  +             foodId: 'spinach',
+  -             foodId: 'cabbage',
+                form: 'raw',
+  +             optional: false,
+                role: 'main',
+                unit: 'g'
+              },
+              {
+  +             amount: 2,
+  -             amount: 30,
+                basis: 'unknown',
+  +             foodId: 'egg',
+  -             foodId: 'sesame-paste',
+                form: 'raw',
+  +             optional: false,
+  +             role: 'main',
+  +             unit: '个'
+  -             role: 'seasoning',
+  -             unit: 'g'
+              },
+              {
+  +             amount: 15,
+  -             amount: 45,
+                basis: 'unknown',
+  +             foodId: 'oil',
+  -             foodId: 'aged-vinegar',
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'ml'
+              },
+              {
+                amount: 5,
+                basis: 'unknown',
+  +             foodId: 'salt',
+  -             foodId: 'sugar',
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'g'
+              },
+              {
+  +             amount: 100,
+  -             amount: 5,
+                basis: 'unknown',
+  +             foodId: 'water',
+  -             foodId: 'sesame-oil',
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'ml'
+              },
+  -           {
+  -             amount: 1,
+  -             basis: 'unknown',
+  -             foodId: 'salt',
+  -             form: 'raw',
+  -             role: 'seasoning',
+  -             unit: 'g'
+  -           },
+  -           {
+  -             amount: 3,
+  -             basis: 'unknown',
+  -             foodId: 'toasted-sesame',
+  -             form: 'raw',
+  -             optional: true,
+  -             role: 'seasoning',
+  -             unit: 'g'
+  -           }
+            ],
+            steps: [
+  +           '菠菜去根，洗净，放在篮子里，焯水',
+  +           '将鸡蛋打入碗中，搅匀',
+  +           '热锅，加入 10ml 油',
+  +           '油热后，倒入鸡蛋液，中火翻炒 15 秒，先煎成蛋饼，然后再用锅铲切成小块',
+  +           '关火，将鸡蛋块 盛到盘子中，不要洗锅',
+  +           '重新开火，倒入 5ml 油，油热后，放入菠菜，大火 翻炒 15 秒后，倒入鸡蛋块，翻炒均匀',
+  +           '加入 5g 盐、100ml 饮用水，大火 翻炒 10 秒',
+  +           '关火，盛盘'
+  -           '大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）',
+  -           '将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附',
+  -           '碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱"走油"）',
+  -           '向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）',
+  -           '将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁',
+  -           '撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用'
+            ]
+          }
+        ],
+        version: 'local-business-community-v1'
+      },
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'main',
+                unit: 'g'
+              },
+              {
+                amount: 300,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'main',
+                unit: 'g'
+              },
+              {
+                amount: 30,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'main',
+                unit: 'g'
+              },
+              {
+                amount: 10,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'g'
+              },
+              {
+                amount: 15,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'ml'
+              },
+              {
+                amount: 10,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'g'
+              },
+              {
+                amount: 3,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'g'
+              },
+              {
+                amount: 10,
+  ...
+                form: 'raw',
+  +             optional: false,
+                role: 'seasoning',
+                unit: 'ml'
+              }
+            ],
+            steps: [
+  
+      at TestContext.&lt;anonymous> (D:\codex_AI\菜谱推荐\CookDemo\tests\community-local-postgres.integration.ts:21:66)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ [Object], [Object], [Object] ],
+    expected: [ [Object], [Object], [Object] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+		</failure>
+	</testcase>
+	<!-- tests 1 -->
+	<!-- suites 0 -->
+	<!-- pass 0 -->
+	<!-- fail 1 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 957.3676 -->
+</testsuites>

@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-21T14:53:42.385Z",
+  "runtime": {
+    "database": "shiwei_business_local",
+    "runtime_role": "shiwei_app",
+    "content_read": true,
+    "content_write": false,
+    "schema_create": false,
+    "table_count": 24
+  },
+  "remainingTemporaryDatabases": 0,
+  "originalDatabaseRecipeCounts": {
+    "shiwei_dev": 0,
+    "shiwei_test_structure": 0
+  },
+  "persistentBusinessDatabasePreserved": true
+}

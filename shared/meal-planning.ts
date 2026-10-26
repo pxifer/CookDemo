@@ -25,6 +25,6 @@ export function estimatedShortages(checks: QuantityCheck[], meal: Meal) {
     if (c.state !== 'unverified' || c.basis !== 'edible' || !c.reason.includes('基准')) return false;
     const item = meal.ingredients.find(i => i.foodId === c.foodId && i.status === 'confirmed');
     const parsed = item && parseQuantity(item.amount);
-    return item?.form === 'raw' && item.basis !== 'edible' && parsed && parsed.unit === c.unit && parsed.amount < c.needed;
+    return c.needed !== null && item?.form === 'raw' && item.basis !== 'edible' && parsed && parsed.unit === c.unit && parsed.amount < c.needed;
   });
 }

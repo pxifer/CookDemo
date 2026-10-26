@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R271",
+    "dish": "金针菇汤",
+    "name": "clear-enoki-mushroom-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Pure enoki mushroom soup: fine short ivory enoki stems with tiny delicate caps, lightly gathered in a clear pale broth, simple elegant composition. No egg, scallions, seaweed, carrots, meat, oil slick or chilies. The source's optional egg is not included in this reference.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/clear-enoki-mushroom-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  },
+  {
+    "id": "R294",
+    "dish": "勾芡香菇汤",
+    "name": "light-thickened-shiitake-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Lightly thickened shiitake soup: recognizable thick slices of brown fresh shiitake mushroom, smooth creamy ivory undersides, in a translucent slightly thick golden-clear broth, a few finely cut green scallion bits. Only mushrooms and scallions visible. No dairy cream, noodles, chicken meat, carrots or pepper slices.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/light-thickened-shiitake-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  },
+  {
+    "id": "R300",
+    "dish": "罗宋汤",
+    "name": "chinese-style-borscht-beef-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Chinese-style borscht soup: tender fully cooked beef chunks, potato cubes, carrot and onion pieces, soft torn cabbage, red sausage chunks and finely chopped parsley cooked into a rich tomato-red broth. Restrained artful filling of a shallow bowl, natural succulent textures. No beetroot, sour cream, dill, bread, raw tomatoes or herbs placed on top as extra garnish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/chinese-style-borscht-beef-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  },
+  {
+    "id": "R311",
+    "dish": "黄瓜皮蛋汤",
+    "name": "cucumber-century-egg-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Cucumber and century-egg soup: thin fresh-green-skinned cucumber slices and distinctive wedges of Chinese century egg with translucent amber-dark brown whites and opaque gray-green yolks, gently cooked in a light pale broth, a few garlic halves and fine green scallion bits. Refined shallow bowl. Not normal white boiled eggs, no meat, tofu, mushrooms or chilies.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/cucumber-century-egg-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  },
+  {
+    "id": "R319",
+    "dish": "萝卜炖羊排",
+    "name": "lamb-ribs-daikon-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Clear lamb rib and white daikon stew: tender fully cooked bone-in lamb rib pieces and large translucent ivory daikon chunks in clear light golden broth, a few softened pale scallion sections and ginger slices. Refined compact arrangement in a shallow bowl. No carrots, coriander leaves, potatoes, chili oil or dark soy braising sauce.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/lamb-ribs-daikon-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  },
+  {
+    "id": "R390",
+    "dish": "昂刺鱼豆腐汤",
+    "name": "yellow-catfish-tofu-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Chinese yellow catfish and tofu soup: one small fully cooked whole yellow catfish with recognizable broad flat head, fine natural whisker barbels and golden-brown skin partly visible above a light milky fish broth, tender white tofu cubes, a few ginger slices and green scallion bits. Beautiful realistic soup in a broad shallow porcelain bowl. No carp scales, no seafood shellfish, chilies, carrots or noodles.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/yellow-catfish-tofu-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R266",
+    "dish": "山药玉米排骨汤",
+    "name": "yam-corn-pork-rib-soup-finedining-v1.png",
+    "prompt": "Photorealistic fine-dining menu photograph of an accurately identifiable dish, sophisticated restrained styling in warm ivory porcelain, warm soft natural side light, realistic appealing edible textures, neutral beige stone table, calm negative space. Landscape 4:3. No words, logo, watermark, people, utensils or unrelated garnish. Dish: 山药玉米排骨汤: clear pale golden pork rib broth with small bone-in pork ribs, short ivory-white Chinese yam cylinders, yellow corn-on-the-cob rounds and a few carrot chunks, a little finely chopped green scallion. Elegant wide-rimmed ivory bowl. Distinct white yam pieces must be visible. No red dates, no goji berries, no lotus roots.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/yam-corn-pork-rib-soup-finedining-v1.png",
+    "review": "视觉核对汤底、山药／南瓜／苦瓜及豆腐形态；图片不代表原方用量和流程审核通过"
+  },
+  {
+    "id": "R279",
+    "dish": "番茄豆腐汤羹",
+    "name": "tomato-tofu-egg-soup-finedining-v1.png",
+    "prompt": "Photorealistic fine-dining menu photograph of an accurately identifiable dish, sophisticated restrained styling in warm ivory porcelain, warm soft natural side light, realistic appealing edible textures, neutral beige stone table, calm negative space. Landscape 4:3. No words, logo, watermark, people, utensils or unrelated garnish. Dish: 番茄豆腐汤羹: gently thickened light red tomato soup, neat tender white tofu cubes and delicate pale yellow egg ribbons, fine softened red tomato dice and a few finely chopped scallions. Beautiful refined ivory porcelain soup bowl, silky translucent lightly thickened broth rather than cream. No seafood, no mushrooms, no dark seaweed, no noodles.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/tomato-tofu-egg-soup-finedining-v1.png",
+    "review": "视觉核对汤底、山药／南瓜／苦瓜及豆腐形态；图片不代表原方用量和流程审核通过"
+  },
+  {
+    "id": "R284",
+    "dish": "金针菇日本豆腐煲",
+    "name": "enoki-egg-tofu-casserole-finedining-v1.png",
+    "prompt": "Photorealistic fine-dining menu photograph of an accurately identifiable dish, sophisticated restrained styling in warm ivory porcelain, warm soft natural side light, realistic appealing edible textures, neutral beige stone table, calm negative space. Landscape 4:3. No words, logo, watermark, people, utensils or unrelated garnish. Dish: 金针菇日本豆腐煲: round slices of Japanese egg tofu, golden pan-seared edges and pale creamy centers, laid over slender white enoki mushrooms, rich light brown glossy soy-oyster braising sauce and tiny red bird's-eye chili rings with minced garlic. Small refined ivory ceramic casserole. Not firm white tofu cubes; must show cylindrical egg-tofu rounds and long enoki threads. No meat, no leafy garnish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/enoki-egg-tofu-casserole-finedining-v1.png",
+    "review": "视觉核对汤底、山药／南瓜／苦瓜及豆腐形态；图片不代表原方用量和流程审核通过"
+  },
+  {
+    "id": "R307",
+    "dish": "山药南瓜炖鸡汤",
+    "name": "yam-pumpkin-chicken-soup-finedining-v1.png",
+    "prompt": "Photorealistic fine-dining menu photograph of an accurately identifiable dish, sophisticated restrained styling in warm ivory porcelain, warm soft natural side light, realistic appealing edible textures, neutral beige stone table, calm negative space. Landscape 4:3. No words, logo, watermark, people, utensils or unrelated garnish. Dish: 山药南瓜炖鸡汤: delicate golden-orange pumpkin-puree chicken broth, visible tender chicken pieces, ivory Chinese yam chunks, golden peeled chestnuts and a few dark red Chinese dates. Luxurious but home-recognizable soup in an elegant wide ivory bowl. Pumpkin is dissolved into the broth, not separate pumpkin wedges. No corn, no carrots, no goji berries, no herb garnish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/yam-pumpkin-chicken-soup-finedining-v1.png",
+    "review": "视觉核对汤底、山药／南瓜／苦瓜及豆腐形态；图片不代表原方用量和流程审核通过"
+  },
+  {
+    "id": "R315",
+    "dish": "排骨苦瓜汤",
+    "name": "bitter-melon-pork-rib-soup-finedining-v1.png",
+    "prompt": "Photorealistic fine-dining menu photograph of an accurately identifiable dish, sophisticated restrained styling in warm ivory porcelain, warm soft natural side light, realistic appealing edible textures, neutral beige stone table, calm negative space. Landscape 4:3. No words, logo, watermark, people, utensils or unrelated garnish. Dish: 排骨苦瓜汤: very clear lightly golden broth with small bone-in pork rib pieces and pale green bitter melon half-moon slices with distinctive scalloped ridged dark green outer edges, seeds removed, a few tiny dried shrimp in the broth and faint white pepper. Refined shallow ivory soup bowl. No cucumber, no carrots, no corn, no red dates, no leafy herbs.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/bitter-melon-pork-rib-soup-finedining-v1.png",
+    "review": "视觉核对汤底、山药／南瓜／苦瓜及豆腐形态；图片不代表原方用量和流程审核通过"
+  },
+  {
+    "id": "R345",
+    "dish": "奶油蘑菇汤",
+    "name": "creamy-mushroom-soup-finedining-v1.png",
+    "prompt": "Photorealistic fine-dining menu photograph of an accurately identifiable dish, sophisticated restrained styling in warm ivory porcelain, warm soft natural side light, realistic appealing edible textures, neutral beige stone table, calm negative space. Landscape 4:3. No words, logo, watermark, people, utensils or unrelated garnish. Dish: 奶油蘑菇汤: creamy ivory-beige thick mushroom soup with delicate slices of white button mushrooms, a few tiny black pepper flecks, slight cream sheen, served in a refined wide-rimmed ivory porcelain bowl. Natural cooked mushroom pieces, soft velvety texture. No parsley, no truffle, no croutons, no meat, no other vegetables visible, no extravagant garnish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/creamy-mushroom-soup-finedining-v1.png",
+    "review": "视觉核对汤底、山药／南瓜／苦瓜及豆腐形态；图片不代表原方用量和流程审核通过"
+  }
+]

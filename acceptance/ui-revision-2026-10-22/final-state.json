@@ -1,0 +1,17 @@
+{
+  "verification": "read back from running local 4176 catalog and candidate endpoints",
+  "release": "local-business-ui-v2",
+  "dataClass": "constructed",
+  "foods": 47,
+  "recipes": 18,
+  "variants": 34,
+  "seasonings": 29,
+  "flavors": ["咸鲜", "黑椒", "蒜香", "微辣", "香辣", "清鲜", "清淡", "酸辣", "酱香", "酸甜"],
+  "recipeImages": ["番茄炒蛋"],
+  "candidateRows": 139,
+  "candidateDishes": 137,
+  "candidateImages": 10,
+  "candidatePublished": false,
+  "checks": {"unitPassed": 71, "unitSkipped": 1, "realPostgresBusinessPassed": 7, "realCandidateTestsPassed": 3, "baselineBrowserPassed": 32, "businessBrowserPassed": 8, "uiBrowserPassed": 6},
+  "remaining": ["17 constructed recipe photos", "127 candidate recipe photos", "full original video verification", "formal multi-source recipe admission and import"]
+}

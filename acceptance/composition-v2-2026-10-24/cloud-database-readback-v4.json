@@ -1,0 +1,17 @@
+{
+  "databaseReadback": true,
+  "releaseId": "composition-review-20261024-v4",
+  "hash": "b098f5a0f939c20f5d8bd106a4733834bb40d211673fb82975f0cb37b9149d02",
+  "recipes": 145,
+  "compositionApprovals": 11,
+  "syntheticFishCornNoBuying": [
+    "金针菇汤",
+    "糖拌番茄"
+  ],
+  "knownDerivativeExclusions": [
+    "松仁玉米",
+    "炸洋葱花",
+    "醉排骨"
+  ],
+  "rawCredentialsPrinted": false
+}

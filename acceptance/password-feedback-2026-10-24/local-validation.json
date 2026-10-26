@@ -1,0 +1,15 @@
+{
+  "verifiedAt": "2026-10-24T10:25:36.698Z",
+  "node": "v24.22.1",
+  "unit": {
+    "total": 130,
+    "passed": 129,
+    "failed": 0,
+    "skipped": 1
+  },
+  "browserPassed": 4,
+  "typecheckPassed": true,
+  "frontendBuildPassed": true,
+  "realEmailDeliveryUserConfirmed": true,
+  "realEmailSignupVerified": false
+}

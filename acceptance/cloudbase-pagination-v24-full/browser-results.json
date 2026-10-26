@@ -1,0 +1,671 @@
+{
+  "config": {
+    "argv": [
+      "D:\\software\\node\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.cloudbase.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.cloudbase.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/cloudbase-pagination-v24-full/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/cloudbase-preview.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/cloudbase-pagination-v24-full/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/cloudbase-preview.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/cloudbase-preview.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/cloudbase-preview.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/cloudbase-pagination-v24-full/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cloudbase-preview.spec.ts",
+      "file": "cloudbase-preview.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "云端：逐方核验及忌口拦截，复合调料保持限制",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4246,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"-composition-2196cd010497\"\u001b[39m\nReceived string:    \u001b[31m\"local-business-gallery-v1-c018e1b4c2b40a30-composition-c46c6f9ed838\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"-composition-2196cd010497\"\u001b[39m\nReceived string:    \u001b[31m\"local-business-gallery-v1-c018e1b4c2b40a30-composition-c46c6f9ed838\"\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:7:34",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                      "column": 34,
+                      "line": 7
+                    },
+                    "snippet": "   5 | test('云端：逐方核验及忌口拦截，复合调料保持限制',async({page,baseURL})=>{\n   6 |   const catalog=await(await page.request.get('/api/v1/catalog/recipes')).json();\n>  7 |   expect(catalog.contentVersion).toContain('-composition-'+compositionRelease.hash.slice(0,12));\n     |                                  ^\n   8 |   const identity=await(await page.request.get('/api/v1/auth/session')).json();\n   9 |   const pumpkin=catalog.recipes.find((r:{name:string})=>r.name==='清蒸南瓜'),tomato=catalog.recipes.find((r:{name:string})=>r.name==='糖拌番茄');\n  10 |   const run=async(name:string,targets:string[],kind='allergy',selected:{recipeId:string;variantId:string}[]=[])=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                        "column": 34,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"-composition-2196cd010497\"\u001b[39m\nReceived string:    \u001b[31m\"local-business-gallery-v1-c018e1b4c2b40a30-composition-c46c6f9ed838\"\u001b[39m\n\n   5 | test('云端：逐方核验及忌口拦截，复合调料保持限制',async({page,baseURL})=>{\n   6 |   const catalog=await(await page.request.get('/api/v1/catalog/recipes')).json();\n>  7 |   expect(catalog.contentVersion).toContain('-composition-'+compositionRelease.hash.slice(0,12));\n     |                                  ^\n   8 |   const identity=await(await page.request.get('/api/v1/auth/session')).json();\n   9 |   const pumpkin=catalog.recipes.find((r:{name:string})=>r.name==='清蒸南瓜'),tomato=catalog.recipes.find((r:{name:string})=>r.name==='糖拌番茄');\n  10 |   const run=async(name:string,targets:string[],kind='allergy',selected:{recipeId:string;variantId:string}[]=[])=>{\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:7:34"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:39.548Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：逐方核验及忌口拦截，复合调料保持限制-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：逐方核验及忌口拦截，复合调料保持限制-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：逐方核验及忌口拦截，复合调料保持限制-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                    "column": 34,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-6f42247bfa8d1bb6cd7d",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "云端：手动食材→推荐→图片→做法→收藏刷新，手机和桌面均可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13353,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:45.688Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-32fe93bb337ef91138e9",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "云端：独立图鉴、筛选、刷新和同菜图片可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7856,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:30:59.716Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-adeb047905dd626ecab5",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "云端：真实内容、HTTPS会话、补买推荐及来源拦截",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:07.602Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-4fdbbae6076eb2554a1a",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "云端：点击下一页会请求并显示下一组菜谱",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 26164,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-actions span')\nExpected substring: \u001b[32m\"\u001b[7m2\u001b[27m /\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m1\u001b[27m /\u001b[7m 25\u001b[27m\"\u001b[39m\nTimeout: 18000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-actions span') with timeout 18000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-actions span')\u001b[22m\n\u001b[2m    39 × locator resolved to <span>1 / 25</span>\u001b[22m\n\u001b[2m       - unexpected value \"1 / 25\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-actions span')\nExpected substring: \u001b[32m\"\u001b[7m2\u001b[27m /\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m1\u001b[27m /\u001b[7m 25\u001b[27m\"\u001b[39m\nTimeout: 18000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-actions span') with timeout 18000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-actions span')\u001b[22m\n\u001b[2m    39 × locator resolved to <span>1 / 25</span>\u001b[22m\n\u001b[2m       - unexpected value \"1 / 25\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:106:54",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                      "column": 54,
+                      "line": 106
+                    },
+                    "snippet": "  104 |   expect(body.action).toBe('page');expect(body.page).toBe(1);expect(body.cursor).toBeTruthy();\n  105 |   expect((await nextResponse).status()).toBe(200);\n> 106 |   await expect(page.locator('.result-actions span')).toContainText('2 /');\n      |                                                      ^\n  107 |   expect(await page.locator('.recipe-card h4').allTextContents()).not.toEqual(first);\n  108 | });\n  109 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                        "column": 54,
+                        "line": 106
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-actions span')\nExpected substring: \u001b[32m\"\u001b[7m2\u001b[27m /\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m1\u001b[27m /\u001b[7m 25\u001b[27m\"\u001b[39m\nTimeout: 18000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-actions span') with timeout 18000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-actions span')\u001b[22m\n\u001b[2m    39 × locator resolved to <span>1 / 25</span>\u001b[22m\n\u001b[2m       - unexpected value \"1 / 25\"\u001b[22m\n\n\n  104 |   expect(body.action).toBe('page');expect(body.page).toBe(1);expect(body.cursor).toBeTruthy();\n  105 |   expect((await nextResponse).status()).toBe(200);\n> 106 |   await expect(page.locator('.result-actions span')).toContainText('2 /');\n      |                                                      ^\n  107 |   expect(await page.locator('.recipe-card h4').allTextContents()).not.toEqual(first);\n  108 | });\n  109 |\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:106:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:09.028Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：点击下一页会请求并显示下一组菜谱-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：点击下一页会请求并显示下一组菜谱-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：点击下一页会请求并显示下一组菜谱-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                    "column": 54,
+                    "line": 106
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-905d3268053cb9a3e2d6",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 84,
+          "column": 1
+        },
+        {
+          "title": "云端：逐方核验及忌口拦截，复合调料保持限制",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1181,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"-composition-2196cd010497\"\u001b[39m\nReceived string:    \u001b[31m\"local-business-gallery-v1-c018e1b4c2b40a30-composition-c46c6f9ed838\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"-composition-2196cd010497\"\u001b[39m\nReceived string:    \u001b[31m\"local-business-gallery-v1-c018e1b4c2b40a30-composition-c46c6f9ed838\"\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:7:34",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                      "column": 34,
+                      "line": 7
+                    },
+                    "snippet": "   5 | test('云端：逐方核验及忌口拦截，复合调料保持限制',async({page,baseURL})=>{\n   6 |   const catalog=await(await page.request.get('/api/v1/catalog/recipes')).json();\n>  7 |   expect(catalog.contentVersion).toContain('-composition-'+compositionRelease.hash.slice(0,12));\n     |                                  ^\n   8 |   const identity=await(await page.request.get('/api/v1/auth/session')).json();\n   9 |   const pumpkin=catalog.recipes.find((r:{name:string})=>r.name==='清蒸南瓜'),tomato=catalog.recipes.find((r:{name:string})=>r.name==='糖拌番茄');\n  10 |   const run=async(name:string,targets:string[],kind='allergy',selected:{recipeId:string;variantId:string}[]=[])=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                        "column": 34,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"-composition-2196cd010497\"\u001b[39m\nReceived string:    \u001b[31m\"local-business-gallery-v1-c018e1b4c2b40a30-composition-c46c6f9ed838\"\u001b[39m\n\n   5 | test('云端：逐方核验及忌口拦截，复合调料保持限制',async({page,baseURL})=>{\n   6 |   const catalog=await(await page.request.get('/api/v1/catalog/recipes')).json();\n>  7 |   expect(catalog.contentVersion).toContain('-composition-'+compositionRelease.hash.slice(0,12));\n     |                                  ^\n   8 |   const identity=await(await page.request.get('/api/v1/auth/session')).json();\n   9 |   const pumpkin=catalog.recipes.find((r:{name:string})=>r.name==='清蒸南瓜'),tomato=catalog.recipes.find((r:{name:string})=>r.name==='糖拌番茄');\n  10 |   const run=async(name:string,targets:string[],kind='allergy',selected:{recipeId:string;variantId:string}[]=[])=>{\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:7:34"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:36.888Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：逐方核验及忌口拦截，复合调料保持限制-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：逐方核验及忌口拦截，复合调料保持限制-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：逐方核验及忌口拦截，复合调料保持限制-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                    "column": 34,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-ca7d231d63d23c07c60c",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "云端：手动食材→推荐→图片→做法→收藏刷新，手机和桌面均可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8536,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:40.073Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-79da783bf1ede3b7b0c3",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 32,
+          "column": 1
+        },
+        {
+          "title": "云端：独立图鉴、筛选、刷新和同菜图片可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7284,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:49.213Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-bc0fac03bf6a21bc4c2b",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "云端：真实内容、HTTPS会话、补买推荐及来源拦截",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1728,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:56.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-4e3c9914d97dc36f2b72",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "云端：点击下一页会请求并显示下一组菜谱",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 25474,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-actions span')\nExpected substring: \u001b[32m\"\u001b[7m2\u001b[27m /\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m1\u001b[27m /\u001b[7m 25\u001b[27m\"\u001b[39m\nTimeout: 18000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-actions span') with timeout 18000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-actions span')\u001b[22m\n\u001b[2m    39 × locator resolved to <span>1 / 25</span>\u001b[22m\n\u001b[2m       - unexpected value \"1 / 25\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-actions span')\nExpected substring: \u001b[32m\"\u001b[7m2\u001b[27m /\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m1\u001b[27m /\u001b[7m 25\u001b[27m\"\u001b[39m\nTimeout: 18000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-actions span') with timeout 18000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-actions span')\u001b[22m\n\u001b[2m    39 × locator resolved to <span>1 / 25</span>\u001b[22m\n\u001b[2m       - unexpected value \"1 / 25\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:106:54",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                      "column": 54,
+                      "line": 106
+                    },
+                    "snippet": "  104 |   expect(body.action).toBe('page');expect(body.page).toBe(1);expect(body.cursor).toBeTruthy();\n  105 |   expect((await nextResponse).status()).toBe(200);\n> 106 |   await expect(page.locator('.result-actions span')).toContainText('2 /');\n      |                                                      ^\n  107 |   expect(await page.locator('.recipe-card h4').allTextContents()).not.toEqual(first);\n  108 | });\n  109 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                        "column": 54,
+                        "line": 106
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-actions span')\nExpected substring: \u001b[32m\"\u001b[7m2\u001b[27m /\"\u001b[39m\nReceived string:    \u001b[31m\"\u001b[7m1\u001b[27m /\u001b[7m 25\u001b[27m\"\u001b[39m\nTimeout: 18000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-actions span') with timeout 18000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-actions span')\u001b[22m\n\u001b[2m    39 × locator resolved to <span>1 / 25</span>\u001b[22m\n\u001b[2m       - unexpected value \"1 / 25\"\u001b[22m\n\n\n  104 |   expect(body.action).toBe('page');expect(body.page).toBe(1);expect(body.cursor).toBeTruthy();\n  105 |   expect((await nextResponse).status()).toBe(200);\n> 106 |   await expect(page.locator('.result-actions span')).toContainText('2 /');\n      |                                                      ^\n  107 |   expect(await page.locator('.recipe-card h4').allTextContents()).not.toEqual(first);\n  108 | });\n  109 |\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts:106:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T07:31:58.247Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：点击下一页会请求并显示下一组菜谱-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：点击下一页会请求并显示下一组菜谱-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\cloudbase-pagination-v24-full\\browser\\cloudbase-preview-云端：点击下一页会请求并显示下一组菜谱-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\cloudbase-preview.spec.ts",
+                    "column": 54,
+                    "line": 106
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9550cf5fbe25a1b53d20-748ae0c7a64a2a0bc891",
+          "file": "cloudbase-preview.spec.ts",
+          "line": 84,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T07:30:38.880Z",
+    "duration": 105805.865,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.registration.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.registration.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/public-registration-2026-10-24/personal-settings",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/public-registration-2026-10-24/personal-settings",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/public-registration-2026-10-24/personal-settings-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx tests/registration-server.ts",
+      "url": "http://127.0.0.1:4178/healthz",
+      "reuseExistingServer": false,
+      "env": {
+        "REGISTRATION_E2E_TEST": "1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "registration-browser.spec.ts",
+      "file": "registration-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11268,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sync-review')\nExpected substring: \u001b[32m\"本机待保存\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.sync-review') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sync-review')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sync-review')\nExpected substring: \u001b[32m\"本机待保存\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.sync-review') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sync-review')\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:40:46",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                      "column": 46,
+                      "line": 40
+                    },
+                    "snippet": "  38 |   };\n  39 |   await signup(page,username,true);\n> 40 |   await expect(page.locator('.sync-review')).toContainText('本机待保存');\n     |                                              ^\n  41 |   await page.getByRole('button',{name:'合并并同步',exact:true}).click();await expect(page.locator('.sync-review')).toHaveCount(0);\n  42 |   await page.reload();await expect(page.locator('.account-state')).toContainText(username);\n  43 |   const saved=await(await page.request.get('/api/v1/account/state')).json();expect(saved.value.favorites).toHaveLength(1);expect(saved.value.defaults.servings).toBe(1);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 46,
+                        "line": 40
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sync-review')\nExpected substring: \u001b[32m\"本机待保存\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.sync-review') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sync-review')\u001b[22m\n\n\n  38 |   };\n  39 |   await signup(page,username,true);\n> 40 |   await expect(page.locator('.sync-review')).toContainText('本机待保存');\n     |                                              ^\n  41 |   await page.getByRole('button',{name:'合并并同步',exact:true}).click();await expect(page.locator('.sync-review')).toHaveCount(0);\n  42 |   await page.reload();await expect(page.locator('.account-state')).toContainText(username);\n  43 |   const saved=await(await page.request.get('/api/v1/account/state')).json();expect(saved.value.favorites).toHaveLength(1);expect(saved.value.defaults.servings).toBe(1);\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:40:46"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:29:15.854Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                    "column": 46,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-84b6ac73e7da90fce51d",
+          "file": "registration-browser.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2879,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:29:31.102Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-1e52c28fdf746df3ca50",
+          "file": "registration-browser.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9732,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sync-review')\nExpected substring: \u001b[32m\"本机待保存\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.sync-review') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sync-review')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sync-review')\nExpected substring: \u001b[32m\"本机待保存\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.sync-review') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sync-review')\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:40:46",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                      "column": 46,
+                      "line": 40
+                    },
+                    "snippet": "  38 |   };\n  39 |   await signup(page,username,true);\n> 40 |   await expect(page.locator('.sync-review')).toContainText('本机待保存');\n     |                                              ^\n  41 |   await page.getByRole('button',{name:'合并并同步',exact:true}).click();await expect(page.locator('.sync-review')).toHaveCount(0);\n  42 |   await page.reload();await expect(page.locator('.account-state')).toContainText(username);\n  43 |   const saved=await(await page.request.get('/api/v1/account/state')).json();expect(saved.value.favorites).toHaveLength(1);expect(saved.value.defaults.servings).toBe(1);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 46,
+                        "line": 40
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.sync-review')\nExpected substring: \u001b[32m\"本机待保存\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.sync-review') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sync-review')\u001b[22m\n\n\n  38 |   };\n  39 |   await signup(page,username,true);\n> 40 |   await expect(page.locator('.sync-review')).toContainText('本机待保存');\n     |                                              ^\n  41 |   await page.getByRole('button',{name:'合并并同步',exact:true}).click();await expect(page.locator('.sync-review')).toHaveCount(0);\n  42 |   await page.reload();await expect(page.locator('.account-state')).toContainText(username);\n  43 |   const saved=await(await page.request.get('/api/v1/account/state')).json();expect(saved.value.favorites).toHaveLength(1);expect(saved.value.defaults.servings).toBe(1);\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:40:46"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:29:36.969Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\public-registration-2026-10-24\\personal-settings\\registration-browser-自助注册：无需邀请、错误码可重试、自动同步、刷新-换设备恢复与新账号隔离-mobile\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                    "column": 46,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-cba979c78d9f2d352437",
+          "file": "registration-browser.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T12:29:49.548Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-772c42dc92ae87ae76c0",
+          "file": "registration-browser.spec.ts",
+          "line": 61,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T12:29:02.006Z",
+    "duration": 52956.571,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

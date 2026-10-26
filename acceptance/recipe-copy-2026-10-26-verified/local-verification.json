@@ -1,0 +1,9 @@
+{
+  "desktopVerified": true,
+  "sourceRetained": true,
+  "editorialSuffixRemoved": true,
+  "ingredientNamesAndKnownAmountsRetained": true,
+  "reviewedMethodsHaveAtLeastThreeSteps": true,
+  "recipeIdsImagesAndIngredientDataUnchanged": true,
+  "databaseWrites": false
+}

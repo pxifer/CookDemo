@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-24T06:58:09.327Z",
+  "realCloudBaseLogin": true,
+  "firstPasswordChange": true,
+  "crossInstanceEncryptedSync": true,
+  "casConflict": true,
+  "directRlsIsolation": true,
+  "plaintextAbsent": true,
+  "logoutRevocation": true,
+  "fixtureOnly": true,
+  "credentialsPrinted": false
+}

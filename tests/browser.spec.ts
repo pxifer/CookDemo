@@ -95,16 +95,16 @@ test('D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭�
   await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
 });
 
-test('B02 / AC-23/25: 常用偏好与本餐隔离，刷新和新一餐保留设置', async ({ page }) => {
+test('B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置', async ({ page }) => {
   await parse(page, '鸡蛋2个'); await addRestriction(page, '过敏', '对虾'); await page.keyboard.press('Escape');
   await page.getByRole('button', { name: '个人设置', exact: true }).click();
-  await page.getByRole('button', { name: '保存为常用偏好', exact: true }).click(); await page.keyboard.press('Escape');
+  await expect(page.getByRole('button',{name:'保存为常用偏好',exact:true})).toHaveCount(0); await page.keyboard.press('Escape');
   await page.getByRole('button', { name: '微辣', exact: true }).click();
   await page.reload(); await expect(page.getByLabel('鸡蛋用量', { exact: true })).toHaveValue('2');
   await expect(page.getByRole('button', { name: '微辣', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: '开始新一餐 ↻', exact: true }).click();
   await expect(page.getByLabel('鸡蛋用量', { exact: true })).toHaveCount(0);
-  await expect(page.getByRole('button', { name: '不限', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByRole('button', { name: '微辣', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await settings(page, '过敏'); await expect(page.getByRole('dialog')).toContainText('对虾');
 });
 
@@ -113,7 +113,7 @@ test('AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查'
   const before = await page.getByTestId('recipe-card').locator('h4').allTextContents();
   await page.getByRole('button', { name: `替换 ${before[1]}`, exact: true }).click();
   await expect(page.getByTestId('recipe-card').filter({ hasText: before[1] })).toHaveCount(0);
-  const after = await page.getByTestId('recipe-card').locator('h4').allTextContents(); expect(after).toContain(before[0]); expect(after).toContain(before[2]);
+  const after = await page.getByTestId('recipe-card').locator('h4').allTextContents(); expect(after[0]).toBe(before[0]); expect(after[2]).toBe(before[2]); expect(after[1]).not.toBe(before[1]);
   const first = page.getByTestId('recipe-card').first(), name = await first.locator('h4').innerText();
   const select = first.getByLabel(`${name}口味`); const values = await select.locator('option').evaluateAll(es => es.map(e => (e as HTMLOptionElement).value));
   await select.selectOption(values[1]); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
@@ -122,10 +122,28 @@ test('AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查'
   await page.keyboard.press('Escape');
   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`, fullPage: true });
   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: `收藏 ${name}`, exact: true }).click();
-  await page.reload(); await page.getByRole('button', { name: '我的收藏', exact: false }).click();
-  await expect(page.getByRole('dialog', { name: '我的收藏', exact: true })).toContainText(name);
-  await page.getByRole('dialog').getByRole('button', { name: new RegExp(`^${name}`) }).click();
+  await page.reload(); await page.getByRole('link', { name: '我的收藏', exact: false }).click();
+  await expect(page.locator('.saved-recipes')).toContainText(name);
+  await page.locator('.saved-recipes').getByRole('button', { name: new RegExp(`^${name}`) }).click();
   await expect(page.getByRole('dialog', { name })).toBeVisible();
+});
+
+test('单换保持卡片位置和当前滚动，加载提示只出现在目标按钮',async({page})=>{
+  await parse(page,ingredients);await generate(page);
+  const cards=page.getByTestId('recipe-card');await expect(cards).toHaveCount(3);
+  const before=await cards.locator('h4').allTextContents();
+  await page.route('**/api/v1/recommendations',async route=>{
+    if(route.request().postDataJSON()?.action==='replace')await new Promise(resolve=>setTimeout(resolve,600));
+    await route.continue();
+  });
+  const target=page.getByRole('button',{name:`替换 ${before[1]}`,exact:true});
+  await target.scrollIntoViewIfNeeded();const scroll=await page.evaluate(()=>scrollY);
+  await target.click();await expect(target).toHaveText('正在换菜…');await expect(target).toBeDisabled();
+  await expect(page.locator('.progress')).toHaveCount(0);
+  await expect(cards.locator('h4').nth(1)).not.toHaveText(before[1]);
+  const after=await cards.locator('h4').allTextContents();
+  expect(after[0]).toBe(before[0]);expect(after[2]).toBe(before[2]);
+  expect(Math.abs(await page.evaluate(()=>scrollY)-scroll)).toBeLessThan(60);
 });
 
 test('B03/B04: 单位不能换算不冒充足量，非法人数拦截', async ({ page }) => {
@@ -204,8 +222,8 @@ test('收藏修复：详情按钮反馈、实心状态、卡片同步、快速�
   await dialog.getByRole('button', { name: new RegExp(`^取消收藏 ${name}`) }).click();
   await expect(dialog.getByRole('status')).toContainText('已取消收藏');
   await dialog.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click();
-  await page.reload(); await page.getByRole('button', { name: '我的收藏', exact: false }).click();
-  await expect(page.getByRole('dialog')).toContainText(name);
+  await page.reload(); await page.getByRole('link', { name: '我的收藏', exact: false }).click();
+  await expect(page.locator('.saved-recipes')).toContainText(name);
 });
 
 test('本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏', async ({ page }, info) => {
@@ -232,7 +250,7 @@ test('本机测试：登录开启健康、标签不清空输入、刷新保持�
   await expect(page.getByRole('dialog')).toContainText('已退出登录'); await page.keyboard.press('Escape');
   await expect(page.locator('.health-entry .switch')).not.toHaveClass(/on/);
   await expect(page.getByLabel('鸡蛋用量', { exact: true })).toHaveValue('4');
-  await page.getByRole('button', { name: '我的收藏', exact: false }).click(); await expect(page.getByRole('dialog')).toContainText(name);
+  await page.getByRole('link', { name: '我的收藏', exact: false }).click(); await expect(page.locator('.saved-recipes')).toContainText(name);
 });
 
 test('D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响', async ({ page }, info) => {
@@ -296,9 +314,10 @@ test('D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做
   await expect(detail).not.toContainText(/人份|人数|按当前.*人/);
   await detail.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click(); await page.keyboard.press('Escape');
   for (const diners of ['3', '12', '']) {
+    await page.goto('/#workspace');
     await page.getByLabel('几个人吃', { exact: true }).fill(diners);
-    await page.getByRole('button', { name: '我的收藏', exact: false }).click();
-    const favorites = page.getByRole('dialog', { name: '我的收藏', exact: true });
+    await page.getByRole('link', { name: '我的收藏', exact: false }).click();
+    const favorites = page.locator('.saved-recipes');
     await expect(favorites).not.toContainText(/人份|人数/);
     await favorites.getByRole('button', { name: new RegExp(`^${name}`) }).click();
     await expect(detail).toContainText('已按当前食材与饮食要求复查');
@@ -309,6 +328,8 @@ test('D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做
     await expect(detail.locator('.nutrition-box')).toHaveText(reference.nutrition, { useInnerText: true });
     if (diners === '12') await detail.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-fixed-favorite.png` });
     await page.keyboard.press('Escape');
-    await expect(page.getByLabel('几个人吃', { exact: true })).toHaveValue(diners);
+    await page.getByRole('link', { name: '做饭工作台', exact: true }).click();
+    // Independent-page navigation restores the last valid draft; a blank number is not persisted.
+    await expect(page.getByLabel('几个人吃', { exact: true })).toHaveValue(diners || '12');
   }
 });

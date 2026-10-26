@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R262",
+    "dish": "山西过油肉",
+    "name": "shanxi-pork-wood-ear-stir-fry-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese fine-dining restaurant menu photograph. Elegant restrained plating on warm ivory ceramic, appetizing realistic cooked food textures, warm natural side light, beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, unrelated garnish or side dishes. Shanxi guo you rou: thin tender golden lightly egg-coated pork tenderloin slices with glossy black wood-ear mushrooms, vivid green garlic scape segments and pale onion diamond pieces, tiny ginger and garlic, thin savory soy glaze. Refined low mound. Not crispy battered nuggets, no carrots or peppers.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/shanxi-pork-wood-ear-stir-fry-finedining-v1.png",
+    "review": "按原方核对猪肉、木耳、蒜苔、骨排、黄瓜、整鲤鱼及酥肉条形态；成品示意仍待审核"
+  },
+  {
+    "id": "R273",
+    "dish": "醉排骨",
+    "name": "fuzhou-crispy-sweet-sour-ribs-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese fine-dining restaurant menu photograph. Elegant restrained plating on warm ivory ceramic, appetizing realistic cooked food textures, warm natural side light, beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, unrelated garnish or side dishes. Fuzhou zui pai gu: short bone-in pork rib pieces coated in thin crisp sweet-potato-starch crust, freshly tossed in a light shiny red-brown sweet vinegar-tomato-garlic dressing, scattered white sesame seeds, tiny scallion bits and minced garlic. Compact artful arrangement. Bones visible on a few ends. No pineapple, peppers, tomato chunks or alcohol bottle.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/fuzhou-crispy-sweet-sour-ribs-finedining-v1.png",
+    "review": "按原方核对猪肉、木耳、蒜苔、骨排、黄瓜、整鲤鱼及酥肉条形态；成品示意仍待审核"
+  },
+  {
+    "id": "R275",
+    "dish": "小米辣炒肉",
+    "name": "birds-eye-chili-pork-stir-fry-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese fine-dining restaurant menu photograph. Elegant restrained plating on warm ivory ceramic, appetizing realistic cooked food textures, warm natural side light, beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, unrelated garnish or side dishes. Fresh bird's-eye chili stir-fried pork: thin fully cooked lean pork slices with plentiful fresh bright red and green tiny chili pieces cut on a slant, minced ginger and garlic in a thin glossy reddish soy-bean-chili glaze. Neat low mound. No bell peppers, onion, sesame or vegetables other than these chilies and aromatics.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/birds-eye-chili-pork-stir-fry-finedining-v1.png",
+    "review": "按原方核对猪肉、木耳、蒜苔、骨排、黄瓜、整鲤鱼及酥肉条形态；成品示意仍待审核"
+  },
+  {
+    "id": "R277",
+    "dish": "黄瓜炒肉",
+    "name": "cucumber-pork-stir-fry-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese fine-dining restaurant menu photograph. Elegant restrained plating on warm ivory ceramic, appetizing realistic cooked food textures, warm natural side light, beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, unrelated garnish or side dishes. Cucumber and pork stir-fry: thin angled oval slices of vivid green-skinned cucumber, pale translucent interiors, thin fully cooked lean pork slices, small fresh red bird's-eye chili rings and tiny minced garlic. Light clear savory sheen, refined low mound. Not zucchini, no broccoli, carrots, mushrooms or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/cucumber-pork-stir-fry-finedining-v1.png",
+    "review": "按原方核对猪肉、木耳、蒜苔、骨排、黄瓜、整鲤鱼及酥肉条形态；成品示意仍待审核"
+  },
+  {
+    "id": "R283",
+    "dish": "红烧鲤鱼",
+    "name": "red-braised-whole-carp-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese fine-dining restaurant menu photograph. Elegant restrained plating on warm ivory ceramic, appetizing realistic cooked food textures, warm natural side light, beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, unrelated garnish or side dishes. A whole red-braised Chinese carp, head and tail intact, recognizable carp body with a few diagonal scoring cuts and warm brown pan-fried skin under a glossy deep reddish-brown soy braising sauce, a few small cooked pork belly pieces beside it and tiny minced garlic. Elongated elegant ivory platter. Aromatics removed after braising. No lemon, parsley, broccoli, colorful pepper garnish or extra side bowls.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/red-braised-whole-carp-finedining-v1.png",
+    "review": "按原方核对猪肉、木耳、蒜苔、骨排、黄瓜、整鲤鱼及酥肉条形态；成品示意仍待审核"
+  },
+  {
+    "id": "R285",
+    "dish": "小酥肉",
+    "name": "crispy-sichuan-pork-strips-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese fine-dining restaurant menu photograph. Elegant restrained plating on warm ivory ceramic, appetizing realistic cooked food textures, warm natural side light, beige stone table, tasteful negative space. Landscape 4:3. No text, watermark, people, utensils, unrelated garnish or side dishes. Sichuan xiao su rou: irregular slender finger-length strips of fully cooked pork enclosed in a light craggy golden crisp sweet-potato-starch batter, tiny Sichuan pepper flecks visible. Artfully stacked modest portion, warm ivory plate. No sauce, no raw meat, no scallions, herbs, sesame, lemon or vegetables.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/crispy-sichuan-pork-strips-finedining-v1.png",
+    "review": "按原方核对猪肉、木耳、蒜苔、骨排、黄瓜、整鲤鱼及酥肉条形态；成品示意仍待审核"
+  }
+]

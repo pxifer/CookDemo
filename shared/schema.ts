@@ -6,7 +6,7 @@ const integer = (minimum: number, maximum: number) => ({ type: 'integer', minimu
 const boolean = { type: 'boolean' };
 export const ingredientSchema = object({
   id: string(80), foodId: { anyOf: [string(80), { type: 'null' }] }, name: string(100), amount: string(100),
-  basis: enumOf('edible', 'as_purchased', 'unknown'), form: enumOf('raw', 'cooked', 'bone_in', 'skin_on'),
+  basis: enumOf('edible', 'as_purchased', 'unknown'), form: enumOf('raw', 'cooked', 'bone_in', 'skin_on', 'unspecified'),
   status: enumOf('pending', 'confirmed', 'conflict'), alternative: string(200), original: string(1000),
   quantityUnit: enumOf('g', 'kg', '斤', '个', 'ml', 'l', '把', '根', '块'),
 }, ['alternative', 'quantityUnit']);
@@ -17,14 +17,15 @@ export const restrictionSchema = object({
 export const mealSchema = object({
   version: integer(0, 2_147_483_647), raw: string(5000), ingredients: array(ingredientSchema), restrictions: array(restrictionSchema, 50),
   servings: integer(1, 12), mode: enumOf('meal', 'candidates'), health: boolean, diseases: array(string(100), 20),
-  flavor: enumOf('不限', '清淡', '微辣'), overrides: { type: 'object', maxProperties: 100, additionalProperties: string(100), propertyNames: { pattern: '^[a-z0-9-]+$' } },
+  flavor: { type: 'string', minLength: 1, maxLength: 100 }, overrides: { type: 'object', maxProperties: 100, additionalProperties: string(100), propertyNames: { pattern: '^[a-z0-9-]+$' } },
   includeAdditional: boolean, checkSeasonings: boolean, seasonings: array(string(80), 50), allowBuy: boolean,
   composition: enumOf('auto', 'custom'), counts: object({ meat: integer(0, 20), veg: integer(0, 20), soup: integer(0, 20) }),
 });
 export const selectedSchema = array(object({ recipeId: string(80), variantId: string(100) }), 20);
+export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50)});
 export const recommendationSchema = object({
   operationId: { type: 'string', minLength: 8, maxLength: 80, pattern: '^[a-zA-Z0-9-]+$' }, meal: mealSchema,
   action: enumOf('generate', 'reroll', 'replace', 'page', 'variant'), selected: selectedSchema, replaceId: string(80),
-  page: integer(0, 10000), cursor: string(100), previous: array(string(80), 20),
-}, ['replaceId', 'cursor']);
-export const extractionSchema = object({ text: { type: 'string', minLength: 1, maxLength: 5000 } });
+  page: integer(0, 10000), cursor: string(100), previous: array(string(80), 20), contentVersion: string(100),
+}, ['replaceId', 'cursor', 'contentVersion']);
+export const extractionSchema = object({ text: { type: 'string', minLength: 1, maxLength: 5000 }, contentVersion: string(100) }, ['contentVersion']);

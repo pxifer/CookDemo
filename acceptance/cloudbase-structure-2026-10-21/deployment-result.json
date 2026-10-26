@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-21",
+  "timezone": "Asia/Shanghai",
+  "environmentId": "shiwei-d2gmiun66b7dc6a4f",
+  "scope": "empty_database_and_vector_structure_only",
+  "cliVersion": "3.8.7",
+  "coreMigration": {
+    "version": "20261021123000",
+    "taskId": "task-b763c556b9aa4692",
+    "requestId": "62dc84d3-5dd7-4faa-9bba-518e86016faa",
+    "status": "Succeed",
+    "sha256": "a658bb3fc2f33921bb06b069efba48ed20c22daf564821f775a300cc19493b8b"
+  },
+  "vectorMigration": {
+    "version": "20261021123100",
+    "taskId": "task-c867cd43c72847db",
+    "requestId": "af16775e-226a-460d-ac5b-ac552729a8ee",
+    "status": "Succeed",
+    "sha256": "f90fc450d99bca9a392ec3a128ae6757194e5db6e76b15f0378a8038a0e4909f"
+  },
+  "verification": {
+    "projectTables": 26,
+    "applicationMigrationVersions": [
+      1,
+      2,
+      3
+    ],
+    "vectorVersion": "0.8.2",
+    "vectorSchema": "extensions",
+    "rlsEnabledOnAllProjectTables": true,
+    "clientTableAndSequenceAccess": "denied",
+    "publicTableAndSequenceDefaultClientGrants": "revoked",
+    "constructedVectorProbe": "passed_and_rolled_back",
+    "accounts": 0,
+    "recipes": 0,
+    "embeddings": 0
+  },
+  "localValidation": {
+    "isolatedPostgresIntegration": "1_passed_0_skipped",
+    "typeScript": "passed",
+    "powerShellSyntax": "passed",
+    "documentationLinks": "10_documents_checked",
+    "fullCheck": "not_completed_test_stage_intentionally_interrupted_after_successful_build",
+    "browserSuite": "not_run_in_this_cloud_phase",
+    "isolatedTestDatabasesRemaining": 0
+  },
+  "notCompleted": [
+    "native_pg_connection_and_CA",
+    "least_privileged_application_runtime_role",
+    "cloud_container_zero_bill_admission_and_deployment",
+    "cloud_backup_and_full_recovery",
+    "real_authentication_sync_and_credential_lifecycle",
+    "public_domain_https_and_filing",
+    "formal_content_deferred",
+    "specific_models_embeddings_deferred",
+    "health_review_and_release"
+  ],
+  "releaseReady": false
+}

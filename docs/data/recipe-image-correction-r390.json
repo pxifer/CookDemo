@@ -1,0 +1,32 @@
+{
+  "initial": {
+    "id": "R390",
+    "dish": "昂刺鱼豆腐汤",
+    "name": "yellow-catfish-tofu-soup-finedining-v1.png",
+    "prompt": "Photorealistic exquisite restaurant menu photograph, elegant restrained fine-dining presentation in warm ivory porcelain bowls, warm natural side light, realistic appetizing fully cooked food textures, quiet beige stone table, tasteful negative space. Landscape 4:3. Single dish, no text, watermark, people, spoons, utensils, other dishes or unrelated garnish. Chinese yellow catfish and tofu soup: one small fully cooked whole yellow catfish with recognizable broad flat head, fine natural whisker barbels and golden-brown skin partly visible above a light milky fish broth, tender white tofu cubes, a few ginger slices and green scallion bits. Beautiful realistic soup in a broad shallow porcelain bowl. No carp scales, no seafood shellfish, chilies, carrots or noodles.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/yellow-catfish-tofu-soup-finedining-v1.png",
+    "review": "核对金针菇、香菇、罗宋配料、皮蛋灰绿蛋黄、羊骨与白萝卜、昂刺鱼及豆腐；生成示意仍待审核"
+  },
+  "editAttempt": {
+    "id": "R390",
+    "dish": "昂刺鱼豆腐汤",
+    "name": "yellow-catfish-tofu-soup-finedining-v2.png",
+    "prompt": "Correct the fish species in this photo to a real Chinese yellow catfish (Pelteobagrus fulvidraco, 昂刺鱼 / 黄颡鱼): completely SCALELESS smooth mottled olive-yellow skin, no visible scales or repeated scale pattern, a broad flattened head, catfish mouth with natural slender whisker barbels, natural small catfish fins. Preserve one whole cooked fish in milky broth, tofu, ginger, scallions, refined porcelain bowl, lighting and composition. Do not depict a carp body with added whiskers. Photorealistic anatomically plausible cooked yellow catfish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/yellow-catfish-tofu-soup-finedining-v2.png",
+    "review": "初图疑有鲤鱼鳞纹，v2修正为无鳞昂刺鱼，原初图不接入；生成成品示意仍待审核"
+  },
+  "regenerate": {
+    "id": "R390",
+    "dish": "昂刺鱼豆腐汤",
+    "name": "yellow-catfish-tofu-soup-finedining-v3.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant soup photograph. A shallow ivory bowl of opaque milky fish broth with tender white tofu cubes, a few thin ginger slices and tiny scallion bits. Exactly one small cooked Chinese yellow catfish 黄颡鱼 / 昂刺鱼, a SCALELESS catfish: its entire trunk is submerged under the opaque broth, with only a small smooth broad flattened yellow-brown catfish head, natural fine mouth whiskers, and a subtle small tail tip emerging at opposite ends. Head has smooth glossy skin, no scales anywhere. The fish lies low in the broth, not raised on top. A real catfish, never carp. Refined restrained fine-dining composition, warm side light, beige stone tabletop, realistic textures, landscape 4:3. No other fish, no chili, no unrelated garnish, no text, watermark, spoons or people.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/yellow-catfish-tofu-soup-finedining-v3.png",
+    "review": "v1/v2鳞纹形态不符合，弃用；v3重新生成，身体浸入鱼汤、仅头尾露出，仍待核对及审核"
+  },
+  "state": "visual_checked_pending_review",
+  "rejectedReason": "初图与一次编辑后仍有疑似鳞纹，不能冒充无鳞昂刺鱼。",
+  "note": "v3鱼身浸入汤中，头部无鳞纹，采用v3作生成示意，专业物种及配方审核未完成；v1/v2不接入。"
+}

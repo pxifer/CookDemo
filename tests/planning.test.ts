@@ -38,7 +38,8 @@ test('自动按人数与累计食材量调整：2人五道、4人七道，量少
   const four = await recommend(catalog, request(m)); assert.equal(four.dishes.length, 7);
   m.ingredients = mealWith('鸡肉100g土豆100g西红柿100g').ingredients;
   const little = await recommend(catalog, request(m)); assert.equal(little.dishes.length, 3);
-  assert(little.reasons.some(r => r.includes('参考数量不强制凑齐')));
+  assert.equal(little.search,'complete');
+  assert.deepEqual(little.reasons,[]); // Successful results no longer repeat internal planning explanations.
 });
 
 test('自动参考是软目标，可为更多现有主料选择超过参考的菜数', async () => {
@@ -132,8 +133,8 @@ test('D7-14: 1/2/3/12人使用同一菜谱整道量、营养与累计补买差�
 test('D7-14: 固定自定义菜数时，人数不影响选菜、口味、用量或库存结果', async () => {
   const catalog = Array.from({ length: 3 }, (_, i) => simpleRecipe(`p-${i}`, [['potato', 100]]));
   const m = mealWith('土豆300g'); m.composition = 'custom'; m.counts = { meat: 0, veg: 3, soup: 0 };
-  const one = await recommend(catalog, request(m)); m.servings = 12;
-  const twelve = await recommend(catalog, request(m));
+  const one = await recommend(catalog, request(m,{operationId:'fixed-order-for-servings'})); m.servings = 12;
+  const twelve = await recommend(catalog, request(m,{operationId:'fixed-order-for-servings'}));
   assert.equal(twelve.dishes.length, 3); assert(twelve.targetMet);
   assert.deepEqual(twelve.dishes, one.dishes); assert.deepEqual(twelve.checks, one.checks);
   assert.equal(twelve.checks[0].needed, 300); assert.equal(twelve.checks[0].shortage, 0);

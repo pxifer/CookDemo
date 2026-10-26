@@ -1,0 +1,22 @@
+{
+  "scope": "local-empty-structure",
+  "format": "pg_dump-custom",
+  "database": "shiwei_dev",
+  "createdAt": "2026-10-21T13:27:38.347Z",
+  "migrationChecksums": [
+    "65db5344b7b1fd72f49ae7b79e41a204db8b75960c703b68618d664ea454e81b",
+    "1938c4b1a38cb001f2b8cea074f61d0d78898527c30486025f4a4cc22314fab5",
+    "ac813bd9580cead7d171e9d49bde731a42182e3e6c04607a16548a10fa891da5"
+  ],
+  "archiveSha256": "1786858a02c49e8d0bf22a0d5e5c2b941da3a7addcf7bff77541fedaf58f26fd",
+  "bytes": 43403,
+  "checkedAt": "2026-10-21T13:30:07.355Z",
+  "restoreChecked": true,
+  "restoredTables": 26,
+  "migrations": 3,
+  "businessRows": 0,
+  "isolatedRestoreOnly": true,
+  "cloudBackup": false,
+  "fullRecoveryAccepted": false,
+  "ledgerRestoredFromAuthenticatedMetadata": true
+}

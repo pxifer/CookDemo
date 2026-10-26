@@ -1,0 +1,1097 @@
+{
+  "version": "composition-source-line-review-v6",
+  "sourceCommit": "0e106eea348c734fe1586f781202994439cf98a5",
+  "definitionsReviewed": 145,
+  "unresolvedLeavesConsidered": 576,
+  "sourceAnchoredSingleIngredientApprovals": 77,
+  "productLabelsInferred": 0,
+  "unresolvedCompositesRemainBlocked": true,
+  "sourceHashAndRecipeVariantBound": true,
+  "approvals": [
+    {
+      "reviewId": "composition-r396-v2",
+      "recipeId": "gallery-5da7d9809edda8a0",
+      "variantId": "gallery-5da7d9809edda8a0-r396",
+      "foodId": "gallery-food-945004d215c8e0cb",
+      "sourceRecord": "R396",
+      "sourceSha256": "3ac67ce68b0837211daf0d62671806453aa5670e254ed53c19ac22d8f531acb7",
+      "sourceLines": [
+        "萝卜 0.25 根"
+      ],
+      "identityId": "gallery-food-945004d215c8e0cb",
+      "identityEvidence": "名称“萝卜”与固定菜谱配料原文一致，按完整食材名称核对为萝卜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R396 SHA-256 3ac67ce68b0837211daf0d62671806453aa5670e254ed53c19ac22d8f531acb7；原料原文“萝卜 0.25 根”逐条可在原方中定位；身份核为单一食材“萝卜”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-r299-v2",
+      "recipeId": "gallery-864a4ab520484c3a",
+      "variantId": "gallery-864a4ab520484c3a-r299",
+      "foodId": "gallery-food-04bf1bcc3fe14f82",
+      "sourceRecord": "R299",
+      "sourceSha256": "27692a58fc1659aee6d67ce67bf5cfebf114b12540370ba2a2ef9950a5dd5bc5",
+      "sourceLines": [
+        "味素 5 克（可选）"
+      ],
+      "identityId": "msg",
+      "identityEvidence": "名称“味素”与固定菜谱配料原文一致，按完整食材名称核对为味精；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R299 SHA-256 27692a58fc1659aee6d67ce67bf5cfebf114b12540370ba2a2ef9950a5dd5bc5；原料原文“味素 5 克（可选）”逐条可在原方中定位；身份核为单一食材“味素”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r298-gallery-73249985a26e9027-r298",
+      "recipeId": "gallery-73249985a26e9027",
+      "variantId": "gallery-73249985a26e9027-r298",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R298",
+      "sourceSha256": "61f0517945af526e56e08402cb75ea5962615b92a64ffdb6e7b816efd95cc7ec",
+      "sourceLines": [
+        "胡椒粉 5g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R298 SHA-256 61f0517945af526e56e08402cb75ea5962615b92a64ffdb6e7b816efd95cc7ec；原料原文“胡椒粉 5g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r294-gallery-c6f7b91f3b663915-r294",
+      "recipeId": "gallery-c6f7b91f3b663915",
+      "variantId": "gallery-c6f7b91f3b663915-r294",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R294",
+      "sourceSha256": "b4358b1495e95703a0b5d9ded54ef7ec765e5e90931ad56179a149ed0f900fd1",
+      "sourceLines": [
+        "食用盐 3 g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R294 SHA-256 b4358b1495e95703a0b5d9ded54ef7ec765e5e90931ad56179a149ed0f900fd1；原料原文“食用盐 3 g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r259-gallery-681cfcbbd5107b13-r259",
+      "recipeId": "gallery-681cfcbbd5107b13",
+      "variantId": "gallery-681cfcbbd5107b13-r259",
+      "foodId": "gallery-food-47692c740809ffc0",
+      "sourceRecord": "R259",
+      "sourceSha256": "7109d333174227b1b06b1fc70acc2c838bd00422c219e26c733ec5b4ca8c8f7f",
+      "sourceLines": [
+        "姜黄粉 3g"
+      ],
+      "identityId": "gallery-food-47692c740809ffc0",
+      "identityEvidence": "名称“姜黄粉”与固定菜谱配料原文一致，按完整食材名称核对为姜黄；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R259 SHA-256 7109d333174227b1b06b1fc70acc2c838bd00422c219e26c733ec5b4ca8c8f7f；原料原文“姜黄粉 3g”逐条可在原方中定位；身份核为单一食材“姜黄粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r259-gallery-681cfcbbd5107b13-r259",
+      "recipeId": "gallery-681cfcbbd5107b13",
+      "variantId": "gallery-681cfcbbd5107b13-r259",
+      "foodId": "gallery-food-4a7e8afb797bd531",
+      "sourceRecord": "R259",
+      "sourceSha256": "7109d333174227b1b06b1fc70acc2c838bd00422c219e26c733ec5b4ca8c8f7f",
+      "sourceLines": [
+        "香菜粉 5g"
+      ],
+      "identityId": "gallery-food-c5ac155d31b8cf9f",
+      "identityEvidence": "名称“香菜粉”与固定菜谱配料原文一致，按完整食材名称核对为香菜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R259 SHA-256 7109d333174227b1b06b1fc70acc2c838bd00422c219e26c733ec5b4ca8c8f7f；原料原文“香菜粉 5g”逐条可在原方中定位；身份核为单一食材“香菜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r259-gallery-681cfcbbd5107b13-r259",
+      "recipeId": "gallery-681cfcbbd5107b13",
+      "variantId": "gallery-681cfcbbd5107b13-r259",
+      "foodId": "gallery-food-b295cb766e575f66",
+      "sourceRecord": "R259",
+      "sourceSha256": "7109d333174227b1b06b1fc70acc2c838bd00422c219e26c733ec5b4ca8c8f7f",
+      "sourceLines": [
+        "红辣椒粉 3g"
+      ],
+      "identityId": "gallery-food-b295cb766e575f66",
+      "identityEvidence": "名称“红辣椒粉”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R259 SHA-256 7109d333174227b1b06b1fc70acc2c838bd00422c219e26c733ec5b4ca8c8f7f；原料原文“红辣椒粉 3g”逐条可在原方中定位；身份核为单一食材“红辣椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r267-gallery-220389d7154948d7-r267",
+      "recipeId": "gallery-220389d7154948d7",
+      "variantId": "gallery-220389d7154948d7-r267",
+      "foodId": "gallery-food-47692c740809ffc0",
+      "sourceRecord": "R267",
+      "sourceSha256": "f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b",
+      "sourceLines": [
+        "姜黄粉 3g"
+      ],
+      "identityId": "gallery-food-47692c740809ffc0",
+      "identityEvidence": "名称“姜黄粉”与固定菜谱配料原文一致，按完整食材名称核对为姜黄；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R267 SHA-256 f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b；原料原文“姜黄粉 3g”逐条可在原方中定位；身份核为单一食材“姜黄粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r267-gallery-220389d7154948d7-r267",
+      "recipeId": "gallery-220389d7154948d7",
+      "variantId": "gallery-220389d7154948d7-r267",
+      "foodId": "gallery-food-4a7e8afb797bd531",
+      "sourceRecord": "R267",
+      "sourceSha256": "f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b",
+      "sourceLines": [
+        "香菜粉 3g",
+        "香菜粉 5g"
+      ],
+      "identityId": "gallery-food-c5ac155d31b8cf9f",
+      "identityEvidence": "名称“香菜粉”与固定菜谱配料原文一致，按完整食材名称核对为香菜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R267 SHA-256 f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b；原料原文“香菜粉 3g；香菜粉 5g”逐条可在原方中定位；身份核为单一食材“香菜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r267-gallery-220389d7154948d7-r267",
+      "recipeId": "gallery-220389d7154948d7",
+      "variantId": "gallery-220389d7154948d7-r267",
+      "foodId": "gallery-food-974ae5cf63c5abdd",
+      "sourceRecord": "R267",
+      "sourceSha256": "f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b",
+      "sourceLines": [
+        "孜然粉 3g"
+      ],
+      "identityId": "cumin",
+      "identityEvidence": "名称“孜然粉”与固定菜谱配料原文一致，按完整食材名称核对为孜然；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R267 SHA-256 f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b；原料原文“孜然粉 3g”逐条可在原方中定位；身份核为单一食材“孜然粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r267-gallery-220389d7154948d7-r267",
+      "recipeId": "gallery-220389d7154948d7",
+      "variantId": "gallery-220389d7154948d7-r267",
+      "foodId": "gallery-food-b295cb766e575f66",
+      "sourceRecord": "R267",
+      "sourceSha256": "f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b",
+      "sourceLines": [
+        "红辣椒粉 3g",
+        "红辣椒粉 5g"
+      ],
+      "identityId": "gallery-food-b295cb766e575f66",
+      "identityEvidence": "名称“红辣椒粉”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R267 SHA-256 f6864821010c59974d86ec7a9bcf32debce53287d3f907db3a5b552574e8dc2b；原料原文“红辣椒粉 3g；红辣椒粉 5g”逐条可在原方中定位；身份核为单一食材“红辣椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r367-gallery-eb74ab0f0fb109da-r367",
+      "recipeId": "gallery-eb74ab0f0fb109da",
+      "variantId": "gallery-eb74ab0f0fb109da-r367",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R367",
+      "sourceSha256": "1840148a5258eb52586dd9acb089ecaacd1b712b4e6de19313cb0bd843dfd59b",
+      "sourceLines": [
+        "胡椒粉 3.5-8 g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R367 SHA-256 1840148a5258eb52586dd9acb089ecaacd1b712b4e6de19313cb0bd843dfd59b；原料原文“胡椒粉 3.5-8 g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r367-gallery-eb74ab0f0fb109da-r367",
+      "recipeId": "gallery-eb74ab0f0fb109da",
+      "variantId": "gallery-eb74ab0f0fb109da-r367",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R367",
+      "sourceSha256": "1840148a5258eb52586dd9acb089ecaacd1b712b4e6de19313cb0bd843dfd59b",
+      "sourceLines": [
+        "食用盐 2 g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R367 SHA-256 1840148a5258eb52586dd9acb089ecaacd1b712b4e6de19313cb0bd843dfd59b；原料原文“食用盐 2 g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r397-gallery-89dc08779f867327-r397",
+      "recipeId": "gallery-89dc08779f867327",
+      "variantId": "gallery-89dc08779f867327-r397",
+      "foodId": "gallery-food-b78c6db680dd48af",
+      "sourceRecord": "R397",
+      "sourceSha256": "f0af11c89a037641d7576d28ed77ea135f8623118bc497b6675b1c8439615251",
+      "sourceLines": [
+        "鸭肉半只（约 1kg）"
+      ],
+      "identityId": "gallery-food-b78c6db680dd48af",
+      "identityEvidence": "名称“鸭肉”与固定菜谱配料原文一致，按完整食材名称核对为鸭肉；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R397 SHA-256 f0af11c89a037641d7576d28ed77ea135f8623118bc497b6675b1c8439615251；原料原文“鸭肉半只（约 1kg）”逐条可在原方中定位；身份核为单一食材“鸭肉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r348-gallery-f09ead55a692109c-r348",
+      "recipeId": "gallery-f09ead55a692109c",
+      "variantId": "gallery-f09ead55a692109c-r348",
+      "foodId": "gallery-food-84b3a340882338a4",
+      "sourceRecord": "R348",
+      "sourceSha256": "d74bbe97c0199fccafd9f09831666735118aa3f47045c5c31bb3116630e08e4d",
+      "sourceLines": [
+        "香果"
+      ],
+      "identityId": "gallery-food-84b3a340882338a4",
+      "identityEvidence": "名称“香果”与固定菜谱配料原文一致，按完整食材名称核对为香果；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R348 SHA-256 d74bbe97c0199fccafd9f09831666735118aa3f47045c5c31bb3116630e08e4d；原料原文“香果”逐条可在原方中定位；身份核为单一食材“香果”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r348-gallery-f09ead55a692109c-r348",
+      "recipeId": "gallery-f09ead55a692109c",
+      "variantId": "gallery-f09ead55a692109c-r348",
+      "foodId": "gallery-food-9d8f63253e5915c3",
+      "sourceRecord": "R348",
+      "sourceSha256": "d74bbe97c0199fccafd9f09831666735118aa3f47045c5c31bb3116630e08e4d",
+      "sourceLines": [
+        "干线椒 5 个",
+        "干线椒"
+      ],
+      "identityId": "gallery-food-9d8f63253e5915c3",
+      "identityEvidence": "名称“干线椒”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R348 SHA-256 d74bbe97c0199fccafd9f09831666735118aa3f47045c5c31bb3116630e08e4d；原料原文“干线椒 5 个；干线椒”逐条可在原方中定位；身份核为单一食材“干线椒”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r345-gallery-0d1ca14a5a49a497-r345",
+      "recipeId": "gallery-0d1ca14a5a49a497",
+      "variantId": "gallery-0d1ca14a5a49a497-r345",
+      "foodId": "gallery-food-5e3af9503dbcccdf",
+      "sourceRecord": "R345",
+      "sourceSha256": "f8196d66afeca699f6fb9fd33f348138c988f63fb905453832d0473040643d3c",
+      "sourceLines": [
+        "黑胡椒碎 1 克"
+      ],
+      "identityId": "gallery-food-5e3af9503dbcccdf",
+      "identityEvidence": "名称“黑胡椒碎”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R345 SHA-256 f8196d66afeca699f6fb9fd33f348138c988f63fb905453832d0473040643d3c；原料原文“黑胡椒碎 1 克”逐条可在原方中定位；身份核为单一食材“黑胡椒碎”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r345-gallery-0d1ca14a5a49a497-r345",
+      "recipeId": "gallery-0d1ca14a5a49a497",
+      "variantId": "gallery-0d1ca14a5a49a497-r345",
+      "foodId": "gallery-food-e295b4e2ec29d370",
+      "sourceRecord": "R345",
+      "sourceSha256": "f8196d66afeca699f6fb9fd33f348138c988f63fb905453832d0473040643d3c",
+      "sourceLines": [
+        "面粉 10 克"
+      ],
+      "identityId": "gallery-food-e295b4e2ec29d370",
+      "identityEvidence": "名称“面粉”与固定菜谱配料原文一致，按完整食材名称核对为小麦；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R345 SHA-256 f8196d66afeca699f6fb9fd33f348138c988f63fb905453832d0473040643d3c；原料原文“面粉 10 克”逐条可在原方中定位；身份核为单一食材“面粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r295-gallery-e4aa582ece173390-r295",
+      "recipeId": "gallery-e4aa582ece173390",
+      "variantId": "gallery-e4aa582ece173390-r295",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R295",
+      "sourceSha256": "5deda38c689ab59effe6e2a34183ab280915c6f5cf51490f79fb69c4ff23eb71",
+      "sourceLines": [
+        "胡椒粉（未单列固定用量）",
+        "胡椒粉 5g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R295 SHA-256 5deda38c689ab59effe6e2a34183ab280915c6f5cf51490f79fb69c4ff23eb71；原料原文“胡椒粉（未单列固定用量）；胡椒粉 5g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r295-gallery-e4aa582ece173390-r295",
+      "recipeId": "gallery-e4aa582ece173390",
+      "variantId": "gallery-e4aa582ece173390-r295",
+      "foodId": "gallery-food-974ae5cf63c5abdd",
+      "sourceRecord": "R295",
+      "sourceSha256": "5deda38c689ab59effe6e2a34183ab280915c6f5cf51490f79fb69c4ff23eb71",
+      "sourceLines": [
+        "烧烤料或孜然粉 10g（可选）"
+      ],
+      "identityId": "cumin",
+      "identityEvidence": "名称“孜然粉”与固定菜谱配料原文一致，按完整食材名称核对为孜然；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R295 SHA-256 5deda38c689ab59effe6e2a34183ab280915c6f5cf51490f79fb69c4ff23eb71；原料原文“烧烤料或孜然粉 10g（可选）”逐条可在原方中定位；身份核为单一食材“孜然粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r295-gallery-e4aa582ece173390-r295",
+      "recipeId": "gallery-e4aa582ece173390",
+      "variantId": "gallery-e4aa582ece173390-r295",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R295",
+      "sourceSha256": "5deda38c689ab59effe6e2a34183ab280915c6f5cf51490f79fb69c4ff23eb71",
+      "sourceLines": [
+        "食用盐 5g",
+        "食用盐"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R295 SHA-256 5deda38c689ab59effe6e2a34183ab280915c6f5cf51490f79fb69c4ff23eb71；原料原文“食用盐 5g；食用盐”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r336-gallery-831a3e9df801d0f4-r336",
+      "recipeId": "gallery-831a3e9df801d0f4",
+      "variantId": "gallery-831a3e9df801d0f4-r336",
+      "foodId": "gallery-food-4e3f1cfeee5df2b1",
+      "sourceRecord": "R336",
+      "sourceSha256": "02b20428ae93648cc9de76dc8040cfa8285fcb2641185418a00aec0d9f104fe5",
+      "sourceLines": [
+        "野山椒 30g"
+      ],
+      "identityId": "gallery-food-4e3f1cfeee5df2b1",
+      "identityEvidence": "名称“野山椒”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R336 SHA-256 02b20428ae93648cc9de76dc8040cfa8285fcb2641185418a00aec0d9f104fe5；原料原文“野山椒 30g”逐条可在原方中定位；身份核为单一食材“野山椒”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r285-gallery-e9cfd02bb3d7e457-r285",
+      "recipeId": "gallery-e9cfd02bb3d7e457",
+      "variantId": "gallery-e9cfd02bb3d7e457-r285",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R285",
+      "sourceSha256": "ae8227671f6e1e2eebc639abac8c3486df44156950a262db8f35bb36d9030700",
+      "sourceLines": [
+        "胡椒粉 3 克"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R285 SHA-256 ae8227671f6e1e2eebc639abac8c3486df44156950a262db8f35bb36d9030700；原料原文“胡椒粉 3 克”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r285-gallery-e9cfd02bb3d7e457-r285",
+      "recipeId": "gallery-e9cfd02bb3d7e457",
+      "variantId": "gallery-e9cfd02bb3d7e457-r285",
+      "foodId": "gallery-food-e295b4e2ec29d370",
+      "sourceRecord": "R285",
+      "sourceSha256": "ae8227671f6e1e2eebc639abac8c3486df44156950a262db8f35bb36d9030700",
+      "sourceLines": [
+        "面粉 30 克"
+      ],
+      "identityId": "gallery-food-e295b4e2ec29d370",
+      "identityEvidence": "名称“面粉”与固定菜谱配料原文一致，按完整食材名称核对为小麦；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R285 SHA-256 ae8227671f6e1e2eebc639abac8c3486df44156950a262db8f35bb36d9030700；原料原文“面粉 30 克”逐条可在原方中定位；身份核为单一食材“面粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r266-gallery-88feb147de3fdb95-r266",
+      "recipeId": "gallery-88feb147de3fdb95",
+      "variantId": "gallery-88feb147de3fdb95-r266",
+      "foodId": "gallery-food-0384636e421ad642",
+      "sourceRecord": "R266",
+      "sourceSha256": "b9c8dcab784b83bd2f8fa767c78b17a81374a8d211e6085243de9b7edbcb8781",
+      "sourceLines": [
+        "玉米 1 根（大约 250g）"
+      ],
+      "identityId": "gallery-food-0384636e421ad642",
+      "identityEvidence": "名称“玉米”与固定菜谱配料原文一致，按完整食材名称核对为玉米；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R266 SHA-256 b9c8dcab784b83bd2f8fa767c78b17a81374a8d211e6085243de9b7edbcb8781；原料原文“玉米 1 根（大约 250g）”逐条可在原方中定位；身份核为单一食材“玉米”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r377-gallery-e5c0fc95d63477e7-r377",
+      "recipeId": "gallery-e5c0fc95d63477e7",
+      "variantId": "gallery-e5c0fc95d63477e7-r377",
+      "foodId": "gallery-food-91faaff836b5f23d",
+      "sourceRecord": "R377",
+      "sourceSha256": "06197881c945cd4ddfd786b4a9a5e6e3361a66a1fbbae176f5e37e63b866b121",
+      "sourceLines": [
+        "蒜粉 5g"
+      ],
+      "identityId": "garlic",
+      "identityEvidence": "名称“蒜粉”与固定菜谱配料原文一致，按完整食材名称核对为大蒜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R377 SHA-256 06197881c945cd4ddfd786b4a9a5e6e3361a66a1fbbae176f5e37e63b866b121；原料原文“蒜粉 5g”逐条可在原方中定位；身份核为单一食材“蒜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r377-gallery-e5c0fc95d63477e7-r377",
+      "recipeId": "gallery-e5c0fc95d63477e7",
+      "variantId": "gallery-e5c0fc95d63477e7-r377",
+      "foodId": "gallery-food-9c6af08255d7edbf",
+      "sourceRecord": "R377",
+      "sourceSha256": "06197881c945cd4ddfd786b4a9a5e6e3361a66a1fbbae176f5e37e63b866b121",
+      "sourceLines": [
+        "姜粉 5g"
+      ],
+      "identityId": "ginger",
+      "identityEvidence": "名称“姜粉”与固定菜谱配料原文一致，按完整食材名称核对为生姜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R377 SHA-256 06197881c945cd4ddfd786b4a9a5e6e3361a66a1fbbae176f5e37e63b866b121；原料原文“姜粉 5g”逐条可在原方中定位；身份核为单一食材“姜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r281-gallery-e2b191c1c48a8b02-r281",
+      "recipeId": "gallery-e2b191c1c48a8b02",
+      "variantId": "gallery-e2b191c1c48a8b02-r281",
+      "foodId": "gallery-food-c8973af9f3f7ef07",
+      "sourceRecord": "R281",
+      "sourceSha256": "eda995bce6d0df7478e008ebe978a53f3e3e7d27a67555e4c63ec20be1b1281b",
+      "sourceLines": [
+        "精盐: 15 克"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“精盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R281 SHA-256 eda995bce6d0df7478e008ebe978a53f3e3e7d27a67555e4c63ec20be1b1281b；原料原文“精盐: 15 克”逐条可在原方中定位；身份核为单一食材“精盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r322-gallery-27c8501f8a8c05ac-r322",
+      "recipeId": "gallery-27c8501f8a8c05ac",
+      "variantId": "gallery-27c8501f8a8c05ac-r322",
+      "foodId": "gallery-food-d3acbd41d8c53a61",
+      "sourceRecord": "R322",
+      "sourceSha256": "c60def01e423f49c3f242031b1b1d389e0bf69cb38cdb2b6dd59b350768ab30b",
+      "sourceLines": [
+        "海盐 5g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“海盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R322 SHA-256 c60def01e423f49c3f242031b1b1d389e0bf69cb38cdb2b6dd59b350768ab30b；原料原文“海盐 5g”逐条可在原方中定位；身份核为单一食材“海盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r392-gallery-a71766cea39d09f0-r392",
+      "recipeId": "gallery-a71766cea39d09f0",
+      "variantId": "gallery-a71766cea39d09f0-r392",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R392",
+      "sourceSha256": "a0d6ec52863ab98f20a8e4320e227417d510e5308d834b103fcb82e8433cccd1",
+      "sourceLines": [
+        "胡椒粉 2g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R392 SHA-256 a0d6ec52863ab98f20a8e4320e227417d510e5308d834b103fcb82e8433cccd1；原料原文“胡椒粉 2g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r389-gallery-ffe37c6a63012a03-r389",
+      "recipeId": "gallery-ffe37c6a63012a03",
+      "variantId": "gallery-ffe37c6a63012a03-r389",
+      "foodId": "gallery-food-e2adfbdf8ad05988",
+      "sourceRecord": "R389",
+      "sourceSha256": "47301c4e88951cfadabf0af4ef2b5ec1ba737cd1cb6b170a2138e2a25944e4d2",
+      "sourceLines": [
+        "白萝卜 1 根"
+      ],
+      "identityId": "gallery-food-945004d215c8e0cb",
+      "identityEvidence": "名称“白萝卜”与固定菜谱配料原文一致，按完整食材名称核对为萝卜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R389 SHA-256 47301c4e88951cfadabf0af4ef2b5ec1ba737cd1cb6b170a2138e2a25944e4d2；原料原文“白萝卜 1 根”逐条可在原方中定位；身份核为单一食材“白萝卜”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r390-gallery-409141104436781c-r390",
+      "recipeId": "gallery-409141104436781c",
+      "variantId": "gallery-409141104436781c-r390",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R390",
+      "sourceSha256": "7110103995849df347fa9103e1e648e3309780c6a809a438fa153e0a03815918",
+      "sourceLines": [
+        "胡椒粉 3-5 g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R390 SHA-256 7110103995849df347fa9103e1e648e3309780c6a809a438fa153e0a03815918；原料原文“胡椒粉 3-5 g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r390-gallery-409141104436781c-r390",
+      "recipeId": "gallery-409141104436781c",
+      "variantId": "gallery-409141104436781c-r390",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R390",
+      "sourceSha256": "7110103995849df347fa9103e1e648e3309780c6a809a438fa153e0a03815918",
+      "sourceLines": [
+        "食用盐 10-15 g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R390 SHA-256 7110103995849df347fa9103e1e648e3309780c6a809a438fa153e0a03815918；原料原文“食用盐 10-15 g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r261-gallery-07f6010166014575-r261",
+      "recipeId": "gallery-07f6010166014575",
+      "variantId": "gallery-07f6010166014575-r261",
+      "foodId": "gallery-food-945004d215c8e0cb",
+      "sourceRecord": "R261",
+      "sourceSha256": "c313bca7971933e341ecc755cbf6fc2849445c2c6753c64b2399b646fd8a8819",
+      "sourceLines": [
+        "萝卜（步骤另提及，未单列固定用量）"
+      ],
+      "identityId": "gallery-food-945004d215c8e0cb",
+      "identityEvidence": "名称“萝卜”与固定菜谱配料原文一致，按完整食材名称核对为萝卜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R261 SHA-256 c313bca7971933e341ecc755cbf6fc2849445c2c6753c64b2399b646fd8a8819；原料原文“萝卜（步骤另提及，未单列固定用量）”逐条可在原方中定位；身份核为单一食材“萝卜”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r302-gallery-6b11680fa1096d51-r302",
+      "recipeId": "gallery-6b11680fa1096d51",
+      "variantId": "gallery-6b11680fa1096d51-r302",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R302",
+      "sourceSha256": "e104b5fee4a148c929a628bb14a86f79b658595d325613aa1f2da616916da937",
+      "sourceLines": [
+        "食用盐 2 g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R302 SHA-256 e104b5fee4a148c929a628bb14a86f79b658595d325613aa1f2da616916da937；原料原文“食用盐 2 g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r260-gallery-4992d3405148ca4f-r260",
+      "recipeId": "gallery-4992d3405148ca4f",
+      "variantId": "gallery-4992d3405148ca4f-r260",
+      "foodId": "gallery-food-3151e2f8101ac0eb",
+      "sourceRecord": "R260",
+      "sourceSha256": "829ef95e88845f21bb832a1171b268d1121df5dbf74bd8c68a7db28a3e932eeb",
+      "sourceLines": [
+        "干辣椒粉 5g"
+      ],
+      "identityId": "gallery-food-3151e2f8101ac0eb",
+      "identityEvidence": "名称“干辣椒粉”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R260 SHA-256 829ef95e88845f21bb832a1171b268d1121df5dbf74bd8c68a7db28a3e932eeb；原料原文“干辣椒粉 5g”逐条可在原方中定位；身份核为单一食材“干辣椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r314-gallery-9fd1d507b358520d-r314",
+      "recipeId": "gallery-9fd1d507b358520d",
+      "variantId": "gallery-9fd1d507b358520d-r314",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R314",
+      "sourceSha256": "fe51b4171a90f9f8f2b194f24ac8da7e1966518ca7f437935418bf339a21ff1a",
+      "sourceLines": [
+        "食用盐 5-10g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R314 SHA-256 fe51b4171a90f9f8f2b194f24ac8da7e1966518ca7f437935418bf339a21ff1a；原料原文“食用盐 5-10g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r328-gallery-e52e982933f4739a-r328",
+      "recipeId": "gallery-e52e982933f4739a",
+      "variantId": "gallery-e52e982933f4739a-r328",
+      "foodId": "gallery-food-0933574aacb2dc33",
+      "sourceRecord": "R328",
+      "sourceSha256": "c2f4dcb20f2276f6d03fa8452e8fcc9eeff2480fad728acd5401aec08bf585d3",
+      "sourceLines": [
+        "细辣椒粉: 50g"
+      ],
+      "identityId": "gallery-food-0933574aacb2dc33",
+      "identityEvidence": "名称“细辣椒粉”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R328 SHA-256 c2f4dcb20f2276f6d03fa8452e8fcc9eeff2480fad728acd5401aec08bf585d3；原料原文“细辣椒粉: 50g”逐条可在原方中定位；身份核为单一食材“细辣椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r328-gallery-e52e982933f4739a-r328",
+      "recipeId": "gallery-e52e982933f4739a",
+      "variantId": "gallery-e52e982933f4739a-r328",
+      "foodId": "gallery-food-b78c6db680dd48af",
+      "sourceRecord": "R328",
+      "sourceSha256": "c2f4dcb20f2276f6d03fa8452e8fcc9eeff2480fad728acd5401aec08bf585d3",
+      "sourceLines": [
+        "鸭肉（步骤另提及，未单列固定用量）"
+      ],
+      "identityId": "gallery-food-b78c6db680dd48af",
+      "identityEvidence": "名称“鸭肉”与固定菜谱配料原文一致，按完整食材名称核对为鸭肉；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R328 SHA-256 c2f4dcb20f2276f6d03fa8452e8fcc9eeff2480fad728acd5401aec08bf585d3；原料原文“鸭肉（步骤另提及，未单列固定用量）”逐条可在原方中定位；身份核为单一食材“鸭肉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r310-gallery-8d3817ce625d058b-r310",
+      "recipeId": "gallery-8d3817ce625d058b",
+      "variantId": "gallery-8d3817ce625d058b-r310",
+      "foodId": "gallery-food-e44727ace7f933b3",
+      "sourceRecord": "R310",
+      "sourceSha256": "d23905dbc18245ff0adaf95b3fb5477484a1225a22fb6f20e09b9c12cf938dde",
+      "sourceLines": [
+        "蜂蜜（步骤另提及，未单列固定用量）"
+      ],
+      "identityId": "gallery-food-e44727ace7f933b3",
+      "identityEvidence": "名称“蜂蜜”与固定菜谱配料原文一致，按完整食材名称核对为蜂蜜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R310 SHA-256 d23905dbc18245ff0adaf95b3fb5477484a1225a22fb6f20e09b9c12cf938dde；原料原文“蜂蜜（步骤另提及，未单列固定用量）”逐条可在原方中定位；身份核为单一食材“蜂蜜”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r310-gallery-8d3817ce625d058b-r310",
+      "recipeId": "gallery-8d3817ce625d058b",
+      "variantId": "gallery-8d3817ce625d058b-r310",
+      "foodId": "gallery-food-f315044a9bd06d4a",
+      "sourceRecord": "R310",
+      "sourceSha256": "d23905dbc18245ff0adaf95b3fb5477484a1225a22fb6f20e09b9c12cf938dde",
+      "sourceLines": [
+        "低筋面粉 120g（其中 40g 用于第一次拍粉）"
+      ],
+      "identityId": "gallery-food-f315044a9bd06d4a",
+      "identityEvidence": "名称“低筋面粉”与固定菜谱配料原文一致，按完整食材名称核对为小麦；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R310 SHA-256 d23905dbc18245ff0adaf95b3fb5477484a1225a22fb6f20e09b9c12cf938dde；原料原文“低筋面粉 120g（其中 40g 用于第一次拍粉）”逐条可在原方中定位；身份核为单一食材“低筋面粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r324-gallery-7528106d7d24c143-r324",
+      "recipeId": "gallery-7528106d7d24c143",
+      "variantId": "gallery-7528106d7d24c143-r324",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R324",
+      "sourceSha256": "c190f31061f860d07c6eaadf649fc3ff28599eef19a36ad4434753cf96791396",
+      "sourceLines": [
+        "食用盐 0.5-2 克"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R324 SHA-256 c190f31061f860d07c6eaadf649fc3ff28599eef19a36ad4434753cf96791396；原料原文“食用盐 0.5-2 克”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r331-gallery-60f34f1dc1ae51a2-r331",
+      "recipeId": "gallery-60f34f1dc1ae51a2",
+      "variantId": "gallery-60f34f1dc1ae51a2-r331",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R331",
+      "sourceSha256": "5cb20d1ec1869fee18ab7b498ffc106560fb240c4e777c87c3788d1d42df1dca",
+      "sourceLines": [
+        "食用盐 5-10g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R331 SHA-256 5cb20d1ec1869fee18ab7b498ffc106560fb240c4e777c87c3788d1d42df1dca；原料原文“食用盐 5-10g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r321-gallery-67577578036da711-r321",
+      "recipeId": "gallery-67577578036da711",
+      "variantId": "gallery-67577578036da711-r321",
+      "foodId": "gallery-food-d3acbd41d8c53a61",
+      "sourceRecord": "R321",
+      "sourceSha256": "708bf0f9096217237f4bdea9dddc647323044773f01523455b16fe053d2ef02f",
+      "sourceLines": [
+        "海盐（步骤另提及，未单列固定用量）"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“海盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R321 SHA-256 708bf0f9096217237f4bdea9dddc647323044773f01523455b16fe053d2ef02f；原料原文“海盐（步骤另提及，未单列固定用量）”逐条可在原方中定位；身份核为单一食材“海盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r290-gallery-0fb6c8b0242e69f0-r290",
+      "recipeId": "gallery-0fb6c8b0242e69f0",
+      "variantId": "gallery-0fb6c8b0242e69f0-r290",
+      "foodId": "gallery-food-0384636e421ad642",
+      "sourceRecord": "R290",
+      "sourceSha256": "8358b596b156a615ca980b74754c673f43e9ea2d18e6561037941ff1e8aa85ac",
+      "sourceLines": [
+        "玉米一根（喜欢吃玉米的可以多一根）"
+      ],
+      "identityId": "gallery-food-0384636e421ad642",
+      "identityEvidence": "名称“玉米”与固定菜谱配料原文一致，按完整食材名称核对为玉米；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R290 SHA-256 8358b596b156a615ca980b74754c673f43e9ea2d18e6561037941ff1e8aa85ac；原料原文“玉米一根（喜欢吃玉米的可以多一根）”逐条可在原方中定位；身份核为单一食材“玉米”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r290-gallery-0fb6c8b0242e69f0-r290",
+      "recipeId": "gallery-0fb6c8b0242e69f0",
+      "variantId": "gallery-0fb6c8b0242e69f0-r290",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R290",
+      "sourceSha256": "8358b596b156a615ca980b74754c673f43e9ea2d18e6561037941ff1e8aa85ac",
+      "sourceLines": [
+        "食用盐 10-15g（根据最后汤剩余的量而定）"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R290 SHA-256 8358b596b156a615ca980b74754c673f43e9ea2d18e6561037941ff1e8aa85ac；原料原文“食用盐 10-15g（根据最后汤剩余的量而定）”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r393-gallery-ac8764ea3c34ccf9-r393",
+      "recipeId": "gallery-ac8764ea3c34ccf9",
+      "variantId": "gallery-ac8764ea3c34ccf9-r393",
+      "foodId": "gallery-food-297b66c46fdb6925",
+      "sourceRecord": "R393",
+      "sourceSha256": "ab8612e0b19aef277ce81396e6b9e7c8f7e8576a65f1e1a7fc60e69bb409cdcc",
+      "sourceLines": [
+        "甜椒粉 10g"
+      ],
+      "identityId": "gallery-food-7355f01a688ffca5",
+      "identityEvidence": "名称“甜椒粉”与固定菜谱配料原文一致，按完整食材名称核对为甜椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R393 SHA-256 ab8612e0b19aef277ce81396e6b9e7c8f7e8576a65f1e1a7fc60e69bb409cdcc；原料原文“甜椒粉 10g”逐条可在原方中定位；身份核为单一食材“甜椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r393-gallery-ac8764ea3c34ccf9-r393",
+      "recipeId": "gallery-ac8764ea3c34ccf9",
+      "variantId": "gallery-ac8764ea3c34ccf9-r393",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R393",
+      "sourceSha256": "ab8612e0b19aef277ce81396e6b9e7c8f7e8576a65f1e1a7fc60e69bb409cdcc",
+      "sourceLines": [
+        "胡椒粉 5g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R393 SHA-256 ab8612e0b19aef277ce81396e6b9e7c8f7e8576a65f1e1a7fc60e69bb409cdcc；原料原文“胡椒粉 5g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r393-gallery-ac8764ea3c34ccf9-r393",
+      "recipeId": "gallery-ac8764ea3c34ccf9",
+      "variantId": "gallery-ac8764ea3c34ccf9-r393",
+      "foodId": "gallery-food-91faaff836b5f23d",
+      "sourceRecord": "R393",
+      "sourceSha256": "ab8612e0b19aef277ce81396e6b9e7c8f7e8576a65f1e1a7fc60e69bb409cdcc",
+      "sourceLines": [
+        "蒜粉 10g"
+      ],
+      "identityId": "garlic",
+      "identityEvidence": "名称“蒜粉”与固定菜谱配料原文一致，按完整食材名称核对为大蒜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R393 SHA-256 ab8612e0b19aef277ce81396e6b9e7c8f7e8576a65f1e1a7fc60e69bb409cdcc；原料原文“蒜粉 10g”逐条可在原方中定位；身份核为单一食材“蒜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r329-gallery-0796bd89ef527ed8-r329",
+      "recipeId": "gallery-0796bd89ef527ed8",
+      "variantId": "gallery-0796bd89ef527ed8-r329",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R329",
+      "sourceSha256": "0ec7cf74e5ee4602413adeaa9dff718f6ed791bc540baa7cc9d1a1670150e789",
+      "sourceLines": [
+        "食用盐 2g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R329 SHA-256 0ec7cf74e5ee4602413adeaa9dff718f6ed791bc540baa7cc9d1a1670150e789；原料原文“食用盐 2g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r292-gallery-c818c20bb971ee81-r292",
+      "recipeId": "gallery-c818c20bb971ee81",
+      "variantId": "gallery-c818c20bb971ee81-r292",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R292",
+      "sourceSha256": "ff930ac08e956ace8584c99e0b30de2f45879a39e5d0ceab9db864aa7e7a1508",
+      "sourceLines": [
+        "食用盐 15g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R292 SHA-256 ff930ac08e956ace8584c99e0b30de2f45879a39e5d0ceab9db864aa7e7a1508；原料原文“食用盐 15g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r334-gallery-1711b1837f71d986-r334",
+      "recipeId": "gallery-1711b1837f71d986",
+      "variantId": "gallery-1711b1837f71d986-r334",
+      "foodId": "gallery-food-75bb14a6dc7b3795",
+      "sourceRecord": "R334",
+      "sourceSha256": "30b7f165ddc1c4f43eb1e97488ba6054fd5687d59bb72f2157d279207431ad6e",
+      "sourceLines": [
+        "paprika 10g（红甜椒粉）"
+      ],
+      "identityId": "gallery-food-7355f01a688ffca5",
+      "identityEvidence": "名称“paprika”与固定菜谱配料原文一致，按完整食材名称核对为甜椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R334 SHA-256 30b7f165ddc1c4f43eb1e97488ba6054fd5687d59bb72f2157d279207431ad6e；原料原文“paprika 10g（红甜椒粉）”逐条可在原方中定位；身份核为单一食材“paprika”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r334-gallery-1711b1837f71d986-r334",
+      "recipeId": "gallery-1711b1837f71d986",
+      "variantId": "gallery-1711b1837f71d986-r334",
+      "foodId": "gallery-food-91faaff836b5f23d",
+      "sourceRecord": "R334",
+      "sourceSha256": "30b7f165ddc1c4f43eb1e97488ba6054fd5687d59bb72f2157d279207431ad6e",
+      "sourceLines": [
+        "蒜粉 13g"
+      ],
+      "identityId": "garlic",
+      "identityEvidence": "名称“蒜粉”与固定菜谱配料原文一致，按完整食材名称核对为大蒜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R334 SHA-256 30b7f165ddc1c4f43eb1e97488ba6054fd5687d59bb72f2157d279207431ad6e；原料原文“蒜粉 13g”逐条可在原方中定位；身份核为单一食材“蒜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r334-gallery-1711b1837f71d986-r334",
+      "recipeId": "gallery-1711b1837f71d986",
+      "variantId": "gallery-1711b1837f71d986-r334",
+      "foodId": "gallery-food-ae14913b000ebe17",
+      "sourceRecord": "R334",
+      "sourceSha256": "30b7f165ddc1c4f43eb1e97488ba6054fd5687d59bb72f2157d279207431ad6e",
+      "sourceLines": [
+        "中筋面粉 60g"
+      ],
+      "identityId": "gallery-food-ae14913b000ebe17",
+      "identityEvidence": "名称“中筋面粉”与固定菜谱配料原文一致，按完整食材名称核对为小麦；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R334 SHA-256 30b7f165ddc1c4f43eb1e97488ba6054fd5687d59bb72f2157d279207431ad6e；原料原文“中筋面粉 60g”逐条可在原方中定位；身份核为单一食材“中筋面粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r300-gallery-b7faa43f6a1cdf48-r300",
+      "recipeId": "gallery-b7faa43f6a1cdf48",
+      "variantId": "gallery-b7faa43f6a1cdf48-r300",
+      "foodId": "gallery-food-38a6320b901fe1d5",
+      "sourceRecord": "R300",
+      "sourceSha256": "9aa5821a268ab24e65f45981c4b3fb929f4e4616e540b6231daa7bc4aa93dc1d",
+      "sourceLines": [
+        "番茄膏 5 g （增加番茄风味）"
+      ],
+      "identityId": "tomato",
+      "identityEvidence": "名称“番茄膏”与固定菜谱配料原文一致，按完整食材名称核对为西红柿；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R300 SHA-256 9aa5821a268ab24e65f45981c4b3fb929f4e4616e540b6231daa7bc4aa93dc1d；原料原文“番茄膏 5 g （增加番茄风味）”逐条可在原方中定位；身份核为单一食材“番茄膏”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r343-gallery-95cbb7e4672e5a17-r343",
+      "recipeId": "gallery-95cbb7e4672e5a17",
+      "variantId": "gallery-95cbb7e4672e5a17-r343",
+      "foodId": "gallery-food-247f1eb28442b6ea",
+      "sourceRecord": "R343",
+      "sourceSha256": "67bb1e702aa8f78f908381c4bb137ab5ee98de2dc6167e0a53bd86d0119cddc1",
+      "sourceLines": [
+        "羊肉 300g",
+        "羊肉或羊杂（未单列固定用量）"
+      ],
+      "identityId": "gallery-food-247f1eb28442b6ea",
+      "identityEvidence": "名称“羊肉”与固定菜谱配料原文一致，按完整食材名称核对为羊肉；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R343 SHA-256 67bb1e702aa8f78f908381c4bb137ab5ee98de2dc6167e0a53bd86d0119cddc1；原料原文“羊肉 300g；羊肉或羊杂（未单列固定用量）”逐条可在原方中定位；身份核为单一食材“羊肉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r343-gallery-95cbb7e4672e5a17-r343",
+      "recipeId": "gallery-95cbb7e4672e5a17",
+      "variantId": "gallery-95cbb7e4672e5a17-r343",
+      "foodId": "gallery-food-974ae5cf63c5abdd",
+      "sourceRecord": "R343",
+      "sourceSha256": "67bb1e702aa8f78f908381c4bb137ab5ee98de2dc6167e0a53bd86d0119cddc1",
+      "sourceLines": [
+        "孜然粉 1g"
+      ],
+      "identityId": "cumin",
+      "identityEvidence": "名称“孜然粉”与固定菜谱配料原文一致，按完整食材名称核对为孜然；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R343 SHA-256 67bb1e702aa8f78f908381c4bb137ab5ee98de2dc6167e0a53bd86d0119cddc1；原料原文“孜然粉 1g”逐条可在原方中定位；身份核为单一食材“孜然粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r343-gallery-95cbb7e4672e5a17-r343",
+      "recipeId": "gallery-95cbb7e4672e5a17",
+      "variantId": "gallery-95cbb7e4672e5a17-r343",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R343",
+      "sourceSha256": "67bb1e702aa8f78f908381c4bb137ab5ee98de2dc6167e0a53bd86d0119cddc1",
+      "sourceLines": [
+        "食用盐 5g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R343 SHA-256 67bb1e702aa8f78f908381c4bb137ab5ee98de2dc6167e0a53bd86d0119cddc1；原料原文“食用盐 5g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r375-gallery-d5a2bd4f7a03c6e8-r375",
+      "recipeId": "gallery-d5a2bd4f7a03c6e8",
+      "variantId": "gallery-d5a2bd4f7a03c6e8-r375",
+      "foodId": "gallery-food-4e659341017acf74",
+      "sourceRecord": "R375",
+      "sourceSha256": "691d729b38763cff0f43166d147d2f5d94bd573b147054c02473514e6a4adba9",
+      "sourceLines": [
+        "胡椒粉 5g"
+      ],
+      "identityId": "gallery-food-4e659341017acf74",
+      "identityEvidence": "名称“胡椒粉”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R375 SHA-256 691d729b38763cff0f43166d147d2f5d94bd573b147054c02473514e6a4adba9；原料原文“胡椒粉 5g”逐条可在原方中定位；身份核为单一食材“胡椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r305-gallery-8955eb3bbc5acaa9-r305",
+      "recipeId": "gallery-8955eb3bbc5acaa9",
+      "variantId": "gallery-8955eb3bbc5acaa9-r305",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R305",
+      "sourceSha256": "54212ee32211b7dbc82e48b291be8dc90bb150a05d2480ab5eeed78985fb999b",
+      "sourceLines": [
+        "食用盐 大约 2g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R305 SHA-256 54212ee32211b7dbc82e48b291be8dc90bb150a05d2480ab5eeed78985fb999b；原料原文“食用盐 大约 2g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r319-gallery-307e91ebb27bbdd4-r319",
+      "recipeId": "gallery-307e91ebb27bbdd4",
+      "variantId": "gallery-307e91ebb27bbdd4-r319",
+      "foodId": "gallery-food-247f1eb28442b6ea",
+      "sourceRecord": "R319",
+      "sourceSha256": "05d355d6ef45f629a8f9e0e82e6f230498ae4de4e797d502ef791b04e65b1db1",
+      "sourceLines": [
+        "羊肉（步骤另提及，未单列固定用量）"
+      ],
+      "identityId": "gallery-food-247f1eb28442b6ea",
+      "identityEvidence": "名称“羊肉”与固定菜谱配料原文一致，按完整食材名称核对为羊肉；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R319 SHA-256 05d355d6ef45f629a8f9e0e82e6f230498ae4de4e797d502ef791b04e65b1db1；原料原文“羊肉（步骤另提及，未单列固定用量）”逐条可在原方中定位；身份核为单一食材“羊肉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r319-gallery-307e91ebb27bbdd4-r319",
+      "recipeId": "gallery-307e91ebb27bbdd4",
+      "variantId": "gallery-307e91ebb27bbdd4-r319",
+      "foodId": "gallery-food-e2adfbdf8ad05988",
+      "sourceRecord": "R319",
+      "sourceSha256": "05d355d6ef45f629a8f9e0e82e6f230498ae4de4e797d502ef791b04e65b1db1",
+      "sourceLines": [
+        "白萝卜一根"
+      ],
+      "identityId": "gallery-food-945004d215c8e0cb",
+      "identityEvidence": "名称“白萝卜”与固定菜谱配料原文一致，按完整食材名称核对为萝卜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R319 SHA-256 05d355d6ef45f629a8f9e0e82e6f230498ae4de4e797d502ef791b04e65b1db1；原料原文“白萝卜一根”逐条可在原方中定位；身份核为单一食材“白萝卜”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r319-gallery-307e91ebb27bbdd4-r319",
+      "recipeId": "gallery-307e91ebb27bbdd4",
+      "variantId": "gallery-307e91ebb27bbdd4-r319",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R319",
+      "sourceSha256": "05d355d6ef45f629a8f9e0e82e6f230498ae4de4e797d502ef791b04e65b1db1",
+      "sourceLines": [
+        "食用盐 10g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R319 SHA-256 05d355d6ef45f629a8f9e0e82e6f230498ae4de4e797d502ef791b04e65b1db1；原料原文“食用盐 10g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r312-gallery-f7efe07251205d84-r312",
+      "recipeId": "gallery-f7efe07251205d84",
+      "variantId": "gallery-f7efe07251205d84-r312",
+      "foodId": "gallery-food-e44727ace7f933b3",
+      "sourceRecord": "R312",
+      "sourceSha256": "d8fb3a323f82c6ad45bc7379b6082739a1aa196fa920a9903f22b526b08995de",
+      "sourceLines": [
+        "20 ml 蜂蜜"
+      ],
+      "identityId": "gallery-food-e44727ace7f933b3",
+      "identityEvidence": "名称“蜂蜜”与固定菜谱配料原文一致，按完整食材名称核对为蜂蜜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R312 SHA-256 d8fb3a323f82c6ad45bc7379b6082739a1aa196fa920a9903f22b526b08995de；原料原文“20 ml 蜂蜜”逐条可在原方中定位；身份核为单一食材“蜂蜜”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r357-gallery-9e86be6df5686af9-r357",
+      "recipeId": "gallery-9e86be6df5686af9",
+      "variantId": "gallery-9e86be6df5686af9-r357",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R357",
+      "sourceSha256": "c2581b940bc3682d53fe0d1911f225195829e153d25fc059c1f3deadaedd43e5",
+      "sourceLines": [
+        "食用盐 5 g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R357 SHA-256 c2581b940bc3682d53fe0d1911f225195829e153d25fc059c1f3deadaedd43e5；原料原文“食用盐 5 g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r342-gallery-dedaff29055abfc7-r342",
+      "recipeId": "gallery-dedaff29055abfc7",
+      "variantId": "gallery-dedaff29055abfc7-r342",
+      "foodId": "gallery-food-3bd052d908ca30e6",
+      "sourceRecord": "R342",
+      "sourceSha256": "c879e13b051f4a807e1e544143151c23f1b5416413376c8312ef3d14d65b3cba",
+      "sourceLines": [
+        "红椒 10g （切丝，装饰用）"
+      ],
+      "identityId": "gallery-food-3bd052d908ca30e6",
+      "identityEvidence": "名称“红椒”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R342 SHA-256 c879e13b051f4a807e1e544143151c23f1b5416413376c8312ef3d14d65b3cba；原料原文“红椒 10g （切丝，装饰用）”逐条可在原方中定位；身份核为单一食材“红椒”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r339-gallery-9eb8d2dc6c3ac5f6-r339",
+      "recipeId": "gallery-9eb8d2dc6c3ac5f6",
+      "variantId": "gallery-9eb8d2dc6c3ac5f6-r339",
+      "foodId": "gallery-food-3bd052d908ca30e6",
+      "sourceRecord": "R339",
+      "sourceSha256": "c6bf903ae1c79e1089f32bffb79a14dd4d2bea58d1a2f90330f164b0b4f3f3cb",
+      "sourceLines": [
+        "红椒 0.5 个"
+      ],
+      "identityId": "gallery-food-3bd052d908ca30e6",
+      "identityEvidence": "名称“红椒”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R339 SHA-256 c6bf903ae1c79e1089f32bffb79a14dd4d2bea58d1a2f90330f164b0b4f3f3cb；原料原文“红椒 0.5 个”逐条可在原方中定位；身份核为单一食材“红椒”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r371-gallery-b858887afd0ad04c-r371",
+      "recipeId": "gallery-b858887afd0ad04c",
+      "variantId": "gallery-b858887afd0ad04c-r371",
+      "foodId": "gallery-food-3bd052d908ca30e6",
+      "sourceRecord": "R371",
+      "sourceSha256": "72cf8b32ec2bba0b6d27fe84c07a7369ce32bd68d111bfc2427c81c41676d2fc",
+      "sourceLines": [
+        "红椒 1 个（约 80g）"
+      ],
+      "identityId": "gallery-food-3bd052d908ca30e6",
+      "identityEvidence": "名称“红椒”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R371 SHA-256 72cf8b32ec2bba0b6d27fe84c07a7369ce32bd68d111bfc2427c81c41676d2fc；原料原文“红椒 1 个（约 80g）”逐条可在原方中定位；身份核为单一食材“红椒”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r289-gallery-212f2861dda1ac97-r289",
+      "recipeId": "gallery-212f2861dda1ac97",
+      "variantId": "gallery-212f2861dda1ac97-r289",
+      "foodId": "gallery-food-672762a9bfa62ba6",
+      "sourceRecord": "R289",
+      "sourceSha256": "a17ba665e415af6a9559d8ac4b35fdfe1c45830ccc5af52fa4eaf219f6e8e87f",
+      "sourceLines": [
+        "辣椒面（可选）（未单列固定用量）"
+      ],
+      "identityId": "gallery-food-672762a9bfa62ba6",
+      "identityEvidence": "名称“辣椒面”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R289 SHA-256 a17ba665e415af6a9559d8ac4b35fdfe1c45830ccc5af52fa4eaf219f6e8e87f；原料原文“辣椒面（可选）（未单列固定用量）”逐条可在原方中定位；身份核为单一食材“辣椒面”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r353-gallery-c4720120e7fa14c9-r353",
+      "recipeId": "gallery-c4720120e7fa14c9",
+      "variantId": "gallery-c4720120e7fa14c9-r353",
+      "foodId": "gallery-food-e5d206220a59b405",
+      "sourceRecord": "R353",
+      "sourceSha256": "f69c87e863b0b2bfa01d1241627662d91dc964cb0b4ee1c93a75b05c1b529c56",
+      "sourceLines": [
+        "食用盐 1g"
+      ],
+      "identityId": "salt",
+      "identityEvidence": "名称“食用盐”与固定菜谱配料原文一致，按完整食材名称核对为盐；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R353 SHA-256 f69c87e863b0b2bfa01d1241627662d91dc964cb0b4ee1c93a75b05c1b529c56；原料原文“食用盐 1g”逐条可在原方中定位；身份核为单一食材“食用盐”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r280-gallery-57c1e3ea98d445ca-r280",
+      "recipeId": "gallery-57c1e3ea98d445ca",
+      "variantId": "gallery-57c1e3ea98d445ca-r280",
+      "foodId": "gallery-food-be64c4dbea6461a5",
+      "sourceRecord": "R280",
+      "sourceSha256": "fc48a45b812cdf4c9e5d4fde7675ae15dffc552af9de685440f480c6669be3d5",
+      "sourceLines": [
+        "黑胡椒粒 大概 15ml"
+      ],
+      "identityId": "gallery-food-be64c4dbea6461a5",
+      "identityEvidence": "名称“黑胡椒粒”与固定菜谱配料原文一致，按完整食材名称核对为胡椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R280 SHA-256 fc48a45b812cdf4c9e5d4fde7675ae15dffc552af9de685440f480c6669be3d5；原料原文“黑胡椒粒 大概 15ml”逐条可在原方中定位；身份核为单一食材“黑胡椒粒”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r320-gallery-56fda7052027776f-r320",
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "foodId": "gallery-food-33406d520f4525d8",
+      "sourceRecord": "R320",
+      "sourceSha256": "a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0",
+      "sourceLines": [
+        "小豆蔻粉 2g"
+      ],
+      "identityId": "gallery-food-c48e30b17b49b913",
+      "identityEvidence": "名称“小豆蔻粉”与固定菜谱配料原文一致，按完整食材名称核对为豆蔻；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R320 SHA-256 a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0；原料原文“小豆蔻粉 2g”逐条可在原方中定位；身份核为单一食材“小豆蔻粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r320-gallery-56fda7052027776f-r320",
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "foodId": "gallery-food-47692c740809ffc0",
+      "sourceRecord": "R320",
+      "sourceSha256": "a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0",
+      "sourceLines": [
+        "姜黄粉 3g"
+      ],
+      "identityId": "gallery-food-47692c740809ffc0",
+      "identityEvidence": "名称“姜黄粉”与固定菜谱配料原文一致，按完整食材名称核对为姜黄；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R320 SHA-256 a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0；原料原文“姜黄粉 3g”逐条可在原方中定位；身份核为单一食材“姜黄粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r320-gallery-56fda7052027776f-r320",
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "foodId": "gallery-food-4a7e8afb797bd531",
+      "sourceRecord": "R320",
+      "sourceSha256": "a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0",
+      "sourceLines": [
+        "香菜粉 5g"
+      ],
+      "identityId": "gallery-food-c5ac155d31b8cf9f",
+      "identityEvidence": "名称“香菜粉”与固定菜谱配料原文一致，按完整食材名称核对为香菜；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R320 SHA-256 a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0；原料原文“香菜粉 5g”逐条可在原方中定位；身份核为单一食材“香菜粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r320-gallery-56fda7052027776f-r320",
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "foodId": "gallery-food-974ae5cf63c5abdd",
+      "sourceRecord": "R320",
+      "sourceSha256": "a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0",
+      "sourceLines": [
+        "孜然粉 3g"
+      ],
+      "identityId": "cumin",
+      "identityEvidence": "名称“孜然粉”与固定菜谱配料原文一致，按完整食材名称核对为孜然；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R320 SHA-256 a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0；原料原文“孜然粉 3g”逐条可在原方中定位；身份核为单一食材“孜然粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r320-gallery-56fda7052027776f-r320",
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "foodId": "gallery-food-99212f80bd776ad5",
+      "sourceRecord": "R320",
+      "sourceSha256": "a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0",
+      "sourceLines": [
+        "干葫芦巴叶 3g（用手搓碎）"
+      ],
+      "identityId": "gallery-food-99212f80bd776ad5",
+      "identityEvidence": "名称“干葫芦巴叶”与固定菜谱配料原文一致，按完整食材名称核对为葫芦巴；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R320 SHA-256 a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0；原料原文“干葫芦巴叶 3g（用手搓碎）”逐条可在原方中定位；身份核为单一食材“干葫芦巴叶”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    },
+    {
+      "reviewId": "composition-source-r320-gallery-56fda7052027776f-r320",
+      "recipeId": "gallery-56fda7052027776f",
+      "variantId": "gallery-56fda7052027776f-r320",
+      "foodId": "gallery-food-b295cb766e575f66",
+      "sourceRecord": "R320",
+      "sourceSha256": "a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0",
+      "sourceLines": [
+        "红辣椒粉 5g",
+        "红辣椒粉 5g（Kashmiri 红辣椒粉最佳）"
+      ],
+      "identityId": "gallery-food-b295cb766e575f66",
+      "identityEvidence": "名称“红辣椒粉”与固定菜谱配料原文一致，按完整食材名称核对为辣椒；不适用于品牌或复合配料。",
+      "evidence": "固定原方 R320 SHA-256 a53278ad66dc72372dd5b13be89fdfb9cb84ee24da19415da51217149979a8c0；原料原文“红辣椒粉 5g；红辣椒粉 5g（Kashmiri 红辣椒粉最佳）”逐条可在原方中定位；身份核为单一食材“红辣椒粉”。此结论仅核实该行食材身份及其固有过敏原，不证明其他配料、品牌配方或交叉接触。"
+    }
+  ]
+}

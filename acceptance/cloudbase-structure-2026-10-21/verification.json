@@ -1,0 +1,40 @@
+{
+  "environmentId": "shiwei-d2gmiun66b7dc6a4f",
+  "region": "ap-shanghai",
+  "verifiedAtUtc": "2026-10-21T12:46:58.3770668+00:00",
+  "requestId": "9ad1e9a3-350c-4dbb-a437-fadcdd5e9596",
+  "vectorConstraintProbe": "passed_and_rolled_back",
+  "result": {
+    "vector": {
+      "schema": "extensions",
+      "version": "0.8.2"
+    },
+    "database": "postgres-l3nqdxta",
+    "migrations": [
+      {
+        "version": 1,
+        "checksum": "65db5344b7b1fd72f49ae7b79e41a204db8b75960c703b68618d664ea454e81b",
+        "filename": "001-initial.sql"
+      },
+      {
+        "version": 2,
+        "checksum": "1938c4b1a38cb001f2b8cea074f61d0d78898527c30486025f4a4cc22314fab5",
+        "filename": "002-content-structure.sql"
+      },
+      {
+        "version": 3,
+        "checksum": "ac813bd9580cead7d171e9d49bde731a42182e3e6c04607a16548a10fa891da5",
+        "filename": "003-vector-structure.sql"
+      }
+    ],
+    "recipe_count": 0,
+    "account_count": 0,
+    "migration_role": "cloudbase_postgres_postgres_l3nqdxta",
+    "embedding_count": 0,
+    "tables_without_rls": 0,
+    "client_table_access": [],
+    "project_table_count": 26,
+    "client_public_defaults": [],
+    "client_sequence_access": []
+  }
+}

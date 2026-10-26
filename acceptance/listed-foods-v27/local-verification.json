@@ -1,0 +1,18 @@
+{
+  "releaseId": "gallery-listed-foods-20261026-v27",
+  "hash": "9c1240189df99cc76891b9c8949804b6589c4eebf4bec5272b0df13a58bddbf4",
+  "recipes": 341,
+  "newDishes": 196,
+  "variants": 345,
+  "ingredientRows": 4529,
+  "ingredientExclusions": 9058,
+  "allNamedFoodsResolvable": true,
+  "optionalIngredientsAndSeasoningsExcluded": true,
+  "porkCutFamilyVerified": true,
+  "hiddenSoySauceComponentsNotInferred": true,
+  "paginationVerified": true,
+  "sqlRoundTrip": true,
+  "anonymousWriteDenied": true,
+  "healthEnabled": false,
+  "chemicalCompositionInferred": false
+}

@@ -1,0 +1,27 @@
+{
+  "online": true,
+  "recipes": 341,
+  "variants": 345,
+  "reviewedMethods": 54,
+  "allMethodsAtLeastThreeSteps": true,
+  "foodAndImageDataUnchanged": true,
+  "contentVersion": "gallery-listed-foods-20261026-v27",
+  "databaseWrites": false,
+  "realAccountsUsed": false,
+  "screens": [
+    {
+      "name": "desktop",
+      "sourceClean": true,
+      "steps": 6,
+      "quantityNotesRemoved": true,
+      "noOverflow": true
+    },
+    {
+      "name": "mobile",
+      "sourceClean": true,
+      "steps": 6,
+      "quantityNotesRemoved": true,
+      "noOverflow": true
+    }
+  ]
+}

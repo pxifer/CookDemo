@@ -1,0 +1,193 @@
+{
+  "liveHttp": true,
+  "releaseId": "gallery-listed-foods-20261026-v27",
+  "hash": "9c1240189df99cc76891b9c8949804b6589c4eebf4bec5272b0df13a58bddbf4",
+  "recipes": 341,
+  "newDishes": 196,
+  "databaseCounts": {
+    "shiwei_food_identity_records": 665,
+    "shiwei_recipe_food_records": 4529
+  },
+  "databaseBundleReadbackVerified": true,
+  "restrictionScope": "listed-foods",
+  "cases": [
+    {
+      "name": "猪肉",
+      "kind": "allergy",
+      "returned": [
+        "清蒸鲈鱼",
+        "蒜蓉炒芹菜",
+        "清蒸南瓜",
+        "五香鹌鹑蛋",
+        "糖拌番茄",
+        "金针菇汤"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "猪肉",
+      "kind": "avoid",
+      "returned": [
+        "勾芡香菇汤",
+        "糖拌番茄",
+        "蒜蓉炒芹菜",
+        "凉拌紫甘蓝",
+        "金针菇汤",
+        "蒲烧茄子"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "鱼",
+      "kind": "allergy",
+      "returned": [
+        "凉拌鸡丝",
+        "凉拌芹菜叶",
+        "红烧鸡腿",
+        "红烧猪蹄",
+        "凉拌紫甘蓝",
+        "小葱拌豆腐"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "鱼",
+      "kind": "avoid",
+      "returned": [
+        "清炒花菜",
+        "凉拌芹菜叶",
+        "蒜蓉空心菜",
+        "芝麻辣炒排骨",
+        "炝拌白菜心",
+        "啤酒焖猪蹄"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "玉米",
+      "kind": "allergy",
+      "returned": [
+        "红油金针菇",
+        "蒜蓉空心菜",
+        "蒲烧茄子",
+        "麻辣鸡丝",
+        "糖拌番茄",
+        "甜辣烤全翅"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "玉米",
+      "kind": "avoid",
+      "returned": [
+        "五香鹌鹑蛋",
+        "小葱拌豆腐",
+        "蒜蓉炒芹菜",
+        "清蒸生蚝",
+        "糖拌番茄",
+        "芝麻辣炒排骨"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "大蒜",
+      "kind": "allergy",
+      "returned": [
+        "红烧冬瓜",
+        "乾隆白菜",
+        "金针菇汤",
+        "葱烧豆腐",
+        "鸡蛋羹",
+        "五香鹌鹑蛋"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "大蒜",
+      "kind": "avoid",
+      "returned": [
+        "乾隆白菜",
+        "糖拌番茄",
+        "红烧冬瓜",
+        "葱烧豆腐",
+        "凉拌紫甘蓝",
+        "鸡蛋羹"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "生抽",
+      "kind": "allergy",
+      "returned": [
+        "金针菇汤",
+        "糖拌番茄",
+        "清蒸鲈鱼",
+        "蒜蓉炒芹菜",
+        "乾隆白菜",
+        "小葱拌豆腐"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "生抽",
+      "kind": "avoid",
+      "returned": [
+        "啤酒焖猪蹄",
+        "清蒸南瓜",
+        "金针菇汤",
+        "蒜蓉炒芹菜",
+        "糖拌番茄",
+        "小葱拌豆腐"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "青椒",
+      "kind": "allergy",
+      "returned": [
+        "黄油煎虾",
+        "鸡蛋羹",
+        "香煎糖醋带鱼",
+        "凉拌紫甘蓝",
+        "芝麻辣炒排骨",
+        "勾芡香菇汤"
+      ],
+      "excluded": true
+    },
+    {
+      "name": "青椒",
+      "kind": "avoid",
+      "returned": [
+        "蒜蓉西兰花",
+        "凉拌鸡丝",
+        "红烧八爪鱼",
+        "麻辣鸡丝",
+        "葱烧豆腐",
+        "清炒花菜"
+      ],
+      "excluded": true
+    }
+  ],
+  "paginationVerified": true,
+  "replacePreservesOtherDishes": true,
+  "latenciesMs": [
+    544,
+    372,
+    453,
+    346,
+    471,
+    440,
+    361,
+    321,
+    250,
+    250,
+    279,
+    317,
+    380,
+    298,
+    1696,
+    433
+  ],
+  "healthEnabled": false,
+  "secretsPrinted": false
+}

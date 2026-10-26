@@ -1,0 +1,60 @@
+{
+  "liveHttp": true,
+  "releaseId": "composition-review-20261024-v8",
+  "releaseHash": "2196cd010497f193b36f506a80929caaca6def9a854d7c60c4405aa8c6112188",
+  "recipeCount": 145,
+  "pantryNames": [
+    "牛肉",
+    "鱼",
+    "玉米",
+    "白菜",
+    "鸡蛋",
+    "西红柿",
+    "金针菇"
+  ],
+  "results": [
+    {
+      "fishKind": "allergy",
+      "cornKind": "avoid",
+      "allowBuy": false,
+      "names": [
+        "糖拌番茄",
+        "金针菇汤"
+      ],
+      "excludedRestrictedFoods": true
+    },
+    {
+      "fishKind": "avoid",
+      "cornKind": "allergy",
+      "allowBuy": false,
+      "names": [
+        "金针菇汤",
+        "糖拌番茄"
+      ],
+      "excludedRestrictedFoods": true
+    },
+    {
+      "fishKind": "allergy",
+      "cornKind": "avoid",
+      "allowBuy": true,
+      "names": [
+        "糖拌番茄",
+        "金针菇汤"
+      ],
+      "excludedRestrictedFoods": true
+    },
+    {
+      "fishKind": "avoid",
+      "cornKind": "allergy",
+      "allowBuy": true,
+      "names": [
+        "金针菇汤",
+        "糖拌番茄"
+      ],
+      "excludedRestrictedFoods": true
+    }
+  ],
+  "fishAllergyAndAvoidModesVerified": true,
+  "cornAllergyAndAvoidModesVerified": true,
+  "credentialsPrinted": false
+}

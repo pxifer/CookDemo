@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R306",
+    "dish": "荷兰豆炒腊肠",
+    "name": "snow-peas-chinese-sausage-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone table and tasteful negative space. Landscape 4:3. No text, watermark, logos, people, utensils, other dishes or unrelated garnish. Stir-fried snow peas with Chinese cured sausage: crisp bright green flat snow pea pods, thin diagonal reddish translucent Chinese lap cheong sausage slices with tiny white fat specks, clear light soy sheen. Refined low arrangement. No garlic, carrots, mushrooms, onions, chili or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/snow-peas-chinese-sausage-finedining-v1.png",
+    "review": "按原方核对荷兰豆腊肠、削皮茄子、白花菜、三种菇与西兰花、藕丁孔洞和冬瓜半透明形态；生成示意仍待审核"
+  },
+  {
+    "id": "R312",
+    "dish": "蒲烧茄子",
+    "name": "kabayaki-eggplant-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone table and tasteful negative space. Landscape 4:3. No text, watermark, logos, people, utensils, other dishes or unrelated garnish. Kabayaki-style peeled eggplant: two flattened tender long eggplant halves, shallow lengthwise scoring, pan-seared golden caramel edges under a shiny dark amber honey-soy glaze, arranged elegantly in parallel on an ivory plate. No eel or other fish, no eggplant purple skin, no rice, scallions, sesame or herbs.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/kabayaki-eggplant-finedining-v1.png",
+    "review": "按原方核对荷兰豆腊肠、削皮茄子、白花菜、三种菇与西兰花、藕丁孔洞和冬瓜半透明形态；生成示意仍待审核"
+  },
+  {
+    "id": "R318",
+    "dish": "清炒花菜",
+    "name": "garlic-white-cauliflower-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone table and tasteful negative space. Landscape 4:3. No text, watermark, logos, people, utensils, other dishes or unrelated garnish. Garlic stir-fried white cauliflower: small tender ivory-white cauliflower florets with pale green stems and thin garlic slices, delicate clear light oil sheen, no browning or chili sauce. Compact beautiful low mound. No broccoli, pork, carrots, red chili, scallions, sesame or dark soy sauce.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/garlic-white-cauliflower-finedining-v1.png",
+    "review": "按原方核对荷兰豆腊肠、削皮茄子、白花菜、三种菇与西兰花、藕丁孔洞和冬瓜半透明形态；生成示意仍待审核"
+  },
+  {
+    "id": "R357",
+    "dish": "蚝油三鲜菇",
+    "name": "oyster-sauce-three-mushrooms-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone table and tasteful negative space. Landscape 4:3. No text, watermark, logos, people, utensils, other dishes or unrelated garnish. Three-mushroom oyster-sauce dish: thick brown shiitake slices, small tan beech mushrooms and ivory white beech mushrooms, glossy light brown oyster-soy glaze, tiny fresh red bird's-eye chili and green bell pepper pieces, fine scallion and ginger bits. A few cooked bright green broccoli florets elegantly arranged around the mushrooms, exactly as the recipe's serving. No meat, carrots or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/oyster-sauce-three-mushrooms-finedining-v1.png",
+    "review": "按原方核对荷兰豆腊肠、削皮茄子、白花菜、三种菇与西兰花、藕丁孔洞和冬瓜半透明形态；生成示意仍待审核"
+  },
+  {
+    "id": "R359",
+    "dish": "小炒脆藕丁",
+    "name": "spicy-lotus-root-cubes-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone table and tasteful negative space. Landscape 4:3. No text, watermark, logos, people, utensils, other dishes or unrelated garnish. Stir-fried crunchy lotus root cubes: small pale tan angular lotus root chunks with natural small holes visible on cut faces, glossy brown soy-oyster glaze, small fresh red bird's-eye chili rings and pale scallion segments. Refined compact low mound. No peanuts, meat, green peppers, carrots or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/spicy-lotus-root-cubes-finedining-v1.png",
+    "review": "按原方核对荷兰豆腊肠、削皮茄子、白花菜、三种菇与西兰花、藕丁孔洞和冬瓜半透明形态；生成示意仍待审核"
+  },
+  {
+    "id": "R364",
+    "dish": "红烧冬瓜",
+    "name": "red-braised-winter-melon-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone table and tasteful negative space. Landscape 4:3. No text, watermark, logos, people, utensils, other dishes or unrelated garnish. Red-braised winter melon: peeled small square chunks of winter melon, translucent succulent ivory centers and glossy golden-brown soy-glazed faces, a little thick savory brown sauce underneath, tiny minced ginger and green scallion bits. Elegant compact overlapping arrangement. Clearly winter melon, no orange pumpkin, radish holes, tofu, meat or chili.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/red-braised-winter-melon-finedining-v1.png",
+    "review": "按原方核对荷兰豆腊肠、削皮茄子、白花菜、三种菇与西兰花、藕丁孔洞和冬瓜半透明形态；生成示意仍待审核"
+  }
+]

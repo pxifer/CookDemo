@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-24T08:07:34.165Z",
+  "envId": "shiwei-d2gmiun66b7dc6a4f",
+  "region": "ap-shanghai",
+  "emailLogin": true,
+  "builtInMail": true,
+  "usernameLoginPreserved": true,
+  "phoneLoginUnchanged": true,
+  "anonymousLoginUnchanged": true,
+  "packageId": "baas_trial",
+  "enableOverrun": false,
+  "autoRenew": false,
+  "mailSent": false,
+  "adminCredentialsInRuntime": false
+}

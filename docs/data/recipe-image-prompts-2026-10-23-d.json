@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R286",
+    "dish": "虎皮青椒",
+    "name": "blistered-green-peppers-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining recipe photograph, beautifully styled in an elegant ivory ceramic dish on a quiet warm beige stone table. Restrained sophisticated restaurant presentation with realistic edible textures, warm soft side light and calm negative space. Landscape 4:3, no words, watermarks, branding, hands or people. Correct recognizable dish and ingredient identity. Dish: 虎皮青椒: broad long green pepper sections with distinct blistered wrinkled pan-seared skin and a few dark brown patches, coated with a thin glossy soy-vinegar sauce and finely chopped garlic. About five peppers cut lengthwise into wide strips, attractively layered on a broad ivory plate. No meat, no stuffed filling, no red peppers or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/blistered-green-peppers-finedining-v1.png",
+    "review": "视觉核对主料及可见配料；配方抽取问题另外登记，图片不代表菜谱审核"
+  },
+  {
+    "id": "R299",
+    "dish": "番茄蛋花汤",
+    "name": "tomato-egg-drop-soup-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining recipe photograph, beautifully styled in an elegant ivory ceramic dish on a quiet warm beige stone table. Restrained sophisticated restaurant presentation with realistic edible textures, warm soft side light and calm negative space. Landscape 4:3, no words, watermarks, branding, hands or people. Correct recognizable dish and ingredient identity. Dish: 番茄蛋花汤: a delicate light tomato broth in an elegant ivory porcelain bowl, visible soft red tomato wedges and thin pale yellow egg ribbons floating naturally, tiny chopped scallions and a faint sesame oil glisten. Not scrambled eggs, not a thick opaque soup; beautiful clear luminous broth with recognizable airy egg flowers. No leafy vegetables, noodles, seafood or mushrooms.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/tomato-egg-drop-soup-finedining-v1.png",
+    "review": "视觉核对主料及可见配料；配方抽取问题另外登记，图片不代表菜谱审核"
+  },
+  {
+    "id": "R337",
+    "dish": "黄焖鸡",
+    "name": "braised-chicken-mushroom-potato-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining recipe photograph, beautifully styled in an elegant ivory ceramic dish on a quiet warm beige stone table. Restrained sophisticated restaurant presentation with realistic edible textures, warm soft side light and calm negative space. Landscape 4:3, no words, watermarks, branding, hands or people. Correct recognizable dish and ingredient identity. Dish: 黄焖鸡: succulent small bone-in chicken thigh pieces braised in glossy amber-brown soy sauce, plump shiitake mushroom slices, chunky golden potato pieces and vibrant green pepper sections, tiny dried red chili segments. Serve in a small refined cream ceramic shallow casserole with a little thick braising sauce, elegant sophisticated Chinese menu styling. No red bell pepper, no carrots, no rice, no herbs.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/braised-chicken-mushroom-potato-finedining-v1.png",
+    "review": "视觉核对主料及可见配料；配方抽取问题另外登记，图片不代表菜谱审核"
+  },
+  {
+    "id": "R339",
+    "dish": "酸辣土豆丝",
+    "name": "sour-spicy-potato-shreds-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining recipe photograph, beautifully styled in an elegant ivory ceramic dish on a quiet warm beige stone table. Restrained sophisticated restaurant presentation with realistic edible textures, warm soft side light and calm negative space. Landscape 4:3, no words, watermarks, branding, hands or people. Correct recognizable dish and ingredient identity. Dish: 酸辣土豆丝: very thin matchstick potato shreds, still crisp and pale yellow, small fine juliennes of green and red bell pepper, a few short dried chili segments and fine garlic bits, a subtle vinegar-oil sheen, tiny scallion flecks. Neatly gathered elegant low nest on an ivory porcelain plate. Must look like thin Chinese stir-fried potato shreds, not French fries or noodles, no meat, no brown thick sauce.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/sour-spicy-potato-shreds-finedining-v1.png",
+    "review": "视觉核对主料及可见配料；配方抽取问题另外登记，图片不代表菜谱审核"
+  },
+  {
+    "id": "R340",
+    "dish": "蒜蓉西兰花",
+    "name": "garlic-broccoli-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining recipe photograph, beautifully styled in an elegant ivory ceramic dish on a quiet warm beige stone table. Restrained sophisticated restaurant presentation with realistic edible textures, warm soft side light and calm negative space. Landscape 4:3, no words, watermarks, branding, hands or people. Correct recognizable dish and ingredient identity. Dish: 蒜蓉西兰花: emerald green broccoli florets only, gently cooked and neatly clustered in a low elegant mound, fine minced garlic in a light glossy tan soy-oyster sauce delicately draped over the florets. Large ivory porcelain plate, clean precise arrangement. No spinach, no whole garlic slices, no carrots, no other vegetables or meat.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/garlic-broccoli-finedining-v1.png",
+    "review": "视觉核对主料及可见配料；配方抽取问题另外登记，图片不代表菜谱审核"
+  },
+  {
+    "id": "R365",
+    "dish": "紫菜蛋花汤",
+    "name": "seaweed-egg-drop-soup-finedining-v1.png",
+    "prompt": "Photorealistic refined Chinese fine-dining recipe photograph, beautifully styled in an elegant ivory ceramic dish on a quiet warm beige stone table. Restrained sophisticated restaurant presentation with realistic edible textures, warm soft side light and calm negative space. Landscape 4:3, no words, watermarks, branding, hands or people. Correct recognizable dish and ingredient identity. Dish: 紫菜蛋花汤: clear delicate broth with soft dark purple-black nori seaweed wisps and airy pale yellow egg ribbons, a few tiny green scallion pieces. In a beautiful wide-rimmed ivory porcelain bowl, subtle light sesame oil highlights, refined minimal Chinese restaurant soup presentation. No tomato, no noodles, no meat, no mushrooms, no large leafy greens. Omit the optional dried shrimp to show the base dish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/seaweed-egg-drop-soup-finedining-v1.png",
+    "review": "视觉核对主料及可见配料；配方抽取问题另外登记，图片不代表菜谱审核"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "status": "internal-candidate-only",
+  "note": "No recipe source or license is upgraded by this selection. Keep original per-card source and pending review state.",
+  "sourceDataset": "docs/data/recipe-cards-v3.jsonl + docs/data/recipe-candidates-supplement-v1.jsonl",
+  "currentCatalogDishes": 145,
+  "newUniqueDishes": 200,
+  "recipeVersions": 203,
+  "first150": {
+    "dishes": 150,
+    "minIngredientEntries": 4,
+    "maxIngredientEntries": 14,
+    "methods": [
+      "炒",
+      "烧制",
+      "拌",
+      "煎",
+      "蒸",
+      "炖煮",
+      "烤",
+      "焖"
+    ]
+  },
+  "next50": {
+    "dishes": 50,
+    "minEntries": 14,
+    "maxEntries": 18
+  },
+  "categories": {
+    "meat": 135,
+    "veg": 53,
+    "soup": 12
+  },
+  "sources": {
+    "previous": 48,
+    "cctv": 146,
+    "chef-indexed": 7,
+    "bilibili-description": 2
+  },
+  "ids": 203,
+  "uniqueDishes": 200,
+  "hash": "da502014611688f9317ef79e64451e60db4b9af4dafc7d1ac1dd67671f18d0ff"
+}

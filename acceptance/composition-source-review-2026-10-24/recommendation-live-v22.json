@@ -1,0 +1,71 @@
+{
+  "liveHttp": true,
+  "functionName": "shiwei-http-preview",
+  "recipeCount": 145,
+  "pantryNames": [
+    "牛肉",
+    "鱼",
+    "玉米",
+    "白菜",
+    "鸡蛋",
+    "西红柿",
+    "金针菇"
+  ],
+  "results": [
+    {
+      "fishKind": "allergy",
+      "cornKind": "avoid",
+      "allowBuy": false,
+      "names": [
+        "凉拌金针菇",
+        "乾隆白菜",
+        "金针菇汤",
+        "糖拌番茄"
+      ],
+      "excludedRestrictedFoods": true
+    },
+    {
+      "fishKind": "avoid",
+      "cornKind": "allergy",
+      "allowBuy": false,
+      "names": [
+        "凉拌金针菇",
+        "乾隆白菜",
+        "糖拌番茄",
+        "金针菇汤"
+      ],
+      "excludedRestrictedFoods": true
+    },
+    {
+      "fishKind": "allergy",
+      "cornKind": "avoid",
+      "allowBuy": true,
+      "names": [
+        "巴基斯坦牛肉咖喱",
+        "牛排",
+        "糖拌番茄",
+        "凉拌金针菇",
+        "乾隆白菜",
+        "金针菇汤"
+      ],
+      "excludedRestrictedFoods": true
+    },
+    {
+      "fishKind": "avoid",
+      "cornKind": "allergy",
+      "allowBuy": true,
+      "names": [
+        "巴基斯坦牛肉咖喱",
+        "牛排",
+        "乾隆白菜",
+        "糖拌番茄",
+        "金针菇汤",
+        "凉拌金针菇"
+      ],
+      "excludedRestrictedFoods": true
+    }
+  ],
+  "fishAllergyAndAvoidModesVerified": true,
+  "cornAllergyAndAvoidModesVerified": true,
+  "credentialsPrinted": false
+}

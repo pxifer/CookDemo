@@ -1,0 +1,29 @@
+[
+  {
+    "id": "R298",
+    "dish": "冬瓜酿肉",
+    "name": "winter-melon-pork-rolls-finedining-v1.png",
+    "prompt": "Use case: photorealistic-natural. Asset: refined Chinese restaurant recipe photograph, landscape 4:3. Show 冬瓜酿肉: translucent steamed winter melon ribbons rolled around finely minced cooked pork, arranged as an elegant ring on a wide ivory porcelain plate, one fully cooked whole egg nestled in the center, a delicate clear glossy starch sauce, a few finely cut scallion greens. Accurate distinctive winter melon stuffed pork rolls, not cabbage rolls. Beautiful fine-dining menu styling, restrained plating, realistic edible texture, warm soft side lighting, quiet beige stone table, sophisticated shallow depth of field, appetizing and luminous. No unrelated vegetables, no chili oil, no herbs other than scallion, no words, no watermark, no people. Keep the whole plated dish comfortably inside frame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/winter-melon-pork-rolls-finedining-v1.png",
+    "review": "视觉核对主料、摆盘与候选原方相符；不代表配方、健康或专业审核通过"
+  },
+  {
+    "id": "R352",
+    "dish": "凉拌木耳",
+    "name": "wood-ear-salad-finedining-v1.png",
+    "prompt": "Use case: photorealistic-natural. Asset: exquisite Chinese restaurant recipe photograph, landscape 4:3. Primary dish 凉拌木耳: glossy black wood ear mushrooms with delicate ruffled edges, finely diced garlic and tiny red bird's-eye chili pieces, lightly dressed in soy, vinegar and sesame oil, arranged in a beautifully sculptural modest portion on a wide matte ivory porcelain plate. No meat, no egg, no leafy greens, no cilantro, no sesame seeds. Visually refined high-end restaurant menu photography, generous clean negative space, warm directional window light, tactile realistic mushroom texture, calm beige stone tabletop, elegant natural colors, focused food with softly blurred surroundings. No text, watermark, branding, hands or people. Whole plate visible, dish unmistakably black wood ear mushroom salad.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/wood-ear-salad-finedining-v1.png",
+    "review": "视觉核对主料、摆盘与候选原方相符；不代表配方、健康或专业审核通过"
+  },
+  {
+    "id": "R396",
+    "dish": "凉拌莴笋",
+    "name": "celtuce-salad-finedining-v1.png",
+    "prompt": "Use case: photorealistic-natural. Asset: beautiful sophisticated Chinese restaurant recipe photograph, landscape 4:3. Dish 凉拌莴笋: crisp pale jade-green celtuce stem batons, a few white radish batons, tiny red chili rings and small pieces of garlic and ginger, glistening with a light clear warm oil dressing. Arrange the celtuce neatly in a low elegant mound on a broad ivory ceramic plate, refined fine-dining presentation while keeping ingredients realistic and recognizable. Gentle warm side light, fresh luminous green color, precise tactile food detail, clean warm beige stone table, restrained negative space. No cucumber seeds, no lettuce leaves, no meat, no noodles, no dark sauce, no sesame, no text, no logo, no watermark, no people. Whole plate framed beautifully.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/celtuce-salad-finedining-v1.png",
+    "review": "视觉核对主料、摆盘与候选原方相符；不代表配方、健康或专业审核通过"
+  }
+]

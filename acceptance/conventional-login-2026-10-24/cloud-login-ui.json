@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-24T13:06:33.980Z",
+  "desktop": true,
+  "mobile": true,
+  "oneLoginButton": true,
+  "silentDomFillSubmitted": true,
+  "oneRequestPerLogin": true,
+  "cleanup": true,
+  "syntheticAccount": true,
+  "secretsPrinted": false,
+  "realUserCredentialsUsed": false
+}

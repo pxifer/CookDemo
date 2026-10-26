@@ -1,0 +1,38 @@
+[
+  {
+    "id": "R415",
+    "dish": "韭菜炒蛋",
+    "name": "chinese-chives-scrambled-eggs-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Stir-fried Chinese chives with eggs: flat vivid green chive blades cut into 3 cm lengths and fluffy soft fully cooked golden scrambled egg curds, light clear sheen, compact graceful mound on a broad plate. Recognizable flat chives, not hollow spring onion. No meat, tomatoes, peppers, sesame or rice.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/chinese-chives-scrambled-eggs-finedining-v1.png",
+    "review": "核对韭菜扁叶、煎豆腐薄片、无辣黄瓜及洋葱蛋形态，原创生成成品示意，仍待审核"
+  },
+  {
+    "id": "R416",
+    "dish": "葱煎豆腐",
+    "name": "scallion-pan-fried-tofu-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Scallion pan-fried tofu: slim 5mm-thick rectangular tofu slices with golden-brown pan-seared faces and ivory edges, small tender green pepper squares, fine fresh green scallion bits, delicate clear savory glaze. Beautifully overlapped small arrangement on a broad plate. No dark soy gravy, red pepper, meat or sesame.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/scallion-pan-fried-tofu-finedining-v1.png",
+    "review": "核对韭菜扁叶、煎豆腐薄片、无辣黄瓜及洋葱蛋形态，原创生成成品示意，仍待审核"
+  },
+  {
+    "id": "R417",
+    "dish": "凉拌黄瓜",
+    "name": "smashed-cucumber-garlic-salad-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Chinese smashed cucumber salad: irregular chunky 3cm cucumber pieces, crushed textured edges, vivid dark green skin and translucent pale green centers, finely minced garlic in a delicate light soy-vinegar-oyster-sesame oil dressing, compact artful arrangement in a shallow porcelain dish. No chili, cilantro, sesame seeds, meat or whole garlic cloves.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/smashed-cucumber-garlic-salad-finedining-v1.png",
+    "review": "核对韭菜扁叶、煎豆腐薄片、无辣黄瓜及洋葱蛋形态，原创生成成品示意，仍待审核"
+  },
+  {
+    "id": "R418",
+    "dish": "洋葱炒鸡蛋",
+    "name": "onion-scrambled-eggs-finedining-v1.png",
+    "prompt": "Photorealistic exquisite Chinese restaurant menu photograph, refined restrained fine-dining plating on warm ivory ceramic, warm natural side light, realistic appetizing cooked textures, quiet beige stone surface, tasteful negative space. Landscape 4:3. Single dish only, no lettering, watermark, people, utensils or unrelated garnish. Onion scrambled eggs: soft golden egg curds lightly pan-fried, folded around thin translucent pale onion slices, sprinkled with a few finely chopped green scallion bits. Moist delicate fully cooked eggs with gently golden surfaces, refined low mound. No bell pepper, chives, meat, mushrooms, tomatoes or rice.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/onion-scrambled-eggs-finedining-v1.png",
+    "review": "核对韭菜扁叶、煎豆腐薄片、无辣黄瓜及洋葱蛋形态，原创生成成品示意，仍待审核"
+  }
+]

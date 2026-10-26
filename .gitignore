@@ -13,3 +13,5 @@ build/
 test-results/
 playwright-report/
 .local-data/
+.local-backups/
+acceptance/**/trace.zip

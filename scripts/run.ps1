@@ -1,4 +1,9 @@
-param([ValidateSet('start','build','test','test:e2e','check','install')][string]$Task = 'start')
+param(
+  [ValidateSet('start','build','test','test:e2e','test:business:postgres','test:business:e2e','test:resume:e2e','check','install','db:prepare','db:migrate','db:check','test:postgres','db:cloudbase:prepare','test:cloudbase','capture:evidence')][string]$Task = 'start',
+  [string]$EnvFile,
+  [switch]$Vector,
+  [switch]$AdoptLegacy
+)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $runtimePath = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'
@@ -11,7 +16,17 @@ $env:PATH = (Split-Path -Parent $nodePath) + ';' + $env:PATH
 $npmPath = Join-Path (Split-Path -Parent (Get-Command npm).Source) 'node_modules\npm\bin\npm-cli.js'
 Push-Location -LiteralPath $projectRoot
 try {
-  if ($Task -eq 'install') { & $nodePath $npmPath ci }
-  else { & $nodePath $npmPath run $Task }
+  $nodeArgs = @()
+  if ($EnvFile) {
+    $resolvedEnvFile = (Resolve-Path -LiteralPath $EnvFile).Path
+    $nodeArgs += "--env-file=$resolvedEnvFile"
+  }
+  $taskArgs = @()
+  if ($Vector) { $taskArgs += '--vector' }
+  if ($AdoptLegacy) { $taskArgs += '--adopt-legacy' }
+  if ($taskArgs.Count -and $Task -notin @('db:migrate','db:check')) { throw '附加开关仅用于 db:migrate/db:check' }
+  if ($Task -eq 'install') { & $nodePath @nodeArgs $npmPath ci }
+  elseif ($taskArgs.Count) { & $nodePath @nodeArgs $npmPath run $Task -- @taskArgs }
+  else { & $nodePath @nodeArgs $npmPath run $Task }
   if ($LASTEXITCODE -ne 0) { throw "任务 $Task 失败，退出码 $LASTEXITCODE" }
 } finally { Pop-Location }

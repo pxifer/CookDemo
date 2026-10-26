@@ -1,0 +1,56 @@
+[
+  {
+    "id": "R291",
+    "dish": "糖醋排骨",
+    "name": "sweet-sour-pork-ribs-finedining-v1.png",
+    "prompt": "Photorealistic Chinese fine-dining restaurant menu photograph. Exquisite but recognizable dish, restrained elegant plating on refined ivory porcelain, warm soft directional window light, realistic appetizing food textures, quiet beige stone table, generous negative space, beautifully balanced natural color. Landscape 4:3, entire plated food comfortably visible. No lettering, no watermark, no logo, no people. Dish: 糖醋排骨: small bone-in pork ribs richly coated in a glossy reddish-brown sweet and sour tomato-vinegar glaze, a delicate sprinkle of white sesame seeds. A compact beautifully arranged pile of ribs, some cross-cut bones visible. No pineapple, no bell peppers, no other vegetables or herbs.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/sweet-sour-pork-ribs-finedining-v1.png",
+    "review": "视觉核对主料、做法及可见调料；仍待内容审核"
+  },
+  {
+    "id": "R293",
+    "dish": "可乐鸡翅",
+    "name": "cola-chicken-wings-finedining-v1.png",
+    "prompt": "Photorealistic Chinese fine-dining restaurant menu photograph. Exquisite but recognizable dish, restrained elegant plating on refined ivory porcelain, warm soft directional window light, realistic appetizing food textures, quiet beige stone table, generous negative space, beautifully balanced natural color. Landscape 4:3, entire plated food comfortably visible. No lettering, no watermark, no logo, no people. Dish: 可乐鸡翅: six plump whole chicken mid-wings with intact skin, shallow scoring cuts, glazed in a deep caramel-brown glossy reduced cola and soy sauce, no sesame and no chili, no vegetable garnish. Arrange in an elegant slight overlapping fan, subtle clear caramel sauce pool.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/cola-chicken-wings-finedining-v1.png",
+    "review": "视觉核对主料、做法及可见调料；仍待内容审核"
+  },
+  {
+    "id": "R314",
+    "dish": "清蒸鲈鱼",
+    "name": "steamed-sea-bass-finedining-v1.png",
+    "prompt": "Photorealistic Chinese fine-dining restaurant menu photograph. Exquisite but recognizable dish, restrained elegant plating on refined ivory porcelain, warm soft directional window light, realistic appetizing food textures, quiet beige stone table, generous negative space, beautifully balanced natural color. Landscape 4:3, entire plated food comfortably visible. No lettering, no watermark, no logo, no people. Dish: 清蒸鲈鱼: a whole steamed sea bass with head and tail intact, naturally silver-gray skin with several diagonal cuts and tender white fish flesh, precisely cut delicate scallion and ginger threads on top, shallow clear light brown soy sauce around it. Elegantly arranged lengthwise on a long ivory porcelain fish platter. No red chili, no coriander, no fried golden skin. Graceful Chinese banquet dish.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/steamed-sea-bass-finedining-v1.png",
+    "review": "视觉核对主料、做法及可见调料；仍待内容审核"
+  },
+  {
+    "id": "R335",
+    "dish": "糖醋里脊",
+    "name": "sweet-sour-pork-tenderloin-finedining-v1.png",
+    "prompt": "Photorealistic Chinese fine-dining restaurant menu photograph. Exquisite but recognizable dish, restrained elegant plating on refined ivory porcelain, warm soft directional window light, realistic appetizing food textures, quiet beige stone table, generous negative space, beautifully balanced natural color. Landscape 4:3, entire plated food comfortably visible. No lettering, no watermark, no logo, no people. Dish: 糖醋里脊: crisp finger-length strips of pork tenderloin coated uniformly with luminous red-orange tomato-based sweet-and-sour sauce, no bones, no sesame, no pineapple, no peppers, no vegetables. Elegant sculptural pile of slightly irregular crunchy pork strips on a wide warm ivory plate, a minimal glossy red sauce smear.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/sweet-sour-pork-tenderloin-finedining-v1.png",
+    "review": "视觉核对主料、做法及可见调料；仍待内容审核"
+  },
+  {
+    "id": "R355",
+    "dish": "蒜蓉空心菜",
+    "name": "garlic-water-spinach-finedining-v1.png",
+    "prompt": "Photorealistic Chinese fine-dining restaurant menu photograph. Exquisite but recognizable dish, restrained elegant plating on refined ivory porcelain, warm soft directional window light, realistic appetizing food textures, quiet beige stone table, generous negative space, beautifully balanced natural color. Landscape 4:3, entire plated food comfortably visible. No lettering, no watermark, no logo, no people. Dish: 蒜蓉空心菜: vibrant emerald water spinach, long thin hollow stems and slender pointed leaves lightly wilted, small finely chopped garlic pieces, a delicate clear oil sheen. Arrange into a neat low elongated mound. Must be water spinach, not broccoli, not spinach rosettes, not bok choy. No meat, no chili, no other vegetables, no thick sauce.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/garlic-water-spinach-finedining-v1.png",
+    "review": "视觉核对主料、做法及可见调料；仍待内容审核"
+  },
+  {
+    "id": "R382",
+    "dish": "清蒸南瓜",
+    "name": "steamed-pumpkin-finedining-v1.png",
+    "prompt": "Photorealistic Chinese fine-dining restaurant menu photograph. Exquisite but recognizable dish, restrained elegant plating on refined ivory porcelain, warm soft directional window light, realistic appetizing food textures, quiet beige stone table, generous negative space, beautifully balanced natural color. Landscape 4:3, entire plated food comfortably visible. No lettering, no watermark, no logo, no people. Dish: 清蒸南瓜: pure tender steamed orange pumpkin wedges, seeds removed, a little natural dark green rind along each curved edge, beautifully fanned into a sculptural arc on a wide ivory porcelain plate. Slightly dewy matte soft cooked flesh, no char, no glaze, no sauce, no seeds sprinkled, no herbs, no meat. Minimalism highlighting the pumpkin itself.",
+    "tool": "built-in image_gen",
+    "asset": "public/assets/recipes/steamed-pumpkin-finedining-v1.png",
+    "review": "视觉核对主料、做法及可见调料；仍待内容审核"
+  }
+]

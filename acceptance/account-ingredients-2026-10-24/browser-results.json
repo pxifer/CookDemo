@@ -1,0 +1,378 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.account-cloud.config.ts",
+      "--workers=1"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.account-cloud.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/account-ingredients-2026-10-24/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/account-cloud.spec.ts"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/account-ingredients-2026-10-24/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/account-cloud.spec.ts"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\account-ingredients-2026-10-24\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/account-cloud.spec.ts",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\account-ingredients-2026-10-24\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/account-cloud.spec.ts",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "acceptance/account-ingredients-2026-10-24/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "account-cloud.spec.ts",
+      "file": "account-cloud.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "卡片：图片显示口味、无序号和成品示意，补买清单默认收起且可展开",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 27885,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('recipe-card')\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m4\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByTestId('recipe-card') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card')\u001b[22m\n\u001b[2m    8 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    35 × locator resolved to 4 elements\u001b[22m\n\u001b[2m       - unexpected value \"4\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('recipe-card')\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m4\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByTestId('recipe-card') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card')\u001b[22m\n\u001b[2m    8 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    35 × locator resolved to 4 elements\u001b[22m\n\u001b[2m       - unexpected value \"4\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts:25:67",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts",
+                      "column": 67,
+                      "line": 25
+                    },
+                    "snippet": "  23 |   await page.getByLabel('允许补买食材',{exact:false}).check();\n  24 |   await page.locator('.generate-button').click();\n> 25 |   const cards=page.getByTestId('recipe-card');await expect(cards).toHaveCount(6);\n     |                                                                   ^\n  26 |   await expect(cards.locator('.card-number')).toHaveCount(0);\n  27 |   await expect(cards.locator('.image-caption').first()).not.toContainText('成品示意');\n  28 |   const card=cards.filter({has:page.locator('.shopping-list')}).first(),list=card.locator('.shopping-list');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts",
+                        "column": 67,
+                        "line": 25
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('recipe-card')\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m4\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByTestId('recipe-card') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card')\u001b[22m\n\u001b[2m    8 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    35 × locator resolved to 4 elements\u001b[22m\n\u001b[2m       - unexpected value \"4\"\u001b[22m\n\n\n  23 |   await page.getByLabel('允许补买食材',{exact:false}).check();\n  24 |   await page.locator('.generate-button').click();\n> 25 |   const cards=page.getByTestId('recipe-card');await expect(cards).toHaveCount(6);\n     |                                                                   ^\n  26 |   await expect(cards.locator('.card-number')).toHaveCount(0);\n  27 |   await expect(cards.locator('.image-caption').first()).not.toContainText('成品示意');\n  28 |   const card=cards.filter({has:page.locator('.shopping-list')}).first(),list=card.locator('.shopping-list');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts:25:67"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T07:11:48.396Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\account-ingredients-2026-10-24\\browser\\account-cloud-卡片：图片显示口味、无序号和成品示意，补买清单默认收起且可展开-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\account-ingredients-2026-10-24\\browser\\account-cloud-卡片：图片显示口味、无序号和成品示意，补买清单默认收起且可展开-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts",
+                    "column": 67,
+                    "line": 25
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5bf9f21d515c464f190b-f1a16a305585cb46574c",
+          "file": "account-cloud.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "账户：游客确认合并、第二设备读取、并发冲突确认、账号隔离、退出撤销",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 66558,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T07:12:19.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5bf9f21d515c464f190b-92570bb0d9d01ed1c184",
+          "file": "account-cloud.spec.ts",
+          "line": 37,
+          "column": 1
+        },
+        {
+          "title": "卡片：图片显示口味、无序号和成品示意，补买清单默认收起且可展开",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28281,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('recipe-card')\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m4\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByTestId('recipe-card') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card')\u001b[22m\n\u001b[2m    9 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    34 × locator resolved to 4 elements\u001b[22m\n\u001b[2m       - unexpected value \"4\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('recipe-card')\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m4\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByTestId('recipe-card') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card')\u001b[22m\n\u001b[2m    9 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    34 × locator resolved to 4 elements\u001b[22m\n\u001b[2m       - unexpected value \"4\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts:25:67",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts",
+                      "column": 67,
+                      "line": 25
+                    },
+                    "snippet": "  23 |     await page.getByLabel('手动添加食材',{exact:true}).fill(name);await page.getByLabel('手动添加食材',{exact:true}).press('Enter');\n  24 |   }\n> 25 |   await page.getByLabel('允许补买食材',{exact:false}).check();\n     |                                                         ^\n  26 |   await page.locator('.generate-button').click();\n  27 |   const cards=page.getByTestId('recipe-card');await expect(cards).toHaveCount(6);\n  28 |   await expect(cards.locator('.card-number')).toHaveCount(0);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts",
+                        "column": 67,
+                        "line": 25
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('recipe-card')\nExpected: \u001b[32m6\u001b[39m\nReceived: \u001b[31m4\u001b[39m\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByTestId('recipe-card') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card')\u001b[22m\n\u001b[2m    9 × locator resolved to 0 elements\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    34 × locator resolved to 4 elements\u001b[22m\n\u001b[2m       - unexpected value \"4\"\u001b[22m\n\n\n  23 |     await page.getByLabel('手动添加食材',{exact:true}).fill(name);await page.getByLabel('手动添加食材',{exact:true}).press('Enter');\n  24 |   }\n> 25 |   await page.getByLabel('允许补买食材',{exact:false}).check();\n     |                                                         ^\n  26 |   await page.locator('.generate-button').click();\n  27 |   const cards=page.getByTestId('recipe-card');await expect(cards).toHaveCount(6);\n  28 |   await expect(cards.locator('.card-number')).toHaveCount(0);\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts:25:67"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T07:13:28.743Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\account-ingredients-2026-10-24\\browser\\account-cloud-卡片：图片显示口味、无序号和成品示意，补买清单默认收起且可展开-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\account-ingredients-2026-10-24\\browser\\account-cloud-卡片：图片显示口味、无序号和成品示意，补买清单默认收起且可展开-mobile\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\account-cloud.spec.ts",
+                    "column": 67,
+                    "line": 25
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5bf9f21d515c464f190b-342be4eb6976a9a1d657",
+          "file": "account-cloud.spec.ts",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "账户：游客确认合并、第二设备读取、并发冲突确认、账号隔离、退出撤销",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 67056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T07:13:59.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5bf9f21d515c464f190b-942c10315edadb5d7403",
+          "file": "account-cloud.spec.ts",
+          "line": 37,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T07:11:47.659Z",
+    "duration": 201306.794,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

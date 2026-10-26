@@ -1,0 +1,22 @@
+{
+  "releaseId": "composition-review-20261024-v4",
+  "hash": "b098f5a0f939c20f5d8bd106a4733834bb40d211673fb82975f0cb37b9149d02",
+  "baseHash": "a8672d832d83d0e77fcd331334612a5a3697e89b301d2c49183cd0f830b1063b",
+  "sourceCheckedRecords": 11,
+  "fullyVerifiedRecords": 3,
+  "conditionalSourceRecords": 8,
+  "pendingRecords": 135,
+  "fishCornEligibleWithBuying": [
+    "清蒸南瓜",
+    "糖拌番茄",
+    "金针菇汤"
+  ],
+  "originalRecipes": 145,
+  "variants": 146,
+  "ingredientLines": 1768,
+  "globalCompletenessChanged": false,
+  "unknownCompoundStillBlocked": true,
+  "nutritionInferred": false,
+  "anonWriteDenied": true,
+  "sqlRoundTrip": true
+}

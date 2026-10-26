@@ -1,14 +1,36 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { extractText } from '../shared/extraction';
+import { extractText, makeRestriction } from '../shared/extraction';
 import { parseQuantity, quantityCheck } from '../shared/quantity';
 import { defaultMeal, type Line } from '../shared/types';
-import { amountParts, inputIngredient, mergeInput, normalizeInput, setAmount } from '../src/meal-input';
+import { amountParts, inputIngredient, mergeInput, normalizeInput, resolveExtraction, setAmount } from '../src/meal-input';
 
 test('D7-04: 已知食材直接使用，未知名称不伪造标准食材，调料不进入主料清单', () => {
   assert.equal(inputIngredient('土豆').status, 'confirmed');
   assert.equal(inputIngredient('未知食物').foodId, null);
   assert.deepEqual(mergeInput([], extractText('鸡蛋3个盐2g生抽1ml').ingredients).map(i => i.foodId), ['egg']);
+});
+test('输入大类“粉条”保留目录ID及未指定形态',()=>{
+  const powder=inputIngredient('粉条');
+  assert.equal(powder.foodId,'ingredient-family-vermicelli');
+  assert.equal(powder.form,'unspecified');
+  assert.equal(normalizeInput({...defaultMeal(),ingredients:[powder]}).ingredients[0].foodId,'ingredient-family-vermicelli');
+});
+test('旧识别服务返回“粉条”为未识别时，由当前目录复核；未知片段不转成忌口',()=>{
+  const current=extractText('猪肉，白菜，粉条');
+  const stale={...current,ingredients:current.ingredients.filter(i=>i.name!=='粉条'),unresolved:['粉条']};
+  const resolved=resolveExtraction(stale);
+  const merged=mergeInput([],resolved.ingredients);
+  assert.deepEqual(merged.map(i=>i.foodId),['pork','cabbage','ingredient-family-vermicelli']);
+  assert.equal(merged.at(-1)?.form,'unspecified');
+  assert.deepEqual(resolved.restrictions,[]);
+
+  const unknown=resolveExtraction({...stale,ingredients:[],unresolved:['神秘食物']});
+  assert.equal(unknown.ingredients[0].foodId,null);
+  assert.equal(unknown.ingredients[0].status,'pending');
+  assert.deepEqual(unknown.restrictions,[]);
+  const explicit=makeRestriction('花生','allergy');
+  assert.deepEqual(resolveExtraction({...stale,restrictions:[explicit]}).restrictions,[explicit]);
 });
 test('D7-04: 选填单位空值保持空值，g/kg换算、约量和带单位粘贴保留', () => {
   const potato = inputIngredient('土豆');
