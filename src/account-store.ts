@@ -1,4 +1,4 @@
-import { ApiError, establishSession, loadAccount, saveAccount } from './api';
+import { ApiError, establishSession, loadAccount, saveAccount, updateHealthApiKey } from './api';
 import type { AccountSnapshot, AccountValue } from '../shared/account';
 import { emptyAccount, personalSettings } from '../shared/account';
 import { mergeAccountValues, reconcileAccountValues as reconcile } from '../shared/account-merge';
@@ -55,7 +55,7 @@ export async function initializeAccount(content?:ContentSnapshot,supplied?:Sessi
     if(epoch!==generation)return;
     const pendingImport=imported??(readValue('shiwei:guest:import-request:v1')===true&&nonempty(guest)?guest:null);
     let next=cloud.value;
-    if(pendingImport){next=mergeAccountValues(pendingImport,cloud.value);if(cloud.value.defaults)next.defaults={...cloud.value.defaults,restrictions:next.defaults!.restrictions,...(next.defaults!.aiExcludedFoods?{aiExcludedFoods:next.defaults!.aiExcludedFoods}:{})};}
+    if(pendingImport){next=mergeAccountValues(pendingImport,cloud.value);if(cloud.value.defaults)next.defaults={...cloud.value.defaults,restrictions:next.defaults!.restrictions,...(next.defaults!.healthProfile?{healthProfile:next.defaults!.healthProfile}:{}),...(next.defaults!.aiExcludedFoods?{aiExcludedFoods:next.defaults!.aiExcludedFoods}:{})};}
     else if(base&&!same(value(),base.value))next=reconcile(value(),cloud.value,base.value);
     apply(next);acknowledge(cloud);emit({cloud,local:next,status:'ready',message:''});
     writeValue('shiwei:guest:import-request:v1',false);
@@ -103,3 +103,20 @@ window.addEventListener('shiwei:local-data',event=>{const key=(event as CustomEv
 window.addEventListener('focus',()=>void refreshAccount());
 window.addEventListener('online',()=>void syncAccount());
 window.addEventListener('storage',event=>{if(event.key===storageKey('shiwei:guest:favorites:v1')||event.key===storageKey('shiwei:guest:defaults:v1')){changed();window.dispatchEvent(new Event('shiwei:account-applied'));}});
+
+
+export function acceptAccountSnapshot(snapshot:AccountSnapshot){
+  if(state.session?.identity!=='account')return;
+  const next=state.cloud?reconcile(value(),snapshot.value,state.cloud.value):snapshot.value;
+  apply(next);acknowledge(snapshot);emit({cloud:snapshot,local:next,status:'ready',message:''});
+  if(!same(next,snapshot.value))void syncAccount();
+}
+export async function saveHealthApiKey(apiKey:string|null){
+  if(state.session?.identity!=='account'||!state.cloud)throw Error('请先登录');
+  if(writing)throw Error('个人设置正在保存，请稍后重试');
+  await syncAccount();
+  if(state.status==='error'||writing)throw Error('请先完成个人设置同步，再保存Key');
+  const epoch=generation;
+  try{const snapshot=await updateHealthApiKey(state.cloud!.version,apiKey);if(epoch!==generation)return;acceptAccountSnapshot(snapshot);}
+  catch(error){if(error instanceof ApiError&&error.status===409)await refreshAccount();throw error;}
+}

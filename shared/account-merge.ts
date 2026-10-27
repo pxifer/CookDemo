@@ -36,6 +36,7 @@ export function reconcileAccountValues(local:AccountValue,remote:AccountValue,ba
     merged.defaults={...merged.defaults!,flavor:same(local.defaults.flavor,base.defaults.flavor)?remote.defaults.flavor:local.defaults.flavor,
       checkSeasonings:same(local.defaults.checkSeasonings,base.defaults.checkSeasonings)?remote.defaults.checkSeasonings:local.defaults.checkSeasonings,
       seasonings:same(local.defaults.seasonings,base.defaults.seasonings)?remote.defaults.seasonings:local.defaults.seasonings,
+      healthProfile:same(local.defaults.healthProfile,base.defaults.healthProfile)?remote.defaults.healthProfile:same(remote.defaults.healthProfile,base.defaults.healthProfile)?local.defaults.healthProfile:base.defaults.healthProfile&&(!local.defaults.healthProfile||!remote.defaults.healthProfile)?undefined:remote.defaults.healthProfile,
       aiExcludedFoods:[...new Set([...remoteFoods(local.defaults),...remoteFoods(remote.defaults)])].filter(name=>!remoteFoods(base.defaults!).includes(name)||(remoteFoods(local.defaults!).includes(name)&&remoteFoods(remote.defaults!).includes(name))),
       restrictions:same(local.defaults.restrictions,base.defaults.restrictions)?remote.defaults.restrictions:same(remote.defaults.restrictions,base.defaults.restrictions)?local.defaults.restrictions:merged.defaults!.restrictions};
   }

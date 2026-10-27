@@ -148,7 +148,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   const dishRanks=new Map<string,number>();
   const dishRank=(id:string)=>{if(!dishRanks.has(id))dishRanks.set(id,rank(id));return dishRanks.get(id)!;};
   const variedOrder = (a: Dish, b: Dish) => dishRank(a.recipe.id) - dishRank(b.recipe.id);
-  const useAiRank=meal.health&&Boolean(meal.aiFoodChoices?.preferred.length||meal.aiFoodChoices?.limited.length);
+  const useAiRank=meal.health&&Boolean(meal.aiFoodChoices?.preferred.length||meal.aiFoodChoices?.limited.length||(!meal.aiFoodChoices&&meal.healthProfile?.suggestions.length));
   const aiRanks=new Map<string,ReturnType<typeof aiFoodRank>>();
   const aiRank=(dish:Dish)=>{if(!aiRanks.has(dish.variant.id))aiRanks.set(dish.variant.id,aiFoodRank(dish.variant,meal,context));return aiRanks.get(dish.variant.id)!;};
   const aiOrder=(a:Dish,b:Dish)=>useAiRank?(aiRank(a).limited-aiRank(b).limited||aiRank(b).preferred-aiRank(a).preferred):0;

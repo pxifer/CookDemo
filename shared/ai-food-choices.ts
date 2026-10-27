@@ -10,6 +10,6 @@ export function aiFoodMatch(variant: Variant, name: string, context: ContentCont
 }
 export const aiExcludedFoods=(meal:Meal):string[]=>meal.health?[...new Set([...(meal.aiExcludedFoods??[]),...(meal.aiFoodChoices?.excluded??[])])]:[];
 export function aiFoodRank(variant:Variant,meal:Meal,context:ContentContext){
-  const choices=meal.health?meal.aiFoodChoices:undefined;
+  const choices=meal.health?(meal.aiFoodChoices??{preferred:meal.healthProfile?.suggestions.filter(item=>item.direction==='prefer'&&item.matchable).map(item=>item.foodName)??[],limited:meal.healthProfile?.suggestions.filter(item=>item.direction!=='prefer'&&item.matchable).map(item=>item.foodName)??[],excluded:[]}):undefined;
   return {limited:choices?.limited.filter(name=>aiFoodMatch(variant,name,context)).length??0,preferred:choices?.preferred.filter(name=>aiFoodMatch(variant,name,context)).length??0};
 }

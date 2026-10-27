@@ -7,7 +7,7 @@ import { chatContext, type HealthChatRequest } from '../shared/health-chat';
 
 const apiKey='sk-test-only-health-chat-123456789';
 const body=():HealthChatRequest=>({operationId:crypto.randomUUID(),apiKey,messages:[{role:'user',content:'测试食材做法'}],diseases:['测试疾病']});
-const success=(reply='构造AI回复：可以比较不同做法。')=>Response.json({id:'mock-deepseek-request-12345678',model:'deepseek-flash',usage:{prompt_tokens:40,completion_tokens:30,total_tokens:70},choices:[{finish_reason:'stop',message:{content:JSON.stringify({reply,stage:'clarify',suggestions:[]})}}]});
+const success=(reply='构造AI回复：可以比较不同做法。')=>Response.json({id:'mock-deepseek-request-12345678',model:'deepseek-flash',usage:{prompt_tokens:40,completion_tokens:30,total_tokens:70},choices:[{finish_reason:'stop',message:{content:JSON.stringify({reply,stage:'clarify',suggestions:[],profile:{conditions:[],goals:[],notes:''}})}}]});
 
 test('健康聊天使用真实账户/RPC门禁、个人Key单次调用，未登录/跨源/重复/越权均拦截',async()=>{
   const {db,accounts}=await fixture();let calls=0;
@@ -24,6 +24,7 @@ test('健康聊天使用真实账户/RPC门禁、个人Key单次调用，未登�
     assert.equal((await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:body()})).statusCode,401);
     const code=await accounts.registrationCode!('chat@example.invalid','chat-test');
     const identity=await accounts.register!({username:'chat-tester',password:'Chat!Test123',code:'123456',challenge:code.challenge},'chat-test');
+    await accounts.setHealthKey(identity,0,apiKey);
     headers.cookie+=`; ${accounts.cookie(identity).split(';')[0]}`;
     assert.equal((await app.inject({method:'POST',url:'/api/v1/health/chat',headers:{...headers,origin:'https://evil.invalid'},payload:body()})).statusCode,403);
     const call=body(),result=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:call});

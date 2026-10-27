@@ -1,6 +1,8 @@
+import { defaultMeal as importDefaultMeal } from '../shared/types';
 import { createHash, randomBytes } from 'node:crypto';
 import { open, seal, type Envelope } from './crypto';
 import { DomainError } from './recommendation';
+import type { HealthProfile } from '../shared/health-chat';
 import type { AccountSnapshot, AccountValue } from '../shared/account';
 import { emptyAccount, personalSettings, settingsFields } from '../shared/account';
 import { validEmail, validUsername, validNewPassword, type RegistrationCode, type RegistrationInput, type CaptchaImage } from '../shared/registration';
@@ -16,6 +18,9 @@ export interface Accounts {
   cookie(identity:AccountIdentity|null):string;
   load(identity:AccountIdentity):Promise<AccountSnapshot>;
   save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>;
+  healthKey?(identity:AccountIdentity):Promise<{apiKey:string;profile?:HealthProfile;restrictions:import('../shared/types').Restriction[]}>;
+  setHealthKey?(identity:AccountIdentity,expected:number,apiKey:string|null):Promise<AccountSnapshot>;
+  saveHealthGuidance?(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile):Promise<AccountSnapshot>;
   logout(identity:AccountIdentity):Promise<void>;
   changePassword(identity:AccountIdentity,oldPassword:string,newPassword:string):Promise<void>;
   claimAiChat?(identity:AccountIdentity,operationId:string,fingerprint:string):Promise<{claimed:boolean;reason:string}>;
@@ -145,18 +150,48 @@ export class CloudBaseAccounts implements Accounts {
       return identity;
     } catch(error) {if(error instanceof DomainError&&error.statusCode===401)return null;throw error;}
   }
-  async load(identity:AccountIdentity):Promise<AccountSnapshot> {
+  private async privateState(identity:AccountIdentity){
     const result=await this.rpc(identity,'shiwei_account_load');
-    const value=result.envelope?open(result.envelope as Envelope,this.options.profileKey,identity.userId,'account-state') as AccountValue:emptyAccount();
-    return {version:result.version,value:{favorites:value.favorites,defaults:value.defaults?personalSettings(value.defaults):null}};
+    const value=result.envelope?open(result.envelope as Envelope,this.options.profileKey,identity.userId,'account-state') as AccountValue&{healthApiKey?:string}:emptyAccount();
+    return {version:result.version,value:value as AccountValue&{healthApiKey?:string}};
   }
-  async save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot> {
+  private publicState(state:{version:number;value:AccountValue&{healthApiKey?:string}}):AccountSnapshot{
+    const {value,version}=state;
+    return {version,value:{favorites:value.favorites,defaults:value.defaults?personalSettings(value.defaults):null},healthKey:{configured:Boolean(value.healthApiKey),...(value.healthApiKey?{last4:value.healthApiKey.slice(-4)}:{})}};
+  }
+  async load(identity:AccountIdentity):Promise<AccountSnapshot>{return this.publicState(await this.privateState(identity));}
+  private async writePrivate(identity:AccountIdentity,expected:number,value:AccountValue&{healthApiKey?:string}){
     if(identity.mustChangePassword)throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改初始密码');
-    value={favorites:value.favorites,defaults:value.defaults?personalSettings(value.defaults):null};
     const envelope=seal({...value,defaults:value.defaults?settingsFields(value.defaults):null},this.options.profileKey,identity.userId,'account-state',this.options.keyVersion);
     const result=await this.rpc(identity,'shiwei_account_save',{p_expected:expected,p_envelope:envelope});
-    if(result.conflict)throw new DomainError('SYNC_CONFLICT',409,'账户内容已在另一设备修改，请核对差异后再保存');
-    return {version:result.version,value};
+    if(result.conflict)throw new DomainError('SYNC_CONFLICT',409,'账户内容已在另一设备修改，请刷新设置后重试');
+    return this.publicState({version:result.version,value});
+  }
+  async save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>{
+    const current=await this.privateState(identity);
+    if(current.version!==expected)throw new DomainError('SYNC_CONFLICT',409,'账户内容已在另一设备修改，请核对差异后再保存');
+    return this.writePrivate(identity,expected,{favorites:value.favorites,defaults:value.defaults?personalSettings(value.defaults):null,...(current.value.healthApiKey?{healthApiKey:current.value.healthApiKey}:{})});
+  }
+  async healthKey(identity:AccountIdentity){
+    const current=await this.privateState(identity);
+    return {apiKey:current.value.healthApiKey??'',profile:current.value.defaults?.healthProfile,restrictions:current.value.defaults?.restrictions??[]};
+  }
+  async setHealthKey(identity:AccountIdentity,expected:number,apiKey:string|null){
+    if(apiKey!==null&&!/^sk-[A-Za-z0-9_-]{16,250}$/.test(apiKey))throw new DomainError('INVALID_KEY',400,'请输入以 sk- 开头的 DeepSeek API Key');
+    const current=await this.privateState(identity);
+    if(current.version!==expected)throw new DomainError('SYNC_CONFLICT',409,'个人设置已变更，请刷新后重新保存Key');
+    return this.writePrivate(identity,expected,{...current.value,healthApiKey:apiKey??undefined});
+  }
+  async saveHealthGuidance(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile){
+    for(let attempt=0;attempt<3;attempt++){
+      const current=await this.privateState(identity);
+      if(current.value.healthApiKey!==key)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已变更，本次回复未保存，请使用当前设置继续');
+      if(JSON.stringify(current.value.defaults?.healthProfile)!==JSON.stringify(expectedProfile))throw new DomainError('CHAT_PROFILE_CHANGED',409,'健康档案已在其他操作中修改，本次建议未覆盖新设置');
+      const defaults=current.value.defaults??personalSettings(importDefaultMeal());
+      try{return await this.writePrivate(identity,current.version,{...current.value,defaults:{...defaults,healthProfile:profile}});}
+      catch(error){if(!(error instanceof DomainError&&error.code==='SYNC_CONFLICT')||attempt===2)throw error;}
+    }
+    throw new DomainError('SYNC_CONFLICT',409,'健康建议暂未保存，请稍后检查个人设置');
   }
   async logout(identity:AccountIdentity) { await this.rpc(identity,'shiwei_session_end'); }
   async claimAiChat(identity:AccountIdentity,operationId:string,fingerprint:string) {

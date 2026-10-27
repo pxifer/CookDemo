@@ -1,4 +1,4 @@
-import { healthChatRecipes } from './health-chat-recipes';
+import { healthChatRecipes, withoutExistingRestrictions, withoutRepeatedFoodText, mergeHealthProfile } from '../shared/health-guidance';
 import Fastify, { type FastifyRequest } from 'fastify';
 import fastifyStatic from '@fastify/static';
 import swagger from '@fastify/swagger';
@@ -265,9 +265,12 @@ export async function createApp(options: {
       if(!identity&&!testSession(req.headers.cookie))throw new DomainError('LOGIN_REQUIRED',401,'请先登录，再使用健康AI对话');
       if(identity?.mustChangePassword)throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
       assertChat(req.body);
+      const stored=identity?await during(options.accounts!.healthKey?.(identity)??Promise.resolve(null),signal):null;
+      const apiKey=identity?stored?.apiKey:req.body.apiKey;
+      if(!apiKey)throw new DomainError('CHAT_KEY_REQUIRED',400,'请先在个人设置中保存 DeepSeek API Key');
       if(chatsInFlight>=4)throw new DomainError('CHAT_BUSY',429,'AI 对话人数较多，请稍后再试');
       chatsInFlight++;reserved=true;
-      const fingerprint=createHmac('sha256',secret).update('health-chat-v1\0').update(JSON.stringify(req.body)).digest('hex');
+      const fingerprint=createHmac('sha256',secret).update('health-chat-v1\0').update(JSON.stringify(req.body)).update(apiKey).digest('hex');
       if(identity){
         if(!options.accounts?.claimAiChat)throw new DomainError('CHAT_NOT_READY',503,'AI 对话暂时无法连接，请稍后再试');
         const claim=await during(options.accounts.claimAiChat(identity,req.body.operationId,fingerprint),signal);
@@ -281,12 +284,28 @@ export async function createApp(options: {
         localChatClaims.set(key,Date.now());
       }
       const chatContext=repository?contentContext(await during(repository.load(options.contentRelease!),signal)):constructedContent;
-      const result=await during(requestHealthChat(req.body,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
-      if(result.assessment)result.assessment.recipes=healthChatRecipes(chatContext,result.assessment,req.body.mealContext);
+      const result=await during(requestHealthChat({...req.body,apiKey,profile:stored?.profile??req.body.profile},signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
+      if(result.assessment){
+        const restrictionNames=[...(stored?.restrictions??[]).map(item=>item.name),...(req.body.mealContext?.restrictions??[]).map(name=>name.replace(/^(过敏|忌口|待确认)：/,''))];
+        result.assessment.suggestions=withoutExistingRestrictions(result.assessment.suggestions,restrictionNames,chatContext);
+        result.message.content=withoutRepeatedFoodText(result.message.content,restrictionNames,chatContext);
+        result.assessment.recipes=healthChatRecipes(chatContext,result.assessment,{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:restrictionNames});
+        if(identity&&options.accounts?.saveHealthGuidance){
+          const profile=mergeHealthProfile(stored?.profile,result.assessment);
+          profile.suggestions=withoutExistingRestrictions(profile.suggestions,restrictionNames,chatContext);
+          try{result.accountSnapshot=await during(options.accounts.saveHealthGuidance(identity,profile,apiKey,stored?.profile),signal);}
+          catch(error){if(error instanceof DomainError&&error.code==='CHAT_KEY_CHANGED')throw error;result.saveError='本次建议暂未保存到账户，可稍后查看个人设置。';}
+        }
+      }
       const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);
       if(!active||(identity&&(typeof active!=='object'||active.userId!==identity.userId||active.mustChangePassword)))throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
       return result;
     }finally{if(reserved)chatsInFlight--;reply.raw.removeListener('close',onClose);}
+  });
+  app.post<{Body:{expectedVersion:number;apiKey:string|null}}>('/api/v1/account/health-key',{schema:{body:{type:'object',additionalProperties:false,required:['expectedVersion','apiKey'],properties:{expectedVersion:{type:'integer',minimum:0,maximum:2147483647},apiKey:{anyOf:[{type:'string',pattern:'^sk-[A-Za-z0-9_-]{16,250}$'},{type:'null'}]}}}}},async req=>{
+    const identity=await requireAccount(req);
+    if(!options.accounts?.setHealthKey)throw new DomainError('CHAT_NOT_READY',503,'Key 设置暂不可用，请稍后重试');
+    return options.accounts.setHealthKey(identity,req.body.expectedVersion,req.body.apiKey);
   });
   app.get('/api/v1/account/state',async req=>{const identity=await requireAccount(req);return options.accounts!.load(identity);});
   app.post<{Body:{expectedVersion:number;value:AccountValue}}>('/api/v1/account/state',{schema:{body:{type:'object',additionalProperties:false,required:['expectedVersion','value'],properties:{

@@ -2,7 +2,7 @@ import { readFile, mkdir, copyFile, cp, writeFile, readdir } from 'node:fs/promi
 import { resolve, join, sep } from 'node:path';
 import { build } from 'esbuild';
 const source=resolve('.local-data/cloudbase-http/release-20261027-all-recipe-images-v32');
-const revision=process.argv[2]??'v37';if(!/^v(33|34|35|36|37)$/.test(revision))throw Error('RELEASE_REVISION');
+const revision=process.argv[2]??'v38';if(!/^v(33|34|35|36|37|38)$/.test(revision))throw Error('RELEASE_REVISION');
 const directory=resolve(`.local-data/cloudbase-http/release-20261027-health-chat-${revision}`);
 const previousMigrations=resolve('.local-data/cloudbase-http/listed-foods-20261026-v27/migration/cloudbase/migrations');
 const config=JSON.parse(await readFile(join(source,'cloudbaserc.json'),'utf8'));
@@ -17,5 +17,5 @@ await copyFile(join(source,'cloudbaserc.json'),join(directory,'cloudbaserc.json'
 const migrations=join(directory,'migration/cloudbase/migrations');await mkdir(migrations,{recursive:true});
 for(const name of await readdir(previousMigrations)){if(name.endsWith('.sql'))await copyFile(join(previousMigrations,name),join(migrations,name));}
 await copyFile('deploy/db/health-chat.sql',join(migrations,'20261027200000_health_chat.sql'));
-await writeFile(join(directory,'manifest.json'),JSON.stringify({release:`health-chat-${revision}`,migration:'20261027200000',configurationUnchanged:true,personalKeyStored:false,platformModelKey:false},null,2),{flag:'wx'});
+await writeFile(join(directory,'manifest.json'),JSON.stringify({release:`health-chat-${revision}`,migration:'20261027200000',configurationUnchanged:true,personalKeyStored:true,personalKeyEncrypted:true,personalKeyReturned:false,platformModelKey:false},null,2),{flag:'wx'});
 console.log(JSON.stringify({prepared:true,revision:`health-chat-${revision}`,appendOnlyMigration:true,existingConfigurationPreserved:true,secretsPrinted:false}));

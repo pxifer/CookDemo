@@ -92,3 +92,5 @@ export async function requestRecommendation(body: RecommendationRequest, signal:
     return terminal;
   } finally { await reader.cancel().catch(() => {}); reader.releaseLock(); }
 }
+
+export async function updateHealthApiKey(expectedVersion:number,apiKey:string|null):Promise<import('../shared/account').AccountSnapshot>{return (await post('account/health-key',{expectedVersion,apiKey})).json();}

@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-27T14:38:17.444Z",
+  "revision": "health-chat-v38",
+  "syntheticAccount": true,
+  "desktop": true,
+  "mobile": true,
+  "keySaved": true,
+  "keyRestoredOnLogin": true,
+  "keyAbsentBrowserStorage": true,
+  "keyNotReturned": true,
+  "keyReset": true,
+  "profileRestored": true,
+  "sharedClaim": true,
+  "duplicateRejected": true,
+  "providerCalls": 0,
+  "realApiKeyUsed": false,
+  "cleanup": true,
+  "lastStage": "shared-claim"
+}

@@ -48,7 +48,7 @@ test('套餐同菜数同分类时优先AI选择，换菜/口味/翻页继续执�
 
 test('真实调用凭证和结构化建议必须来自供应商响应，缺凭证或乱格式不冒充成功',async()=>{
   const body={operationId:crypto.randomUUID(),apiKey:'sk-test-only-123456789012345',diseases:[],messages:[{role:'user' as const,content:'应用建议'}]};
-  const content=JSON.stringify({reply:'构造建议',stage:'advice',suggestions:[{foodName:'花生',direction:'avoid',reason:'测试说明',conditions:''}]});
+  const content=JSON.stringify({profile:{conditions:[],goals:[],notes:''},reply:'构造建议',stage:'advice',suggestions:[{foodName:'花生',direction:'avoid',reason:'测试说明',conditions:''}]});
   const envelope={id:'request-proof-12345678',model:'deepseek-flash',usage:{prompt_tokens:50,completion_tokens:40,total_tokens:90},choices:[{finish_reason:'stop',message:{content}}]};
   const result=await requestHealthChat(body,new AbortController().signal,async()=>Response.json(envelope),name=>context.restrictionTargets(name).length>0);
   assert.equal(result.assessment?.suggestions[0].matchable,true);assert.equal(result.invocation?.requestId,envelope.id);assert.equal(result.invocation?.totalTokens,90);

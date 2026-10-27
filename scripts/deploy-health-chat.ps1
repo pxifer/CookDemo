@@ -1,4 +1,4 @@
-param([ValidateSet('Plan','Apply','Function')][string]$Task='Plan',[ValidateSet('v33','v34','v35','v36','v37')][string]$Revision='v37')
+param([ValidateSet('Plan','Apply','Function')][string]$Task='Plan',[ValidateSet('v33','v34','v35','v36','v37','v38')][string]$Revision='v38')
 $ErrorActionPreference='Stop'
 $project=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $node=Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe'
