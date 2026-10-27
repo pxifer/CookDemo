@@ -1,3 +1,4 @@
+import type { Recipe } from '../shared/types';
 import React, { useEffect, useRef, useState } from 'react';
 import { sendHealthChat, ApiError } from './api';
 import { chatContext, type ChatMessage, type AiFoodChoices, type DietAssessment, type HealthChatRequest, type ProviderInvocation, type HealthProfile } from '../shared/health-chat';
@@ -5,7 +6,7 @@ import { ChatMarkdown } from './chat-markdown';
 import { acceptAccountSnapshot } from './account-store';
 import { AiFoodList, AiFoodSuggestions } from './ai-food-selection';
 
-export function HealthChat({ configured, last4, profile, initialAssessment, diseases, configure, expired, mealContext, choices, onApply, savedFoods, onSave }: { configured:boolean;last4?:string;profile?:HealthProfile;initialAssessment?:DietAssessment; diseases: string[]; configure: () => void; expired: () => void;mealContext?:HealthChatRequest['mealContext'];choices?:AiFoodChoices;onApply:(choices:AiFoodChoices,recommend:boolean)=>boolean;savedFoods:string[];onSave:(foods:string[])=>boolean }) {
+export function HealthChat({ configured, last4, profile, initialAssessment, diseases, configure, expired, mealContext, choices, onApply, savedFoods, onSave, accepted, onAccept, recipes, onOpenRecipe }: { configured:boolean;last4?:string;profile?:HealthProfile;initialAssessment?:DietAssessment; diseases: string[]; configure: () => void; expired: () => void;mealContext?:HealthChatRequest['mealContext'];choices?:AiFoodChoices;onApply:(choices:AiFoodChoices,recommend:boolean)=>boolean;savedFoods:string[];onSave:(foods:string[])=>boolean;accepted?:AiFoodChoices;onAccept:(kind:keyof AiFoodChoices,names:string[])=>boolean;recipes:Recipe[];onOpenRecipe:(recipeId:string,variantId:string)=>void }) {
   const hasProfile=Boolean(profile&&(profile.conditions.length||profile.goals.length||profile.notes||profile.suggestions.length));
   const [messages, setMessages] = useState<(ChatMessage&{invocation?:ProviderInvocation})[]>([]), [draft, setDraft] = useState(''), [pending, setPending] = useState('');
   const [assessment,setAssessment]=useState<DietAssessment|null>(initialAssessment??null);
@@ -34,7 +35,7 @@ export function HealthChat({ configured, last4, profile, initialAssessment, dise
   };
   return <section className="health-chat panel" aria-label="健康AI对话" tabIndex={-1}>
     <header className="health-chat-heading"><div><span className="eyebrow">饮食助手</span><h2>这一餐，吃得更合适</h2><p>说说健康情况或饮食目标，我来帮你选食材。</p></div><button aria-expanded={open} aria-controls="health-chat-content" onClick={() => setOpen(!open)}>{open ? '收起对话' : '展开对话'}</button></header>
-    <details className="health-profile-summary"><summary>我的饮食档案 <span>{profile?[...profile.conditions,...profile.goals].join(' · ')||'已保存':savedFoods.length?`${savedFoods.length} 项排除`:'尚未整理'}</span></summary><AiFoodList choices={choices} onApply={onApply} savedFoods={savedFoods} onSave={onSave}/><button onClick={configure}>管理健康档案</button></details>
+    <details className="health-profile-summary"><summary>我的饮食档案 <span>{profile?[...profile.conditions,...profile.goals].join(' · ')||'已保存':savedFoods.length?`${savedFoods.length} 项排除`:'尚未整理'}</span></summary>{accepted&&<p className="small subtle">已接受：推荐 {accepted.preferred.length} 项 · 少选 {accepted.limited.length} 项 · 避开 {accepted.excluded.length} 项</p>}<AiFoodList choices={choices} onApply={onApply} savedFoods={savedFoods} onSave={onSave}/><button onClick={configure}>管理健康档案</button></details>
     <div id="health-chat-content" hidden={!open}>
       <details className="health-chat-note"><summary>关于这次对话</summary><p>发送时会将健康资料、对话和本餐设置提供给 DeepSeek，使用你的模型额度。健康情况、目标及食材建议会加密保存在账户；完整对话不保存。建议仅作饮食参考，本站RAG尚未接入。</p></details>
       <div className="health-chat-tools"><button onClick={configure}>模型设置</button><button onClick={clear} disabled={!messages.length && !pending && !draft}>清空本页对话</button></div>
@@ -46,7 +47,7 @@ export function HealthChat({ configured, last4, profile, initialAssessment, dise
         {pending && <><div className="health-chat-message user"><strong>我</strong><p>{pending}</p></div><p role="status" className="health-chat-wait">AI 正在思考…</p></>}
         <div ref={end}/>
       </div>
-      {assessment&&<AiFoodSuggestions assessment={assessment} choices={choices} onApply={onApply} savedFoods={savedFoods} onSave={onSave}/>}
+
       {error && <p role="alert" className="health-chat-error">{error}</p>}
       {!configured && <p role="status">请先到个人设置填写 DeepSeek Key，再开始对话。</p>}
       <form className="health-chat-compose" onSubmit={event => { event.preventDefault(); void send(); }}>
@@ -54,6 +55,7 @@ export function HealthChat({ configured, last4, profile, initialAssessment, dise
         <textarea id="health-chat-message" ref={area} maxLength={2000} value={draft} disabled={Boolean(pending)} onChange={event => setDraft(event.target.value)} placeholder="例如：我想增肌，平时更适合选哪些食材？" onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); void send(); } }}/>
         <div><span>Enter 发送 · Shift+Enter 换行</span>{pending ? <button key="cancel" type="button" onClick={event => { event.preventDefault(); cancel(); }}>取消回复</button> : <button key="send" className="primary" type="submit" disabled={!configured || !draft.trim()}>发送消息</button>}</div>
       </form>
+      {assessment&&<AiFoodSuggestions assessment={assessment} choices={choices} onApply={(value,recommend)=>{const success=onApply(value,recommend);if(success&&recommend)setOpen(false);return success;}} savedFoods={savedFoods} onSave={onSave} accepted={accepted} onAccept={onAccept} recipes={recipes} onOpenRecipe={onOpenRecipe}/>}
     </div>
   </section>;
 }

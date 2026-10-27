@@ -1,5 +1,5 @@
 import { healthChatRecipes } from '../server/health-chat-recipes';
-import { reconcileAccountValues } from '../shared/account-merge';
+import { mergeAccountValues, reconcileAccountValues } from '../shared/account-merge';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -76,4 +76,24 @@ test('图鉴示例只来自目录真实配方，避开不推荐/已存排除/过
   assert.deepEqual(examples.map(r=>r.recipeId),['tomato']);assert.deepEqual(examples[0].matchedFoods,['西红柿']);
   assert.deepEqual(healthChatRecipes({...context,recipes},assessment,{ingredients:[],seasonings:[],restrictions:['过敏：西红柿'],allowBuy:true}),[]);
   assert.deepEqual(healthChatRecipes({...context,recipes},assessment,{ingredients:[],seasonings:[],restrictions:[],aiExcludedFoods:['西红柿'],allowBuy:true}),[]);
+});
+
+
+test('用户已接受的推荐少选用于排序、避开硬排除，未知接受项不伪造匹配，普通模式暂停',async()=>{
+  const meal=mealWith();meal.health=true;meal.allowBuy=true;meal.mode='candidates';meal.aiFoodPreferences={preferred:['西红柿'],limited:['鸡蛋'],excluded:['花生','火星草']};
+  const recipes=[simpleRecipe('egg-r',[['egg',1]]),simpleRecipe('tomato-r',[['tomato',100]]),simpleRecipe('peanut-r',[['peanut',100]])];
+  const result=await recommend(recipes,request(meal),{context,conversationOnly:true});assert.deepEqual(result.dishes.map(d=>d.recipe.id),['tomato-r','egg-r']);
+  assert.deepEqual(personalSettings(meal).aiFoodPreferences,meal.aiFoodPreferences);
+  meal.aiFoodChoices={preferred:['花生'],limited:[],excluded:[]};assert(!checkDish(recipes[2],recipes[2].variants[0],meal,context).dish);
+  meal.health=false;assert.equal((await recommend(recipes,request(meal),{context})).dishes.length,3);
+});
+
+
+test('接受选择的跨设备冲突不静默放宽避开，明确移除可保留',()=>{
+  const base={favorites:[],defaults:{...mealWith(),aiFoodPreferences:{preferred:[],limited:[],excluded:['花生']}}};
+  const local={favorites:[],defaults:{...base.defaults,aiFoodPreferences:{preferred:['西红柿'],limited:[],excluded:[]}}};
+  const remote={favorites:[],defaults:{...base.defaults,aiFoodPreferences:{preferred:[],limited:['鸡蛋'],excluded:['花生']}}};
+  assert.deepEqual(reconcileAccountValues(local,remote,base).defaults?.aiFoodPreferences,{preferred:['西红柿'],limited:['鸡蛋'],excluded:[]});
+  const conflict=mergeAccountValues({favorites:[],defaults:{...base.defaults,aiFoodPreferences:{preferred:['花生'],limited:[],excluded:[]}}},base);
+  assert.deepEqual(conflict.defaults?.aiFoodPreferences?.excluded,['花生']);assert.deepEqual(conflict.defaults?.aiFoodPreferences?.preferred,[]);
 });

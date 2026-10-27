@@ -9,7 +9,7 @@ import { inventoryChecks, nutrition } from '../shared/quantity';
 import { findPantryIngredient, resolvePantryFood } from '../shared/ingredient-matching';
 import { seasoningStockKey } from '../shared/pantry';
 import { compositionError, estimatedShortages, MAX_DISHES, servingReference } from '../shared/meal-planning';
-import { aiExcludedFoods, aiFoodMatch, aiFoodRank } from '../shared/ai-food-choices';
+import { aiExcludedFoods, aiFoodMatch, aiFoodRank, effectiveAiChoices } from '../shared/ai-food-choices';
 import { type Dish, type Line, type Meal, type Recipe, type RecommendationRequest, type RecommendationResult, type Variant } from '../shared/types';
 
 const cursorSecret = randomBytes(32);
@@ -18,7 +18,7 @@ export class DomainError extends Error {
   constructor(public code: string, public statusCode: number, message: string) { super(message); }
 }
 export function assertMeal(meal: Meal, context: ContentContext = constructedContent) {
-  if(meal.health)for(const name of [...(meal.aiFoodChoices?.preferred??[]),...(meal.aiFoodChoices?.limited??[]),...aiExcludedFoods(meal)])if(!context.restrictionTargets(name).length)throw new DomainError('AI_FOOD_UNRESOLVED',400,'AI去疾 中有未匹配食材，请重新核对选择');
+  if(meal.health)for(const name of [...(meal.aiFoodChoices?.preferred??[]),...(meal.aiFoodChoices?.limited??[]),...(meal.aiExcludedFoods??[]),...(meal.aiFoodChoices?.excluded??[])])if(!context.restrictionTargets(name).length)throw new DomainError('AI_FOOD_UNRESOLVED',400,'AI去疾 中有未匹配食材，请重新核对选择');
   if (meal.flavor !== '不限' && !availableFlavors(context.recipes).includes(meal.flavor)) throw new DomainError('INVALID_FLAVOR', 400, '所选口味不在当前菜谱目录中，请重新选择');
   if (!Number.isInteger(meal.servings) || meal.servings < 1 || meal.servings > 12) throw new DomainError('INVALID_SERVINGS', 400, '人数须为 1～12 的整数');
   const countError = compositionError(meal);
@@ -148,7 +148,8 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   const dishRanks=new Map<string,number>();
   const dishRank=(id:string)=>{if(!dishRanks.has(id))dishRanks.set(id,rank(id));return dishRanks.get(id)!;};
   const variedOrder = (a: Dish, b: Dish) => dishRank(a.recipe.id) - dishRank(b.recipe.id);
-  const useAiRank=meal.health&&Boolean(meal.aiFoodChoices?.preferred.length||meal.aiFoodChoices?.limited.length||(!meal.aiFoodChoices&&meal.healthProfile?.suggestions.length));
+  const effectiveChoices=effectiveAiChoices(meal);
+  const useAiRank=meal.health&&Boolean(effectiveChoices.preferred.length||effectiveChoices.limited.length);
   const aiRanks=new Map<string,ReturnType<typeof aiFoodRank>>();
   const aiRank=(dish:Dish)=>{if(!aiRanks.has(dish.variant.id))aiRanks.set(dish.variant.id,aiFoodRank(dish.variant,meal,context));return aiRanks.get(dish.variant.id)!;};
   const aiOrder=(a:Dish,b:Dish)=>useAiRank?(aiRank(a).limited-aiRank(b).limited||aiRank(b).preferred-aiRank(a).preferred):0;

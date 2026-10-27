@@ -5,7 +5,7 @@ import { createApp } from '../server/app';
 import { CloudBaseAccounts } from '../server/cloudbase-accounts';
 import { defaultMeal } from '../shared/types';
 import { constructedContent } from '../shared/catalog';
-import { withoutExistingRestrictions, withoutRepeatedFoodText } from '../shared/health-guidance';
+import { expandFoodSuggestions, withoutExistingRestrictions, withoutRepeatedFoodText } from '../shared/health-guidance';
 const key='sk-saved-account-test-only-123456789';
 async function user(accounts:Awaited<ReturnType<typeof fixture>>['accounts'],name:string){const code=await accounts.registrationCode(`${name}@example.invalid`,name);return accounts.register({username:name,password:'Saved!Test123',code:'123456',challenge:code.challenge},name);}
 
@@ -47,4 +47,22 @@ test('去重覆盖别名和建议文字，不影响新食材',()=>{
   const suggestions=['番茄','花生','牛肉'].map(foodName=>({foodName,direction:'prefer' as const,reason:'测试',conditions:'',matchable:true}));
   assert.deepEqual(withoutExistingRestrictions(suggestions,['西红柿','花生'],constructedContent).map(item=>item.foodName),['牛肉']);
   assert.equal(withoutRepeatedFoodText('番茄适合。新的建议。花生需避开。',['西红柿','花生'],constructedContent),'新的建议。');
+});
+
+
+test('并列及括号示例拆成具体食材，未知项目保持参考，不凭类别猜组成',()=>{
+  const items=expandFoodSuggestions([{foodName:'新鲜蔬菜（如西红柿、菠菜）',direction:'prefer',reason:'构造说明',conditions:'',matchable:false},{foodName:'鸡蛋、火星草',direction:'limit',reason:'构造说明',conditions:'',matchable:false}],constructedContent);
+  assert.deepEqual(items.map(item=>item.foodName),['西红柿','菠菜','鸡蛋','火星草']);assert.deepEqual(items.map(item=>item.matchable),[true,true,true,false]);
+});
+
+test('已接受三类选择随账号保留，旧普通偏好写入不擦除，AI从服务器读取',async()=>{
+  const {db,accounts}=await fixture();let received:any;
+  const app=await createApp({accounts,healthChatFetch:async(_url,init)=>{received=JSON.parse(String(init?.body));return Response.json({id:'accepted-prefs-proof-123456',model:'deepseek-flash',usage:{prompt_tokens:10,completion_tokens:10,total_tokens:20},choices:[{finish_reason:'stop',message:{content:JSON.stringify({reply:'构造说明',stage:'clarify',profile:{conditions:[],goals:[],notes:''},suggestions:[]})}}]});}});
+  try{
+    const alice=await user(accounts,'prefs-alice');const configured=await accounts.setHealthKey(alice,0,key);const preferences={preferred:['西红柿'],limited:['猪肉'],excluded:['花生','火星草']};
+    const saved=await accounts.save(alice,configured.version,{favorites:[],defaults:{...defaultMeal(),aiFoodPreferences:preferences}});assert.deepEqual(saved.value.defaults?.aiFoodPreferences,preferences);
+    const old=await accounts.save(alice,saved.version,{favorites:[],defaults:{...defaultMeal(),flavor:'微辣'}});assert.deepEqual(old.value.defaults?.aiFoodPreferences,preferences);
+    const session=await app.inject('/api/v1/auth/session');const headers={cookie:`${String(session.headers['set-cookie']).split(';')[0]}; ${accounts.cookie(alice).split(';')[0]}`,origin:'http://localhost:80','x-csrf-token':session.json().csrfToken};
+    const response=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:{operationId:crypto.randomUUID(),diseases:[],messages:[{role:'user',content:'读取已有食材选择'}]}});assert.equal(response.statusCode,200);assert(JSON.stringify(received.messages).includes('aiFoodPreferences'));assert(JSON.stringify(received.messages).includes('火星草'));assert(!response.body.includes(key));
+  }finally{await app.close();await db.close();}
 });

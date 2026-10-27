@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { saveHealthApiKey } from './account-store';
-import type { HealthProfile } from '../shared/health-chat';
-export function HealthAccountSettings({configured,last4,profile,onProfileChange}:{configured:boolean;last4?:string;profile?:HealthProfile;onProfileChange:(profile:HealthProfile|undefined)=>void}){
+import type { AiFoodChoices, HealthProfile } from '../shared/health-chat';
+export function HealthAccountSettings({configured,last4,profile,onProfileChange,preferences,onPreferencesChange,isMatchable}:{configured:boolean;last4?:string;profile?:HealthProfile;onProfileChange:(profile:HealthProfile|undefined)=>void;preferences?:AiFoodChoices;onPreferencesChange:(preferences:AiFoodChoices)=>void;isMatchable:(name:string)=>boolean}){
   const [key,setKey]=useState(''),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[error,setError]=useState(false);
   const save=async(value:string|null)=>{if(busy)return;setBusy(true);setMessage('');setError(false);try{await saveHealthApiKey(value);setKey('');setMessage(value?'Key 已保存，下次登录可直接使用。':'Key 已清空，健康对话已停用。');}catch(reason){setError(true);setMessage((reason as Error).message);}finally{setBusy(false);}};
   return <div className="health-account-settings"><section aria-label="模型连接"><h3>AI 模型连接</h3><p className="key-status">{configured?`DeepSeek Key 已保存 · Key 尾号 ${last4}`:'尚未配置 DeepSeek Key'}</p>
@@ -12,6 +12,9 @@ export function HealthAccountSettings({configured,last4,profile,onProfileChange}
   </section>
   <section aria-label="健康档案"><h3>健康与饮食目标</h3>{profile?<><p className="small subtle">来自你在对话中提供的信息，可随时移除。AI 不会据此作出诊断。</p>
     {(['conditions','goals'] as const).map(kind=>profile[kind].length>0&&<div key={kind}><strong>{kind==='conditions'?'健康关注':'饮食目标'}</strong><div className="chips">{profile[kind].map(name=><button key={name} aria-label={`移除${kind==='conditions'?'健康关注':'饮食目标'} ${name}`} onClick={()=>onProfileChange({...profile,[kind]:profile[kind].filter(item=>item!==name)})}>{name} ×</button>)}</div></div>)}
-    {profile.notes&&<p>{profile.notes}</p>}<p className="small subtle">已保存 {profile.suggestions.length} 项食材建议。</p><button onClick={()=>onProfileChange(undefined)}>清除健康档案与AI建议</button>
-  </>:<p className="small subtle">与 AI 说明健康情况或饮食目标后，会自动整理保存在这里。</p>}</section></div>;
+    {profile.notes&&<p>{profile.notes}</p>}<p className="small subtle">AI 已整理 {profile.suggestions.length} 项建议，接受后会显示在下方。</p><button onClick={()=>onProfileChange(undefined)}>清除健康档案与AI建议</button>
+  </>:<p className="small subtle">与 AI 说明健康情况或饮食目标后，会自动整理保存在这里。</p>}</section>
+  <section aria-label="已接受的AI食材选择"><h3>已接受的食材选择</h3><p className="small subtle">随账号保存，AI 会读取；仅在健康模式使用。待匹配项暂不参与筛选。</p>
+    {(['preferred','limited','excluded'] as const).map(kind=><div className={`saved-ai-group saved-${kind}`} key={kind}><h4>{kind==='preferred'?'推荐':kind==='limited'?'少选':'避开'}</h4>{preferences?.[kind].length?<div className="chips">{preferences[kind].map(name=><button key={name} aria-label={`移除已接受${kind==='preferred'?'推荐':kind==='limited'?'少选':'避开'} ${name}`} onClick={()=>onPreferencesChange({...preferences,[kind]:preferences[kind].filter(item=>item!==name)})}>{name}{!isMatchable(name)?'（待匹配）':''} ×</button>)}</div>:<p className="small subtle">尚未接受此类建议</p>}</div>)}
+  </section></div>;
 }

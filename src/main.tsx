@@ -1,9 +1,10 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HealthAccountSettings } from './health-account-settings';
-import { healthChatRecipes, withoutExistingRestrictions } from '../shared/health-guidance';
+import { healthChatRecipes, expandFoodSuggestions, withoutExistingRestrictions } from '../shared/health-guidance';
 import { HealthChat } from './health-chat';
 import { SavedAiFoods } from './ai-food-selection';
+import { emptyAiChoices, mergeAiChoices } from '../shared/ai-food-choices';
 import type { AiFoodChoices } from '../shared/health-chat';
 import { contentContext, type ContentContext } from '../shared/content';
 import { makeRestriction as makeRestrictionBase } from '../shared/extraction';
@@ -93,7 +94,8 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
   const [result, setResult] = useState<RecommendationResult | null>(null);
   const [busy, setBusy] = useState(false); const [progress, setProgress] = useState('');
   const [pendingRecipeId, setPendingRecipeId] = useState<string | null>(null);
-  const [notice, setNotice] = useState(''); const [storageError, setStorageError] = useState(false);
+  const [notice, setNotice] = useState('');
+  useEffect(()=>{if(notice!=='健康模式已开启，可以和 AI 对话了')return;const timer=setTimeout(()=>setNotice(current=>current===notice?'':current),1800);return()=>clearTimeout(timer);},[notice]); const [storageError, setStorageError] = useState(false);
   const [crossTab, setCrossTab] = useState(false);
   const [entryOpen, setEntryOpen] = useState(() => readMeal().ingredients.length === 0);
   const [tab, setTab] = useState<'text' | 'image'>('image');
@@ -103,12 +105,12 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
   const [restrictionText, setRestrictionText] = useState('');
   const [restrictionScope, setRestrictionScope] = useState<'self' | 'additional'>('self');
   const controller = useRef<AbortController | null>(null); const operation = useRef('');
-  const resultRef = useRef<HTMLElement>(null);
+  const resultRef = useRef<HTMLElement>(null),resultStatusRef=useRef<HTMLDivElement>(null);
   const recipeGrid=useRef<HTMLDivElement>(null),pagePositionPending=useRef(false);
   useLayoutEffect(()=>{
     if(!pagePositionPending.current||busy||!result)return;
     pagePositionPending.current=false;
-    const grid=recipeGrid.current;if(!grid)return;
+    const grid=result.dishes.length?recipeGrid.current:resultStatusRef.current;if(!grid)return;
     grid.focus({preventScroll:true});
     window.scrollTo({top:window.scrollY+grid.getBoundingClientRect().top-16,behavior:'instant'});
   },[result,busy]);
@@ -140,10 +142,10 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
   const active = meal.restrictions.filter(r => r.scope === 'self' || meal.includeAdditional);
   const initialHealthAssessment=useMemo(()=>{
     if(!meal.healthProfile)return undefined;
-    const suggestions=withoutExistingRestrictions(meal.healthProfile.suggestions,active.map(item=>item.name),catalog);
+    const suggestions=withoutExistingRestrictions(expandFoodSuggestions(meal.healthProfile.suggestions,catalog),active.map(item=>item.name),catalog);
     const assessment={stage:'advice' as const,suggestions,profile:{conditions:meal.healthProfile.conditions,goals:meal.healthProfile.goals,notes:meal.healthProfile.notes}};
-    return {...assessment,recipes:healthChatRecipes(catalog,assessment,{ingredients:[],seasonings:[],restrictions:active.map(item=>item.name),allowBuy:false,aiExcludedFoods:meal.aiExcludedFoods})};
-  },[meal.healthProfile,meal.restrictions,meal.includeAdditional,meal.aiExcludedFoods,catalog]);
+    return {...assessment,recipes:healthChatRecipes(catalog,assessment,{ingredients:[],seasonings:[],restrictions:active.map(item=>item.name),allowBuy:false,aiExcludedFoods:meal.aiExcludedFoods,aiFoodPreferences:meal.aiFoodPreferences})};
+  },[meal.healthProfile,meal.restrictions,meal.includeAdditional,meal.aiExcludedFoods,meal.aiFoodPreferences,catalog]);
   const pending = active.filter(r => r.status !== 'confirmed');
   const addParsed = (data: Extraction) => {
     const resolved = resolveExtraction(data, catalog);
@@ -200,7 +202,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
       const next = await requestRecommendation(body, aborter.signal, stage => setProgress(pageNumber===undefined?stage:`${progressLabel} ${stage}`));
       if (operation.current !== operationId || mealRef.current.version !== snapshot.version) return;
       if (!next.changed && result) setNotice(next.reasons.map(friendly).join('；'));
-      else { if(action==='page'&&next.dishes.length)pagePositionPending.current=true;setResult(next); if(action==='generate'||action==='reroll')resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      else { if((action==='page'&&next.dishes.length)||(snapshot.health&&(action==='generate'||action==='reroll')))pagePositionPending.current=true;setResult(next); if(!snapshot.health&&(action==='generate'||action==='reroll'))resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     } catch (e) { if (!aborter.signal.aborted && operation.current === operationId) setNotice((e as Error).message); }
     finally { if (operation.current === operationId) { setBusy(false); setPendingRecipeId(null); } }
   };
@@ -217,6 +219,19 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
     if(foods.length>20){setNotice('个人AI去疾最多20项，请先移除一些');return false;}
     edit({aiExcludedFoods:[...new Set(foods)]});
     setNotice('已更新个人AI去疾，自动保存；过敏和忌口未改变');return true;
+  };
+  const saveAiPreferences=(preferences:AiFoodChoices)=>{
+    if(!healthIdentity)return false;
+    if(Object.values(preferences).some(items=>items.length>20)){setNotice('每类个人AI食材选择最多20项，请先移除一些');return false;}
+    edit({aiFoodPreferences:preferences});setNotice('已保存个人AI食材选择，下次登录和AI对话会继续使用');return true;
+  };
+  const acceptAiGroup=(kind:keyof AiFoodChoices,names:string[])=>{
+    const change={...emptyAiChoices(),[kind]:names};
+    return saveAiPreferences(mergeAiChoices(mealRef.current.aiFoodPreferences??emptyAiChoices(),change));
+  };
+  const openAiRecipe=(recipeId:string,variantId:string)=>{
+    const recipe=recipes.find(item=>item.id===recipeId),variant=recipe?.variants.find(item=>item.id===variantId);
+    if(recipe?.state==='published'&&variant){setFavoriteFeedback('');setDetail({recipe,variant,message:'搭配示例；安排本餐时会按现有食材和补买选择筛选。'});}
   };
   const newMeal = () => { edit(normalizeInput(applyPersonalSettings(defaultMeal(),accountState().local.defaults??mealRef.current), catalog)); setEntryOpen(true); setNotice('已开始新一餐'); };
   const isFavorite = (recipe: Recipe, variant: Variant) => favorites.some(f => f.recipeId === recipe.id && f.variantId === variant.id);
@@ -327,12 +342,12 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
           <div className="generate-bar"><button className="button primary full generate-button" aria-label="安排这一餐" disabled={busy || crossTab} onClick={() => void generate()}>{busy ? '正在搭配…' : meal.composition === 'custom' ? '按指定数量搭配' : meal.allowBuy ? '看看可以做什么' : '搭配这一餐'} <span>✧</span></button>{busy && <button className="text-button" onClick={() => { controller.current?.abort(); operation.current = ''; setBusy(false); setNotice('已取消，输入保留'); }}>取消</button>}</div>
         </section>
       </div>
-      <section ref={resultRef} id="results" className="results-column" aria-label="本餐推荐">{meal.health && healthIdentity && <HealthChat key={healthIdentity} configured={Boolean(healthKey?.configured)} last4={healthKey?.last4} profile={meal.healthProfile} initialAssessment={initialHealthAssessment} diseases={meal.diseases} choices={meal.aiFoodChoices} onApply={applyAiFoodChoices} savedFoods={meal.aiExcludedFoods??[]} onSave={saveAiExcludedFoods} mealContext={{ingredients:meal.ingredients.filter(item=>item.status==='confirmed').map(item=>item.name),seasonings:meal.seasonings.flatMap(id=>foodById.get(id)?[foodById.get(id)!.name]:[]),restrictions:active.map(item=>`${item.kind==='allergy'?'过敏':item.kind==='avoid'?'忌口':'待确认'}：${item.name}`),allowBuy:meal.allowBuy,checkSeasonings:meal.checkSeasonings,servings:meal.servings,aiFoodChoices:meal.aiFoodChoices,aiExcludedFoods:meal.aiExcludedFoods}} configure={() => {setAuthMessage('');setModal('account');}} expired={() => {edit({health:false});setLoginReturn('health');setModal(sessionInfo?.localTestFeatures?'login':'account');}}/>}<div className="results-heading"><div><div className="eyebrow">MADE FOR YOUR TABLE</div><h2>这一餐，安排好了</h2></div><span className="subtle">从手边食材开始</span></div><div className="result-toolbar"><div className="recommendation-mode"><strong>{meal.composition === 'custom' ? '按需搭配' : meal.allowBuy ? '更多菜谱' : '一键搭配'}</strong><small>{meal.composition === 'custom' ? '按你指定的荤、素、汤数量搭配一餐' : meal.allowBuy ? '复用现有食材，缺少的列入补买清单 · 每页 6 道可选菜谱' : '按人数、食材种类和用量灵活搭配'}</small></div><div className="toolbar-actions"><button className="text-button" onClick={newMeal}>开始新一餐 ↻</button><button className="text-button" aria-expanded={countsOpen} aria-controls="custom-counts" onClick={() => setCountsOpen(!countsOpen)}>荤素汤搭配 ⌄</button></div></div>
+      <section ref={resultRef} id="results" className={`results-column${meal.health?' health-results':''}`} aria-label="本餐推荐">{meal.health && healthIdentity && <HealthChat key={healthIdentity} configured={Boolean(healthKey?.configured)} last4={healthKey?.last4} profile={meal.healthProfile} initialAssessment={initialHealthAssessment} diseases={meal.diseases} choices={meal.aiFoodChoices} onApply={applyAiFoodChoices} savedFoods={meal.aiExcludedFoods??[]} onSave={saveAiExcludedFoods} accepted={meal.aiFoodPreferences} onAccept={acceptAiGroup} recipes={recipes} onOpenRecipe={openAiRecipe} mealContext={{ingredients:meal.ingredients.filter(item=>item.status==='confirmed').map(item=>item.name),seasonings:meal.seasonings.flatMap(id=>foodById.get(id)?[foodById.get(id)!.name]:[]),restrictions:active.map(item=>`${item.kind==='allergy'?'过敏':item.kind==='avoid'?'忌口':'待确认'}：${item.name}`),allowBuy:meal.allowBuy,checkSeasonings:meal.checkSeasonings,servings:meal.servings,aiFoodChoices:meal.aiFoodChoices,aiExcludedFoods:meal.aiExcludedFoods,aiFoodPreferences:meal.aiFoodPreferences}} configure={() => {setAuthMessage('');setModal('account');}} expired={() => {edit({health:false});setLoginReturn('health');setModal(sessionInfo?.localTestFeatures?'login':'account');}}/>}<div className="results-heading"><div><div className="eyebrow">MADE FOR YOUR TABLE</div><h2>这一餐，安排好了</h2></div><span className="subtle">从手边食材开始</span></div><div className="result-toolbar"><div className="recommendation-mode"><strong>{meal.composition === 'custom' ? '按需搭配' : meal.allowBuy ? '更多菜谱' : '一键搭配'}</strong><small>{meal.composition === 'custom' ? '按你指定的荤、素、汤数量搭配一餐' : meal.allowBuy ? '复用现有食材，缺少的列入补买清单 · 每页 6 道可选菜谱' : '按人数、食材种类和用量灵活搭配'}</small></div><div className="toolbar-actions"><button className="text-button" onClick={newMeal}>开始新一餐 ↻</button><button className="text-button" aria-expanded={countsOpen} aria-controls="custom-counts" onClick={() => setCountsOpen(!countsOpen)}>荤素汤搭配 ⌄</button></div></div>
         {countsOpen && <div id="custom-counts" className="count-settings"><label className="checkbox"><input type="checkbox" checked={meal.composition === 'custom'} onChange={e => { setNotice(''); edit({ composition: e.target.checked ? 'custom' : 'auto' }); }}/>明确指定荤、素、汤数量</label>{meal.composition === 'custom' ? <><div className="counts-fields">{(['meat', 'veg', 'soup'] as const).map(k => <label key={k}>{labels[k]}<input aria-label={`${labels[k]}道数`} type="number" min="0" max="20" step="1" value={Number.isNaN(meal.counts[k]) ? '' : meal.counts[k]} onChange={e => { setNotice(''); edit({ counts: { ...meal.counts, [k]: e.target.value === '' ? NaN : Number(e.target.value) } }); }}/></label>)}</div><p className="small">合计 1～20 道，不需要的类别填 0。食材不足会告知；允许补买后按指定数量搭配。</p></> : <p className="small">自动根据人数、食材种类和用量决定菜数，尽量贴近人数参考，不固定为三道或六道。填写用量，推荐会更精确。</p>}<button className="text-button" onClick={() => setModal('guide')}>查看 1～12 人配菜参考 ↗</button></div>}
-        {meal.health && <div className="health-test-banner" role="note"><strong>健康模式</strong><p>{meal.aiFoodChoices||meal.aiExcludedFoods?.length?'已叠加你确认的 AI去疾 选择，仍按现有食材、调料及补买设置搭配。':'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}</p><button onClick={() => edit({ health: false })}>切回普通模式</button></div>}{(result || busy) && <p className="result-conditions">{meal.servings || '待确认'} 人用餐 · {meal.includeAdditional ? '也照顾同餐人的饮食要求' : '按我的饮食要求'} · {meal.allowBuy ? '允许补买' : '不额外补买'}</p>}
+        {meal.health && <div className="health-results-note" role="note"><span>健康模式 · 结合个人选择与本餐食材搭配</span><button onClick={()=>edit({health:false})}>切回普通模式</button></div>}{(result || busy) && <p className="result-conditions">{meal.servings || '待确认'} 人用餐 · {meal.includeAdditional ? '也照顾同餐人的饮食要求' : '按我的饮食要求'} · {meal.allowBuy ? '允许补买' : '不额外补买'}</p>}
         {busy && !pendingRecipeId && <div className="progress" role="status"><span className="spinner"/>{progress}</div>}
         {!result && !busy && <div className="results-empty empty-result"><div className="empty-plate" aria-hidden="true">🥬</div><h3>好好吃饭，从手边开始</h3><p>添加手边食材，选好口味，<br/>让我们把这一餐搭配好。</p><div className="empty-steps"><span><b>1</b>添加食材</span><span><b>2</b>搭配一餐</span><span><b>3</b>照着做就好</span></div></div>}
-        {result && <><div className={`result-state ${result.status === 'completed' ? '' : 'warning-box'}`} role="status"><strong>{result.status === 'completed' ? `为你找到 ${result.dishes.length} 道` : result.status === 'needs_confirmation' ? '还有信息需要核对' : result.status === 'no_results' ? '暂时没有合适的搭配' : '本次推荐未完成'}</strong>{result.reasons.map(r => <p key={r}>{friendly(r)}</p>)}{meal.composition === 'custom' && !meal.allowBuy && !result.targetMet && ['completed', 'no_results'].includes(result.status) && <button className="buy-to-complete" onClick={() => { const snapshot = edit({ allowBuy: true }); void generate('generate', { selected: [], previous: [] }, snapshot); }}>允许补买，按指定数量搭配</button>}{meal.health && <button onClick={() => edit({ health: false })}>主动返回普通模式</button>}</div>
+        {result && <><div ref={resultStatusRef} tabIndex={-1} className={`result-state ${result.status === 'completed' ? '' : 'warning-box'}`} role="status"><strong>{result.status === 'completed' ? `为你找到 ${result.dishes.length} 道` : result.status === 'needs_confirmation' ? '还有信息需要核对' : result.status === 'no_results' ? '暂时没有合适的搭配' : '本次推荐未完成'}</strong>{result.reasons.map(r => <p key={r}>{friendly(r)}</p>)}{meal.composition === 'custom' && !meal.allowBuy && !result.targetMet && ['completed', 'no_results'].includes(result.status) && <button className="buy-to-complete" onClick={() => { const snapshot = edit({ allowBuy: true }); void generate('generate', { selected: [], previous: [] }, snapshot); }}>允许补买，按指定数量搭配</button>}{meal.health && <button onClick={() => edit({ health: false })}>主动返回普通模式</button>}</div>
           <div className="recipe-grid" ref={recipeGrid} tabIndex={-1} aria-label="推荐菜谱">{result.dishes.map(dish => <article className="recipe-card" key={dish.recipe.id} data-testid="recipe-card" aria-busy={busy&&pendingRecipeId===dish.recipe.id}>
             <div className="card-photo"><RecipePhoto recipe={dish.recipe}/><FavoriteControl compact recipe={dish.recipe} variant={dish.variant} active={isFavorite(dish.recipe, dish.variant)} toggle={() => toggleFavorite(dish.recipe, dish.variant)}/></div>
             <div className="card-body">
@@ -353,7 +368,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
       {notice && <div className="notice" role="status"><p>{notice}</p><button className="icon-button" aria-label="关闭提示" onClick={() => setNotice('')}>×</button></div>}
     </main><footer><span className="footer-brand">拾味 <span>把日子，过得有滋有味。</span></span><span>好好吃饭，好好生活。</span></footer>
     {workspaceVisible && <div className="mobile-cta"><button className="primary" disabled={busy || crossTab} onClick={() => void generate()}>{busy ? '正在搭配…' : meal.allowBuy ? '看看可以做什么' : '搭配这一餐'} <span>{meal.ingredients.length} 种食材 · {Number.isFinite(meal.servings) ? meal.servings : '—'} 人用餐</span></button></div>}
-    {modal === 'account' && <Modal title={sessionInfo?.identity === 'account'||sessionInfo?.localTestFeatures ? '个人设置' : accountMode === 'register' ? '注册账号' : '登录'} close={() => {setModal(null);setAccountMode('login');}}>{sessionInfo?.identity === 'account'&&<p className="small">口味、过敏、忌口、调料和经你同意的AI去疾会自动保存。</p>}{sessionInfo?.accountAvailable && !sessionInfo.localTestFeatures ? <AccountControls catalog={catalog} onModeChange={setAccountMode} onAuthenticated={() => {if(loginReturn==='health'){history.replaceState({},'','/#workspace');setLoginReturn('account');setAuthMessage('');setModal('account');}}}/> : sessionInfo?.identity === 'local-test' ? <><p className="account-state">✓ 已登录 · 本机测试账号</p><p className="small subtle">当前浏览器中保留登录状态；跨设备同步尚未接入。</p><button disabled={authBusy} onClick={() => void signOut()}>{authBusy ? '正在退出…' : '退出登录'}</button></> : <><p>{sessionInfo?.localTestFeatures ? '登录测试账号，体验健康模式。食材、偏好和收藏继续保留。' : '账户登录和跨设备同步暂不可用。'}</p>{sessionInfo?.localTestFeatures && <button className="primary" onClick={() => { setLoginReturn('account'); setAuthMessage(''); setModal('login'); }}>登录</button>}</>}{healthIdentity&&sessionInfo?.identity==='account'&&<HealthAccountSettings configured={Boolean(healthKey?.configured)} last4={healthKey?.last4} profile={meal.healthProfile} onProfileChange={profile=>edit({healthProfile:profile})}/>} {meal.health&&healthIdentity&&<SavedAiFoods foods={meal.aiExcludedFoods??[]} onChange={saveAiExcludedFoods}/>} {authMessage && <p role="status">{authMessage}</p>}</Modal>}
+    {modal === 'account' && <Modal title={sessionInfo?.identity === 'account'||sessionInfo?.localTestFeatures ? '个人设置' : accountMode === 'register' ? '注册账号' : '登录'} close={() => {setModal(null);setAccountMode('login');}}>{sessionInfo?.identity === 'account'&&<p className="small">口味、过敏、忌口、调料和经你同意的AI去疾会自动保存。</p>}{sessionInfo?.accountAvailable && !sessionInfo.localTestFeatures ? <AccountControls catalog={catalog} onModeChange={setAccountMode} onAuthenticated={() => {if(loginReturn==='health'){history.replaceState({},'','/#workspace');setLoginReturn('account');setAuthMessage('');setModal('account');}}}/> : sessionInfo?.identity === 'local-test' ? <><p className="account-state">✓ 已登录 · 本机测试账号</p><p className="small subtle">当前浏览器中保留登录状态；跨设备同步尚未接入。</p><button disabled={authBusy} onClick={() => void signOut()}>{authBusy ? '正在退出…' : '退出登录'}</button></> : <><p>{sessionInfo?.localTestFeatures ? '登录测试账号，体验健康模式。食材、偏好和收藏继续保留。' : '账户登录和跨设备同步暂不可用。'}</p>{sessionInfo?.localTestFeatures && <button className="primary" onClick={() => { setLoginReturn('account'); setAuthMessage(''); setModal('login'); }}>登录</button>}</>}{healthIdentity&&sessionInfo?.identity==='account'&&<HealthAccountSettings configured={Boolean(healthKey?.configured)} last4={healthKey?.last4} profile={meal.healthProfile} preferences={meal.aiFoodPreferences} onPreferencesChange={saveAiPreferences} isMatchable={name=>catalog.restrictionTargets(name).length>0} onProfileChange={profile=>edit({healthProfile:profile,...(!profile?{aiFoodPreferences:emptyAiChoices(),aiFoodChoices:undefined}:{})})}/>} {meal.health&&healthIdentity&&<SavedAiFoods foods={meal.aiExcludedFoods??[]} onChange={saveAiExcludedFoods}/>} {authMessage && <p role="status">{authMessage}</p>}</Modal>}
     {(modal === 'allergy' || modal === 'avoid') && <Modal title={modal === 'allergy' ? '过敏设置' : '忌口设置'} close={() => setModal(null)}>
       <p>{modal === 'allergy' ? '添加会引起过敏的食物，确认后会避开相关菜谱。' : '添加不想吃或不能吃的食物，确认后会避开相关菜谱。'}</p>
       {catalog.restrictionScope==='listed-foods' && <p className="small subtle">按菜谱列出的食材和调料筛选。</p>}

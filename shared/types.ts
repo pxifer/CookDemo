@@ -50,6 +50,7 @@ export interface Meal {
   composition: 'auto' | 'custom'; counts: Record<Category, number>;
   aiFoodChoices?: import('./health-chat').AiFoodChoices;
   aiExcludedFoods?: string[];
+  aiFoodPreferences?: import('./health-chat').AiFoodChoices;
   healthProfile?: import('./health-chat').HealthProfile;
 }
 export interface QuantityCheck {

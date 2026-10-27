@@ -18,7 +18,7 @@ export interface Accounts {
   cookie(identity:AccountIdentity|null):string;
   load(identity:AccountIdentity):Promise<AccountSnapshot>;
   save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>;
-  healthKey?(identity:AccountIdentity):Promise<{apiKey:string;profile?:HealthProfile;restrictions:import('../shared/types').Restriction[]}>;
+  healthKey?(identity:AccountIdentity):Promise<{apiKey:string;profile?:HealthProfile;restrictions:import('../shared/types').Restriction[];preferences?:import('../shared/health-chat').AiFoodChoices}>;
   setHealthKey?(identity:AccountIdentity,expected:number,apiKey:string|null):Promise<AccountSnapshot>;
   saveHealthGuidance?(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile):Promise<AccountSnapshot>;
   logout(identity:AccountIdentity):Promise<void>;
@@ -170,11 +170,11 @@ export class CloudBaseAccounts implements Accounts {
   async save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>{
     const current=await this.privateState(identity);
     if(current.version!==expected)throw new DomainError('SYNC_CONFLICT',409,'账户内容已在另一设备修改，请核对差异后再保存');
-    return this.writePrivate(identity,expected,{favorites:value.favorites,defaults:value.defaults?personalSettings(value.defaults):null,...(current.value.healthApiKey?{healthApiKey:current.value.healthApiKey}:{})});
+    return this.writePrivate(identity,expected,{favorites:value.favorites,defaults:value.defaults?personalSettings({...value.defaults,...(!Object.hasOwn(value.defaults,'aiFoodPreferences')&&current.value.defaults?.aiFoodPreferences?{aiFoodPreferences:current.value.defaults.aiFoodPreferences}:{})}):null,...(current.value.healthApiKey?{healthApiKey:current.value.healthApiKey}:{})});
   }
   async healthKey(identity:AccountIdentity){
     const current=await this.privateState(identity);
-    return {apiKey:current.value.healthApiKey??'',profile:current.value.defaults?.healthProfile,restrictions:current.value.defaults?.restrictions??[]};
+    return {apiKey:current.value.healthApiKey??'',profile:current.value.defaults?.healthProfile,restrictions:current.value.defaults?.restrictions??[],preferences:current.value.defaults?.aiFoodPreferences};
   }
   async setHealthKey(identity:AccountIdentity,expected:number,apiKey:string|null){
     if(apiKey!==null&&!/^sk-[A-Za-z0-9_-]{16,250}$/.test(apiKey))throw new DomainError('INVALID_KEY',400,'请输入以 sk- 开头的 DeepSeek API Key');

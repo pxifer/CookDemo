@@ -1,4 +1,4 @@
-import { healthChatRecipes, withoutExistingRestrictions, withoutRepeatedFoodText, mergeHealthProfile } from '../shared/health-guidance';
+import { healthChatRecipes, expandFoodSuggestions, withoutExistingRestrictions, withoutRepeatedFoodText, mergeHealthProfile } from '../shared/health-guidance';
 import Fastify, { type FastifyRequest } from 'fastify';
 import fastifyStatic from '@fastify/static';
 import swagger from '@fastify/swagger';
@@ -284,10 +284,10 @@ export async function createApp(options: {
         localChatClaims.set(key,Date.now());
       }
       const chatContext=repository?contentContext(await during(repository.load(options.contentRelease!),signal)):constructedContent;
-      const result=await during(requestHealthChat({...req.body,apiKey,profile:stored?.profile??req.body.profile},signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
+      const result=await during(requestHealthChat({...req.body,apiKey,profile:stored?.profile??req.body.profile,mealContext:{ingredients:[],seasonings:[],restrictions:[],allowBuy:false,...req.body.mealContext,aiFoodPreferences:stored?.preferences??req.body.mealContext?.aiFoodPreferences}},signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
       if(result.assessment){
         const restrictionNames=[...(stored?.restrictions??[]).map(item=>item.name),...(req.body.mealContext?.restrictions??[]).map(name=>name.replace(/^(过敏|忌口|待确认)：/,''))];
-        result.assessment.suggestions=withoutExistingRestrictions(result.assessment.suggestions,restrictionNames,chatContext);
+        result.assessment.suggestions=withoutExistingRestrictions(expandFoodSuggestions(result.assessment.suggestions,chatContext),restrictionNames,chatContext);
         result.message.content=withoutRepeatedFoodText(result.message.content,restrictionNames,chatContext);
         result.assessment.recipes=healthChatRecipes(chatContext,result.assessment,{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:restrictionNames});
         if(identity&&options.accounts?.saveHealthGuidance){

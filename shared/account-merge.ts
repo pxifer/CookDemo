@@ -1,3 +1,4 @@
+import { emptyAiChoices, mergeAiChoices } from './ai-food-choices';
 import type { AccountValue } from './account';
 import type { Meal, Restriction } from './types';
 
@@ -18,7 +19,9 @@ export function mergeAccountValues(local:AccountValue,cloud:AccountValue):Accoun
     if(merged.size>50)throw Error('合并后饮食要求超过50项，请先逐项整理');
     const aiExcludedFoods=[...new Set([...(remoteFoods(cloud.defaults)),...remoteFoods(local.defaults)])];
     if(aiExcludedFoods.length>20)throw Error('合并后AI去疾超过20项，请先整理');
-    defaults={...local.defaults,restrictions:[...merged.values()],...(aiExcludedFoods.length||local.defaults.aiExcludedFoods||cloud.defaults.aiExcludedFoods?{aiExcludedFoods}:{})};
+    const preferences=mergeAiChoices(emptyAiChoices(),{preferred:[...(cloud.defaults.aiFoodPreferences?.preferred??[]),...(local.defaults.aiFoodPreferences?.preferred??[])],limited:[...(cloud.defaults.aiFoodPreferences?.limited??[]),...(local.defaults.aiFoodPreferences?.limited??[])],excluded:[...(cloud.defaults.aiFoodPreferences?.excluded??[]),...(local.defaults.aiFoodPreferences?.excluded??[])]});
+    if(Object.values(preferences).some(items=>items.length>20))throw Error('合并后AI食材选择超过20项，请先整理');
+    defaults={...local.defaults,...(local.defaults.aiFoodPreferences||cloud.defaults.aiFoodPreferences?{aiFoodPreferences:preferences}:{}),restrictions:[...merged.values()],...(aiExcludedFoods.length||local.defaults.aiExcludedFoods||cloud.defaults.aiExcludedFoods?{aiExcludedFoods}:{})};
   }
   return {favorites,defaults};
 }
@@ -36,9 +39,15 @@ export function reconcileAccountValues(local:AccountValue,remote:AccountValue,ba
     merged.defaults={...merged.defaults!,flavor:same(local.defaults.flavor,base.defaults.flavor)?remote.defaults.flavor:local.defaults.flavor,
       checkSeasonings:same(local.defaults.checkSeasonings,base.defaults.checkSeasonings)?remote.defaults.checkSeasonings:local.defaults.checkSeasonings,
       seasonings:same(local.defaults.seasonings,base.defaults.seasonings)?remote.defaults.seasonings:local.defaults.seasonings,
+      aiFoodPreferences:same(local.defaults.aiFoodPreferences,base.defaults.aiFoodPreferences)?remote.defaults.aiFoodPreferences:same(remote.defaults.aiFoodPreferences,base.defaults.aiFoodPreferences)?local.defaults.aiFoodPreferences:reconcilePreferences(local.defaults.aiFoodPreferences,remote.defaults.aiFoodPreferences,base.defaults.aiFoodPreferences),
       healthProfile:same(local.defaults.healthProfile,base.defaults.healthProfile)?remote.defaults.healthProfile:same(remote.defaults.healthProfile,base.defaults.healthProfile)?local.defaults.healthProfile:base.defaults.healthProfile&&(!local.defaults.healthProfile||!remote.defaults.healthProfile)?undefined:remote.defaults.healthProfile,
       aiExcludedFoods:[...new Set([...remoteFoods(local.defaults),...remoteFoods(remote.defaults)])].filter(name=>!remoteFoods(base.defaults!).includes(name)||(remoteFoods(local.defaults!).includes(name)&&remoteFoods(remote.defaults!).includes(name))),
       restrictions:same(local.defaults.restrictions,base.defaults.restrictions)?remote.defaults.restrictions:same(remote.defaults.restrictions,base.defaults.restrictions)?local.defaults.restrictions:merged.defaults!.restrictions};
   }
   return merged;
+}
+
+function reconcilePreferences(local:import('./health-chat').AiFoodChoices|undefined,remote:import('./health-chat').AiFoodChoices|undefined,base:import('./health-chat').AiFoodChoices|undefined){
+  const result=emptyAiChoices();for(const kind of ['preferred','limited','excluded'] as const)result[kind]=[...new Set([...(local?.[kind]??[]),...(remote?.[kind]??[])])].filter(name=>!(base?.[kind]??[]).includes(name)||Boolean(local?.[kind].includes(name)&&remote?.[kind].includes(name)));
+  return mergeAiChoices(emptyAiChoices(),result);
 }

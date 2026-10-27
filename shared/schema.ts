@@ -15,6 +15,7 @@ export const restrictionSchema = object({
   status: enumOf('pending', 'confirmed', 'unknown', 'conflict'), scope: enumOf('self', 'additional'), original: string(1000),
 });
 export const healthProfileSchema=object({conditions:array({...string(100),minLength:1},20),goals:array({...string(100),minLength:1},20),notes:string(400),updatedAt:string(40),suggestions:array(object({foodName:{...string(40),minLength:1},direction:enumOf('prefer','limit','avoid'),reason:{...string(140),minLength:1},conditions:string(80),matchable:boolean}),20)});
+export const aiFoodPreferencesSchema=object({preferred:array({...string(40),minLength:1},20),limited:array({...string(40),minLength:1},20),excluded:array({...string(40),minLength:1},20)});
 export const mealSchema = object({
   version: integer(0, 2_147_483_647), raw: string(5000), ingredients: array(ingredientSchema), restrictions: array(restrictionSchema, 50),
   servings: integer(1, 12), mode: enumOf('meal', 'candidates'), health: boolean, diseases: array(string(100), 20),
@@ -22,11 +23,12 @@ export const mealSchema = object({
   includeAdditional: boolean, checkSeasonings: boolean, seasonings: array(string(80), 50), allowBuy: boolean,
   composition: enumOf('auto', 'custom'), counts: object({ meat: integer(0, 20), veg: integer(0, 20), soup: integer(0, 20) }),
   aiFoodChoices: object({preferred:array({...string(40),minLength:1},20),limited:array({...string(40),minLength:1},20),excluded:array({...string(40),minLength:1},20)}),
+  aiFoodPreferences:aiFoodPreferencesSchema,
   healthProfile:healthProfileSchema,
   aiExcludedFoods: array({...string(40),minLength:1},20),
-}, ['aiFoodChoices','aiExcludedFoods','healthProfile']);
+}, ['aiFoodChoices','aiExcludedFoods','healthProfile','aiFoodPreferences']);
 export const selectedSchema = array(object({ recipeId: string(80), variantId: string(100) }), 20);
-export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50),aiExcludedFoods:array({...string(40),minLength:1},20),healthProfile:healthProfileSchema},['aiExcludedFoods','healthProfile']);
+export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50),aiExcludedFoods:array({...string(40),minLength:1},20),healthProfile:healthProfileSchema,aiFoodPreferences:aiFoodPreferencesSchema},['aiExcludedFoods','healthProfile','aiFoodPreferences']);
 export const recommendationSchema = object({
   operationId: { type: 'string', minLength: 8, maxLength: 80, pattern: '^[a-zA-Z0-9-]+$' }, meal: mealSchema,
   action: enumOf('generate', 'reroll', 'replace', 'page', 'variant'), selected: selectedSchema, replaceId: string(80),
