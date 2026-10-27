@@ -1,0 +1,8 @@
+{
+  "revision": "health-chat-v35",
+  "assetHashMatches": true,
+  "healthChatAvailable": true,
+  "accountAvailable": true,
+  "realModelCalls": 0,
+  "configurationUnchanged": true
+}

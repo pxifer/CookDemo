@@ -11,7 +11,7 @@ export function AccountBanner(){
   const state=useSyncExternalStore(subscribeAccount,accountState);
   return ['review','error'].includes(state.status)&&state.session?.identity==='account'?<aside className="account-sync-banner" role="status">{state.message} <a href="/?settings=1">查看账户同步</a></aside>:null;
 }
-export function AccountControls({catalog,onModeChange}:{catalog?:ContentSnapshot;onModeChange?:(mode:'login'|'register')=>void}){
+export function AccountControls({catalog,onModeChange,onAuthenticated}:{catalog?:ContentSnapshot;onModeChange?:(mode:'login'|'register')=>void;onAuthenticated?:()=>void}){
   const state=useSyncExternalStore(subscribeAccount,accountState);
   const [username,setUsername]=useState(''),[password,setPassword]=useState(''),[newPassword,setNewPassword]=useState(''),[repeat,setRepeat]=useState('');
   const [busy,setBusy]=useState(false),[message,setMessage]=useState('');
@@ -63,6 +63,7 @@ export function AccountControls({catalog,onModeChange}:{catalog?:ContentSnapshot
     await initializeAccount(catalog,session,imported);
     history.replaceState({},'','/?settings=1');
     showMessage(register?'注册成功，已登录。':'登录成功。');
+    onAuthenticated?.();
   };
   const sendCode=async()=>{
     const email=String(new FormData(formRef.current!).get('email')??'').trim();setEmail(email);

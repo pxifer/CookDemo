@@ -22,6 +22,8 @@ import { recipeImage } from '../shared/recipe-images';
 import { fixedRecipeText, ingredientDisplayText } from '../shared/recipe-copy';
 import methodReview from '../docs/data/recipe-step-review-v28.json';
 import type { HealthModel } from './health-model';
+import { requestHealthChat, during, assertChat } from './health-chat';
+import { healthChatSchema, type HealthChatRequest } from '../shared/health-chat';
 
 type MethodCopy={steps:string[];method_options?:{label:string;steps:string[]}[]};
 const reviewedMethods=methodReview.recipes as Record<string,MethodCopy>;
@@ -69,6 +71,7 @@ export async function createApp(options: {
   contentRepository?: {load(release:string):Promise<import('../shared/content').ContentSnapshot>;candidates():Promise<import('./gallery-content').CandidateRow[]>};
   accounts?: Accounts;
   healthModel?: HealthModel;
+  healthChatFetch?: typeof fetch;
 } = {}) {
   if(options.contentSource==='cloudbase' && (options.environment!=='preview'||!options.contentRepository||options.contentRelease!==GALLERY_RELEASE||!options.origin?.startsWith('https:')||!options.sessionSecret||!options.csrfSecret||options.localTestFeatures))throw new Error('CloudBase preview configuration required');
   if(options.contentRepository&&options.contentSource!=='cloudbase')throw new Error('Explicit CloudBase content source required');
@@ -81,6 +84,9 @@ export async function createApp(options: {
     return context ?? constructedContent;
   };
   const localTestFeatures = options.localTestFeatures === true;
+  const healthChatAvailable = localTestFeatures || Boolean(options.accounts?.claimAiChat);
+  const localChatClaims = new Map<string, number>();
+  let chatsInFlight = 0;
   if (localTestFeatures && options.origin && !['localhost', '127.0.0.1', '[::1]'].includes(new URL(options.origin).hostname)) throw new Error('Local test identity is restricted to loopback origins');
   if (localTestFeatures && options.environment && options.environment !== 'local') throw new Error('Local test identity is restricted to loopback environments');
   const app = Fastify({ logger: false, bodyLimit: 64 * 1024, ajv: { customOptions: { coerceTypes: false, removeAdditional: false } } });
@@ -101,6 +107,7 @@ export async function createApp(options: {
     for (const [k, v] of rate) if (v.at < cutoff) rate.delete(k);
     for (const [k, v] of registrationSends) if(v<cutoff)registrationSends.delete(k);
     for (const [k, v] of testSessions) if (v.expires <= Date.now()) testSessions.delete(k);
+    for (const [k, v] of localChatClaims) if (v < cutoff) localChatClaims.delete(k);
   }, 60_000).unref();
   app.addHook('onClose', async () => { clearInterval(prune); });
   app.addHook('onSend', async (_req, reply) => {
@@ -146,7 +153,7 @@ export async function createApp(options: {
   app.setErrorHandler((error, req, reply) => {
     const e = error as Error & { validation?: unknown; statusCode?: number; code?: string };
     const status = e.validation ? 400 : e.statusCode ?? 500;
-    reply.code(status).send({ error: { code: e.validation ? 'INVALID_REQUEST' : e.code ?? 'INTERNAL_ERROR', message: e.validation ? '输入格式不合法，请检查人数、数量和已确认状态' : status < 500 ? e.message : '服务暂不可用，输入已保留', requestId: req.id, retryable: status >= 500 } });
+    reply.code(status).send({ error: { code: e.validation ? 'INVALID_REQUEST' : e.code ?? 'INTERNAL_ERROR', message: e.validation ? '输入格式不合法，请检查人数、数量和已确认状态' : status < 500 || (e instanceof DomainError && e.code.startsWith('CHAT_')) ? e.message : '服务暂不可用，输入已保留', requestId: req.id, retryable: status >= 500 } });
   });
   await app.register(swagger, { openapi: { info: { title: '拾味本地开发 API', version: '0.1.0', description: '仅构造内容；真实账户、模型和健康支持尚未准入。' } } });
   app.get('/healthz', async () => ({ status: 'ok' }));
@@ -171,7 +178,7 @@ export async function createApp(options: {
     const id = session(req.headers.cookie) ?? randomBytes(16).toString('hex');
     reply.header('Set-Cookie', `shiwei_guest=${id}.${sign(id)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=1800${options.origin?.startsWith('https:') ? '; Secure' : ''}`);
     const loggedIn = Boolean(testSession(req.headers.cookie));
-    const modelCapabilities = { healthModelAvailable: Boolean(options.healthModel), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
+    const modelCapabilities = { healthChatAvailable, healthModelAvailable: Boolean(options.healthModel), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
     const account=await options.accounts?.authenticate(req.headers.cookie);
     if(account)return {...modelCapabilities,identity:'account',userId:account.userId,displayName:account.displayName,mustChangePassword:account.mustChangePassword,csrfToken:signCsrf(`csrf:${id}`),accountAvailable:true,registrationAvailable:registrationAvailable(),localTestFeatures:false,...((req.query as {state?:string}).state==='1'&&!account.mustChangePassword?{accountSnapshot:await options.accounts!.load(account)}:{})};
     return { ...modelCapabilities,identity: loggedIn ? 'local-test' : 'guest', ...(loggedIn ? { displayName: '本机测试账号' } : {}), csrfToken: signCsrf(`csrf:${id}`), accountAvailable: localTestFeatures||Boolean(options.accounts),registrationAvailable:registrationAvailable(), localTestFeatures };
@@ -247,6 +254,37 @@ export async function createApp(options: {
     if(!identity)throw new DomainError('LOGIN_REQUIRED',401,'请先登录，收藏和偏好会保留在当前设备');
     return identity;
   };
+  app.post<{Body:HealthChatRequest}>('/api/v1/health/chat',{schema:{body:healthChatSchema}},async(req,reply)=>{
+    if(!healthChatAvailable)throw new DomainError('CHAT_NOT_READY',503,'AI 对话暂时无法连接，请稍后再试');
+    const controller=new AbortController(),signal=AbortSignal.any([controller.signal,AbortSignal.timeout(17000)]);
+    const onClose=()=>{if(!reply.raw.writableEnded)controller.abort();};reply.raw.on('close',onClose);
+    let reserved=false;
+    try{
+      const identity=await during(options.accounts?.authenticate(req.headers.cookie)??Promise.resolve(null),signal);
+      if(!identity&&!testSession(req.headers.cookie))throw new DomainError('LOGIN_REQUIRED',401,'请先登录，再使用健康AI对话');
+      if(identity?.mustChangePassword)throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
+      assertChat(req.body);
+      if(chatsInFlight>=4)throw new DomainError('CHAT_BUSY',429,'AI 对话人数较多，请稍后再试');
+      chatsInFlight++;reserved=true;
+      const fingerprint=createHmac('sha256',secret).update('health-chat-v1\0').update(JSON.stringify(req.body)).digest('hex');
+      if(identity){
+        if(!options.accounts?.claimAiChat)throw new DomainError('CHAT_NOT_READY',503,'AI 对话暂时无法连接，请稍后再试');
+        const claim=await during(options.accounts.claimAiChat(identity,req.body.operationId,fingerprint),signal);
+        if(!claim.claimed)throw new DomainError(claim.reason==='duplicate'?'CHAT_OPERATION_USED':'CHAT_RATE_LIMIT',claim.reason==='duplicate'?409:429,claim.reason==='duplicate'?'这条消息已提交，请等待结果；未自动重发':'发送较频繁，请稍后再试');
+      }else{
+        // Explicit loopback test identity only. Public accounts always use shared PG claims.
+        const prefix=`${session(req.headers.cookie)}:`,key=prefix+req.body.operationId;
+        if(localChatClaims.has(key))throw new DomainError('CHAT_OPERATION_USED',409,'这条消息已提交，请等待结果；未自动重发');
+        if([...localChatClaims].filter(([id,at])=>id.startsWith(prefix)&&at>Date.now()-60000).length>=6)throw new DomainError('CHAT_RATE_LIMIT',429,'发送较频繁，请稍后再试');
+        if(localChatClaims.size>=3000)throw new DomainError('CHAT_BUSY',429,'本机测试对话已满，请稍后再试');
+        localChatClaims.set(key,Date.now());
+      }
+      const result=await during(requestHealthChat(req.body,signal,options.healthChatFetch),signal);
+      const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);
+      if(!active||(identity&&(typeof active!=='object'||active.userId!==identity.userId||active.mustChangePassword)))throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
+      return result;
+    }finally{if(reserved)chatsInFlight--;reply.raw.removeListener('close',onClose);}
+  });
   app.get('/api/v1/account/state',async req=>{const identity=await requireAccount(req);return options.accounts!.load(identity);});
   app.post<{Body:{expectedVersion:number;value:AccountValue}}>('/api/v1/account/state',{schema:{body:{type:'object',additionalProperties:false,required:['expectedVersion','value'],properties:{
     expectedVersion:{type:'integer',minimum:0,maximum:2147483647},
@@ -276,10 +314,11 @@ export async function createApp(options: {
     const context = contextFor(req);
     assertMeal(req.body.meal, context);
     const modelHealth = req.body.meal.health && Boolean(options.healthModel);
-    const modelIdentity = modelHealth ? await options.accounts?.authenticate(req.headers.cookie) : undefined;
-    if (modelHealth && !modelIdentity && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式');
+    const chatHealth = req.body.meal.health && healthChatAvailable && !modelHealth;
+    const modelIdentity = modelHealth || chatHealth ? await options.accounts?.authenticate(req.headers.cookie) : undefined;
+    if ((modelHealth || chatHealth) && !modelIdentity && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式');
     if (modelIdentity?.mustChangePassword) throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
-    const localHealthTest = req.body.meal.health && localTestFeatures && !modelHealth;
+    const localHealthTest = req.body.meal.health && localTestFeatures && !modelHealth && !chatHealth;
     if (localHealthTest && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式测试');
     const controller = new AbortController();
     const onClose = () => { if (!reply.raw.writableEnded) controller.abort(); };
@@ -291,7 +330,8 @@ export async function createApp(options: {
       reply.raw.write(JSON.stringify({ type: 'progress', stage: '输入格式已校验，正在核对目录与库存' }) + '\n');
     }
     try {
-      let result = await recommend(context.recipes, req.body, { signal: controller.signal, localHealthTest, context, cursorSecret: recommendationCursorSecret });
+      let result = await recommend(context.recipes, chatHealth ? {...req.body,meal:{...req.body.meal,health:false}} : req.body, { signal: controller.signal, localHealthTest, context, cursorSecret: recommendationCursorSecret });
+      if(chatHealth)result={...result,healthAssessment:{state:'conversation_only',message:'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}};
       if (modelHealth && result.status === 'unavailable' && !controller.signal.aborted) {
         if (stream && !reply.raw.destroyed) reply.raw.write(JSON.stringify({ type: 'progress', stage: '正在整理疾病信息与证据检索词' }) + '\n');
         const healthAssessment = await options.healthModel!.prepare({ subject: modelIdentity ? `account:${modelIdentity.userId}` : `guest:${subject}`,
@@ -303,7 +343,7 @@ export async function createApp(options: {
         }
       }
       if (repository && (await repository.load(options.contentRelease!)).contentVersion !== context.contentVersion) throw new DomainError('CONTENT_CHANGED',409,'菜谱已变化，请重新搭配');
-      if (localHealthTest && !testSession(req.headers.cookie)) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['登录已失效，请重新登录后再试'] };
+      if ((localHealthTest || (chatHealth&&!modelIdentity)) && !testSession(req.headers.cookie)) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['登录已失效，请重新登录后再试'] };
       const newest = latest.get(subject);
       if (newest?.operation !== req.body.operationId || newest?.version !== req.body.meal.version) result = { ...result, healthAssessment: undefined, dishes: [], checks: [], status: 'cancelled', reasons: ['旧操作已被新条件取代'] };
       const publicResult={...result,dishes:result.dishes.map(publicDish)};

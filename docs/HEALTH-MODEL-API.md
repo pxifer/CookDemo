@@ -1,10 +1,26 @@
 # 健康模式模型 API 入口
 
-日期：2026-10-27。最新决定D19-03：模型暂定DeepSeek，RAG以定性食材指导为主，替代上一轮供应商未定状态。默认`MODEL_ENABLED=0`，本轮未添加Key、未调用真实模型、未部署健康模式。
+日期：2026-10-27。最新D19-04已开放登录用户个人Key健康AI对话，模型为DeepSeek；填写不调用，用户发送才调用。独立的服务端查询准备仍默认MODEL_ENABLED=0，本站RAG疾病筛选尚未上线。
+
+## 当前开放：登录用户自备Key的健康AI对话（D19-04）
+
+用户已要求开放健康模式、登录后填写API并与AI对话。当前入口不再显示“健康推荐暂不可用”：登录/注册后返回健康设置，填写DeepSeek API Key，开启后在工作台推荐区顶部显示可收起的对话框；手机自然排列。疾病选填，多轮对话、取消、清空、换Key及错误反馈已实现。
+
+- `POST /api/v1/health/chat`：同源JSON，已有Cookie及`X-CSRF-Token`；字段为`operationId`（UUID）、`apiKey`（sk-前缀）、`messages`（user/assistant交替，末条user）、`diseases`（可空）。前端不选择URL、模型或system消息。
+- 固定`https://api.deepseek.com/chat/completions`、`deepseek-flash`，关闭思考，输出1600token上限；应用总截止17秒，取消传递至上游，单次发送无自动重试。最多15条上下文、合计16000字符，当前问题最多2000字符。
+- Key仅浏览器当前页面内存与本次同源请求内存，不写localStorage/sessionStorage、账户、数据库或日志。刷新、离开页面、关闭模式或退出登录即清除；**未提供永久保存Key功能**。填写/开启本身不调用模型，点击发送才使用用户自己的DeepSeek额度，不使用平台Key。
+- 对话历史仅本页内存；提交时携带裁剪后的对话与用户填的疾病，不自动上传本餐原始文字、图片或个人档案。回复按纯文本渲染，不执行HTML或模型工具。
+- 公网通过真实账户验证，并由`CloudBaseAccounts.claimAiChat`调用PG RPC `shiwei_ai_chat_claim`做共享单次认领、每账户滚动每分钟6次/24小时120次限额；只存owner、operation UUID、HMAC指纹及时间。认证角色不能更新/删除活动记录，不保存Key/疾病/消息正文。RPC按账户行锁串行化，不在等待模型时持有事务。记录需按后续运维保留策略由有权管理员清理，当前不宣称自动定时删除。
+- `healthChatAvailable`表示对话入口；`healthModelAvailable`仍表示下文的服务端查询准备配置，二者不同。聊天无需`MODEL_ENABLED=1`或平台`.env` Key。本机显式测试身份可用内存单次认领，不能当成公网共享账本。
+- 旧`HealthModel.prepare`接口继续保留，不自动触发用户Key；云端未配置该服务端模型。健康模式下菜谱可正常按食材/食品级过敏忌口搭配，返回`healthAssessment.state=conversation_only`。AI对话与推荐互不静默改写，RAG/疾病规则筛选仍未上线。
+
+模型调用由用户发送动作授权；本站知识库未接入的提示保留在对话框内，不伪造已检索证据。账号退出/失效时清理对话与Key，服务端结果发布前复验身份。上游Key错误、余额不足、限流、网络失败、取消和截断均有独立反馈，不泄漏供应商原始错误正文。
+
+实现和验收见[健康聊天交付](ACCEPTANCE-health-chat-2026-10-27.md)。下文为上一轮服务端查询准备接口与未来配置说明，不能据此再次封闭本轮已授权的个人Key对话。
 
 ## 已实现
 
-- `server/health-model.ts`定义可替换`HealthModel.prepare`，当前暂定适配为DeepSeek `deepseek-flash`，旧智谱`glm-4.7-flash`保留显式兼容，不自动切换。以后新增供应商通过独立适配器，浏览器不能提交URL/型号/Key。
+- `server/health-model.ts`定义可替换`HealthModel.prepare`，当前暂定适配为DeepSeek `deepseek-flash`，旧智谱`glm-4.7-flash`保留显式兼容，不自动切换。以后新增供应商通过独立适配器；该服务端查询准备接口不接受浏览器指定URL/型号/Key。本轮独立聊天入口允许登录用户随请求提交个人Key。
 - 健康推荐入口沿用`POST /api/v1/recommendations`，`meal.health=true`、疾病名在`meal.diseases`；调用前校验会话、登录、CSRF、运行时Schema及待确认限制。普通模式不调用模型。
 - 查询任务版本为`health-query-v2-qualitative`，覆盖成分有益/不利方向、食物层面建议、烹调新增/变化物质和证据条件；不要求用户先称重。仍只发送疾病名称；不发送用户ID、过敏/忌口、食材原文、照片、完整草稿。标准名为候选，不覆盖原输入。
 - 返回`healthAssessment.state='evidence_required'`及检索计划；`status='unavailable'`、`dishes=[]`。知识规则未接通时不返回健康菜谱。成功整理检索词不表示疾病支持或健康审核通过。

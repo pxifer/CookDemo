@@ -3,7 +3,7 @@ const port = Number(process.env.PLAYWRIGHT_PORT ?? 4175);
 if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid PLAYWRIGHT_PORT');
 const baseURL = `http://127.0.0.1:${port}`;
 export default defineConfig({
-  testDir: './tests', testMatch: '**/*.spec.ts', testIgnore: ['**/ui-revision.spec.ts','**/resume.spec.ts','**/cloudbase-preview.spec.ts','**/account-cloud.spec.ts','**/registration-browser.spec.ts','**/registration-live.spec.ts','**/composition-v2-browser.spec.ts'], fullyParallel: false, workers: 1, retries: 0,
+  testDir: './tests', testMatch: '**/*.spec.ts', testIgnore: ['**/ui-revision.spec.ts','**/resume.spec.ts','**/cloudbase-preview.spec.ts','**/account-cloud.spec.ts','**/registration-browser.spec.ts','**/registration-live.spec.ts','**/composition-v2-browser.spec.ts','**/health-chat-browser.spec.ts'], fullyParallel: false, workers: 1, retries: 0,
   timeout: 30_000, expect: { timeout: 7000 },
   reporter: [['list'], ['json', { outputFile: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/browser-results.json` }]],
   use: { baseURL, channel: 'msedge', headless: true, locale: 'zh-CN', reducedMotion: 'reduce', screenshot: 'only-on-failure', trace: 'retain-on-failure' },

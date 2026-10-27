@@ -8,6 +8,7 @@ export async function fixture(enabled=true){
     CREATE FUNCTION auth.uid() RETURNS text LANGUAGE sql AS $$ SELECT nullif(current_setting('request.jwt.claim.sub',true),'') $$;
     GRANT USAGE ON SCHEMA auth TO authenticated;GRANT EXECUTE ON FUNCTION auth.uid() TO authenticated;`);
   await db.exec(await readFile('deploy/db/account-sync.sql','utf8'));
+  await db.exec(await readFile('deploy/db/health-chat.sql','utf8'));
   const users=new Map<string,{uid:string;password:string}>(),pending=new Map<string,string>(),verified=new Map<string,string>();
   let count=0,mailCount=0,captchaRequired=false;
   const requests:{path:string;body:any;headers:Headers}[]=[];

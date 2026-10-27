@@ -22,41 +22,27 @@ async function addRestriction(page: Page, kind: '过敏' | '忌口', text: strin
 }
 test.beforeEach(async ({ page }) => { await page.goto('/'); await expect(page.getByRole('heading', { name: '看看有什么食材' })).toBeVisible(); });
 
-test('健康模型入口前端契约：疾病必填、登录、缺证据终态与返回普通模式（构造接口）', async ({ page }, info) => {
-  await page.route('**/api/v1/auth/session*', async route => {
-    const response = await route.fetch();
-    await route.fulfill({ response, json: { ...await response.json(), healthModelAvailable: true, healthModelProvider: '测试模型服务' } });
+test('健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立', async ({ page }, info) => {
+  let chatRequests = 0;
+  await page.route('**/api/v1/health/chat', async route => {
+    chatRequests++;const body=route.request().postDataJSON();
+    await route.fulfill({status:200,json:{operationId:body.operationId,message:{role:'assistant',content:'构造饮食参考回复'},knowledge:'general_model'}});
   });
-  let healthRequests = 0;
-  await page.route('**/api/v1/recommendations', async route => {
-    const body = route.request().postDataJSON();
-    if (!body.meal.health) return route.continue();
-    healthRequests++;
-    const response = await route.fetch();
-    const events = (await response.text()).trim().split('\n').map(line => JSON.parse(line));
-    const base = events.find(event => event.type === 'result').result;
-    const message = '疾病信息已整理。健康证据与规则尚未接通，暂不能给出健康菜谱；可返回普通模式。';
-    const result = { ...base, status: 'unavailable', dishes: [], checks: [], reasons: [message], healthAssessment: {
-      state: 'evidence_required', message, plan: { diseases: [{ input: '测试疾病', canonical: null }], evidenceQueries: ['测试疾病 证据'] },
-    } };
-    await route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: JSON.stringify({ type: 'result', result }) + '\n' });
-  });
-  await page.reload(); await parse(page, ingredients);
+  await parse(page, ingredients);
   await page.getByRole('button', { name: /健康模式/ }).click();
-  const dialog = page.getByRole('dialog', { name: '健康模式', exact: true });
-  await expect(dialog).toContainText('疾病名称发送给测试模型服务');
-  await expect(dialog.getByRole('button', { name: '登录后开启健康模式', exact: true })).toBeDisabled();
-  await page.getByLabel('需要关注的疾病名称', { exact: true }).fill('测试疾病');
-  await dialog.getByRole('button', { name: '添加名称', exact: true }).click();
-  await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-health-model-settings.png`, fullPage: true });
-  await dialog.getByRole('button', { name: '登录后开启健康模式', exact: true }).click();
+  await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();
   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
-  await generate(page);
-  await expect(page.locator('.health-test-banner')).toContainText('健康证据与规则尚未接通');
-  await expect(page.getByTestId('recipe-card')).toHaveCount(0); expect(healthRequests).toBe(1);
-  await page.locator('.health-test-banner').getByRole('button', { name: '切回普通模式', exact: true }).click();
-  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3); expect(healthRequests).toBe(1);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  await expect(page.getByLabel('需要关注的疾病名称（选填）', { exact: true })).toBeVisible();
+  await page.getByLabel('DeepSeek API Key', { exact: true }).fill('sk-browser-test-only-123456789');
+  await page.getByRole('button', { name: '开启健康模式', exact: true }).click();
+  const chat=page.getByRole('region',{name:'健康AI对话',exact:true});
+  await page.getByLabel('给AI的消息',{exact:true}).fill('测试食材');await chat.getByRole('button',{name:'发送消息',exact:true}).click();
+  await expect(chat.getByRole('log')).toContainText('构造饮食参考回复');
+  await generate(page);await expect(page.getByTestId('recipe-card')).toHaveCount(3);expect(chatRequests).toBe(1);
+  await expect(page.locator('.health-test-banner')).toContainText('菜谱仍按食材、过敏和忌口搭配');
+  await chat.screenshot({path:`${process.env.ACCEPTANCE_DIR??'acceptance'}/${info.project.name}-health-chat.png`});
+  await page.getByRole('button',{name:'切回普通模式',exact:true}).click();await expect(chat).toHaveCount(0);
+  await generate(page);await expect(page.getByTestId('recipe-card')).toHaveCount(3);expect(chatRequests).toBe(1);
 });
 
 test('D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复', async ({ page }) => {
@@ -220,7 +206,7 @@ test('D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语�
   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-compact.png`, fullPage: true });
   await settings(page, '忌口'); await page.keyboard.press('Escape');
   await expect(page.locator('.preference-shortcuts').getByRole('button', { name: /^忌口/ })).toBeFocused();
-  await page.getByRole('button', { name: /健康模式/ }).click(); await expect(page.getByRole('dialog')).toContainText('本机测试');
+  await page.getByRole('button', { name: /健康模式/ }).click(); await expect(page.getByRole('dialog')).toContainText('登录后');
   await page.keyboard.press('Escape');
   expect(errors).toEqual([]);
 });
@@ -268,17 +254,18 @@ test('本机测试：登录开启健康、标签不清空输入、刷新保持�
   const card = page.getByTestId('recipe-card').first(); const name = await card.locator('h4').innerText();
   await card.getByRole('button', { name: `收藏 ${name}`, exact: true }).click();
   await page.getByRole('button', { name: /健康模式/ }).click();
-  await page.getByLabel('需要关注的疾病名称', { exact: true }).fill('偏头痛');
-  await page.getByRole('button', { name: '糖尿病', exact: true }).click();
-  await expect(page.getByLabel('需要关注的疾病名称', { exact: true })).toHaveValue('偏头痛');
-  await page.getByRole('button', { name: '添加名称', exact: true }).click();
-  await page.getByRole('button', { name: '登录并开启健康模式测试', exact: true }).click();
-  await expect(page.getByRole('dialog', { name: '登录', exact: true })).toContainText('本机测试账号');
+  await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();
   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
+  await page.getByLabel('需要关注的疾病名称（选填）', { exact: true }).fill('偏头痛');
+  await page.getByRole('button', { name: '糖尿病', exact: true }).click();
+  await expect(page.getByLabel('需要关注的疾病名称（选填）', { exact: true })).toHaveValue('偏头痛');
+  await page.getByRole('button', { name: '添加名称', exact: true }).click();
+  await page.getByLabel('DeepSeek API Key', { exact: true }).fill('sk-browser-test-only-123456789');
+  await page.getByRole('button', { name: '开启健康模式', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0); await expect(page.locator('.health-entry .switch')).toHaveClass(/on/);
   await expect(page.getByLabel('鸡蛋用量', { exact: true })).toHaveValue('4');
   await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
-  await expect(page.locator('.health-test-banner')).toContainText('尚未按疾病规则筛选');
+  await expect(page.locator('.health-test-banner')).toContainText('菜谱仍按食材、过敏和忌口搭配');
   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-health-test.png`, fullPage: true });
   await page.reload(); await expect(page.locator('.health-entry .switch')).toHaveClass(/on/);
   await page.getByRole('button', { name: '个人设置', exact: true }).click();

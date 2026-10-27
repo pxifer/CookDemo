@@ -93,7 +93,7 @@ test('健康测试只接受服务端登录，保留硬限制并明确没有执�
     headers.cookie = `${guest}; ${login.headers['set-cookie']!.toString().split(';')[0]}`;
     const result = await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) });
     assert.equal(result.statusCode, 200); assert.equal(result.json().status, 'completed');
-    assert.equal(result.json().healthAssessment.state, 'test_only'); assert.match(result.json().healthAssessment.message, /尚未按疾病规则筛选/);
+    assert.equal(result.json().healthAssessment.state, 'conversation_only'); assert.match(result.json().healthAssessment.message, /菜谱仍按食材、过敏和忌口搭配/);
     m.version++; m.restrictions = [{ id: 'r', kind: 'allergy', name: '未知', targets: [], status: 'unknown', scope: 'self', original: '未知' }];
     const blocked = await app.inject({ method: 'POST', url: '/api/v1/recommendations', headers, payload: request(m) });
     assert.equal(blocked.json().status, 'needs_confirmation'); assert.equal(blocked.json().dishes.length, 0);

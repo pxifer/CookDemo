@@ -28,6 +28,11 @@ async function post(url: string, body: unknown, signal?: AbortSignal, stream = f
   return response;
 }
 export async function extract(text: string): Promise<Extraction> { return (await post('recognitions/text', { text })).json(); }
+export async function sendHealthChat(body: import('../shared/health-chat').HealthChatRequest, signal: AbortSignal): Promise<import('../shared/health-chat').HealthChatReply> {
+  const data = await (await post('health/chat', body, signal)).json();
+  if (data.operationId !== body.operationId || data.message?.role !== 'assistant' || typeof data.message.content !== 'string' || !data.message.content.trim()) throw new Error('AI 回复不完整，请手动重试');
+  return data;
+}
 export async function loginForLocalTest(): Promise<SessionInfo> {
   await post('auth/login', { mode: 'local-test' });
   return establishSession();

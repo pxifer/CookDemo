@@ -66,7 +66,7 @@ export interface RecommendationRequest {
   page: number; cursor?: string; previous: string[];
 }
 export interface RecommendationResult {
-  healthAssessment?: { state: 'test_only'; message: string } | import('./health-model').HealthPreparation;
+  healthAssessment?: { state: 'test_only' | 'conversation_only'; message: string } | import('./health-model').HealthPreparation;
   operationId: string; mealVersion: number; contentVersion: string;
   status: 'completed' | 'needs_confirmation' | 'no_results' | 'unavailable' | 'cancelled';
   search: 'complete' | 'incomplete'; target: number; targetMet: boolean;

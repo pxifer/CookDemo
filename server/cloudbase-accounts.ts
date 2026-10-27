@@ -18,6 +18,7 @@ export interface Accounts {
   save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>;
   logout(identity:AccountIdentity):Promise<void>;
   changePassword(identity:AccountIdentity,oldPassword:string,newPassword:string):Promise<void>;
+  claimAiChat?(identity:AccountIdentity,operationId:string,fingerprint:string):Promise<{claimed:boolean;reason:string}>;
 }
 const hash=(value:string)=>createHash('sha256').update(value).digest('hex');
 const unauthorized=()=>new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录；本机修改会保留');
@@ -158,6 +159,11 @@ export class CloudBaseAccounts implements Accounts {
     return {version:result.version,value};
   }
   async logout(identity:AccountIdentity) { await this.rpc(identity,'shiwei_session_end'); }
+  async claimAiChat(identity:AccountIdentity,operationId:string,fingerprint:string) {
+    const value=await this.rpc(identity,'shiwei_ai_chat_claim',{p_operation:operationId,p_fingerprint:fingerprint});
+    if(typeof value?.claimed!=='boolean'||!['claimed','duplicate','limit'].includes(value.reason))throw new DomainError('CHAT_NOT_READY',503,'AI 对话暂时无法连接，请稍后再试');
+    return value as {claimed:boolean;reason:string};
+  }
   async changePassword(identity:AccountIdentity,oldPassword:string,newPassword:string) {
     // Official SDK 3.6.3 resetPasswordForOld: sudo(old password), then setPassword(sudo token).
     const sudo=await this.request('/auth/v1/user/sudo',identity.token,{password:oldPassword},'POST',identity.device);

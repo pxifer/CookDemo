@@ -8,6 +8,7 @@ export interface SessionInfo {
   registrationAvailable?: boolean;
   localTestFeatures: boolean;
   healthModelAvailable?: boolean;
+  healthChatAvailable?: boolean;
   healthModelProvider?: string;
   csrfToken: string;
 }
