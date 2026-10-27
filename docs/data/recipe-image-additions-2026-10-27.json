@@ -1,0 +1,982 @@
+[
+  {
+    "id": "R056",
+    "dish": "番茄炒蛋",
+    "image": "/assets/recipes/r056-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R050",
+    "dish": "香椿拌豆腐",
+    "image": "/assets/recipes/r050-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R048",
+    "dish": "凉拌紫甘蓝",
+    "image": "/assets/recipes/r048-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R180",
+    "dish": "火腿煎蛋白",
+    "image": "/assets/recipes/r180-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R083",
+    "dish": "鸡米芽菜",
+    "image": "/assets/recipes/r083-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R043",
+    "dish": "泡菜豆腐五花肉汤",
+    "image": "/assets/recipes/r043-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R100",
+    "dish": "凉拌芹菜叶",
+    "image": "/assets/recipes/r100-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R092",
+    "dish": "牛油果拌豆腐",
+    "image": "/assets/recipes/r092-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R088",
+    "dish": "秋葵鸡蛋羹",
+    "image": "/assets/recipes/r088-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R049",
+    "dish": "小葱拌豆腐",
+    "image": "/assets/recipes/r049-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R037",
+    "dish": "可乐鸡腿",
+    "image": "/assets/recipes/r037-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R210",
+    "dish": "砂锅萝卜丝",
+    "image": "/assets/recipes/r210-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R004",
+    "dish": "虾仁滑蛋",
+    "image": "/assets/recipes/r004-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R111",
+    "dish": "鲜虾蛋饼",
+    "image": "/assets/recipes/r111-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R041",
+    "dish": "紫菜萝卜汤",
+    "image": "/assets/recipes/r041-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R133",
+    "dish": "拌凉粉",
+    "image": "/assets/recipes/r133-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R198",
+    "dish": "焗扇贝",
+    "image": "/assets/recipes/r198-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R110",
+    "dish": "开胃萝卜皮",
+    "image": "/assets/recipes/r110-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R188",
+    "dish": "凉拌鸡蛋",
+    "image": "/assets/recipes/r188-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R154",
+    "dish": "蜜汁苦瓜",
+    "image": "/assets/recipes/r154-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R063",
+    "dish": "拍黄瓜",
+    "image": "/assets/recipes/r063-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R095",
+    "dish": "炝拌白菜心",
+    "image": "/assets/recipes/r095-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R047",
+    "dish": "蒜蓉蒸茄子",
+    "image": "/assets/recipes/r047-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R399",
+    "dish": "番茄大蒜香草烤鸡腿",
+    "image": "/assets/recipes/r399-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R135",
+    "dish": "泡菜鸡丝",
+    "image": "/assets/recipes/r135-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R072",
+    "dish": "气泡虾",
+    "image": "/assets/recipes/r072-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R211",
+    "dish": "山笋煨牛腩",
+    "image": "/assets/recipes/r211-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R240",
+    "dish": "蒜蓉粉丝龙利鱼",
+    "image": "/assets/recipes/r240-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R234",
+    "dish": "虾油豆腐",
+    "image": "/assets/recipes/r234-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R039",
+    "dish": "白菜豆腐汤",
+    "image": "/assets/recipes/r039-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R040",
+    "dish": "银丝豆腐羹",
+    "image": "/assets/recipes/r040-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R127",
+    "dish": "凉拌秋葵",
+    "image": "/assets/recipes/r127-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R097",
+    "dish": "青椒鸡蛋饼",
+    "image": "/assets/recipes/r097-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R010",
+    "dish": "葱爆羊肉",
+    "image": "/assets/recipes/r010-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R029",
+    "dish": "东坡肘子",
+    "image": "/assets/recipes/r029-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R242",
+    "dish": "墨鱼烧豆腐",
+    "image": "/assets/recipes/r242-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R124",
+    "dish": "抓炒里脊",
+    "image": "/assets/recipes/r124-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R214",
+    "dish": "葱烧海鲜",
+    "image": "/assets/recipes/r214-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R250",
+    "dish": "番茄烩豆腐",
+    "image": "/assets/recipes/r250-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R147",
+    "dish": "凉拌藕片",
+    "image": "/assets/recipes/r147-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R012",
+    "dish": "蒜蓉蒸丝瓜",
+    "image": "/assets/recipes/r012-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R398",
+    "dish": "蒜香炒蘑菇",
+    "image": "/assets/recipes/r398-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R150",
+    "dish": "五香鹌鹑蛋",
+    "image": "/assets/recipes/r150-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R178",
+    "dish": "油泼苦瓜",
+    "image": "/assets/recipes/r178-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R255",
+    "dish": "大葱爆猪肝",
+    "image": "/assets/recipes/r255-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R221",
+    "dish": "海蛎子炖豆腐",
+    "image": "/assets/recipes/r221-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R176",
+    "dish": "话梅小排",
+    "image": "/assets/recipes/r176-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R229",
+    "dish": "鸡翅焖萝卜",
+    "image": "/assets/recipes/r229-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R196",
+    "dish": "酱焖豆腐煲",
+    "image": "/assets/recipes/r196-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R074",
+    "dish": "青柠酱油三文鱼",
+    "image": "/assets/recipes/r074-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R254",
+    "dish": "肉末炒胡萝卜",
+    "image": "/assets/recipes/r254-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R241",
+    "dish": "天目笋爆鸡胗",
+    "image": "/assets/recipes/r241-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R109",
+    "dish": "鲜果脆皮鱼",
+    "image": "/assets/recipes/r109-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R026",
+    "dish": "葱烧豆腐",
+    "image": "/assets/recipes/r026-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R215",
+    "dish": "剁椒芋头",
+    "image": "/assets/recipes/r215-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R091",
+    "dish": "红油金针菇",
+    "image": "/assets/recipes/r091-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R130",
+    "dish": "花生拌西芹",
+    "image": "/assets/recipes/r130-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R247",
+    "dish": "金蒜爆双菇",
+    "image": "/assets/recipes/r247-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R022",
+    "dish": "菌油粉丝蒸丝瓜",
+    "image": "/assets/recipes/r022-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R042",
+    "dish": "金针海带汤",
+    "image": "/assets/recipes/r042-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R132",
+    "dish": "凉拌豆芽",
+    "image": "/assets/recipes/r132-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R108",
+    "dish": "红烧八爪鱼",
+    "image": "/assets/recipes/r108-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R243",
+    "dish": "红薯粉烩蛏子",
+    "image": "/assets/recipes/r243-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R094",
+    "dish": "鸿运鲜虾饼",
+    "image": "/assets/recipes/r094-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R140",
+    "dish": "煎炒牛排",
+    "image": "/assets/recipes/r140-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R179",
+    "dish": "茭白小炒肉",
+    "image": "/assets/recipes/r179-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R069",
+    "dish": "椒麻杏鲍菇拌虾片",
+    "image": "/assets/recipes/r069-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R020",
+    "dish": "蜜汁虾",
+    "image": "/assets/recipes/r020-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R223",
+    "dish": "培根紫苏炒秋葵",
+    "image": "/assets/recipes/r223-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R230",
+    "dish": "啤酒焖猪蹄",
+    "image": "/assets/recipes/r230-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R228",
+    "dish": "肉蒜烧豆腐",
+    "image": "/assets/recipes/r228-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R213",
+    "dish": "软烧牛肉",
+    "image": "/assets/recipes/r213-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R068",
+    "dish": "沙姜清远鸡",
+    "image": "/assets/recipes/r068-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R129",
+    "dish": "生爆盐煎肉",
+    "image": "/assets/recipes/r129-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R160",
+    "dish": "糖醋小丸子",
+    "image": "/assets/recipes/r160-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R238",
+    "dish": "擂椒炒牛柳",
+    "image": "/assets/recipes/r238-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R168",
+    "dish": "凉拌剁椒木耳",
+    "image": "/assets/recipes/r168-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R008",
+    "dish": "炝炒绿豆芽",
+    "image": "/assets/recipes/r008-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R027",
+    "dish": "豆腐烧小白菜",
+    "image": "/assets/recipes/r027-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R054",
+    "dish": "凉拌土豆丝",
+    "image": "/assets/recipes/r054-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R143",
+    "dish": "巧拌瓜皮",
+    "image": "/assets/recipes/r143-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R175",
+    "dish": "山药莴笋木耳小炒",
+    "image": "/assets/recipes/r175-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R192",
+    "dish": "手撕茄条",
+    "image": "/assets/recipes/r192-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R053",
+    "dish": "糖醋脆皮豆腐",
+    "image": "/assets/recipes/r053-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R220",
+    "dish": "小瓜炒贝丁",
+    "image": "/assets/recipes/r220-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R185",
+    "dish": "慈菇烧肉",
+    "image": "/assets/recipes/r185-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R248",
+    "dish": "大葱爆鸭心",
+    "image": "/assets/recipes/r248-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R201",
+    "dish": "炖生敲",
+    "image": "/assets/recipes/r201-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R106",
+    "dish": "干锅小龙虾",
+    "image": "/assets/recipes/r106-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R035",
+    "dish": "海南黄椒石斑鱼片",
+    "image": "/assets/recipes/r035-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R137",
+    "dish": "椒盐皮皮虾",
+    "image": "/assets/recipes/r137-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R151",
+    "dish": "辣子鸡丁",
+    "image": "/assets/recipes/r151-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R166",
+    "dish": "榄菜炒豌豆",
+    "image": "/assets/recipes/r166-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R081",
+    "dish": "烂糊白菜",
+    "image": "/assets/recipes/r081-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R202",
+    "dish": "墨鱼仔炒花菜",
+    "image": "/assets/recipes/r202-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R105",
+    "dish": "秋耳炒笋片",
+    "image": "/assets/recipes/r105-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R024",
+    "dish": "三鲜豆腐饼",
+    "image": "/assets/recipes/r024-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R173",
+    "dish": "烧茄子",
+    "image": "/assets/recipes/r173-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R245",
+    "dish": "生啫排骨",
+    "image": "/assets/recipes/r245-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R134",
+    "dish": "酸梅蒸排骨",
+    "image": "/assets/recipes/r134-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R017",
+    "dish": "酸汤肥牛",
+    "image": "/assets/recipes/r017-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R123",
+    "dish": "外婆菜炒茭白",
+    "image": "/assets/recipes/r123-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R227",
+    "dish": "香菇烧肉",
+    "image": "/assets/recipes/r227-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R231",
+    "dish": "香煎糖醋带鱼",
+    "image": "/assets/recipes/r231-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R239",
+    "dish": "油豆腐烧猪手",
+    "image": "/assets/recipes/r239-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R219",
+    "dish": "油焖花生土豆",
+    "image": "/assets/recipes/r219-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R016",
+    "dish": "榨菜蒸牛肉",
+    "image": "/assets/recipes/r016-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R217",
+    "dish": "仔姜榨菜炒牛柳",
+    "image": "/assets/recipes/r217-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R113",
+    "dish": "茶香蟹味菇",
+    "image": "/assets/recipes/r113-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R093",
+    "dish": "如意豆腐",
+    "image": "/assets/recipes/r093-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R186",
+    "dish": "烩乌鱼蛋汤",
+    "image": "/assets/recipes/r186-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R187",
+    "dish": "鲫鱼丸子汤",
+    "image": "/assets/recipes/r187-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R251",
+    "dish": "豆豉生爆苦瓜",
+    "image": "/assets/recipes/r251-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R209",
+    "dish": "黑豆焖牛腩",
+    "image": "/assets/recipes/r209-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R030",
+    "dish": "东安鸡",
+    "image": "/assets/recipes/r030-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R023",
+    "dish": "剁椒香菇盒",
+    "image": "/assets/recipes/r023-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R015",
+    "dish": "干贝扒冬瓜",
+    "image": "/assets/recipes/r015-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R145",
+    "dish": "黑三剁",
+    "image": "/assets/recipes/r145-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R128",
+    "dish": "江津鱼片",
+    "image": "/assets/recipes/r128-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R177",
+    "dish": "京酱肉丝",
+    "image": "/assets/recipes/r177-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R157",
+    "dish": "口蘑烧鸡块",
+    "image": "/assets/recipes/r157-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R136",
+    "dish": "老北京炒烤肉",
+    "image": "/assets/recipes/r136-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R148",
+    "dish": "麻辣鸡丝",
+    "image": "/assets/recipes/r148-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R125",
+    "dish": "麻辣双椒鸡",
+    "image": "/assets/recipes/r125-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R059",
+    "dish": "青椒肉丝",
+    "image": "/assets/recipes/r059-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R164",
+    "dish": "沙茶牛肉粉丝煲",
+    "image": "/assets/recipes/r164-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R216",
+    "dish": "味汆豆腐角",
+    "image": "/assets/recipes/r216-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R153",
+    "dish": "虾仁炒苦瓜",
+    "image": "/assets/recipes/r153-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R101",
+    "dish": "照烧鸡",
+    "image": "/assets/recipes/r101-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R013",
+    "dish": "响油娃娃菜",
+    "image": "/assets/recipes/r013-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R007",
+    "dish": "杂菜炒蛋",
+    "image": "/assets/recipes/r007-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R034",
+    "dish": "酸辣汤",
+    "image": "/assets/recipes/r034-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R009",
+    "dish": "玉米莲藕排骨汤",
+    "image": "/assets/recipes/r009-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R253",
+    "dish": "腐乳空心菜",
+    "image": "/assets/recipes/r253-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R038",
+    "dish": "红烧鸡腿",
+    "image": "/assets/recipes/r038-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R182",
+    "dish": "黄椒焖草鱼",
+    "image": "/assets/recipes/r182-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R087",
+    "dish": "煎蒸带鱼",
+    "image": "/assets/recipes/r087-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R104",
+    "dish": "咖喱虾",
+    "image": "/assets/recipes/r104-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R167",
+    "dish": "辣子虾",
+    "image": "/assets/recipes/r167-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R233",
+    "dish": "萝卜皮煮牛肚",
+    "image": "/assets/recipes/r233-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R207",
+    "dish": "米粉肉",
+    "image": "/assets/recipes/r207-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R246",
+    "dish": "肉臊青瓜煮鱼",
+    "image": "/assets/recipes/r246-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R183",
+    "dish": "赛螃蟹",
+    "image": "/assets/recipes/r183-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R195",
+    "dish": "酸菜鱼",
+    "image": "/assets/recipes/r195-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R174",
+    "dish": "莴笋炒肉片",
+    "image": "/assets/recipes/r174-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R019",
+    "dish": "五花肉小炒豆腐",
+    "image": "/assets/recipes/r019-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R156",
+    "dish": "鲜椒水煮鱼",
+    "image": "/assets/recipes/r156-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R212",
+    "dish": "芝麻辣炒排骨",
+    "image": "/assets/recipes/r212-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R252",
+    "dish": "笃鲜茄",
+    "image": "/assets/recipes/r252-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R096",
+    "dish": "茄汁烧牛腩",
+    "image": "/assets/recipes/r096-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R046",
+    "dish": "长豆角烧茄子",
+    "image": "/assets/recipes/r046-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R117",
+    "dish": "酸汤龙利鱼",
+    "image": "/assets/recipes/r117-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R103",
+    "dish": "板栗蒸肉饼",
+    "image": "/assets/recipes/r103-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R197",
+    "dish": "炒三鲜肉",
+    "image": "/assets/recipes/r197-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R208",
+    "dish": "豉香鱿鱼",
+    "image": "/assets/recipes/r208-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R107",
+    "dish": "葱椒羊肉",
+    "image": "/assets/recipes/r107-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R205",
+    "dish": "醋焖猪蹄",
+    "image": "/assets/recipes/r205-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R225",
+    "dish": "过油肉炒年糕",
+    "image": "/assets/recipes/r225-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R065",
+    "dish": "蛤蜊焖鸡",
+    "image": "/assets/recipes/r065-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R190",
+    "dish": "韭香鸭血",
+    "image": "/assets/recipes/r190-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R158",
+    "dish": "卤味琵琶鸭",
+    "image": "/assets/recipes/r158-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R161",
+    "dish": "墨鱼仔炒小瓜",
+    "image": "/assets/recipes/r161-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R222",
+    "dish": "牛肉粉丝煲",
+    "image": "/assets/recipes/r222-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R172",
+    "dish": "山药炒仔鸡",
+    "image": "/assets/recipes/r172-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R018",
+    "dish": "蒜香排骨",
+    "image": "/assets/recipes/r018-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R115",
+    "dish": "香煎藕饼",
+    "image": "/assets/recipes/r115-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R052",
+    "dish": "爆炒素鳝丝",
+    "image": "/assets/recipes/r052-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R249",
+    "dish": "酱烧小黄鱼",
+    "image": "/assets/recipes/r249-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R165",
+    "dish": "酱香肉末茄子",
+    "image": "/assets/recipes/r165-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R256",
+    "dish": "焦熘醋肉",
+    "image": "/assets/recipes/r256-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R159",
+    "dish": "梅菜蒸武昌鱼",
+    "image": "/assets/recipes/r159-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R244",
+    "dish": "梅酱烧仔鸭",
+    "image": "/assets/recipes/r244-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R149",
+    "dish": "肉末粉丝煲",
+    "image": "/assets/recipes/r149-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R112",
+    "dish": "小煎鸭胗",
+    "image": "/assets/recipes/r112-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R193",
+    "dish": "咖喱牛腩",
+    "image": "/assets/recipes/r193-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R070",
+    "dish": "凉拌长长豆角",
+    "image": "/assets/recipes/r070-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R226",
+    "dish": "胡辣汤",
+    "image": "/assets/recipes/r226-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R098",
+    "dish": "板栗烧猪手",
+    "image": "/assets/recipes/r098-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R085",
+    "dish": "茶香鸡",
+    "image": "/assets/recipes/r085-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R235",
+    "dish": "炒烤茄子糊",
+    "image": "/assets/recipes/r235-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R122",
+    "dish": "豉香土豆排骨",
+    "image": "/assets/recipes/r122-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R191",
+    "dish": "春笋炒鸡肝",
+    "image": "/assets/recipes/r191-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R162",
+    "dish": "芦笋炒猪肝",
+    "image": "/assets/recipes/r162-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R237",
+    "dish": "卤汆豆花鱼",
+    "image": "/assets/recipes/r237-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R194",
+    "dish": "砂锅鸭",
+    "image": "/assets/recipes/r194-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R099",
+    "dish": "酸菜白肉",
+    "image": "/assets/recipes/r099-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R169",
+    "dish": "莴笋牛肉丝",
+    "image": "/assets/recipes/r169-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R204",
+    "dish": "虾干煮白菜",
+    "image": "/assets/recipes/r204-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R146",
+    "dish": "香辣手撕牛肉",
+    "image": "/assets/recipes/r146-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R089",
+    "dish": "鱼香脆滑肉",
+    "image": "/assets/recipes/r089-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R079",
+    "dish": "鱼香肉丝",
+    "image": "/assets/recipes/r079-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R011",
+    "dish": "枣生栗子鸡",
+    "image": "/assets/recipes/r011-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R073",
+    "dish": "中式炸鸡",
+    "image": "/assets/recipes/r073-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "R028",
+    "dish": "罐焖牛肉",
+    "image": "/assets/recipes/r028-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "S001",
+    "dish": "辣椒炒肉片",
+    "image": "/assets/recipes/s001-recipe-finedining-20261027-v1.webp"
+  },
+  {
+    "id": "S002",
+    "dish": "蒜薹肉丝",
+    "image": "/assets/recipes/s002-recipe-finedining-20261027-v1.webp"
+  }
+]

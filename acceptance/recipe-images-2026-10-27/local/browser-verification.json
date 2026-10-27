@@ -1,0 +1,16 @@
+[
+  {
+    "surface": "desktop",
+    "galleryPicturesDecoded": 341,
+    "detailPicturesDecoded": 3,
+    "workspacePicturesDecoded": 6,
+    "contentVersion": "gallery-listed-foods-20261026-v27"
+  },
+  {
+    "surface": "mobile",
+    "galleryPicturesDecoded": 48,
+    "detailPicturesDecoded": 3,
+    "workspacePicturesDecoded": 6,
+    "contentVersion": "gallery-listed-foods-20261026-v27"
+  }
+]

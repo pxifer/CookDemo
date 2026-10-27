@@ -82,7 +82,7 @@ export class CloudBaseGalleryRepository {
         try { snapshot=applyCompositionRelease(snapshot,review as CompositionRelease,this.options.compositionHash!); }
         catch { throw new DomainError('CONTENT_NOT_READY',503,'菜谱暂不可用，请保留输入后重试'); }
       }
-      for(const recipe of snapshot.recipes)if(recipe.imageUrl)recipe.imageUrl=assetUrl(recipe.imageUrl)!;
+      for(const recipe of snapshot.recipes)recipe.imageUrl=assetUrl(recipeImage(recipe.name,recipe.imageUrl))??undefined;
       this.validatedSnapshot=snapshot;
       return snapshot;
     })();

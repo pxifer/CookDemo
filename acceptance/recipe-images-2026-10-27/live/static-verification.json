@@ -1,0 +1,1183 @@
+{
+  "catalog": 341,
+  "newPicturesVerified": 196,
+  "contentVersion": "gallery-listed-foods-20261026-v27",
+  "checked": [
+    {
+      "dish": "番茄炒蛋",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r056-recipe-finedining-20261027-v1.webp",
+      "bytes": 232080,
+      "sha256": "7b66ed9d52c3eecc6d48c0f843b4cb57496c04ff35bfae4776d4d15755110ca7"
+    },
+    {
+      "dish": "香椿拌豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r050-recipe-finedining-20261027-v1.webp",
+      "bytes": 258180,
+      "sha256": "0a0f525f3a3e2f42b20da6d895ca9b45b71a0d4a954ae72f09757b278379b9ae"
+    },
+    {
+      "dish": "泡菜豆腐五花肉汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r043-recipe-finedining-20261027-v1.webp",
+      "bytes": 251796,
+      "sha256": "8d73bdf6794f92a1544b6f0597f2c18b1e95f35c722acc15d1a4821794c43084"
+    },
+    {
+      "dish": "牛油果拌豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r092-recipe-finedining-20261027-v1.webp",
+      "bytes": 230140,
+      "sha256": "b0698985ba91c235f7936f2dbbc02d81df456a363309ddf39780469f23264183"
+    },
+    {
+      "dish": "凉拌紫甘蓝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r048-recipe-finedining-20261027-v1.webp",
+      "bytes": 227166,
+      "sha256": "ed9dc1d91ff7bcfcbf305509fe2a69aae71e71be959ad7d33cc1fa79a4b30308"
+    },
+    {
+      "dish": "火腿煎蛋白",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r180-recipe-finedining-20261027-v1.webp",
+      "bytes": 244810,
+      "sha256": "8b356ba8c0022a429e0c049c8af27cb794e922bf9e9ac6e07918dfaab1138654"
+    },
+    {
+      "dish": "凉拌芹菜叶",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r100-recipe-finedining-20261027-v1.webp",
+      "bytes": 280330,
+      "sha256": "73d92591b627ce65b83f8669c6a72af9117a1afce5a72581bc5815284da0d07e"
+    },
+    {
+      "dish": "鸡米芽菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r083-recipe-finedining-20261027-v1.webp",
+      "bytes": 263536,
+      "sha256": "c8fbd2aaeaccccbebc31fccf1d27b10a17d18be26c801554379a7370db71c953"
+    },
+    {
+      "dish": "砂锅萝卜丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r210-recipe-finedining-20261027-v1.webp",
+      "bytes": 222034,
+      "sha256": "2559251576fa4018964646262f6d271b1fafae99203fafe787b3246d51604952"
+    },
+    {
+      "dish": "可乐鸡腿",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r037-recipe-finedining-20261027-v1.webp",
+      "bytes": 271032,
+      "sha256": "2378a576f4927671fbafe7a06694d5a2e493e398c3eab5af3fa2724cf8c12994"
+    },
+    {
+      "dish": "小葱拌豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r049-recipe-finedining-20261027-v1.webp",
+      "bytes": 194648,
+      "sha256": "0309580439bab269c1927b3a7624911e3fb32e84d7ab4a3d48bcfb498b976125"
+    },
+    {
+      "dish": "虾仁滑蛋",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r004-recipe-finedining-20261027-v1.webp",
+      "bytes": 199674,
+      "sha256": "64518f6b031d9e2a69bdea180cdb89c5a131cd43cdeeef2c73d5fcc3ef612c26"
+    },
+    {
+      "dish": "拌凉粉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r133-recipe-finedining-20261027-v1.webp",
+      "bytes": 238468,
+      "sha256": "b9b5c42f9ff351d49345594055f55cb92fab2e24d283603ae00aee904937859e"
+    },
+    {
+      "dish": "紫菜萝卜汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r041-recipe-finedining-20261027-v1.webp",
+      "bytes": 233870,
+      "sha256": "02516068b4da05c5fa002f7f2d4e0937517f669a8f3809f7ee04d8f457af1c63"
+    },
+    {
+      "dish": "鲜虾蛋饼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r111-recipe-finedining-20261027-v1.webp",
+      "bytes": 233630,
+      "sha256": "5bf5188d0985ed10acc037ecf92ed38b35f5bec4352f523cccea5df8e44ee7cc"
+    },
+    {
+      "dish": "秋葵鸡蛋羹",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r088-recipe-finedining-20261027-v1.webp",
+      "bytes": 217988,
+      "sha256": "e061bc60a81defeed98d25ba23a5702500b5d539cc0e161b9535741c3f486e26"
+    },
+    {
+      "dish": "开胃萝卜皮",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r110-recipe-finedining-20261027-v1.webp",
+      "bytes": 222252,
+      "sha256": "bcb0b9bd4cd2c6518951b8bd57f57e170facbe8985753c262142adfec682396a"
+    },
+    {
+      "dish": "凉拌鸡蛋",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r188-recipe-finedining-20261027-v1.webp",
+      "bytes": 229920,
+      "sha256": "b1943f650072c1719f0cfb65257819429ddfcae829891dd7a59e81f50462e850"
+    },
+    {
+      "dish": "蜜汁苦瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r154-recipe-finedining-20261027-v1.webp",
+      "bytes": 196342,
+      "sha256": "777d52ea43a8548a92c3a61068496b59e0d80e76497ae31b1f1f97097ab48311"
+    },
+    {
+      "dish": "炝拌白菜心",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r095-recipe-finedining-20261027-v1.webp",
+      "bytes": 227990,
+      "sha256": "5f91517ab06691efa0a89caed23ee7de66b1a7ae5547bb008c269697af9a5d4f"
+    },
+    {
+      "dish": "焗扇贝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r198-recipe-finedining-20261027-v1.webp",
+      "bytes": 193972,
+      "sha256": "306d6d86acca593bc773de2cd7a84eef8b74e80103cf1b2d0168b7144f197e83"
+    },
+    {
+      "dish": "蒜蓉蒸茄子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r047-recipe-finedining-20261027-v1.webp",
+      "bytes": 256302,
+      "sha256": "48109d8762d4b3a5790706a9d26f225089344d05b11f78ac745d02590f99857a"
+    },
+    {
+      "dish": "拍黄瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r063-recipe-finedining-20261027-v1.webp",
+      "bytes": 234630,
+      "sha256": "8e429083bfc8b724acc6792cb3e608656c73ab8377249a0177f46a798fac028e"
+    },
+    {
+      "dish": "番茄大蒜香草烤鸡腿",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r399-recipe-finedining-20261027-v1.webp",
+      "bytes": 338696,
+      "sha256": "da891aec8d7cb7631b5012062b2586cdf407db04dc5dd8bfa8ea7e43ecf263c1"
+    },
+    {
+      "dish": "山笋煨牛腩",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r211-recipe-finedining-20261027-v1.webp",
+      "bytes": 249658,
+      "sha256": "cd14cf8783e8793ddb1bee66cd57574474d110ea76e21b52e66a9e04705ecacd"
+    },
+    {
+      "dish": "银丝豆腐羹",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r040-recipe-finedining-20261027-v1.webp",
+      "bytes": 172198,
+      "sha256": "3366fb5e3afc75c0ebecb5b18d62b66bf25c19725bbfd914200de13d17f7a605"
+    },
+    {
+      "dish": "气泡虾",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r072-recipe-finedining-20261027-v1.webp",
+      "bytes": 224824,
+      "sha256": "c90a12b641992df1be7e0a5bce0fa62c074adb674aedb65cf9fc026741151eee"
+    },
+    {
+      "dish": "虾油豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r234-recipe-finedining-20261027-v1.webp",
+      "bytes": 200130,
+      "sha256": "489c48735c4f86316ef5833186769d672f57f4982dde907c1ecf4c55b2c9c451"
+    },
+    {
+      "dish": "蒜蓉粉丝龙利鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r240-recipe-finedining-20261027-v1.webp",
+      "bytes": 292578,
+      "sha256": "93a1d87cb0c47eec01d8022225a5fabfefe6a36494c31adda60390f85e28a727"
+    },
+    {
+      "dish": "白菜豆腐汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r039-recipe-finedining-20261027-v1.webp",
+      "bytes": 198152,
+      "sha256": "4c83d1a136528f49d4ad1d32c42a75ed9d5530934867bda864e425c2acb4cb3a"
+    },
+    {
+      "dish": "青椒鸡蛋饼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r097-recipe-finedining-20261027-v1.webp",
+      "bytes": 262118,
+      "sha256": "5f619eed98ad3c264cb3aa692b5cc68980aa66b3c60e38135900cee4ce511b1d"
+    },
+    {
+      "dish": "墨鱼烧豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r242-recipe-finedining-20261027-v1.webp",
+      "bytes": 196256,
+      "sha256": "8feddf134c87d116777adc0d62dc608fa649a9525a228440a657722aa57d8fc0"
+    },
+    {
+      "dish": "东坡肘子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r029-recipe-finedining-20261027-v1.webp",
+      "bytes": 244146,
+      "sha256": "7671231a4fc4bf182b583bde4cf8f20704de88e651797fa044d5b1c4dab96f70"
+    },
+    {
+      "dish": "凉拌秋葵",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r127-recipe-finedining-20261027-v1.webp",
+      "bytes": 234426,
+      "sha256": "512b4b1345116b7f684046801fe91ce808bc588529a9d1811d310a9c0afe399a"
+    },
+    {
+      "dish": "抓炒里脊",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r124-recipe-finedining-20261027-v1.webp",
+      "bytes": 243694,
+      "sha256": "ec765de00992663268570eed4d86e31403290d97f0f1bf1faab6046b6065fff1"
+    },
+    {
+      "dish": "葱爆羊肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r010-recipe-finedining-20261027-v1.webp",
+      "bytes": 241674,
+      "sha256": "37121bd11907fdfff29c8a7d9196f601d79a7eb79eee642ff1ced754edbc70a7"
+    },
+    {
+      "dish": "葱烧海鲜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r214-recipe-finedining-20261027-v1.webp",
+      "bytes": 227844,
+      "sha256": "ea156d69b5d18393058304ca612616a18e5cc47f4dc0c212597c3bafee06eabf"
+    },
+    {
+      "dish": "蒜香炒蘑菇",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r398-recipe-finedining-20261027-v1.webp",
+      "bytes": 253536,
+      "sha256": "f2b19e6ee54b2326841379456a677a046b08c754aad923d4c5aa2a3dea7725f3"
+    },
+    {
+      "dish": "泡菜鸡丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r135-recipe-finedining-20261027-v1.webp",
+      "bytes": 207114,
+      "sha256": "e434967fecc425818e64f254c668f3d75cb49f8f4642ca5390bd9b34f88d1149"
+    },
+    {
+      "dish": "凉拌藕片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r147-recipe-finedining-20261027-v1.webp",
+      "bytes": 230160,
+      "sha256": "3ad767202d0e8aad16f69551fca37a90b9ad62d7f9b7d6bb43cb180cb5da87c5"
+    },
+    {
+      "dish": "番茄烩豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r250-recipe-finedining-20261027-v1.webp",
+      "bytes": 261180,
+      "sha256": "b8f1004fa7b7c00d40d7705c7c60cb3dfd6152eea392f1d4d5496691efdff493"
+    },
+    {
+      "dish": "蒜蓉蒸丝瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r012-recipe-finedining-20261027-v1.webp",
+      "bytes": 220702,
+      "sha256": "84fc3477c2543d5ec98a8b5ee4ab4e4a6381a6e24cb260170451c1e27e53747a"
+    },
+    {
+      "dish": "五香鹌鹑蛋",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r150-recipe-finedining-20261027-v1.webp",
+      "bytes": 258242,
+      "sha256": "5a1b09e8e82b2f8872d55c4de42615adcf84ba0010f2a2cbfc746bef9d79ee66"
+    },
+    {
+      "dish": "油泼苦瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r178-recipe-finedining-20261027-v1.webp",
+      "bytes": 201202,
+      "sha256": "67ad1177b407c5eac8451d99437dc80a26dbd24a85822e742b73da77803b3980"
+    },
+    {
+      "dish": "大葱爆猪肝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r255-recipe-finedining-20261027-v1.webp",
+      "bytes": 248578,
+      "sha256": "efb078f222b515ffd4778686fb77ae78c664cdc8cfec1f6a48576d176eed554e"
+    },
+    {
+      "dish": "酱焖豆腐煲",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r196-recipe-finedining-20261027-v1.webp",
+      "bytes": 226540,
+      "sha256": "2fdab12d5684fc5fd8b4d7f9efe613f516e8f5c948440a4f9cf0f8eae84d53e6"
+    },
+    {
+      "dish": "海蛎子炖豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r221-recipe-finedining-20261027-v1.webp",
+      "bytes": 208844,
+      "sha256": "abc99b59319ba43d5524819168e91145bd1cdb381be16209836e39674722932f"
+    },
+    {
+      "dish": "青柠酱油三文鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r074-recipe-finedining-20261027-v1.webp",
+      "bytes": 252372,
+      "sha256": "6f7346ad5b52bd1dc197708d8d15eb3def070275fcba2de8a60f4e99185d3565"
+    },
+    {
+      "dish": "话梅小排",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r176-recipe-finedining-20261027-v1.webp",
+      "bytes": 274522,
+      "sha256": "750599322371ae4ddd8392f1c6927871986d50e59ebc9e82aac4e71fc5c6c5fc"
+    },
+    {
+      "dish": "天目笋爆鸡胗",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r241-recipe-finedining-20261027-v1.webp",
+      "bytes": 213704,
+      "sha256": "2e5abcd0b39038dade4a21570ba0bb99cbdfdf94ba557ed5cb7b1b6b343c6a93"
+    },
+    {
+      "dish": "鸡翅焖萝卜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r229-recipe-finedining-20261027-v1.webp",
+      "bytes": 260336,
+      "sha256": "5ae8b94af50008ad2bf18dbd9f59a9d477a7290e4616b05b7b0cb654018bc718"
+    },
+    {
+      "dish": "剁椒芋头",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r215-recipe-finedining-20261027-v1.webp",
+      "bytes": 270234,
+      "sha256": "e542d41908c06a619390dafb3328a8bff8bf0efbfc516af464da6e0304df64d7"
+    },
+    {
+      "dish": "鲜果脆皮鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r109-recipe-finedining-20261027-v1.webp",
+      "bytes": 243356,
+      "sha256": "aeb1b4d35e4210973078e5bf8c57ceab2e80dd0366345d7e254ec0b3517878e7"
+    },
+    {
+      "dish": "葱烧豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r026-recipe-finedining-20261027-v1.webp",
+      "bytes": 231902,
+      "sha256": "6e5f0fa02bd9383262e99bb54c482a482057a15a80088053500d1a586a12163b"
+    },
+    {
+      "dish": "金蒜爆双菇",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r247-recipe-finedining-20261027-v1.webp",
+      "bytes": 231744,
+      "sha256": "6a42d2fb0a780fef17e7bd3f48be293cda3254933af5c0677cafbe4fa4197306"
+    },
+    {
+      "dish": "肉末炒胡萝卜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r254-recipe-finedining-20261027-v1.webp",
+      "bytes": 230526,
+      "sha256": "4228094bbff7531c3033e3fe732f16a8a7505c04dac7b83100695be10833b422"
+    },
+    {
+      "dish": "菌油粉丝蒸丝瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r022-recipe-finedining-20261027-v1.webp",
+      "bytes": 252188,
+      "sha256": "128d34d3ddb9cf1abee7bcdeaf7baeb8a197bbe89890f836f84593543ff6e7bb"
+    },
+    {
+      "dish": "红油金针菇",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r091-recipe-finedining-20261027-v1.webp",
+      "bytes": 258860,
+      "sha256": "1ac0b2aeb43d756a13ec63f86609f4946aede10d4d39fca9f742327868ad3423"
+    },
+    {
+      "dish": "花生拌西芹",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r130-recipe-finedining-20261027-v1.webp",
+      "bytes": 195138,
+      "sha256": "1d7ce862aa418fd21f236e0f4cf39813f815830d44ccb6d4a6d24644d1afea7f"
+    },
+    {
+      "dish": "凉拌豆芽",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r132-recipe-finedining-20261027-v1.webp",
+      "bytes": 246386,
+      "sha256": "7969a0a08b90047bd2f8ae9ca25e9627d7aa42b610f8db0936a29467a0d62805"
+    },
+    {
+      "dish": "鸿运鲜虾饼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r094-recipe-finedining-20261027-v1.webp",
+      "bytes": 203402,
+      "sha256": "ddb33d0918f1f6e0a3e731c4d336db9701ab43e88ecf8c02445b32065d3dd255"
+    },
+    {
+      "dish": "煎炒牛排",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r140-recipe-finedining-20261027-v1.webp",
+      "bytes": 278846,
+      "sha256": "26f5a478006a3ddc1fbb6b157cbff8cae2854c96cffb1ff46ba517342d72410e"
+    },
+    {
+      "dish": "红薯粉烩蛏子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r243-recipe-finedining-20261027-v1.webp",
+      "bytes": 250936,
+      "sha256": "6cfd8abe3ee8f5322454eb381f58d065949baf6c595810ed9c7141c51ba5664f"
+    },
+    {
+      "dish": "茭白小炒肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r179-recipe-finedining-20261027-v1.webp",
+      "bytes": 229596,
+      "sha256": "38364b49939e3e7d03f48175cb94668eb0ba8a943f0b450963cceb50e970f98a"
+    },
+    {
+      "dish": "红烧八爪鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r108-recipe-finedining-20261027-v1.webp",
+      "bytes": 263562,
+      "sha256": "a69e1f224d67868072efe689269014fc61cba3c4571088bfdbc1b0a1130180f2"
+    },
+    {
+      "dish": "椒麻杏鲍菇拌虾片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r069-recipe-finedining-20261027-v1.webp",
+      "bytes": 205114,
+      "sha256": "64c97b6d016ef98f0d51a0ced0bdf5dfc830f4f69c5ae862295ecd857fb7f39b"
+    },
+    {
+      "dish": "金针海带汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r042-recipe-finedining-20261027-v1.webp",
+      "bytes": 217792,
+      "sha256": "2ba09bff0db48fa0bb43f92713867c3bed463568ebb38705f52ed3c3cfc7bf52"
+    },
+    {
+      "dish": "蜜汁虾",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r020-recipe-finedining-20261027-v1.webp",
+      "bytes": 251372,
+      "sha256": "4ebe27b4db59554f9598c147a51daac6e2ac18549797c19dd185f82e39801af8"
+    },
+    {
+      "dish": "肉蒜烧豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r228-recipe-finedining-20261027-v1.webp",
+      "bytes": 264484,
+      "sha256": "c0f78576721600a80b5be6c4ca923efe497efd3088781dab3604f124a3275aca"
+    },
+    {
+      "dish": "啤酒焖猪蹄",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r230-recipe-finedining-20261027-v1.webp",
+      "bytes": 331632,
+      "sha256": "d06c74b27aa44616ab88c4d84742acea0c74365068e871256191dd7ae43e8109"
+    },
+    {
+      "dish": "培根紫苏炒秋葵",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r223-recipe-finedining-20261027-v1.webp",
+      "bytes": 253598,
+      "sha256": "9a93a02b0a668f761da0b59a8fdd1614c35c05c7e0de6eb96ef6b40df5630fd1"
+    },
+    {
+      "dish": "沙姜清远鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r068-recipe-finedining-20261027-v1.webp",
+      "bytes": 216782,
+      "sha256": "eaadef335a2f4796b446325c94478100daf354960e4dc6f780797cb35bf4b0dd"
+    },
+    {
+      "dish": "软烧牛肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r213-recipe-finedining-20261027-v1.webp",
+      "bytes": 257670,
+      "sha256": "7177337406d0b460e2ec06ceee54dacf7e33808ca14729b00bf0d2c244b2e99c"
+    },
+    {
+      "dish": "生爆盐煎肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r129-recipe-finedining-20261027-v1.webp",
+      "bytes": 249860,
+      "sha256": "52dae6f2b39d6b47095c21a34016cf2d0c9a323a39b488074b585d97f30eb02a"
+    },
+    {
+      "dish": "豆腐烧小白菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r027-recipe-finedining-20261027-v1.webp",
+      "bytes": 281254,
+      "sha256": "fc41db1132dfe3ecc2daec55ca0e7f8ae6991752b8b0fe7812d3150d88beb0fa"
+    },
+    {
+      "dish": "糖醋小丸子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r160-recipe-finedining-20261027-v1.webp",
+      "bytes": 272462,
+      "sha256": "d1390c903ca413772d8a3e6f856b8154550c720451ce07c90a94314c2eb6a907"
+    },
+    {
+      "dish": "凉拌土豆丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r054-recipe-finedining-20261027-v1.webp",
+      "bytes": 194042,
+      "sha256": "067ed0b5e7cf62c8c246e6a7172dd62f2fdc85d71b940202629b21e35535ee99"
+    },
+    {
+      "dish": "擂椒炒牛柳",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r238-recipe-finedining-20261027-v1.webp",
+      "bytes": 253840,
+      "sha256": "617b960b397689048bd9ec23d1c429c1b5b007bfde1dc9547770cbc58d517a61"
+    },
+    {
+      "dish": "凉拌剁椒木耳",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r168-recipe-finedining-20261027-v1.webp",
+      "bytes": 252080,
+      "sha256": "488916ebb9351520ab77f29d74e62480b7f63cc87a33435b5f917c0b59f847d6"
+    },
+    {
+      "dish": "巧拌瓜皮",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r143-recipe-finedining-20261027-v1.webp",
+      "bytes": 246046,
+      "sha256": "a78306808edf71b3c7a2958569bfbf79505673f671b4862adebc6ced12a86cc7"
+    },
+    {
+      "dish": "山药莴笋木耳小炒",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r175-recipe-finedining-20261027-v1.webp",
+      "bytes": 208074,
+      "sha256": "176f2142a8beae00773de3960ceb168cec1b54f0463c8cd61eb18d2aee6434df"
+    },
+    {
+      "dish": "炝炒绿豆芽",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r008-recipe-finedining-20261027-v1.webp",
+      "bytes": 224858,
+      "sha256": "3deacc75da6b30f4c455ee5e9e4e33ef4ea0a384f68633597129941e9a7c7fdf"
+    },
+    {
+      "dish": "小瓜炒贝丁",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r220-recipe-finedining-20261027-v1.webp",
+      "bytes": 215036,
+      "sha256": "d2ca86bfac6a00f7fc499baa8c2478cfdd671e18b2627cfc7bcd73028f9d47ea"
+    },
+    {
+      "dish": "手撕茄条",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r192-recipe-finedining-20261027-v1.webp",
+      "bytes": 271222,
+      "sha256": "6abf1b576d1f40a4c0cfe7f825f0af59f2ddc69ca2a6d4e286cb404b3c4760ea"
+    },
+    {
+      "dish": "慈菇烧肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r185-recipe-finedining-20261027-v1.webp",
+      "bytes": 296802,
+      "sha256": "507e75ddb5900b99ae3187c9029c648a63c00090062129368622fe16fa010410"
+    },
+    {
+      "dish": "糖醋脆皮豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r053-recipe-finedining-20261027-v1.webp",
+      "bytes": 231886,
+      "sha256": "b6bff55c37bfdaf75d3f61b0c539c075697adc6608825178b674eb031c2f36d9"
+    },
+    {
+      "dish": "大葱爆鸭心",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r248-recipe-finedining-20261027-v1.webp",
+      "bytes": 267010,
+      "sha256": "f7a1e690d7a9122c6b1caa7e4203a1338cfcfc4cfa80236313d25957adc248ed"
+    },
+    {
+      "dish": "炖生敲",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r201-recipe-finedining-20261027-v1.webp",
+      "bytes": 278396,
+      "sha256": "dc57d07760b65eac35bf12785eb77f50d583985dd3a6b660a84b42fdc689c8ff"
+    },
+    {
+      "dish": "海南黄椒石斑鱼片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r035-recipe-finedining-20261027-v1.webp",
+      "bytes": 258860,
+      "sha256": "7c2c37fc2ab95f6b0677647e0642a0fed080f88a485715ebb01bd744cf761614"
+    },
+    {
+      "dish": "干锅小龙虾",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r106-recipe-finedining-20261027-v1.webp",
+      "bytes": 308988,
+      "sha256": "1997868ed986c801c607f36dad6bacac8687340c7e721d9706bb6fbd2ac0e844"
+    },
+    {
+      "dish": "辣子鸡丁",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r151-recipe-finedining-20261027-v1.webp",
+      "bytes": 244284,
+      "sha256": "7f19ac2b00d38b0735450b1fa8ee7d7c52247d216444e95231de15097c4ad9db"
+    },
+    {
+      "dish": "墨鱼仔炒花菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r202-recipe-finedining-20261027-v1.webp",
+      "bytes": 265550,
+      "sha256": "b992fb95982c54c11e3880366c876eddd9c4b6bbaab8881b63adf0ddaa1681be"
+    },
+    {
+      "dish": "烂糊白菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r081-recipe-finedining-20261027-v1.webp",
+      "bytes": 200414,
+      "sha256": "d25ccc6c7ab5b82630107c482ac0a8a6c9cacadfb398c6e9097e9840c211086f"
+    },
+    {
+      "dish": "秋耳炒笋片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r105-recipe-finedining-20261027-v1.webp",
+      "bytes": 245936,
+      "sha256": "d7c40a4b4bafe7f83401ebedafe651199c880d5be99c3a182f5cfc5dd65b94d6"
+    },
+    {
+      "dish": "榄菜炒豌豆",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r166-recipe-finedining-20261027-v1.webp",
+      "bytes": 239792,
+      "sha256": "7d886ec0518aa8fe5c910e49f46170c354c55fee144f8318f11b0a62e770bca3"
+    },
+    {
+      "dish": "椒盐皮皮虾",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r137-recipe-finedining-20261027-v1.webp",
+      "bytes": 292694,
+      "sha256": "f1ac6dad395f22f45ba9384ed15c55ccf96dbde775431824e9647d3dd1aaf179"
+    },
+    {
+      "dish": "烧茄子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r173-recipe-finedining-20261027-v1.webp",
+      "bytes": 254972,
+      "sha256": "1c67b47e15371af183d421cbf62fea0b9860ee5a475ef4861174eddc43f501c3"
+    },
+    {
+      "dish": "三鲜豆腐饼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r024-recipe-finedining-20261027-v1.webp",
+      "bytes": 269590,
+      "sha256": "5f31b811d52aaa7cc48245dc1bf4d76862b782c952e2b89b3fdf1f1e8c4f4c76"
+    },
+    {
+      "dish": "生啫排骨",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r245-recipe-finedining-20261027-v1.webp",
+      "bytes": 242096,
+      "sha256": "eedb6d7003000d26fe846d5c5c80c8ed7ebf931bb4f305f256e31cba8e92fd2c"
+    },
+    {
+      "dish": "酸梅蒸排骨",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r134-recipe-finedining-20261027-v1.webp",
+      "bytes": 286810,
+      "sha256": "8ba211d027e099b34dd97820393415d0f396583b61308253f01c12dcb8df3e46"
+    },
+    {
+      "dish": "酸汤肥牛",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r017-recipe-finedining-20261027-v1.webp",
+      "bytes": 243864,
+      "sha256": "59d85e9eec77a223270ab917014519a49c652d58eafed657106d948ffeb14ff7"
+    },
+    {
+      "dish": "香菇烧肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r227-recipe-finedining-20261027-v1.webp",
+      "bytes": 277284,
+      "sha256": "c0b22e3666a1bbf77025a29e745df1103afd086ec54d4c82eff8148d677316d8"
+    },
+    {
+      "dish": "外婆菜炒茭白",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r123-recipe-finedining-20261027-v1.webp",
+      "bytes": 271778,
+      "sha256": "4b2251ab96cd8aa066fba630cc903773f19fcbd13221f6a252c740017e90d495"
+    },
+    {
+      "dish": "油豆腐烧猪手",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r239-recipe-finedining-20261027-v1.webp",
+      "bytes": 265662,
+      "sha256": "3bc5d02a391ad0cb3b8350dd6a90180320140b72a3bf5885ff412fe8036ecbb2"
+    },
+    {
+      "dish": "香煎糖醋带鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r231-recipe-finedining-20261027-v1.webp",
+      "bytes": 245192,
+      "sha256": "fb84549aa94a3ca930fbaa84d7d2a18c68671395e1ad91179f4c8d532f47a551"
+    },
+    {
+      "dish": "仔姜榨菜炒牛柳",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r217-recipe-finedining-20261027-v1.webp",
+      "bytes": 255502,
+      "sha256": "ed941848a686878f52a1277a3be055f4afb837dfde52f633f5f4418988d3af65"
+    },
+    {
+      "dish": "茶香蟹味菇",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r113-recipe-finedining-20261027-v1.webp",
+      "bytes": 247578,
+      "sha256": "1f0f34e2139dbd9b6167e393ca01d3eff92e7333ab0549bfe11d509ba8bdca38"
+    },
+    {
+      "dish": "榨菜蒸牛肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r016-recipe-finedining-20261027-v1.webp",
+      "bytes": 234796,
+      "sha256": "906003d243a52f6070965c8a31c5e6835119098246395223b8b3eb648d6e5bea"
+    },
+    {
+      "dish": "油焖花生土豆",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r219-recipe-finedining-20261027-v1.webp",
+      "bytes": 264378,
+      "sha256": "870c66a5d2aa7bc743ba8109a3d07b64982dc8a7b63ca0356a385bfabfc7a349"
+    },
+    {
+      "dish": "烩乌鱼蛋汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r186-recipe-finedining-20261027-v1.webp",
+      "bytes": 220966,
+      "sha256": "c9c10982bd07d14f3a9559448a7ccae9fe9b9cd5a23df40acfffb8556d860f5e"
+    },
+    {
+      "dish": "如意豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r093-recipe-finedining-20261027-v1.webp",
+      "bytes": 234910,
+      "sha256": "9138bf9e578bf16062b22c4956f3b794765769b7470ff7d8546c47b2faa3e22f"
+    },
+    {
+      "dish": "黑豆焖牛腩",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r209-recipe-finedining-20261027-v1.webp",
+      "bytes": 252686,
+      "sha256": "420ef5501c0ac2d808c6bbcebb9b066276c4774cf3daf1560f8d702e474074f1"
+    },
+    {
+      "dish": "豆豉生爆苦瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r251-recipe-finedining-20261027-v1.webp",
+      "bytes": 298158,
+      "sha256": "2ef1c33a8db185ea4c3ba8621c15ca6bf865b19eca5ca62ee02b460dae6bc56f"
+    },
+    {
+      "dish": "东安鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r030-recipe-finedining-20261027-v1.webp",
+      "bytes": 247138,
+      "sha256": "6e15349f61112a8173af02d0de72cf7075eb7f100c0e40d46524ee348178e94f"
+    },
+    {
+      "dish": "鲫鱼丸子汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r187-recipe-finedining-20261027-v1.webp",
+      "bytes": 208640,
+      "sha256": "ff7fa203c7d7713a1cbb51c9416a2911b04c1900ccf7224829aa8fd2658f8f69"
+    },
+    {
+      "dish": "剁椒香菇盒",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r023-recipe-finedining-20261027-v1.webp",
+      "bytes": 288094,
+      "sha256": "ab142d309392332f3c2ab58648351e769b7aa6012452bf9db1dd1a9f877ed7e8"
+    },
+    {
+      "dish": "江津鱼片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r128-recipe-finedining-20261027-v1.webp",
+      "bytes": 275212,
+      "sha256": "84e11c04bbff031b6b7a34c91fdf2156432eb7daa1b8bcca2d89118776a19b57"
+    },
+    {
+      "dish": "干贝扒冬瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r015-recipe-finedining-20261027-v1.webp",
+      "bytes": 235280,
+      "sha256": "14a32ad14003259e04271b49b03084dc001e93644bb3850d137988f7d7d522b5"
+    },
+    {
+      "dish": "黑三剁",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r145-recipe-finedining-20261027-v1.webp",
+      "bytes": 273484,
+      "sha256": "6368340be08e1f9e1733608372d7ca69815bb7d34b14724dee159ae3fd787619"
+    },
+    {
+      "dish": "麻辣鸡丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r148-recipe-finedining-20261027-v1.webp",
+      "bytes": 250276,
+      "sha256": "8aa14028d6dc28e9a2b0899b3c0ad26cafa9804416f93093bfeb28129ab62e3f"
+    },
+    {
+      "dish": "京酱肉丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r177-recipe-finedining-20261027-v1.webp",
+      "bytes": 244508,
+      "sha256": "bb26577a9f190ad2f44746d436f6424c0dbe8a343239308cda35da57624c9fa5"
+    },
+    {
+      "dish": "老北京炒烤肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r136-recipe-finedining-20261027-v1.webp",
+      "bytes": 244564,
+      "sha256": "7d3dcd3a1ed0706cb9d75bcfe74022db6770cee505feb1ae1ccd98f23ae02954"
+    },
+    {
+      "dish": "麻辣双椒鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r125-recipe-finedining-20261027-v1.webp",
+      "bytes": 281472,
+      "sha256": "be26e798645d81b4c278d2f3f8c45e2407e06e721db10f48acc457d3b7966385"
+    },
+    {
+      "dish": "沙茶牛肉粉丝煲",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r164-recipe-finedining-20261027-v1.webp",
+      "bytes": 296892,
+      "sha256": "f4eeb81a84cd0d9eb65099732282ddd19a20aa68bacb88fe8655dba339d35b25"
+    },
+    {
+      "dish": "味汆豆腐角",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r216-recipe-finedining-20261027-v1.webp",
+      "bytes": 227016,
+      "sha256": "202c7f2a4eb120e40b3c10c17b80ea646f6d31d90700c6aefb207c3008748bb3"
+    },
+    {
+      "dish": "青椒肉丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r059-recipe-finedining-20261027-v1.webp",
+      "bytes": 268690,
+      "sha256": "6ba53f888d787e6c491d7834a843a600d787f071c3ad91d2dd10a864a539c00c"
+    },
+    {
+      "dish": "照烧鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r101-recipe-finedining-20261027-v1.webp",
+      "bytes": 290954,
+      "sha256": "4d39f210aa7693c83d48f94543d3477cadf5ba69527e3134eea3696d81e73b86"
+    },
+    {
+      "dish": "口蘑烧鸡块",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r157-recipe-finedining-20261027-v1.webp",
+      "bytes": 231964,
+      "sha256": "4e5d20bc6684f500f409d0936e43c4a3f4cfc730bc4df38c8191179f84d3bc6d"
+    },
+    {
+      "dish": "虾仁炒苦瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r153-recipe-finedining-20261027-v1.webp",
+      "bytes": 219888,
+      "sha256": "692c0d0788f67e4c97a2007417da7eaf69acec2270480e956f22d835c5b2c031"
+    },
+    {
+      "dish": "响油娃娃菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r013-recipe-finedining-20261027-v1.webp",
+      "bytes": 295524,
+      "sha256": "c72d91e883e08ce775215f76cdf9f3ab12aefead7680976d79d6eab59070cc2e"
+    },
+    {
+      "dish": "杂菜炒蛋",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r007-recipe-finedining-20261027-v1.webp",
+      "bytes": 242312,
+      "sha256": "e9707036088c28fb95881b77d9d9f49c98f5c28d9d0f87775878a6d30ff86cec"
+    },
+    {
+      "dish": "酸辣汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r034-recipe-finedining-20261027-v1.webp",
+      "bytes": 240288,
+      "sha256": "89b19d418a54741d238cc6d6b41187c0ed4581c618ba8dc6682c1c0fa112553f"
+    },
+    {
+      "dish": "黄椒焖草鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r182-recipe-finedining-20261027-v1.webp",
+      "bytes": 272322,
+      "sha256": "0fac03e15c5d3e32c67d70fa49fe00aa463741d689e1d27d165fad58548a1f7c"
+    },
+    {
+      "dish": "腐乳空心菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r253-recipe-finedining-20261027-v1.webp",
+      "bytes": 251332,
+      "sha256": "39cdf678db8e84a27eeee5ef1e62adbbebf45f732e2f1ac4042f1054d03438ea"
+    },
+    {
+      "dish": "玉米莲藕排骨汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r009-recipe-finedining-20261027-v1.webp",
+      "bytes": 210328,
+      "sha256": "c7e23af75810371daf0faab36bd8397766117fa13eee7741ff5c98c89d31d3b5"
+    },
+    {
+      "dish": "红烧鸡腿",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r038-recipe-finedining-20261027-v1.webp",
+      "bytes": 279932,
+      "sha256": "77e10fb1928effa9222c3986254cb4b43433b5dd850c77224efe4b308739c21e"
+    },
+    {
+      "dish": "煎蒸带鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r087-recipe-finedining-20261027-v1.webp",
+      "bytes": 250622,
+      "sha256": "e3f7ebd41707adab1c3b05e40d6b9d6d9bf7ab6fc80f26fafb38170ad8c589ef"
+    },
+    {
+      "dish": "萝卜皮煮牛肚",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r233-recipe-finedining-20261027-v1.webp",
+      "bytes": 226744,
+      "sha256": "8020c1c368191abbd4d447fa5a228b6d2bd5f781e66abb20e403035516bcd02d"
+    },
+    {
+      "dish": "米粉肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r207-recipe-finedining-20261027-v1.webp",
+      "bytes": 285378,
+      "sha256": "920d3343d2b61a5101f1f1a47468d98bf135e1394c7be2b3e74fcdcec2ae5572"
+    },
+    {
+      "dish": "赛螃蟹",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r183-recipe-finedining-20261027-v1.webp",
+      "bytes": 187552,
+      "sha256": "7d766736aacee06b9b521c2925d2fa7290d1b49f470f49c82524caf01b7c87ec"
+    },
+    {
+      "dish": "辣子虾",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r167-recipe-finedining-20261027-v1.webp",
+      "bytes": 288812,
+      "sha256": "a60f85671fe482c1ca28fda2dbb388706e7c2f57aeb8f3a79a41a54d87004f86"
+    },
+    {
+      "dish": "酸菜鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r195-recipe-finedining-20261027-v1.webp",
+      "bytes": 236538,
+      "sha256": "9c99e7612723141e95b027e120e82cda6343623aada3ec1cf833a9bd5af17215"
+    },
+    {
+      "dish": "莴笋炒肉片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r174-recipe-finedining-20261027-v1.webp",
+      "bytes": 236612,
+      "sha256": "e0b7dbf6c1a7bceaa275cea6630220f5b81185babd740f6fa3c7a3d9fe7da4b7"
+    },
+    {
+      "dish": "咖喱虾",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r104-recipe-finedining-20261027-v1.webp",
+      "bytes": 256930,
+      "sha256": "23ff4b1a973eb0f0fbf6beb31d3d2ca6268b79bef5dd28b76f3330da7c6095c0"
+    },
+    {
+      "dish": "肉臊青瓜煮鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r246-recipe-finedining-20261027-v1.webp",
+      "bytes": 231410,
+      "sha256": "bb6f7dac1c269ce99d9a2f8a387cdc7ebc526b16b899ec7df1773eb27fc5eb72"
+    },
+    {
+      "dish": "鲜椒水煮鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r156-recipe-finedining-20261027-v1.webp",
+      "bytes": 243640,
+      "sha256": "b76ab26ecff75c5ea0c90bf6fa377db16db1368fb3f2aac8616a3460d0698e87"
+    },
+    {
+      "dish": "长豆角烧茄子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r046-recipe-finedining-20261027-v1.webp",
+      "bytes": 279004,
+      "sha256": "ff4953dc983f903ec534acbb8181a0edbd1219f550db9640ea84f0ed267fb8be"
+    },
+    {
+      "dish": "笃鲜茄",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r252-recipe-finedining-20261027-v1.webp",
+      "bytes": 266502,
+      "sha256": "a2d9b762e656dc382a36b085926428374aa81bc2c831a897410aa1673627f5ed"
+    },
+    {
+      "dish": "五花肉小炒豆腐",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r019-recipe-finedining-20261027-v1.webp",
+      "bytes": 317162,
+      "sha256": "325f59a0a5abd36e3b376d8842e6592ae2aca120cd7b0e2abff29fe18e0a965a"
+    },
+    {
+      "dish": "酸汤龙利鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r117-recipe-finedining-20261027-v1.webp",
+      "bytes": 240552,
+      "sha256": "c34941525b34eb509e85e5c10ec9d0de097a62947fece96e3d8bd6c79dac84db"
+    },
+    {
+      "dish": "茄汁烧牛腩",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r096-recipe-finedining-20261027-v1.webp",
+      "bytes": 305094,
+      "sha256": "cd4a2666197e1bac0b43dbe01ff4d0efaf2a15ed863a08a20e0171c925606474"
+    },
+    {
+      "dish": "芝麻辣炒排骨",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r212-recipe-finedining-20261027-v1.webp",
+      "bytes": 337840,
+      "sha256": "0295107f2eead0627f5082b0be94d27165f45cf438e952270a7e714b2a5f6dea"
+    },
+    {
+      "dish": "板栗蒸肉饼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r103-recipe-finedining-20261027-v1.webp",
+      "bytes": 245772,
+      "sha256": "208edc0fba746e9de49367fefd0bbcb5b2271a5afeeca42ffe0ee457482fc70b"
+    },
+    {
+      "dish": "炒三鲜肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r197-recipe-finedining-20261027-v1.webp",
+      "bytes": 203062,
+      "sha256": "cd65b11f5d5dc0b15bce17ec5bf7cbc6811b1cbffeab7d71cf909d74e820b03c"
+    },
+    {
+      "dish": "葱椒羊肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r107-recipe-finedining-20261027-v1.webp",
+      "bytes": 263636,
+      "sha256": "7fd0623135b44306b0c7c71da357865c2944784ec8b2fda8920b1911f8ae2335"
+    },
+    {
+      "dish": "豉香鱿鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r208-recipe-finedining-20261027-v1.webp",
+      "bytes": 251142,
+      "sha256": "0446f63daab15c0dea748e623a1b17ec8c1cdb619544fbb4aa794d4b0352be9c"
+    },
+    {
+      "dish": "过油肉炒年糕",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r225-recipe-finedining-20261027-v1.webp",
+      "bytes": 251586,
+      "sha256": "a292493c6524d0ae38270bb6a8f4cd4a34bab40834dfb3b57d7ca56fe3bfe693"
+    },
+    {
+      "dish": "蛤蜊焖鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r065-recipe-finedining-20261027-v1.webp",
+      "bytes": 263960,
+      "sha256": "1490e0f6ffa70c31d5176eda5eb821dca614735642529fc16a8ebb8edc3edb20"
+    },
+    {
+      "dish": "醋焖猪蹄",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r205-recipe-finedining-20261027-v1.webp",
+      "bytes": 294658,
+      "sha256": "c4e37b51e4374a1751e29139890223a8e6b0f952734a7b34797fe5cdfb674736"
+    },
+    {
+      "dish": "卤味琵琶鸭",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r158-recipe-finedining-20261027-v1.webp",
+      "bytes": 331098,
+      "sha256": "f9c5b746ba119e39254d26b1517dc96e42117a7135f9138558721a0aca0f7290"
+    },
+    {
+      "dish": "韭香鸭血",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r190-recipe-finedining-20261027-v1.webp",
+      "bytes": 283934,
+      "sha256": "c7615a81690a0301690e4c097d293965e51587044630374220a20a566fed189c"
+    },
+    {
+      "dish": "山药炒仔鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r172-recipe-finedining-20261027-v1.webp",
+      "bytes": 251360,
+      "sha256": "93ba9ba815640fd588489b56f8ecf568ccdc9481f9cbfc3a5ea6939d1f2a36ae"
+    },
+    {
+      "dish": "墨鱼仔炒小瓜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r161-recipe-finedining-20261027-v1.webp",
+      "bytes": 264884,
+      "sha256": "1d2be251fdac79e62f3490aa4f8cd73187d0a8cdb09d9866561557634c6fe198"
+    },
+    {
+      "dish": "爆炒素鳝丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r052-recipe-finedining-20261027-v1.webp",
+      "bytes": 244904,
+      "sha256": "13c8d3c693cab94216b3ab0596cbc0be7475af83883b91cd7eca7548c23267f1"
+    },
+    {
+      "dish": "香煎藕饼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r115-recipe-finedining-20261027-v1.webp",
+      "bytes": 271764,
+      "sha256": "0823ba6c828b8c7cfee40c70ec279c174769ebca2b96a1c8d4d1f768d8fd7d40"
+    },
+    {
+      "dish": "牛肉粉丝煲",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r222-recipe-finedining-20261027-v1.webp",
+      "bytes": 242370,
+      "sha256": "932c123e4989e8dc9ea95c0250b047c7c268798fb2f67e674221513f9dea3d21"
+    },
+    {
+      "dish": "蒜香排骨",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r018-recipe-finedining-20261027-v1.webp",
+      "bytes": 328448,
+      "sha256": "756f4364f1f3f139e736b6bd4d628df564992b45d28bd9d36d0eb81b677d32cb"
+    },
+    {
+      "dish": "梅菜蒸武昌鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r159-recipe-finedining-20261027-v1.webp",
+      "bytes": 291212,
+      "sha256": "4db019a26c7d9fefdd35a58d47387485a5848ea2af2b3d13e5e1b55afb7f11e8"
+    },
+    {
+      "dish": "酱烧小黄鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r249-recipe-finedining-20261027-v1.webp",
+      "bytes": 324058,
+      "sha256": "3ac35c5bbb878c33fed8fa16877ddf3310a4de956c8f2022faa2d1d369b19229"
+    },
+    {
+      "dish": "酱香肉末茄子",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r165-recipe-finedining-20261027-v1.webp",
+      "bytes": 290930,
+      "sha256": "9e8248c2362fef1a7352856381bc39346af4df3297100a1e0099102d2919c5b9"
+    },
+    {
+      "dish": "焦熘醋肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r256-recipe-finedining-20261027-v1.webp",
+      "bytes": 290396,
+      "sha256": "04252fb08d0b199a28bd8ab9bd76de4754d9c964882d16e164c4327bc067fe54"
+    },
+    {
+      "dish": "小煎鸭胗",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r112-recipe-finedining-20261027-v1.webp",
+      "bytes": 250212,
+      "sha256": "7123cea66d141f3e6991e75bc1e60a0da0277e4f63eb757b04df227f04eb13b9"
+    },
+    {
+      "dish": "肉末粉丝煲",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r149-recipe-finedining-20261027-v1.webp",
+      "bytes": 282716,
+      "sha256": "45aba5d312a132f085b4c3f329d0f665d5113646ea35ce56c32b9d0d2d44f4ba"
+    },
+    {
+      "dish": "梅酱烧仔鸭",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r244-recipe-finedining-20261027-v1.webp",
+      "bytes": 250114,
+      "sha256": "306f0d3643fc9de2b8e6b3c97baa53cad4f1a706689339aa851495e9a4257a91"
+    },
+    {
+      "dish": "咖喱牛腩",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r193-recipe-finedining-20261027-v1.webp",
+      "bytes": 263136,
+      "sha256": "afb5a346cca4a21dd3ea55c8adeb0edf7af0ed59dc439e7f40f2ab844005dadb"
+    },
+    {
+      "dish": "板栗烧猪手",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r098-recipe-finedining-20261027-v1.webp",
+      "bytes": 284416,
+      "sha256": "0d368eeb959fda52a8cad0cfebd9dbd5a09a33c8d9c28f2c73a7b445ddc1ff16"
+    },
+    {
+      "dish": "胡辣汤",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r226-recipe-finedining-20261027-v1.webp",
+      "bytes": 259054,
+      "sha256": "d84fc1d7fa66963e85a0ea036d4913be7ce08fe988eb8968fbc1f4fead708ff7"
+    },
+    {
+      "dish": "茶香鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r085-recipe-finedining-20261027-v1.webp",
+      "bytes": 233080,
+      "sha256": "f276477a90e40632d5be6c15f02c24953552bc48410f33d674f6100a318a7085"
+    },
+    {
+      "dish": "豉香土豆排骨",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r122-recipe-finedining-20261027-v1.webp",
+      "bytes": 292070,
+      "sha256": "6e2e5300546661091642250d725a3a3dcca47dbf82fedfc72d93750425d05ae8"
+    },
+    {
+      "dish": "凉拌长长豆角",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r070-recipe-finedining-20261027-v1.webp",
+      "bytes": 265486,
+      "sha256": "10e2ab08b2b85f0bc22b5232b70c55d2b6a651e1c46c5a4078b18de574ecc25e"
+    },
+    {
+      "dish": "炒烤茄子糊",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r235-recipe-finedining-20261027-v1.webp",
+      "bytes": 296684,
+      "sha256": "4cc9218846e564e45d2683ddd2cddcae9ab490a582815b46a6d3083b7b3e1026"
+    },
+    {
+      "dish": "春笋炒鸡肝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r191-recipe-finedining-20261027-v1.webp",
+      "bytes": 272746,
+      "sha256": "fbbda8953706eec42a5423eb7f7d46c3324f24b3d0919a69540110f650a298f7"
+    },
+    {
+      "dish": "卤汆豆花鱼",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r237-recipe-finedining-20261027-v1.webp",
+      "bytes": 240034,
+      "sha256": "16fa4b3ee1176f28250e4fdd81126361a52e190b0cb568bbb44bbaa0784413e1"
+    },
+    {
+      "dish": "芦笋炒猪肝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r162-recipe-finedining-20261027-v1.webp",
+      "bytes": 225878,
+      "sha256": "6d096b0cd0d8ca10b1029814db3f141131126b4fc858c929a75be2d61d7daaa7"
+    },
+    {
+      "dish": "砂锅鸭",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r194-recipe-finedining-20261027-v1.webp",
+      "bytes": 270732,
+      "sha256": "69db4f03f4ce5502c229984914b9099cc3941c9bdfa4349c7816663cc628100c"
+    },
+    {
+      "dish": "莴笋牛肉丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r169-recipe-finedining-20261027-v1.webp",
+      "bytes": 232724,
+      "sha256": "b8136ae00a7b484ad3d6cec99e04e69ce97d646446979490dc4aca5b72ed3d6b"
+    },
+    {
+      "dish": "虾干煮白菜",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r204-recipe-finedining-20261027-v1.webp",
+      "bytes": 224232,
+      "sha256": "417252af225146ec2e160695424749f41d85bc9e96810bdc3f306d19feb8f34c"
+    },
+    {
+      "dish": "酸菜白肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r099-recipe-finedining-20261027-v1.webp",
+      "bytes": 250512,
+      "sha256": "56e794ea1fcd81b565e2e435efb03352c67e1a4222a803eb84692e9976d0eacb"
+    },
+    {
+      "dish": "鱼香肉丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r079-recipe-finedining-20261027-v1.webp",
+      "bytes": 242972,
+      "sha256": "5dcefad3bf436960758ff262c73265479bac37c9ceecabda24ed314de19d8b14"
+    },
+    {
+      "dish": "香辣手撕牛肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r146-recipe-finedining-20261027-v1.webp",
+      "bytes": 295890,
+      "sha256": "b631fdcf9a4c625d732cc75c43dee0d7f89f7ede36bed639a76794ffae17f817"
+    },
+    {
+      "dish": "辣椒炒肉片",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/s001-recipe-finedining-20261027-v1.webp",
+      "bytes": 221278,
+      "sha256": "cb311348acce997b2122f31341f5e7c07fbaa630ce75953e05788ff60154c4ff"
+    },
+    {
+      "dish": "枣生栗子鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r011-recipe-finedining-20261027-v1.webp",
+      "bytes": 252448,
+      "sha256": "ffdd8c8ff67ab06aebdcedd47c41b1a6c09de234aacf7bad213de46f2dfbf713"
+    },
+    {
+      "dish": "蒜薹肉丝",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/s002-recipe-finedining-20261027-v1.webp",
+      "bytes": 210264,
+      "sha256": "637acd7b294535dab9be85bb5694301c82d6016c2ef36aa01346168b027be765"
+    },
+    {
+      "dish": "罐焖牛肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r028-recipe-finedining-20261027-v1.webp",
+      "bytes": 261268,
+      "sha256": "a454e157a6733ddf57c485d06cb658d2e7a9652838a293f8f5f6f44442f5ffd2"
+    },
+    {
+      "dish": "中式炸鸡",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r073-recipe-finedining-20261027-v1.webp",
+      "bytes": 312984,
+      "sha256": "dab5e6f86badd7223ff289dc3ac935f92be43c0fe029b9a59373adf1897c9dfd"
+    },
+    {
+      "dish": "鱼香脆滑肉",
+      "url": "https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com/assets/recipes/r089-recipe-finedining-20261027-v1.webp",
+      "bytes": 270482,
+      "sha256": "120498b7bfe93fb7fe14a4ffa7d7a6eafaf8ea84e06a58ab7934fd8482169465"
+    }
+  ]
+}

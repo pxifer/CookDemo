@@ -1,0 +1,2739 @@
+{
+  "total": 341,
+  "newPictures": 196,
+  "existingPictures": 145,
+  "decoded": 341,
+  "contentVersion": "gallery-listed-foods-20261026-v27",
+  "contentUnchanged": true,
+  "publicationWithdrawalChecked": true,
+  "records": [
+    {
+      "name": "上汤娃娃菜",
+      "path": "/assets/recipes/baby-napa-cabbage-superior-broth-finedining-v1.png",
+      "bytes": 2241769,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b306d1768c844ea6ab2724f9702d9b76ba198b09e25706e139a21d44ba11a171"
+    },
+    {
+      "name": "乾隆白菜",
+      "path": "/assets/recipes/qianlong-sesame-napa-cabbage-finedining-v1.png",
+      "bytes": 2094653,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3d5df4aa2ddfdb8409b3ac3139005ecca694baba8517115464871ca3dfaa645e"
+    },
+    {
+      "name": "冬瓜桑拿鸡",
+      "path": "/assets/recipes/winter-melon-steamed-chicken-finedining-v1.png",
+      "bytes": 2430490,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a14a5bb5757ac99186a386878acea9492b3192b01888f4f9fff2ee3ea41b55ed"
+    },
+    {
+      "name": "冬瓜酿肉",
+      "path": "/assets/recipes/winter-melon-pork-rolls-finedining-v1.png",
+      "bytes": 2281187,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "146c352a0e4525c84c566d47689ab553cf8b1c9d301e5eeb53093b0035096dfa"
+    },
+    {
+      "name": "凉拌木耳",
+      "path": "/assets/recipes/wood-ear-salad-finedining-v1.png",
+      "bytes": 2174969,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "ea265c78b5ccbf9e71ac6665f8688fd44286191fb8beafa2b00229f21e5faee6"
+    },
+    {
+      "name": "凉拌莴笋",
+      "path": "/assets/recipes/celtuce-salad-finedining-v1.png",
+      "bytes": 2200962,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b64e17384e96c92ade905ebe6cb85540b94a3cd1e4a4f3bb41a0f10977297315"
+    },
+    {
+      "name": "凉拌金针菇",
+      "path": "/assets/recipes/chilled-enoki-garlic-salad-finedining-v1.png",
+      "bytes": 2361754,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3b756455ec3c9573fde478adbddc89cad7e181caf2cf8ee3a4e81a491ce8e8da"
+    },
+    {
+      "name": "凉拌鸡丝",
+      "path": "/assets/recipes/r386-recipe-finedining-v1.png",
+      "bytes": 2377626,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "c21fcc52aa4db848ed1c81c92533f70f14e596ebed9c7cc83323515b9df798ef"
+    },
+    {
+      "name": "凉拌黄瓜",
+      "path": "/assets/recipes/smashed-cucumber-garlic-salad-finedining-v1.png",
+      "bytes": 2425102,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "49e06097f0b719acb9166bdbe4c2bc78d4b5a52f9a446ae249a5056b45e001b5"
+    },
+    {
+      "name": "勾芡香菇汤",
+      "path": "/assets/recipes/light-thickened-shiitake-soup-finedining-v1.png",
+      "bytes": 2443584,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b059efc3516507113af8ba6013c3a3843269765399c8999b1763cfa884446ece"
+    },
+    {
+      "name": "包菜炒鸡蛋粉丝",
+      "path": "/assets/recipes/cabbage-egg-glass-noodles-finedining-v1.png",
+      "bytes": 2458277,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d88ad2eff65e436f7bbdd30346b84cceb0a24318782041768576a2fb96df9e51"
+    },
+    {
+      "name": "印度土豆花菜",
+      "path": "/assets/recipes/aloo-gobi-potato-cauliflower-finedining-v1.png",
+      "bytes": 2336564,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "4d3e789c6c96b804813b1f5cb3732b234ff638c5605299d568ca980f50fe25e1"
+    },
+    {
+      "name": "印度葫芦丸子",
+      "path": "/assets/recipes/r267-recipe-finedining-v1.png",
+      "bytes": 2781858,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "db5c0717897f20d41cd7f8947ab576d8646b1ffaf7d3c9821a032a6433c9b8e9"
+    },
+    {
+      "name": "口水鸡",
+      "path": "/assets/recipes/sichuan-chili-chicken-finedining-v1.png",
+      "bytes": 2426178,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a69474740548b9edca7911be779012f1c640927b1b920c16a388567f259ca5bf"
+    },
+    {
+      "name": "可乐鸡翅",
+      "path": "/assets/recipes/cola-chicken-wings-finedining-v1.png",
+      "bytes": 2336712,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3b27922fd61fabac464fcde1506fcf772680360ff0c70dcd7c5a31f9eecce1e2"
+    },
+    {
+      "name": "咕噜肉",
+      "path": "/assets/recipes/cantonese-sweet-sour-pork-finedining-v1.png",
+      "bytes": 2344331,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "77ca8e58486291e7785596c9d658b217360eba8f77d422188330fa78a064d074"
+    },
+    {
+      "name": "咖喱肥牛",
+      "path": "/assets/recipes/r388-recipe-finedining-v1.png",
+      "bytes": 2488732,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2ca489f1bc250c8a22a9c781582af8c1803beaed5ec1459cc9208927e30c3cc3"
+    },
+    {
+      "name": "响油鳝丝",
+      "path": "/assets/recipes/r367-recipe-finedining-v1.png",
+      "bytes": 2552159,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3d433ebd817a8fae6f882358ede2fe058b20b9d9ff4566c4a20eec4233dd88e6"
+    },
+    {
+      "name": "啤酒鸭",
+      "path": "/assets/recipes/r397-recipe-finedining-v1.png",
+      "bytes": 2901491,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b5944ad1c5400abb9165d094f118ddbe2a012af0d3ebbf6bfc4b8f2344cdd436"
+    },
+    {
+      "name": "回锅肉",
+      "path": "/assets/recipes/twice-cooked-pork-finedining-v1.png",
+      "bytes": 2452737,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a8b4e6227b3618a0e18fa296594bec5138abda9d348a079a28849ca762be9b8c"
+    },
+    {
+      "name": "土豆炖排骨",
+      "path": "/assets/recipes/potato-braised-pork-ribs-finedining-v1.png",
+      "bytes": 2537845,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "1a60e808ad897530f7cc0acb8d3b1c81e80e1d699c403e7616fc445f915586aa"
+    },
+    {
+      "name": "地三鲜",
+      "path": "/assets/recipes/di-san-xian-finedining-v1.png",
+      "bytes": 2270454,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "412aea8030fba8cc176220a987c79eeabed69e5e2f79fe3bb743f42a30394ad5"
+    },
+    {
+      "name": "大盘鸡",
+      "path": "/assets/recipes/r348-recipe-finedining-v1.png",
+      "bytes": 2662104,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "dfd9ccf88afa4c20846a1528fc2b90a249fd37746d71fd9f7602ea99e043fa7c"
+    },
+    {
+      "name": "奥尔良风味烤鸡腿",
+      "path": "/assets/recipes/roasted-orleans-chicken-leg-finedining-v1.png",
+      "bytes": 2370903,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "1c78106ea30a6598856caf28d5096ad8dc3d44885c2b2efc13ffbb1bb5bc1454"
+    },
+    {
+      "name": "奶油蘑菇汤",
+      "path": "/assets/recipes/creamy-mushroom-soup-finedining-v1.png",
+      "bytes": 2130691,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d23bb50261c80b64ab07c22e37f605aaa124f92db13c034e4bf289ce86ed1937"
+    },
+    {
+      "name": "姜葱捞鸡",
+      "path": "/assets/recipes/r346-recipe-finedining-v1.png",
+      "bytes": 2609172,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "cf8bc2a19f6591ff35ed8373fa153e9a72753d99cf71f0ae7c176f30620cca01"
+    },
+    {
+      "name": "宫保鸡丁",
+      "path": "/assets/recipes/kung-pao-chicken-finedining-v1.png",
+      "bytes": 2392804,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d79f3202a22a583c010966ae1dcbb39ce21652d0a79f9236633825befba008ef"
+    },
+    {
+      "name": "小炒脆藕丁",
+      "path": "/assets/recipes/spicy-lotus-root-cubes-finedining-v1.png",
+      "bytes": 2326131,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9b9aa7d63a90cc0068d3332d8097c9c950b1feaea608d734a5ba542b91886cc1"
+    },
+    {
+      "name": "小炒鸡肝",
+      "path": "/assets/recipes/r295-recipe-finedining-v1.png",
+      "bytes": 2957003,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "f3512409c15227b2df9d0c2c2938e540988f0a4a57a14edb2b48210dbbbcfc82"
+    },
+    {
+      "name": "小炒黄牛肉",
+      "path": "/assets/recipes/r336-recipe-finedining-v1.png",
+      "bytes": 2675016,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "56358d702c7347cb54a52a7c6f42f49e1a7c26d7e4193565b014dbc2af6f3c30"
+    },
+    {
+      "name": "小米辣炒肉",
+      "path": "/assets/recipes/birds-eye-chili-pork-stir-fry-finedining-v1.png",
+      "bytes": 2438115,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "974bbc3528b44e32df2d98ff56a93975047c06c9c57d2740c7d64d1daa8eac91"
+    },
+    {
+      "name": "小酥肉",
+      "path": "/assets/recipes/crispy-sichuan-pork-strips-finedining-v1.png",
+      "bytes": 2417718,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "27281e03a8f6669e6692de03e2252a29c0b462f36225fcb7cd62bff2acbaedce"
+    },
+    {
+      "name": "山药南瓜炖鸡汤",
+      "path": "/assets/recipes/yam-pumpkin-chicken-soup-finedining-v1.png",
+      "bytes": 2233902,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "5b17201b4de71f6ba565d680e88e35f45229c7d306cfd2c9024fe5d422181adc"
+    },
+    {
+      "name": "山药玉米排骨汤",
+      "path": "/assets/recipes/yam-corn-pork-rib-soup-finedining-v1.png",
+      "bytes": 2308351,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a7182c37e681355d442a5afa8314155af3e1a8544ebb2954b7ec9c375fbd3785"
+    },
+    {
+      "name": "山西过油肉",
+      "path": "/assets/recipes/shanxi-pork-wood-ear-stir-fry-finedining-v1.png",
+      "bytes": 2305338,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "f9f8b1dbcbe80588a9319f9998fd91baf7ac8075891a8418149a612159f2c215"
+    },
+    {
+      "name": "巴基斯坦牛肉咖喱",
+      "path": "/assets/recipes/r377-recipe-finedining-v1.png",
+      "bytes": 2640688,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "fd66fe305c79c7da6b1ffe4b2ffe2a6b0c2fccfa0ac5a11ab526492164f0e255"
+    },
+    {
+      "name": "带把肘子",
+      "path": "/assets/recipes/r281-recipe-finedining-v1.png",
+      "bytes": 2718587,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2741a072ec58c0d8ed6c65fe65b42f8cfb5b1bc03c641b4363e0b1abeeda6879"
+    },
+    {
+      "name": "干煎阿根廷红虾",
+      "path": "/assets/recipes/pan-seared-argentine-prawns-finedining-v1.png",
+      "bytes": 2604145,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8e8e8d577122c1e64b54e1a096a6c32dfa4574b8bf3c644460b0ba549dc62cf6"
+    },
+    {
+      "name": "干煸仔鸡",
+      "path": "/assets/recipes/r392-recipe-finedining-v1.png",
+      "bytes": 2631093,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "50b85aa65a7a25138858b6309615d2bf05d95fb6a0f08d73152bb5690a24839d"
+    },
+    {
+      "name": "干锅花菜",
+      "path": "/assets/recipes/dry-pot-cauliflower-finedining-v1.png",
+      "bytes": 2658117,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a81c185614e11c4dd29900620bf703857af4a213f5ac1f34ee0ba74ff5e63081"
+    },
+    {
+      "name": "广式萝卜牛腩",
+      "path": "/assets/recipes/r389-recipe-finedining-v1.png",
+      "bytes": 2698243,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "86cf57356cbe8b8df14fa764f2bf911f8de63e281b1bec31bd632faf79cae856"
+    },
+    {
+      "name": "手撕包菜",
+      "path": "/assets/recipes/torn-cabbage-pork-finedining-v2.png",
+      "bytes": 2379183,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "93e1f3190661d281c57b672461aa026742140c8c41ee8c3a074eb1d158abe25a"
+    },
+    {
+      "name": "拔丝土豆",
+      "path": "/assets/recipes/caramelized-potato-sugar-threads-finedining-v1.png",
+      "bytes": 2380627,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "6438d7ee3ad5778709c1642401fdfcb1810ebc1b6dc97b06293908aa0a1d6c74"
+    },
+    {
+      "name": "排骨苦瓜汤",
+      "path": "/assets/recipes/bitter-melon-pork-rib-soup-finedining-v1.png",
+      "bytes": 2398819,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "032a2928b8c812908be3ca96cb26375b950225339f68fa5743e065822db1f7fc"
+    },
+    {
+      "name": "擂椒皮蛋",
+      "path": "/assets/recipes/r317-recipe-finedining-v1.png",
+      "bytes": 2463991,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "e22971534ba406c3d9ad30cff82d5bbabc33da94c27e0c37aae59ffe6196d864"
+    },
+    {
+      "name": "无骨鸡爪",
+      "path": "/assets/recipes/r274-recipe-finedining-v1.png",
+      "bytes": 2737378,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9b0ff00ff3678970e6a711a8707137c866c8438da52810de5a5a51b995178d57"
+    },
+    {
+      "name": "日本豆腐",
+      "path": "/assets/recipes/r313-recipe-finedining-v1.png",
+      "bytes": 2378010,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9e00c956e43f173358beec8e8ab4248846e0b750c5774ddbc8ebc629a1dddb2e"
+    },
+    {
+      "name": "昂刺鱼豆腐汤",
+      "path": "/assets/recipes/yellow-catfish-tofu-soup-finedining-v3.png",
+      "bytes": 2153348,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a45df6d523430ed811ead9691d38e36b1b3aff64bf6b6a1ee43e638c87c7ed73"
+    },
+    {
+      "name": "松仁玉米",
+      "path": "/assets/recipes/pine-nut-sweet-corn-finedining-v1.png",
+      "bytes": 2105316,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "1e069e02a2d3d6d2e1c35ac5e07837ddf4378edfeed769d5e67a26cc4dd7a8bc"
+    },
+    {
+      "name": "枝竹羊腩煲",
+      "path": "/assets/recipes/r360-recipe-finedining-v1.png",
+      "bytes": 2542563,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "beaeb231e8c1b8bb73edce5fd54b5749961650e7714c12b340dca0b3cb61f54f"
+    },
+    {
+      "name": "柱候牛腩",
+      "path": "/assets/recipes/r261-recipe-finedining-v1.png",
+      "bytes": 2572076,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "223a691da549f2efc47b3c3ea556b74fc0f59fcde2a236862d6a8aacfc0d2827"
+    },
+    {
+      "name": "梅菜扣肉",
+      "path": "/assets/recipes/preserved-mustard-pork-belly-finedining-v1.png",
+      "bytes": 2610978,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d473308b974da2a1c9c93063d87a20283293a707382216a2cbda073ee1152037"
+    },
+    {
+      "name": "榄菜肉末四季豆",
+      "path": "/assets/recipes/olive-pork-green-beans-finedining-v1.png",
+      "bytes": 2421804,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d859eff666159ae75fcc0e21d085b23798b95759f517439ea8fd14ccbc4a9020"
+    },
+    {
+      "name": "水煮牛肉",
+      "path": "/assets/recipes/water-boiled-beef-finedining-v1.png",
+      "bytes": 2428203,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "81f090f99014eea78c8a7a709b640b9e062fbf8ac99a3c116abd94da148d4b34"
+    },
+    {
+      "name": "油焖大虾",
+      "path": "/assets/recipes/oil-braised-whole-prawns-finedining-v1.png",
+      "bytes": 2473497,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "843b43923c6b468b4e96422ee0e044e5423194e15e7eb3e578783a11a1ff8153"
+    },
+    {
+      "name": "油醋爆蛋",
+      "path": "/assets/recipes/r372-recipe-finedining-v1.png",
+      "bytes": 2588280,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a0a534d88a5a34f9145c48cf3460f1c6c251bc115f0069f326af3676b33961f7"
+    },
+    {
+      "name": "洋葱炒猪肉",
+      "path": "/assets/recipes/onion-pork-stir-fry-finedining-v1.png",
+      "bytes": 2359724,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "0c2942abf40f383f162b979dbb72129e2333d803bb4a44828df680104f70c008"
+    },
+    {
+      "name": "洋葱炒鸡蛋",
+      "path": "/assets/recipes/onion-scrambled-eggs-finedining-v1.png",
+      "bytes": 2315371,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2aae4ab13d06c0259034e5497c7320658fb3cc01a5e01332f96a6b92b4f138fa"
+    },
+    {
+      "name": "清炒花菜",
+      "path": "/assets/recipes/garlic-white-cauliflower-finedining-v1.png",
+      "bytes": 2148499,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "70f6ce8b07fe57da690c2fde8ff534a06cff41878f1af327921576cfe61577c1"
+    },
+    {
+      "name": "清蒸南瓜",
+      "path": "/assets/recipes/steamed-pumpkin-finedining-v1.png",
+      "bytes": 2102182,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "09849ccdacaf5363f7e71fc713535d73363fee9da8e1b38c34d8a18dae760509"
+    },
+    {
+      "name": "清蒸生蚝",
+      "path": "/assets/recipes/r323-recipe-finedining-v1.png",
+      "bytes": 2548668,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "95bedd37f831e264aea04fc729fb865b1ebbb12909b33fa6a31848d89ff38095"
+    },
+    {
+      "name": "清蒸鲈鱼",
+      "path": "/assets/recipes/steamed-sea-bass-finedining-v1.png",
+      "bytes": 2462826,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "31d451aaabf431fe1dd9d744e92509de3bc525a7e19163c78956b6bf8d3eef01"
+    },
+    {
+      "name": "清蒸鳜鱼",
+      "path": "/assets/recipes/r383-recipe-finedining-v1.png",
+      "bytes": 2576956,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "7483439d7d67b707da34bf9c7fb49c263cfd0013d6e82de412f82341e604484e"
+    },
+    {
+      "name": "湖南红烧肉",
+      "path": "/assets/recipes/r374-recipe-finedining-v1.png",
+      "bytes": 2664041,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "6f26a67dd1aaf0062a324e7435638b34dd83913f9a31bad6796a6c7eaef18305"
+    },
+    {
+      "name": "湘祁米夫鸭",
+      "path": "/assets/recipes/r328-recipe-finedining-v1.png",
+      "bytes": 2666449,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "c9ca2ce4cdf4e0250f56dab37f695df5784128b4e2250048fb2193974ea8da86"
+    },
+    {
+      "name": "炒滑蛋",
+      "path": "/assets/recipes/r361-recipe-finedining-v1.png",
+      "bytes": 2239406,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "7a65ee59ce916bb914beb211ef94583dc248312a622c9e1c34b5b3a98f8d8aec"
+    },
+    {
+      "name": "炸洋葱花",
+      "path": "/assets/recipes/crispy-blooming-onion-finedining-v1.png",
+      "bytes": 2610729,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d4afe3c7058f70114a00e52059877b53c15184710f430bc7810c125cecd07f51"
+    },
+    {
+      "name": "烤茄子",
+      "path": "/assets/recipes/r324-recipe-finedining-v1.png",
+      "bytes": 2707210,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "acba48e32fb25413b3bb3056b44b30ded1388b64af77c243bb89f06ba9ae136f"
+    },
+    {
+      "name": "烤鱼",
+      "path": "/assets/recipes/r331-recipe-finedining-v1.png",
+      "bytes": 2926369,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "66f0d6a96f6e18426826ca7809e72b526b472673663b26cb89912a23a6d5a74e"
+    },
+    {
+      "name": "牛排",
+      "path": "/assets/recipes/r321-recipe-finedining-v1.png",
+      "bytes": 2862472,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "6d57ebb9cc17be99fcf0d6fbcea4e08269940a09039d80d040f4994736736fe6"
+    },
+    {
+      "name": "猪肉烩酸菜",
+      "path": "/assets/recipes/r366-recipe-finedining-v1.png",
+      "bytes": 2704720,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d90a9b6331729cf7aaf056ee7a85b33127cebf91ff0767418bc33c9a017d6584"
+    },
+    {
+      "name": "玉米排骨汤",
+      "path": "/assets/recipes/corn-pork-rib-soup-finedining-v1.png",
+      "bytes": 2484094,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9fb66118119f4ab2aa4f40bf3c9a89df6b153880f6b9cb5aedf0f86b3430ec63"
+    },
+    {
+      "name": "甜辣烤全翅",
+      "path": "/assets/recipes/r393-recipe-finedining-v1.png",
+      "bytes": 2718106,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "fb1066ba6f88f1cedd4eda244903031cf0c68978926940bd81e7c8058bed98ac"
+    },
+    {
+      "name": "番茄炖牛腩",
+      "path": "/assets/recipes/tomato-braised-beef-finedining-v1.png",
+      "bytes": 2513722,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "0395c4d17ffe2629b36c4d457b547504c1b911060973caaff7ce6cd018b8d582"
+    },
+    {
+      "name": "番茄蛋花汤",
+      "path": "/assets/recipes/tomato-egg-drop-soup-finedining-v1.png",
+      "bytes": 2333081,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "42ba30ec3a1720d7920c8535d6fdc58ca5f762c107ef3c1c208fbdd67afaf647"
+    },
+    {
+      "name": "番茄豆腐汤羹",
+      "path": "/assets/recipes/tomato-tofu-egg-soup-finedining-v1.png",
+      "bytes": 2265150,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "0f4089a7c04ddafd3fd52433733513db56de6c73fb8e5ceb7d1af30a2cb53667"
+    },
+    {
+      "name": "瘦肉土豆片",
+      "path": "/assets/recipes/lean-pork-potato-slices-finedining-v1.png",
+      "bytes": 2561216,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "cb2669fb822a3941164962796e081392544ee4f1cdcd0aed24ba3cf69b903fa4"
+    },
+    {
+      "name": "白灼菜心",
+      "path": "/assets/recipes/blanched-chinese-cabbage-finedining-v1.png",
+      "bytes": 2322787,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "19217e1d71e121beb565ed29f9364e6ca14a04b0bf1cd76f448f4785dca5275d"
+    },
+    {
+      "name": "白菜猪肉炖粉条",
+      "path": "/assets/recipes/napa-cabbage-pork-glass-noodles-finedining-v1.png",
+      "bytes": 2371042,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "7d93ea4e8f824547b3d5667714032d54e0306f7b82f9d59661645630cd765357"
+    },
+    {
+      "name": "空气炸锅脆皮现腌炸鸡",
+      "path": "/assets/recipes/r334-recipe-finedining-v1.png",
+      "bytes": 2801677,
+      "width": 1447,
+      "height": 1087,
+      "sha256": "06a6cb34ba7b6b16173fdcd9db59a5393a4192a2135ebc74d42b6772880d0e6c"
+    },
+    {
+      "name": "糖拌番茄",
+      "path": "/assets/recipes/sugared-tomato-salad-finedining-v1.png",
+      "bytes": 2352643,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "c296cd232e9fc2b18d1df55bbc26be99ccbd465ec2078ec357f277493e74d5da"
+    },
+    {
+      "name": "糖醋排骨",
+      "path": "/assets/recipes/sweet-sour-pork-ribs-finedining-v1.png",
+      "bytes": 2418321,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "751f93f9e59856dfbe6d4e07fc77bb0723e468760cc1076395640da4a4ab9b28"
+    },
+    {
+      "name": "糖醋里脊",
+      "path": "/assets/recipes/sweet-sour-pork-tenderloin-finedining-v1.png",
+      "bytes": 2107863,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "0e06301d9a2a2590b855097a78790379c1640636c66d0e88d2539286fd06832f"
+    },
+    {
+      "name": "糖醋鲤鱼",
+      "path": "/assets/recipes/r344-recipe-finedining-v1.png",
+      "bytes": 2443718,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9333c28dffd597ae318708dd2479011c0a05e20a03ad32a985465373c1685023"
+    },
+    {
+      "name": "素炒长豆角",
+      "path": "/assets/recipes/r385-recipe-finedining-v1.png",
+      "bytes": 2605709,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "10683e0e8990e7d349353b9eca20ed57471d5c21f69c35c22c0ccef6af83a200"
+    },
+    {
+      "name": "紫菜蛋花汤",
+      "path": "/assets/recipes/seaweed-egg-drop-soup-finedining-v1.png",
+      "bytes": 2414786,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "ee19ff4e14ff3ee2551a5c24c17f737b26e0debec0567e176f866d80f74600ee"
+    },
+    {
+      "name": "红烧冬瓜",
+      "path": "/assets/recipes/red-braised-winter-melon-finedining-v1.png",
+      "bytes": 2509637,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "342c736bca26b2fc220e0a91289c8217dba511c753adaec5e6a8900899e5317d"
+    },
+    {
+      "name": "红烧猪蹄",
+      "path": "/assets/recipes/braised-pork-trotter-finedining-v1.png",
+      "bytes": 2270403,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3ad6281d9654e8c4a66e24eb68d48b1fa5e5cd050427077e877572bbfdbe273a"
+    },
+    {
+      "name": "红烧肉",
+      "path": "/assets/recipes/r379-recipe-finedining-v1.png",
+      "bytes": 2616688,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2c4d2dea9f8bef7cd08676436fb5d2d63ef69f9fc23d1613a6b9a24956abc264"
+    },
+    {
+      "name": "红烧鱼头",
+      "path": "/assets/recipes/r347-recipe-finedining-v1.png",
+      "bytes": 2803956,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "072c02c7b7e23d89c93943c6785be335605ebc6f8e0808597dfdfeb683373363"
+    },
+    {
+      "name": "红烧鲤鱼",
+      "path": "/assets/recipes/red-braised-whole-carp-finedining-v1.png",
+      "bytes": 2552809,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "43f5115eb5f3c651979b6e8b428b425f5b60e4d44eba70ae13035d82ea643e73"
+    },
+    {
+      "name": "罗宋汤",
+      "path": "/assets/recipes/chinese-style-borscht-beef-soup-finedining-v1.png",
+      "bytes": 2360443,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "867d60c0c0edf473bf6c0a83e2abbd8f268b308a8da4c6f14234c285bcb6abdb"
+    },
+    {
+      "name": "羊肉汤",
+      "path": "/assets/recipes/r343-recipe-finedining-v1.png",
+      "bytes": 2653986,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "aca4dc95e5190cf6c4a79778a4faed064f45053fddc878278c1999ee8f1a2556"
+    },
+    {
+      "name": "肉饼炖蛋",
+      "path": "/assets/recipes/steamed-pork-patty-egg-finedining-v1.png",
+      "bytes": 2272261,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "fb9ef8ba86e9d53df0678d012510f70b46ddbef06c7e7246a83f735246bc1786"
+    },
+    {
+      "name": "腐乳肉",
+      "path": "/assets/recipes/r327-recipe-finedining-v1.png",
+      "bytes": 2670394,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "0b4a1bb7cc251d818aa5b2bde0c081c32c6a1f2ddb5e9faeebe2d2e7ec6ac9a9"
+    },
+    {
+      "name": "芥末罗氏虾",
+      "path": "/assets/recipes/r375-recipe-finedining-v1.png",
+      "bytes": 2707701,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2bd87a8353b916d15f95f721bf55d4c92a50cc07ef517666b4b905eae93f9b51"
+    },
+    {
+      "name": "芥末黄油罗氏虾",
+      "path": "/assets/recipes/r341-recipe-finedining-v1.png",
+      "bytes": 2802710,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "fd1d2f95ae580639fecc4865371ed9dc745faac9b0295b146da206f949a14a9f"
+    },
+    {
+      "name": "芹菜拌茶树菇",
+      "path": "/assets/recipes/celery-tea-tree-mushroom-salad-finedining-v1.png",
+      "bytes": 2300915,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "24853c261da3292c8c5ccfa538ae63087a1b2ef55213672d43eb708301f0fd2c"
+    },
+    {
+      "name": "茭白炒肉",
+      "path": "/assets/recipes/water-bamboo-pork-stir-fry-finedining-v1.png",
+      "bytes": 2071308,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a0dd097b053ce863f3a99381094b1fc076247935cc8ea9c1a17e91a29c98a9f7"
+    },
+    {
+      "name": "荷兰豆炒腊肠",
+      "path": "/assets/recipes/snow-peas-chinese-sausage-finedining-v1.png",
+      "bytes": 2455641,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9afa93eca9b3b86ccb3e14ae35b8af1df6fe910e23540542b436fb742d064ae5"
+    },
+    {
+      "name": "菠菜炒鸡蛋",
+      "path": "/assets/recipes/spinach-scrambled-eggs-finedining-v1.png",
+      "bytes": 2038276,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8bf3f54098a6d6bce068378720d912901af06c682e7df77372a2dfe0afc85352"
+    },
+    {
+      "name": "萝卜炖羊排",
+      "path": "/assets/recipes/lamb-ribs-daikon-soup-finedining-v1.png",
+      "bytes": 2305505,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "447f4aa693468dea280fe2abf011e1dd157b4f55edc3451ec0b859727f862540"
+    },
+    {
+      "name": "葱烧鸡腿",
+      "path": "/assets/recipes/r362-recipe-finedining-v1.png",
+      "bytes": 2720419,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3d2d8bea8cb58b1c9dbd2f603ebccd5cb0cb8fabdd060d04793de724ef68bfd0"
+    },
+    {
+      "name": "葱煎豆腐",
+      "path": "/assets/recipes/scallion-pan-fried-tofu-finedining-v1.png",
+      "bytes": 2317232,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "d04130caecf34afc2cfa40626dbf870510aff99844c60efc4447cb0751760308"
+    },
+    {
+      "name": "蒜蓉炒芹菜",
+      "path": "/assets/recipes/garlic-chinese-celery-finedining-v1.png",
+      "bytes": 2238080,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "64d8e0e54cd12267dc0326906d34c1facfd14d92a5908cb674a2b330ec1b5637"
+    },
+    {
+      "name": "蒜蓉空心菜",
+      "path": "/assets/recipes/garlic-water-spinach-finedining-v1.png",
+      "bytes": 2339553,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "1001a8b5a405b826556ca92e94e947775edcfb07a8a9f14cceae0011abdaf01e"
+    },
+    {
+      "name": "蒜蓉西兰花",
+      "path": "/assets/recipes/garlic-broccoli-finedining-v1.png",
+      "bytes": 2430547,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "308cd4ce8fc4d249660b03ee1b68c1a6f7a8890947e2241b086440aeb5b1288e"
+    },
+    {
+      "name": "蒜香黄油虾",
+      "path": "/assets/recipes/garlic-butter-peeled-prawns-finedining-v1.png",
+      "bytes": 2280152,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "f611f02b8870a8a22907fb81df5fa29826d6123777f386acd05be8ff33f39b62"
+    },
+    {
+      "name": "蒲烧茄子",
+      "path": "/assets/recipes/kabayaki-eggplant-finedining-v1.png",
+      "bytes": 2388281,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "5a3454b6677a8b189f07562790d845196c00ec399c40081a82a063baf38b2213"
+    },
+    {
+      "name": "虎皮肘子",
+      "path": "/assets/recipes/r304-recipe-finedining-v1.png",
+      "bytes": 2702658,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "afd14ff125cad124726b6e5bdc77ead6a9d1e06cc3c0b986a650494af54388fe"
+    },
+    {
+      "name": "虎皮青椒",
+      "path": "/assets/recipes/blistered-green-peppers-finedining-v1.png",
+      "bytes": 2528847,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "68624d3a14019fddb48758400b76787371780adacf261e52e06b36520dd3e496"
+    },
+    {
+      "name": "蚂蚁上树",
+      "path": "/assets/recipes/r395-recipe-finedining-v1.png",
+      "bytes": 2779891,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "228e27ef6f212b63db9ac94c58c1fddf43b742eef82836e9441f09a00c9544ce"
+    },
+    {
+      "name": "蚝油三鲜菇",
+      "path": "/assets/recipes/oyster-sauce-three-mushrooms-finedining-v1.png",
+      "bytes": 2415234,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "4fde8b7d951ea6fe6af292b8f254d1aacc5cb81636d9c9d7c0693193a3d66bfe"
+    },
+    {
+      "name": "蚝油生菜",
+      "path": "/assets/recipes/oyster-sauce-lettuce-finedining-v1.png",
+      "bytes": 2338738,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9aa85764dc61f0fd798bbb76d16adf7cf3de0777d34899246dc294a54d7f5d92"
+    },
+    {
+      "name": "蛏抱蛋",
+      "path": "/assets/recipes/r351-recipe-finedining-v1.png",
+      "bytes": 2832037,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "546b8b4ac232cc92cdfc5becee1b5ef619b36649a6ab9bd1898edbb8276ee433"
+    },
+    {
+      "name": "西葫芦炒鸡蛋",
+      "path": "/assets/recipes/zucchini-scrambled-eggs-finedining-v1.png",
+      "bytes": 2361987,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "60b2c796e201ad705eb486eaae54bea23266a0441900fdd39efb37c65f1aabd1"
+    },
+    {
+      "name": "豉汁排骨",
+      "path": "/assets/recipes/r369-recipe-finedining-v1.png",
+      "bytes": 2595737,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "a2bffd19c4773f11351dc09867d567b6ffb6e0372d8d25844a221db92df22edb"
+    },
+    {
+      "name": "豉汁蒸白鱔",
+      "path": "/assets/recipes/r342-recipe-finedining-v1.png",
+      "bytes": 2575350,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "c4b90487c644978828fb2d7d636921a9bbce20ed4e86e5ac08d37109e7fa0964"
+    },
+    {
+      "name": "辣椒炒肉",
+      "path": "/assets/recipes/r381-recipe-finedining-v1.png",
+      "bytes": 2483816,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "0ad38208212769c0e962e770d02f7f1f8dc21d2d77ab6e16abf8333839fcdb88"
+    },
+    {
+      "name": "酱排骨",
+      "path": "/assets/recipes/r287-recipe-finedining-v1.png",
+      "bytes": 2586129,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "6b7f50a27646e5cf15969fba8d0a649dc184d5d6f79e410103d168156d036cf1"
+    },
+    {
+      "name": "酱炖蟹",
+      "path": "/assets/recipes/r384-recipe-finedining-v1.png",
+      "bytes": 2603243,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "db65cae73a6f35d3dbc88e5b4a4f46a60ac596f5b86bbea3d4446117bf06b9b4"
+    },
+    {
+      "name": "酸辣土豆丝",
+      "path": "/assets/recipes/sour-spicy-potato-shreds-finedining-v1.png",
+      "bytes": 2270613,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "ef53ec8c41d71de2468cca51a7ab57a59751c55c061fb91312e5dbd1897696fb"
+    },
+    {
+      "name": "醉排骨",
+      "path": "/assets/recipes/fuzhou-crispy-sweet-sour-ribs-finedining-v1.png",
+      "bytes": 2577641,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "39e9d0ef53c6abbf901cb12ebeab7d817aeb8d7bdb5cddeee97879ef904ef323"
+    },
+    {
+      "name": "金针菇日本豆腐煲",
+      "path": "/assets/recipes/enoki-egg-tofu-casserole-finedining-v1.png",
+      "bytes": 2413320,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "ca8238bd9898b347cea4d806df61bf9685a66360a474d02531b0ee29cb6adad1"
+    },
+    {
+      "name": "金针菇汤",
+      "path": "/assets/recipes/clear-enoki-mushroom-soup-finedining-v1.png",
+      "bytes": 2273982,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "62e0b380ec2693bde8f64b20ef8a0c92966da2755ca8f5d5e5310f6b77b98c19"
+    },
+    {
+      "name": "金钱蛋",
+      "path": "/assets/recipes/golden-egg-coins-finedining-v1.png",
+      "bytes": 2448263,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "18aa18f1e899d542b8e77bdcfd5e5c710499f99cb15b89c83c846fbf65de0d42"
+    },
+    {
+      "name": "阳朔啤酒鱼",
+      "path": "/assets/recipes/r371-recipe-finedining-v1.png",
+      "bytes": 2809526,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "9b2fd73d7c6c7bb7cb863b9af00d2dce8f6af45b222ebd81ec99421250fe4709"
+    },
+    {
+      "name": "青椒土豆炒肉",
+      "path": "/assets/recipes/green-pepper-potato-pork-finedining-v1.png",
+      "bytes": 2448949,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "3500ac3ba4ef474a912ec2f933620e1c019a9297ca514d32b4b494c7577cdde7"
+    },
+    {
+      "name": "韭菜炒蛋",
+      "path": "/assets/recipes/chinese-chives-scrambled-eggs-finedining-v1.png",
+      "bytes": 2396721,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8dc212ee36d8f7ae0ade3d50172e763012320998ffe0aa6142da87ed90b81dfc"
+    },
+    {
+      "name": "香干芹菜炒肉",
+      "path": "/assets/recipes/dried-tofu-celery-pork-finedining-v1.png",
+      "bytes": 2397216,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "ee938eb7c624838407073218860b5012aacb8386acabf2d1a4517e63badd2bce"
+    },
+    {
+      "name": "香煎五花肉",
+      "path": "/assets/recipes/r326-recipe-finedining-v1.png",
+      "bytes": 2680849,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b5185d0d1b5345e7292009249d5665cccd6b321b20e2d3c405e7b1fd8f8942ed"
+    },
+    {
+      "name": "香煎翘嘴鱼",
+      "path": "/assets/recipes/r378-recipe-finedining-v1.png",
+      "bytes": 2723585,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "6840131ed861d9dfdc48d68c2220a08ace96ae59c82d6e512228ecd28382cc34"
+    },
+    {
+      "name": "香辣鸡爪煲",
+      "path": "/assets/recipes/r289-recipe-finedining-v1.png",
+      "bytes": 2669325,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "c3a65aad3b04b3b41c94be5d01749600d9c93c2ebddb94c5a0f2ed49eea21d78"
+    },
+    {
+      "name": "鱼香茄子",
+      "path": "/assets/recipes/fish-fragrant-eggplant-finedining-v1.png",
+      "bytes": 2368556,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2fca5da36a7f0e71b5c812b4fdfe28a29d8d4fc678443498957cf5c0d7892a7c"
+    },
+    {
+      "name": "鲤鱼炖白菜",
+      "path": "/assets/recipes/r394-recipe-finedining-v1.png",
+      "bytes": 2712667,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "5ab3fad65d5c945c41315fd2b79ff3f991cae3207db45f94e42ee39489e2c603"
+    },
+    {
+      "name": "鳊鱼炖豆腐",
+      "path": "/assets/recipes/r301-recipe-finedining-v1.png",
+      "bytes": 2878874,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2a8eb482d76684615ea723345b828a464d999cd920cde1e68d669498dafad176"
+    },
+    {
+      "name": "鸡蛋火腿炒黄瓜",
+      "path": "/assets/recipes/egg-ham-cucumber-stir-fry-finedining-v1.png",
+      "bytes": 2544082,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8bf0549d9105ec5228bf8d27c0d41aff7a68c7a44e435605c54a79bc09fb7d2c"
+    },
+    {
+      "name": "鸡蛋羹",
+      "path": "/assets/recipes/steamed-egg-custard-finedining-v1.png",
+      "bytes": 2037412,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "22fb0092fe7a19c7ac2614dcd420d244ec7a937314cc4e92cb140103b181463e"
+    },
+    {
+      "name": "麻婆豆腐",
+      "path": "/assets/recipes/silken-tofu-pork-duck-egg-white-finedining-v1.png",
+      "bytes": 2488552,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "fdcbe0857c4bde293512e276705bea779ea0784f0a9b01115013d3914f56e7f6"
+    },
+    {
+      "name": "麻辣香锅",
+      "path": "/assets/recipes/r265-recipe-finedining-v1.png",
+      "bytes": 2754048,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b014dc4bb518747ae44368ff173ca691adc8372cc2aaef3040e3cff2b1a18879"
+    },
+    {
+      "name": "黄油煎虾",
+      "path": "/assets/recipes/black-pepper-butter-prawns-finedining-v1.png",
+      "bytes": 2469622,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "2733abae65ab1f2d12ca6fdb600709bbc874130a0ff313700ea19174ffad17a3"
+    },
+    {
+      "name": "黄油鸡",
+      "path": "/assets/recipes/r320-recipe-finedining-v1.png",
+      "bytes": 2708570,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "fc388b21d17b5af8596c578f73ed8fc4913f0f32489b6c834d61626ca87cea6d"
+    },
+    {
+      "name": "黄焖鸡",
+      "path": "/assets/recipes/braised-chicken-mushroom-potato-finedining-v1.png",
+      "bytes": 2471921,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "192adbec0f14eb7d8f490fe7c4bd07fb889261941da8fe39020e2107e7ee71fe"
+    },
+    {
+      "name": "黄瓜炒肉",
+      "path": "/assets/recipes/cucumber-pork-stir-fry-finedining-v1.png",
+      "bytes": 2488163,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "735ce02920487f5f4355a05d8feec9cb6f8b83826c36b15a4c44bbc1c3f536bb"
+    },
+    {
+      "name": "黄瓜皮蛋汤",
+      "path": "/assets/recipes/cucumber-century-egg-soup-finedining-v1.png",
+      "bytes": 2379261,
+      "width": 1448,
+      "height": 1086,
+      "sha256": "025442deca3283ebb66e296ce94c1389c4a85a9c21ce571d4c5d05af9a047214"
+    },
+    {
+      "name": "番茄炒蛋",
+      "path": "/assets/recipes/r056-recipe-finedining-20261027-v1.webp",
+      "bytes": 232080,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7b66ed9d52c3eecc6d48c0f843b4cb57496c04ff35bfae4776d4d15755110ca7"
+    },
+    {
+      "name": "香椿拌豆腐",
+      "path": "/assets/recipes/r050-recipe-finedining-20261027-v1.webp",
+      "bytes": 258180,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0a0f525f3a3e2f42b20da6d895ca9b45b71a0d4a954ae72f09757b278379b9ae"
+    },
+    {
+      "name": "凉拌紫甘蓝",
+      "path": "/assets/recipes/r048-recipe-finedining-20261027-v1.webp",
+      "bytes": 227166,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ed9dc1d91ff7bcfcbf305509fe2a69aae71e71be959ad7d33cc1fa79a4b30308"
+    },
+    {
+      "name": "火腿煎蛋白",
+      "path": "/assets/recipes/r180-recipe-finedining-20261027-v1.webp",
+      "bytes": 244810,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8b356ba8c0022a429e0c049c8af27cb794e922bf9e9ac6e07918dfaab1138654"
+    },
+    {
+      "name": "鸡米芽菜",
+      "path": "/assets/recipes/r083-recipe-finedining-20261027-v1.webp",
+      "bytes": 263536,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c8fbd2aaeaccccbebc31fccf1d27b10a17d18be26c801554379a7370db71c953"
+    },
+    {
+      "name": "泡菜豆腐五花肉汤",
+      "path": "/assets/recipes/r043-recipe-finedining-20261027-v1.webp",
+      "bytes": 251796,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8d73bdf6794f92a1544b6f0597f2c18b1e95f35c722acc15d1a4821794c43084"
+    },
+    {
+      "name": "凉拌芹菜叶",
+      "path": "/assets/recipes/r100-recipe-finedining-20261027-v1.webp",
+      "bytes": 280330,
+      "width": 1280,
+      "height": 960,
+      "sha256": "73d92591b627ce65b83f8669c6a72af9117a1afce5a72581bc5815284da0d07e"
+    },
+    {
+      "name": "牛油果拌豆腐",
+      "path": "/assets/recipes/r092-recipe-finedining-20261027-v1.webp",
+      "bytes": 230140,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b0698985ba91c235f7936f2dbbc02d81df456a363309ddf39780469f23264183"
+    },
+    {
+      "name": "秋葵鸡蛋羹",
+      "path": "/assets/recipes/r088-recipe-finedining-20261027-v1.webp",
+      "bytes": 217988,
+      "width": 1280,
+      "height": 960,
+      "sha256": "e061bc60a81defeed98d25ba23a5702500b5d539cc0e161b9535741c3f486e26"
+    },
+    {
+      "name": "小葱拌豆腐",
+      "path": "/assets/recipes/r049-recipe-finedining-20261027-v1.webp",
+      "bytes": 194648,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0309580439bab269c1927b3a7624911e3fb32e84d7ab4a3d48bcfb498b976125"
+    },
+    {
+      "name": "可乐鸡腿",
+      "path": "/assets/recipes/r037-recipe-finedining-20261027-v1.webp",
+      "bytes": 271032,
+      "width": 1280,
+      "height": 960,
+      "sha256": "2378a576f4927671fbafe7a06694d5a2e493e398c3eab5af3fa2724cf8c12994"
+    },
+    {
+      "name": "砂锅萝卜丝",
+      "path": "/assets/recipes/r210-recipe-finedining-20261027-v1.webp",
+      "bytes": 222034,
+      "width": 1280,
+      "height": 960,
+      "sha256": "2559251576fa4018964646262f6d271b1fafae99203fafe787b3246d51604952"
+    },
+    {
+      "name": "虾仁滑蛋",
+      "path": "/assets/recipes/r004-recipe-finedining-20261027-v1.webp",
+      "bytes": 199674,
+      "width": 1280,
+      "height": 960,
+      "sha256": "64518f6b031d9e2a69bdea180cdb89c5a131cd43cdeeef2c73d5fcc3ef612c26"
+    },
+    {
+      "name": "鲜虾蛋饼",
+      "path": "/assets/recipes/r111-recipe-finedining-20261027-v1.webp",
+      "bytes": 233630,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5bf5188d0985ed10acc037ecf92ed38b35f5bec4352f523cccea5df8e44ee7cc"
+    },
+    {
+      "name": "紫菜萝卜汤",
+      "path": "/assets/recipes/r041-recipe-finedining-20261027-v1.webp",
+      "bytes": 233870,
+      "width": 1280,
+      "height": 960,
+      "sha256": "02516068b4da05c5fa002f7f2d4e0937517f669a8f3809f7ee04d8f457af1c63"
+    },
+    {
+      "name": "拌凉粉",
+      "path": "/assets/recipes/r133-recipe-finedining-20261027-v1.webp",
+      "bytes": 238468,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b9b5c42f9ff351d49345594055f55cb92fab2e24d283603ae00aee904937859e"
+    },
+    {
+      "name": "焗扇贝",
+      "path": "/assets/recipes/r198-recipe-finedining-20261027-v1.webp",
+      "bytes": 193972,
+      "width": 1280,
+      "height": 960,
+      "sha256": "306d6d86acca593bc773de2cd7a84eef8b74e80103cf1b2d0168b7144f197e83"
+    },
+    {
+      "name": "开胃萝卜皮",
+      "path": "/assets/recipes/r110-recipe-finedining-20261027-v1.webp",
+      "bytes": 222252,
+      "width": 1280,
+      "height": 960,
+      "sha256": "bcb0b9bd4cd2c6518951b8bd57f57e170facbe8985753c262142adfec682396a"
+    },
+    {
+      "name": "凉拌鸡蛋",
+      "path": "/assets/recipes/r188-recipe-finedining-20261027-v1.webp",
+      "bytes": 229920,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b1943f650072c1719f0cfb65257819429ddfcae829891dd7a59e81f50462e850"
+    },
+    {
+      "name": "蜜汁苦瓜",
+      "path": "/assets/recipes/r154-recipe-finedining-20261027-v1.webp",
+      "bytes": 196342,
+      "width": 1280,
+      "height": 960,
+      "sha256": "777d52ea43a8548a92c3a61068496b59e0d80e76497ae31b1f1f97097ab48311"
+    },
+    {
+      "name": "拍黄瓜",
+      "path": "/assets/recipes/r063-recipe-finedining-20261027-v1.webp",
+      "bytes": 234630,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8e429083bfc8b724acc6792cb3e608656c73ab8377249a0177f46a798fac028e"
+    },
+    {
+      "name": "炝拌白菜心",
+      "path": "/assets/recipes/r095-recipe-finedining-20261027-v1.webp",
+      "bytes": 227990,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5f91517ab06691efa0a89caed23ee7de66b1a7ae5547bb008c269697af9a5d4f"
+    },
+    {
+      "name": "蒜蓉蒸茄子",
+      "path": "/assets/recipes/r047-recipe-finedining-20261027-v1.webp",
+      "bytes": 256302,
+      "width": 1280,
+      "height": 960,
+      "sha256": "48109d8762d4b3a5790706a9d26f225089344d05b11f78ac745d02590f99857a"
+    },
+    {
+      "name": "番茄大蒜香草烤鸡腿",
+      "path": "/assets/recipes/r399-recipe-finedining-20261027-v1.webp",
+      "bytes": 338696,
+      "width": 1280,
+      "height": 960,
+      "sha256": "da891aec8d7cb7631b5012062b2586cdf407db04dc5dd8bfa8ea7e43ecf263c1"
+    },
+    {
+      "name": "泡菜鸡丝",
+      "path": "/assets/recipes/r135-recipe-finedining-20261027-v1.webp",
+      "bytes": 207114,
+      "width": 1280,
+      "height": 960,
+      "sha256": "e434967fecc425818e64f254c668f3d75cb49f8f4642ca5390bd9b34f88d1149"
+    },
+    {
+      "name": "气泡虾",
+      "path": "/assets/recipes/r072-recipe-finedining-20261027-v1.webp",
+      "bytes": 224824,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c90a12b641992df1be7e0a5bce0fa62c074adb674aedb65cf9fc026741151eee"
+    },
+    {
+      "name": "山笋煨牛腩",
+      "path": "/assets/recipes/r211-recipe-finedining-20261027-v1.webp",
+      "bytes": 249658,
+      "width": 1280,
+      "height": 960,
+      "sha256": "cd14cf8783e8793ddb1bee66cd57574474d110ea76e21b52e66a9e04705ecacd"
+    },
+    {
+      "name": "蒜蓉粉丝龙利鱼",
+      "path": "/assets/recipes/r240-recipe-finedining-20261027-v1.webp",
+      "bytes": 292578,
+      "width": 1280,
+      "height": 960,
+      "sha256": "93a1d87cb0c47eec01d8022225a5fabfefe6a36494c31adda60390f85e28a727"
+    },
+    {
+      "name": "虾油豆腐",
+      "path": "/assets/recipes/r234-recipe-finedining-20261027-v1.webp",
+      "bytes": 200130,
+      "width": 1280,
+      "height": 960,
+      "sha256": "489c48735c4f86316ef5833186769d672f57f4982dde907c1ecf4c55b2c9c451"
+    },
+    {
+      "name": "白菜豆腐汤",
+      "path": "/assets/recipes/r039-recipe-finedining-20261027-v1.webp",
+      "bytes": 198152,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4c83d1a136528f49d4ad1d32c42a75ed9d5530934867bda864e425c2acb4cb3a"
+    },
+    {
+      "name": "银丝豆腐羹",
+      "path": "/assets/recipes/r040-recipe-finedining-20261027-v1.webp",
+      "bytes": 172198,
+      "width": 1280,
+      "height": 960,
+      "sha256": "3366fb5e3afc75c0ebecb5b18d62b66bf25c19725bbfd914200de13d17f7a605"
+    },
+    {
+      "name": "凉拌秋葵",
+      "path": "/assets/recipes/r127-recipe-finedining-20261027-v1.webp",
+      "bytes": 234426,
+      "width": 1280,
+      "height": 960,
+      "sha256": "512b4b1345116b7f684046801fe91ce808bc588529a9d1811d310a9c0afe399a"
+    },
+    {
+      "name": "青椒鸡蛋饼",
+      "path": "/assets/recipes/r097-recipe-finedining-20261027-v1.webp",
+      "bytes": 262118,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5f619eed98ad3c264cb3aa692b5cc68980aa66b3c60e38135900cee4ce511b1d"
+    },
+    {
+      "name": "葱爆羊肉",
+      "path": "/assets/recipes/r010-recipe-finedining-20261027-v1.webp",
+      "bytes": 241674,
+      "width": 1280,
+      "height": 960,
+      "sha256": "37121bd11907fdfff29c8a7d9196f601d79a7eb79eee642ff1ced754edbc70a7"
+    },
+    {
+      "name": "东坡肘子",
+      "path": "/assets/recipes/r029-recipe-finedining-20261027-v1.webp",
+      "bytes": 244146,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7671231a4fc4bf182b583bde4cf8f20704de88e651797fa044d5b1c4dab96f70"
+    },
+    {
+      "name": "墨鱼烧豆腐",
+      "path": "/assets/recipes/r242-recipe-finedining-20261027-v1.webp",
+      "bytes": 196256,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8feddf134c87d116777adc0d62dc608fa649a9525a228440a657722aa57d8fc0"
+    },
+    {
+      "name": "抓炒里脊",
+      "path": "/assets/recipes/r124-recipe-finedining-20261027-v1.webp",
+      "bytes": 243694,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ec765de00992663268570eed4d86e31403290d97f0f1bf1faab6046b6065fff1"
+    },
+    {
+      "name": "葱烧海鲜",
+      "path": "/assets/recipes/r214-recipe-finedining-20261027-v1.webp",
+      "bytes": 227844,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ea156d69b5d18393058304ca612616a18e5cc47f4dc0c212597c3bafee06eabf"
+    },
+    {
+      "name": "番茄烩豆腐",
+      "path": "/assets/recipes/r250-recipe-finedining-20261027-v1.webp",
+      "bytes": 261180,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b8f1004fa7b7c00d40d7705c7c60cb3dfd6152eea392f1d4d5496691efdff493"
+    },
+    {
+      "name": "凉拌藕片",
+      "path": "/assets/recipes/r147-recipe-finedining-20261027-v1.webp",
+      "bytes": 230160,
+      "width": 1280,
+      "height": 960,
+      "sha256": "3ad767202d0e8aad16f69551fca37a90b9ad62d7f9b7d6bb43cb180cb5da87c5"
+    },
+    {
+      "name": "蒜蓉蒸丝瓜",
+      "path": "/assets/recipes/r012-recipe-finedining-20261027-v1.webp",
+      "bytes": 220702,
+      "width": 1280,
+      "height": 960,
+      "sha256": "84fc3477c2543d5ec98a8b5ee4ab4e4a6381a6e24cb260170451c1e27e53747a"
+    },
+    {
+      "name": "蒜香炒蘑菇",
+      "path": "/assets/recipes/r398-recipe-finedining-20261027-v1.webp",
+      "bytes": 253536,
+      "width": 1280,
+      "height": 960,
+      "sha256": "f2b19e6ee54b2326841379456a677a046b08c754aad923d4c5aa2a3dea7725f3"
+    },
+    {
+      "name": "五香鹌鹑蛋",
+      "path": "/assets/recipes/r150-recipe-finedining-20261027-v1.webp",
+      "bytes": 258242,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5a1b09e8e82b2f8872d55c4de42615adcf84ba0010f2a2cbfc746bef9d79ee66"
+    },
+    {
+      "name": "油泼苦瓜",
+      "path": "/assets/recipes/r178-recipe-finedining-20261027-v1.webp",
+      "bytes": 201202,
+      "width": 1280,
+      "height": 960,
+      "sha256": "67ad1177b407c5eac8451d99437dc80a26dbd24a85822e742b73da77803b3980"
+    },
+    {
+      "name": "大葱爆猪肝",
+      "path": "/assets/recipes/r255-recipe-finedining-20261027-v1.webp",
+      "bytes": 248578,
+      "width": 1280,
+      "height": 960,
+      "sha256": "efb078f222b515ffd4778686fb77ae78c664cdc8cfec1f6a48576d176eed554e"
+    },
+    {
+      "name": "海蛎子炖豆腐",
+      "path": "/assets/recipes/r221-recipe-finedining-20261027-v1.webp",
+      "bytes": 208844,
+      "width": 1280,
+      "height": 960,
+      "sha256": "abc99b59319ba43d5524819168e91145bd1cdb381be16209836e39674722932f"
+    },
+    {
+      "name": "话梅小排",
+      "path": "/assets/recipes/r176-recipe-finedining-20261027-v1.webp",
+      "bytes": 274522,
+      "width": 1280,
+      "height": 960,
+      "sha256": "750599322371ae4ddd8392f1c6927871986d50e59ebc9e82aac4e71fc5c6c5fc"
+    },
+    {
+      "name": "鸡翅焖萝卜",
+      "path": "/assets/recipes/r229-recipe-finedining-20261027-v1.webp",
+      "bytes": 260336,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5ae8b94af50008ad2bf18dbd9f59a9d477a7290e4616b05b7b0cb654018bc718"
+    },
+    {
+      "name": "酱焖豆腐煲",
+      "path": "/assets/recipes/r196-recipe-finedining-20261027-v1.webp",
+      "bytes": 226540,
+      "width": 1280,
+      "height": 960,
+      "sha256": "2fdab12d5684fc5fd8b4d7f9efe613f516e8f5c948440a4f9cf0f8eae84d53e6"
+    },
+    {
+      "name": "青柠酱油三文鱼",
+      "path": "/assets/recipes/r074-recipe-finedining-20261027-v1.webp",
+      "bytes": 252372,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6f7346ad5b52bd1dc197708d8d15eb3def070275fcba2de8a60f4e99185d3565"
+    },
+    {
+      "name": "肉末炒胡萝卜",
+      "path": "/assets/recipes/r254-recipe-finedining-20261027-v1.webp",
+      "bytes": 230526,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4228094bbff7531c3033e3fe732f16a8a7505c04dac7b83100695be10833b422"
+    },
+    {
+      "name": "天目笋爆鸡胗",
+      "path": "/assets/recipes/r241-recipe-finedining-20261027-v1.webp",
+      "bytes": 213704,
+      "width": 1280,
+      "height": 960,
+      "sha256": "2e5abcd0b39038dade4a21570ba0bb99cbdfdf94ba557ed5cb7b1b6b343c6a93"
+    },
+    {
+      "name": "鲜果脆皮鱼",
+      "path": "/assets/recipes/r109-recipe-finedining-20261027-v1.webp",
+      "bytes": 243356,
+      "width": 1280,
+      "height": 960,
+      "sha256": "aeb1b4d35e4210973078e5bf8c57ceab2e80dd0366345d7e254ec0b3517878e7"
+    },
+    {
+      "name": "葱烧豆腐",
+      "path": "/assets/recipes/r026-recipe-finedining-20261027-v1.webp",
+      "bytes": 231902,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6e5f0fa02bd9383262e99bb54c482a482057a15a80088053500d1a586a12163b"
+    },
+    {
+      "name": "剁椒芋头",
+      "path": "/assets/recipes/r215-recipe-finedining-20261027-v1.webp",
+      "bytes": 270234,
+      "width": 1280,
+      "height": 960,
+      "sha256": "e542d41908c06a619390dafb3328a8bff8bf0efbfc516af464da6e0304df64d7"
+    },
+    {
+      "name": "红油金针菇",
+      "path": "/assets/recipes/r091-recipe-finedining-20261027-v1.webp",
+      "bytes": 258860,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1ac0b2aeb43d756a13ec63f86609f4946aede10d4d39fca9f742327868ad3423"
+    },
+    {
+      "name": "花生拌西芹",
+      "path": "/assets/recipes/r130-recipe-finedining-20261027-v1.webp",
+      "bytes": 195138,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1d7ce862aa418fd21f236e0f4cf39813f815830d44ccb6d4a6d24644d1afea7f"
+    },
+    {
+      "name": "金蒜爆双菇",
+      "path": "/assets/recipes/r247-recipe-finedining-20261027-v1.webp",
+      "bytes": 231744,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6a42d2fb0a780fef17e7bd3f48be293cda3254933af5c0677cafbe4fa4197306"
+    },
+    {
+      "name": "菌油粉丝蒸丝瓜",
+      "path": "/assets/recipes/r022-recipe-finedining-20261027-v1.webp",
+      "bytes": 252188,
+      "width": 1280,
+      "height": 960,
+      "sha256": "128d34d3ddb9cf1abee7bcdeaf7baeb8a197bbe89890f836f84593543ff6e7bb"
+    },
+    {
+      "name": "金针海带汤",
+      "path": "/assets/recipes/r042-recipe-finedining-20261027-v1.webp",
+      "bytes": 217792,
+      "width": 1280,
+      "height": 960,
+      "sha256": "2ba09bff0db48fa0bb43f92713867c3bed463568ebb38705f52ed3c3cfc7bf52"
+    },
+    {
+      "name": "凉拌豆芽",
+      "path": "/assets/recipes/r132-recipe-finedining-20261027-v1.webp",
+      "bytes": 246386,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7969a0a08b90047bd2f8ae9ca25e9627d7aa42b610f8db0936a29467a0d62805"
+    },
+    {
+      "name": "红烧八爪鱼",
+      "path": "/assets/recipes/r108-recipe-finedining-20261027-v1.webp",
+      "bytes": 263562,
+      "width": 1280,
+      "height": 960,
+      "sha256": "a69e1f224d67868072efe689269014fc61cba3c4571088bfdbc1b0a1130180f2"
+    },
+    {
+      "name": "红薯粉烩蛏子",
+      "path": "/assets/recipes/r243-recipe-finedining-20261027-v1.webp",
+      "bytes": 250936,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6cfd8abe3ee8f5322454eb381f58d065949baf6c595810ed9c7141c51ba5664f"
+    },
+    {
+      "name": "鸿运鲜虾饼",
+      "path": "/assets/recipes/r094-recipe-finedining-20261027-v1.webp",
+      "bytes": 203402,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ddb33d0918f1f6e0a3e731c4d336db9701ab43e88ecf8c02445b32065d3dd255"
+    },
+    {
+      "name": "煎炒牛排",
+      "path": "/assets/recipes/r140-recipe-finedining-20261027-v1.webp",
+      "bytes": 278846,
+      "width": 1280,
+      "height": 960,
+      "sha256": "26f5a478006a3ddc1fbb6b157cbff8cae2854c96cffb1ff46ba517342d72410e"
+    },
+    {
+      "name": "茭白小炒肉",
+      "path": "/assets/recipes/r179-recipe-finedining-20261027-v1.webp",
+      "bytes": 229596,
+      "width": 1280,
+      "height": 960,
+      "sha256": "38364b49939e3e7d03f48175cb94668eb0ba8a943f0b450963cceb50e970f98a"
+    },
+    {
+      "name": "椒麻杏鲍菇拌虾片",
+      "path": "/assets/recipes/r069-recipe-finedining-20261027-v1.webp",
+      "bytes": 205114,
+      "width": 1280,
+      "height": 960,
+      "sha256": "64c97b6d016ef98f0d51a0ced0bdf5dfc830f4f69c5ae862295ecd857fb7f39b"
+    },
+    {
+      "name": "蜜汁虾",
+      "path": "/assets/recipes/r020-recipe-finedining-20261027-v1.webp",
+      "bytes": 251372,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4ebe27b4db59554f9598c147a51daac6e2ac18549797c19dd185f82e39801af8"
+    },
+    {
+      "name": "培根紫苏炒秋葵",
+      "path": "/assets/recipes/r223-recipe-finedining-20261027-v1.webp",
+      "bytes": 253598,
+      "width": 1280,
+      "height": 960,
+      "sha256": "9a93a02b0a668f761da0b59a8fdd1614c35c05c7e0de6eb96ef6b40df5630fd1"
+    },
+    {
+      "name": "啤酒焖猪蹄",
+      "path": "/assets/recipes/r230-recipe-finedining-20261027-v1.webp",
+      "bytes": 331632,
+      "width": 1280,
+      "height": 960,
+      "sha256": "d06c74b27aa44616ab88c4d84742acea0c74365068e871256191dd7ae43e8109"
+    },
+    {
+      "name": "肉蒜烧豆腐",
+      "path": "/assets/recipes/r228-recipe-finedining-20261027-v1.webp",
+      "bytes": 264484,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c0f78576721600a80b5be6c4ca923efe497efd3088781dab3604f124a3275aca"
+    },
+    {
+      "name": "软烧牛肉",
+      "path": "/assets/recipes/r213-recipe-finedining-20261027-v1.webp",
+      "bytes": 257670,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7177337406d0b460e2ec06ceee54dacf7e33808ca14729b00bf0d2c244b2e99c"
+    },
+    {
+      "name": "沙姜清远鸡",
+      "path": "/assets/recipes/r068-recipe-finedining-20261027-v1.webp",
+      "bytes": 216782,
+      "width": 1280,
+      "height": 960,
+      "sha256": "eaadef335a2f4796b446325c94478100daf354960e4dc6f780797cb35bf4b0dd"
+    },
+    {
+      "name": "生爆盐煎肉",
+      "path": "/assets/recipes/r129-recipe-finedining-20261027-v1.webp",
+      "bytes": 249860,
+      "width": 1280,
+      "height": 960,
+      "sha256": "52dae6f2b39d6b47095c21a34016cf2d0c9a323a39b488074b585d97f30eb02a"
+    },
+    {
+      "name": "糖醋小丸子",
+      "path": "/assets/recipes/r160-recipe-finedining-20261027-v1.webp",
+      "bytes": 272462,
+      "width": 1280,
+      "height": 960,
+      "sha256": "d1390c903ca413772d8a3e6f856b8154550c720451ce07c90a94314c2eb6a907"
+    },
+    {
+      "name": "擂椒炒牛柳",
+      "path": "/assets/recipes/r238-recipe-finedining-20261027-v1.webp",
+      "bytes": 253840,
+      "width": 1280,
+      "height": 960,
+      "sha256": "617b960b397689048bd9ec23d1c429c1b5b007bfde1dc9547770cbc58d517a61"
+    },
+    {
+      "name": "凉拌剁椒木耳",
+      "path": "/assets/recipes/r168-recipe-finedining-20261027-v1.webp",
+      "bytes": 252080,
+      "width": 1280,
+      "height": 960,
+      "sha256": "488916ebb9351520ab77f29d74e62480b7f63cc87a33435b5f917c0b59f847d6"
+    },
+    {
+      "name": "炝炒绿豆芽",
+      "path": "/assets/recipes/r008-recipe-finedining-20261027-v1.webp",
+      "bytes": 224858,
+      "width": 1280,
+      "height": 960,
+      "sha256": "3deacc75da6b30f4c455ee5e9e4e33ef4ea0a384f68633597129941e9a7c7fdf"
+    },
+    {
+      "name": "豆腐烧小白菜",
+      "path": "/assets/recipes/r027-recipe-finedining-20261027-v1.webp",
+      "bytes": 281254,
+      "width": 1280,
+      "height": 960,
+      "sha256": "fc41db1132dfe3ecc2daec55ca0e7f8ae6991752b8b0fe7812d3150d88beb0fa"
+    },
+    {
+      "name": "凉拌土豆丝",
+      "path": "/assets/recipes/r054-recipe-finedining-20261027-v1.webp",
+      "bytes": 194042,
+      "width": 1280,
+      "height": 960,
+      "sha256": "067ed0b5e7cf62c8c246e6a7172dd62f2fdc85d71b940202629b21e35535ee99"
+    },
+    {
+      "name": "巧拌瓜皮",
+      "path": "/assets/recipes/r143-recipe-finedining-20261027-v1.webp",
+      "bytes": 246046,
+      "width": 1280,
+      "height": 960,
+      "sha256": "a78306808edf71b3c7a2958569bfbf79505673f671b4862adebc6ced12a86cc7"
+    },
+    {
+      "name": "山药莴笋木耳小炒",
+      "path": "/assets/recipes/r175-recipe-finedining-20261027-v1.webp",
+      "bytes": 208074,
+      "width": 1280,
+      "height": 960,
+      "sha256": "176f2142a8beae00773de3960ceb168cec1b54f0463c8cd61eb18d2aee6434df"
+    },
+    {
+      "name": "手撕茄条",
+      "path": "/assets/recipes/r192-recipe-finedining-20261027-v1.webp",
+      "bytes": 271222,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6abf1b576d1f40a4c0cfe7f825f0af59f2ddc69ca2a6d4e286cb404b3c4760ea"
+    },
+    {
+      "name": "糖醋脆皮豆腐",
+      "path": "/assets/recipes/r053-recipe-finedining-20261027-v1.webp",
+      "bytes": 231886,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b6bff55c37bfdaf75d3f61b0c539c075697adc6608825178b674eb031c2f36d9"
+    },
+    {
+      "name": "小瓜炒贝丁",
+      "path": "/assets/recipes/r220-recipe-finedining-20261027-v1.webp",
+      "bytes": 215036,
+      "width": 1280,
+      "height": 960,
+      "sha256": "d2ca86bfac6a00f7fc499baa8c2478cfdd671e18b2627cfc7bcd73028f9d47ea"
+    },
+    {
+      "name": "慈菇烧肉",
+      "path": "/assets/recipes/r185-recipe-finedining-20261027-v1.webp",
+      "bytes": 296802,
+      "width": 1280,
+      "height": 960,
+      "sha256": "507e75ddb5900b99ae3187c9029c648a63c00090062129368622fe16fa010410"
+    },
+    {
+      "name": "大葱爆鸭心",
+      "path": "/assets/recipes/r248-recipe-finedining-20261027-v1.webp",
+      "bytes": 267010,
+      "width": 1280,
+      "height": 960,
+      "sha256": "f7a1e690d7a9122c6b1caa7e4203a1338cfcfc4cfa80236313d25957adc248ed"
+    },
+    {
+      "name": "炖生敲",
+      "path": "/assets/recipes/r201-recipe-finedining-20261027-v1.webp",
+      "bytes": 278396,
+      "width": 1280,
+      "height": 960,
+      "sha256": "dc57d07760b65eac35bf12785eb77f50d583985dd3a6b660a84b42fdc689c8ff"
+    },
+    {
+      "name": "干锅小龙虾",
+      "path": "/assets/recipes/r106-recipe-finedining-20261027-v1.webp",
+      "bytes": 308988,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1997868ed986c801c607f36dad6bacac8687340c7e721d9706bb6fbd2ac0e844"
+    },
+    {
+      "name": "海南黄椒石斑鱼片",
+      "path": "/assets/recipes/r035-recipe-finedining-20261027-v1.webp",
+      "bytes": 258860,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7c2c37fc2ab95f6b0677647e0642a0fed080f88a485715ebb01bd744cf761614"
+    },
+    {
+      "name": "椒盐皮皮虾",
+      "path": "/assets/recipes/r137-recipe-finedining-20261027-v1.webp",
+      "bytes": 292694,
+      "width": 1280,
+      "height": 960,
+      "sha256": "f1ac6dad395f22f45ba9384ed15c55ccf96dbde775431824e9647d3dd1aaf179"
+    },
+    {
+      "name": "辣子鸡丁",
+      "path": "/assets/recipes/r151-recipe-finedining-20261027-v1.webp",
+      "bytes": 244284,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7f19ac2b00d38b0735450b1fa8ee7d7c52247d216444e95231de15097c4ad9db"
+    },
+    {
+      "name": "榄菜炒豌豆",
+      "path": "/assets/recipes/r166-recipe-finedining-20261027-v1.webp",
+      "bytes": 239792,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7d886ec0518aa8fe5c910e49f46170c354c55fee144f8318f11b0a62e770bca3"
+    },
+    {
+      "name": "烂糊白菜",
+      "path": "/assets/recipes/r081-recipe-finedining-20261027-v1.webp",
+      "bytes": 200414,
+      "width": 1280,
+      "height": 960,
+      "sha256": "d25ccc6c7ab5b82630107c482ac0a8a6c9cacadfb398c6e9097e9840c211086f"
+    },
+    {
+      "name": "墨鱼仔炒花菜",
+      "path": "/assets/recipes/r202-recipe-finedining-20261027-v1.webp",
+      "bytes": 265550,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b992fb95982c54c11e3880366c876eddd9c4b6bbaab8881b63adf0ddaa1681be"
+    },
+    {
+      "name": "秋耳炒笋片",
+      "path": "/assets/recipes/r105-recipe-finedining-20261027-v1.webp",
+      "bytes": 245936,
+      "width": 1280,
+      "height": 960,
+      "sha256": "d7c40a4b4bafe7f83401ebedafe651199c880d5be99c3a182f5cfc5dd65b94d6"
+    },
+    {
+      "name": "三鲜豆腐饼",
+      "path": "/assets/recipes/r024-recipe-finedining-20261027-v1.webp",
+      "bytes": 269590,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5f31b811d52aaa7cc48245dc1bf4d76862b782c952e2b89b3fdf1f1e8c4f4c76"
+    },
+    {
+      "name": "烧茄子",
+      "path": "/assets/recipes/r173-recipe-finedining-20261027-v1.webp",
+      "bytes": 254972,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1c67b47e15371af183d421cbf62fea0b9860ee5a475ef4861174eddc43f501c3"
+    },
+    {
+      "name": "生啫排骨",
+      "path": "/assets/recipes/r245-recipe-finedining-20261027-v1.webp",
+      "bytes": 242096,
+      "width": 1280,
+      "height": 960,
+      "sha256": "eedb6d7003000d26fe846d5c5c80c8ed7ebf931bb4f305f256e31cba8e92fd2c"
+    },
+    {
+      "name": "酸梅蒸排骨",
+      "path": "/assets/recipes/r134-recipe-finedining-20261027-v1.webp",
+      "bytes": 286810,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8ba211d027e099b34dd97820393415d0f396583b61308253f01c12dcb8df3e46"
+    },
+    {
+      "name": "酸汤肥牛",
+      "path": "/assets/recipes/r017-recipe-finedining-20261027-v1.webp",
+      "bytes": 243864,
+      "width": 1280,
+      "height": 960,
+      "sha256": "59d85e9eec77a223270ab917014519a49c652d58eafed657106d948ffeb14ff7"
+    },
+    {
+      "name": "外婆菜炒茭白",
+      "path": "/assets/recipes/r123-recipe-finedining-20261027-v1.webp",
+      "bytes": 271778,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4b2251ab96cd8aa066fba630cc903773f19fcbd13221f6a252c740017e90d495"
+    },
+    {
+      "name": "香菇烧肉",
+      "path": "/assets/recipes/r227-recipe-finedining-20261027-v1.webp",
+      "bytes": 277284,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c0b22e3666a1bbf77025a29e745df1103afd086ec54d4c82eff8148d677316d8"
+    },
+    {
+      "name": "香煎糖醋带鱼",
+      "path": "/assets/recipes/r231-recipe-finedining-20261027-v1.webp",
+      "bytes": 245192,
+      "width": 1280,
+      "height": 960,
+      "sha256": "fb84549aa94a3ca930fbaa84d7d2a18c68671395e1ad91179f4c8d532f47a551"
+    },
+    {
+      "name": "油豆腐烧猪手",
+      "path": "/assets/recipes/r239-recipe-finedining-20261027-v1.webp",
+      "bytes": 265662,
+      "width": 1280,
+      "height": 960,
+      "sha256": "3bc5d02a391ad0cb3b8350dd6a90180320140b72a3bf5885ff412fe8036ecbb2"
+    },
+    {
+      "name": "油焖花生土豆",
+      "path": "/assets/recipes/r219-recipe-finedining-20261027-v1.webp",
+      "bytes": 264378,
+      "width": 1280,
+      "height": 960,
+      "sha256": "870c66a5d2aa7bc743ba8109a3d07b64982dc8a7b63ca0356a385bfabfc7a349"
+    },
+    {
+      "name": "榨菜蒸牛肉",
+      "path": "/assets/recipes/r016-recipe-finedining-20261027-v1.webp",
+      "bytes": 234796,
+      "width": 1280,
+      "height": 960,
+      "sha256": "906003d243a52f6070965c8a31c5e6835119098246395223b8b3eb648d6e5bea"
+    },
+    {
+      "name": "仔姜榨菜炒牛柳",
+      "path": "/assets/recipes/r217-recipe-finedining-20261027-v1.webp",
+      "bytes": 255502,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ed941848a686878f52a1277a3be055f4afb837dfde52f633f5f4418988d3af65"
+    },
+    {
+      "name": "茶香蟹味菇",
+      "path": "/assets/recipes/r113-recipe-finedining-20261027-v1.webp",
+      "bytes": 247578,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1f0f34e2139dbd9b6167e393ca01d3eff92e7333ab0549bfe11d509ba8bdca38"
+    },
+    {
+      "name": "如意豆腐",
+      "path": "/assets/recipes/r093-recipe-finedining-20261027-v1.webp",
+      "bytes": 234910,
+      "width": 1280,
+      "height": 960,
+      "sha256": "9138bf9e578bf16062b22c4956f3b794765769b7470ff7d8546c47b2faa3e22f"
+    },
+    {
+      "name": "烩乌鱼蛋汤",
+      "path": "/assets/recipes/r186-recipe-finedining-20261027-v1.webp",
+      "bytes": 220966,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c9c10982bd07d14f3a9559448a7ccae9fe9b9cd5a23df40acfffb8556d860f5e"
+    },
+    {
+      "name": "鲫鱼丸子汤",
+      "path": "/assets/recipes/r187-recipe-finedining-20261027-v1.webp",
+      "bytes": 208640,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ff7fa203c7d7713a1cbb51c9416a2911b04c1900ccf7224829aa8fd2658f8f69"
+    },
+    {
+      "name": "豆豉生爆苦瓜",
+      "path": "/assets/recipes/r251-recipe-finedining-20261027-v1.webp",
+      "bytes": 298158,
+      "width": 1280,
+      "height": 960,
+      "sha256": "2ef1c33a8db185ea4c3ba8621c15ca6bf865b19eca5ca62ee02b460dae6bc56f"
+    },
+    {
+      "name": "黑豆焖牛腩",
+      "path": "/assets/recipes/r209-recipe-finedining-20261027-v1.webp",
+      "bytes": 252686,
+      "width": 1280,
+      "height": 960,
+      "sha256": "420ef5501c0ac2d808c6bbcebb9b066276c4774cf3daf1560f8d702e474074f1"
+    },
+    {
+      "name": "东安鸡",
+      "path": "/assets/recipes/r030-recipe-finedining-20261027-v1.webp",
+      "bytes": 247138,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6e15349f61112a8173af02d0de72cf7075eb7f100c0e40d46524ee348178e94f"
+    },
+    {
+      "name": "剁椒香菇盒",
+      "path": "/assets/recipes/r023-recipe-finedining-20261027-v1.webp",
+      "bytes": 288094,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ab142d309392332f3c2ab58648351e769b7aa6012452bf9db1dd1a9f877ed7e8"
+    },
+    {
+      "name": "干贝扒冬瓜",
+      "path": "/assets/recipes/r015-recipe-finedining-20261027-v1.webp",
+      "bytes": 235280,
+      "width": 1280,
+      "height": 960,
+      "sha256": "14a32ad14003259e04271b49b03084dc001e93644bb3850d137988f7d7d522b5"
+    },
+    {
+      "name": "黑三剁",
+      "path": "/assets/recipes/r145-recipe-finedining-20261027-v1.webp",
+      "bytes": 273484,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6368340be08e1f9e1733608372d7ca69815bb7d34b14724dee159ae3fd787619"
+    },
+    {
+      "name": "江津鱼片",
+      "path": "/assets/recipes/r128-recipe-finedining-20261027-v1.webp",
+      "bytes": 275212,
+      "width": 1280,
+      "height": 960,
+      "sha256": "84e11c04bbff031b6b7a34c91fdf2156432eb7daa1b8bcca2d89118776a19b57"
+    },
+    {
+      "name": "京酱肉丝",
+      "path": "/assets/recipes/r177-recipe-finedining-20261027-v1.webp",
+      "bytes": 244508,
+      "width": 1280,
+      "height": 960,
+      "sha256": "bb26577a9f190ad2f44746d436f6424c0dbe8a343239308cda35da57624c9fa5"
+    },
+    {
+      "name": "口蘑烧鸡块",
+      "path": "/assets/recipes/r157-recipe-finedining-20261027-v1.webp",
+      "bytes": 231964,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4e5d20bc6684f500f409d0936e43c4a3f4cfc730bc4df38c8191179f84d3bc6d"
+    },
+    {
+      "name": "老北京炒烤肉",
+      "path": "/assets/recipes/r136-recipe-finedining-20261027-v1.webp",
+      "bytes": 244564,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7d3dcd3a1ed0706cb9d75bcfe74022db6770cee505feb1ae1ccd98f23ae02954"
+    },
+    {
+      "name": "麻辣鸡丝",
+      "path": "/assets/recipes/r148-recipe-finedining-20261027-v1.webp",
+      "bytes": 250276,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8aa14028d6dc28e9a2b0899b3c0ad26cafa9804416f93093bfeb28129ab62e3f"
+    },
+    {
+      "name": "麻辣双椒鸡",
+      "path": "/assets/recipes/r125-recipe-finedining-20261027-v1.webp",
+      "bytes": 281472,
+      "width": 1280,
+      "height": 960,
+      "sha256": "be26e798645d81b4c278d2f3f8c45e2407e06e721db10f48acc457d3b7966385"
+    },
+    {
+      "name": "青椒肉丝",
+      "path": "/assets/recipes/r059-recipe-finedining-20261027-v1.webp",
+      "bytes": 268690,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6ba53f888d787e6c491d7834a843a600d787f071c3ad91d2dd10a864a539c00c"
+    },
+    {
+      "name": "沙茶牛肉粉丝煲",
+      "path": "/assets/recipes/r164-recipe-finedining-20261027-v1.webp",
+      "bytes": 296892,
+      "width": 1280,
+      "height": 960,
+      "sha256": "f4eeb81a84cd0d9eb65099732282ddd19a20aa68bacb88fe8655dba339d35b25"
+    },
+    {
+      "name": "味汆豆腐角",
+      "path": "/assets/recipes/r216-recipe-finedining-20261027-v1.webp",
+      "bytes": 227016,
+      "width": 1280,
+      "height": 960,
+      "sha256": "202c7f2a4eb120e40b3c10c17b80ea646f6d31d90700c6aefb207c3008748bb3"
+    },
+    {
+      "name": "虾仁炒苦瓜",
+      "path": "/assets/recipes/r153-recipe-finedining-20261027-v1.webp",
+      "bytes": 219888,
+      "width": 1280,
+      "height": 960,
+      "sha256": "692c0d0788f67e4c97a2007417da7eaf69acec2270480e956f22d835c5b2c031"
+    },
+    {
+      "name": "照烧鸡",
+      "path": "/assets/recipes/r101-recipe-finedining-20261027-v1.webp",
+      "bytes": 290954,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4d39f210aa7693c83d48f94543d3477cadf5ba69527e3134eea3696d81e73b86"
+    },
+    {
+      "name": "响油娃娃菜",
+      "path": "/assets/recipes/r013-recipe-finedining-20261027-v1.webp",
+      "bytes": 295524,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c72d91e883e08ce775215f76cdf9f3ab12aefead7680976d79d6eab59070cc2e"
+    },
+    {
+      "name": "杂菜炒蛋",
+      "path": "/assets/recipes/r007-recipe-finedining-20261027-v1.webp",
+      "bytes": 242312,
+      "width": 1280,
+      "height": 960,
+      "sha256": "e9707036088c28fb95881b77d9d9f49c98f5c28d9d0f87775878a6d30ff86cec"
+    },
+    {
+      "name": "酸辣汤",
+      "path": "/assets/recipes/r034-recipe-finedining-20261027-v1.webp",
+      "bytes": 240288,
+      "width": 1280,
+      "height": 960,
+      "sha256": "89b19d418a54741d238cc6d6b41187c0ed4581c618ba8dc6682c1c0fa112553f"
+    },
+    {
+      "name": "玉米莲藕排骨汤",
+      "path": "/assets/recipes/r009-recipe-finedining-20261027-v1.webp",
+      "bytes": 210328,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c7e23af75810371daf0faab36bd8397766117fa13eee7741ff5c98c89d31d3b5"
+    },
+    {
+      "name": "腐乳空心菜",
+      "path": "/assets/recipes/r253-recipe-finedining-20261027-v1.webp",
+      "bytes": 251332,
+      "width": 1280,
+      "height": 960,
+      "sha256": "39cdf678db8e84a27eeee5ef1e62adbbebf45f732e2f1ac4042f1054d03438ea"
+    },
+    {
+      "name": "红烧鸡腿",
+      "path": "/assets/recipes/r038-recipe-finedining-20261027-v1.webp",
+      "bytes": 279932,
+      "width": 1280,
+      "height": 960,
+      "sha256": "77e10fb1928effa9222c3986254cb4b43433b5dd850c77224efe4b308739c21e"
+    },
+    {
+      "name": "黄椒焖草鱼",
+      "path": "/assets/recipes/r182-recipe-finedining-20261027-v1.webp",
+      "bytes": 272322,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0fac03e15c5d3e32c67d70fa49fe00aa463741d689e1d27d165fad58548a1f7c"
+    },
+    {
+      "name": "煎蒸带鱼",
+      "path": "/assets/recipes/r087-recipe-finedining-20261027-v1.webp",
+      "bytes": 250622,
+      "width": 1280,
+      "height": 960,
+      "sha256": "e3f7ebd41707adab1c3b05e40d6b9d6d9bf7ab6fc80f26fafb38170ad8c589ef"
+    },
+    {
+      "name": "咖喱虾",
+      "path": "/assets/recipes/r104-recipe-finedining-20261027-v1.webp",
+      "bytes": 256930,
+      "width": 1280,
+      "height": 960,
+      "sha256": "23ff4b1a973eb0f0fbf6beb31d3d2ca6268b79bef5dd28b76f3330da7c6095c0"
+    },
+    {
+      "name": "辣子虾",
+      "path": "/assets/recipes/r167-recipe-finedining-20261027-v1.webp",
+      "bytes": 288812,
+      "width": 1280,
+      "height": 960,
+      "sha256": "a60f85671fe482c1ca28fda2dbb388706e7c2f57aeb8f3a79a41a54d87004f86"
+    },
+    {
+      "name": "萝卜皮煮牛肚",
+      "path": "/assets/recipes/r233-recipe-finedining-20261027-v1.webp",
+      "bytes": 226744,
+      "width": 1280,
+      "height": 960,
+      "sha256": "8020c1c368191abbd4d447fa5a228b6d2bd5f781e66abb20e403035516bcd02d"
+    },
+    {
+      "name": "米粉肉",
+      "path": "/assets/recipes/r207-recipe-finedining-20261027-v1.webp",
+      "bytes": 285378,
+      "width": 1280,
+      "height": 960,
+      "sha256": "920d3343d2b61a5101f1f1a47468d98bf135e1394c7be2b3e74fcdcec2ae5572"
+    },
+    {
+      "name": "肉臊青瓜煮鱼",
+      "path": "/assets/recipes/r246-recipe-finedining-20261027-v1.webp",
+      "bytes": 231410,
+      "width": 1280,
+      "height": 960,
+      "sha256": "bb6f7dac1c269ce99d9a2f8a387cdc7ebc526b16b899ec7df1773eb27fc5eb72"
+    },
+    {
+      "name": "赛螃蟹",
+      "path": "/assets/recipes/r183-recipe-finedining-20261027-v1.webp",
+      "bytes": 187552,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7d766736aacee06b9b521c2925d2fa7290d1b49f470f49c82524caf01b7c87ec"
+    },
+    {
+      "name": "酸菜鱼",
+      "path": "/assets/recipes/r195-recipe-finedining-20261027-v1.webp",
+      "bytes": 236538,
+      "width": 1280,
+      "height": 960,
+      "sha256": "9c99e7612723141e95b027e120e82cda6343623aada3ec1cf833a9bd5af17215"
+    },
+    {
+      "name": "莴笋炒肉片",
+      "path": "/assets/recipes/r174-recipe-finedining-20261027-v1.webp",
+      "bytes": 236612,
+      "width": 1280,
+      "height": 960,
+      "sha256": "e0b7dbf6c1a7bceaa275cea6630220f5b81185babd740f6fa3c7a3d9fe7da4b7"
+    },
+    {
+      "name": "五花肉小炒豆腐",
+      "path": "/assets/recipes/r019-recipe-finedining-20261027-v1.webp",
+      "bytes": 317162,
+      "width": 1280,
+      "height": 960,
+      "sha256": "325f59a0a5abd36e3b376d8842e6592ae2aca120cd7b0e2abff29fe18e0a965a"
+    },
+    {
+      "name": "鲜椒水煮鱼",
+      "path": "/assets/recipes/r156-recipe-finedining-20261027-v1.webp",
+      "bytes": 243640,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b76ab26ecff75c5ea0c90bf6fa377db16db1368fb3f2aac8616a3460d0698e87"
+    },
+    {
+      "name": "芝麻辣炒排骨",
+      "path": "/assets/recipes/r212-recipe-finedining-20261027-v1.webp",
+      "bytes": 337840,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0295107f2eead0627f5082b0be94d27165f45cf438e952270a7e714b2a5f6dea"
+    },
+    {
+      "name": "笃鲜茄",
+      "path": "/assets/recipes/r252-recipe-finedining-20261027-v1.webp",
+      "bytes": 266502,
+      "width": 1280,
+      "height": 960,
+      "sha256": "a2d9b762e656dc382a36b085926428374aa81bc2c831a897410aa1673627f5ed"
+    },
+    {
+      "name": "茄汁烧牛腩",
+      "path": "/assets/recipes/r096-recipe-finedining-20261027-v1.webp",
+      "bytes": 305094,
+      "width": 1280,
+      "height": 960,
+      "sha256": "cd4a2666197e1bac0b43dbe01ff4d0efaf2a15ed863a08a20e0171c925606474"
+    },
+    {
+      "name": "长豆角烧茄子",
+      "path": "/assets/recipes/r046-recipe-finedining-20261027-v1.webp",
+      "bytes": 279004,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ff4953dc983f903ec534acbb8181a0edbd1219f550db9640ea84f0ed267fb8be"
+    },
+    {
+      "name": "酸汤龙利鱼",
+      "path": "/assets/recipes/r117-recipe-finedining-20261027-v1.webp",
+      "bytes": 240552,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c34941525b34eb509e85e5c10ec9d0de097a62947fece96e3d8bd6c79dac84db"
+    },
+    {
+      "name": "板栗蒸肉饼",
+      "path": "/assets/recipes/r103-recipe-finedining-20261027-v1.webp",
+      "bytes": 245772,
+      "width": 1280,
+      "height": 960,
+      "sha256": "208edc0fba746e9de49367fefd0bbcb5b2271a5afeeca42ffe0ee457482fc70b"
+    },
+    {
+      "name": "炒三鲜肉",
+      "path": "/assets/recipes/r197-recipe-finedining-20261027-v1.webp",
+      "bytes": 203062,
+      "width": 1280,
+      "height": 960,
+      "sha256": "cd65b11f5d5dc0b15bce17ec5bf7cbc6811b1cbffeab7d71cf909d74e820b03c"
+    },
+    {
+      "name": "豉香鱿鱼",
+      "path": "/assets/recipes/r208-recipe-finedining-20261027-v1.webp",
+      "bytes": 251142,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0446f63daab15c0dea748e623a1b17ec8c1cdb619544fbb4aa794d4b0352be9c"
+    },
+    {
+      "name": "葱椒羊肉",
+      "path": "/assets/recipes/r107-recipe-finedining-20261027-v1.webp",
+      "bytes": 263636,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7fd0623135b44306b0c7c71da357865c2944784ec8b2fda8920b1911f8ae2335"
+    },
+    {
+      "name": "醋焖猪蹄",
+      "path": "/assets/recipes/r205-recipe-finedining-20261027-v1.webp",
+      "bytes": 294658,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c4e37b51e4374a1751e29139890223a8e6b0f952734a7b34797fe5cdfb674736"
+    },
+    {
+      "name": "过油肉炒年糕",
+      "path": "/assets/recipes/r225-recipe-finedining-20261027-v1.webp",
+      "bytes": 251586,
+      "width": 1280,
+      "height": 960,
+      "sha256": "a292493c6524d0ae38270bb6a8f4cd4a34bab40834dfb3b57d7ca56fe3bfe693"
+    },
+    {
+      "name": "蛤蜊焖鸡",
+      "path": "/assets/recipes/r065-recipe-finedining-20261027-v1.webp",
+      "bytes": 263960,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1490e0f6ffa70c31d5176eda5eb821dca614735642529fc16a8ebb8edc3edb20"
+    },
+    {
+      "name": "韭香鸭血",
+      "path": "/assets/recipes/r190-recipe-finedining-20261027-v1.webp",
+      "bytes": 283934,
+      "width": 1280,
+      "height": 960,
+      "sha256": "c7615a81690a0301690e4c097d293965e51587044630374220a20a566fed189c"
+    },
+    {
+      "name": "卤味琵琶鸭",
+      "path": "/assets/recipes/r158-recipe-finedining-20261027-v1.webp",
+      "bytes": 331098,
+      "width": 1280,
+      "height": 960,
+      "sha256": "f9c5b746ba119e39254d26b1517dc96e42117a7135f9138558721a0aca0f7290"
+    },
+    {
+      "name": "墨鱼仔炒小瓜",
+      "path": "/assets/recipes/r161-recipe-finedining-20261027-v1.webp",
+      "bytes": 264884,
+      "width": 1280,
+      "height": 960,
+      "sha256": "1d2be251fdac79e62f3490aa4f8cd73187d0a8cdb09d9866561557634c6fe198"
+    },
+    {
+      "name": "牛肉粉丝煲",
+      "path": "/assets/recipes/r222-recipe-finedining-20261027-v1.webp",
+      "bytes": 242370,
+      "width": 1280,
+      "height": 960,
+      "sha256": "932c123e4989e8dc9ea95c0250b047c7c268798fb2f67e674221513f9dea3d21"
+    },
+    {
+      "name": "山药炒仔鸡",
+      "path": "/assets/recipes/r172-recipe-finedining-20261027-v1.webp",
+      "bytes": 251360,
+      "width": 1280,
+      "height": 960,
+      "sha256": "93ba9ba815640fd588489b56f8ecf568ccdc9481f9cbfc3a5ea6939d1f2a36ae"
+    },
+    {
+      "name": "蒜香排骨",
+      "path": "/assets/recipes/r018-recipe-finedining-20261027-v1.webp",
+      "bytes": 328448,
+      "width": 1280,
+      "height": 960,
+      "sha256": "756f4364f1f3f139e736b6bd4d628df564992b45d28bd9d36d0eb81b677d32cb"
+    },
+    {
+      "name": "香煎藕饼",
+      "path": "/assets/recipes/r115-recipe-finedining-20261027-v1.webp",
+      "bytes": 271764,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0823ba6c828b8c7cfee40c70ec279c174769ebca2b96a1c8d4d1f768d8fd7d40"
+    },
+    {
+      "name": "爆炒素鳝丝",
+      "path": "/assets/recipes/r052-recipe-finedining-20261027-v1.webp",
+      "bytes": 244904,
+      "width": 1280,
+      "height": 960,
+      "sha256": "13c8d3c693cab94216b3ab0596cbc0be7475af83883b91cd7eca7548c23267f1"
+    },
+    {
+      "name": "酱烧小黄鱼",
+      "path": "/assets/recipes/r249-recipe-finedining-20261027-v1.webp",
+      "bytes": 324058,
+      "width": 1280,
+      "height": 960,
+      "sha256": "3ac35c5bbb878c33fed8fa16877ddf3310a4de956c8f2022faa2d1d369b19229"
+    },
+    {
+      "name": "酱香肉末茄子",
+      "path": "/assets/recipes/r165-recipe-finedining-20261027-v1.webp",
+      "bytes": 290930,
+      "width": 1280,
+      "height": 960,
+      "sha256": "9e8248c2362fef1a7352856381bc39346af4df3297100a1e0099102d2919c5b9"
+    },
+    {
+      "name": "焦熘醋肉",
+      "path": "/assets/recipes/r256-recipe-finedining-20261027-v1.webp",
+      "bytes": 290396,
+      "width": 1280,
+      "height": 960,
+      "sha256": "04252fb08d0b199a28bd8ab9bd76de4754d9c964882d16e164c4327bc067fe54"
+    },
+    {
+      "name": "梅菜蒸武昌鱼",
+      "path": "/assets/recipes/r159-recipe-finedining-20261027-v1.webp",
+      "bytes": 291212,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4db019a26c7d9fefdd35a58d47387485a5848ea2af2b3d13e5e1b55afb7f11e8"
+    },
+    {
+      "name": "梅酱烧仔鸭",
+      "path": "/assets/recipes/r244-recipe-finedining-20261027-v1.webp",
+      "bytes": 250114,
+      "width": 1280,
+      "height": 960,
+      "sha256": "306f0d3643fc9de2b8e6b3c97baa53cad4f1a706689339aa851495e9a4257a91"
+    },
+    {
+      "name": "肉末粉丝煲",
+      "path": "/assets/recipes/r149-recipe-finedining-20261027-v1.webp",
+      "bytes": 282716,
+      "width": 1280,
+      "height": 960,
+      "sha256": "45aba5d312a132f085b4c3f329d0f665d5113646ea35ce56c32b9d0d2d44f4ba"
+    },
+    {
+      "name": "小煎鸭胗",
+      "path": "/assets/recipes/r112-recipe-finedining-20261027-v1.webp",
+      "bytes": 250212,
+      "width": 1280,
+      "height": 960,
+      "sha256": "7123cea66d141f3e6991e75bc1e60a0da0277e4f63eb757b04df227f04eb13b9"
+    },
+    {
+      "name": "咖喱牛腩",
+      "path": "/assets/recipes/r193-recipe-finedining-20261027-v1.webp",
+      "bytes": 263136,
+      "width": 1280,
+      "height": 960,
+      "sha256": "afb5a346cca4a21dd3ea55c8adeb0edf7af0ed59dc439e7f40f2ab844005dadb"
+    },
+    {
+      "name": "凉拌长长豆角",
+      "path": "/assets/recipes/r070-recipe-finedining-20261027-v1.webp",
+      "bytes": 265486,
+      "width": 1280,
+      "height": 960,
+      "sha256": "10e2ab08b2b85f0bc22b5232b70c55d2b6a651e1c46c5a4078b18de574ecc25e"
+    },
+    {
+      "name": "胡辣汤",
+      "path": "/assets/recipes/r226-recipe-finedining-20261027-v1.webp",
+      "bytes": 259054,
+      "width": 1280,
+      "height": 960,
+      "sha256": "d84fc1d7fa66963e85a0ea036d4913be7ce08fe988eb8968fbc1f4fead708ff7"
+    },
+    {
+      "name": "板栗烧猪手",
+      "path": "/assets/recipes/r098-recipe-finedining-20261027-v1.webp",
+      "bytes": 284416,
+      "width": 1280,
+      "height": 960,
+      "sha256": "0d368eeb959fda52a8cad0cfebd9dbd5a09a33c8d9c28f2c73a7b445ddc1ff16"
+    },
+    {
+      "name": "茶香鸡",
+      "path": "/assets/recipes/r085-recipe-finedining-20261027-v1.webp",
+      "bytes": 233080,
+      "width": 1280,
+      "height": 960,
+      "sha256": "f276477a90e40632d5be6c15f02c24953552bc48410f33d674f6100a318a7085"
+    },
+    {
+      "name": "炒烤茄子糊",
+      "path": "/assets/recipes/r235-recipe-finedining-20261027-v1.webp",
+      "bytes": 296684,
+      "width": 1280,
+      "height": 960,
+      "sha256": "4cc9218846e564e45d2683ddd2cddcae9ab490a582815b46a6d3083b7b3e1026"
+    },
+    {
+      "name": "豉香土豆排骨",
+      "path": "/assets/recipes/r122-recipe-finedining-20261027-v1.webp",
+      "bytes": 292070,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6e2e5300546661091642250d725a3a3dcca47dbf82fedfc72d93750425d05ae8"
+    },
+    {
+      "name": "春笋炒鸡肝",
+      "path": "/assets/recipes/r191-recipe-finedining-20261027-v1.webp",
+      "bytes": 272746,
+      "width": 1280,
+      "height": 960,
+      "sha256": "fbbda8953706eec42a5423eb7f7d46c3324f24b3d0919a69540110f650a298f7"
+    },
+    {
+      "name": "芦笋炒猪肝",
+      "path": "/assets/recipes/r162-recipe-finedining-20261027-v1.webp",
+      "bytes": 225878,
+      "width": 1280,
+      "height": 960,
+      "sha256": "6d096b0cd0d8ca10b1029814db3f141131126b4fc858c929a75be2d61d7daaa7"
+    },
+    {
+      "name": "卤汆豆花鱼",
+      "path": "/assets/recipes/r237-recipe-finedining-20261027-v1.webp",
+      "bytes": 240034,
+      "width": 1280,
+      "height": 960,
+      "sha256": "16fa4b3ee1176f28250e4fdd81126361a52e190b0cb568bbb44bbaa0784413e1"
+    },
+    {
+      "name": "砂锅鸭",
+      "path": "/assets/recipes/r194-recipe-finedining-20261027-v1.webp",
+      "bytes": 270732,
+      "width": 1280,
+      "height": 960,
+      "sha256": "69db4f03f4ce5502c229984914b9099cc3941c9bdfa4349c7816663cc628100c"
+    },
+    {
+      "name": "酸菜白肉",
+      "path": "/assets/recipes/r099-recipe-finedining-20261027-v1.webp",
+      "bytes": 250512,
+      "width": 1280,
+      "height": 960,
+      "sha256": "56e794ea1fcd81b565e2e435efb03352c67e1a4222a803eb84692e9976d0eacb"
+    },
+    {
+      "name": "莴笋牛肉丝",
+      "path": "/assets/recipes/r169-recipe-finedining-20261027-v1.webp",
+      "bytes": 232724,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b8136ae00a7b484ad3d6cec99e04e69ce97d646446979490dc4aca5b72ed3d6b"
+    },
+    {
+      "name": "虾干煮白菜",
+      "path": "/assets/recipes/r204-recipe-finedining-20261027-v1.webp",
+      "bytes": 224232,
+      "width": 1280,
+      "height": 960,
+      "sha256": "417252af225146ec2e160695424749f41d85bc9e96810bdc3f306d19feb8f34c"
+    },
+    {
+      "name": "香辣手撕牛肉",
+      "path": "/assets/recipes/r146-recipe-finedining-20261027-v1.webp",
+      "bytes": 295890,
+      "width": 1280,
+      "height": 960,
+      "sha256": "b631fdcf9a4c625d732cc75c43dee0d7f89f7ede36bed639a76794ffae17f817"
+    },
+    {
+      "name": "鱼香脆滑肉",
+      "path": "/assets/recipes/r089-recipe-finedining-20261027-v1.webp",
+      "bytes": 270482,
+      "width": 1280,
+      "height": 960,
+      "sha256": "120498b7bfe93fb7fe14a4ffa7d7a6eafaf8ea84e06a58ab7934fd8482169465"
+    },
+    {
+      "name": "鱼香肉丝",
+      "path": "/assets/recipes/r079-recipe-finedining-20261027-v1.webp",
+      "bytes": 242972,
+      "width": 1280,
+      "height": 960,
+      "sha256": "5dcefad3bf436960758ff262c73265479bac37c9ceecabda24ed314de19d8b14"
+    },
+    {
+      "name": "枣生栗子鸡",
+      "path": "/assets/recipes/r011-recipe-finedining-20261027-v1.webp",
+      "bytes": 252448,
+      "width": 1280,
+      "height": 960,
+      "sha256": "ffdd8c8ff67ab06aebdcedd47c41b1a6c09de234aacf7bad213de46f2dfbf713"
+    },
+    {
+      "name": "中式炸鸡",
+      "path": "/assets/recipes/r073-recipe-finedining-20261027-v1.webp",
+      "bytes": 312984,
+      "width": 1280,
+      "height": 960,
+      "sha256": "dab5e6f86badd7223ff289dc3ac935f92be43c0fe029b9a59373adf1897c9dfd"
+    },
+    {
+      "name": "罐焖牛肉",
+      "path": "/assets/recipes/r028-recipe-finedining-20261027-v1.webp",
+      "bytes": 261268,
+      "width": 1280,
+      "height": 960,
+      "sha256": "a454e157a6733ddf57c485d06cb658d2e7a9652838a293f8f5f6f44442f5ffd2"
+    },
+    {
+      "name": "辣椒炒肉片",
+      "path": "/assets/recipes/s001-recipe-finedining-20261027-v1.webp",
+      "bytes": 221278,
+      "width": 1280,
+      "height": 960,
+      "sha256": "cb311348acce997b2122f31341f5e7c07fbaa630ce75953e05788ff60154c4ff"
+    },
+    {
+      "name": "蒜薹肉丝",
+      "path": "/assets/recipes/s002-recipe-finedining-20261027-v1.webp",
+      "bytes": 210264,
+      "width": 1280,
+      "height": 960,
+      "sha256": "637acd7b294535dab9be85bb5694301c82d6016c2ef36aa01346168b027be765"
+    }
+  ]
+}

@@ -118,3 +118,25 @@ test('公开菜谱表权限：匿名仅可读已发布payload，不能读取chec
     await assert.rejects(db.query('SELECT * FROM accounts'));
   }finally{await db.close();}
 });
+
+test('不可变明列食材发布包读取时应用独立配图，工作台与图鉴一致且不改发布包',async()=>{
+  const bundle=await fixture();
+  const snapshot=galleryContent(bundle.base,bundle.rows);
+  snapshot.restrictionScope='listed-foods';
+  delete snapshot.compositionApprovals;delete snapshot.unresolvedComponents;delete snapshot.uncertainComponents;
+  const target=snapshot.recipes.find(recipe=>recipe.name==='柱候牛腩')!;assert(target);
+  target.imageUrl=undefined;
+  const variants=snapshot.recipes.flatMap(recipe=>recipe.variants);
+  for(const variant of variants)for(const line of variant.lines)line.sourceText??=snapshot.foods.find(food=>food.id===line.foodId)!.name;
+  bundle.listedFoodSnapshot=snapshot;
+  bundle.foodLevelReview={version:'listed-foods-v1',recipes:snapshot.recipes.length,variants:variants.length,ingredientRows:variants.reduce((n,variant)=>n+variant.lines.length,0),checkedAt:'2026-10-27'};
+  const unchanged=JSON.stringify(bundle);
+  const fetcher:typeof fetch=async input=>new Response(JSON.stringify(String(input).includes('select=release_id')?[{release_id:'images-test'}]:[{payload:bundle}]));
+  const repository=new CloudBaseGalleryRepository({envId:'shiwei-test',publishableKey:'test-public',releaseId:'images-test',hash:galleryBundleHash(bundle),fetch:fetcher});
+  const actual=await repository.load(GALLERY_RELEASE),rows=await repository.candidates();
+  const recipe=actual.recipes.find(recipe=>recipe.id===target.id)!;
+  assert.match(recipe.imageUrl!,/^https:\/\/[^/]+\/assets\/recipes\//);
+  assert(rows.filter(row=>row.dish_key===target.name).every(row=>row.image_url===recipe.imageUrl));
+  assert.equal(actual.contentVersion,snapshot.contentVersion);
+  assert.equal(JSON.stringify(bundle),unchanged);
+});
