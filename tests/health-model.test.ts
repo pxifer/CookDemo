@@ -8,19 +8,22 @@ import { migrate, type Database } from '../server/db';
 import { createApp } from '../server/app';
 import { mealWith, request } from './fixtures';
 
-const config: HealthModelConfig = { provider: 'zhipu', model: 'glm-4.7-flash', apiKey: 'test-secret-never-return', timeoutMs: 500, quotaBucket: 'health-test' };
+const config: HealthModelConfig = { provider: 'deepseek', model: 'deepseek-flash', feeMode: 'byok', apiKey: 'test-secret-never-return', timeoutMs: 500, quotaBucket: 'health-test' };
 const plan = { diseases: [{ input: '测试疾病', canonical: null }], evidenceQueries: ['测试疾病 成分 食材 烹调条件 证据'] };
 const response = (value: unknown = plan, finish = 'stop') => Response.json({ choices: [{ finish_reason: finish, message: { content: JSON.stringify(value) } }] });
 const input = () => ({ subject: 'test-user', operationId: crypto.randomUUID(), mealVersion: 1, diseases: ['测试疾病'], signal: new AbortController().signal });
 
-test('模型配置默认无调用，只接收明确开关、固定免费型号及服务端密钥；错误不包含秘密', () => {
+test('DeepSeek暂定配置默认无调用，只接收允许型号、显式个人Key计费模式及服务端密钥', () => {
   assert.equal(readHealthModelConfig({}), undefined);
   assert.equal(readHealthModelConfig({ MODEL_ENABLED: '0', MODEL_API_KEY: config.apiKey }), undefined);
-  const enabled = { MODEL_ENABLED: '1', MODEL_PROVIDER: 'zhipu', MODEL_NAME: 'glm-4.7-flash', MODEL_API_KEY: config.apiKey };
-  assert.equal(readHealthModelConfig(enabled)?.model, 'glm-4.7-flash');
+  const enabled = { MODEL_ENABLED: '1', MODEL_PROVIDER: 'deepseek', MODEL_NAME: 'deepseek-flash', MODEL_FEE_MODE: 'byok', MODEL_API_KEY: config.apiKey };
+  assert.equal(readHealthModelConfig(enabled)?.model, 'deepseek-flash');
+  assert.equal(readHealthModelConfig(enabled)?.feeMode, 'byok');
+  assert.equal(readHealthModelConfig({ ...enabled, MODEL_PROVIDER: undefined, MODEL_NAME: undefined })?.provider, 'deepseek');
+  assert.equal(readHealthModelConfig({ ...enabled, MODEL_PROVIDER: 'zhipu', MODEL_NAME: 'glm-4.7-flash', MODEL_FEE_MODE: undefined })?.feeMode, 'platform_free');
   for (const change of [{ MODEL_ENABLED: 'true' }, { MODEL_NAME: 'paid-model' }, { MODEL_PROVIDER: 'other' },
     { MODEL_BASE_URL: 'http://untrusted.example' }, { MODEL_API_KEY: '' }, { MODEL_TIMEOUT_MS: '0' },
-    { MODEL_API_KEY_FILE: 'missing-private-secret' }, { MODEL_QUOTA_BUCKET: 'a b' }]) {
+    { MODEL_API_KEY_FILE: 'missing-private-secret' }, { MODEL_QUOTA_BUCKET: 'a b' }, { MODEL_FEE_MODE: undefined }, { MODEL_FEE_MODE: 'platform_free' }]) {
     assert.throws(() => readHealthModelConfig({ ...enabled, ...change }), error => /配置/.test(String(error)) && !String(error).includes(config.apiKey) && !String(error).includes('missing-private-secret'));
   }
 });
@@ -35,19 +38,24 @@ test('真实PostgreSQL语法调用账本：原子认领、零自动重试、超�
     await t.test('仅发送疾病名；成功仍需证据，不输出健康菜谱；重复操作不重新调用', async () => {
       let calls = 0;
       const model = createHealthModel(config, ledger, async (url, init) => {
-        calls++; assert.equal(url, 'https://open.bigmodel.cn/api/paas/v4/chat/completions');
+        calls++; assert.equal(url, 'https://api.deepseek.com/chat/completions');
         assert.equal(init?.redirect, 'error'); assert.equal((init?.headers as any).Authorization, `Bearer ${config.apiKey}`);
         const body = JSON.parse(init!.body as string);
         assert.equal(body.model, config.model); assert.equal(body.thinking.type, 'disabled');
         assert.deepEqual(JSON.parse(body.messages[1].content), { diseases: ['测试疾病'] });
         return response();
       });
+      assert.equal(model.providerLabel, 'DeepSeek');
       const call = input(); const result = await model.prepare(call);
       assert.equal(result.state, 'evidence_required'); assert.deepEqual(result.plan, plan);
       await assert.rejects(model.prepare(call), /已提交/); assert.equal(calls, 1);
       await assert.rejects(model.prepare({ ...call, diseases: ['另一疾病'] }), /同一操作标识/);
       const stored = JSON.stringify((await db.query('SELECT * FROM operations')).rows);
       assert(!stored.includes('测试疾病')); assert(!stored.includes(config.apiKey));
+      const row = (await db.query<{fee_mode:string;max_attempts:number}>('SELECT fee_mode,max_attempts FROM operations WHERE subject=$1 AND operation_id=$2', [call.subject, `health:${call.operationId}`])).rows[0];
+      assert.equal(row.fee_mode, 'byok'); assert.equal(row.max_attempts, 1);
+      const legacy = createHealthModel({ ...config, provider: 'zhipu', model: 'glm-4.7-flash', feeMode: 'platform_free' }, ledger, async () => { assert.fail('不能用另一供应商重发旧操作'); });
+      await assert.rejects(legacy.prepare(call), /同一操作标识/);
     });
     await t.test('并发重复操作只认领一次', async () => {
       let calls = 0;
@@ -59,11 +67,19 @@ test('真实PostgreSQL语法调用账本：原子认领、零自动重试、超�
       for (const make of [() => response({ ...plan, diseases: [{ input: '错误', canonical: null }] }),
         () => response({ ...plan, safe: true }), () => response(plan, 'length'),
         () => Response.json({ choices: [{ finish_reason: 'stop', message: { content: 'not json' } }] }),
+        () => Response.json({ choices: [{ finish_reason: 'stop', message: { content: '' } }] }),
         () => new Response('x'.repeat(65537))]) {
         let calls = 0;
         const model = createHealthModel(config, ledger, async () => { calls++; return make(); });
         await assert.rejects(model.prepare(input())); assert.equal(calls, 1);
       }
+    });
+    await t.test('保留旧适配器显式选择，地址和免费账本独立，不自动回退供应商', async () => {
+      let calls = 0;
+      const model = createHealthModel({ ...config, provider: 'zhipu', model: 'glm-4.7-flash', feeMode: 'platform_free' }, ledger, async url => {
+        calls++; assert.equal(url, 'https://open.bigmodel.cn/api/paas/v4/chat/completions'); return response();
+      });
+      assert.equal(model.providerLabel, '智谱'); await model.prepare(input()); assert.equal(calls, 1);
     });
     await t.test('上游错误不泄露正文/凭证，不重试', async () => {
       for (const status of [401, 403, 429, 500]) {

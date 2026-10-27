@@ -1,12 +1,12 @@
 # 健康模式模型 API 入口
 
-日期：2026-10-27。用户要求准备模型接口，随后明确“暂不指定，只准备接口”。默认`MODEL_ENABLED=0`，本轮未添加Key、未调用真实模型、未部署健康模式。
+日期：2026-10-27。最新决定D19-03：模型暂定DeepSeek，RAG以定性食材指导为主，替代上一轮供应商未定状态。默认`MODEL_ENABLED=0`，本轮未添加Key、未调用真实模型、未部署健康模式。
 
 ## 已实现
 
-- `server/health-model.ts`定义可替换`HealthModel.prepare`，第一个参考适配器为智谱`glm-4.7-flash`；这不表示最终选定供应商。以后新增供应商通过独立适配器，浏览器不能提交URL/型号/Key。
+- `server/health-model.ts`定义可替换`HealthModel.prepare`，当前暂定适配为DeepSeek `deepseek-flash`，旧智谱`glm-4.7-flash`保留显式兼容，不自动切换。以后新增供应商通过独立适配器，浏览器不能提交URL/型号/Key。
 - 健康推荐入口沿用`POST /api/v1/recommendations`，`meal.health=true`、疾病名在`meal.diseases`；调用前校验会话、登录、CSRF、运行时Schema及待确认限制。普通模式不调用模型。
-- 只发送疾病名称；不发送用户ID、过敏/忌口、食材原文、照片、完整草稿。标准名为候选，不覆盖原输入。
+- 查询任务版本为`health-query-v2-qualitative`，覆盖成分有益/不利方向、食物层面建议、烹调新增/变化物质和证据条件；不要求用户先称重。仍只发送疾病名称；不发送用户ID、过敏/忌口、食材原文、照片、完整草稿。标准名为候选，不覆盖原输入。
 - 返回`healthAssessment.state='evidence_required'`及检索计划；`status='unavailable'`、`dishes=[]`。知识规则未接通时不返回健康菜谱。成功整理检索词不表示疾病支持或健康审核通过。
 - 服务端固定允许的地址，禁止重定向；JSON输出Schema、原疾病顺序/一一对应、完整终态及64KiB正文上限。模型最多1000输出token；没有SDK隐式重试。
 - 复用PostgreSQL `InvocationLedger`：身份+操作+输入/本餐版本+任务版本+供应商型号+凭证版本绑定，数据库原子认领额度；不持久保存健康原文或模型正文。成功、失败、超时/未知都保留已消耗额度；不自动重试。
@@ -43,10 +43,10 @@ const body = {
 
 ## 未来联调配置
 
-以下为选定供应商之后的操作说明，本轮不执行。`.env.example`有注释模板；启动不会自动读.env，使用`run.ps1 -EnvFile`显式加载。
+以下为DeepSeek后续真实联调操作说明，本轮不执行。`.env.example`有注释模板；启动不会自动读.env，使用`run.ps1 -EnvFile`显式加载。
 
 1. 使用本地已迁移PG，准备不同的32字节base64 `SESSION_SECRET_B64/CSRF_SECRET_B64`、`DATABASE_URL`和需要时的`LOCAL_TEST_FEATURES=1`。现有单纯构造启动不要求数据库；启用模型则强制有数据库账本与稳定密钥，缺项启动失败。
-2. 选定并核验具体境内服务的可调用状态、数据保留/处理和免费边界。若试用参考适配器，显式填`MODEL_PROVIDER=zhipu`、`MODEL_NAME=glm-4.7-flash`；其他型号/供应商会拒绝，不能用同名付费型号替代。
+2. 暂定`MODEL_PROVIDER=deepseek`、`MODEL_NAME=deepseek-flash`（配置模板已填，调用仍关闭）。正式联调前核验账户权限、数据保留/处理和预算；DeepSeek按用量计费，需显式`MODEL_FEE_MODE=byok`才能启用，账本单次尝试、无平台付费模式。该标记是对后端用户自备Key的费用归属声明，不是本站已做充值或有免费资格。保留的智谱适配仍为`MODEL_PROVIDER=zhipu / MODEL_NAME=glm-4.7-flash`，不能互混型号或自动回退。
 3. Key放后端秘密文件，使用`MODEL_API_KEY_FILE`；或后端环境`MODEL_API_KEY`，两者不能同时设置。不得使用`VITE_`前缀、提交.env或在聊天发送Key。当前没有用户BYOK保存/回读界面。
 4. 有界配置示例：`MODEL_TIMEOUT_MS=15000`、`MODEL_QUOTA_BUCKET=health-query-v1`。先在本地数据库显式分配测试总额度，例如下面20次；桶不是每日自动重置，也不是供应商余额。缺桶/耗尽不发送请求，不在重启时重置已用额度。
 
@@ -58,7 +58,9 @@ ON CONFLICT DO NOTHING;
 
 5. 最后设`MODEL_ENABLED=1`，执行`./scripts/run.ps1 start -EnvFile .env.local`，登录本机测试身份，健康模式添加名称后生成。开关开启不自动发验证请求；仍需用户操作生成。正式`HEALTH_ENABLED`继续关闭，不能通过打开模型开关绕过健康审核。
 
-参考协议已核查2026-10-27：[智谱对话补全](https://docs.bigmodel.cn/api-reference/模型-api/对话补全)提供固定v4地址和Bearer认证；[GLM-4.7-Flash](https://docs.bigmodel.cn/cn/guide/models/free/glm-4.7-flash)支持JSON和思考控制。本轮仅核对接口能力，没有核验实际账户权限/额度、敏感数据条款或实测质量。
+DeepSeek协议核查于2026-10-27：[官方首次调用](https://api-docs.deepseek.com/)使用`https://api.deepseek.com/chat/completions`及Bearer认证，当前建议型号为`deepseek-flash`；[JSON Output](https://api-docs.deepseek.com/guides/json_mode/)要求json_object、提示中提及JSON并给样例，可能出现空正文；代码已带示例并拒绝空/截断/错名输出，不自动重发。[官方价格](https://api-docs.deepseek.com/quick_start/pricing/)说明按用量从充值/赠送余额扣费，因此不当成平台免费服务。这里只核对接口，未核验实际账号权限、条款准入和效果；本轮没有任何真实API消费。
+
+DeepSeek是生成/查询理解模型选择，**不等于Embedding或Reranker已选择DeepSeek**；向量模型仍按RAG方案独立对照。后续RAG输出食材的有益倾向、少吃/避免和依据，当前prepare只整理查询，不让模型凭记忆直接判食材。
 
 ## CloudBase 与生产边界
 
@@ -72,6 +74,6 @@ ON CONFLICT DO NOTHING;
 
 `tests/health-model.test.ts`覆盖配置默认关闭、型号/地址/秘密拒绝、数据库操作绑定/原子认领、重复操作、错误/截断/超大/错名输出、超时取消、额度不足与不重试，以及健康API登录/CSRF/限制门禁与普通模式零调用。上游用构造响应，不连接真实服务。
 
-常规运行`./scripts/run.ps1 build`、`./scripts/run.ps1 test`；浏览器回归`./scripts/run.ps1 test:e2e`。本轮实际执行结果见[验收记录](ACCEPTANCE-health-preparation-2026-10-27.md)。
+常规运行`./scripts/run.ps1 build`、`./scripts/run.ps1 test`；浏览器回归`./scripts/run.ps1 test:e2e`。原接口验收见[首次记录](ACCEPTANCE-health-preparation-2026-10-27.md)，本轮DeepSeek/定性目标调整见[更新验收](ACCEPTANCE-deepseek-qualitative-2026-10-27.md)。
 
 下一步RAG实施见[健康知识方案](technical/health-rag-plan.md)。
