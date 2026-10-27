@@ -1,5 +1,7 @@
 # 本地开发交付 v0.1
 
+> 2026-10-27：健康模型查询准备接口已新增，默认关闭、供应商未指定，配置/账本/云入口边界见 [HEALTH-MODEL-API.md](HEALTH-MODEL-API.md)。下文“无供应商适配器”和早期账户/目录数量是当时快照；当前规则见 [AGENTS.md](../AGENTS.md)。RAG准备见 [health-rag-plan.md](technical/health-rag-plan.md)。
+
 > 2026-10-20 上线结构增量：已补配置/数据库启动依赖、版本迁移和容器文件，详见 [结构操作手册](DEPLOYMENT-RUNBOOK.md) 与 [实施记录](DEPLOYMENT-STATUS.md)。原默认命令继续为本地构造模式；`scripts/run.ps1 -EnvFile` 可显式加载配置，未加该参数仍不自动读.env。真实建库、容器和云部署是否完成须看实施记录，不由下文历史描述推断。
 
 日期：2026-10-19（Asia/Shanghai）。依据：PRD、TDD v0.1、D0～D6A、UI_DEMO_REVIEW 与 architecture-review-v0.1。本次用户明确授权开发、交付前测试验收；开发不是云资源创建或收费调用授权。

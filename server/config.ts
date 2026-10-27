@@ -75,9 +75,10 @@ export function readConfig(env: NodeJS.ProcessEnv = process.env): RuntimeConfig 
   if (contentSource === 'database' && (!databaseUrl || !contentRelease || !/^[a-zA-Z0-9_.:-]{1,100}$/.test(contentRelease))) throw new ConfigurationError('CONTENT_RELEASE_ID');
   if (contentSource === 'database' && !isLoopback(new URL(databaseUrl!).hostname)) throw new ConfigurationError('DATABASE_LOCAL_CONTENT_ONLY');
   // These services are deliberately not admitted in this structural phase.
-  for (const flag of ['MODEL_ENABLED', 'SEMANTIC_SEARCH_ENABLED', 'HEALTH_ENABLED', 'ACCOUNTS_ENABLED']) {
+  for (const flag of ['SEMANTIC_SEARCH_ENABLED', 'HEALTH_ENABLED', 'ACCOUNTS_ENABLED']) {
     if (env[flag] !== undefined && !['0', 'false'].includes(env[flag]!)) throw new ConfigurationError(flag);
   }
+  if (env.MODEL_ENABLED !== undefined && !['0', 'false', '1'].includes(env.MODEL_ENABLED)) throw new ConfigurationError('MODEL_ENABLED');
   if (env.DB_REQUIRE_VECTOR !== undefined && !['0', '1'].includes(env.DB_REQUIRE_VECTOR)) throw new ConfigurationError('DB_REQUIRE_VECTOR');
   return {
     environment: environment as RuntimeConfig['environment'], host, origin, localTestFeatures,

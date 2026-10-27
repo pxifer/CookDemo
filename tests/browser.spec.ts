@@ -22,6 +22,43 @@ async function addRestriction(page: Page, kind: '过敏' | '忌口', text: strin
 }
 test.beforeEach(async ({ page }) => { await page.goto('/'); await expect(page.getByRole('heading', { name: '看看有什么食材' })).toBeVisible(); });
 
+test('健康模型入口前端契约：疾病必填、登录、缺证据终态与返回普通模式（构造接口）', async ({ page }, info) => {
+  await page.route('**/api/v1/auth/session*', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, json: { ...await response.json(), healthModelAvailable: true, healthModelProvider: '测试模型服务' } });
+  });
+  let healthRequests = 0;
+  await page.route('**/api/v1/recommendations', async route => {
+    const body = route.request().postDataJSON();
+    if (!body.meal.health) return route.continue();
+    healthRequests++;
+    const response = await route.fetch();
+    const events = (await response.text()).trim().split('\n').map(line => JSON.parse(line));
+    const base = events.find(event => event.type === 'result').result;
+    const message = '疾病信息已整理。健康证据与规则尚未接通，暂不能给出健康菜谱；可返回普通模式。';
+    const result = { ...base, status: 'unavailable', dishes: [], checks: [], reasons: [message], healthAssessment: {
+      state: 'evidence_required', message, plan: { diseases: [{ input: '测试疾病', canonical: null }], evidenceQueries: ['测试疾病 证据'] },
+    } };
+    await route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: JSON.stringify({ type: 'result', result }) + '\n' });
+  });
+  await page.reload(); await parse(page, ingredients);
+  await page.getByRole('button', { name: /健康模式/ }).click();
+  const dialog = page.getByRole('dialog', { name: '健康模式', exact: true });
+  await expect(dialog).toContainText('疾病名称发送给测试模型服务');
+  await expect(dialog.getByRole('button', { name: '登录后开启健康模式', exact: true })).toBeDisabled();
+  await page.getByLabel('需要关注的疾病名称', { exact: true }).fill('测试疾病');
+  await dialog.getByRole('button', { name: '添加名称', exact: true }).click();
+  await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-health-model-settings.png`, fullPage: true });
+  await dialog.getByRole('button', { name: '登录后开启健康模式', exact: true }).click();
+  await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
+  await generate(page);
+  await expect(page.locator('.health-test-banner')).toContainText('健康证据与规则尚未接通');
+  await expect(page.getByTestId('recipe-card')).toHaveCount(0); expect(healthRequests).toBe(1);
+  await page.locator('.health-test-banner').getByRole('button', { name: '切回普通模式', exact: true }).click();
+  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3); expect(healthRequests).toBe(1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+});
+
 test('D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复', async ({ page }) => {
   await parse(page, '西红柿2个鸡蛋3个菠菜一把');
   await expect(page.getByLabel('鸡蛋用量', { exact: true })).toHaveValue('3');

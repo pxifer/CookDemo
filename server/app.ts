@@ -21,6 +21,7 @@ import { GALLERY_RELEASE, GalleryContentRepository, readCandidateRows } from './
 import { recipeImage } from '../shared/recipe-images';
 import { fixedRecipeText, ingredientDisplayText } from '../shared/recipe-copy';
 import methodReview from '../docs/data/recipe-step-review-v28.json';
+import type { HealthModel } from './health-model';
 
 type MethodCopy={steps:string[];method_options?:{label:string;steps:string[]}[]};
 const reviewedMethods=methodReview.recipes as Record<string,MethodCopy>;
@@ -67,6 +68,7 @@ export async function createApp(options: {
   environment?: 'local' | 'preview' | 'staging' | 'production'; contentSource?: 'constructed' | 'pending' | 'database' | 'cloudbase'; contentRelease?: string; requireVector?: boolean;
   contentRepository?: {load(release:string):Promise<import('../shared/content').ContentSnapshot>;candidates():Promise<import('./gallery-content').CandidateRow[]>};
   accounts?: Accounts;
+  healthModel?: HealthModel;
 } = {}) {
   if(options.contentSource==='cloudbase' && (options.environment!=='preview'||!options.contentRepository||options.contentRelease!==GALLERY_RELEASE||!options.origin?.startsWith('https:')||!options.sessionSecret||!options.csrfSecret||options.localTestFeatures))throw new Error('CloudBase preview configuration required');
   if(options.contentRepository&&options.contentSource!=='cloudbase')throw new Error('Explicit CloudBase content source required');
@@ -169,9 +171,10 @@ export async function createApp(options: {
     const id = session(req.headers.cookie) ?? randomBytes(16).toString('hex');
     reply.header('Set-Cookie', `shiwei_guest=${id}.${sign(id)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=1800${options.origin?.startsWith('https:') ? '; Secure' : ''}`);
     const loggedIn = Boolean(testSession(req.headers.cookie));
+    const modelCapabilities = { healthModelAvailable: Boolean(options.healthModel), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
     const account=await options.accounts?.authenticate(req.headers.cookie);
-    if(account)return {identity:'account',userId:account.userId,displayName:account.displayName,mustChangePassword:account.mustChangePassword,csrfToken:signCsrf(`csrf:${id}`),accountAvailable:true,registrationAvailable:registrationAvailable(),localTestFeatures:false,...((req.query as {state?:string}).state==='1'&&!account.mustChangePassword?{accountSnapshot:await options.accounts!.load(account)}:{})};
-    return { identity: loggedIn ? 'local-test' : 'guest', ...(loggedIn ? { displayName: '本机测试账号' } : {}), csrfToken: signCsrf(`csrf:${id}`), accountAvailable: localTestFeatures||Boolean(options.accounts),registrationAvailable:registrationAvailable(), localTestFeatures };
+    if(account)return {...modelCapabilities,identity:'account',userId:account.userId,displayName:account.displayName,mustChangePassword:account.mustChangePassword,csrfToken:signCsrf(`csrf:${id}`),accountAvailable:true,registrationAvailable:registrationAvailable(),localTestFeatures:false,...((req.query as {state?:string}).state==='1'&&!account.mustChangePassword?{accountSnapshot:await options.accounts!.load(account)}:{})};
+    return { ...modelCapabilities,identity: loggedIn ? 'local-test' : 'guest', ...(loggedIn ? { displayName: '本机测试账号' } : {}), csrfToken: signCsrf(`csrf:${id}`), accountAvailable: localTestFeatures||Boolean(options.accounts),registrationAvailable:registrationAvailable(), localTestFeatures };
   });
   app.get('/api/v1/catalog/recipes', async req => {
     const { contentVersion, recipes, foods, categories, relations, restrictionScope } = contextFor(req);
@@ -272,7 +275,11 @@ export async function createApp(options: {
     latest.set(subject, { version: req.body.meal.version, operation: req.body.operationId, touched: Date.now() });
     const context = contextFor(req);
     assertMeal(req.body.meal, context);
-    const localHealthTest = req.body.meal.health && localTestFeatures;
+    const modelHealth = req.body.meal.health && Boolean(options.healthModel);
+    const modelIdentity = modelHealth ? await options.accounts?.authenticate(req.headers.cookie) : undefined;
+    if (modelHealth && !modelIdentity && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式');
+    if (modelIdentity?.mustChangePassword) throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
+    const localHealthTest = req.body.meal.health && localTestFeatures && !modelHealth;
     if (localHealthTest && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式测试');
     const controller = new AbortController();
     const onClose = () => { if (!reply.raw.writableEnded) controller.abort(); };
@@ -285,10 +292,20 @@ export async function createApp(options: {
     }
     try {
       let result = await recommend(context.recipes, req.body, { signal: controller.signal, localHealthTest, context, cursorSecret: recommendationCursorSecret });
+      if (modelHealth && result.status === 'unavailable' && !controller.signal.aborted) {
+        if (stream && !reply.raw.destroyed) reply.raw.write(JSON.stringify({ type: 'progress', stage: '正在整理疾病信息与证据检索词' }) + '\n');
+        const healthAssessment = await options.healthModel!.prepare({ subject: modelIdentity ? `account:${modelIdentity.userId}` : `guest:${subject}`,
+          operationId: req.body.operationId, mealVersion: req.body.meal.version, diseases: req.body.meal.diseases, signal: controller.signal });
+        result = { ...result, healthAssessment, reasons: [healthAssessment.message] };
+        const stillLoggedIn = modelIdentity ? await options.accounts!.authenticate(req.headers.cookie) : testSession(req.headers.cookie);
+        if (!stillLoggedIn || (modelIdentity && (typeof stillLoggedIn !== 'object' || stillLoggedIn.userId !== modelIdentity.userId || stillLoggedIn.mustChangePassword))) {
+          throw new DomainError('LOGIN_REQUIRED', 401, '登录已失效，请重新登录后再试');
+        }
+      }
       if (repository && (await repository.load(options.contentRelease!)).contentVersion !== context.contentVersion) throw new DomainError('CONTENT_CHANGED',409,'菜谱已变化，请重新搭配');
       if (localHealthTest && !testSession(req.headers.cookie)) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['登录已失效，请重新登录后再试'] };
       const newest = latest.get(subject);
-      if (newest?.operation !== req.body.operationId || newest?.version !== req.body.meal.version) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['旧操作已被新条件取代'] };
+      if (newest?.operation !== req.body.operationId || newest?.version !== req.body.meal.version) result = { ...result, healthAssessment: undefined, dishes: [], checks: [], status: 'cancelled', reasons: ['旧操作已被新条件取代'] };
       const publicResult={...result,dishes:result.dishes.map(publicDish)};
       if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'result', result:publicResult }) + '\n'); return; }
       return publicResult;

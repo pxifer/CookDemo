@@ -1,5 +1,7 @@
 # 拾味 · 本地开发版与历史 UI Demo
 
+2026-10-27：健康模型接口准备、配置及已测边界见 [模型入口](docs/HEALTH-MODEL-API.md)；疾病—成分—食材—烹调过程的切片、召回、向量存储和技术取舍见 [健康RAG方案](docs/technical/health-rag-plan.md)。供应商未指定，接口默认关闭；下文带日期状态为历史快照，当前规则以 [AGENTS.md](AGENTS.md) 及后续决策为准。
+
 2026-10-23：[免费腾讯云预览入口](https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com/)已上线，首次点击平台“确定访问”。[验收记录](docs/ACCEPTANCE-cloudbase-http-2026-10-23.md) · [更新/撤回手册](docs/DEPLOYMENT-CLOUDBASE-HTTP.md)。
 
 ## 当前：本地数据库业务链路
