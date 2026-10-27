@@ -85,7 +85,7 @@ test('真实账户适配边界：验证身份、加密跨实例同步、CAS冲�
     await accounts.changePassword(alice,'Sw!OldPassword1','Sw!NewPassword1');
     alice=(await accounts.authenticate(accounts.cookie(alice)))!;
     assert.equal(alice.mustChangePassword,false);
-    const defaults={...defaultMeal(),restrictions:[{id:'test-allergy',name:'花生',kind:'allergy' as const,targets:['peanut'],scope:'self' as const,status:'confirmed' as const,original:'花生过敏'}]};
+    const defaults={...defaultMeal(),aiExcludedFoods:['牛肉'],restrictions:[{id:'test-allergy',name:'花生',kind:'allergy' as const,targets:['peanut'],scope:'self' as const,status:'confirmed' as const,original:'花生过敏'}]};
     const saved=await accounts.save(alice,0,{favorites:[{recipeId:'tomato-egg',variantId:'tomato-egg-light'}],defaults});
     assert.equal(saved.version,1);
     const newInstance=new CloudBaseAccounts(options),resumed=await newInstance.authenticate(accounts.cookie(alice));
@@ -95,7 +95,9 @@ test('真实账户适配边界：验证身份、加密跨实例同步、CAS冲�
     const raw=await db.query<{envelope:unknown}>('SELECT envelope FROM shiwei_account_state WHERE owner_id=$1',['user-a']);
     assert.ok(!JSON.stringify(raw.rows[0].envelope).includes('花生'));
     const decrypted=open(raw.rows[0].envelope as any,options.profileKey,alice.userId,'account-state') as any;
-    assert.deepEqual(Object.keys(decrypted.defaults).sort(),['checkSeasonings','flavor','restrictions','seasonings']);
+    assert.deepEqual(Object.keys(decrypted.defaults).sort(),['aiExcludedFoods','checkSeasonings','flavor','restrictions','seasonings']);
+    assert.deepEqual(decrypted.defaults.aiExcludedFoods,['牛肉']);
+    assert.ok(!JSON.stringify(raw.rows[0].envelope).includes('牛肉'));
     assert.ok(!requests.some(r=>r.path.includes('/rdb/')&&JSON.stringify(r.body).includes('花生')));
     assert.match(accounts.cookie(alice),/HttpOnly; Secure; SameSite=Strict/);
     await accounts.logout(alice);assert.equal(await newInstance.authenticate(accounts.cookie(alice)),null);

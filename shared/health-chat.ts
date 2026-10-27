@@ -2,13 +2,14 @@ export interface ChatMessage { role: 'user' | 'assistant'; content: string }
 export interface AiFoodChoices { preferred: string[]; limited: string[]; excluded: string[] }
 export interface FoodSuggestion { foodName: string; direction: 'prefer' | 'limit' | 'avoid'; reason: string; conditions: string; matchable: boolean }
 export interface ProviderInvocation { provider: 'DeepSeek'; requestId: string; model: string; promptTokens: number; completionTokens: number; totalTokens: number; calledAt: string }
-export interface DietAssessment { stage: 'clarify' | 'advice'; suggestions: FoodSuggestion[] }
+export interface SuggestedRecipe {recipeId:string;variantId:string;name:string;flavor:string;matchedFoods:string[]}
+export interface DietAssessment { recipes?:SuggestedRecipe[]; stage: 'clarify' | 'advice'; suggestions: FoodSuggestion[] }
 export interface HealthChatRequest {
   operationId: string;
   apiKey: string;
   messages: ChatMessage[];
   diseases: string[];
-  mealContext?: { ingredients: string[]; seasonings: string[]; restrictions: string[]; allowBuy: boolean;checkSeasonings?:boolean;servings?:number;aiFoodChoices?:AiFoodChoices };
+  mealContext?: { ingredients: string[]; seasonings: string[]; restrictions: string[]; allowBuy: boolean;checkSeasonings?:boolean;servings?:number;aiFoodChoices?:AiFoodChoices;aiExcludedFoods?:string[] };
 }
 export interface HealthChatReply { operationId: string; message: ChatMessage; knowledge: 'general_model'; assessment?: DietAssessment; invocation?: ProviderInvocation }
 export const healthChatSchema = {
@@ -24,6 +25,7 @@ export const healthChatSchema = {
       ingredients:{type:'array',maxItems:100,items:{type:'string',minLength:1,maxLength:100}},
       seasonings:{type:'array',maxItems:50,items:{type:'string',minLength:1,maxLength:100}},
       restrictions:{type:'array',maxItems:50,items:{type:'string',minLength:1,maxLength:200}},allowBuy:{type:'boolean'},
+      aiExcludedFoods:{type:'array',maxItems:20,items:{type:'string',minLength:1,maxLength:40}},
       checkSeasonings:{type:'boolean'},servings:{type:'integer',minimum:1,maximum:12},
       aiFoodChoices:{type:'object',additionalProperties:false,required:['preferred','limited','excluded'],properties:Object.fromEntries(['preferred','limited','excluded'].map(key=>[key,{type:'array',maxItems:20,items:{type:'string',minLength:1,maxLength:40}}]))},
     } },

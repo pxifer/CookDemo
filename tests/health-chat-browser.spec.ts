@@ -55,19 +55,52 @@ test('Key错误可更换，失败保留问题；关闭模式后清理Key和对�
 
 test('先确认建议再加入AI去疾，保留食材/补买/过敏忌口，关闭健康后排除暂停',async({page},info)=>{
   await enter(page,`ai-${info.project.name}`);
+  await page.getByRole('button',{name:'文字输入',exact:true}).click();await page.getByLabel('输入食材与本餐信息',{exact:true}).fill('西红柿300g鸡蛋3个');await page.getByRole('button',{name:'整理信息 ↗',exact:true}).click();
+  await expect(page.getByRole('list',{name:'我的食材',exact:true})).toContainText('西红柿');await page.getByRole('checkbox',{name:/允许补买食材/}).check();
   const chat=page.getByRole('region',{name:'健康AI对话',exact:true});
   const raw=await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(localStorage).filter(([key])=>key.includes('meal')))));
   await page.getByLabel('给AI的消息',{exact:true}).fill('应用建议：已有测试疾病，先看看食材建议');await chat.getByRole('button',{name:'发送消息',exact:true}).click();
   const suggestions=chat.getByRole('region',{name:'确认AI食材建议',exact:true});await expect(suggestions).toBeVisible();
   await expect(chat.getByRole('log')).not.toContainText('**');await expect(chat.locator('.chat-rich-text ol')).toBeVisible();await expect(chat.locator('.chat-rich-text strong').filter({hasText:'西红柿'})).toBeVisible();
-  const list=chat.getByRole('complementary',{name:'AI去疾',exact:true});await expect(list).toContainText('尚未添加');
+  const list=chat.getByRole('complementary',{name:'AI去疾',exact:true});await expect(list).toContainText('尚未保存');
   await expect(chat.getByText('目录暂不能匹配此项，保留参考。',{exact:true})).toBeVisible();
   await chat.locator('.chat-call-receipt summary').click();await expect(chat.locator('.chat-call-receipt')).toContainText('mock-deepseek-');await expect(chat.locator('.chat-call-receipt')).toContainText('100 / 80 tokens');
   expect(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Object.entries(localStorage).filter(([key])=>key.includes('meal')))))).toBe(raw);
-  await suggestions.getByRole('button',{name:'同意选择，暂不搭配',exact:true}).click();
-  await expect(list.getByRole('button',{name:'取消AI去疾排除 花生',exact:true})).toBeVisible();await expect(list).toContainText('西红柿');
+  await expect(suggestions.getByRole('region',{name:'本餐AI筛选',exact:true})).toHaveCount(0);
+  await expect(suggestions.locator('.ai-recipe-examples a').first()).toHaveAttribute('href',/^\/recipes\?dish=/);
+  await suggestions.getByRole('button',{name:'暂不保存，继续本餐选择',exact:true}).click();
+  const request=page.waitForRequest(req=>req.url().endsWith('/api/v1/recommendations')&&req.method()==='POST');
+  await suggestions.getByRole('button',{name:'按本餐食材和补买设置筛选',exact:true}).click();
+  const sent=(await request).postDataJSON();expect(sent.meal.allowBuy).toBe(true);expect(sent.meal.ingredients.map((item:any)=>item.name)).toEqual(['西红柿','鸡蛋']);expect(sent.meal.aiFoodChoices.excluded).toEqual(['花生']);
+  await expect(list.getByRole('button',{name:'取消本餐排除 花生',exact:true})).toBeVisible();await expect(list).toContainText('西红柿');
   const saved=await page.evaluate(()=>Object.entries(localStorage).filter(([key])=>key.includes('meal')).map(([,value])=>JSON.parse(value)).find(value=>value.aiFoodChoices));
-  expect(saved.aiFoodChoices.excluded).toEqual(['花生']);expect(saved.restrictions).toEqual([]);expect(saved.ingredients).toEqual([]);expect(saved.allowBuy).toBe(false);
+  expect(saved.aiFoodChoices.excluded).toEqual(['花生']);expect(saved.restrictions).toEqual([]);expect(saved.ingredients.map((item:any)=>item.name)).toEqual(['西红柿','鸡蛋']);expect(saved.allowBuy).toBe(true);expect(saved.aiExcludedFoods??[]).toEqual([]);
   await chat.screenshot({path:`${evidence}/${info.project.name}-ai-food-guidance.png`});
+  await page.getByRole('button',{name:'切回普通模式',exact:true}).click();await expect(page.getByRole('complementary',{name:'AI去疾',exact:true})).toHaveCount(0);
+});
+
+
+test('三层流程：主动询问疾病或目标；保存个人AI去疾与本餐筛选分开，刷新/新餐恢复',async({page},info)=>{
+  await enter(page,`save-${info.project.name}`);
+  const chat=page.getByRole('region',{name:'健康AI对话',exact:true});
+  await expect(chat.getByRole('log')).toContainText('增肌、瘦身');
+  const recommendationRequests:any[]=[],chatRequests:any[]=[];
+  page.on('request',req=>{if(req.method()==='POST'&&req.url().endsWith('/api/v1/recommendations'))recommendationRequests.push(req.postDataJSON());if(req.method()==='POST'&&req.url().endsWith('/api/v1/health/chat'))chatRequests.push(req.postDataJSON());});
+  await page.getByLabel('给AI的消息',{exact:true}).fill('应用建议：我想增肌，没有已知疾病');await chat.getByRole('button',{name:'发送消息',exact:true}).click();
+  const suggestions=chat.getByRole('region',{name:'确认AI食材建议',exact:true});await expect(suggestions).toBeVisible();
+  expect(chatRequests).toHaveLength(1);expect(chatRequests[0].diseases).toEqual([]);expect(recommendationRequests).toHaveLength(0);
+  const saving=suggestions.getByRole('region',{name:'保存个人AI去疾',exact:true});await saving.getByLabel('猪肉',{exact:true}).uncheck();
+  const saved=page.waitForResponse(res=>res.url().endsWith('/api/v1/account/state')&&res.request().method()==='POST'&&res.ok());
+  await saving.getByRole('button',{name:'同意保存到个人AI去疾',exact:true}).click();await saved;
+  expect(recommendationRequests).toHaveLength(0);expect(chatRequests).toHaveLength(1);
+  const account=await page.evaluate(async()=>{const response=await fetch('/api/v1/account/state');return response.json();});
+  expect(account.value.defaults.aiExcludedFoods).toEqual(['花生']);expect(account.value.defaults.aiFoodChoices).toBeUndefined();expect(account.value.defaults.restrictions).toEqual([]);
+  await expect(suggestions.getByRole('region',{name:'本餐AI筛选',exact:true})).toBeVisible();
+  await chat.screenshot({path:`${evidence}/${info.project.name}-three-layer.png`});
+  await page.reload();await expect(chat.getByRole('button',{name:'从个人AI去疾移除 花生',exact:true})).toBeVisible();await expect(chat.getByRole('button',{name:'填写 API Key',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'个人设置',exact:true}).click();await expect(page.getByRole('dialog').getByRole('region',{name:'个人AI去疾',exact:true})).toContainText('花生');await page.keyboard.press('Escape');
+  await page.getByRole('button',{name:'开始新一餐 ↻',exact:true}).click();
+  await expect(chat).toHaveCount(0);await page.getByRole('button',{name:/健康模式/}).click();await page.getByLabel('DeepSeek API Key',{exact:true}).fill(key);await page.getByRole('button',{name:'开启健康模式',exact:true}).click();
+  await expect(chat.getByRole('button',{name:'从个人AI去疾移除 花生',exact:true})).toBeVisible();
   await page.getByRole('button',{name:'切回普通模式',exact:true}).click();await expect(page.getByRole('complementary',{name:'AI去疾',exact:true})).toHaveCount(0);
 });

@@ -8,6 +8,7 @@ export function aiFoodMatch(variant: Variant, name: string, context: ContentCont
   const targets=context.restrictionTargets(name).flatMap(id=>context.foodById.get(id)?[context.foodById.get(id)!]:[]);
   return variant.lines.some(line=>Boolean(context.foodById.get(line.foodId)&&matchesListedFood(context.foodById.get(line.foodId)!,targets)));
 }
+export const aiExcludedFoods=(meal:Meal):string[]=>meal.health?[...new Set([...(meal.aiExcludedFoods??[]),...(meal.aiFoodChoices?.excluded??[])])]:[];
 export function aiFoodRank(variant:Variant,meal:Meal,context:ContentContext){
   const choices=meal.health?meal.aiFoodChoices:undefined;
   return {limited:choices?.limited.filter(name=>aiFoodMatch(variant,name,context)).length??0,preferred:choices?.preferred.filter(name=>aiFoodMatch(variant,name,context)).length??0};

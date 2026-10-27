@@ -1,3 +1,5 @@
+import { healthChatRecipes } from '../server/health-chat-recipes';
+import { reconcileAccountValues } from '../shared/account-merge';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -6,7 +8,7 @@ import { ChatMarkdown } from '../src/chat-markdown';
 import { recommend,checkDish } from '../server/recommendation';
 import { constructedContent as context } from '../shared/catalog';
 import { mealWith,request,simpleRecipe } from './fixtures';
-import { personalSettings } from '../shared/account';
+import { personalSettings, applyPersonalSettings } from '../shared/account';
 import { requestHealthChat } from '../server/health-chat';
 
 test('截图中的Markdown按强调和列表呈现，模型HTML/脚本/链接不执行',()=>{
@@ -53,4 +55,25 @@ test('真实调用凭证和结构化建议必须来自供应商响应，缺凭�
   for(const invalid of [{...envelope,id:undefined},{...envelope,usage:{prompt_tokens:50,completion_tokens:40,total_tokens:100}},{...envelope,choices:[{finish_reason:'stop',message:{content:'not JSON'}}]}]){
     await assert.rejects(requestHealthChat(body,new AbortController().signal,async()=>Response.json(invalid)));
   }
+});
+
+
+test('个人AI去疾可跨餐恢复、仅健康生效，本餐偏好不写账户',async()=>{
+  const meal=mealWith();meal.health=true;meal.allowBuy=true;meal.mode='candidates';meal.aiExcludedFoods=['花生'];meal.aiFoodChoices={preferred:['西红柿'],limited:[],excluded:[]};
+  const settings=personalSettings(meal);assert.deepEqual(settings.aiExcludedFoods,['花生']);assert.equal(settings.aiFoodChoices,undefined);
+  const restored=applyPersonalSettings(mealWith('西红柿300g'),settings);assert.deepEqual(restored.aiExcludedFoods,['花生']);assert.equal(restored.ingredients.length,1);assert.equal(restored.allowBuy,false);
+  const recipes=[simpleRecipe('peanut',[['peanut',100]]),simpleRecipe('tomato',[['tomato',100]])];
+  const result=await recommend(recipes,request(meal),{context,conversationOnly:true});assert.deepEqual(result.dishes.map(d=>d.recipe.id),['tomato']);
+  meal.health=false;assert.equal((await recommend(recipes,request(meal),{context})).dishes.length,2);
+  const base={favorites:[],defaults:settings},local={favorites:[],defaults:{...settings,aiExcludedFoods:[]}},remote={favorites:[],defaults:{...settings,flavor:'微辣',aiExcludedFoods:['花生','牛肉']}};
+  const merged=reconcileAccountValues(local,remote,base);assert.deepEqual(merged.defaults?.aiExcludedFoods,['牛肉']);assert.equal(merged.defaults?.flavor,'微辣');
+});
+
+test('图鉴示例只来自目录真实配方，避开不推荐/已存排除/过敏，不假装检查库存',()=>{
+  const recipes=[simpleRecipe('tomato-peanut',[['tomato',100],['peanut',100]]),simpleRecipe('tomato',[['tomato',100]]),simpleRecipe('egg',[['egg',1]]),simpleRecipe('retired',[['tomato',100]],{state:'withdrawn'})];
+  const assessment={stage:'advice' as const,suggestions:[{foodName:'西红柿',direction:'prefer' as const,reason:'构造理由',conditions:'',matchable:true},{foodName:'花生',direction:'avoid' as const,reason:'构造理由',conditions:'',matchable:true}]};
+  const examples=healthChatRecipes({...context,recipes},assessment,{ingredients:[],seasonings:[],restrictions:[],allowBuy:false});
+  assert.deepEqual(examples.map(r=>r.recipeId),['tomato']);assert.deepEqual(examples[0].matchedFoods,['西红柿']);
+  assert.deepEqual(healthChatRecipes({...context,recipes},assessment,{ingredients:[],seasonings:[],restrictions:['过敏：西红柿'],allowBuy:true}),[]);
+  assert.deepEqual(healthChatRecipes({...context,recipes},assessment,{ingredients:[],seasonings:[],restrictions:[],aiExcludedFoods:['西红柿'],allowBuy:true}),[]);
 });

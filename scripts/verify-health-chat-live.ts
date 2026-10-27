@@ -6,7 +6,7 @@ import { chromium, expect } from '@playwright/test';
 import { CloudBaseAccounts } from '../server/cloudbase-accounts';
 const execute=promisify(execFile),envId='shiwei-d2gmiun66b7dc6a4f';
 let stage='init';
-const root='acceptance/health-chat-2026-10-27',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
+const root=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'acceptance/health-chat-2026-10-27',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
 async function cli(args:string[]){
   const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024,windowsHide:true});
   const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;
@@ -16,7 +16,7 @@ async function main(){
   const name=`sw-chat-${randomBytes(4).toString('hex')}`,password=`Chat!9${randomBytes(9).toString('hex')}`,next=`Chat!8${randomBytes(9).toString('hex')}`;
   const dummyKey='sk-live-ui-test-only-never-sent-12345';
   let uid:string|undefined;
-  const report={verifiedAt:new Date().toISOString(),revision:process.argv[2]??'health-chat-v35',syntheticAccount:true,desktop:false,mobile:false,loginReturnsToHealth:false,keyMemoryOnly:false,sharedClaim:false,duplicateRejected:false,providerCalls:0,realApiKeyUsed:false,cleanup:false};
+  const report={verifiedAt:new Date().toISOString(),revision:process.argv[2]??'health-chat-v37',syntheticAccount:true,desktop:false,mobile:false,loginReturnsToHealth:false,keyMemoryOnly:false,personalAiSaved:false,personalAiRestored:false,personalAiRemoved:false,sharedClaim:false,duplicateRejected:false,providerCalls:0,realApiKeyUsed:false,cleanup:false};
   try{
     stage='create-synthetic';const created=await cli(['user','create',name,'--password',password,'--type','externalUser','--description','一次性健康聊天入口验证，无真实Key或模型调用，结束删除']);
     uid=created.Data?.Uid??created.Uid;if(typeof uid!=='string'||!/^[a-zA-Z0-9_-]{1,128}$/.test(uid))throw Error('SYNTHETIC_ID');
@@ -34,6 +34,19 @@ async function main(){
         stage=`${device}-login-return`;const key=page.getByLabel('DeepSeek API Key',{exact:true});await expect(key).toBeVisible({timeout:40000});await expect(key).toHaveAttribute('type','password');
         stage=`${device}-enable`;await key.fill(dummyKey);await page.getByRole('button',{name:'开启健康模式',exact:true}).click();
         const chat=page.getByRole('region',{name:'健康AI对话',exact:true});await expect(chat).toBeVisible();await expect(chat.getByRole('button',{name:'发送消息',exact:true})).toBeDisabled();
+        await expect(chat.getByRole('log')).toContainText('增肌、瘦身');
+        stage=`${device}-save-personal-ai`;
+        const saved=await page.evaluate(async()=>{
+          const session=await(await fetch('/api/v1/auth/session')).json(),snapshot=await(await fetch('/api/v1/account/state')).json();
+          const defaults=snapshot.value.defaults??{flavor:'不限',restrictions:[],checkSeasonings:false,seasonings:[]};
+          const response=await fetch('/api/v1/account/state',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':session.csrfToken},body:JSON.stringify({expectedVersion:snapshot.version,value:{...snapshot.value,defaults:{...defaults,aiExcludedFoods:['花生']}}})});
+          if(!response.ok)return false;
+          const value=await(await fetch('/api/v1/account/state')).json();return JSON.stringify(value.value.defaults.aiExcludedFoods)==='["花生"]';
+        });if(!saved)throw Error('PERSONAL_AI_SAVE_FAILED');report.personalAiSaved=true;
+        await page.reload();await expect(chat.getByRole('button',{name:'从个人AI去疾移除 花生',exact:true})).toBeVisible({timeout:30000});report.personalAiRestored=true;
+        const remove=page.waitForResponse(response=>response.url().endsWith('/api/v1/account/state')&&response.request().method()==='POST'&&response.ok());
+        await chat.getByRole('button',{name:'从个人AI去疾移除 花生',exact:true}).click();await remove;
+        const cleared=await page.evaluate(async()=>{const value=await(await fetch('/api/v1/account/state')).json();return value.value.defaults.aiExcludedFoods;});if(!Array.isArray(cleared)||cleared.length)throw Error('PERSONAL_AI_REMOVE_FAILED');report.personalAiRemoved=true;
         if(await page.evaluate(secret=>[...Object.values(localStorage),...Object.values(sessionStorage)].some(value=>value.includes(secret)),dummyKey))throw Error('KEY_STORAGE_LEAK');
         if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('HORIZONTAL_OVERFLOW');
         await chat.screenshot({path:`${root}/live-${device}-chat.png`});

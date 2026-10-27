@@ -55,7 +55,7 @@ export async function initializeAccount(content?:ContentSnapshot,supplied?:Sessi
     if(epoch!==generation)return;
     const pendingImport=imported??(readValue('shiwei:guest:import-request:v1')===true&&nonempty(guest)?guest:null);
     let next=cloud.value;
-    if(pendingImport){next=mergeAccountValues(pendingImport,cloud.value);if(cloud.value.defaults)next.defaults={...cloud.value.defaults,restrictions:next.defaults!.restrictions};}
+    if(pendingImport){next=mergeAccountValues(pendingImport,cloud.value);if(cloud.value.defaults)next.defaults={...cloud.value.defaults,restrictions:next.defaults!.restrictions,...(next.defaults!.aiExcludedFoods?{aiExcludedFoods:next.defaults!.aiExcludedFoods}:{})};}
     else if(base&&!same(value(),base.value))next=reconcile(value(),cloud.value,base.value);
     apply(next);acknowledge(cloud);emit({cloud,local:next,status:'ready',message:''});
     writeValue('shiwei:guest:import-request:v1',false);

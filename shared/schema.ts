@@ -21,9 +21,10 @@ export const mealSchema = object({
   includeAdditional: boolean, checkSeasonings: boolean, seasonings: array(string(80), 50), allowBuy: boolean,
   composition: enumOf('auto', 'custom'), counts: object({ meat: integer(0, 20), veg: integer(0, 20), soup: integer(0, 20) }),
   aiFoodChoices: object({preferred:array({...string(40),minLength:1},20),limited:array({...string(40),minLength:1},20),excluded:array({...string(40),minLength:1},20)}),
-}, ['aiFoodChoices']);
+  aiExcludedFoods: array({...string(40),minLength:1},20),
+}, ['aiFoodChoices','aiExcludedFoods']);
 export const selectedSchema = array(object({ recipeId: string(80), variantId: string(100) }), 20);
-export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50)});
+export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50),aiExcludedFoods:array({...string(40),minLength:1},20)},['aiExcludedFoods']);
 export const recommendationSchema = object({
   operationId: { type: 'string', minLength: 8, maxLength: 80, pattern: '^[a-zA-Z0-9-]+$' }, meal: mealSchema,
   action: enumOf('generate', 'reroll', 'replace', 'page', 'variant'), selected: selectedSchema, replaceId: string(80),

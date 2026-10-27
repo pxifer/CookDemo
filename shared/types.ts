@@ -49,6 +49,7 @@ export interface Meal {
   checkSeasonings: boolean; seasonings: string[]; allowBuy: boolean;
   composition: 'auto' | 'custom'; counts: Record<Category, number>;
   aiFoodChoices?: import('./health-chat').AiFoodChoices;
+  aiExcludedFoods?: string[];
 }
 export interface QuantityCheck {
   foodId: string; name: string; state: 'enough' | 'shortage' | 'unverified' | 'missing';

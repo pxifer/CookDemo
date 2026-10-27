@@ -1,3 +1,4 @@
+import { healthChatRecipes } from './health-chat-recipes';
 import Fastify, { type FastifyRequest } from 'fastify';
 import fastifyStatic from '@fastify/static';
 import swagger from '@fastify/swagger';
@@ -281,6 +282,7 @@ export async function createApp(options: {
       }
       const chatContext=repository?contentContext(await during(repository.load(options.contentRelease!),signal)):constructedContent;
       const result=await during(requestHealthChat(req.body,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
+      if(result.assessment)result.assessment.recipes=healthChatRecipes(chatContext,result.assessment,req.body.mealContext);
       const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);
       if(!active||(identity&&(typeof active!=='object'||active.userId!==identity.userId||active.mustChangePassword)))throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
       return result;
@@ -332,7 +334,7 @@ export async function createApp(options: {
     }
     try {
       let result = await recommend(context.recipes, req.body, { signal: controller.signal, localHealthTest, conversationOnly:chatHealth, context, cursorSecret: recommendationCursorSecret });
-      if(chatHealth)result={...result,healthAssessment:{state:'conversation_only',message:req.body.meal.aiFoodChoices?'已按本餐条件和你确认的 AI去疾 选择搭配；AI 建议不等于医疗结论。':'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}};
+      if(chatHealth)result={...result,healthAssessment:{state:'conversation_only',message:req.body.meal.aiFoodChoices||req.body.meal.aiExcludedFoods?.length?'已按本餐条件和你确认的 AI去疾 选择搭配；AI 建议不等于医疗结论。':'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}};
       if (modelHealth && result.status === 'unavailable' && !controller.signal.aborted) {
         if (stream && !reply.raw.destroyed) reply.raw.write(JSON.stringify({ type: 'progress', stage: '正在整理疾病信息与证据检索词' }) + '\n');
         const healthAssessment = await options.healthModel!.prepare({ subject: modelIdentity ? `account:${modelIdentity.userId}` : `guest:${subject}`,
