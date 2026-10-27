@@ -24,7 +24,7 @@ export function HealthSettings({ meal, session, diseaseText, setDiseaseText, edi
     <div className="chips">{['高血压', '糖尿病', '痛风'].map(d => <button key={d} aria-pressed={meal.diseases.includes(d)} onClick={() => toggle(d)}>{d}</button>)}</div>
     <button disabled={!diseaseText.trim() || meal.diseases.length >= 20} onClick={() => { const text = diseaseText.trim(), name = diseaseAliases[text] ?? text; if (name && !meal.diseases.includes(name)) toggle(name); setDiseaseText(''); }}>添加名称</button>
     <div className="health-names">{meal.diseases.map(d => <button key={d} aria-label={`移除疾病 ${d}`} onClick={() => toggle(d)}>{d} ×</button>)}</div>
-    <p className="small subtle">疾病名称与对话会在发送消息时提供给 DeepSeek。AI 回复仅作饮食参考。</p>
+    <p className="small subtle">疾病名称、本餐已填信息与对话会在发送消息时提供给 DeepSeek。AI 回复仅作饮食参考。</p>
     <button className="primary" onClick={enable}>{meal.health ? '完成设置' : '开启健康模式'}</button>
     {meal.health && <button onClick={() => { edit({ health: false }); close(); }}>关闭健康模式</button>}
     {message && <p role="alert">{message}</p>}

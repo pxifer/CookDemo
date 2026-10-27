@@ -48,6 +48,7 @@ export interface Meal {
   flavor: string; overrides: Record<string, string>; includeAdditional: boolean;
   checkSeasonings: boolean; seasonings: string[]; allowBuy: boolean;
   composition: 'auto' | 'custom'; counts: Record<Category, number>;
+  aiFoodChoices?: import('./health-chat').AiFoodChoices;
 }
 export interface QuantityCheck {
   foodId: string; name: string; state: 'enough' | 'shortage' | 'unverified' | 'missing';

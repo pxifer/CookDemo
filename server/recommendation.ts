@@ -9,6 +9,7 @@ import { inventoryChecks, nutrition } from '../shared/quantity';
 import { findPantryIngredient, resolvePantryFood } from '../shared/ingredient-matching';
 import { seasoningStockKey } from '../shared/pantry';
 import { compositionError, estimatedShortages, MAX_DISHES, servingReference } from '../shared/meal-planning';
+import { aiFoodMatch, aiFoodRank } from '../shared/ai-food-choices';
 import { type Dish, type Line, type Meal, type Recipe, type RecommendationRequest, type RecommendationResult, type Variant } from '../shared/types';
 
 const cursorSecret = randomBytes(32);
@@ -17,6 +18,7 @@ export class DomainError extends Error {
   constructor(public code: string, public statusCode: number, message: string) { super(message); }
 }
 export function assertMeal(meal: Meal, context: ContentContext = constructedContent) {
+  if(meal.health&&meal.aiFoodChoices)for(const name of [...meal.aiFoodChoices.preferred,...meal.aiFoodChoices.limited,...meal.aiFoodChoices.excluded])if(!context.restrictionTargets(name).length)throw new DomainError('AI_FOOD_UNRESOLVED',400,'AI去疾 中有未匹配食材，请重新核对选择');
   if (meal.flavor !== '不限' && !availableFlavors(context.recipes).includes(meal.flavor)) throw new DomainError('INVALID_FLAVOR', 400, '所选口味不在当前菜谱目录中，请重新选择');
   if (!Number.isInteger(meal.servings) || meal.servings < 1 || meal.servings > 12) throw new DomainError('INVALID_SERVINGS', 400, '人数须为 1～12 的整数');
   const countError = compositionError(meal);
@@ -82,6 +84,7 @@ function actualLines(variant: Variant, meal: Meal, context: ContentContext) {
 }
 export function checkDish(recipe: Recipe, variant: Variant, meal: Meal, context: ContentContext = constructedContent): { dish?: Dish; reasons: string[] } {
   if (recipe.state !== 'published') return { reasons: ['菜谱已停用'] };
+  if(meal.health&&meal.aiFoodChoices?.excluded.some(name=>aiFoodMatch(variant,name,context)))return {reasons:[`${recipe.name}：命中本餐 AI去疾 排除选择`]};
   const targets = new Set(activeRestrictions(meal).flatMap(r => r.targets));
   if(context.restrictionScope==='listed-foods'){
     const targetFoods=[...targets].flatMap(id=>context.foodById.get(id)?[context.foodById.get(id)!]:[]);
@@ -129,7 +132,7 @@ function compareCandidateRelevance(left:ReturnType<typeof candidateRelevance>,ri
     || right.exact - left.exact
     || right.homeStyle-left.homeStyle || left.buying-right.buying;
 }
-export async function recommend(catalog: Recipe[], req: RecommendationRequest, options: { signal?: AbortSignal; maxNodes?: number; deadlineMs?: number; beforePublish?: () => void; localHealthTest?: boolean; context?: ContentContext; cursorSecret?: Uint8Array } = {}): Promise<RecommendationResult> {
+export async function recommend(catalog: Recipe[], req: RecommendationRequest, options: { signal?: AbortSignal; maxNodes?: number; deadlineMs?: number; beforePublish?: () => void; localHealthTest?: boolean; conversationOnly?:boolean; context?: ContentContext; cursorSecret?: Uint8Array } = {}): Promise<RecommendationResult> {
   const start = performance.now(), meal = req.meal, context = options.context ?? constructedContent;
   const sign = (value: unknown) => fingerprint(value, options.cursorSecret ?? cursorSecret);
   assertMeal(meal, context);
@@ -145,7 +148,11 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   const dishRanks=new Map<string,number>();
   const dishRank=(id:string)=>{if(!dishRanks.has(id))dishRanks.set(id,rank(id));return dishRanks.get(id)!;};
   const variedOrder = (a: Dish, b: Dish) => dishRank(a.recipe.id) - dishRank(b.recipe.id);
-  const businessOrder = (a: Dish, b: Dish) => compareDish(a,b) || variedOrder(a,b);
+  const useAiRank=meal.health&&Boolean(meal.aiFoodChoices?.preferred.length||meal.aiFoodChoices?.limited.length);
+  const aiRanks=new Map<string,ReturnType<typeof aiFoodRank>>();
+  const aiRank=(dish:Dish)=>{if(!aiRanks.has(dish.variant.id))aiRanks.set(dish.variant.id,aiFoodRank(dish.variant,meal,context));return aiRanks.get(dish.variant.id)!;};
+  const aiOrder=(a:Dish,b:Dish)=>useAiRank?(aiRank(a).limited-aiRank(b).limited||aiRank(b).preferred-aiRank(a).preferred):0;
+  const businessOrder = (a: Dish, b: Dish) => aiOrder(a,b) || compareDish(a,b) || variedOrder(a,b);
   let nodes = 0;
   const result = (values: Partial<RecommendationResult>): RecommendationResult => ({
     operationId: req.operationId, mealVersion: meal.version, contentVersion: context.contentVersion,
@@ -158,7 +165,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   if (pending.length) return result({ status: 'needs_confirmation', reasons: pending.map(r => `请核对限制：${r.name}`) });
   if (meal.ingredients.some(i => i.status === 'conflict')) return result({ status: 'needs_confirmation', reasons: ['同名食材数量或计量基准冲突，请逐项核对'] });
   if (!meal.ingredients.some(i => i.status === 'confirmed' && i.foodId) && !buyWithoutInventory(meal)) return result({ status: 'needs_confirmation', reasons: ['请至少确认一种现有食材；也可允许补买后查看默认推荐'] });
-  if (meal.health && !options.localHealthTest) return result({ status: 'unavailable', reasons: ['真实账户与经审核的健康规则尚未准入，当前不提供健康推荐。可主动返回普通模式，过敏与忌口继续生效。'] });
+  if (meal.health && !options.localHealthTest && !options.conversationOnly) return result({ status: 'unavailable', reasons: ['真实账户与经审核的健康规则尚未准入，当前不提供健康推荐。可主动返回普通模式，过敏与忌口继续生效。'] });
   if (options.signal?.aborted) return result({ status: 'cancelled', search: 'incomplete', reasons: ['操作已取消'] });
 
   const pool: Dish[] = [];
@@ -174,7 +181,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   // Request-local scores avoid repeating ingredient matching inside every sort comparison.
   // All dishes were freshly checked above; nothing is reused across requests.
   const relevance=candidateMode?new Map(pool.map(d=>[d,candidateRelevance(d,meal,context)])):null;
-  pool.sort(relevance ? (a, b) => compareCandidateRelevance(relevance.get(a)!,relevance.get(b)!) || variedOrder(a,b) : businessOrder);
+  pool.sort(relevance ? (a, b) => aiOrder(a,b) || compareCandidateRelevance(relevance.get(a)!,relevance.get(b)!) || variedOrder(a,b) : businessOrder);
   const byRecipe=new Map<string,Dish>();
   for(const dish of pool)if(!byRecipe.has(dish.recipe.id))byRecipe.set(dish.recipe.id,dish);
   const grouped = [...byRecipe.values()];
@@ -225,7 +232,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     if (footprints.has(footprint)) return false;
     footprints.add(footprint); return true;
   });
-  let best: Dish[] = [], bestScore = -Infinity, incomplete = false;
+  let best: Dish[] = [], bestScore = -Infinity, incomplete = false,bestDistance=Infinity;
   const previousSet = [...req.previous].sort().join(',');
   const maxNodes = options.maxNodes ?? 20_000, deadline = start + (options.deadlineMs ?? 1500);
   const counts = (set: Dish[]) => ({ meat: set.filter(d => d.recipe.category === 'meat').length, veg: set.filter(d => d.recipe.category === 'veg').length, soup: set.filter(d => d.recipe.category === 'soup').length });
@@ -243,7 +250,10 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     // Diversity breaks equally good plans only; it cannot override ingredient
     // reuse, category balance, home-style preference or fewer shopping items.
     const score = primaryScore + rank(set.map(d=>d.recipe.id).sort());
-    if (score > bestScore) { best = [...set]; bestScore = score; }
+    const healthTotals=(dishes:Dish[])=>dishes.reduce((total,d)=>({limited:total.limited+aiRank(d).limited,preferred:total.preferred+aiRank(d).preferred}),{limited:0,preferred:0});
+    const a=useAiRank?healthTotals(set):{limited:0,preferred:0},b=useAiRank?healthTotals(best):a;
+    const healthTie=useAiRank&&set.length===best.length&&distance===bestDistance?(a.limited-b.limited||b.preferred-a.preferred):0;
+    if (healthTie<0 || (healthTie===0&&score > bestScore)) { best = [...set]; bestScore = score;bestDistance=distance; }
   };
   // Seed a complete plan early, so larger requests do not depend on DFS ordering.
   const desired = meal.composition === 'custom' ? meal.counts : guide.counts;
@@ -282,7 +292,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
         // Category distance is at least abs(total - reference total).
         upperScore = Math.max(upperScore, target * 1_000_000 - (n - target) * 7000 + maxKinds * 3000 + n * 100);
       }
-      if (upperScore + 1 <= bestScore) return;
+      if (!useAiRank && upperScore + 1 <= bestScore) return;
     }
     for (let i = from; i < remaining.length; i++) {
       if (incomplete || options.signal?.aborted) break;

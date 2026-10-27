@@ -20,7 +20,8 @@ export const mealSchema = object({
   flavor: { type: 'string', minLength: 1, maxLength: 100 }, overrides: { type: 'object', maxProperties: 100, additionalProperties: string(100), propertyNames: { pattern: '^[a-z0-9-]+$' } },
   includeAdditional: boolean, checkSeasonings: boolean, seasonings: array(string(80), 50), allowBuy: boolean,
   composition: enumOf('auto', 'custom'), counts: object({ meat: integer(0, 20), veg: integer(0, 20), soup: integer(0, 20) }),
-});
+  aiFoodChoices: object({preferred:array({...string(40),minLength:1},20),limited:array({...string(40),minLength:1},20),excluded:array({...string(40),minLength:1},20)}),
+}, ['aiFoodChoices']);
 export const selectedSchema = array(object({ recipeId: string(80), variantId: string(100) }), 20);
 export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50)});
 export const recommendationSchema = object({

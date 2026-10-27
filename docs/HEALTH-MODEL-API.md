@@ -1,15 +1,27 @@
 # 健康模式模型 API 入口
 
-日期：2026-10-27。最新D19-04已开放登录用户个人Key健康AI对话，模型为DeepSeek；填写不调用，用户发送才调用。独立的服务端查询准备仍默认MODEL_ENABLED=0，本站RAG疾病筛选尚未上线。
+日期：2026-10-27。D19-04开放登录用户个人Key健康AI对话，D19-05增加独立AI去疾确认筛选和调用凭证，模型为DeepSeek；填写不调用，用户发送才调用。独立的服务端查询准备仍默认MODEL_ENABLED=0，本站RAG疾病筛选尚未上线。
+
+## D19-05 当前流程：了解健康情况 → 确认AI去疾 → 本餐搭配
+
+AI现在按已给疾病/身体问题进行必要补问，结构化返回reply、clarify/advice阶段及最多8个食材候选，逐项包含prefer/limit/avoid方向、原因和适用条件。模型只提出建议；本餐上下文包含已确认食材名、调料及是否检查、现有过敏/忌口名、补买开关、人数与已填疾病，不上传原图或完整原始录入。用户在对话框可看到已传信息范围。
+
+用户明确要求新的独立排除叫“AI去疾”。建议等待用户同意，不写过敏/忌口。`Meal.aiFoodChoices`为可选字段，preferred/limited/excluded分别最多20个目录可匹配食材名；仅本餐，关闭健康模式暂停，账户个人设置不包含它。excluded过滤变体明列配料（含调料/可选项）；软偏好只在已满足库存、原硬限制、补买及配菜目标的方案间排序。用户可“同意选择并重新搭配”或只应用不搭配，不自动添加库存或开启补买。
+
+每次成功回复额外返回`invocation`：DeepSeek requestId、实际model、prompt/completion/total tokens、时间。字段必须由供应商响应给出且通过校验，无凭证/乱JSON/截断不当作成功；不生成假ID或估算usage。页面只显示Key末4位作核对，完整Key仍不保存。旧版未记录id/usage，不能从历史认领表证明某次模型响应或解释用户私有后台无记录的原因。
+
+AI文字安全显示段落、强调及列表，不执行HTML、脚本、远程图片或可执行链接。固定DeepSeek域名，不注入测试fetch或本地答案。真实账号控制台用量需以对应Key账号及供应商返回的用量核对。模型当前仍是一般知识参考，未声称已接RAG。
+
+本轮验证与发布见[AI去疾交付](ACCEPTANCE-ai-food-guidance-2026-10-27.md)。下列D19-04说明为前轮接口边界，输出格式/上限以当前实现为准。
 
 ## 当前开放：登录用户自备Key的健康AI对话（D19-04）
 
 用户已要求开放健康模式、登录后填写API并与AI对话。当前入口不再显示“健康推荐暂不可用”：登录/注册后返回健康设置，填写DeepSeek API Key，开启后在工作台推荐区顶部显示可收起的对话框；手机自然排列。疾病选填，多轮对话、取消、清空、换Key及错误反馈已实现。
 
 - `POST /api/v1/health/chat`：同源JSON，已有Cookie及`X-CSRF-Token`；字段为`operationId`（UUID）、`apiKey`（sk-前缀）、`messages`（user/assistant交替，末条user）、`diseases`（可空）。前端不选择URL、模型或system消息。
-- 固定`https://api.deepseek.com/chat/completions`、`deepseek-flash`，关闭思考，输出1600token上限；应用总截止17秒，取消传递至上游，单次发送无自动重试。最多15条上下文、合计16000字符，当前问题最多2000字符。
+- 固定`https://api.deepseek.com/chat/completions`、`deepseek-flash`，关闭思考，输出2000token上限；应用总截止17秒，取消传递至上游，单次发送无自动重试。最多15条上下文、合计16000字符，当前问题最多2000字符。
 - Key仅浏览器当前页面内存与本次同源请求内存，不写localStorage/sessionStorage、账户、数据库或日志。刷新、离开页面、关闭模式或退出登录即清除；**未提供永久保存Key功能**。填写/开启本身不调用模型，点击发送才使用用户自己的DeepSeek额度，不使用平台Key。
-- 对话历史仅本页内存；提交时携带裁剪后的对话与用户填的疾病，不自动上传本餐原始文字、图片或个人档案。回复按纯文本渲染，不执行HTML或模型工具。
+- 对话历史仅本页内存；提交时携带裁剪后的对话、疾病及前述已披露的本餐结构化上下文，不自动上传本餐原始文字、图片或个人档案。回复安全格式化Markdown段落、强调和列表，不执行HTML或模型工具。
 - 公网通过真实账户验证，并由`CloudBaseAccounts.claimAiChat`调用PG RPC `shiwei_ai_chat_claim`做共享单次认领、每账户滚动每分钟6次/24小时120次限额；只存owner、operation UUID、HMAC指纹及时间。认证角色不能更新/删除活动记录，不保存Key/疾病/消息正文。RPC按账户行锁串行化，不在等待模型时持有事务。记录需按后续运维保留策略由有权管理员清理，当前不宣称自动定时删除。
 - `healthChatAvailable`表示对话入口；`healthModelAvailable`仍表示下文的服务端查询准备配置，二者不同。聊天无需`MODEL_ENABLED=1`或平台`.env` Key。本机显式测试身份可用内存单次认领，不能当成公网共享账本。
 - 旧`HealthModel.prepare`接口继续保留，不自动触发用户Key；云端未配置该服务端模型。健康模式下菜谱可正常按食材/食品级过敏忌口搭配，返回`healthAssessment.state=conversation_only`。AI对话与推荐互不静默改写，RAG/疾病规则筛选仍未上线。

@@ -279,7 +279,8 @@ export async function createApp(options: {
         if(localChatClaims.size>=3000)throw new DomainError('CHAT_BUSY',429,'本机测试对话已满，请稍后再试');
         localChatClaims.set(key,Date.now());
       }
-      const result=await during(requestHealthChat(req.body,signal,options.healthChatFetch),signal);
+      const chatContext=repository?contentContext(await during(repository.load(options.contentRelease!),signal)):constructedContent;
+      const result=await during(requestHealthChat(req.body,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
       const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);
       if(!active||(identity&&(typeof active!=='object'||active.userId!==identity.userId||active.mustChangePassword)))throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
       return result;
@@ -330,8 +331,8 @@ export async function createApp(options: {
       reply.raw.write(JSON.stringify({ type: 'progress', stage: '输入格式已校验，正在核对目录与库存' }) + '\n');
     }
     try {
-      let result = await recommend(context.recipes, chatHealth ? {...req.body,meal:{...req.body.meal,health:false}} : req.body, { signal: controller.signal, localHealthTest, context, cursorSecret: recommendationCursorSecret });
-      if(chatHealth)result={...result,healthAssessment:{state:'conversation_only',message:'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}};
+      let result = await recommend(context.recipes, req.body, { signal: controller.signal, localHealthTest, conversationOnly:chatHealth, context, cursorSecret: recommendationCursorSecret });
+      if(chatHealth)result={...result,healthAssessment:{state:'conversation_only',message:req.body.meal.aiFoodChoices?'已按本餐条件和你确认的 AI去疾 选择搭配；AI 建议不等于医疗结论。':'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}};
       if (modelHealth && result.status === 'unavailable' && !controller.signal.aborted) {
         if (stream && !reply.raw.destroyed) reply.raw.write(JSON.stringify({ type: 'progress', stage: '正在整理疾病信息与证据检索词' }) + '\n');
         const healthAssessment = await options.healthModel!.prepare({ subject: modelIdentity ? `account:${modelIdentity.userId}` : `guest:${subject}`,

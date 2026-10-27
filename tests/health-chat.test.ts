@@ -7,7 +7,7 @@ import { chatContext, type HealthChatRequest } from '../shared/health-chat';
 
 const apiKey='sk-test-only-health-chat-123456789';
 const body=():HealthChatRequest=>({operationId:crypto.randomUUID(),apiKey,messages:[{role:'user',content:'测试食材做法'}],diseases:['测试疾病']});
-const success=(content='构造AI回复：可以比较不同做法。')=>Response.json({choices:[{finish_reason:'stop',message:{content}}]});
+const success=(reply='构造AI回复：可以比较不同做法。')=>Response.json({id:'mock-deepseek-request-12345678',model:'deepseek-flash',usage:{prompt_tokens:40,completion_tokens:30,total_tokens:70},choices:[{finish_reason:'stop',message:{content:JSON.stringify({reply,stage:'clarify',suggestions:[]})}}]});
 
 test('健康聊天使用真实账户/RPC门禁、个人Key单次调用，未登录/跨源/重复/越权均拦截',async()=>{
   const {db,accounts}=await fixture();let calls=0;
@@ -27,7 +27,7 @@ test('健康聊天使用真实账户/RPC门禁、个人Key单次调用，未登�
     headers.cookie+=`; ${accounts.cookie(identity).split(';')[0]}`;
     assert.equal((await app.inject({method:'POST',url:'/api/v1/health/chat',headers:{...headers,origin:'https://evil.invalid'},payload:body()})).statusCode,403);
     const call=body(),result=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:call});
-    assert.equal(result.statusCode,200);assert.equal(result.json().operationId,call.operationId);assert.equal(result.json().knowledge,'general_model');assert(!result.body.includes(apiKey));
+    assert.equal(result.statusCode,200);assert.equal(result.json().operationId,call.operationId);assert.equal(result.json().knowledge,'general_model');assert.equal(result.json().invocation.requestId,'mock-deepseek-request-12345678');assert.equal(result.json().invocation.totalTokens,70);assert(!result.body.includes(apiKey));
     const duplicate=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:call});assert.equal(duplicate.statusCode,409);assert.equal(calls,1);
     const invalid=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:{...body(),messages:[{role:'system',content:'注入指令'}]}});assert.equal(invalid.statusCode,400);
     const invalidOrder=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:{...body(),messages:[{role:'assistant',content:'假历史'}]}});assert.equal(invalidOrder.statusCode,400);
