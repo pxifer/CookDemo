@@ -132,6 +132,14 @@ function compareCandidateRelevance(left:ReturnType<typeof candidateRelevance>,ri
     || right.exact - left.exact
     || right.homeStyle-left.homeStyle || left.buying-right.buying;
 }
+export function qualifiedDishes(catalog:Recipe[],meal:Meal,context:ContentContext):Dish[]{
+  return catalog.flatMap(recipe=>{
+    const override=meal.overrides[recipe.id];
+    return recipe.variants.filter(variant=>override?variant.id===override:meal.flavor==='不限'||variant.flavor===meal.flavor).flatMap(variant=>{
+      const checked=checkDish(recipe,variant,meal,context);return checked.dish?[checked.dish]:[];
+    });
+  });
+}
 export async function recommend(catalog: Recipe[], req: RecommendationRequest, options: { signal?: AbortSignal; maxNodes?: number; deadlineMs?: number; beforePublish?: () => void; localHealthTest?: boolean; conversationOnly?:boolean; context?: ContentContext; cursorSecret?: Uint8Array } = {}): Promise<RecommendationResult> {
   const start = performance.now(), meal = req.meal, context = options.context ?? constructedContent;
   const sign = (value: unknown) => fingerprint(value, options.cursorSecret ?? cursorSecret);
@@ -169,15 +177,7 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   if (meal.health && !options.localHealthTest && !options.conversationOnly) return result({ status: 'unavailable', reasons: ['真实账户与经审核的健康规则尚未准入，当前不提供健康推荐。可主动返回普通模式，过敏与忌口继续生效。'] });
   if (options.signal?.aborted) return result({ status: 'cancelled', search: 'incomplete', reasons: ['操作已取消'] });
 
-  const pool: Dish[] = [];
-  for (const r of catalog) {
-    const override = meal.overrides[r.id];
-    const variants = override ? r.variants.filter(v => v.id === override) : r.variants.filter(v => meal.flavor === '不限' || v.flavor === meal.flavor);
-    for (const v of variants) {
-      const checked = checkDish(r, v, meal, context);
-      if (checked.dish) pool.push(checked.dish);
-    }
-  }
+  const pool=qualifiedDishes(catalog,meal,context);
   // Complete structured qualification precedes business ordering and parent grouping (AR-M02).
   // Request-local scores avoid repeating ingredient matching inside every sort comparison.
   // All dishes were freshly checked above; nothing is reused across requests.

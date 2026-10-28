@@ -7,6 +7,11 @@ const app=await createApp({accounts,origin:'http://127.0.0.1:4198',environment:'
   const key=new Headers(init?.headers).get('authorization')??'';
   if(key.includes('rejected'))return new Response('private upstream error',{status:401});
   const input=JSON.parse(String(init?.body)),messages=input.messages.filter((m:any)=>m.role!=='system');
+  let packet:any;try{packet=JSON.parse(messages.at(-1).content);}catch{}
+  if(packet?.task==='recipe_selection'){
+    const remaining={...packet.categories};const selected=packet.mode==='options'?packet.catalog.slice(0,packet.max):packet.catalog.filter((dish:any)=>{if(remaining[dish.category]>0){remaining[dish.category]--;return true;}return false;}).slice(0,packet.count);
+    return Response.json({id:'mock-recipe-selection-'+crypto.randomUUID(),model:'deepseek-flash',usage:{prompt_tokens:180,completion_tokens:80,total_tokens:260},choices:[{finish_reason:'stop',message:{content:JSON.stringify({summary:'构造AI选菜：结合已填食材、调料、补买许可与健康档案选择。',choices:selected.map((dish:any)=>({id:dish.id,reason:'构造AI理由：复用现有食材，结合已保存目标及明列做法。'}))})}}]});
+  }
   if(messages.at(-1).content==='测试慢回复')await new Promise<void>((resolve,reject)=>{
     const timer=setTimeout(resolve,5000);init!.signal!.addEventListener('abort',()=>{clearTimeout(timer);reject(init!.signal!.reason);},{once:true});
   });

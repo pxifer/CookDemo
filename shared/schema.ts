@@ -33,6 +33,6 @@ export const personalSettingsSchema = object({flavor:mealSchema.properties.flavo
 export const recommendationSchema = object({
   operationId: { type: 'string', minLength: 8, maxLength: 80, pattern: '^[a-zA-Z0-9-]+$' }, meal: mealSchema,
   action: enumOf('generate', 'reroll', 'replace', 'page', 'variant'), selected: selectedSchema, replaceId: string(80),
-  page: integer(0, 10000), cursor: string(100), previous: array(string(80), 20), contentVersion: string(100),
+  page: integer(0, 10000), cursor: string(20000), previous: array(string(80), 20), contentVersion: string(100),
 }, ['replaceId', 'cursor', 'contentVersion']);
 export const extractionSchema = object({ text: { type: 'string', minLength: 1, maxLength: 5000 }, contentVersion: string(100) }, ['contentVersion']);

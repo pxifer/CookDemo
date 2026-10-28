@@ -7,7 +7,7 @@ export function HealthAccountSettings({configured,last4,profile,onProfileChange,
   const save=async(value:string|null)=>{if(busy)return;setBusy(true);setMessage('');setError(false);try{await saveHealthApiKey(value);setKey('');setMessage(value?'Key 已保存，下次登录可直接使用。':'Key 已清空，健康对话已停用。');}catch(reason){setError(true);setMessage((reason as Error).message);}finally{setBusy(false);}};
   return <div className="health-account-settings"><section aria-label="模型连接"><h3>AI 模型连接</h3><p className="key-status">{configured?`DeepSeek Key 已保存 · Key 尾号 ${last4}`:'尚未配置 DeepSeek Key'}</p>
     <label htmlFor="account-health-key">DeepSeek API Key</label><input id="account-health-key" type="password" autoComplete="off" spellCheck={false} maxLength={253} value={key} onChange={event=>setKey(event.target.value.trim())} placeholder={configured?'输入新 Key 可更换':'sk-…'}/>
-    <p className="small subtle">加密保存在你的账户中，登录后自动使用。只有发送消息才调用模型，费用使用你的 DeepSeek 额度。</p>
+    <p className="small subtle">加密保存在你的账户中，登录后自动使用。发送消息或请 AI 搭配时使用你的 DeepSeek 额度。</p>
     <div className="actions"><button className="primary" disabled={busy||!/^sk-[A-Za-z0-9_-]{16,250}$/.test(key)} onClick={()=>void save(key)}>{busy?'正在保存…':configured?'更换 Key':'保存 Key'}</button>{configured&&<button disabled={busy} onClick={()=>void save(null)}>清空 Key</button>}</div>
     {message&&<p role={error?'alert':'status'}>{message}</p>}
   </section>

@@ -59,6 +59,7 @@ export interface QuantityCheck {
   reason: string; basis: Basis;
 }
 export interface Dish {
+  aiReason?: string;
   recipe: Recipe; variant: Variant; checks: QuantityCheck[];
   nutrition: Record<'kcal' | 'protein' | 'sodium', number | null>;
   reused: string[]; omitted: string[];
@@ -70,7 +71,7 @@ export interface RecommendationRequest {
   page: number; cursor?: string; previous: string[];
 }
 export interface RecommendationResult {
-  healthAssessment?: { state: 'test_only' | 'conversation_only'; message: string } | import('./health-model').HealthPreparation;
+  healthAssessment?: { state: 'test_only' | 'conversation_only' | 'model_selected'; message: string } | import('./health-model').HealthPreparation;
   operationId: string; mealVersion: number; contentVersion: string;
   status: 'completed' | 'needs_confirmation' | 'no_results' | 'unavailable' | 'cancelled';
   search: 'complete' | 'incomplete'; target: number; targetMet: boolean;

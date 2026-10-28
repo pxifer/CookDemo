@@ -1,5 +1,6 @@
 import { healthChatRecipes, expandFoodSuggestions, withoutExistingRestrictions, withoutRepeatedFoodText, mergeHealthProfile } from '../shared/health-guidance';
 import { healthTopics } from '../shared/health-topics';
+import { createHealthRecipeSelector } from './health-recipe-selection';
 import Fastify, { type FastifyRequest } from 'fastify';
 import fastifyStatic from '@fastify/static';
 import swagger from '@fastify/swagger';
@@ -74,6 +75,7 @@ export async function createApp(options: {
   accounts?: Accounts;
   healthModel?: HealthModel;
   healthChatFetch?: typeof fetch;
+  healthRecipeFetch?: typeof fetch;
 } = {}) {
   if(options.contentSource==='cloudbase' && (options.environment!=='preview'||!options.contentRepository||options.contentRelease!==GALLERY_RELEASE||!options.origin?.startsWith('https:')||!options.sessionSecret||!options.csrfSecret||options.localTestFeatures))throw new Error('CloudBase preview configuration required');
   if(options.contentRepository&&options.contentSource!=='cloudbase')throw new Error('Explicit CloudBase content source required');
@@ -95,6 +97,7 @@ export async function createApp(options: {
   const secret = options.sessionSecret ?? randomBytes(32), csrfSecret = options.csrfSecret ?? randomBytes(32);
   if (secret.length !== 32 || csrfSecret.length !== 32) throw new Error('Invalid session configuration');
   const recommendationCursorSecret = createHmac('sha256', secret).update('shiwei/recommendation-cursor/v1').digest();
+  const selectHealthRecipes=createHealthRecipeSelector(recommendationCursorSecret);
   const sign = (s: string) => createHmac('sha256', secret).update(s).digest('base64url');
   const signCsrf = (s: string) => createHmac('sha256', csrfSecret).update(s).digest('base64url');
   const equal = (a: string, b: string) => Buffer.byteLength(a) === Buffer.byteLength(b) && timingSafeEqual(Buffer.from(a), Buffer.from(b));
@@ -334,20 +337,28 @@ export async function createApp(options: {
     return {changed:true,loginRequired:true};
   });
   app.post<{ Body: RecommendationRequest }>('/api/v1/recommendations', { schema: { body: recommendationSchema } }, async (req, reply) => {
+    const budget=AbortSignal.timeout(17000);
     const subject = session(req.headers.cookie)!;
     const current = latest.get(subject);
     if (current && req.body.meal.version < current.version) throw new DomainError('STALE_MEAL', 409, '本餐已有新版本，请按当前条件重新生成');
     latest.set(subject, { version: req.body.meal.version, operation: req.body.operationId, touched: Date.now() });
     const context = contextFor(req);
-    assertMeal(req.body.meal, context);
-    const modelHealth = req.body.meal.health && Boolean(options.healthModel);
+    const modelHealth = req.body.meal.health && Boolean(options.healthModel) && !options.accounts?.claimAiChat;
     const chatHealth = req.body.meal.health && healthChatAvailable && !modelHealth;
-    const modelIdentity = modelHealth || chatHealth ? await options.accounts?.authenticate(req.headers.cookie) : undefined;
+    const modelIdentity = modelHealth || chatHealth ? await during(options.accounts?.authenticate(req.headers.cookie)??Promise.resolve(undefined),budget) : undefined;
     if ((modelHealth || chatHealth) && !modelIdentity && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式');
     if (modelIdentity?.mustChangePassword) throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
     const localHealthTest = req.body.meal.health && localTestFeatures && !modelHealth && !chatHealth;
     if (localHealthTest && !testSession(req.headers.cookie)) throw new DomainError('LOGIN_REQUIRED', 401, '请先登录，再开启健康模式测试');
+    const stored=chatHealth&&modelIdentity?await during(options.accounts!.healthKey?.(modelIdentity)??Promise.resolve(undefined),budget):undefined;
+    if(chatHealth&&modelIdentity){
+      if(!stored?.apiKey)throw new DomainError('CHAT_KEY_REQUIRED',400,'请先在个人设置中保存 DeepSeek Key，再请 AI 搭配菜品');
+      req.body.meal={...req.body.meal,healthProfile:stored.profile,aiFoodPreferences:stored.preferences,aiExcludedFoods:stored.exclusions??[],restrictions:[...new Map([...(stored.restrictions??[]),...req.body.meal.restrictions].map(item=>[JSON.stringify([item.kind,item.name,item.scope]),item])).values()]};
+    }
+    assertMeal(req.body.meal,context);
     const controller = new AbortController();
+    const signal=AbortSignal.any([controller.signal,budget]);
+    let recipeReserved=false;
     const onClose = () => { if (!reply.raw.writableEnded) controller.abort(); };
     reply.raw.on('close', onClose);
     const stream = req.headers.accept === 'application/x-ndjson';
@@ -357,8 +368,24 @@ export async function createApp(options: {
       reply.raw.write(JSON.stringify({ type: 'progress', stage: '输入格式已校验，正在核对目录与库存' }) + '\n');
     }
     try {
-      let result = await recommend(context.recipes, req.body, { signal: controller.signal, localHealthTest, conversationOnly:chatHealth, context, cursorSecret: recommendationCursorSecret });
-      if(chatHealth)result={...result,healthAssessment:{state:'conversation_only',message:req.body.meal.aiFoodChoices||req.body.meal.aiExcludedFoods?.length?'已按本餐条件和你确认的 AI去疾 选择搭配；AI 建议不等于医疗结论。':'AI 对话提供饮食参考，菜谱仍按食材、过敏和忌口搭配。'}};
+      let result = chatHealth&&modelIdentity&&stored?await during(selectHealthRecipes({request:req.body,owner:modelIdentity.userId,apiKey:stored.apiKey,context,signal,fetcher:options.healthRecipeFetch??options.healthChatFetch,present:publicDish,
+        progress:text=>{if(stream&&!reply.raw.destroyed)reply.raw.write(JSON.stringify({type:'progress',stage:text})+'\n');},
+        claim:async()=>{
+          if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(req.body.operationId))throw new DomainError('INVALID_OPERATION',400,'请重新发起本次 AI 搭配');
+          if(chatsInFlight>=4)throw new DomainError('CHAT_BUSY',429,'AI 正在处理较多请求，请稍后主动重试');
+          chatsInFlight++;recipeReserved=true;
+          const fingerprint=createHmac('sha256',secret).update('ai-recipe-selection-v1').update(JSON.stringify(req.body)).update(stored.apiKey).digest('hex');
+          const claim=await during(options.accounts!.claimAiChat!(modelIdentity,req.body.operationId,fingerprint),signal);
+          if(!claim.claimed)throw new DomainError(claim.reason==='duplicate'?'CHAT_OPERATION_USED':'CHAT_RATE_LIMIT',claim.reason==='duplicate'?409:429,claim.reason==='duplicate'?'这次 AI 搭配已提交，未重复调用模型':'发送较频繁，请稍后主动重试');
+        }
+      }),signal):await recommend(context.recipes,req.body,{signal:controller.signal,localHealthTest,conversationOnly:chatHealth,context,cursorSecret:recommendationCursorSecret});
+      if(chatHealth&&!modelIdentity)result={...result,healthAssessment:{state:'test_only',message:'本机测试的食材筛选结果，不代表真实 AI 选菜。'}};
+      if(chatHealth&&modelIdentity){
+        const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
+        if(!active||active.userId!==modelIdentity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
+        const current=await during(options.accounts!.healthKey!(active),signal);
+        if(JSON.stringify(current)!==JSON.stringify(stored))throw new DomainError('CHAT_PROFILE_CHANGED',409,'健康档案或食材选择已改变，请按当前条件重新搭配；本次未覆盖新设置');
+      }
       if (modelHealth && result.status === 'unavailable' && !controller.signal.aborted) {
         if (stream && !reply.raw.destroyed) reply.raw.write(JSON.stringify({ type: 'progress', stage: '正在整理疾病信息与证据检索词' }) + '\n');
         const healthAssessment = await options.healthModel!.prepare({ subject: modelIdentity ? `account:${modelIdentity.userId}` : `guest:${subject}`,
@@ -377,9 +404,9 @@ export async function createApp(options: {
       if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'result', result:publicResult }) + '\n'); return; }
       return publicResult;
     } catch (e) {
-      if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'error', code: e instanceof DomainError ? e.code : 'RECOMMENDATION_FAILED', message: '本次计算中断，请主动重试；原输入已保留', retryable: true, requestId: req.id }) + '\n'); return; }
+      if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'error', code: e instanceof DomainError ? e.code : 'RECOMMENDATION_FAILED', message: e instanceof DomainError?e.message:'本次计算中断，请主动重试；原输入已保留', retryable: true, requestId: req.id }) + '\n'); return; }
       throw e;
-    } finally { reply.raw.removeListener('close', onClose); }
+    } finally { if(recipeReserved)chatsInFlight--;reply.raw.removeListener('close', onClose); }
   });
   const root = options.staticRoot ?? resolve('build/web');
   if (existsSync(root)) {

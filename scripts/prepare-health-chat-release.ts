@@ -2,7 +2,7 @@ import { readFile, mkdir, copyFile, cp, writeFile, readdir } from 'node:fs/promi
 import { resolve, join, sep } from 'node:path';
 import { build } from 'esbuild';
 const source=resolve('.local-data/cloudbase-http/release-20261027-all-recipe-images-v32');
-const revision=process.argv[2]??'v44';if(!/^v(33|34|35|36|37|38|39|40|41|42|43|44)$/.test(revision))throw Error('RELEASE_REVISION');
+const revision=process.argv[2]??'v45';if(!/^v(33|34|35|36|37|38|39|40|41|42|43|44|45)$/.test(revision))throw Error('RELEASE_REVISION');
 const directory=resolve(`.local-data/cloudbase-http/release-20261027-health-chat-${revision}`);
 const previousMigrations=resolve('.local-data/cloudbase-http/listed-foods-20261026-v27/migration/cloudbase/migrations');
 const config=JSON.parse(await readFile(join(source,'cloudbaserc.json'),'utf8'));

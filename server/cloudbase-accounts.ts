@@ -19,7 +19,7 @@ export interface Accounts {
   cookie(identity:AccountIdentity|null):string;
   load(identity:AccountIdentity):Promise<AccountSnapshot>;
   save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>;
-  healthKey?(identity:AccountIdentity):Promise<{apiKey:string;profile?:HealthProfile;restrictions:import('../shared/types').Restriction[];preferences?:import('../shared/health-chat').AiFoodChoices}>;
+  healthKey?(identity:AccountIdentity):Promise<{apiKey:string;profile?:HealthProfile;restrictions:import('../shared/types').Restriction[];preferences?:import('../shared/health-chat').AiFoodChoices;exclusions?:string[]}>;
   setHealthKey?(identity:AccountIdentity,expected:number,apiKey:string|null):Promise<AccountSnapshot>;
   saveHealthGuidance?(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile):Promise<AccountSnapshot>;
   logout(identity:AccountIdentity):Promise<void>;
@@ -190,7 +190,7 @@ export class CloudBaseAccounts implements Accounts {
   async healthKey(identity:AccountIdentity){
     const current=await this.privateState(identity);
     const defaults=current.value.defaults;
-    return {apiKey:current.value.healthApiKey??'',profile:defaults?.healthProfile,restrictions:defaults?.restrictions??[],preferences:defaults?.healthProfile?.topics?combinedTopicChoices(healthTopics(defaults.healthProfile)):defaults?.aiFoodPreferences};
+    return {apiKey:current.value.healthApiKey??'',profile:defaults?.healthProfile,restrictions:defaults?.restrictions??[],preferences:defaults?.healthProfile?.topics?combinedTopicChoices(healthTopics(defaults.healthProfile)):defaults?.aiFoodPreferences,exclusions:defaults?.aiExcludedFoods??[]};
   }
   async setHealthKey(identity:AccountIdentity,expected:number,apiKey:string|null){
     if(apiKey!==null&&!/^sk-[A-Za-z0-9_-]{16,250}$/.test(apiKey))throw new DomainError('INVALID_KEY',400,'请输入以 sk- 开头的 DeepSeek API Key');

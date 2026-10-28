@@ -1,0 +1,20 @@
+{
+  "revision": "health-chat-v45",
+  "buildPassed": true,
+  "relatedTests": 84,
+  "relatedFailures": 0,
+  "browserTests": 14,
+  "browserFailures": 0,
+  "modelResponses": "constructed",
+  "realApiKeyUsed": false,
+  "providerInferenceCalls": 0,
+  "newResources": false,
+  "databaseMigrations": false,
+  "liveVerified": true,
+  "liveDesktop": true,
+  "liveMobile": true,
+  "providerRequests": 1,
+  "aiSelectionEntryChecked": true,
+  "invalidTestKeyRejected": true,
+  "liveCleanup": true
+}

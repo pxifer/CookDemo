@@ -8,7 +8,7 @@ import { aiFoodMatch } from '../shared/ai-food-choices';
 import { CloudBaseAccounts } from '../server/cloudbase-accounts';
 const execute=promisify(execFile),envId='shiwei-d2gmiun66b7dc6a4f';
 let stage='init';
-const root=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'acceptance/health-topics-2026-10-28',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
+const root=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'acceptance/ai-recipes-2026-10-28',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
 async function cli(args:string[]){
   const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024,windowsHide:true});
   const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;
@@ -16,9 +16,9 @@ async function cli(args:string[]){
 async function main(){
   await mkdir(root,{recursive:true});
   const name=`sw-chat-${randomBytes(4).toString('hex')}`,password=`Chat!9${randomBytes(9).toString('hex')}`,next=`Chat!8${randomBytes(9).toString('hex')}`;
-  const dummyKey='sk-live-ui-test-only-never-sent-12345';
+  const dummyKey='sk-live-invalid-test-key-1234567890';
   let uid:string|undefined;
-  const report={verifiedAt:new Date().toISOString(),revision:process.argv[2]??'health-chat-v44',syntheticAccount:true,desktop:false,mobile:false,keySaved:false,keyRestoredOnLogin:false,keyAbsentBrowserStorage:false,keyNotReturned:false,keyReset:false,profileRestored:false,preferencesSaved:false,preferencesRestored:false,inlineRecipeViewed:false,cancelRestored:false,sourceRemoval:false,noImages:false,noInvocationUi:false,toastDismissed:false,sharedClaim:false,duplicateRejected:false,providerCalls:0,realApiKeyUsed:false,cleanup:false};
+  const report={verifiedAt:new Date().toISOString(),revision:process.argv[2]??'health-chat-v45',syntheticAccount:true,desktop:false,mobile:false,keySaved:false,keyRestoredOnLogin:false,keyAbsentBrowserStorage:false,keyNotReturned:false,keyReset:false,profileRestored:false,preferencesSaved:false,preferencesRestored:false,inlineRecipeViewed:false,cancelRestored:false,sourceRemoval:false,noImages:false,noInvocationUi:false,toastDismissed:false,sharedClaim:false,duplicateRejected:false,providerInferenceCalls:0,providerRequests:0,aiSelectionEntryChecked:false,invalidTestKeyRejected:false,realApiKeyUsed:false,cleanup:false};
   try{
     stage='create-synthetic';const created=await cli(['user','create',name,'--password',password,'--type','externalUser','--description','一次性健康聊天入口验证，无真实Key或模型调用，结束删除']);
     uid=created.Data?.Uid??created.Uid;if(typeof uid!=='string'||!/^[a-zA-Z0-9_-]{1,128}$/.test(uid))throw Error('SYNTHETIC_ID');
@@ -59,6 +59,19 @@ async function main(){
         await expect.poll(async()=>{const value=await page.evaluate(async()=>await(await fetch('/api/v1/account/state')).json());return value.value.defaults.aiFoodPreferences.excluded;},{timeout:30000}).toEqual([others[1]]);report.cancelRestored=true;
         await expect(chat.locator('.guidance-recipes img')).toHaveCount(0);report.noImages=true;await expect(chat).not.toContainText('调用信息');report.noInvocationUi=true;
         stage=`${device}-inline-recipe`;const example=chat.getByRole('region',{name:'AI搭配食谱',exact:true}).getByRole('button').first();await example.click();await expect(page.getByRole('dialog').locator('.steps li').first()).toBeVisible();await page.keyboard.press('Escape');report.inlineRecipeViewed=true;
+        if(process.env.VERIFY_AI_RECIPE_ENTRY==='1'&&device==='desktop'){
+          stage='ai-selection-invalid-key-entry';
+          const probe=await page.evaluate(async()=>{
+            const session=await(await fetch('/api/v1/auth/session')).json(),snapshot=await(await fetch('/api/v1/account/state')).json();
+            const meal={...snapshot.value.defaults,health:true,ingredients:[],raw:'',allowBuy:true,mode:'candidates',composition:'auto',version:100,overrides:{}};
+            const response=await fetch('/api/v1/recommendations',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':session.csrfToken,Accept:'application/json'},body:JSON.stringify({operationId:crypto.randomUUID(),meal,action:'generate',selected:[],page:0,previous:[]})});
+            const body=await response.json();return {status:response.status,code:body.error?.code,hasDishes:Boolean(body.dishes?.length)};
+          });
+          report.providerRequests=1;
+          if(probe.status!==400||probe.code!=='CHAT_KEY_REJECTED'||probe.hasDishes)throw Error('AI_SELECTION_INVALID_KEY_ENTRY');
+          report.aiSelectionEntryChecked=true;report.invalidTestKeyRejected=true;
+        }
+
         if(await page.evaluate(secret=>[...Object.values(localStorage),...Object.values(sessionStorage)].some(value=>value.includes(secret)),dummyKey))throw Error('KEY_STORAGE_LEAK');report.keyAbsentBrowserStorage=true;
         if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('HORIZONTAL_OVERFLOW');await chat.screenshot({path:`${root}/live-${device}-chat.png`});
         stage=`${device}-relogin`;await page.getByRole('button',{name:'个人设置',exact:true}).click();await page.getByRole('button',{name:'退出登录',exact:true}).click();await expect(chat).toHaveCount(0);await page.getByLabel('用户名',{exact:true}).fill(name);await page.getByLabel('密码',{exact:true}).fill(next);await page.getByRole('button',{name:'登录',exact:true}).click();await expect(page.getByRole('dialog')).toContainText('DeepSeek Key 已保存',{timeout:40000});report.keyRestoredOnLogin=true;await expect(page.getByRole('region',{name:'已接受的AI食材选择',exact:true})).toContainText(preferred);report.preferencesRestored=true;
