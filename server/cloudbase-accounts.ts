@@ -3,6 +3,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import { open, seal, type Envelope } from './crypto';
 import { DomainError } from './recommendation';
 import type { HealthProfile } from '../shared/health-chat';
+import { combinedTopicChoices, healthTopics, migrateHealthProfile } from '../shared/health-topics';
 import type { AccountSnapshot, AccountValue } from '../shared/account';
 import { emptyAccount, personalSettings, settingsFields } from '../shared/account';
 import { validEmail, validUsername, validNewPassword, type RegistrationCode, type RegistrationInput, type CaptchaImage } from '../shared/registration';
@@ -153,6 +154,10 @@ export class CloudBaseAccounts implements Accounts {
   private async privateState(identity:AccountIdentity){
     const result=await this.rpc(identity,'shiwei_account_load');
     const value=result.envelope?open(result.envelope as Envelope,this.options.profileKey,identity.userId,'account-state') as AccountValue&{healthApiKey?:string}:emptyAccount();
+    if(value.defaults?.healthProfile&&!value.defaults.healthProfile.topics){
+      const profile=migrateHealthProfile(value.defaults.healthProfile,value.defaults.aiFoodPreferences,value.defaults.aiExcludedFoods);
+      value.defaults={...value.defaults,healthProfile:profile,aiFoodPreferences:combinedTopicChoices(healthTopics(profile)),aiExcludedFoods:[]};
+    }
     return {version:result.version,value:value as AccountValue&{healthApiKey?:string}};
   }
   private publicState(state:{version:number;value:AccountValue&{healthApiKey?:string}}):AccountSnapshot{
@@ -170,11 +175,22 @@ export class CloudBaseAccounts implements Accounts {
   async save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>{
     const current=await this.privateState(identity);
     if(current.version!==expected)throw new DomainError('SYNC_CONFLICT',409,'账户内容已在另一设备修改，请核对差异后再保存');
+    if(value.defaults?.healthProfile&&!value.defaults.healthProfile.topics){
+      const profile=migrateHealthProfile(value.defaults.healthProfile,value.defaults.aiFoodPreferences,value.defaults.aiExcludedFoods);
+      value={...value,defaults:{...value.defaults,healthProfile:profile,aiFoodPreferences:combinedTopicChoices(healthTopics(profile)),aiExcludedFoods:[]}};
+    }
+    if(value.defaults?.healthProfile?.topics){
+      const profile=value.defaults.healthProfile,topics=healthTopics(profile);
+      value={...value,defaults:{...value.defaults,healthProfile:{...profile,topics,suggestions:topics.flatMap(topic=>topic.suggestions).slice(-20)},aiFoodPreferences:combinedTopicChoices(topics)}};
+    }else if(value.defaults&&current.value.defaults?.healthProfile?.topics&&!value.defaults.healthProfile){
+      value={...value,defaults:{...value.defaults,aiFoodPreferences:{preferred:[],limited:[],excluded:[]},aiExcludedFoods:[]}};
+    }
     return this.writePrivate(identity,expected,{favorites:value.favorites,defaults:value.defaults?personalSettings({...value.defaults,...(!Object.hasOwn(value.defaults,'aiFoodPreferences')&&current.value.defaults?.aiFoodPreferences?{aiFoodPreferences:current.value.defaults.aiFoodPreferences}:{})}):null,...(current.value.healthApiKey?{healthApiKey:current.value.healthApiKey}:{})});
   }
   async healthKey(identity:AccountIdentity){
     const current=await this.privateState(identity);
-    return {apiKey:current.value.healthApiKey??'',profile:current.value.defaults?.healthProfile,restrictions:current.value.defaults?.restrictions??[],preferences:current.value.defaults?.aiFoodPreferences};
+    const defaults=current.value.defaults;
+    return {apiKey:current.value.healthApiKey??'',profile:defaults?.healthProfile,restrictions:defaults?.restrictions??[],preferences:defaults?.healthProfile?.topics?combinedTopicChoices(healthTopics(defaults.healthProfile)):defaults?.aiFoodPreferences};
   }
   async setHealthKey(identity:AccountIdentity,expected:number,apiKey:string|null){
     if(apiKey!==null&&!/^sk-[A-Za-z0-9_-]{16,250}$/.test(apiKey))throw new DomainError('INVALID_KEY',400,'请输入以 sk- 开头的 DeepSeek API Key');
@@ -188,7 +204,7 @@ export class CloudBaseAccounts implements Accounts {
       if(current.value.healthApiKey!==key)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已变更，本次回复未保存，请使用当前设置继续');
       if(JSON.stringify(current.value.defaults?.healthProfile)!==JSON.stringify(expectedProfile))throw new DomainError('CHAT_PROFILE_CHANGED',409,'健康档案已在其他操作中修改，本次建议未覆盖新设置');
       const defaults=current.value.defaults??personalSettings(importDefaultMeal());
-      try{return await this.writePrivate(identity,current.version,{...current.value,defaults:{...defaults,healthProfile:profile}});}
+      try{return await this.writePrivate(identity,current.version,{...current.value,defaults:{...defaults,healthProfile:profile,...(profile.topics?{aiFoodPreferences:combinedTopicChoices(healthTopics(profile))}:{})}});}
       catch(error){if(!(error instanceof DomainError&&error.code==='SYNC_CONFLICT')||attempt===2)throw error;}
     }
     throw new DomainError('SYNC_CONFLICT',409,'健康建议暂未保存，请稍后检查个人设置');

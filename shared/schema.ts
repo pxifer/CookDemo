@@ -14,8 +14,9 @@ export const restrictionSchema = object({
   id: string(80), kind: enumOf('allergy', 'avoid', 'unclassified'), name: string(200), targets: array(string(80), 50),
   status: enumOf('pending', 'confirmed', 'unknown', 'conflict'), scope: enumOf('self', 'additional'), original: string(1000),
 });
-export const healthProfileSchema=object({conditions:array({...string(100),minLength:1},20),goals:array({...string(100),minLength:1},20),notes:string(400),updatedAt:string(40),suggestions:array(object({foodName:{...string(40),minLength:1},direction:enumOf('prefer','limit','avoid'),reason:{...string(140),minLength:1},conditions:string(80),matchable:boolean}),20)});
 export const aiFoodPreferencesSchema=object({preferred:array({...string(40),minLength:1},20),limited:array({...string(40),minLength:1},20),excluded:array({...string(40),minLength:1},20)});
+const foodSuggestionSchema=object({foodName:{...string(40),minLength:1},direction:enumOf('prefer','limit','avoid'),reason:{...string(140),minLength:1},conditions:string(80),matchable:boolean,topics:array(string(120),40)},['topics']);
+export const healthProfileSchema=object({conditions:array({...string(100),minLength:1},20),goals:array({...string(100),minLength:1},20),notes:string(400),updatedAt:string(40),suggestions:array(foodSuggestionSchema,20),topics:array(object({id:string(120),kind:enumOf('condition','goal'),name:string(100),suggestions:array(foodSuggestionSchema,20),accepted:aiFoodPreferencesSchema}),40)},['topics']);
 export const mealSchema = object({
   version: integer(0, 2_147_483_647), raw: string(5000), ingredients: array(ingredientSchema), restrictions: array(restrictionSchema, 50),
   servings: integer(1, 12), mode: enumOf('meal', 'candidates'), health: boolean, diseases: array(string(100), 20),

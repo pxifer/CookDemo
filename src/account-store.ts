@@ -69,8 +69,10 @@ export async function syncAccount(retry=true){
   if(same(local,state.cloud.value))return;
   writing=true;emit({status:'saving',message:'正在保存…',local});
   try{
-    const saved=await saveAccount(state.cloud.version,local);if(epoch!==generation)return;acknowledge(saved);emit({cloud:saved,status:'ready',message:''});
-    if(!same(value(),local))timer=setTimeout(()=>void syncAccount(),100);
+    const saved=await saveAccount(state.cloud.version,local);if(epoch!==generation)return;
+    if(same(value(),local)&&!same(saved.value,local))apply(saved.value);
+    acknowledge(saved);emit({cloud:saved,status:'ready',message:''});
+    if(!same(value(),saved.value))timer=setTimeout(()=>void syncAccount(),100);
   }catch(error){
     if(epoch!==generation)return;
     if(error instanceof ApiError&&error.status===409&&retry){try{const remote=await loadAccount();if(epoch!==generation)return;const next=reconcile(value(),remote.value,state.cloud.value);apply(next);emit({cloud:remote,local:next,status:'ready',message:''});timer=setTimeout(()=>void syncAccount(false),100);}catch{if(epoch===generation)emit({status:'error',message:'暂未保存，本机修改已保留'});}}
@@ -111,10 +113,21 @@ export function acceptAccountSnapshot(snapshot:AccountSnapshot){
   apply(next);acknowledge(snapshot);emit({cloud:snapshot,local:next,status:'ready',message:''});
   if(!same(next,snapshot.value))void syncAccount();
 }
+// A chat must use the latest accepted/removal settings, including the debounce window.
+export async function flushHealthSettings(timeoutMs=5000){
+  const epoch=generation,deadline=Date.now()+timeoutMs;
+  while(Date.now()<deadline){
+    if(epoch!==generation)throw Error('登录状态已变化，请重新发送');
+    if(state.session?.identity!=='account')return;
+    if(state.status==='review')throw Error('请先处理个人设置的同步差异');
+    if(!writing){await syncAccount();if(state.status==='error')throw Error('个人设置尚未保存，请稍后再发送');if(state.cloud&&same(value(),state.cloud.value))return;}
+    await new Promise(resolve=>setTimeout(resolve,40));
+  }
+  throw Error('个人设置仍在同步，消息已保留，请稍后发送');
+}
 export async function saveHealthApiKey(apiKey:string|null){
   if(state.session?.identity!=='account'||!state.cloud)throw Error('请先登录');
-  if(writing)throw Error('个人设置正在保存，请稍后重试');
-  await syncAccount();
+  await flushHealthSettings(15000);
   if(state.status==='error'||writing)throw Error('请先完成个人设置同步，再保存Key');
   const epoch=generation;
   try{const snapshot=await updateHealthApiKey(state.cloud!.version,apiKey);if(epoch!==generation)return;acceptAccountSnapshot(snapshot);}

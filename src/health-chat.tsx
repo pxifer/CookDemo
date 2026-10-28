@@ -3,30 +3,37 @@ import React, { useEffect, useRef, useState } from 'react';
 import { sendHealthChat, ApiError } from './api';
 import { chatContext, type ChatMessage, type AiFoodChoices, type DietAssessment, type HealthChatRequest, type ProviderInvocation, type HealthProfile } from '../shared/health-chat';
 import { ChatMarkdown } from './chat-markdown';
-import { acceptAccountSnapshot } from './account-store';
+import { acceptAccountSnapshot, flushHealthSettings } from './account-store';
 import { AiFoodList, AiFoodSuggestions } from './ai-food-selection';
 
-export function HealthChat({ configured, last4, profile, initialAssessment, diseases, configure, expired, mealContext, choices, onApply, savedFoods, onSave, accepted, onAccept, recipes, onOpenRecipe }: { configured:boolean;last4?:string;profile?:HealthProfile;initialAssessment?:DietAssessment; diseases: string[]; configure: () => void; expired: () => void;mealContext?:HealthChatRequest['mealContext'];choices?:AiFoodChoices;onApply:(choices:AiFoodChoices,recommend:boolean)=>boolean;savedFoods:string[];onSave:(foods:string[])=>boolean;accepted?:AiFoodChoices;onAccept:(kind:keyof AiFoodChoices,names:string[])=>boolean;recipes:Recipe[];onOpenRecipe:(recipeId:string,variantId:string)=>void }) {
+export function HealthChat({ configured, last4, profile, initialAssessment, diseases, configure, expired, mealContext, choices, onApply, savedFoods, onSave, accepted, onAccept, recipes, onOpenRecipe }: { configured:boolean;last4?:string;profile?:HealthProfile;initialAssessment?:DietAssessment; diseases: string[]; configure: () => void; expired: () => void;mealContext?:HealthChatRequest['mealContext'];choices?:AiFoodChoices;onApply:(choices:AiFoodChoices,recommend:boolean)=>boolean;savedFoods:string[];onSave:(foods:string[])=>boolean;accepted?:AiFoodChoices;onAccept:(kind:keyof AiFoodChoices,names:string[],topicId?:string)=>boolean;recipes:Recipe[];onOpenRecipe:(recipeId:string,variantId:string)=>void }) {
   const hasProfile=Boolean(profile&&(profile.conditions.length||profile.goals.length||profile.notes||profile.suggestions.length));
   const [messages, setMessages] = useState<(ChatMessage&{invocation?:ProviderInvocation})[]>([]), [draft, setDraft] = useState(''), [pending, setPending] = useState('');
   const [assessment,setAssessment]=useState<DietAssessment|null>(initialAssessment??null);
   const [error, setError] = useState(''), [open, setOpen] = useState(true);
   const request = useRef<AbortController | null>(null), end = useRef<HTMLDivElement>(null), area = useRef<HTMLTextAreaElement>(null);
-  const clear = () => { request.current?.abort(); request.current = null; setMessages([]); setAssessment(null); setPending(''); setDraft(''); setError(''); };
+  const contextStart=useRef(0),previousTopics=useRef<string[]>([...(profile?.conditions??[]),...(profile?.goals??[])]);
+  const clear = () => { request.current?.abort(); request.current = null; contextStart.current=0;setMessages([]); setAssessment(initialAssessment??null); setPending(''); setDraft(''); setError(''); };
   const cancel = () => { const controller = request.current; request.current = null; controller?.abort(); setDraft(pending); setPending(''); setError(''); };
   useEffect(() => { clear(); return () => request.current?.abort(); }, [configured,last4]);
-  useEffect(()=>{if(initialAssessment)setAssessment(initialAssessment);else if(!pending)setAssessment(null);},[initialAssessment]);
+  useEffect(()=>{setAssessment(initialAssessment??null);},[initialAssessment]);
+  useEffect(()=>{
+    const current=[...(profile?.conditions??[]),...(profile?.goals??[])];
+    if(previousTopics.current.some(name=>!current.includes(name))){request.current?.abort();request.current=null;if(pending)setDraft(pending);setPending('');contextStart.current=messages.length;setError('');}
+    previousTopics.current=current;
+  },[profile]);
   useEffect(() => { const log = end.current?.parentElement; if (open && log) log.scrollTop = log.scrollHeight; }, [messages, pending, open]);
   const send = async () => {
     const text = draft.trim(); if (!text || !configured || request.current) return;
     const controller = new AbortController(); request.current = controller;
     setPending(text); setDraft(''); setError('');
     try {
-      const result = await sendHealthChat({ operationId: crypto.randomUUID(), diseases, profile:profile?{conditions:profile.conditions,goals:profile.goals,notes:profile.notes}:undefined, mealContext, messages: chatContext(messages.map(({role,content})=>({role,content})), text) }, controller.signal);
+      await flushHealthSettings();controller.signal.throwIfAborted();
+      const result = await sendHealthChat({ operationId: crypto.randomUUID(), diseases:profile?.conditions??[], profile:profile?{conditions:profile.conditions,goals:profile.goals,notes:profile.notes}:undefined, mealContext, messages: chatContext(messages.slice(contextStart.current).map(({role,content})=>({role,content})), text) }, controller.signal);
       if (request.current !== controller) return;
       if(result.accountSnapshot)acceptAccountSnapshot(result.accountSnapshot);
       if(result.saveError)setError(result.saveError);
-      setMessages(history => [...history, { role: 'user' as const, content: text }, {...result.message,invocation:result.invocation}].slice(-40));setAssessment(result.assessment??null);
+      setMessages(history => {const next=[...history,{role:'user' as const,content:text},{...result.message,invocation:result.invocation}];contextStart.current=Math.max(0,contextStart.current-Math.max(0,next.length-40));return next.slice(-40);});if(!result.accountSnapshot)setAssessment(result.assessment??null);
     } catch (reason) {
       if (request.current !== controller) return;
       setDraft(text);
@@ -40,9 +47,9 @@ export function HealthChat({ configured, last4, profile, initialAssessment, dise
       <details className="health-chat-note"><summary>关于这次对话</summary><p>发送时会将健康资料、对话和本餐设置提供给 DeepSeek，使用你的模型额度。健康情况、目标及食材建议会加密保存在账户；完整对话不保存。建议仅作饮食参考，本站RAG尚未接入。</p></details>
       <div className="health-chat-tools"><button onClick={configure}>模型设置</button><button onClick={clear} disabled={!messages.length && !pending && !draft}>清空本页对话</button></div>
       <div className={`health-chat-messages${!messages.length&&!pending&&hasProfile?' is-restored':''}`} role="log" aria-label="对话消息" aria-live="polite" aria-relevant="additions text">
+        {!messages.length&&!pending&&hasProfile&&!profile?.suggestions.length&&<p className="small subtle">已保留你的健康关注与目标。可以补充情况，或请 AI 按当前档案重新整理食材建议。</p>}
         {!messages.length && !pending && !hasProfile && <div className="health-chat-empty"><h3>你希望饮食帮你改善什么？</h3><p>可以说说已知疾病、医生的饮食提醒，或增肌、瘦身等目标。不清楚的部分可以跳过。</p><div className="health-chat-prompts">{['我想增肌，帮我选择食材', '我想瘦身，帮我选择食材', '按我已填的疾病和食材，帮我看看怎么选择'].map(text => <button key={text} onClick={() => { setDraft(text); area.current?.focus(); }}>{text}</button>)}</div></div>}
         {messages.map((message, i) => <div className={`health-chat-message ${message.role}`} key={i}><strong>{message.role === 'user' ? '我' : 'AI'}</strong>{message.role==='assistant'?<ChatMarkdown text={message.content}/>:<p>{message.content}</p>}
-          {message.invocation&&<details className="chat-call-receipt"><summary>DeepSeek 调用信息 · {message.invocation.totalTokens} tokens</summary><dl><dt>Key 标识</dt><dd>末4位 {last4}</dd><dt>请求ID</dt><dd>{message.invocation.requestId}</dd><dt>模型</dt><dd>{message.invocation.model}</dd><dt>输入 / 输出</dt><dd>{message.invocation.promptTokens} / {message.invocation.completionTokens} tokens</dd><dt>调用时间</dt><dd>{new Date(message.invocation.calledAt).toLocaleString('zh-CN')}</dd></dl><p>来自 DeepSeek 响应，可按填写 Key 所属账号核对用量。</p></details>}
         </div>)}
         {pending && <><div className="health-chat-message user"><strong>我</strong><p>{pending}</p></div><p role="status" className="health-chat-wait">AI 正在思考…</p></>}
         <div ref={end}/>

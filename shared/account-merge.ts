@@ -1,6 +1,7 @@
 import { emptyAiChoices, mergeAiChoices } from './ai-food-choices';
 import type { AccountValue } from './account';
 import type { Meal, Restriction } from './types';
+import { combinedTopicChoices, healthTopics, reconcileHealthProfiles } from './health-topics';
 
 export function mergeAccountValues(local:AccountValue,cloud:AccountValue):AccountValue {
   const favorites=[...new Map([...cloud.favorites,...local.favorites].map(f=>[`${f.recipeId}:${f.variantId}`,f])).values()];
@@ -40,10 +41,12 @@ export function reconcileAccountValues(local:AccountValue,remote:AccountValue,ba
       checkSeasonings:same(local.defaults.checkSeasonings,base.defaults.checkSeasonings)?remote.defaults.checkSeasonings:local.defaults.checkSeasonings,
       seasonings:same(local.defaults.seasonings,base.defaults.seasonings)?remote.defaults.seasonings:local.defaults.seasonings,
       aiFoodPreferences:same(local.defaults.aiFoodPreferences,base.defaults.aiFoodPreferences)?remote.defaults.aiFoodPreferences:same(remote.defaults.aiFoodPreferences,base.defaults.aiFoodPreferences)?local.defaults.aiFoodPreferences:reconcilePreferences(local.defaults.aiFoodPreferences,remote.defaults.aiFoodPreferences,base.defaults.aiFoodPreferences),
-      healthProfile:same(local.defaults.healthProfile,base.defaults.healthProfile)?remote.defaults.healthProfile:same(remote.defaults.healthProfile,base.defaults.healthProfile)?local.defaults.healthProfile:base.defaults.healthProfile&&(!local.defaults.healthProfile||!remote.defaults.healthProfile)?undefined:remote.defaults.healthProfile,
+      healthProfile:same(local.defaults.healthProfile,base.defaults.healthProfile)?remote.defaults.healthProfile:same(remote.defaults.healthProfile,base.defaults.healthProfile)?local.defaults.healthProfile:base.defaults.healthProfile&&(!local.defaults.healthProfile||!remote.defaults.healthProfile)?undefined:local.defaults.healthProfile&&remote.defaults.healthProfile&&base.defaults.healthProfile?reconcileHealthProfiles(local.defaults.healthProfile,remote.defaults.healthProfile,base.defaults.healthProfile):remote.defaults.healthProfile,
       aiExcludedFoods:[...new Set([...remoteFoods(local.defaults),...remoteFoods(remote.defaults)])].filter(name=>!remoteFoods(base.defaults!).includes(name)||(remoteFoods(local.defaults!).includes(name)&&remoteFoods(remote.defaults!).includes(name))),
       restrictions:same(local.defaults.restrictions,base.defaults.restrictions)?remote.defaults.restrictions:same(remote.defaults.restrictions,base.defaults.restrictions)?local.defaults.restrictions:merged.defaults!.restrictions};
   }
+  if(merged.defaults?.healthProfile?.topics)merged.defaults.aiFoodPreferences=combinedTopicChoices(healthTopics(merged.defaults.healthProfile));
+  if(merged.defaults&&base.defaults?.healthProfile&&!merged.defaults.healthProfile){merged.defaults.aiFoodPreferences=emptyAiChoices();merged.defaults.aiFoodChoices=undefined;}
   return merged;
 }
 

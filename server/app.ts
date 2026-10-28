@@ -1,4 +1,5 @@
 import { healthChatRecipes, expandFoodSuggestions, withoutExistingRestrictions, withoutRepeatedFoodText, mergeHealthProfile } from '../shared/health-guidance';
+import { healthTopics } from '../shared/health-topics';
 import Fastify, { type FastifyRequest } from 'fastify';
 import fastifyStatic from '@fastify/static';
 import swagger from '@fastify/swagger';
@@ -284,17 +285,21 @@ export async function createApp(options: {
         localChatClaims.set(key,Date.now());
       }
       const chatContext=repository?contentContext(await during(repository.load(options.contentRelease!),signal)):constructedContent;
-      const result=await during(requestHealthChat({...req.body,apiKey,profile:stored?.profile??req.body.profile,mealContext:{ingredients:[],seasonings:[],restrictions:[],allowBuy:false,...req.body.mealContext,aiFoodPreferences:stored?.preferences??req.body.mealContext?.aiFoodPreferences}},signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0),signal);
+      const currentProfile=identity?stored?.profile:req.body.profile;
+      const contextValue=(profile:HealthChatRequest['profile'])=>profile?{conditions:profile.conditions,goals:profile.goals,notes:profile.notes}:{conditions:[],goals:[],notes:''};
+      const messages=identity&&JSON.stringify(contextValue(req.body.profile))!==JSON.stringify(contextValue(currentProfile))?req.body.messages.slice(-1):req.body.messages;
+      const result=await during(requestHealthChat({...req.body,messages,apiKey,diseases:identity?stored?.profile?.conditions??[]:req.body.diseases,profile:contextValue(currentProfile),mealContext:{ingredients:[],seasonings:[],restrictions:[],allowBuy:false,...req.body.mealContext,aiFoodPreferences:identity?stored?.preferences:req.body.mealContext?.aiFoodPreferences}},signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0,healthTopics(stored?.profile,stored?.preferences)),signal);
       if(result.assessment){
         const restrictionNames=[...(stored?.restrictions??[]).map(item=>item.name),...(req.body.mealContext?.restrictions??[]).map(name=>name.replace(/^(过敏|忌口|待确认)：/,''))];
         result.assessment.suggestions=withoutExistingRestrictions(expandFoodSuggestions(result.assessment.suggestions,chatContext),restrictionNames,chatContext);
         result.message.content=withoutRepeatedFoodText(result.message.content,restrictionNames,chatContext);
         result.assessment.recipes=healthChatRecipes(chatContext,result.assessment,{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:restrictionNames});
         if(identity&&options.accounts?.saveHealthGuidance){
-          const profile=mergeHealthProfile(stored?.profile,result.assessment);
+          const previous=stored?.profile?{...stored.profile,topics:healthTopics(stored.profile,stored.preferences)}:undefined;
+          const profile=mergeHealthProfile(previous,result.assessment);
           profile.suggestions=withoutExistingRestrictions(profile.suggestions,restrictionNames,chatContext);
           try{result.accountSnapshot=await during(options.accounts.saveHealthGuidance(identity,profile,apiKey,stored?.profile),signal);}
-          catch(error){if(error instanceof DomainError&&error.code==='CHAT_KEY_CHANGED')throw error;result.saveError='本次建议暂未保存到账户，可稍后查看个人设置。';}
+          catch(error){if(error instanceof DomainError&&['CHAT_KEY_CHANGED','CHAT_PROFILE_CHANGED'].includes(error.code))throw error;result.saveError='本次建议暂未保存到账户，可稍后查看个人设置。';}
         }
       }
       const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);

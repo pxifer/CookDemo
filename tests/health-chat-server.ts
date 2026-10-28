@@ -11,12 +11,14 @@ const app=await createApp({accounts,origin:'http://127.0.0.1:4198',environment:'
     const timer=setTimeout(resolve,5000);init!.signal!.addEventListener('abort',()=>{clearTimeout(timer);reject(init!.signal!.reason);},{once:true});
   });
   const guide=messages.at(-1).content.includes('应用建议');
-  const advice={profile:{conditions:[],goals:guide?['增肌']:[],notes:''},reply:guide?'**1. 蔬菜（每天尽量多安排） **\n- **西红柿**：构造食材选择说明。\n\n是否同意将花生加入 AI去疾？':`构造AI回复：已收到 ${messages.length} 条对话消息。\n可以结合食材与烹调方式讨论。`,stage:guide?'advice':'clarify',suggestions:guide?[
+  let advice:any={profile:{conditions:[],goals:guide?['增肌']:[],notes:''},reply:guide?'**1. 蔬菜（每天尽量多安排） **\n- **西红柿**：构造食材选择说明。\n\n是否同意将花生加入 AI去疾？':`构造AI回复：已收到 ${messages.length} 条对话消息。\n可以结合食材与烹调方式讨论。`,stage:guide?'advice':'clarify',suggestions:guide?[
     {foodName:'西红柿',direction:'prefer',reason:'构造优先选择依据',conditions:''},
     {foodName:'花生',direction:'avoid',reason:'构造排除建议，等待用户同意',conditions:'仅为测试建议'},
     {foodName:'猪肉',direction:'limit',reason:'构造少选建议',conditions:''},
     {foodName:'火星草',direction:'avoid',reason:'目录外测试项',conditions:''},
   ]:[]};
+  const disease=messages.at(-1).content.includes('风湿')?'风湿病':messages.at(-1).content.includes('糖尿')?'糖尿病':null;
+  if(disease)advice={profile:{conditions:[disease],goals:[],notes:disease+'构造摘要'},reply:'已按'+disease+'整理建议，可分别接受或取消。',stage:'advice',suggestions:[{foodName:'鸡蛋',direction:disease==='风湿病'?'prefer':'avoid',reason:disease+'构造理由',conditions:'',topics:['condition:'+disease]},{foodName:'西红柿',direction:'prefer',reason:disease+'构造理由',conditions:'',topics:['condition:'+disease]}]};
   return Response.json({id:'mock-deepseek-'+crypto.randomUUID(),model:'deepseek-flash',usage:{prompt_tokens:100,completion_tokens:80,total_tokens:180},choices:[{finish_reason:'stop',message:{content:JSON.stringify(advice)}}]});
 }});
 await app.listen({host:'127.0.0.1',port:4198});

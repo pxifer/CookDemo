@@ -1,11 +1,12 @@
 export interface ChatMessage { role: 'user' | 'assistant'; content: string }
 export interface AiFoodChoices { preferred: string[]; limited: string[]; excluded: string[] }
-export interface FoodSuggestion { foodName: string; direction: 'prefer' | 'limit' | 'avoid'; reason: string; conditions: string; matchable: boolean }
+export interface FoodSuggestion { foodName: string; direction: 'prefer' | 'limit' | 'avoid'; reason: string; conditions: string; matchable: boolean; topics?:string[] }
 export interface ProviderInvocation { provider: 'DeepSeek'; requestId: string; model: string; promptTokens: number; completionTokens: number; totalTokens: number; calledAt: string }
 export interface SuggestedRecipe {recipeId:string;variantId:string;name:string;flavor:string;matchedFoods:string[]}
 export interface HealthContext { conditions:string[];goals:string[];notes:string }
-export interface HealthProfile extends HealthContext { suggestions:FoodSuggestion[];updatedAt:string }
-export interface DietAssessment { profile?:HealthContext; recipes?:SuggestedRecipe[]; stage: 'clarify' | 'advice'; suggestions: FoodSuggestion[] }
+export interface HealthTopic { id:string;kind:'condition'|'goal';name:string;suggestions:FoodSuggestion[];accepted:AiFoodChoices }
+export interface HealthProfile extends HealthContext { suggestions:FoodSuggestion[];updatedAt:string;topics?:HealthTopic[] }
+export interface DietAssessment { profile?:HealthContext; recipes?:SuggestedRecipe[]; stage: 'clarify' | 'advice'; suggestions: FoodSuggestion[]; topics?:HealthTopic[] }
 export interface HealthChatRequest {
   operationId: string;
   apiKey?: string;
