@@ -44,7 +44,7 @@
 
 ## 4. Conventions
 
-- **多 Agent 协作**：先读[协作流程](docs/collaboration/README.md)与[任务登记](docs/collaboration/tasks.md)。用户已改为本地 Git 提交审核，不依赖 GitHub PR；系统逻辑与 AI agent 可从同一已确认本地基线，在独立 worktree、独立任务分支并行开发并提交，不能直接改 main 或自行合并。管理 chat 按完整 SHA 审查、串行合并并复验本地 main，新提交使旧结论失效；不自动推送、部署或进行云端/付费测试。初始化仍等待原开发完成且用户通知，不能从未验收旧基线开工。
+- **多 Agent 协作**：先读[协作流程](docs/collaboration/README.md)与[任务登记](docs/collaboration/tasks.md)。使用本地 Git 提交审核，不依赖 GitHub PR；系统逻辑与 AI agent 从同一已确认本地基线，在独立 worktree、独立任务分支并行开发并提交，不能直接改 main 或自行合并。管理 chat 自主审核初始化基线及后续提交，按完整 SHA 验证、串行合并并复验本地 main；无需再等用户通知，新提交使旧结论失效。不自动推送、部署或进行云端/付费测试；初始化通过前不从未验收旧基线开工。
 
 - 开始先检查 Git 状态及相关实现，保留已有改动；沿用现有小写 kebab-case 文件名、TypeScript strict 和模块边界。
 - 依据顺序：当前用户指示与明确后续决定 → [决策日志](docs/product/decision-log.md) → 未被替代的 [PRD](docs/product/PRD.md)；历史设计、审查建议和验收只代表当时范围。
