@@ -1,0 +1,15 @@
+{
+  "releaseDirectory": "release-20261024-account-v11",
+  "functionName": "shiwei-http-preview",
+  "status": "Active",
+  "runtime": "Nodejs24.11",
+  "compositionRelease": "composition-review-20261024-v4",
+  "compositionHash": "b098f5a0f939c20f5d8bd106a4733834bb40d211673fb82975f0cb37b9149d02",
+  "configurationMatchesPrepared": true,
+  "sessionCsrfProfileKeysPreserved": true,
+  "publicRegistrationPreserved": true,
+  "freePackage": "baas_trial",
+  "enableOverrun": false,
+  "autoRenew": false,
+  "secretsPrinted": false
+}

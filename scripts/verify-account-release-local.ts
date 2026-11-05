@@ -8,7 +8,7 @@ async function main(){
   const db=new PGlite();
   try{
     await db.exec("CREATE ROLE anon;CREATE ROLE authenticated;CREATE ROLE service_role;CREATE SCHEMA auth;CREATE FUNCTION auth.uid() RETURNS text LANGUAGE sql AS $$ SELECT nullif(current_setting('request.jwt.claim.sub',true),'') $$;GRANT USAGE ON SCHEMA auth TO authenticated;");
-    await db.exec(await readFile('deploy/db/gallery-http-release.sql','utf8'));
+    await db.exec(await readFile('deployment/db/gallery-http-release.sql','utf8'));
     await db.query('INSERT INTO shiwei_gallery_releases(release_id,checksum,payload,published) VALUES($1,$2,$3,true)',['gallery-preview-20261023','a'.repeat(64),{}]);
     await db.exec(await readFile(migration,'utf8'));
     await db.exec('SET ROLE anon');
@@ -20,7 +20,7 @@ async function main(){
     console.log(JSON.stringify({localMigrationPassed:true,counts:counts.rows[0],anonPrivateDenied:denied,sourceFactsOnly:true}));
   }finally{await db.close();}
   const target=join(directory,'migration');await mkdir(target,{recursive:false});
-  await cp('.local-data/cloudbase-http/release-20261023/migration/cloudbase',join(target,'cloudbase'),{recursive:true});
-  await copyFile(migration,join(target,'cloudbase/migrations/20261024010000_account_ingredients.sql'));
+  await cp('.local-data/cloudbase-http/release-20261023/migration/cloudbase',join(target,'deployment/cloudbase'),{recursive:true});
+  await copyFile(migration,join(target,'deployment/cloudbase/migrations/20261024010000_account_ingredients.sql'));
 }
 main().catch(()=>{console.error('ACCOUNT_RELEASE_LOCAL_VERIFY_FAILED');process.exitCode=1;});

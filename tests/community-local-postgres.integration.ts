@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {connectDatabase} from '../server/db';
-import {ContentRepository} from '../server/content-repository';
-import {createApp} from '../server/app';
+import {connectDatabase} from '../backend/src/db';
+import {ContentRepository} from '../backend/src/content-repository';
+import {createApp} from '../backend/src/app';
 import {reviewedContent,REVIEWED_RELEASE} from '../scripts/lib/reviewed-content';
 import {defaultMeal} from '../shared/types';
 import {request} from './fixtures';
@@ -20,12 +20,13 @@ test('本机真实社区发布：只读应用账号回读、真实推荐、约�
     const repo=new ContentRepository(db),actual=await repo.load(REVIEWED_RELEASE),expected=await reviewedContent();
     const canonical=(recipes:typeof actual.recipes)=>recipes.map(r=>({...r,variants:r.variants.map(v=>({...v,lines:v.lines.map(l=>({...l,optional:!!l.optional}))}))})).sort((a,b)=>a.id.localeCompare(b.id));
     assert.equal(actual.contentState,'database-reviewed');assert.deepEqual(canonical(actual.recipes),canonical(expected.recipes));
+    assert(actual.recipes.every(r=>r.source.kind==='community'&&r.source.reviewBasis==='source-and-structure'));
     assert(actual.foods.every(f=>Object.keys(f.nutrition).length===0));
     const privilege=await db.query<{write:boolean}>("SELECT has_table_privilege(current_user,'catalog_recipes','INSERT') AS write");
     assert.equal(privilege.rows[0].write,false);
     const catalog=await app.inject('/api/v1/catalog/recipes');assert.equal(catalog.statusCode,200);
     assert.equal(catalog.json().contentVersion,REVIEWED_RELEASE);assert.equal(catalog.json().recipes.length,3);
-    assert(catalog.json().recipes.every((r:any)=>r.source.kind==='community'&&r.source.reviewBasis==='source-and-structure'));
+    assert(catalog.json().recipes.every((r:any)=>r.source===undefined&&typeof r.publicAttribution?.label==='string'&&r.publicAttribution.label.length>0),'公开接口保留出处署名，不暴露后台审核元数据');
     const session=await app.inject('/api/v1/auth/session');
     const headers={cookie:String(session.headers['set-cookie']).split(';')[0],origin,'x-csrf-token':session.json().csrfToken};
     const meal=defaultMeal();meal.allowBuy=true;meal.mode='candidates';

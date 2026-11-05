@@ -1,0 +1,91 @@
+
+Running 8 tests using 1 worker
+
+  x  1 [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 (9.1s)
+  ok 2 [desktop] › tests\business-browser.spec.ts:34:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱 (761ms)
+  ok 3 [desktop] › tests\business-browser.spec.ts:47:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 (1.7s)
+  ok 4 [desktop] › tests\business-browser.spec.ts:65:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效 (1.7s)
+  x  5 [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 (9.2s)
+  ok 6 [mobile] › tests\business-browser.spec.ts:34:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱 (904ms)
+  ok 7 [mobile] › tests\business-browser.spec.ts:47:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 (1.7s)
+  ok 8 [mobile] › tests\business-browser.spec.ts:65:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效 (1.5s)
+
+
+  1) [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ──────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')
+    Expected: visible
+    Timeout: 7000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜') with timeout 7000ms
+      - waiting for getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')
+
+
+      23 |   await dialog.getByRole('button',{name:'关闭弹层'}).click();
+      24 |   await card.getByLabel('构造西葫芦小炒口味').selectOption('local-zucchini-spicy');
+    > 25 |   await expect(page.getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')).toBeVisible();
+         |                                                                               ^
+      26 |   await page.getByTestId('recipe-card').getByRole('button',{name:'收藏 构造西葫芦小炒',exact:true}).click();
+      27 |   await page.reload();await page.getByRole('link',{name:/我的收藏/}).click();
+      28 |   const reopened=await openSavedRecipe(page,'构造西葫芦小炒');await expect(reopened.locator('.detail-meta')).toContainText('微辣');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:25:79
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ───────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')
+    Expected: visible
+    Timeout: 7000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜') with timeout 7000ms
+      - waiting for getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')
+
+
+      23 |   await dialog.getByRole('button',{name:'关闭弹层'}).click();
+      24 |   await card.getByLabel('构造西葫芦小炒口味').selectOption('local-zucchini-spicy');
+    > 25 |   await expect(page.getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')).toBeVisible();
+         |                                                                               ^
+      26 |   await page.getByTestId('recipe-card').getByRole('button',{name:'收藏 构造西葫芦小炒',exact:true}).click();
+      27 |   await page.reload();await page.getByRole('link',{name:/我的收藏/}).click();
+      28 |   const reopened=await openSavedRecipe(page,'构造西葫芦小炒');await expect(reopened.locator('.detail-meta')).toContainText('微辣');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:25:79
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ───────────────────
+    [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ────────────────────
+  6 passed (37.6s)

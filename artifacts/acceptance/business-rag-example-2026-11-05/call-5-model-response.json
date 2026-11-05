@@ -1,0 +1,28 @@
+{
+  "id": "b14c92d7-a7e7-4877-a36f-caf0c0a63a43",
+  "object": "chat.completion",
+  "created": 1793859551,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"本餐共选3道：1道白菜豆腐汤、2道蔬菜。优先用已备的豆腐和白菜，尽量选蒸煮、凉拌类做法，少选需大量煎炒的菜；所有调料和食材均在现有条件内，无需补买。\",\"choices\":[{\"id\":\"c3\",\"reason\":\"正好复用已备的白菜和豆腐，汤品以水煮为主，与减脂和高脂血症关注的蒸煮优先方向一致，味道清鲜。\"},{\"id\":\"c1\",\"reason\":\"只用已备白菜心，主料为新鲜蔬菜并采用拌制，符合蔬菜优先方向；做法短，调味用料在现有范围内。\"},{\"id\":\"c6\",\"reason\":\"复用已备豆腐，以拌制为主，补充一道蔬菜类；相比需要煎豆腐的做法，用油步骤更少，适合本餐。\"}]}"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 8232,
+    "completion_tokens": 184,
+    "total_tokens": 8416,
+    "prompt_tokens_details": {
+      "cached_tokens": 256
+    },
+    "prompt_cache_hit_tokens": 256,
+    "prompt_cache_miss_tokens": 7976
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

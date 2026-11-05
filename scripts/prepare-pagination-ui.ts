@@ -11,11 +11,11 @@ if(config.envId!=='shiwei-d2gmiun66b7dc6a4f'||config.functions.length!==1||fnCon
   ||!env.SESSION_SECRET_B64||!env.CSRF_SECRET_B64||!env.PROFILE_ENCRYPTION_KEY_B64)throw Error('EXISTING_CONFIG_REQUIRED');
 await mkdir(destination,{recursive:false});
 const fn=join(destination,'function');await mkdir(fn);
-await build({entryPoints:['cloudbase/http-main.ts'],outfile:join(fn,'http-main.cjs'),bundle:true,platform:'node',target:'node24',format:'cjs',packages:'external'});
+await build({entryPoints:['deployment/cloudbase/http-main.ts'],outfile:join(fn,'http-main.cjs'),bundle:true,platform:'node',target:'node24',format:'cjs',packages:'external'});
 for(const name of ['package.json','package-lock.json','scf_bootstrap','index.js'])await copyFile(join(source,'function',name),join(fn,name));
 await cp(join(source,'function/node_modules'),join(fn,'node_modules'),{recursive:true});
-const excluded=resolve('build/web/assets/recipes');
-await cp('build/web',join(fn,'build/web'),{recursive:true,filter:path=>resolve(path)!==excluded&&!resolve(path).startsWith(excluded+sep)});
+const excluded=resolve('artifacts/build/web/assets/recipes');
+await cp('artifacts/build/web',join(fn,'build/web'),{recursive:true,filter:path=>resolve(path)!==excluded&&!resolve(path).startsWith(excluded+sep)});
 await writeFile(join(destination,'cloudbaserc.json'),rawConfig,{flag:'wx',mode:0o600});
 await writeFile(join(destination,'pagination-ui-release.json'),JSON.stringify({contentVersion:env.CONTENT_BUNDLE_ID,configurationUnchanged:true,databaseWrites:false})+'\n',{flag:'wx'});
 console.log(JSON.stringify({prepared:true,configurationUnchanged:true,databaseWrites:false,secretsPrinted:false}));

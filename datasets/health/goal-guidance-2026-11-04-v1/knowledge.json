@@ -1,0 +1,236 @@
+{
+  "id": "goal-guidance-2026-11-04-v1",
+  "status": "local_research",
+  "clinicalRelease": null,
+  "professionalReview": "pending",
+  "topics": [
+    {
+      "id": "goal:fat-loss",
+      "name": "减脂",
+      "aliases": [
+        "瘦身",
+        "减肥",
+        "体重管理"
+      ]
+    },
+    {
+      "id": "goal:muscle-gain",
+      "name": "增肌",
+      "aliases": [
+        "增加肌肉",
+        "力量训练增肌"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "goal-ev:weight-food-method",
+      "sourceId": "nhc-weight-management-2024",
+      "title": "体重管理指导原则（2024年版）",
+      "version": "2024",
+      "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+      "locator": {
+        "kind": "pdf_normalized_text",
+        "pdfPage": 10,
+        "normalization": "remove_unicode_whitespace_v1",
+        "section": "四、体重管理策略/合理膳食",
+        "start": 101,
+        "end": 137
+      },
+      "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+    },
+    {
+      "id": "goal-ev:exercise-scope",
+      "sourceId": "issn-protein-exercise-2017",
+      "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+      "version": "2017",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+      "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+      "originalSpan": "healthy, exercising individuals",
+      "locator": {
+        "kind": "html_normalized_text",
+        "normalization": "collapse_whitespace_v1",
+        "section": "Position statement",
+        "start": 8453,
+        "end": 8484
+      },
+      "spanHash": "59c397fccc63a82902a84b235b5d7fb8ad95890782971d52468678f999f7e97f"
+    },
+    {
+      "id": "goal-ev:exercise-egg",
+      "sourceId": "issn-protein-exercise-2017",
+      "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+      "version": "2017",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+      "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+      "originalSpan": "eggs are an excellent source of protein for athletes.",
+      "locator": {
+        "kind": "html_normalized_text",
+        "normalization": "collapse_whitespace_v1",
+        "section": "Egg proteins",
+        "start": 77514,
+        "end": 77567
+      },
+      "spanHash": "8b1b3c7dcfbab62c86a324dddfb2e568342d7acd8c50a0b7228e2e5b0aa6aca2"
+    },
+    {
+      "id": "goal-ev:exercise-beef",
+      "sourceId": "issn-protein-exercise-2017",
+      "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+      "version": "2017",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+      "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+      "originalSpan": "Beef is a common source of dietary protein",
+      "locator": {
+        "kind": "html_normalized_text",
+        "normalization": "collapse_whitespace_v1",
+        "section": "Beef and other flesh proteins",
+        "start": 79967,
+        "end": 80009
+      },
+      "spanHash": "6d0e1511183babd7e52b5551ae878ff1ff7b0f663ef5baff9e36685e17b7bb4d"
+    }
+  ],
+  "facts": [
+    {
+      "id": "goal:fat-loss-limit-sugar",
+      "topicId": "goal:fat-loss",
+      "objectId": "f:added-sugar",
+      "objectName": "白糖",
+      "objectKind": "food",
+      "direction": "limit",
+      "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "goal-ev:weight-food-method"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "project_interpretation"
+    },
+    {
+      "id": "goal:fat-loss-steam-boil",
+      "topicId": "goal:fat-loss",
+      "objectId": "p:steam-boil",
+      "objectName": "蒸煮汆制",
+      "objectKind": "process",
+      "direction": "prefer",
+      "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "goal-ev:weight-food-method"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement"
+    },
+    {
+      "id": "goal:fat-loss-limit-fry",
+      "topicId": "goal:fat-loss",
+      "objectId": "p:fry",
+      "objectName": "油炸或煎制",
+      "objectKind": "process",
+      "direction": "limit",
+      "statement": "体重管理少选来源列举的煎炸做法；不从菜名推断实际工艺、摄入能量或减脂效果。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "goal-ev:weight-food-method"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement"
+    },
+    {
+      "id": "goal:muscle-prefer-egg",
+      "topicId": "goal:muscle-gain",
+      "objectId": "f:egg",
+      "objectName": "鸡蛋",
+      "objectKind": "food",
+      "direction": "prefer",
+      "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "resistanceTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "goal-ev:exercise-egg"
+      ],
+      "qualifyingEvidenceIds": [
+        "goal-ev:exercise-scope"
+      ],
+      "basis": "source_statement"
+    },
+    {
+      "id": "goal:muscle-prefer-beef",
+      "topicId": "goal:muscle-gain",
+      "objectId": "f:beef",
+      "objectName": "牛肉",
+      "objectKind": "food",
+      "direction": "prefer",
+      "statement": "在健康成年且进行抗阻训练的本轮范围中，牛肉可作为膳食蛋白来源候选；不据此宣称低脂、疾病适宜性或个人定量达标。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "resistanceTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "goal-ev:exercise-beef"
+      ],
+      "qualifyingEvidenceIds": [
+        "goal-ev:exercise-scope"
+      ],
+      "basis": "source_statement"
+    }
+  ]
+}

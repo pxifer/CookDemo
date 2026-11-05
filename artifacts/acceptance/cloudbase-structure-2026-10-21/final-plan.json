@@ -1,0 +1,31 @@
+{
+  "data": {
+    "envId": "shiwei-d2gmiun66b7dc6a4f",
+    "dryRun": true,
+    "includeAll": false,
+    "executable": true,
+    "pending": [],
+    "applied": [
+      {
+        "Checksum": "",
+        "Name": "shiwei_core",
+        "Reason": "version_matched",
+        "Source": "",
+        "Status": "applied",
+        "Version": "20261021123000"
+      },
+      {
+        "Checksum": "",
+        "Name": "shiwei_vector",
+        "Reason": "version_matched",
+        "Source": "",
+        "Status": "applied",
+        "Version": "20261021123100"
+      }
+    ],
+    "conflicts": [],
+    "taskId": null,
+    "requestId": "f657360b-108a-4215-8842-d5ed0ca71a63",
+    "migrationsDir": "cloudbase\\migrations"
+  }
+}

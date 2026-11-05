@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { libraryUrl,readLibraryState } from '../src/library-state';
+import { libraryUrl,readLibraryState } from '../frontend/src/library-state';
 test('图鉴链接往返保留搜索筛选、页码、菜名和真实口味，内部来源地址不进入链接',()=>{
   const value=readLibraryState('?q=鸡&ingredient=鸡肉&method=蒸&flavor=咸鲜&category=荤菜&page=2&dish=冬瓜桑拿鸡&taste=咸鲜');
   assert.equal(value.page,1);assert.equal(value.selected,'冬瓜桑拿鸡');assert.deepEqual(readLibraryState(libraryUrl(value).split('?')[1]),value);

@@ -3,17 +3,17 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { PGlite } from '@electric-sql/pglite';
 import { randomBytes } from 'node:crypto';
-import { CloudBaseAccounts } from '../server/cloudbase-accounts';
+import { CloudBaseAccounts } from '../backend/src/cloudbase-accounts';
 import { defaultMeal } from '../shared/types';
-import { createApp } from '../server/app';
+import { createApp } from '../backend/src/app';
 import { ingredientEvidence } from '../shared/ingredient-evidence';
 import { galleryFixture } from './gallery-content.test';
-import { galleryContent } from '../server/gallery-content';
+import { galleryContent } from '../backend/src/gallery-content';
 import { contentContext } from '../shared/content';
-import { checkDish } from '../server/recommendation';
+import { checkDish } from '../backend/src/recommendation';
 import { mergeAccountValues, reconcileAccountValues } from '../shared/account-merge';
 import { applyPersonalSettings, personalSettings } from '../shared/account';
-import { open } from '../server/crypto';
+import { open } from '../backend/src/crypto';
 
 test('个人设置排除人数、食材、同餐人及补买选项，恢复时保留当前餐草稿',()=>{
   const source={...defaultMeal(),servings:5,flavor:'微辣',allowBuy:true,raw:'鸡蛋',restrictions:[{id:'self',kind:'avoid' as const,name:'牛肉',scope:'self' as const,status:'confirmed' as const,targets:['beef'],original:'牛肉'},{id:'other',kind:'avoid' as const,name:'羊肉',scope:'additional' as const,status:'confirmed' as const,targets:['lamb'],original:'羊肉'}]};
@@ -46,7 +46,7 @@ async function fixture(){
   await db.exec(`CREATE ROLE anon;CREATE ROLE authenticated;CREATE ROLE service_role;CREATE SCHEMA auth;
     CREATE FUNCTION auth.uid() RETURNS text LANGUAGE sql AS $$ SELECT nullif(current_setting('request.jwt.claim.sub',true),'') $$;
     GRANT USAGE ON SCHEMA auth TO authenticated;GRANT EXECUTE ON FUNCTION auth.uid() TO authenticated;`);
-  await db.exec(await readFile('deploy/db/account-sync.sql','utf8'));
+  await db.exec(await readFile('deployment/db/account-sync.sql','utf8'));
   const tokens=new Map([['token-a','user-a'],['token-b','user-b']]);
   const passwords=new Map([['user-a','Sw!OldPassword1'],['user-b','Sw!OldPassword2']]);
   const requests:{path:string;token?:string;body?:any}[]=[];

@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'">
+<title>拾味项目全解 · 架构、落地与面试答辩</title><style>
+:root{--ink:#243345;--muted:#637386;--accent:#176559;--line:#dfe7e7;--paper:#fff;--soft:#f3f7f6;--side:330px;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;color:var(--ink);background:var(--paper);font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;line-height:1.9;overflow-wrap:anywhere}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+aside{position:fixed;inset:0 auto 0 0;width:var(--side);background:var(--soft);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:5}.brand{padding:22px 19px 15px;border-bottom:1px solid var(--line)}.brand strong{display:block;font-size:22px;letter-spacing:.03em}.brand small{display:block;color:var(--muted);font-size:12px;margin:3px 0 15px}.searchbox{display:flex;gap:5px}input{width:100%;min-width:0;border:1px solid #cbd9d5;border-radius:7px;padding:10px;font:inherit;font-size:14px;background:white}button{cursor:pointer;background:white;color:var(--accent);border:1px solid var(--line);padding:7px 10px;border-radius:6px;font:inherit;font-size:13px}.tools{display:flex;gap:8px;margin-top:10px}.tools button{background:transparent;padding:4px 7px}.navscroll{overflow-y:auto;flex:1;padding:12px 12px 32px;scrollbar-width:thin}nav summary{padding:8px 3px;font-size:14px;font-weight:bold;cursor:pointer}nav summary a{color:var(--ink)}.subnav{border-left:1px solid #ccdcd7;margin:0 0 10px 9px;padding-left:8px}.subnav a{display:block;padding:5px;font-size:12px;line-height:1.7;color:#4b606d}.subnav a:hover{background:#e4eeeb;text-decoration:none}#results{display:none}#results a{display:block;padding:11px 8px;border-bottom:1px solid var(--line)}#results span{display:block;font-size:12px;color:var(--muted);line-height:1.7}.search-status{font-size:12px;color:var(--muted);margin:8px 0 0}
+main{margin-left:var(--side);max-width:1450px;padding:36px 54px 100px}.eyebrow{font-size:12px;letter-spacing:.15em;color:var(--accent);font-weight:700}.edition{color:var(--muted);font-size:13px;padding:14px 18px;background:var(--soft);border:1px solid var(--line);border-radius:9px;margin:18px 0 30px}h1{font-size:32px;line-height:1.55;margin:12px 0 24px;letter-spacing:-.02em}h2{font-size:27px;line-height:1.6;margin:58px 0 24px;padding:25px 0 0;border-top:2px solid var(--line);color:#153c38}h3{font-size:20px;line-height:1.6;margin:32px 0 15px}h1,h2,h3{scroll-margin-top:20px}p{margin:12px 0 19px}li{margin:8px 0}strong{font-weight:650}code{font-family:Consolas,"Cascadia Code",monospace;font-size:.88em;background:#f0f4f6;border-radius:4px;padding:2px 4px}.code-wrap{border:1px solid var(--line);background:#f7f9fa;border-radius:8px;margin:22px 0;overflow:hidden}.code-label{display:block;padding:7px 16px;border-bottom:1px solid var(--line);font-size:11px;line-height:1.4;color:var(--muted)}pre{overflow-x:auto;margin:0;padding:17px;line-height:1.7;tab-size:4}pre code{padding:0;background:none;font-size:13px;white-space:pre;overflow-wrap:normal}.table-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:7px}table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.8}th,td{padding:11px 13px;vertical-align:top;text-align:left;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:110px}th{background:#eaf2ef;color:#244a43}tr:last-child td{border-bottom:0}th:last-child,td:last-child{border-right:0}tbody tr:nth-child(even){background:#fbfcfc}.menu{display:none}footer{color:var(--muted);border-top:1px solid var(--line);padding-top:20px;font-size:12px;margin-top:50px}.progress{position:fixed;top:0;left:var(--side);right:0;height:3px;background:transparent;z-index:7}.progress i{display:block;background:var(--accent);height:100%;width:0}
+@media(min-width:1700px){main{padding-left:80px;padding-right:80px}}@media(max-width:900px){:root{--side:305px}aside{transform:translateX(-100%)}body.menu-open aside{transform:translateX(0);box-shadow:12px 0 35px #0002}.menu{display:block;position:fixed;top:12px;right:12px;z-index:8;background:#fff}.progress{left:0}main{margin-left:0;padding:65px 20px 75px}h1{font-size:26px}h2{font-size:23px}h3{font-size:19px}th,td{min-width:140px;padding:9px}}
+@media print{aside,.menu,.progress,.edition{display:none}main{margin:0;padding:0;max-width:none}h2{break-before:page}h2,h3{break-after:avoid}body{font-size:10.5pt}a{color:inherit}table{font-size:9pt}.table-wrap{overflow:visible}pre{white-space:pre-wrap}pre code{white-space:pre-wrap;overflow-wrap:anywhere}.code-wrap{break-inside:avoid}th,td{min-width:0}footer{display:none}}
+</style></head><body>
+<div class="progress" aria-hidden="true"><i></i></div><button id="menu" class="menu" aria-label="打开或关闭目录">目录 / 搜索</button>
+<aside aria-label="文档导航"><div class="brand"><strong>拾味 · 项目全解</strong><small>2026.10.30 事实快照 · 离线阅读版</small><div class="searchbox"><input id="search" type="search" aria-label="搜索全文段落" placeholder="搜问题、技术、关键词…"><button id="clear" aria-label="清空搜索">清空</button></div><div id="status" class="search-status" aria-live="polite"></div><div class="tools"><button id="expand">展开目录</button><button id="collapse">收起</button><button id="print">打印</button></div></div><div class="navscroll"><nav><details><summary><a href="#chapter-01">01 阅读路径与项目当前事实</a></summary><div class="subnav"><a href="#section-3">1.1 怎样使用这份文档</a><a href="#section-4">1.2 一句话定位</a><a href="#section-5">1.3 能力与证据矩阵</a><a href="#section-6">1.4 最容易讲错的版本差异</a></div></details><details><summary><a href="#chapter-02">02 从现实问题推导产品，而不是先决定使用 Agent</a></summary><div class="subnav"><a href="#section-8">2.1 用户真正想完成什么</a><a href="#section-9">2.2 需求如何转成工程不变量</a><a href="#section-10">2.3 不能擅自扩大的产品承诺</a><a href="#section-11">2.4 为什么普通模式仍有价值</a></div></details><details><summary><a href="#chapter-03">03 整体架构：边界怎样划分</a></summary><div class="subnav"><a href="#section-13">3.1 当前部署图</a><a href="#section-14">3.2 关键目录怎样读</a><a href="#section-15">3.3 三条信任边界</a><a href="#section-16">3.4 为什么需要可替换适配层</a></div></details><details><summary><a href="#chapter-04">04 技术选型：为什么用这些，为什么暂时不用另外那些</a></summary><div class="subnav"><a href="#section-18">4.1 选择依据及反证条件</a><a href="#section-19">4.2 为什么没有直接上 LangChain</a><a href="#section-20">4.3 如果面试官要求你用 LangGraph 重画</a><a href="#section-21">4.4 RAG、长上下文、微调、规则分别负责什么</a><a href="#section-22">4.5 为什么暂不引入 Redis、MQ、图数据库、多 Agent</a></div></details><details><summary><a href="#chapter-05">05 一条真实请求怎样完成</a></summary><div class="subnav"><a href="#section-24">5.1 普通推荐的逐层过程</a><a href="#section-25">5.2 受控 AI 选菜的真实过程</a><a href="#section-26">5.3 为什么记录候选范围</a><a href="#section-27">5.4 一次调用的协议约束</a></div></details><details><summary><a href="#chapter-06">06 数据从哪里来：采集、筛选、验证与存储</a></summary><div class="subnav"><a href="#section-29">6.1 三类数据不能混用</a><a href="#section-30">6.2 为什么选择这些数据</a><a href="#section-31">6.3 不同格式怎样统一导入</a><a href="#section-32">6.4 一条导入记录怎样设计</a><a href="#section-33">6.5 六层数据质量校验</a><a href="#section-34">6.6 增量更新与重复数据</a></div></details><details><summary><a href="#chapter-07">07 数据模型：事实、规则、图关系和个人状态</a></summary><div class="subnav"><a href="#section-36">7.1 为什么不能一张大 JSON 或一个向量库解决</a><a href="#section-37">7.2 实体与关系的语义</a><a href="#section-38">7.3 事实和规则为什么分开</a><a href="#section-39">7.4 为什么不直接用 GraphRAG</a><a href="#section-40">7.5 个人状态的权威与删除</a></div></details><details><summary><a href="#chapter-08">08 切块设计：先保留证据命题，再谈 512 token</a></summary><div class="subnav"><a href="#section-42">8.1 当前到底怎样切</a><a href="#section-43">8.2 什么叫最小完整证据单元</a><a href="#section-44">8.3 各种切法的取舍</a><a href="#section-45">8.4 没标题、超长表格、重复页眉怎么办</a><a href="#section-46">8.5 怎样评价切块优劣</a></div></details><details><summary><a href="#chapter-09">09 检索、向量化、融合与重排</a></summary><div class="subnav"><a href="#section-48">9.1 当前 A1 检索逐步解释</a><a href="#section-49">9.2 当前 RRF 和未来 hybrid 有什么区别</a><a href="#section-50">9.3 BM25 与 PostgreSQL 全文检索</a><a href="#section-51">9.4 Embedding 模型怎样选</a><a href="#section-52">9.5 向量化最容易踩哪些坑</a><a href="#section-53">9.6 pgvector：先精确，再谈 HNSW / IVFFlat</a><a href="#section-54">9.7 重排为什么不能包治百病</a><a href="#section-55">9.8 Query 改写、HyDE、查询分解怎样使用</a><a href="#section-56">9.9 检索不到和检索错了怎样处理</a></div></details><details><summary><a href="#chapter-10">10 从证据到真实菜谱：RAG 真正落地的最后一公里</a></summary><div class="subnav"><a href="#section-58">10.1 为什么一个菜名不够</a><a href="#section-59">10.2 一条条件化判断怎样执行</a><a href="#section-60">10.3 多疾病冲突怎样处理</a><a href="#section-61">10.4 目标生产闭环还缺哪些层</a></div></details><details><summary><a href="#chapter-11">11 Agent 设计：哪些自主，哪些必须固定</a></summary><div class="subnav"><a href="#section-63">11.1 当前系统算什么 Agent</a><a href="#section-64">11.2 为什么不让模型同时做解析、筛选、库存、写库</a><a href="#section-65">11.3 ReAct、Plan–Execute、固定流程怎样选</a><a href="#section-66">11.4 目标只读工具契约</a><a href="#section-67">11.5 目标状态机及停止条件</a><a href="#section-68">11.6 Function Calling、JSON、MCP、Skill 的区别</a><a href="#section-69">11.7 如果一定要做多 Agent</a></div></details><details><summary><a href="#chapter-12">12 上下文与记忆：压缩不能改变用户真实意图</a></summary><div class="subnav"><a href="#section-71">12.1 当前已有的抽取式压缩</a><a href="#section-72">12.2 token 估计与硬上限必须分开</a><a href="#section-73">12.3 为什么压缩不是简单截断前半段</a><a href="#section-74">12.4 哪些内容优先保留</a><a href="#section-75">12.5 为什么上下文没满也要管理</a><a href="#section-76">12.6 怎样证明压缩确有收益</a><a href="#section-77">12.7 KV Cache、Prompt Cache、业务缓存和记忆</a></div></details><details><summary><a href="#chapter-13">13 可靠执行、安全、隔离与一致性</a></summary><div class="subnav"><a href="#section-79">13.1 幂等与“恰好一次”不能混说</a><a href="#section-80">13.2 取消、超时和旧结果</a><a href="#section-81">13.3 账户同步为什么用版本冲突</a><a href="#section-82">13.4 加密、RLS、认证分别解决什么</a><a href="#section-83">13.5 提示词注入如何防</a><a href="#section-84">13.6 缓存怎样避免旧知识复活</a></div></details><details><summary><a href="#chapter-14">14 评测：怎样证明数据、RAG、Agent 和产品真的有效</a></summary><div class="subnav"><a href="#section-86">14.1 六层验收，六种不同证据</a><a href="#section-87">14.2 当前真实报告应该怎样读</a><a href="#section-88">14.3 200 条候选具体是什么</a><a href="#section-89">14.4 独立标注怎样组织</a><a href="#section-90">14.5 指标公式和手算例子</a><a href="#section-91">14.6 生成与 Agent 的评分规则</a><a href="#section-92">14.7 对照实验与失败归因</a><a href="#section-93">14.8 真实模型预算怎样控制</a></div></details><details><summary><a href="#chapter-15">15 性能与 QPS：做了什么，怎样继续测</a></summary><div class="subnav"><a href="#section-95">15.1 能否保证较高并发</a><a href="#section-96">15.2 已经做过的性能相关工作</a><a href="#section-97">15.3 端到端延迟怎样拆</a><a href="#section-98">15.4 QPS 与并发的估算</a><a href="#section-99">15.5 本地压测的具体方案（待执行）</a><a href="#section-100">15.6 优化顺序怎样决定</a><a href="#section-101">15.7 背压、限流、熔断与降级</a></div></details><details><summary><a href="#chapter-16">16 真实困难与修复：六个可以深入讲的案例</a></summary><div class="subnav"><a href="#section-103">16.1 单菜口味切换：安全校验误伤合法变更</a><a href="#section-104">16.2 中文实体碰撞：不饱和不能误当饱和</a><a href="#section-105">16.3 撤回遇上缓存：性能不能复活旧证据</a><a href="#section-106">16.4 候选预算与做法完整性：减少范围，不截断事实</a><a href="#section-107">16.5 环境故障与功能失败：EACCES 不应被“修好测试”掩盖</a><a href="#section-108">16.6 源码指纹漏掉运行时 JSON：验收版本不完整</a></div></details><details><summary><a href="#chapter-17">17 部署落地、备份恢复与发布范围</a></summary><div class="subnav"><a href="#section-110">17.1 当前部署事实</a><a href="#section-111">17.2 从本地到发布的合理流程</a><a href="#section-112">17.3 找回密码实现到了哪里</a><a href="#section-113">17.4 注销为什么不是删一行</a><a href="#section-114">17.5 备份有文件，不等于可以完整恢复</a><a href="#section-115">17.6 发布与回滚需要绑定什么</a></div></details><details><summary><a href="#chapter-18">18 从资深用户和高级工程师视角判断“完结态”</a></summary><div class="subnav"><a href="#section-117">18.1 资深用户最在意的问题</a><a href="#section-118">18.2 高级 Agent 工程师最在意的问题</a><a href="#section-119">18.3 两个可验收版本，避免范围无限扩大</a></div></details><details><summary><a href="#chapter-19">19 从零复建：按什么顺序开发才最合理</a></summary><div class="subnav"><a href="#section-121">19.1 阶段一：先把非 AI 闭环做成</a><a href="#section-122">19.2 阶段二：账户与状态隔离</a><a href="#section-123">19.3 阶段三：模型薄适配与受控选菜</a><a href="#section-124">19.4 阶段四：公共知识与检索基线</a><a href="#section-125">19.5 阶段五：证据到真实菜谱闭环</a><a href="#section-126">19.6 阶段六：按证据优化与发布</a><a href="#section-127">19.7 在本仓库如何开始阅读与复现</a></div></details><details><summary><a href="#chapter-20">20 如何与 AI 高效协作开发，同时保住个人掌控</a></summary><div class="subnav"><a href="#section-129">20.1 一个有效任务包应该包含什么</a><a href="#section-130">20.2 开发、审查、验证怎样分工</a><a href="#section-131">20.3 避免上下文越来越乱</a><a href="#section-132">20.4 面试怎样解释 AI 辅助贡献</a></div></details><details><summary><a href="#chapter-21">21 项目介绍、简历与现场演示</a></summary><div class="subnav"><a href="#section-134">21.1 30 秒版本</a><a href="#section-135">21.2 三分钟版本</a><a href="#section-136">21.3 五分钟演示脚本</a><a href="#section-137">21.4 可以写的简历条目</a></div></details><details><summary><a href="#chapter-22">22 面试问题库：100 问及连续追问</a></summary><div class="subnav"><a href="#q01">Q01〔P0〕为什么要做这个项目，解决的是真需求吗？</a><a href="#q02">Q02〔P0〕你个人负责什么？AI 写的代码算你的成果吗？</a><a href="#q03">Q03〔P0〕项目效果如何，为什么不直接报准确率？</a><a href="#q04">Q04〔P0〕你的是 Agent 还是普通接口调用？</a><a href="#q05">Q05〔P0〕为什么选 LangChain，或者为什么没选？</a><a href="#q06">Q06〔P1〕为什么不用 Python/FastAPI 或 Java/Spring？</a><a href="#q07">Q07〔P0〕为什么选模块化单体而不是微服务？</a><a href="#q08">Q08〔P0〕为什么用 RAG，直接长上下文或微调不行吗？</a><a href="#q09">Q09〔P0〕数据是爬来的还是自己做的？</a><a href="#q10">Q10〔P0〕PDF、图片和 Word 如何导入？</a><a href="#q11">Q11〔P0〕数据如何验证，能否用 LLM 自动审核？</a><a href="#q12">Q12〔P0〕为什么事实、证据和规则分开？</a><a href="#q13">Q13〔P1〕JSON、JSONB、关系表、向量各放什么？</a><a href="#q14">Q14〔P0〕chunk 多大，为什么不是固定 512？</a><a href="#q15">Q15〔P1〕没有标题的 Markdown 怎么切？</a><a href="#q16">Q16〔P1〕表格、脚注和 overlap 怎么处理？</a><a href="#q17">Q17〔P1〕父子块怎样回取？</a><a href="#q18">Q18〔P0〕Embedding 怎么选，为什么 BGE/Qwen？</a><a href="#q19">Q19〔P1〕向量维度、归一化和池化为什么重要？</a><a href="#q20">Q20〔P1〕文档向量离线完成就算 RAG 上线了吗？</a><a href="#q21">Q21〔P0〕当前检索究竟用了什么？</a><a href="#q22">Q22〔P0〕BM25 原理和 PG ts_rank 一样吗？</a><a href="#q23">Q23〔P0〕RRF 怎么算，为什么不直接加分数？</a><a href="#q24">Q24〔P0〕Reranker 和 embedding 有何区别？</a><a href="#q25">Q25〔P1〕为什么先用 PG，不上 Milvus/Qdrant？</a><a href="#q26">Q26〔P1〕HNSW 与 IVFFlat 怎样选择？</a><a href="#q27">Q27〔P0〕检索相似度 0.9 可以判断安全吗？</a><a href="#q28">Q28〔P1〕query rewrite、HyDE 和多轮指代怎么做？</a><a href="#q29">Q29〔P0〕召回为空如何处理？</a><a href="#q30">Q30〔P0〕回答错了，怎么定位是检索还是模型？</a><a href="#q31">Q31〔P0〕怎么防幻觉和假引用？</a><a href="#q32">Q32〔P0〕必要证据为何不走同一个 top-k？</a><a href="#q33">Q33〔P0〕如何把健康证据绑定到菜谱？</a><a href="#q34">Q34〔P0〕多疾病建议冲突，取最严格不就行了？</a><a href="#q35">Q35〔P1〕烹调会改变成分，怎么处理？</a><a href="#q36">Q36〔P0〕JSON 输出合法就可以执行吗？</a><a href="#q37">Q37〔P0〕模型会不会编一个菜名？</a><a href="#q38">Q38〔P0〕为什么候选最多 48，不给全库？</a><a href="#q39">Q39〔P0〕候选过长为什么不截断做法？</a><a href="#q40">Q40〔P0〕Agent 如何限制循环？</a><a href="#q41">Q41〔P0〕工具调用怎样设计？</a><a href="#q42">Q42〔P1〕人工确认在哪里做？</a><a href="#q43">Q43〔P0〕一次调用怎么防重复消费？</a><a href="#q44">Q44〔P0〕能保证 exactly once 吗？</a><a href="#q45">Q45〔P0〕用户取消和超时怎样处理？</a><a href="#q46">Q46〔P0〕两个标签页或两个实例会互相覆盖吗？</a><a href="#q47">Q47〔P0〕429、无效 JSON、超时都重试三次吗？</a><a href="#q48">Q48〔P0〕短期、长期记忆和 RAG 怎么区分？</a><a href="#q49">Q49〔P0〕现在怎样压缩上下文？</a><a href="#q50">Q50〔P0〕如何防压缩丢过敏与更正？</a><a href="#q51">Q51〔P1〕摘要的摘要会怎样？如何换模型？</a><a href="#q52">Q52〔P1〕怎么证明上下文压缩节省费用？</a><a href="#q53">Q53〔P0〕输入输出预算如何计算？</a><a href="#q54">Q54〔P0〕如何防 prompt injection？</a><a href="#q55">Q55〔P1〕除了提示词注入还有什么安全点？</a><a href="#q56">Q56〔P0〕用户 Key 怎样存，有没有泄露风险？</a><a href="#q57">Q57〔P0〕RLS 能替代接口鉴权吗？</a><a href="#q58">Q58〔P0〕知识更新和撤回如何保证一致？</a><a href="#q59">Q59〔P0〕Recall、MRR、nDCG 各看什么？</a><a href="#q60">Q60〔P1〕Precision 分母是 k 还是实际返回数？</a><a href="#q61">Q61〔P0〕如何避免评测泄漏？</a><a href="#q62">Q62〔P1〕LLM-as-judge 或 Ragas 能全自动验收吗？</a><a href="#q63">Q63〔P0〕推荐合理性和做法完整性怎么测？</a><a href="#q64">Q64〔P0〕测试全通过能保证正式发布吗？</a><a href="#q65">Q65〔P1〕怎样设计 Agent 故障注入？</a><a href="#q66">Q66〔P0〕QPS 多少，做过优化吗？</a><a href="#q67">Q67〔P0〕SSE、WebSocket、NDJSON 怎么选？</a><a href="#q68">Q68〔P0〕限流和背压有什么区别？</a><a href="#q69">Q69〔P1〕CPU 或内存突然升高怎么排查？</a><a href="#q70">Q70〔P1〕慢 SQL、索引失效和深分页如何处理？</a><a href="#q71">Q71〔P1〕缓存穿透、击穿、雪崩怎么处理？</a><a href="#q72">Q72〔P1〕什么时候要 MQ？怎么处理重复消费？</a><a href="#q73">Q73〔P1〕云函数自动扩容为什么还会有瓶颈？</a><a href="#q74">Q74〔P1〕从输入网址到页面推荐发生什么？</a><a href="#q75">Q75〔P1〕线程、进程、协程和 GIL 与项目有何关系？</a><a href="#q76">Q76〔P1〕CAS、行锁和 Redis Lua 如何选？</a><a href="#q77">Q77〔P0〕MCP 与 Function Calling、HTTP 的关系？</a><a href="#q78">Q78〔P1〕LangGraph checkpoint、reducer、interrupt 有哪些坑？</a><a href="#q79">Q79〔P1〕多 Agent 有什么收益和风险？</a><a href="#q80">Q80〔P2〕怎样证明研究过开源项目？</a><a href="#q81">Q81〔P2〕GraphRAG 为何不直接上？</a><a href="#q82">Q82〔P2〕Agentic RAG、CRAG、Self-RAG 怎么理解？</a><a href="#q83">Q83〔P0〕Transformer、Attention 至少要懂什么？</a><a href="#q84">Q84〔P0〕KV Cache、prefill、decode、TTFT 怎么解释？</a><a href="#q85">Q85〔P0〕temperature、top_p、max_tokens 怎样设？</a><a href="#q86">Q86〔P1〕SFT、LoRA、DPO 什么时候有必要？</a><a href="#q87">Q87〔P1〕为什么不自己部署模型，显存怎么估？</a><a href="#q88">Q88〔P0〕prompt 怎样写才可维护？</a><a href="#q89">Q89〔P0〕模型成本怎么算？</a><a href="#q90">Q90〔P0〕备份为什么不能证明可恢复？</a><a href="#q91">Q91〔P0〕忘记密码完成了吗？</a><a href="#q92">Q92〔P0〕账户注销怎么做，为什么还没开？</a><a href="#q93">Q93〔P0〕Git push 就是上线吗？</a><a href="#q94">Q94〔P0〕如何证明报告对应当前代码？</a><a href="#q95">Q95〔P1〕用户体验有哪些工程难点？</a><a href="#q96">Q96〔P1〕照片识别怎么做，当前有了吗？</a><a href="#q97">Q97〔P1〕你认为当前最大技术债是什么？</a><a href="#q98">Q98〔P0〕下一阶段什么最能形成个人项目亮点？</a><a href="#q99">Q99〔P1〕项目如何商业化，个人项目规模小怎么讲？</a><a href="#q100">Q100〔P0〕面试官说“这不就是套壳调用模型”，怎么回答？</a></div></details><details><summary><a href="#chapter-23">23 白板、手写与深入追问练习</a></summary><div class="subnav"><a href="#section-240">23.1 白板一：设计一个带证据的选菜系统</a><a href="#section-241">23.2 白板二：幂等认领的伪代码</a><a href="#section-242">23.3 白板三：RRF 与必要依据</a><a href="#section-243">23.4 白板四：预算打包器</a><a href="#section-244">23.5 白板五：库存与单位</a><a href="#section-245">23.6 一条完整的追问链怎样答</a></div></details><details><summary><a href="#chapter-24">24 下一步探索与实施优先级</a></summary><div class="subnav"><a href="#section-247">24.1 最值得做成面试成果的三个实验</a><a href="#section-248">24.2 建议学习节奏</a></div></details><details><summary><a href="#chapter-25">25 代码、数据与验收证据索引</a></summary><div class="subnav"></div></details><details><summary><a href="#chapter-26">26 资料来源、覆盖映射与术语</a></summary><div class="subnav"><a href="#section-251">26.1 用户提供的参考材料</a><a href="#section-252">26.2 官方技术资料与论文（本轮联网核对）</a><a href="#section-253">26.3 阅读器问题到本手册的覆盖映射</a><a href="#section-254">26.4 术语速查</a><a href="#section-255">26.5 面试前最后自查</a></div></details></nav><div id="results"></div></div></aside>
+<main><div class="eyebrow">真实问题 → 架构 → 实现 → 验证 → 答辩</div><div class="edition">26 章 · 100 个分级问答 · 约 4.0 万汉字<br>当前代码与发布事实、研究样例、待实施方案分别说明。可直接离线阅读；正文不加载任何外部资源。源文档：<a href="拾味项目全解_架构实现与面试答辩.md">Markdown</a></div><article><h1 id="section-1">拾味项目全解：从真实问题、架构与 RAG/Agent 实现，到落地验收和面试答辩</h1>
+<p><strong>事实核对日期：2026-10-30。适用项目：CookDemo / 拾味。</strong></p>
+<p>这是一份围绕真实仓库编写的项目说明与学习手册。它结合你提供的《面试资料阅读器》及其《Agent开发面试》《AI模型与Agent工程实操》《拾味项目RAG与Agent案例》，重新核对了当前代码、数据、验收与维护发布记录，并补充官方文档和论文。阅读器中的项目案例是 10 月 28 日快照，本手册已经校正后续发生的变化。</p>
+<p>文中“已实现”“本地验证”“已部署”“质量已验证”是四个不同结论。设计建议、教学示例、待做实验都明确标注；不能把它们直接改成简历里的既成成果。口述稿中的“我”仅在你确实参与、理解并能解释相应模块时使用。AI 辅助开发可以坦诚说明，个人价值在于需求判断、设计取舍、问题定位和验收责任。</p>
+<p>本手册无法保证覆盖任何面试官的所有问题，但给出一套可继续推导答案的完整证据链：<strong>问题是什么 → 不变量是什么 → 哪部分交给模型 → 哪部分由程序保证 → 怎样测 → 哪些证据仍缺。</strong></p>
+<h2 id="chapter-01">01 阅读路径与项目当前事实</h2>
+<h3 id="section-3">1.1 怎样使用这份文档</h3>
+<p>第一次通读第 02～05 章，理解项目为什么存在和系统如何运转；接着读第 06～13 章，掌握数据、RAG、Agent、上下文与一致性；再用第 14～20 章理解评测、性能、部署和从零复建。最后练习第 21～24 章的口述、追问、代码题和路线图。</p>
+<p>面试前不要背完整篇。准备“五件套”：一张架构图、一条真实请求、一段自己能解释的代码、一份准确说明分母的报告、一个有失败和修复证据的案例。HTML 版提供目录、章节搜索与打印；Markdown 版便于继续修订。</p>
+<h3 id="section-4">1.2 一句话定位</h3>
+<p>拾味是面向家庭做饭的约束式菜谱推荐网站：用户提供已有食材、用量、过敏忌口、口味和补买意愿，程序从真实菜谱目录筛选与组合；健康功能接入用户自己的 DeepSeek Key，用于饮食对话、整理用户自述与接受的食材偏好，以及在程序允许的候选中实际选菜。公共健康知识库目前是独立的本地研究链路，尚未作为正式疾病 RAG 上线。</p>
+<h3 id="section-5">1.3 能力与证据矩阵</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">能力</th><th scope="col">当前事实</th><th scope="col">面试应怎样表述</th></tr></thead><tbody><tr><td>普通推荐、图鉴、变体、收藏</td><td>已有线上功能</td><td>固定目录、规则筛选与套餐复核，不是让模型编配方</td></tr><tr><td>真实账户</td><td>邮箱注册、用户名密码登录、UID 隔离与加密同步已上线</td><td>不能再说只有本地账号或没有登录</td></tr><tr><td>BYOK 健康对话</td><td>已有线上入口；完整聊天只在页内内存</td><td>已接通产品路径，不等于独立医学质量已通过</td></tr><tr><td>AI 实际选菜</td><td>模型从候选包选择 ID，程序复核</td><td>已有受控模型决策，不能说完全由规则冒充 AI</td></tr><tr><td>上下文控制</td><td>已有近期轮次＋旧用户原话摘录、估计预算；选菜有独立预算</td><td>是抽取式压缩与预算控制，没有额外调用摘要模型</td></tr><tr><td>健康知识 v2</td><td>11 来源、137 实体、98 证据、260 关系、124 草稿、5 冲突</td><td>研究资料可追溯、可校验、可撤回；不是临床发布</td></tr><tr><td>A1 检索</td><td>实体与词法双通道 RRF、必要证据、快照缓存</td><td>不是 BM25＋向量混合检索；没有 deployed embedding</td></tr><tr><td>菜谱证据绑定</td><td>独立研究样例：2 道真实菜谱、4 条食材级绑定</td><td>主知识包 recipeBindings 仍为 0；独立样例并非全目录整菜准入</td></tr><tr><td>图片识别</td><td>未接通真实识别</td><td>图片预览不能说成识别成功；文字食材解析另算</td></tr><tr><td>忘记密码</td><td>代码与本地测试已有，线上关闭</td><td>真实邮箱链路尚未完成外部验收</td></tr><tr><td>账户注销</td><td>工作流、SQL 已有，生产独立撤销日志和身份删除适配未接</td><td>不能承诺线上可以完整注销</td></tr><tr><td>业务备份与恢复</td><td>有加密快照、隔离恢复及校验实现</td><td>尚无完整 CloudBase 身份＋业务＋密钥＋撤销水位灾备演练</td></tr><tr><td>独立质量评测</td><td>200 条候选，全部尚未独立审核</td><td>120 条自动契约通过也不能说 120 条真实 AI 回答正确</td></tr><tr><td>高并发</td><td>有短事务认领、限流和版本设计；没有生产压测数据</td><td>不承诺具体 QPS、P95 或 SLA</td></tr></tbody></table></div>
+<p>事实入口：<a href="../../AGENTS.md">协作与当前状态</a>、<a href="../releases/ACCEPTANCE-maintenance-release-2026-10-30.md">维护发布</a>、<a href="../../datasets/health/2026-10-28-v2/manifest.json">知识 manifest</a>、<a href="../../datasets/health/recipe-research/manifest.json">独立绑定 manifest</a>。</p>
+<h3 id="section-6">1.4 最容易讲错的版本差异</h3>
+<ol><li>阅读器的 7 来源、53 证据、155 关系、20 题是 v1 历史数据；当前 v2 是上述新规模，编辑回归为 50 题。</li><li>当前 A1 已用 RRF，但融合的是实体与词法排名。RRF 本身不说明使用了向量。</li><li>“尚无上下文压缩”已经过时；现在有抽取式历史压缩，但没有精确 tokenizer、模型摘要或真实费用收益实验。</li><li>“尚无任何菜谱绑定”已经过时；已有食材级研究样例，但线上疾病 RAG 仍关闭。</li><li>本地评测快照使用 <code>gallery-listed-foods-20261026-v28</code>；10 月 30 日维护发布继续读取线上 v27。两者不能混为同一内容版本。</li><li>10 月 30 日 v46 更新了代码与前端，没有迁移新表、上线疾病 RAG、打开找回或注销。</li></ol>
+<h2 id="chapter-02">02 从现实问题推导产品，而不是先决定使用 Agent</h2>
+<h3 id="section-8">2.1 用户真正想完成什么</h3>
+<p>典型问题是：“家里有鸡蛋、西红柿和一点肉，今晚三个人吃，有人不吃某种食物，不想买太多，能做什么？”困难不只是搜出一道菜，而是将已有食材、真实做法、库存和多项偏好同时满足。搜索引擎给链接，聊天模型能写流畅建议，但两者都不天然保证目录存在、用量够用、整套餐不重复消耗同一份库存。</p>
+<p>健康方向又增加了条件：用户可能只知道疾病名称，未提供分型；资料的结论可能只适用于某种食品形态、剂量或烹调方式；用户可能把咨询假设说成问句，模型不能据此写入“确诊”。因此最重要的产品能力是“知道何时可以判断、何时信息不足、何时只提供一般建议”。</p>
+<h3 id="section-9">2.2 需求如何转成工程不变量</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">用户要求</th><th scope="col">可执行的不变量</th><th scope="col">失败时行为</th></tr></thead><tbody><tr><td>不吃某食品</td><td>所选变体明列食品、调料均须经过限制检查</td><td>排除或澄清；不能用排序降权代替禁止</td></tr><tr><td>不补买</td><td>已知可比用量不足时不得通过</td><td>返回可行子集、无结果或说明不可完成</td></tr><tr><td>不知道重量</td><td>unknown 不等于 0，也不等于无限库存</td><td>保留未知，不编造换算和精确营养</td></tr><tr><td>只换一道菜</td><td>其他卡片、顺序保持；整餐重新核验</td><td>非法目标或过期游标拒绝</td></tr><tr><td>修改输入后重推</td><td>旧请求不得覆盖新输入</td><td>取消或丢弃旧结果</td></tr><tr><td>删除健康主题</td><td>相关建议与接受记录随来源撤销</td><td>迟到回复不得恢复被删主题</td></tr><tr><td>只点击翻页</td><td>不应产生新的模型消费</td><td>使用绑定版本的结果游标并重新检查</td></tr><tr><td>查看做法</td><td>展示真实配方的完整方法，不能混拼不同方法</td><td>缺失不能靠模型补造时长与克数</td></tr></tbody></table></div>
+<p>程序不变量比“模型尽量遵守”更容易测试，也能给产品稳定承诺。用户体验中的顺序、取消、恢复位置不是无关紧要的小功能：它们关系到用户是否相信当前结果仍对应当前输入。</p>
+<h3 id="section-10">2.3 不能擅自扩大的产品承诺</h3>
+<p>当前人数 1～12 只影响自动菜数参考，不按人数乘单道用量；自定义组合合计 1～20 道。它不是全天营养配餐、儿童系数系统或自动采购系统。普通模式是明列食品级限制，不能宣传成完整成分级过敏风险识别，尤其不能推断品牌复合调料内部配方和交叉接触风险。</p>
+<p>这些边界不是放弃优化，而是让用户承诺与数据能力相符。以后增加精确营养、照片识别或自动购物，每项都需要新的数据、权限、验收与失败方式，不能只增加一个模型提示词。</p>
+<h3 id="section-11">2.4 为什么普通模式仍有价值</h3>
+<p>普通推荐可以在没有模型 Key、模型故障或用户不愿提供健康信息时完成主要任务。它也提供可比较的 AI 基线：同一食材条件，加入模型究竟改善了理由、偏好匹配还是多样性？如果只增加延迟却没有质量收益，就不应要求所有用户走 AI。</p>
+<p>这不是“功能越多越好”的项目。个人项目应先交付一个可靠闭环，再把 AI 加到确实需要理解和选择的环节。</p>
+<h2 id="chapter-03">03 整体架构：边界怎样划分</h2>
+<h3 id="section-13">3.1 当前部署图</h3>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>浏览器 React / TypeScript
+  ├─ 本餐状态、页内聊天、游客草稿与收藏
+  └─ 同源 /api/v1 请求
+       ↓
+CloudBase 普通 HTTP 云函数（Node 24 / Fastify）
+  ├─ 鉴权、CSRF、输入 schema、版本/取消控制
+  ├─ 普通推荐：资格 → 库存 → 排序/组合 → 整餐复核
+  ├─ 健康聊天：账户快照 → PG 认领 → DeepSeek → 输出校验
+  ├─ AI 选菜：合格目录 → 预算候选包 → DeepSeek 选 ID → 复核
+  └─ 账户与内容适配器
+       ├─ CloudBase Auth：身份
+       ├─ Data API / PG RPC：内容快照、加密设置、会话与调用认领
+       └─ 既有静态托管：菜谱图片
+
+本地独立研究链路
+  公共来源 → JSON/JSONL/CSV 知识包 → PGlite health_kb
+  → A1 检索/撤回/证据包 → 2 道菜食材级绑定样例
+  → 尚未接入线上正式疾病 RAG</code></pre></div>
+<p>当前后端是模块化单体。领域规则、模型适配、账户适配、知识仓储是模块边界，不是四个独立微服务。云端内容走 Data API，不能把本地 <code>pg</code> 连接能力自动等同于云函数已经直连 PostgreSQL。</p>
+<h3 id="section-14">3.2 关键目录怎样读</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">路径</th><th scope="col">职责</th><th scope="col">阅读时的问题</th></tr></thead><tbody><tr><td><code>frontend/src</code></td><td>页面、本餐状态、账户同步、对话交互</td><td>新旧请求和账号切换如何隔离？</td></tr><tr><td><code>shared/</code></td><td>类型、Schema、匹配、约束、上下文与主题逻辑</td><td>哪些是前后端共享业务语义？</td></tr><tr><td><code>backend/src/app.ts</code></td><td>API 路由、认证、控制器和适配装配</td><td>调用前后分别验证什么？</td></tr><tr><td><code>backend/src/recommendation.ts</code></td><td>普通推荐与整套检查</td><td>先过滤还是先排序？搜索是否完成？</td></tr><tr><td><code>backend/src/health-recipe-selection.ts</code></td><td>受控 AI 选菜</td><td>模型看到哪些候选？如何防伪造 ID？</td></tr><tr><td><code>backend/src/deepseek-json.ts</code></td><td>固定供应商协议及终态验证</td><td>JSON、usage、错误、取消如何统一？</td></tr><tr><td><code>backend/src/health-knowledge*.ts</code></td><td>研究仓储、检索、快照与撤回</td><td>如何避免缓存复活撤回依据？</td></tr><tr><td><code>backend/src/recipe-evidence.ts</code></td><td>食材级研究绑定</td><td>做法和内容 hash 如何核对？</td></tr><tr><td><code>deployment/db</code></td><td>账户、调用、任务与生命周期 SQL</td><td>哪些已部署，哪些仍是待迁移文件？</td></tr><tr><td><code>deployment/cloudbase/http-main.ts</code></td><td>当前云端入口</td><td>本地测试开关是否可能误入云端？</td></tr><tr><td><code>scripts/</code>、<code>tests/</code>、<code>artifacts/acceptance</code></td><td>构建、验证、实验与证据</td><td>报告是否对应当前源码和内容？</td></tr></tbody></table></div>
+<p><code>artifacts/build/web</code> 是构建产物；<code>legacy/prototype</code> 是历史手写原型，不是应该随手删除的缓存。</p>
+<h3 id="section-15">3.3 三条信任边界</h3>
+<p><strong>用户输入边界。</strong> 用户可以表达意图，但不能通过请求正文自报其他 UID、任意模型 URL、管理员身份或已批准知识版本。身份来自服务端认证，关键状态从账户权威记录读取。</p>
+<p><strong>模型边界。</strong> 模型输出是候选结果。它可以选择一个允许的目录 ID、整理自述或提出食材建议，但不能自行修改过敏、批准医学事实、开启补买或执行任意 SQL。</p>
+<p><strong>知识发布边界。</strong> 来源可访问、正文已核对、事实已抽取、规则已批准、菜谱适用已确认是不同状态。研究事实不能仅凭“出现在知识库里”取得生产执行资格。</p>
+<h3 id="section-16">3.4 为什么需要可替换适配层</h3>
+<p>核心推荐不应依赖 CloudBase SDK 或某个模型 response 对象。<code>requestDeepSeekJson</code> 处理供应商协议；账户适配器处理身份和 RPC；领域模块接收已验证的数据。这样可在本地用构造供应商和隔离数据库验证业务，不需要每次修改页面就调用真实 Key。</p>
+<p>可替换不意味着所有供应商完全兼容。更换模型仍需验证 JSON 模式、终止原因、usage、错误语义、上下文、资料流向和费用；“接口长得像”不是兼容性验收。</p>
+<h2 id="chapter-04">04 技术选型：为什么用这些，为什么暂时不用另外那些</h2>
+<h3 id="section-18">4.1 选择依据及反证条件</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">选择</th><th scope="col">当前理由</th><th scope="col">代价</th><th scope="col">什么证据会促使改变</th></tr></thead><tbody><tr><td>TypeScript 前后端</td><td>同一语言表达输入契约和业务模型，降低个人项目协作成本</td><td>TS 类型运行时消失，仍要 Schema；CPU 密集任务会阻塞事件循环</td><td>大量成熟 Python 模型能力或本地推理需求出现，再加独立离线/推理边界</td></tr><tr><td>React / Vite</td><td>已有状态交互与构建基础，适合多步骤工作台</td><td>状态耦合和旧请求问题要自己处理</td><td>用真实性能和维护困难决定重构，不为框架热度重写</td></tr><tr><td>Fastify</td><td>路由与 Schema 校验、插件装配适合现有模块化后端</td><td>不自动提供业务权限和分布式一致性</td><td>框架层确认成为瓶颈或团队标准改变才比较替代</td></tr><tr><td>PostgreSQL</td><td>用户、版本、事实关系、事务、唯一约束在同一权威层表达</td><td>云端访问与权限、连接、索引需实测</td><td>负载或隔离证明需要拆分，才引入其他存储</td></tr><tr><td>PGlite</td><td>轻量、本机可重建、研究库与构造测试便利</td><td>不能替代真实 PG 多连接锁竞争或云权限</td><td>对并发、RLS、恢复的判断必须补真实 PG</td></tr><tr><td>pgvector 方向</td><td>可在 PG 内增加派生向量索引，避免先建第二套数据源</td><td>存在扩展、维度、过滤召回与索引运维成本</td><td>真实规模/过滤/吞吐实验表明独立引擎收益明显</td></tr><tr><td>DeepSeek BYOK</td><td>已有固定接入、中文任务、用户显式使用自己的额度</td><td>Key 配置门槛、供应商延迟、版本漂移、未独立验证质量</td><td>同一冻结任务上比较质量、成本、延迟后再改</td></tr><tr><td>CloudBase HTTP 函数</td><td>复用已存在的身份、内容与静态资源，个人维护成本可控</td><td>冷启动、时间上限、配额、云端调试与灾备边界</td><td>持续负载、长任务或资源账单证明不适合</td></tr><tr><td>模块化单体</td><td>当前规模可在一条请求里理解并调试</td><td>需主动维持模块职责和依赖方向</td><td>团队边界、故障隔离、独立扩容有明确需求</td></tr></tbody></table></div>
+<p>依赖版本以 <a href="../../package.json">package.json</a> 和锁文件为准；<code>pg</code> 的版本是 Node 驱动版本，不能当作 PostgreSQL 服务端版本。不要把“选择方便”包装成“做过所有框架的性能实测”。本轮完成的是文档、代码与架构适配调研，尚无框架横向 benchmark。</p>
+<h3 id="section-19">4.2 为什么没有直接上 LangChain</h3>
+<p>先纠正拼写：是 <strong>LangChain</strong>，不是 lanchain。当前依赖没有 LangChain / LangGraph，线上是直接 TypeScript 编排。现在的核心路径短、分支明确，真正困难在账户隔离、库存、版本、来源条件和付费调用边界，套框架不会自动解决这些。</p>
+<p>LangChain 提供模型、工具和 Agent 编排抽象，适合需要大量标准集成或通用循环的任务；LangGraph 面向更显式的状态、分支、暂停和恢复。两者不是同一个层次，也不是“用框架就一定更先进”。这一能力判断来自 <a href="https://docs.langchain.com/oss/javascript/langchain/overview">LangChain 官方概览</a> 和 <a href="https://docs.langchain.com/oss/javascript/langgraph/persistence">LangGraph 持久化文档</a>。</p>
+<p><strong>可口述回答：</strong>“我看过框架提供的模型/工具抽象和状态持久化能力，但当前是短链路、有硬业务规则的个人项目，因此保留直接 TS 编排。这样取消、Key 边界和一次调用语义更直观。以后如果出现跨请求长任务、暂停恢复和复杂分支，会用同一任务集对比 LangGraph 的实现成本，再决定迁移。现在不能声称我已经用过其生产运行时。”</p>
+<h3 id="section-20">4.3 如果面试官要求你用 LangGraph 重画</h3>
+<p>可以把目标流程画为：<code>validate → resolve → retrieve → assessCoverage → select → validateResult → finish</code>。<code>assessCoverage</code> 仅在信息缺失且预算允许时回到检索；用户资料不明确进入 <code>awaitClarification</code>；取消或过期进入独立终态。</p>
+<p>状态至少包含 <code>ownerRef、taskId、operationId、inputVersion、profileVersion、knowledgeVersion、budget、evidenceIds、proposal、status</code>。列表字段是追加、去重还是覆盖必须明确；多个节点更新同一字段要有合并语义。授权凭证不应默认进入 checkpoint。</p>
+<p>恢复请求必须重新校验身份和提案版本。<code>thread_id</code> 只是定位状态，不是权限凭证。暂停点之前的副作用可能在恢复时重入，因此应幂等或拆成独立节点；这也是 <a href="https://docs.langchain.com/oss/javascript/langgraph/interrupts">官方 interrupt 文档</a> 提醒的工程问题。拾味还必须保持“不默认永久保存完整健康对话”的资料约定，不能直接打开全量 checkpoint 了事。</p>
+<h3 id="section-21">4.4 RAG、长上下文、微调、规则分别负责什么</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">方案</th><th scope="col">解决的问题</th><th scope="col">在拾味中的适用性</th></tr></thead><tbody><tr><td>直接长上下文</td><td>小量资料一次阅读，省去索引建设</td><td>可做小样本基线，但仍要定位、权限和撤回；不能把所有历史长期塞给模型</td></tr><tr><td>RAG</td><td>按任务发现外部证据，便于更新和引用</td><td>适合指南、食品和工艺证据；漏召回、错条件也要治理</td></tr><tr><td>SFT / LoRA</td><td>学习稳定输出行为、格式或领域表达</td><td>当前先用 Schema 和提示词；没有高质量训练集和对照前不训练</td></tr><tr><td>DPO 等偏好优化</td><td>调整偏好行为</td><td>不适合替代事实来源与账户权限</td></tr><tr><td>确定性规则</td><td>明确约束、资格、库存、权限与状态</td><td>当前不可交给语义相似度或模型自评</td></tr></tbody></table></div>
+<p>RAG 的核心是检索后把依据交给生成或判断环节，不要求一定使用向量数据库。研究检索库本身还不等于已经接通线上 RAG 产品。<a href="https://arxiv.org/abs/2005.11401">原始 RAG 论文</a>提供了检索增强生成的研究背景；本项目的条件化规则和发布边界是具体业务设计。</p>
+<h3 id="section-22">4.5 为什么暂不引入 Redis、MQ、图数据库、多 Agent</h3>
+<p>Redis 能做共享缓存或限流，MQ 能解耦耗时任务，图数据库能方便表达关系路径，多 Agent 能分工；但每增加一个组件，都要处理部署、权限、故障、版本、监控和数据同步。当前数据规模小，已有 PG 能提供权威事务，先增加这些组件不能自动提高质量。</p>
+<p>明确的引入条件分别是：缓存/限流数据库负载实测成为瓶颈；任务必须脱离短 HTTP 生命周期可靠执行；大量可变深度关系遍历用 SQL 难以稳定满足延迟；任务可独立分解并有可靠合并验收。没有这些条件，保持简单更容易解释失败和证明正确。</p>
+<h2 id="chapter-05">05 一条真实请求怎样完成</h2>
+<h3 id="section-24">5.1 普通推荐的逐层过程</h3>
+<p>以“西红柿、鸡蛋、少量肉；三人；不补买；限制某食品”为构造场景。数量、疾病与标签只是工程例子，不产生真实饮食指导。</p>
+<ol><li>前端保留输入原文、解析数量和未解析部分。别名用于同物识别，同名数量冲突交给用户选择，不能静默相加。</li><li>服务端用运行时 Schema 检查请求，按本餐版本判断旧操作。TS 类型不足以拦截网络输入。</li><li>载入当前发布内容，枚举真实父菜谱及其变体。</li><li>检查明列食品和调料的过敏/忌口，先剔除不合格项；未知限制需要澄清。调料库存不查不等于调料免过敏检查。</li><li>根据可比较数量检查库存；保留 unknown，不推算“一块肉”等于多少克。不补买时已知不足不能通过。</li><li>合格项中再考虑家常、复用食材、补买数量和受控变化。随机种子只能改变同等候选顺序，不能随机绕过硬条件。</li><li>整套餐再核验：两道菜各用 80g，而只有 120g，单菜都通过不代表整套可行。</li><li>返回结果、完整/未完成状态与绑定本轮的游标。换菜、翻页、切变体也要重新核验。</li></ol>
+<p>实现入口：<a href="../../backend/src/recommendation.ts">推荐核心</a>、<a href="../../shared/meal-planning.ts">菜数规划</a>。最重要的解释是“资格检查先于排序，单菜检查之后还有整套检查”。</p>
+<h3 id="section-25">5.2 受控 AI 选菜的真实过程</h3>
+<p><code>createHealthRecipeSelector</code> 先调用普通推荐得到一个可行基线，再取全部合格菜品。替换模式锁定其他菜；自定义模式保留类别要求。候选按已接受偏好等排序，在保留可行基线的前提下轮转尾部，最多提供 48 个父菜谱候选，避免永远只让模型看到固定前 48 个。</p>
+<p>每个候选转换成当次临时 ID，例如 <code>c1</code>，包含名称、类别、口味、明列配料、用量、完整步骤、可选独立方法、复用食材与补买项。模型只选择提供的 ID 和简短理由，不生成新配方。临时 ID 减少输出歧义，但服务端仍必须通过映射校验。</p>
+<p>输入估计超过 24,000 token 时，从候选尾部减少整条菜谱，保留可行基线及其完整做法。如果仍超过上限，在认领和调用之前拒绝。选择列表最多 18 项、分页每页 6 项；整餐自定义路径允许按原业务数量处理到 20 项，不能把所有模式说成固定最多 18。</p>
+<p>模型返回后检查完整终态、JSON 结构、真实 ID、父菜重复、理由长度、数量和类别，最终重新调用推荐规则核验。选了目录外 ID、库存冲突或重复菜，不能因“语义听起来不错”通过。失败不自动改用普通推荐伪装成 AI 成功，也不自动再次消费用户 Key。<a href="../../backend/src/health-recipe-selection.ts">代码依据</a>。</p>
+<h3 id="section-26">5.3 为什么记录候选范围</h3>
+<p>预算会截断候选，多个变体也可能只提供某个代表。因此 <code>scope.complete=false</code> 时，模型拒选只能说明“本次比较的候选未选中”，不能宣布全目录无解。代码记录父菜数、变体数、实际提供数和方法完整性；候选数等于父菜数也不一定等于所有合格变体都看过。</p>
+<p>这是一个值得展开的亮点：<strong>把算法实际搜索范围纳入结果语义。</strong> 它避免把计算预算的限制伪装成业务事实。普通搜索达到时间/节点预算时也应遵守同样原则。</p>
+<h3 id="section-27">5.4 一次调用的协议约束</h3>
+<p>当前 DeepSeek 适配固定 <code>/chat/completions</code>、<code>deepseek-flash</code>、<code>thinking: disabled</code>、<code>stream:false</code>、<code>json_object</code>；聊天默认输出上限 4,000，选菜传 2,400。响应读取上限 64KiB，必须 <code>finish_reason=stop</code>，并验证供应商返回的 ID、model 和 usage 三项 token 关系。它没有设置 temperature，所以不能说当前已经用 temperature=0 获得确定输出。</p>
+<p>401/403、402、429、供应商不可用、连接中断和不完整输出分别映射错误；禁止重定向，没有自动重试。应用控制器约 17 秒截止，给现有 20 秒函数配置留出一定收尾空间，但真实尾延迟和冷启动仍需观测。接口参数语义可对照 <a href="https://api-docs.deepseek.com/api/create-chat-completion/">DeepSeek 官方 Chat Completions</a>，实现以 <a href="../../backend/src/deepseek-json.ts">deepseek-json.ts</a> 为准。</p>
+<p>注意：网页推荐接口的阶段进度/NDJSON 不等于供应商 token 流。当前供应商请求是非流式，不能在面试中说已实现逐 token 的 DeepSeek 输出。</p>
+<h2 id="chapter-06">06 数据从哪里来：采集、筛选、验证与存储</h2>
+<h3 id="section-29">6.1 三类数据不能混用</h3>
+<p><strong>菜谱目录</strong>回答“菜品是什么、有哪些明列配料、怎么做”。当前本地评测目录有 341 道父菜谱、345 个变体，来源字段包括固定提交的 HowToCook 社区内容、央视《天天饮食》《回家吃饭》页面，以及其他逐条保留署名和原始记录的材料。它不是全部由模型生成，也不是全部原创或全部经过试做。来源研究登记表中还有未准入材料，研究登记数不能当作发布数。</p>
+<p><strong>公共健康知识</strong>回答“某项证据提出什么结论、适用哪些条件、与哪些资料冲突”。当前 v2 的 11 份来源包括国家卫生健康委/疾控公开食养资料、食品嘌呤研究、烹调研究和美国 NCI 的研究总结。机构指南、实测样品、机制解释不是相同证据类型，不能共享一个简单可信度分数后互相替代。</p>
+<p><strong>个人资料</strong>回答“这个用户明确说了什么、接受了什么、当前本餐是什么”。它属于账号或当前页面，不写入公共知识库，也不因为对话里出现一句话就变成公共医学事实。</p>
+<p>来源依据：<a href="../../datasets/recipes/curation/recipe-source-register-2026-10-21.json">菜谱研究登记</a>、<a href="../../datasets/evaluation/catalog-snapshot-v1.json">本地评测目录</a>、<a href="../../datasets/health/2026-10-28-v2/sources.jsonl">知识来源清单</a>。以上来源字段表示仓库记录的出处与核查范围，不意味着所有原作者审核或授权了本项目。</p>
+<h3 id="section-30">6.2 为什么选择这些数据</h3>
+<p>先定义覆盖矩阵，再补资料：疾病主题 × 食物形态 × 成分/工艺 × 适用条件 × 冲突/不足。家常菜目录应覆盖常见食材、做法和难度；知识库优先选择可定位、版本明确、有适用范围的来源。视频只有标题或简介时不能宣称已复核全部步骤；摘要只有有限结论时不能补造全文数字。</p>
+<p>来源进入系统至少经过四个判断：与业务有关吗；原文可核对吗；数据粒度足够吗；能保存和展示哪些内容。内容不足时标缺口；范围不明时限制使用。多抓一千篇没有质量控制的文本，往往只会增加歧义、重复和过期风险。</p>
+<p>当前来源治理已经有 <code>sourceHash、version、retrievedDate、status、verification、reuseScope</code> 等字段；<code>source_checked</code> 表示项目侧核对来源，不是临床同行审核。公共包保存短摘和事实，不默认分发整本来源 PDF。</p>
+<h3 id="section-31">6.3 不同格式怎样统一导入</h3>
+<p>下面是可扩展导入设计，其中现有项目已经处理过 PDF、HTML 长图和压缩包内 PDF 的具体资料；<strong>通用 DOCX/OCR/网页批量导入器仍不能算已完整实现</strong>。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">输入</th><th scope="col">解析路径</th><th scope="col">必须保留</th><th scope="col">常见错误及验收</th></tr></thead><tbody><tr><td>TXT / Markdown</td><td>编码识别→标题、段落、列表和表格解析</td><td>原文 offset、标题路径、代码/表格边界</td><td>不以行宽换行当语义段落；保留否定和限定</td></tr><tr><td>HTML</td><td>抽主文、去导航广告；保留列表表格与链接出处</td><td>URL、抓取时间、DOM/段落定位、原文 hash</td><td>不把推荐链接、评论、隐藏脚本当正文</td></tr><tr><td>电子 PDF</td><td>按页提取文本与版面，处理双栏和跨页表格</td><td>文件 hash、印刷页/文件页区别、bbox 或 span</td><td>防列串行、页眉重复、数字与单位错位</td></tr><tr><td>扫描 PDF / 长图</td><td>OCR 作为候选，再目视复核关键片段</td><td>页图 hash、坐标、OCR 置信度、复核状态</td><td>0/O、1/l、小数点、负号、μ/m、表头跨行重点核验</td></tr><tr><td>DOCX</td><td>解析正文、标题层级、表格和脚注</td><td>文档 hash、段落/表格/行列定位</td><td>合并单元格先展开语义；不能丢注释中的适用限制</td></tr><tr><td>CSV / XLSX</td><td>显式字段映射、类型、单位及空值规则</td><td>原表、sheet、行号、列名、单位基准</td><td>空白不转 0；合并表头不能仅保留最后一层</td></tr><tr><td>JSON / API</td><td>Schema 校验、稳定 ID、分页与版本</td><td>schemaVersion、源 ID、更新时间、内容 hash</td><td>缺页、重复、未知字段、删除记录要处理</td></tr><tr><td>ZIP / RAR</td><td>受控提取所需成员，再按真实格式解析</td><td>压缩包 hash、成员名、解压后 hash</td><td>路径穿越、过大文件、意外可执行内容不得进入执行链</td></tr><tr><td>视频/音频</td><td>字幕/转写＋时间定位＋人工核对</td><td>原始链接、作者、时间段、观察层级</td><td>未看视频只能写“简介/字幕依据”，不能编火候和量</td></tr></tbody></table></div>
+<p>建议统一为 <code>SourceDocument → ParsedBlock → EvidenceUnit → FactCandidate → ReviewedFact → RuleDraft/Release</code>。每一步保留输入输出 hash 和工具版本，允许失败隔离和重新处理。不要把“解析出了字符”作为“数据导入正确”的唯一标准。</p>
+<h3 id="section-32">6.4 一条导入记录怎样设计</h3>
+<p>以下为目标契约示例，<strong>不是宣称当前每个字段都已建表</strong>：</p>
+<div class="code-wrap"><span class="code-label">json</span><pre><code>{
+  &quot;documentId&quot;: &quot;source-A&quot;,
+  &quot;sourceVersion&quot;: &quot;v1&quot;,
+  &quot;sourceHash&quot;: &quot;sha256-of-original&quot;,
+  &quot;parserVersion&quot;: &quot;pdf-structure-v1&quot;,
+  &quot;blockId&quot;: &quot;source-A:p12:t2:r3&quot;,
+  &quot;kind&quot;: &quot;table_row&quot;,
+  &quot;locator&quot;: {&quot;filePage&quot;: 12, &quot;printedPage&quot;: 8, &quot;table&quot;: 2, &quot;row&quot;: 3},
+  &quot;originalText&quot;: &quot;原文短摘，不用生成摘要覆盖&quot;,
+  &quot;normalizedText&quot;: &quot;用于检索的规范副本&quot;,
+  &quot;unit&quot;: &quot;保留原单位&quot;,
+  &quot;basis&quot;: &quot;保留原计量基准&quot;,
+  &quot;qualifierIds&quot;: [&quot;source-A:p12:footnote1&quot;],
+  &quot;reviewState&quot;: &quot;pending&quot;
+}</code></pre></div>
+<p><code>originalText</code> 是引用依据；<code>normalizedText</code> 可做全半角统一、空白处理和受控别名增强，不能删除“未”“除外”“不建议”。必要时保存原始与清洗后 offset 映射，不以生成标题冒充原文标题。</p>
+<h3 id="section-33">6.5 六层数据质量校验</h3>
+<ol><li><strong>结构</strong>：Schema、必填、枚举、长度、唯一 ID、JSONL 可逐条解析。</li><li><strong>完整性</strong>：外键存在，sourceHash 与证据匹配，事实的 evidenceIds 与 qualifyingEvidenceIds 可达。</li><li><strong>单位与身份</strong>：每 100g/每份、生/熟、鲜/干、可食部分/投料不能混算。</li><li><strong>语义</strong>：引用是否真的支持命题，否定、范围和例外是否保留。自动检查不能完全替代人工。</li><li><strong>跨来源冲突</strong>：同实体不同样品、分类区间与实测值、正文与表格差异分别建冲突，不自动取平均。</li><li><strong>发布</strong>：来源撤回、规则状态、目录绑定、内容 hash 和审核范围都满足，才进入对应正式功能。</li></ol>
+<p>失败记录进入待处理清单，不能为了导入数量把空值填成平均数。离线抽取可用模型帮助提出候选，但抽取模型没有批准权。这个设计回答了“如何保证 RAG 不是把网上资料搬进向量库就完事”。</p>
+<h3 id="section-34">6.6 增量更新与重复数据</h3>
+<p>用源文件 hash 判断内容是否变化，用稳定来源 ID 管理版本；文档 hash 相同可跳过解析，但解析器升级仍要生成新的派生版本。近重复资料按规范文本及来源关系聚合，不能删除独有脚注和修订内容。</p>
+<p>批任务记录 pending/processing/succeeded/failed、attempt 与错误；只有幂等的离线解析任务才可以安全重跑。发布采用新快照和新 manifest，不原地覆盖旧证据。向量、关键词索引与缓存是派生物，可以重建；原始依据和撤销记录必须独立保留。</p>
+<h2 id="chapter-07">07 数据模型：事实、规则、图关系和个人状态</h2>
+<h3 id="section-36">7.1 为什么不能一张大 JSON 或一个向量库解决</h3>
+<p>JSON 文件适合版本化离线包和审查；JSONB 适合扩展字段；关系表适合唯一性、外键、权限与事务；向量适合相似检索；对象存储适合原文与图片。它们各有职责。把授权、规则状态和库存全部放进向量库，会失去确定约束；把所有字段拆成几十张表但业务只读取完整快照，也会增加无必要成本。</p>
+<p>当前云端公开目录以发布 bundle 读取，研究知识使用独立 <code>health_kb</code> schema。不能把仓库里的规范化空表当成线上已经有完整数据。公共目录版本与个人设置版本也不能共享一个“更新时间”含糊处理。</p>
+<h3 id="section-37">7.2 实体与关系的语义</h3>
+<p>核心实体有 disease、component、food、food_group、process。关系至少区分疾病—成分、食物—成分、食物指导和烹调影响。别名是同一实体的名称；类别属于是集合关系；组成表示“含有”；可替代是有条件的业务关系。四者混用会导致严重误判。</p>
+<p>例如“番茄/西红柿”可以用于同物匹配；“豆制品/豆腐”不能自动视为同一实体；“香菇”不能自动选鲜或干样品；“不饱和脂肪酸”不能同时命中“饱和脂肪酸”。这些问题发生在实体层，加入更大的 LLM 也不能省略数据定义。</p>
+<h3 id="section-38">7.3 事实和规则为什么分开</h3>
+<p>事实可以表述“来源 S 对对象 O 在条件 C 下观察到关系 R”。规则则决定“满足哪些输入、依据哪些事实、在什么发布范围内允许执行什么动作”。一个来源结论不能直接变成所有人的菜谱禁令。</p>
+<p>概念结构可写成：</p>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>事实 = 主体 + 关系 + 客体 + 条件 + 证据 + 来源版本 + 状态
+规则 = 适用范围 + 前提条件 + 动作 + 必需事实/证据 + 审核/发布版本
+绑定 = 目录版本/hash + recipe + variant + method + 配料行 + 事实/规则</code></pre></div>
+<p><code>contains(X)</code> 与 <code>X 对某疾病有影响</code> 并不能自动推出“食物 F 对该疾病有益”。剂量、可利用性、食品层面证据和烹调条件可能缺失。程序应该阻止无依据的传递闭包，而不是让图遍历无限扩展出新医学事实。</p>
+<h3 id="section-39">7.4 为什么不直接用 GraphRAG</h3>
+<p>本项目确实有图状关系，但“有关系表”不等于使用了 GraphRAG。SQL 可以完成当前明确的少量关联。GraphRAG 的价值通常在跨文档、多实体的发现与聚合等任务，需要额外构图、实体消歧和更新成本；对当前“这条食材指导在什么条件下成立”更重要的是证据与条件完整，而不是图越大越好。</p>
+<p>未来可以比较结构化关系检索与图社区摘要，但图摘要属于派生解释，不能越过原文证据和撤回机制。这是选型条件，不是当前已做实验。</p>
+<h3 id="section-40">7.5 个人状态的权威与删除</h3>
+<p>健康主题按疾病/目标分别保存，接受记录有来源归属；综合偏好按避开＞少选＞推荐处理。它表达用户接受的意见，不是由“最严格规则”自动生成的医学判定。删一个主题，要删其贡献并重新综合，不能把另一个主题仍然有效的来源一并误删。</p>
+<p>旧无归属记录不能因为目前只剩一种疾病就猜归属。迟到回复要核对当前档案；已删除主题不能从历史聊天或压缩摘录复活。这比简单维护三个食材数组更可靠。<a href="../../shared/health-topics.ts">主题逻辑</a>。</p>
+<h2 id="chapter-08">08 切块设计：先保留证据命题，再谈 512 token</h2>
+<h3 id="section-42">8.1 当前到底怎样切</h3>
+<p>现有 98 条 evidence 是整理并定位的证据单元，不是运行一个“任意 PDF 自动 512-token 切块器”得到的结果。主知识包有条件化事实与 qualifying evidence，当前主要验证的是证据完整与检索；通用多格式切块组件仍是后续工程项。</p>
+<p>回答面试时应同时讲“当前做法”和“如何产品化”：先人工定义证据单元边界，再把边界规则实现成结构解析器、token 长度控制与坏切片回归。</p>
+<h3 id="section-43">8.2 什么叫最小完整证据单元</h3>
+<p>构造原文：“人群 A 在条件 C 下可选择食品 F。若 D 成立则不适用。”若第一句与第二句被独立召回，就可能把有条件建议变成无条件推荐。正确单元不只是一个句子，还包括限定、例外、计量基准和必要指代。</p>
+<p>可以把主命题与例外放同块；过长时建立 <code>requiredContextIds</code>，召回主命题时必须回取例外。表格则保留行实体、表头、单位、样品状态、脚注。不是给每块机械加 20% overlap 就保证完整。</p>
+<h3 id="section-44">8.3 各种切法的取舍</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">策略</th><th scope="col">优势</th><th scope="col">代价与适用</th></tr></thead><tbody><tr><td>固定长度</td><td>简单、可复现，适合基线</td><td>容易截断定义和条件；必须检查语义边界</td></tr><tr><td>递归结构切分</td><td>优先标题/段落/句子，易工程化</td><td>弱结构文档和错误解析仍可能切坏</td></tr><tr><td>语义切分</td><td>可能识别主题转折</td><td>额外编码成本、阈值和版本敏感；相似度下降不一定能断句</td></tr><tr><td>父子块</td><td>短 child 精确定位，parent 补上下文</td><td>回取太大仍浪费 token；需父节去重</td></tr><tr><td>命题/记录切分</td><td>适合条件规则、表格事实</td><td>抽取与人工核验成本更高</td></tr></tbody></table></div>
+<p>拾味优先结构＋证据命题，必要时父子回取。建议实验起点：child 300～600 个所选 tokenizer 的 token、上限约 800；parent 约 1,000～1,800。它们不是已证明最优参数，更不是当前线上固定值。应同时比较更短、更长和零重叠，而不是只调单个数字。</p>
+<h3 id="section-45">8.4 没标题、超长表格、重复页眉怎么办</h3>
+<p>没有标题时按自然段、列表和句边界分层；模型生成的辅助标题只进入 retrievalText，不能变成引用事实。超长表格拆逻辑行组，给各组附受控表头与脚注；不能在单位和数字之间断开。重复页眉可按页位置和重复频率识别，但正文里的同一句提醒不能因为重复就删掉。</p>
+<p>对 OCR 置信度低的关键数字不做自动事实发布。对于乱码或解析失败，返回 <code>parse_failed</code>，而非导入一段空文本后当作“没有相关知识”。</p>
+<h3 id="section-46">8.5 怎样评价切块优劣</h3>
+<p>金标准绑定原文 span 或稳定证据命题，再映射到不同切块版本。否则 500-token 与 1,000-token 方案的 chunk 数不同，Recall 分母不一致，比较没有意义。</p>
+<p>同时看命题可定位率、条件完整率、检索覆盖、上下文冗余、总 token、索引大小和处理时间。一个大块可能“命中答案”但同时带入大量相反条件；一个小块排名很高但丢失适用范围。不要用只有关键词命中的单指标判优。</p>
+<h2 id="chapter-09">09 检索、向量化、融合与重排</h2>
+<h3 id="section-48">9.1 当前 A1 检索逐步解释</h3>
+<ol><li>对查询制作 NFKC/小写规范副本，保留原始表达。</li><li>扫描受控实体名和别名，按最长非重叠跨度选择；同跨度多个实体返回歧义。</li><li>对疾病分型、食品鲜干形态做待确认处理；已有明确上下文可以消解相应歧义。</li><li>保留实体短语，补中文二元片段和英文词，过滤部分通用词。二元片段是轻量召回补充，不是完整中文 NLP。</li><li>根据实体类型和适用性限制关系候选，排除已撤回、证据缺失、明确不适用项。</li><li>分别计算实体与词法排名，按 <code>1/(60+实体排名)+1/(60+词法排名)</code> 融合，最后用稳定 ID 收尾。</li><li>独立读取 requiredEvidenceIds 和相关限定证据；不能让 top-k 把规则必需依据挤掉。</li><li>返回证据、冲突、适用性及状态；仍是 <code>clinicalRelease:null、executionAllowed:false</code>。</li></ol>
+<p>依据：<a href="../../backend/src/health-knowledge-retrieval.ts">A1 源码</a>。当前 limit 默认 10，可选 1～50；requiredEvidenceIds 有独立数量限制。模型或浏览器不能把任意证据 ID 参数当作获得执行资格的权限。</p>
+<h3 id="section-49">9.2 当前 RRF 和未来 hybrid 有什么区别</h3>
+<p>RRF 是融合排名的方法，通用公式为 <code>RRF(d)=Σ w_i/(k0+rank_i(d))</code>，某路未召回贡献为零。它适用于多种通道，不要求有向量。当前两路都是基于结构/文本的发现；未来可加 dense，再比较是否带来口语改写增益。</p>
+<p>不能直接把 BM25 分数、余弦相似度、模型重排分相加，因为量纲和分布不同。RRF 较容易建立基线，但会忽略原分数差距；权重和候选数仍需开发集调参。必要证据与限定有独立保留机制，不只靠排名。</p>
+<h3 id="section-50">9.3 BM25 与 PostgreSQL 全文检索</h3>
+<p>BM25 用逆文档频率、词频饱和与长度归一化评估词项相关性。典型形式为：</p>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>score(D,Q) = Σ IDF(t) · tf(t,D)(k1+1)
+                    / [tf(t,D)+k1(1-b+b·|D|/avgdl)]</code></pre></div>
+<p><code>k1</code> 控制词频饱和，<code>b</code> 控制长度影响；具体实现、IDF 变体和分词必须锁定。当前项目是受控实体与词法加分，不是 BM25。PG 的 <code>ts_rank/ts_rank_cd</code> 有自己的排名定义，GIN 主要支持检索，不会自动生成中文词典或自动等同 BM25。<a href="https://www.postgresql.org/docs/current/textsearch-controls.html">PostgreSQL 官方全文检索说明</a>。</p>
+<p>以后先比较应用内 A1 与有界 SQL 全文，记录分词、过滤、执行计划和端到端时间；不要为了在简历写 BM25 就把已有函数改名。</p>
+<h3 id="section-51">9.4 Embedding 模型怎样选</h3>
+<p>当前没有 deployed embedding。候选包括 <strong>BGE-M3 dense</strong> 与 <strong>Qwen3-Embedding-0.6B</strong>：前者模型卡给出 1,024 维、最长 8,192 token、多语言及 dense/sparse/multi-vector 能力；后者模型卡给出 32K 上下文、最高 1,024 维及可调维度、任务指令等能力。它们是可研究的对照，不是本项目最优模型的结论。<a href="https://huggingface.co/BAAI/bge-m3">BGE-M3 模型卡</a>、<a href="https://huggingface.co/Qwen/Qwen3-Embedding-0.6B">Qwen 模型卡</a>。</p>
+<p>选型矩阵要包含：中文别名/口语、否定和鲜干形态、医学术语与中英文混合、query/doc 长度、困难题覆盖、CPU/GPU 峰值内存、批量吞吐、在线 P95、许可证及资料处理边界。榜单只是缩小候选范围，不能代替本项目数据。</p>
+<p><strong>实操顺序：</strong>先固定题集和 A1；在公共资料上离线编码；再验证同模型在线 query 编码；跑精确距离对照；最后考虑近似索引、融合与重排。只做好文档向量而没有可用 query 编码通道，不算线上 RAG 完成。</p>
+<h3 id="section-52">9.5 向量化最容易踩哪些坑</h3>
+<p>必须锁定模型 revision、tokenizer、query 指令格式、池化、归一化、最大长度、精度与输出维度。query/doc 使用不兼容模型，即使维度都是 1,024，也不是同一向量空间。模型支持可调维度也不意味着随意截取向量前半就一定正确，要按其协议并验证。</p>
+<p>批量编码校验空文本、非有限数、维度、意外截断、重复内容和失败批次。保存 <code>contentHash + encodingProtocolHash</code>，同协议同内容可以复用；换模型或清洗规则要新建版本。向量只存派生检索信息，不能替代原文定位。</p>
+<p>采用余弦、内积或 L2 应与模型训练和归一化协议一致。单位向量下，最大内积与最大余弦排序一致，平方 L2 为 <code>2−2·dot</code>；非单位向量不能机械套用。相似度不是置信度，更不是食物安全概率。</p>
+<h3 id="section-53">9.6 pgvector：先精确，再谈 HNSW / IVFFlat</h3>
+<p>小库先做精确距离作为质量基线。HNSW 用图结构做近似近邻，通常需要更多构建/内存成本；IVFFlat 依赖聚类与探测分区，需考虑建索引时的数据分布。索引选择必须同时测召回损失、延迟、内存和更新成本。</p>
+<p>参数上，HNSW 的 <code>m、ef_construction</code> 影响图与构建，<code>ef_search</code> 影响查询候选；IVFFlat 的 lists/probes 影响分区与搜索范围。不能不看数据量就照搬值。pgvector 的近似扫描遇到过滤可能返回不足 k，官方提供迭代扫描等手段；是否可用取决于实际扩展版本。<a href="https://github.com/pgvector/pgvector">pgvector 官方仓库</a>。</p>
+<p>项目应用推论：先在权限和发布范围内检索，不把“先全库拿 top-k 再在客户端删越权项”作为权限实现；同时评估过滤选择率造成的召回损失。对很窄的集合，关系条件过滤后精确算距离可能更合适。这里是待实验方案，当前没有 HNSW 线上调参成果。</p>
+<h3 id="section-54">9.7 重排为什么不能包治百病</h3>
+<p>双编码器可以预先计算文档向量，适合大范围候选；cross-encoder 将 query 与候选共同编码，适合对有限候选精细排序。重排无法救回完全没召回的必要证据，也不能验证引用的医学适用性。分数经 sigmoid 后仍不能直接解释为“90% 正确”。</p>
+<p>建议对照从每路 20/40 个发现候选、融合后约 60/80、最终 8/12 个证据单元起步；它们只是实验网格，不能一次全开最大值。必要依据独立保留，parent 按需回取，再测生成质量、P95 与总 token。小样本无明显增益时保持 A1 更合理。</p>
+<h3 id="section-55">9.8 Query 改写、HyDE、查询分解怎样使用</h3>
+<p>先处理“这个”“上次那个”的指代，能从明确状态解析就不用模型。改写必须保留原问、否定、疾病/食品身份和硬限制；改写结果只是检索提案，不能覆盖账户。</p>
+<p>HyDE 生成假设文本用于找相近资料，但假设文本不是证据。复杂问题可以分解为食物身份、疾病适用、烹调影响三个子问题；合并时要检查它们是否指向同一个食品形态和条件。当前没有线上 HyDE、多轮自主 query rewrite 或复杂分解引擎，不能把知识点回答包装成实际经历。</p>
+<h3 id="section-56">9.9 检索不到和检索错了怎样处理</h3>
+<p>按顺序定位：来源是否包含答案；解析是否完整；切块是否保留限定；实体是否解析正确；相关事实是否进入各路候选；融合是否挤掉；上下文是否裁掉；模型是否误解；结果校验是否遗漏。</p>
+<p>用“金标准证据直接喂给生成器”判断生成层；固定模型只换检索器判断召回层。若来源根本缺少结论，就补覆盖或明确不足，不能反复改 prompt 直到模型给出肯定答案。技术故障、歧义、无覆盖、证据冲突分别返回状态。</p>
+<h2 id="chapter-10">10 从证据到真实菜谱：RAG 真正落地的最后一公里</h2>
+<h3 id="section-58">10.1 为什么一个菜名不够</h3>
+<p>同一个菜名可能有多个变体，同一变体还可能有独立做法。涉及烹调条件时，不能只按“鸡肉”“清蒸”关键词绑定。至少需要目录版本及 hash、recipeId、variantId、methodId/方法 hash、配料行、食品身份和依据版本。</p>
+<p>现有研究样例已经把 2 道真实配方和 4 条食材级绑定连起来，核对原配料行、方法 hash、事实和引用。它返回食材级注释，未绑定食品保持 unknown，不能推成整道菜适宜或全目录覆盖。<a href="../../backend/src/recipe-evidence.ts">绑定代码</a>、<a href="../../datasets/health/recipe-research/bindings.json">绑定数据</a>。</p>
+<h3 id="section-59">10.2 一条条件化判断怎样执行</h3>
+<p>教学例子：证据说食品 F 在条件 C 下有某种指导，真实菜谱某行明确是 F。程序先校验来源和事实未撤回，再确认 C；若 C 未知，则该判断待确认；若 C 不适用，不引用该结论。即使食材指导成立，还要检查菜谱其他食品、工艺和普通硬限制。</p>
+<p>不能把食物中的某成分减少直接说成整餐摄入减少：它可能迁移到汤液，是否弃汤影响适用性；不能把全天限制除以三变成每餐安全值；定性建议不需要的精确克数也不应普遍成为阻断条件。工程关注的是“依据需要哪些前提”，不是收集越多健康信息越好。</p>
+<h3 id="section-60">10.3 多疾病冲突怎样处理</h3>
+<p>先判断是不是同一人群、同一食品形态、同一剂量或工艺。不同条件的结论可能并不矛盾；真正冲突要保留双方依据和适用范围。明确适用的禁止项不能被偏好分抵消，但“永远取最严”也不一定合理，因为最严建议可能不适用或造成新的问题。</p>
+<p>当前多主题个人偏好合并只管理用户接受意见，不能当作多病种临床规则引擎。研究库会说明组合未评估；正式支持某种组合需要独立定义范围和审核，不是各单病种通过后自然组合通过。</p>
+<h3 id="section-61">10.4 目标生产闭环还缺哪些层</h3>
+<p>研究层已有，不应推倒重做。下一步应新增独立正式发布层：审核记录→批准规则快照→真实变体绑定→撤回水位→只读执行接口。主研究 schema 的草稿约束继续保留，不直接把 CHECK 改宽，让历史研究记录突然取得生产含义。</p>
+<p>面试中的完整目标链：<code>解析身份 → 必需证据按 ID → 发现性召回 → 限定/冲突检查 → 适用规则 → 真实变体资格 → 模型解释 → 引用/版本复核</code>。模型只组织解释或提出发现候选；程序决定是否存在执行依据。</p>
+<h2 id="chapter-11">11 Agent 设计：哪些自主，哪些必须固定</h2>
+<h3 id="section-63">11.1 当前系统算什么 Agent</h3>
+<p>最准确的说法是“确定性业务工作流中的受控模型决策”：模型实际读候选并选择菜品，也整理饮食对话；但没有开放式自主工具循环，没有部署多 Agent 规划系统。宽泛语境可以称 Agent 应用，但被追问时必须说明自主范围。</p>
+<p>普通聊天以输出文本为主要结果；Workflow 由程序定义路径；Agent 在执行过程中根据反馈决定下一步动作。实际系统可以混合这些模式。<a href="https://www.anthropic.com/research/building-effective-agents">Anthropic 的 Agent 工程文章</a>也区分了固定编排与更自主的运行方式；拾味选择哪种取决于任务，而非名称。</p>
+<h3 id="section-64">11.2 为什么不让模型同时做解析、筛选、库存、写库</h3>
+<p>这些任务的错误代价不同。理解“清淡一些”适合模型；计算整餐累计食材、验证账号归属、决定补买许可适合程序。一个 prompt 负责全部会使错误很难定位：失败究竟来自理解、数据、计算还是执行？也难以证明模型没偷偷放宽条件。</p>
+<p>拆分后每层有契约：解析提出结构化候选；资格服务给可选集；模型选 ID；执行器验证；持久化服务只接受已授权写入。既可单测，也可以用替身替换模型定位问题。</p>
+<h3 id="section-65">11.3 ReAct、Plan–Execute、固定流程怎样选</h3>
+<p>ReAct 在行动和观察之间迭代，适合所需信息不完全确定的探索；Plan–Execute 适合可分解的长任务，但计划可能过时，需要执行反馈和重规划；固定流程适合短、规则明确、失败代价可控的业务。</p>
+<p>拾味选菜当前只需一次模型选择，不值得为了“像 Agent”增加多轮推理。未来证据发现可允许一次受控补充检索；正式规则执行、偏好写入、身份操作仍固定。ReAct 是研究模式，不意味着应用需要记录或暴露模型隐藏思维链；可观测的是工具、参数、证据、状态和结果。<a href="https://arxiv.org/abs/2210.03629">ReAct 论文</a>。</p>
+<h3 id="section-66">11.4 目标只读工具契约</h3>
+<p>以下工具名是后续架构示意，当前相应功能多以内部函数存在，<strong>不是已经部署的 MCP 工具清单</strong>。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">工具</th><th scope="col">输入</th><th scope="col">输出</th><th scope="col">必须限制</th></tr></thead><tbody><tr><td><code>resolveEntities</code></td><td>原问、已确认类型、词典版本</td><td>实体候选、歧义、否定提示</td><td>不写档案，不从症状确诊</td></tr><tr><td><code>retrieveEvidence</code></td><td>query、合法过滤、topK、知识版本</td><td>证据 ID、排序来源、状态</td><td>仅公开批准范围；数量/长度/时间有界</td></tr><tr><td><code>loadEvidence</code></td><td>允许的 ID 与版本</td><td>原文短摘、限定、来源定位</td><td>防任意 ID 越权和撤回遗漏</td></tr><tr><td><code>evaluateGuidance</code></td><td>规则版本、已确认条件、证据包</td><td>适用/不足/不适用/冲突</td><td>确定性执行，模型不能批准规则</td></tr><tr><td><code>matchCatalog</code></td><td>食材判断、目录版本、本餐快照</td><td>合格真实变体及范围</td><td>不扩大补买、不生成目录外菜</td></tr></tbody></table></div>
+<p>工具应表达有限业务动作，而不是 <code>run_sql(sql)</code>、<code>fetch_any_url(url)</code> 或 <code>execute_shell(command)</code>。参数 schema 只是第一步，还需身份、资源、状态、预算和取消校验。工具返回文本也可能含恶意指令，必须按数据处理。</p>
+<h3 id="section-67">11.5 目标状态机及停止条件</h3>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>created → validated → resolved → retrieved → checked → proposed → completed
+                         │          │          │
+                         └→ needs_clarification │
+                                    └→ insufficient_evidence
+任意阶段 → cancelled / expired / failed / budget_exceeded</code></pre></div>
+<p>如果允许补检索，设计上限：例如最多一次改写、两次只读检索、一次最终模型解释；这是建议，不是当前线上参数。重复 query+过滤+版本、没有新增证据、预算不足时停止。成功要有结果和状态依据，不能相信模型输出“任务完成”。</p>
+<p>预算包含总时间、模型轮数、工具次数、输入输出 token、费用预留和并发槽位。业务结果“确实无合格项”与技术失败、搜索未完成分开，否则失败会伪装成能力不足或误导用户修改输入。</p>
+<h3 id="section-68">11.6 Function Calling、JSON、MCP、Skill 的区别</h3>
+<p>Function Calling 是模型提出工具名和结构化参数的交互方式，应用负责真正执行；当前选菜输出普通 JSON ID，并不是已经使用供应商原生 tool calls。JSON mode 保证格式方向，业务 ID、权限和完整终态仍需验证。</p>
+<p>MCP 为应用和工具/资源服务提供标准交互机制，通常涉及 host、client、server 等角色；它不自动提供本项目业务授权，也不等于 Agent 推理算法。没有多客户端共享工具的需求时，内部函数和 HTTP API 更直接。<a href="https://modelcontextprotocol.io/docs/learn/architecture">MCP 官方架构</a>。</p>
+<p>Skill 更像可复用方法和操作规范；RAG 存可查询证据；长期记忆存经授权的个人事实；执行状态记录任务到哪一步。把疾病资料塞进一份 Skill 文件不能代替版本、查询、撤回与适用性管理。</p>
+<h3 id="section-69">11.7 如果一定要做多 Agent</h3>
+<p>先找真正可独立验证的子任务，如离线来源定位、格式解析和回归样例整理。协调者限定输入、工具、输出 schema、预算；合并时按稳定 ID 和版本验证。不能把两个模型投票当作医学审核，相关模型可能重复同一种错误。</p>
+<p>在线多个 Agent 还增加 token、延迟、共享状态和循环风险。必须用相同任务比较单 Agent 与多 Agent 的成功率、成本和故障恢复。当前没有这样的结果，简历不应写多 Agent 协同提升某个百分比。</p>
+<h2 id="chapter-12">12 上下文与记忆：压缩不能改变用户真实意图</h2>
+<h3 id="section-71">12.1 当前已有的抽取式压缩</h3>
+<p><code>buildChatContext</code> 在页内处理历史：保留最近完整 user/assistant 轮次，最多取 12 条历史消息；总消息区估计预算约 6,000 token，另外为旧摘录留出空间。旧用户消息按更正、删除、过敏等关键词优先，再按新近程度挑选；每条最多摘录 180 字符，摘录候选预算约 900。</p>
+<p>摘录按原时间顺序放入较新用户轮次，明确标注它可能不完整、可能被后续更正。最新输入不裁剪，UI 与服务端独立限制其长度；超出消息预算时按完整轮次移除。当前没有调用另一个模型生成摘要，也不把完整聊天写入 localStorage 或数据库。<a href="../../shared/health-chat.ts">实际代码</a>。</p>
+<h3 id="section-72">12.2 token 估计与硬上限必须分开</h3>
+<p>当前 <code>estimatedTokens</code> 对汉字按 2、ASCII 按 0.4、其他字符按 2 个单位估计，向上取整；这是应用侧保守启发式，不是 DeepSeek tokenizer，不能声称每种 Unicode 输入都得到严格上界。供应商 usage 才是调用后统计依据。<a href="../../shared/context-budget.ts">预算函数</a>。</p>
+<p>聊天的约 6,000 是<strong>消息区</strong>预算，服务端还添加 system、档案、主题和本餐上下文。当前尚不能说“聊天完整请求严格不超过 6,000 token”。下一步应在供应商调用前对最终 messages 统一预算，预留输出和序列化开销，并把估计误差与真实 usage 对照。</p>
+<p>选菜的 24,000 估计覆盖 system 和候选 packet；输出另设 2,400。消息条数、16,000 字符防护、模型上下文上限与业务 token 预算是四种不同限制。</p>
+<h3 id="section-73">12.3 为什么压缩不是简单截断前半段</h3>
+<p>“我不吃 F”“刚才说错了，我可以吃 F”“删除疾病 D”有不同时间语义。只取最近 N 条可能丢最早硬限制；摘要又可能把问句变成事实。正确做法是把权威偏好、当前档案和用户授权单独保存与读取，历史只补会话背景，不能覆盖这些字段。</p>
+<p>当前摘录算法仍有可优化点：关键词只能抓常见表达；180 字符截断可能截掉后半句限定；没有检索原轮全文的持久层；完整 prompt 预算仍待统一。可以改为句界抽取、显式 sourceTurnId 和更正关联，并针对长否定句做回归。不能仅因已有抽取功能就声称已解决所有长对话失真。</p>
+<h3 id="section-74">12.4 哪些内容优先保留</h3>
+<p>建议优先级：当前用户原话与任务→服务端权威限制/授权→必要证据及例外→未完成提案和已执行操作→近期轮次→可选旧背景。预算不足先减少发现性候选、重复描述和非关键历史，不能优先删过敏、版本或例外。</p>
+<p>知识片段压缩与聊天压缩也不同。知识需保留命题及来源定位；聊天需保留谁说的、何时说的、是否已更正。压缩输出不是新的证据，生成摘要不能覆盖原文。</p>
+<h3 id="section-75">12.5 为什么上下文没满也要管理</h3>
+<p>更多上下文带来噪声、延迟与费用，并不保证模型使用到关键内容。长上下文研究发现过位置相关的性能变化，但那不代表所有当代模型必然具有相同下降曲线；必须在实际任务测。<a href="https://aclanthology.org/2024.tacl-1.9/">Lost in the Middle</a>。</p>
+<p>工程上可将关键状态和任务放在明确位置、去重复、按主题隔离、保留必要原文。不要靠“把最重要内容复制三遍”替代预算与评测。</p>
+<h3 id="section-76">12.6 怎样证明压缩确有收益</h3>
+<p>固定 20～30 轮构造会话，包含长期限制、后期更正、删主题、换话题、取消和超长输入。比较原历史基线、滑窗、当前抽取式方案，必要时再比较模型摘要。每组统计全会话所有调用 token、摘要成本、完成率、旧事实恢复率、硬限制丢失率和 P95。</p>
+<p>先用本地契约验证结构，再在获授权的有限真实模型样本上评估语义。当前没有经过真实调用的“节省 60% token 且质量不降”结论；能说的是已经控制输入范围，并有可评估机制。</p>
+<h3 id="section-77">12.7 KV Cache、Prompt Cache、业务缓存和记忆</h3>
+<p>KV Cache 是模型推理内部的历史 key/value；Prompt Cache 是供应商对可复用前缀的计算/计费优化；业务缓存保存内容或检索派生结果；个人记忆保存用户授权的状态。四者不是一个东西。</p>
+<p>稳定 system 和工具前缀可能提高缓存机会，但是否命中、延迟与实际费用应看供应商回执；不能把减少字符数直接当作账单等比下降。DeepSeek 的缓存机制可查 <a href="https://api-docs.deepseek.com/guides/kv_cache/">官方 Context Caching</a>。当前没有缓存命中率收益报告，也不能为追求缓存把其他用户资料拼成公共前缀。</p>
+<h2 id="chapter-13">13 可靠执行、安全、隔离与一致性</h2>
+<h3 id="section-79">13.1 幂等与“恰好一次”不能混说</h3>
+<p>公网 BYOK 路径使用 PG <code>shiwei_ai_chat_claim</code>。表主键是 <code>(owner_id,operation_id)</code>，RPC 检查会话，再对账户行做 <code>FOR UPDATE</code>，在短事务内检查重复与限额后插入认领。当前 SQL 设每账户每分钟 6 次、每天 120 次，这些是应用调用限制，<strong>不是系统吞吐和供应商额度</strong>。<a href="../../deployment/db/health-chat.sql">SQL</a>。</p>
+<p>重复 operationId 会拒绝，不重复调用；输入指纹用于绑定，当前重复判定并不需要对所有差异提供单独错误文案。RPC 提交后才调用外部模型，不在模型等待期间持有数据库事务。</p>
+<p>这保证的是应用侧同操作的认领，不是外部供应商计费恰好一次。认领后进程退出，可能没有调用，也可能调用了但结果丢失。当前选择不自动重发，牺牲自动恢复便利以控制未知重复消费。重新生成 operationId 仍是新操作，不能把客户端随意换 ID 当作幂等。</p>
+<h3 id="section-80">13.2 取消、超时和旧结果</h3>
+<p>用户取消时通过 AbortSignal 尽力终止等待和网络；供应商可能已经消费，不能承诺取消必不扣费。最终提交前要核对任务版本、当前操作、身份与档案。页面只靠按钮禁用不足以挡住两个页面或两个实例。</p>
+<p>当前有单实例最新任务映射与页面 taskId，另有共享任务水位 SQL 和本地验证；<strong>新共享任务表没有随 v46 迁移上线，不能宣传所有跨实例晚到竞态已经闭环</strong>。已上线 PG 付费认领与待启用共享任务水位解决的是不同问题。</p>
+<p>未来跨实例任务可用条件更新或受控租约与 fencing token；但不能租约一过期就重新执行结果未知的付费动作。业务操作身份与工作进程租约必须分开。</p>
+<h3 id="section-81">13.3 账户同步为什么用版本冲突</h3>
+<p>两个设备同时修改偏好，若简单最后写入覆盖，可能把另一个设备刚增加的限制删掉。CAS 用 expectedVersion 检查写入是否仍基于最新状态；冲突后重新读取、展示或按明确规则合并，而不是静默放宽限制。</p>
+<p>事务保护的是一段数据库操作，不能自动保护跨页面的用户意图。对长期主题和接受记录还要保留来源关系与删除水位，防止旧模型回复回填。个人状态读写归属来自认证 UID，不能信任正文中的 owner 字段。</p>
+<h3 id="section-82">13.4 加密、RLS、认证分别解决什么</h3>
+<p><code>backend/src/crypto.ts</code> 使用 AES-256-GCM，随机 12 字节 nonce；AAD 绑定 UID、用途和密钥版本。这样把甲用户的密文移给乙用户，或者把游标密文当设置解密，都不能正常通过认证。<a href="../../backend/src/crypto.ts">加密实现</a>。</p>
+<p>加密保护存储与篡改检测，不替代访问控制；RLS 控制数据行范围，认证证明身份，CSRF/同源校验限制浏览器跨站操作。Key 只在服务端解密后作为供应商 Authorization 使用，不进入模型 prompt；前端只得到状态/尾号。发布保留现有密钥，随意轮换会让旧数据不可读。</p>
+<p>密钥轮换的完整工程应包括 keyVersion、旧密钥受控解密、重加密任务、验证和退出窗口；当前支持版本字段不等于已经完成全部轮换演练。备份数据与恢复密钥的保管也必须分别验证。</p>
+<h3 id="section-83">13.5 提示词注入如何防</h3>
+<p>直接用户输入、检索正文、菜谱来源、工具返回都可能含“忽略规则”等文本。prompt 标注数据区只是辅助；真正边界是模型没有管理员工具、没有任意 URL 权限、候选 ID 白名单、服务端授权和结果复核。</p>
+<p>当前聊天把部分自述 JSON 包装在固定 system 消息中，虽然明确标为用户数据，但角色与可信度仍有进一步分离空间。后续可以对照独立数据消息，验证行为兼容，不应仅凭角色标签就断言已经泄密。红队应覆盖恶意菜谱文本、假引用、请求打印 Key、绕过限制和旧主题恢复。<a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">OWASP 提示词注入防护</a>。</p>
+<p>输出也要处理：不得执行模型 HTML/脚本；引用链接来自服务器知识包，而非相信模型生成 URL；SQL 参数化；受控网络不跟随未知重定向。没有任何 prompt 能单独保证永久免疫注入。</p>
+<h3 id="section-84">13.6 缓存怎样避免旧知识复活</h3>
+<p>研究仓储最多缓存两个已验证的不可变快照，使用预建实体/证据映射减少重复扫描；不可变表约束使缓存假设有依据。撤回是独立追加记录，查询时读取、输出前再次复核，变化时重新计算。</p>
+<p>回滚旧 bundle 仍应用最新撤回集合。只把版本放缓存键不能抵抗请求进行期间的新撤回；只设置 TTL 也会留有窗口。这个机制可以推广到用户清除、规则撤销与身份禁用，但三者的数据源和授权仍不同。<a href="../../backend/src/health-knowledge-repository.ts">仓储代码</a>。</p>
+<h2 id="chapter-14">14 评测：怎样证明数据、RAG、Agent 和产品真的有效</h2>
+<h3 id="section-86">14.1 六层验收，六种不同证据</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">层</th><th scope="col">核心问题</th><th scope="col">方法</th><th scope="col">不能替代</th></tr></thead><tbody><tr><td>数据</td><td>原文、单位、来源、引用关系对吗</td><td>manifest/hash/Schema＋抽样复核</td><td>医学适用审核</td></tr><tr><td>检索</td><td>必要证据找到了吗</td><td>相关集合、禁止项、条件覆盖</td><td>生成正确性</td></tr><tr><td>生成</td><td>结论被依据支持吗</td><td>命题级人工 rubric＋辅助 judge</td><td>工具真实副作用</td></tr><tr><td>执行</td><td>是否越权、重复、晚到、预算超限</td><td>状态和故障注入</td><td>页面用户路径</td></tr><tr><td>产品</td><td>用户能完成任务吗</td><td>浏览器桌面/手机、键盘、取消恢复</td><td>云端容量与真实邮件</td></tr><tr><td>运维</td><td>能部署、监控、恢复吗</td><td>环境检查、隔离恢复、回退演练</td><td>上述任何一层质量</td></tr></tbody></table></div>
+<p>“218 项测试通过”后来已被新报告更新，但无论测试数量多少，都不能直接写成“模型准确率高”或“可正式开放所有功能”。测试名称、输入、断言、环境和源码版本才决定证明范围。</p>
+<h3 id="section-87">14.2 当前真实报告应该怎样读</h3>
+<p>10 月 30 日普通 PowerShell 全量基线有 <strong>20/20 阶段通过</strong>，源码稳定；包含四组浏览器与六组真实 PG。浏览器实际通过合计 68 条，普通组中另有 8 条重复业务用例跳过，不重复计数。单元组是 240 通过、1 项按单元环境跳过的 PG 用例；真实 PG 由独立阶段提供证据。</p>
+<p>维护发布对应的后续报告有 <strong>246 项：245 通过、1 跳过</strong>，10 个本地构建/知识/契约阶段通过；Codex 进程的四浏览器六 PG 仍为权限阻塞。不能把旧基线的通过复制给新源码。维护发布后只做了 6 个只读 HTTP 核对，不是重新完成全量外部验收。</p>
+<p>原始报告：<a href="../../artifacts/acceptance/project-check-2026-10-30T06-04-49-269Z/report.json">全量基线</a>、<a href="../../artifacts/acceptance/project-check-2026-10-30T10-59-36-214Z/report.json">维护版本本地报告</a>。两者 <code>releaseReady</code> 均不能被本地全绿自动改成 true。</p>
+<h3 id="section-88">14.3 200 条候选具体是什么</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">维度</th><th scope="col">数量</th><th scope="col">需要核对</th></tr></thead><tbody><tr><td>文字食材识别</td><td>40</td><td>别名、数量、未知量、形态；不包含真实照片识别</td></tr><tr><td>过敏排除</td><td>50</td><td>明列食品与调料、变体、可选项、补买和翻页不绕过</td></tr><tr><td>疾病饮食限制</td><td>50</td><td>条件、人群、证据、冲突、不能给绝对安全保证</td></tr><tr><td>推荐合理性</td><td>30</td><td>回应目标、搭配与补买合理、没有凭空营养推断</td></tr><tr><td>做法完整性</td><td>30</td><td>来源步骤完整、方法不混用、配料与步骤一致</td></tr></tbody></table></div>
+<p>自动候选检查目前 120 条契约通过，80 条待独立质量判断，<strong>全部 200 条标签都还需要独立审核</strong>。不能把自动可解析或命中真实 ID 叫作模型回答质量。6 题选菜 harness 是开发契约场景，不能冒充上述 200 题端到端评测。<a href="../../datasets/evaluation/agent-candidates-v1.json">候选集</a>、<a href="../../scripts/evaluate-agent-candidates.ts">候选检查器</a>。</p>
+<h3 id="section-89">14.4 独立标注怎样组织</h3>
+<p>每题至少保存 caseId、clusterId、split、原问、已确认上下文、稳定证据/事实 ID、禁止项、必要限定、期望状态、标注人和裁决。疾病类至少两名独立复核者；其他至少一名与题目作者不同的复核者，关键争议交给具备相应知识的人裁决。当前冻结器验证身份字段和数量，但它不能自动证明复核者具备专业资质。</p>
+<p>同一问题的改写、同源近重复不能随机散到开发和测试两边。先按簇划分，再冻结 hash；开发集调参，冻结集做预先约定对照。已知来源上的未见问题与全新来源解析是两种泛化测试，分别报告。没有独立人力时如实标为开发回归。<a href="../../scripts/freeze-evaluation-set.ts">冻结器</a>。</p>
+<h3 id="section-90">14.5 指标公式和手算例子</h3>
+<p>设某题需要事实集合 G={A,B,C}，前 5 条返回 [A,D,B,E,F]：Recall@5=2/3，Precision@5=2/5，首个相关排名为 1，RR=1；但“必需证据全部覆盖”是 0，因为缺 C。若 C 是例外，即使 Recall 看起来还可以，该题仍不应执行结论。</p>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>Recall@k = |去重后的相关证据∩前k结果| / |相关证据集合|
+Precision@k = |相关证据∩前k结果| / k        # 固定k口径需事先约定
+MRR@k = 各题首个相关项倒数排名的平均，未命中计0
+DCG@k = Σ (2^rel_i − 1) / log2(i+1)
+nDCG@k = DCG@k / 理想排序的DCG@k
+必要证据全覆盖率 = 必要集合全部被取回的可回答题数 / 对应题数</code></pre></div>
+<p>无答案题不强行套 Recall 分母；单列错误肯定率、适当拒答率和误拒答率。标注不穷尽相关证据时，Recall 只能解释为“对标注集的覆盖”；合并不同检索器的候选做人工 pooling，可减少漏标。宏平均防止大类淹没小类，微平均反映总量，两者可并报。</p>
+<h3 id="section-91">14.6 生成与 Agent 的评分规则</h3>
+<p>可用 0/1/2 分 rubric：是否回应任务、依据是否支持、条件是否完整、配方是否真实、解释是否可执行。高风险违例另设硬失败：越权写入、突破明确过敏、伪造引用、恢复已删除资料、未知结果自动重复消费。硬失败不能被其他文字流畅分抵消。</p>
+<p>Agent 看结果，也看工具参数、合法状态转移、重复动作、取消后提交、预算与副作用。不同有效工具顺序不一定是错，除非顺序本身是业务要求。用模型 judge 可以减少人工筛查量，但需抽样校准、自评偏差测试和人工裁决；Ragas 等指标工具不能授予临床正确性。<a href="https://docs.ragas.io/en/stable/concepts/metrics/overview/">Ragas 指标说明</a>。</p>
+<h3 id="section-92">14.7 对照实验与失败归因</h3>
+<p>推荐实验顺序：A0→A1→A1+dense→再加 reranker；切块实验单独固定检索器；压缩实验固定任务和模型；模型比较固定候选与约束。一次只改变主要变量，保留输入、版本、配置和逐题结果。</p>
+<p>目前实测：同 v1 的 20 题关系覆盖 A0/A1 都为 20/20；v2 的 A1 编辑回归 50/50；其中 10 个歧义/形态/错误命中断言 A0 为 5/10、A1 为 10/10。它说明特定回归缺陷改进，不能说独立泛化准确率从 50% 提到 100%。<a href="../../artifacts/acceptance/health-knowledge-2026-10-28-v2/retrieval-comparison.json">原对照记录</a>。</p>
+<p>冻结集结果报告分组样本量、配对改善/退化、置信区间与失败案例。连续 50 次未出现某严重错误不证明真实错误率为零；在独立同分布近似下，零事件的 95% 上界可用约 3/n 粗估，仍不是医学安全认证。</p>
+<h3 id="section-93">14.8 真实模型预算怎样控制</h3>
+<p>当前专项预算曾获准 5 元，但真实付费测试随后暂停；本轮研究写作不调用模型。已有预算账本在调用前锁定并持久预留，未知消耗不自动退款，单题不自动重试。报价必须用执行当天官方价目，不能把历史价格长期写死。</p>
+<p>将来恢复时先少量质量筛查，发现标签或接口问题立即停止；预算不足就报告已覆盖范围，不为了凑 200 题降低条件。费用记录区分保守预留、usage 估算和实际账单，回执缺失不能当零消费。</p>
+<h2 id="chapter-15">15 性能与 QPS：做了什么，怎样继续测</h2>
+<h3 id="section-95">15.1 能否保证较高并发</h3>
+<p>目前<strong>不能承诺具体高并发容量</strong>。有并发正确性设计、真实 PG 专项和本地回归，不代表做过生产持续负载。云函数能扩容也不意味着数据库、Data API、供应商或资源点无限。网站静态资源吞吐、普通推荐吞吐、健康模型调用吞吐必须分开。</p>
+<p>可口述：“我优先保证重复请求、库存和状态的一致性，再做容量优化。目前有本地检索优化数据和工程护栏，没有生产 QPS 报告。我不会把毫秒级内存检索换算成整个网站的 QPS；后续会在本地隔离环境按接口分层测，并给出测试硬件、负载、错误率和 P95。”</p>
+<h3 id="section-96">15.2 已经做过的性能相关工作</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">工作</th><th scope="col">实际价值</th><th scope="col">尚不能声称</th></tr></thead><tbody><tr><td>预建实体/来源/证据 Map</td><td>减少每关系重复线性查找</td><td>生产延迟已经降低固定比例</td></tr><tr><td>两个不可变知识快照缓存</td><td>减少重复装载；仍单独检查撤回</td><td>云函数所有实例共享同一缓存</td></tr><tr><td>候选包上限与完整菜谱裁剪</td><td>限制模型输入和候选规模</td><td>质量无损或费用已实测节省多少</td></tr><tr><td>翻页/手动变体使用游标</td><td>避免这些动作重复调用模型</td><td>游标缓存可以绕过当前权限与条件</td></tr><tr><td>短事务认领</td><td>模型等待不占数据库长事务</td><td>无锁竞争或无限并发</td></tr><tr><td>阶段/usage 观测接口</td><td>为诊断提供结构化信息</td><td>已有完整线上监控看板和告警体系</td></tr></tbody></table></div>
+<p>本地 260 条关系、各 100 次暖态应用查询的历史观察：A0 P50 约 0.738ms/P95 约 1.616ms，A1 P50 约 0.285ms/P95 约 0.601ms。它不含数据库加载、网络、模型和云函数，仅说明这个小规模本机实验。一次暖态测量不足以承诺稳定倍数。<a href="../../agent-design/optimization/health-rag-optimization-v2.md">记录与限制</a>。</p>
+<h3 id="section-97">15.3 端到端延迟怎样拆</h3>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>总耗时 ≈ 等待/冷启动 + 鉴权 + 资料/目录加载 + 资格搜索
+       + 检索/重排 + 上下文构建 + 模型排队/推理
+       + 结果复核 + 返回/浏览器渲染</code></pre></div>
+<p>按阶段记录 p50/p95/p99 和失败状态，观察最慢 5% 请求在做什么。均值掩盖冷启动和供应商排队；把结果流式展示只能改善可感知等待，不保证总完成时间降低。当前非流式供应商路径没有可用 TTFT 测量，不要虚构首 token 指标。</p>
+<p>CPU 高先查组合搜索、JSON 大对象、序列化、正则和同步处理；事件循环延迟高要区分 CPU 与 I/O；内存高查无界 Map、历史、响应缓冲和重复快照。只扩大实例内存而不定位对象生命周期，可能只是推迟故障。</p>
+<h3 id="section-98">15.4 QPS 与并发的估算</h3>
+<p>稳态下可用 Little 定律 <code>L=λW</code>：平均在途任务数 L≈到达率 λ×平均停留时间 W。假设模型任务平均 8 秒、到达 5 次/秒，就约有 40 个在途任务；这只是示意，不是拾味实测，也不等于 40 个 CPU 核心或 40 个数据库连接。</p>
+<p>模型供应商若同时约束 RPM 与 TPM，则理论请求率上界还受 <code>RPM/60</code> 和 <code>TPM/(60×平均每请求token)</code> 限制；再乘上应用、网络、费用和失败恢复的实际约束。一次任务多次模型调用会进一步增加放大系数。</p>
+<p>数据库连接容量需满足 <code>实例数×每实例连接池上限 + 管理/迁移保留连接 ≤ 数据库允许连接预算</code>。当前线上使用 Data API/RPC，不能直接套本地 pg 池参数当作云端实际值，但底层数据库仍有连接和事务压力。</p>
+<h3 id="section-99">15.5 本地压测的具体方案（待执行）</h3>
+<ol><li>固定源码、内容、硬件、数据库版本、索引、进程数和模型替身；禁止公网、云和真实 Key。</li><li>分四条路径：静态/健康检查；普通推荐；账户读写与 CAS；模拟 1/5/15 秒模型延迟的 AI 请求。不同路径分别报告。</li><li>先单请求测正确性与基准，再按并发 1/5/10/20 等阶梯探测；这些是起点而非目标承诺。每阶先预热，再观察稳定窗口，资源紧张立即停止。</li><li>同时做固定并发与固定到达率实验；只用闭环客户端会在服务器变慢时自动降低发压，可能隐藏排队问题。记录发起数、完成数、拒绝数、超时数与排队。</li><li>负载矩阵包括小/大目录、少/多限制、可行/无解、缓存冷/热、多用户/单热点用户、不同任务 ID 与同 operation 重复。</li><li>质量先验：所有成功结果仍满足硬约束；取消/旧结果不提交；账本认领数与实际模拟调用数一致。吞吐上升但错误结果增加不是优化。</li><li>报告运行原始数据、p50/p95/p99、CPU、内存、事件循环延迟、SQL 等待、缓存命中与模型等待占比；不要只留截图里的最高瞬时 QPS。</li></ol>
+<p>可在以后需要时用 k6、autocannon 或自建有界客户端，先核对工具版本和指标定义；当前没有新增或运行这些压测工具。对用户当前资源约束，云端压测不应成为默认动作。</p>
+<h3 id="section-100">15.6 优化顺序怎样决定</h3>
+<p>先消除不必要的模型调用和重复装载，再改善候选规模与查询；按业务需求加索引；若组合搜索阻塞事件循环，比较更强剪枝或 worker；若热点读取成为瓶颈，再考虑共享缓存；任务超过短 HTTP 生命周期才比较队列和异步结果。</p>
+<p>慢 SQL 用 <code>EXPLAIN (ANALYZE, BUFFERS)</code> 在隔离数据上定位估计/实际行差、扫描与排序、回表、索引选择率和锁等待；真实执行会产生负载，写语句还会产生副作用，不能在生产随手分析。索引不使用可能因为表小、选择率低、表达式不匹配、统计过期或查询形式错误，不是“数据库不聪明”。</p>
+<h3 id="section-101">15.7 背压、限流、熔断与降级</h3>
+<p>限流约束到达频率，背压限制在途/队列长度，熔断在持续失败时减少无效请求。账户 6/分钟不能阻止大量不同账户同时打满全局资源，因此后续还需基于实测定义全局并发槽位和拒绝方式。</p>
+<p>外部模型异常时可以保持普通模式可用、缩小非关键解释或明确失败；不能悄悄改供应商、改用平台 Key、放宽健康条件或自动重试。限流后 UI 保留输入，用户明确重试；无界队列只会把 429 变成长时间超时。</p>
+<h2 id="chapter-16">16 真实困难与修复：六个可以深入讲的案例</h2>
+<h3 id="section-103">16.1 单菜口味切换：安全校验误伤合法变更</h3>
+<p><strong>触发：</strong>浏览器先生成推荐，再切换其中一道口味。后端返回 <code>CURSOR_EXPIRED</code>，界面保持旧值。单元测试之前直接构造无游标请求，漏掉完整用户路径。</p>
+<p><strong>根因：</strong>签名绑定整个本餐的 overrides。前端带旧游标提交新的目标口味，后端用新输入校验旧签名，必然不一致。简单删除签名检查会让用户借此修改其他硬条件，因此不可采用。</p>
+<p><strong>修复：</strong>只允许一条已选菜的口味变化，基于当前选择重建目标之前的合法状态，验证完整旧签名；其他条件和其他卡片必须一致。随后重新检查过敏、补买和整餐累计库存，沿用排序种子，发新游标。</p>
+<p><strong>证据：</strong>新加 4 个回归，修复前 3 个失败；修复后通过。构造营养值 20→30→20 验证首次切换与切回；库存 120g 时拒绝需要 150g 的变体；覆盖篡改、分页及 JSON/NDJSON API。随后用户浏览器普通 36 项、业务 8 项通过。这些数字是测试夹具和用例数，不是营养或用户效果数据。</p>
+<p><strong>面试升华：</strong>安全绑定要保护不变量，同时允许受控状态转移；测试必须带真实前置产物，而不是只验证孤立函数。<a href="../releases/ACCEPTANCE-variant-cursor-2026-10-30.md">完整记录</a>。</p>
+<h3 id="section-104">16.2 中文实体碰撞：不饱和不能误当饱和</h3>
+<p><strong>触发：</strong>简单子串匹配使长术语中的短术语同时命中；泛称“香菇”又容易混用鲜/干证据。</p>
+<p><strong>处理：</strong>最长非重叠匹配、同跨度歧义、关系端点类型过滤；鲜干形态与疾病分型未知时返回确认；补中文二元片段改善连续口语召回。</p>
+<p><strong>验证：</strong>困难断言子集由 A0 的 5/10 到 A1 的 10/10，完整 A1 编辑回归 50/50；它不是独立真实用户准确率。</p>
+<p><strong>反思：</strong>最长匹配和词典对新词、错别字、复杂比较句仍有限；向量只能作为待比较补充，不能自动解决实体身份。这个案例比“用了先进混合检索”更具体。</p>
+<h3 id="section-105">16.3 撤回遇上缓存：性能不能复活旧证据</h3>
+<p><strong>问题：</strong>为降低加载开销缓存知识，如果来源在请求中被撤回，仅开始时读撤回集合会留下竞态；回滚旧库也可能带回已撤回内容。</p>
+<p><strong>处理：</strong>知识包不可变、映射缓存、研究数据库共享撤回、撤回只追加；每次查询读撤回，输出前再次复核，变化时重算。回滚包不回滚撤回集合。</p>
+<p><strong>验证：</strong>包括缓存命中仍屏蔽撤回、跨版本撤回、查询期间撤回和禁止改写研究表等测试。缓存最多两个快照的设计先服务当前小规模，不宣称可以抵抗管理员主动移除约束。</p>
+<p><strong>追问：</strong>为什么不用 TTL？TTL 只能限制最长陈旧时间，不能满足立即撤回要求；当前水位复核是业务正确性需求。</p>
+<h3 id="section-106">16.4 候选预算与做法完整性：减少范围，不截断事实</h3>
+<p><strong>问题：</strong>把全部目录塞给模型会扩大输入；直接截断每道菜步骤可能改变模型理解，模型拒选后又容易被表述成全目录无解。</p>
+<p><strong>处理：</strong>保留可行基线，轮转候选尾部，预算不足移除整条候选，完整保留各方法；提供 scope.complete 等字段，局部拒选按不完整搜索表达。</p>
+<p><strong>验证边界：</strong>本地契约可以证明截断方式、范围和复核行为；真实模型是否因为这些调整更合理，仍要独立评测，不能提前写质量提升百分比。</p>
+<p><strong>进一步问题：</strong>单个复杂候选太长怎么办？先保证方法完整和硬条件；必要时减少菜数/备注或拒绝，后续可做分阶段候选读取实验，但那会增加调用成本。</p>
+<h3 id="section-107">16.5 环境故障与功能失败：EACCES 不应被“修好测试”掩盖</h3>
+<p><strong>现象：</strong>Codex 进程浏览器/回环或 Docker 访问出现权限错误，而用户普通 PowerShell 可以执行。另有 PS5.1 中文脚本编码造成字符串解析错误、Node <code>-p</code> 引号被 shell 消耗的问题。</p>
+<p><strong>处理：</strong>区分 <code>failed、permission_blocked、not_run、passed</code>，保持真实错误日志；入口脚本兼容 PS5.1 的 UTF-8 BOM，Node 版本读取改用明确命令；必要阶段由普通终端执行。针对失败补测不复制其他阶段旧结果为当前通过。</p>
+<p><strong>可讲结论：</strong>测试平台本身也需要协议与可复现性；环境权限错误没有证明业务坏了，也没有证明业务没问题。权限问题解决后，浏览器实际发现了上一例游标缺陷，这就是不能把所有红灯都归为环境的原因。</p>
+<h3 id="section-108">16.6 源码指纹漏掉运行时 JSON：验收版本不完整</h3>
+<p><strong>问题：</strong>只 hash TypeScript 或 Git commit，可能漏掉被运行时代码读取的知识/目录 JSON；工作树有未提交更改时，commit 也不能代表运行内容。</p>
+<p><strong>处理：</strong>将运行时引用的 JSON 纳入指纹，检查来源在验收期间稳定，构建产物再单独 hash。记录源码、依赖锁、内容和产物之间关系。</p>
+<p><strong>价值：</strong>面试里“测试都过了”要回答“过的是哪份代码和数据”。这比单纯增加测试数量更接近生产工程。当前 v46 部署记录保存了对应指纹和产物，旧全量基线仍独立保留。</p>
+<h2 id="chapter-17">17 部署落地、备份恢复与发布范围</h2>
+<h3 id="section-110">17.1 当前部署事实</h3>
+<p>拾味使用上海 CloudBase 普通 HTTP 云函数，入口 <code>deployment/cloudbase/http-main.ts</code>，前端由 Vite 输出到 <code>artifacts/build/web</code>，图片沿用既有静态托管，内容通过 Data API 读取。它不是历史 Cloudflare 静态 Demo，也不是已经迁移成容器微服务。</p>
+<p>2026-10-30 北京时间 19:16:09 完成维护版本 <strong>maintenance-v46</strong>。保留原有密钥、配置、依赖与线上 v27 内容；没有新建环境、迁移数据库、上传新图片或调用真实模型。发布后核对 <code>/healthz</code>、首页、JS、CSS、<code>/readyz</code> 和访客会话能力六个只读请求，实际前端字节 hash 匹配。<a href="../releases/ACCEPTANCE-maintenance-release-2026-10-30.md">发布记录</a>。</p>
+<p>这证明维护包已经生效与基本入口正常，不证明完整账户生命周期、真实 AI 质量和灾备都已通过。线上可用与所有未来功能达到正式发布条件并不矛盾。</p>
+<h3 id="section-111">17.2 从本地到发布的合理流程</h3>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>确认变更范围与现有能力
+ → 局部失败复现与修复
+ → 必要单元/契约/类型/构建
+ → 涉及的真实本地PG和浏览器路径
+ → 固定源码、依赖和内容指纹
+ → 核对功能开关、配置与回退包
+ → 获授权的单次部署
+ → 少量只读核对
+ → 记录结果、未测项和回退条件</code></pre></div>
+<p>测试环境不足时不能把生产当作无限试验场。当前用户没有额外 CloudBase 测试环境且资源紧张，因此广泛测试放本地；真实邮箱、身份删除和云恢复等依赖外部能力的部分保持未验证，不能以模拟替代。未来有隔离目标时再补外部集成，不反复要求用户为相同前置条件确认。</p>
+<h3 id="section-112">17.3 找回密码实现到了哪里</h3>
+<p>本地已有发送验证码、验证挑战、重置密码、会话撤销等适配和测试，并有测试目标/邮箱白名单。白名单在发码及完成阶段都检查，不能只限制第一步；挑战还要绑定用途、主体与有效期。</p>
+<p>线上找回仍关闭。待补的是专用邮箱实际收信、错误/过期/重放、密码更改后旧会话失效，以及供应商重置成功但应用撤销失败的窗口处理。不能把真实个人常用账号随意当可注销测试账号。<a href="../../backend/src/cloudbase-accounts.ts">账户适配</a>。</p>
+<h3 id="section-113">17.4 注销为什么不是删一行</h3>
+<p>身份系统、用户私表、会话、Key、历史备份和迟到任务是不同边界。已有注销工作流先写独立持久意图，再撤销私有访问、删除身份并记录完成；失败保留 pending 回执并支持管理员恢复处理。</p>
+<p>当前生产独立日志与管理员身份删除适配没有接齐，线上开关关闭。目标不应承诺跨系统原子事务，而应明确每步幂等、重试边界、最终状态与用户可见结果。恢复备份时也要应用最新删除记录，不能复活已注销用户。<a href="../../backend/src/account-lifecycle.ts">生命周期代码</a>。</p>
+<h3 id="section-114">17.5 备份有文件，不等于可以完整恢复</h3>
+<p>现有业务快照支持一致性读取、加密归档、结构指纹和隔离恢复验证；恢复检查个人数据解密、资产、身份映射及独立撤销水位。它不能自动替代 CloudBase 身份导出/导入，也不能证明密码、会话和供应商身份都能恢复。完整恢复标记仍不接受。</p>
+<p>完整恢复演练至少覆盖：空隔离目标→恢复 schema/权限/函数→恢复有效业务数据→对齐身份→加载正确密钥→应用最新注销/撤回记录→验证旧会话与旧任务不复活→抽样用户功能→记录 RPO/RTO。RPO 是可容忍丢失窗口，RTO 是恢复服务时间；当前没有实际测得的完整系统 RPO/RTO 承诺。</p>
+<p>文件 hash 只证明文件一致，解密只证明密钥正确，业务读取和权限检查才进一步证明恢复有用。<a href="../../backend/src/business-recovery.ts">业务恢复实现</a>、<a href="../../scripts/business-snapshot.ts">备份 CLI</a>。</p>
+<h3 id="section-115">17.6 发布与回滚需要绑定什么</h3>
+<p>发布清单应绑定源码指纹、锁文件、构建 hash、内容版本、数据库迁移版本、配置版本、开关、测试证据和回退目标。当前维护包与旧 v45 回退包已经保留，但“有回退包”不等于新功能完整回滚演练通过。</p>
+<p>代码可回退不代表数据库可逆。以后迁移先加兼容结构，再切流，确认后清理；不可逆数据操作要有独立方案。知识与用户删除水位不能随旧包回退。配置密钥不能因重新打包而重新生成。</p>
+<h2 id="chapter-18">18 从资深用户和高级工程师视角判断“完结态”</h2>
+<h3 id="section-117">18.1 资深用户最在意的问题</h3>
+<p>用户不关心你用了多少 Agent，而关心能否从录入到做菜顺利完成、错误后是否保留输入、推荐是否对应当前条件、同一道菜的做法是否一致、是否意外消费 Key、换设备是否找回设置。</p>
+<p>当前可继续优化：第一次使用对普通/健康模式的理解成本；BYOK 配置门槛；无结果与失败提示是否可行动；移动端长做法和键盘可用性；重复输入与数量冲突的处理；主题删除、取消、账号切换后的状态反馈。图片识别未实现应保持清晰，不能用预览营造已识别印象。</p>
+<p><strong>产品完结态建议：</strong>普通模式从食材到真实做法完整闭环，账号资料可解释且可恢复；所有已开放按钮有成功/失败/取消反馈；用户可理解模式、资料保存与费用；上线范围内的账户生命周期、备份和支持渠道有明确处理方式。疾病 RAG 可作为独立后续版本，不必把无限疾病覆盖作为个人项目“完成”的定义。</p>
+<h3 id="section-118">18.2 高级 Agent 工程师最在意的问题</h3>
+<p>工程师会追问：模型能改变什么；谁是权威数据源；任务是否可取消；未知结果是否重复付费；日志是否泄密；数据更新是否可复现；多实例如何隔离；模型版本变了怎么发现退化；测试失败有没有分层。</p>
+<p>当前最有价值的改进不是先加框架，而是补独立质量、完整 prompt 预算、正式规则发布与真实绑定、共享任务上线验证、完整恢复和容量基线。选菜器核心逻辑较集中，后续可拆候选构建/预算/校验/游标纯函数，降低阅读和变更耦合；但重构必须保留现有行为与失败语义，不为整洁重写全部。</p>
+<h3 id="section-119">18.3 两个可验收版本，避免范围无限扩大</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">版本</th><th scope="col">明确交付</th><th scope="col">不包含</th></tr></thead><tbody><tr><td>个人可展示的通用推荐版</td><td>普通闭环、真实账户、受控 BYOK、真实代码与测试证据、清晰限制、可复现本地环境</td><td>医学安全认证、全病种、企业级流量承诺</td></tr><tr><td>有证据支持的有限疾病 RAG 版</td><td>小而明确的支持范围、批准规则、真实变体绑定、引用/撤回、独立评测、外部发布和恢复证据</td><td>任意疾病组合与自动诊疗</td></tr></tbody></table></div>
+<p>第一版可以成为有亮点的落地项目；第二版需要真实专业与运维证据，不能仅靠技术自测给自己签认。明确范围能让面试官看到你知道如何收尾，而不是一直增加功能名词。</p>
+<h2 id="chapter-19">19 从零复建：按什么顺序开发才最合理</h2>
+<h3 id="section-121">19.1 阶段一：先把非 AI 闭环做成</h3>
+<p>写 10 条用户故事和失败例：有库存、无库存、限制冲突、不同单位、补买关闭、换菜、过期输入。定义 Food、Recipe、Variant、IngredientLine、Meal 和 RecommendationResult；先用少量真实配方建立端到端。</p>
+<p>实现资格、库存、组合与完整状态，前端能录入、看结果、打开真实做法。此时模型调用为零。验收是结果都来自目录、硬限制不被排序绕过、未知量不被编造。复用当前 <code>shared/</code> 与 <code>backend/src/recommendation.ts</code>，不要重复造另一套规则。</p>
+<h3 id="section-122">19.2 阶段二：账户与状态隔离</h3>
+<p>接入身份适配，定义公开内容与私有设置；设置加密、版本冲突、账号切换隔离、会话撤销与 CSRF。明确哪些资料只在页面、哪些可以跨设备。验收包含两个用户、两页面并发、旧版本写入和退出后访问，不只测试一次成功登录。</p>
+<h3 id="section-123">19.3 阶段三：模型薄适配与受控选菜</h3>
+<p>先写可注入 fetcher 的模型适配，覆盖成功、截断、429、无 usage、错误 ID、取消；再构造候选 packet，接一次选择和硬条件复核。最后接前端实际操作和 PG 单次认领。</p>
+<p>验收包括“调用前就能拒绝的，不应先花钱”“翻页不重调”“模型失败不伪装普通成功”。只有真实 Key 获明确授权后才联调，预算与模型质量单列。</p>
+<h3 id="section-124">19.4 阶段四：公共知识与检索基线</h3>
+<p>先定义来源与标注规范，再导入少量能定位的证据；把实体、条件、引用、冲突、撤回建起来。先关键词和结构基线，再用困难题找真正缺口。现有 v2 已经完成这一阶段的大量基础工作，继续开发应复用，不重新生成一份同名知识库。</p>
+<h3 id="section-125">19.5 阶段五：证据到真实菜谱闭环</h3>
+<p>从现有 2 道菜样例扩展到一个受限支持范围，检查每个变体/方法的绑定、缺条件、撤回、错版本和范围标记。新增正式发布层与人工审核流程后才讨论线上疾病筛选。先解决“资料能否作用于这条真实配方”，再优化向量参数。</p>
+<h3 id="section-126">19.6 阶段六：按证据优化与发布</h3>
+<p>冻结对照集；一次只增加一个主要检索/压缩因素；质量和性能一起测。完成必要本地真实 PG/浏览器、部署准备与回退，限范围发布。每个阶段都产生可展示文件，不以“代码写完”作为唯一完成标准。</p>
+<h3 id="section-127">19.7 在本仓库如何开始阅读与复现</h3>
+<p>以下是按需使用的本地入口，<strong>本次写作没有再次运行全量测试，也没有部署</strong>：</p>
+<div class="code-wrap"><span class="code-label">powershell</span><pre><code>Set-Location &#x27;D:\codex_AI\菜谱推荐\CookDemo&#x27;
+.\scripts\run.ps1 build
+.\scripts\run.ps1 health:verify
+.\scripts\run.ps1 health:evaluate
+.\scripts\run.ps1 health:recipe-demo</code></pre></div>
+<p>完整验收入口是 <code>scripts/verify-in-terminal.ps1</code>；真实 PG 需已有隔离本地数据库和 Docker 条件。阅读时先看 <code>package.json</code>，再按脚本依赖准备环境。不要因为命令存在就让所有脚本都跑一次，也不要把 <code>--live</code> 付费评测混在日常本地检查中。</p>
+<h2 id="chapter-20">20 如何与 AI 高效协作开发，同时保住个人掌控</h2>
+<h3 id="section-129">20.1 一个有效任务包应该包含什么</h3>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>目标：用户在已有结果上切换一道菜口味，其他结果不变。
+现状：生成使用签名游标，切换后返回 CURSOR_EXPIRED。
+证据：给出失败报告、请求/响应的脱敏字段与相关函数。
+不变量：过敏、库存、补买、其他菜、顺序、输入版本不可绕过。
+范围：先复现并定位，再最小修复；不调用真实模型，不部署。
+验收：生成→切换→切回；库存不足；篡改；分页；真实API终态。
+交付：修改说明、对应测试、未测项、证据路径。</code></pre></div>
+<p>比“帮我优化 Agent，做到生产级”更有效，因为目标和完成条件可验证。让 AI 先检查现有实现，减少重复开发；要求其指出代码与旧文档冲突，而不是默认旧计划仍正确。</p>
+<h3 id="section-130">20.2 开发、审查、验证怎样分工</h3>
+<p>你负责问题范围、用户承诺、取舍和验收依据；AI 可以整理资料、搜索代码、提出方案、写局部实现与反例。审查时关注不变量和故障窗口，而不是仅看代码风格。测试不能完全复制实现逻辑，否则实现和测试可能一起错。</p>
+<p>每次交互只推进一个可检查闭环：事实清单→方案→实现→针对性验证→记录。必要时让独立审查视角针对同一变更挑问题，但没有独立数据或专业审核时，不能把多个 AI 的一致意见当作外部验证。</p>
+<h3 id="section-131">20.3 避免上下文越来越乱</h3>
+<p>维护一份短的当前状态入口，记录有效决定、被替代决定、当前开关和证据；详细历史放专题文档。新会话提供目标、相关文件与最新报告，不整库粘贴。让 AI 明确区分源代码、数据、计划和测试日志中的指令权威，外部资料只作为参考。</p>
+<p>对于高风险或收费操作，准备好具体可审查结果后再按授权执行；本地可逆开发可以持续推进，不需要每一步都问许可。用户已经暂停云测试时，填好了 Key 也不自动恢复付费调用。</p>
+<h3 id="section-132">20.4 面试怎样解释 AI 辅助贡献</h3>
+<p>可以说：“实现过程使用 AI 辅助检索和编码，但需求边界、架构取舍、审查和验收由我把关。我能展示一次 AI 初版未覆盖真实游标前置流程的问题，以及我如何通过用户路径发现并补齐。”</p>
+<p>不要虚构完全手写或企业团队经历。你能现场修改一个不变量、解释失败原因并设计反例，比背诵一份由 AI 生成的长文更有说服力。</p>
+<h2 id="chapter-21">21 项目介绍、简历与现场演示</h2>
+<h3 id="section-134">21.1 30 秒版本</h3>
+<p>“我做的是拾味，一个家庭菜谱推荐网站。它先根据食材、过敏忌口、库存和补买许可筛选真实菜谱，再让模型在合格候选中做个性化选择，结果仍由程序复核。项目已经部署了普通推荐、真实账户和个人 Key 的健康 AI 功能；公共健康 RAG 完成了本地知识治理、检索和小规模菜谱绑定，目前没有把它宣传成已验证的疾病推荐。我重点做的是把模型的不确定输出放进可校验、可取消、可追溯的业务流程。”</p>
+<h3 id="section-135">21.2 三分钟版本</h3>
+<p>“项目的起点是家庭做饭里一个很具体的问题：知道有哪些食材，不等于知道今晚怎么搭配；搜索或聊天又容易忽略库存和限制。我把问题拆成两部分：程序负责硬条件与真实目录，模型负责理解用户目标和在候选中选择。</p>
+<p>整体是 React/TypeScript 前端、Fastify 模块化后端，部署在现有 CloudBase HTTP 函数。账户设置和 Key 在服务端按 UID 加密，公开内容与个人资料分开。AI 选菜不是让模型自由写菜谱，而是先取得合格候选，把真实配料和完整做法放进有预算的 packet，模型只返回临时 ID 和理由，程序再检查 ID、数量、类别和整餐库存。翻页、看做法和手动改口味不会再次调用模型。</p>
+<p>RAG 方面，我先做证据治理。当前公共研究包有 11 个来源、98 条证据和 260 条关系，把食品身份、适用条件、冲突和撤回分开。检索使用实体与词法排名融合，必要依据不参与 top-k 淘汰；有独立的两道菜、四条食材级绑定样例。没有部署 embedding，也没有把研究草稿当成临床规则。</p>
+<p>一个实际难点是口味切换。浏览器会带旧签名游标提交新口味，后端因此拒绝；原单元测试没有携带生成游标，没覆盖完整流程。我补了先生成再切换的失败回归，修复只允许目标口味变化，其他条件继续按旧签名核对，再重新检查库存。这让我意识到一致性测试必须使用真实前置产物。</p>
+<p>验证上，普通终端曾完成 20 组全量本地验收，维护版本有 245 项通过、1 项跳过的单元结果及明确的环境阻塞记录。模型质量、独立 200 题和完整恢复仍没有通过证据。我下一步优先补独立质量、有限规则发布与绑定、完整请求预算和容量基线，而不是先堆多 Agent 框架。”</p>
+<p>讲述时可只选择其中两处深入，不要一次抛出所有数字。被问效果时给报告和分母；被问个人负责时改成你真实负责的模块。</p>
+<h3 id="section-136">21.3 五分钟演示脚本</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">时间</th><th scope="col">展示</th><th scope="col">要证明什么</th></tr></thead><tbody><tr><td>0:00～1:00</td><td>本地或现有网站普通录入→推荐→做法</td><td>用户闭环与真实目录</td></tr><tr><td>1:00～2:00</td><td>明确限制/库存不足→切口味→保留其他卡</td><td>硬约束、状态一致性</td></tr><tr><td>2:00～3:00</td><td>已保存的 AI 契约样例与候选 packet</td><td>模型选择范围及复核；标明是构造响应</td></tr><tr><td>3:00～4:00</td><td>本地研究检索、引用、条件和撤回样例</td><td>知识可追溯；显示 executionAllowed=false</td></tr><tr><td>4:00～5:00</td><td>游标修复记录、测试口径、下一步</td><td>能定位问题并知道证据边界</td></tr></tbody></table></div>
+<p>当前付费调用暂停，演示不应偷偷用真实 Key。截图或保存的结果必须标明来源、版本与是否真实调用。不能把研究检索和线上一般模型聊天剪辑成已经接通的一条 RAG 流程。</p>
+<h3 id="section-137">21.4 可以写的简历条目</h3>
+<ul><li>开发并部署家庭菜谱推荐应用，采用 React、TypeScript、Fastify 与 PostgreSQL，实现真实目录筛选、食品级限制、库存及套餐一致性核验、账户隔离与加密设置同步。</li><li>实现受控 BYOK 选菜流程：构建含真实配料和完整做法的候选包，限制模型输出为目录 ID，并进行业务复核；用 PG 单次认领、输入版本和取消控制约束重复调用与过期结果。</li><li>构建 11 来源、98 证据、260 关系的健康研究知识包，实现实体/词法 RRF、必需证据与不可变快照/撤回；完成 50 条编辑回归和两道菜的食材级证据绑定样例。</li><li>定位并修复签名游标与口味变更不兼容问题，增加完整前置流程的回归测试，形成源码/内容/构建指纹与分层验收记录。</li></ul>
+<p>不能写：独立医疗评测准确率 100%、已部署 BGE 混合检索、线上 QPS 达千级、模型费用下降某百分比、多 Agent 已完成临床审核。未来有真实实验再增加数字，保留数据集和环境。</p>
+<h2 id="chapter-22">22 面试问题库：100 问及连续追问</h2>
+<p>P0 表示必须熟练回答，P1 表示应能深入解释，P2 表示扩展研究。这里是口述入口；详细设计和代码证据见前文，不必逐字背诵。</p>
+<h3 id="q01">Q01〔P0〕为什么要做这个项目，解决的是真需求吗？</h3>
+<p>答：家庭选菜需要同时满足已有食材、库存、限制和做法可执行，单纯搜索或生成菜名不能保证一致性。我先交付普通闭环，再把模型放在理解目标和选择候选的环节。真实用户规模和留存尚无统计，不能用个人使用感受冒充市场验证。</p>
+<p>追问“怎样证明有用”：记录授权范围内的任务完成、主动换菜、失败原因与用户反馈，区分体验指标和模型指标。</p>
+<h3 id="q02">Q02〔P0〕你个人负责什么？AI 写的代码算你的成果吗？</h3>
+<p>答：按真实情况说明需求、数据建模、领域规则、模型适配、验证和部署的负责范围。AI 可以辅助实现，但我需要解释输入输出、不变量与失败处理，能定位并修复问题。项目经历不能由一份文档自动证明。</p>
+<p>追问“现场改一个规则”：先写新旧行为与反例，再指出规则与测试入口，不盲改 prompt。</p>
+<h3 id="q03">Q03〔P0〕项目效果如何，为什么不直接报准确率？</h3>
+<p>答：工程报告、检索回归、真实模型质量和用户效果分别报告。已有 50 题编辑回归和本地验收；200 题尚未独立审核，真实模型质量未知。准确率必须说明任务定义、分母、版本和标注，否则没有比较意义。</p>
+<p>追问“是否比不用 AI 好”：需要固定候选和任务，对比规则基线、模型选择和用户反馈，目前不能编造结论。</p>
+<h3 id="q04">Q04〔P0〕你的是 Agent 还是普通接口调用？</h3>
+<p>答：当前是确定性工作流中的模型决策，模型实际选 ID，但没有开放式工具循环。业务价值在于约束、可靠执行与可验证选择。未来证据发现可以增加有界自主检索，是否值得取决于困难题收益。</p>
+<p>追问“为什么不用 ReAct”：短选菜路径无需额外循环，循环会增加延迟和费用。</p>
+<h3 id="q05">Q05〔P0〕为什么选 LangChain，或者为什么没选？</h3>
+<p>答：当前没用。模型与工具数量少，直接 TS 编排可清晰控制取消、Key 和一次尝试；框架的标准集成与持久化是研究过的候选。复杂长任务出现时再对比 LangGraph，不把未使用说成生产经验。</p>
+<p>追问“是不是重复造轮子”：只实现当前必要业务边界，没有造通用 Agent 平台；未来可保留领域函数、替换编排层。</p>
+<h3 id="q06">Q06〔P1〕为什么不用 Python/FastAPI 或 Java/Spring？</h3>
+<p>答：当前已有 TS 前后端，统一类型和个人维护效率更重要。Python 适合离线模型工具，Java 适合我需要时的成熟后端生态，都不是技术上不能做。是否迁移看实际瓶颈和依赖，而不是面试岗位要求就改写项目历史。</p>
+<p>追问“Java 岗怎么讲”：把事务、状态、幂等与模块设计映射到 Java 实现思路，明确是迁移设计。</p>
+<h3 id="q07">Q07〔P0〕为什么选模块化单体而不是微服务？</h3>
+<p>答：当前业务和团队规模适合单体，跨模块在一个流程内可调试，部署和一致性成本小。先用接口隔离模型、内容、账号和知识模块；当某模块需要独立扩容或故障隔离时再拆。</p>
+<p>追问“单体不能扩容吗”：可以多实例，但共享状态和数据库容量必须独立设计。</p>
+<h3 id="q08">Q08〔P0〕为什么用 RAG，直接长上下文或微调不行吗？</h3>
+<p>答：RAG 便于更新、定位、权限与撤回；少量资料全文可做基线，微调更适合稳定行为。三者可组合，不能让微调替代实时证据。当前研究建库价值包含来源治理，并不要求立刻上向量。</p>
+<p>追问“只有 11 来源也需要吗”：条件、版本和引用仍需要，但必须避免过早建设大规模检索基础设施。</p>
+<h3 id="q09">Q09〔P0〕数据是爬来的还是自己做的？</h3>
+<p>答：有逐条来源记录的社区/公开菜谱、公共指南与研究资料，也有候选整理；不是全部原创或全部自动爬取准入。原始出处、作者、版本、核查层级与发布状态分开。研究目录中的视频元数据不等于已复核视频。</p>
+<p>追问“有授权吗”：按具体条目的现有许可记录回答，不能把可访问等同于得到批量许可。</p>
+<h3 id="q10">Q10〔P0〕PDF、图片和 Word 如何导入？</h3>
+<p>答：先识别类型，电子文本与 OCR 分流，再统一成带原文定位的块；表格带表头、单位和脚注，重要数值人工核对。当前有 PDF/图像资料核查，但没有完整通用 Word/OCR 导入产品。</p>
+<p>追问“双栏串行怎么办”：回到版面与坐标恢复阅读顺序，不用模型凭常识填缺字。</p>
+<h3 id="q11">Q11〔P0〕数据如何验证，能否用 LLM 自动审核？</h3>
+<p>答：结构、外键、hash、单位、实体形态和撤回可以程序检查；引用支持、专业条件和来源冲突需要人工复核。LLM 可提候选和找疑点，不能批准自己的抽取结果。</p>
+<p>追问“自动检查全绿为何还不行”：格式正确不证明事实正确，来源核查也不等于临床适用。</p>
+<h3 id="q12">Q12〔P0〕为什么事实、证据和规则分开？</h3>
+<p>答：证据是可定位原文，事实是基于它的结构命题，规则才决定满足什么条件执行什么动作。分开后能追踪来源、局部撤回和审核范围，避免一条研究结论直接成为所有人的禁令。</p>
+<p>追问“改一份来源影响什么”：沿 source→evidence→fact→rule→binding 查依赖，生成新快照并应用撤回。</p>
+<h3 id="q13">Q13〔P1〕JSON、JSONB、关系表、向量各放什么？</h3>
+<p>答：JSON 包适合离线审查和版本；关系表维护身份、约束、事务与发布；JSONB 承载受 Schema 管理的扩展字段；向量是派生检索索引。个人资料与公共知识分开。</p>
+<p>追问“全放 JSONB 不方便吗”：方便不代表能省唯一性、索引、迁移和权限验证。</p>
+<h3 id="q14">Q14〔P0〕chunk 多大，为什么不是固定 512？</h3>
+<p>答：当前是人工整理的证据单元。自动化要先保留命题、例外和单位，再按所选 tokenizer 限长；300～600 token 等只作为实验起点。用条件完整、召回、噪声与成本共同选择。</p>
+<p>追问“中文一个字一个 token 吗”：不是，当前字符启发式也不是精确 tokenizer。</p>
+<h3 id="q15">Q15〔P1〕没有标题的 Markdown 怎么切？</h3>
+<p>答：自然段、列表、句子边界递归拆，超长段再比较语义切分；模型补标题只作检索辅助。引用仍指原文，避免生成摘要变成证据。</p>
+<p>追问“只有一个超长段”：句界加最大 token，保留跨句指代与限定；无法独立理解的块建立关联。</p>
+<h3 id="q16">Q16〔P1〕表格、脚注和 overlap 怎么处理？</h3>
+<p>答：表格按逻辑记录组切，每组带表头、单位、基准和适用脚注。overlap 保护边界但增加重复，优先结构完整和显式限定关联，不固定 20%。</p>
+<p>追问“重叠造成重复命中”：按 span/证据命题和父节归并，不能让同一句占满 top-k。</p>
+<h3 id="q17">Q17〔P1〕父子块怎样回取？</h3>
+<p>答：child 用于定位，parent 提供定义和例外，按需回取相关段而非全篇；相同 parent 去重。引用保留实际命中 span，摘要不能覆盖原文。</p>
+<p>追问“父块仍太长”：先保留必需条件和支持/反对证据，再减少可选背景。</p>
+<h3 id="q18">Q18〔P0〕Embedding 怎么选，为什么 BGE/Qwen？</h3>
+<p>答：它们是中文与多语言检索可比较的公开候选，规格和协议能核验。真正选择要用冻结任务比较条件错配、覆盖、资源和在线 query 延迟；目前未部署，也没有两者胜负结果。</p>
+<p>追问“只看 MTEB 行吗”：榜单分布与项目不同，只能用于筛选候选。</p>
+<h3 id="q19">Q19〔P1〕向量维度、归一化和池化为什么重要？</h3>
+<p>答：它们共同定义编码空间。query/doc 协议必须一致，同维度不同模型不能混库；归一化决定余弦与内积的关系，池化和 query instruction 会影响表示。</p>
+<p>追问“换模型不换维度可不重建吗”：不行，旧文档向量通常需按新协议重建。</p>
+<h3 id="q20">Q20〔P1〕文档向量离线完成就算 RAG 上线了吗？</h3>
+<p>答：还需同模型在线 query 编码、索引过滤、证据回取、生成和质量校验。当前小云函数不能未经测试加载模型权重；没有符合资源与资料要求的编码通道就保留 A1。</p>
+<p>追问“调用外部 embedding API”：需明确资料流向、费用与授权，不能默认把私人健康文本发给新供应商。</p>
+<h3 id="q21">Q21〔P0〕当前检索究竟用了什么？</h3>
+<p>答：受控实体最长匹配、中文二元片段等词法、实体和词法排名的 RRF，另有必要证据通道。它没有 dense、BM25 或 cross-encoder。SQL GIN 结构存在也不等于线上 SQL 全文已完成。</p>
+<p>追问“这算混合检索吗”：可准确称结构/词法多路融合；避免让人误以为已做 sparse+dense。</p>
+<h3 id="q22">Q22〔P0〕BM25 原理和 PG ts_rank 一样吗？</h3>
+<p>答：BM25 结合 IDF、词频饱和和长度归一化；PG ts_rank/ts_rank_cd 是各自的排名函数。中文分词、词典、标题权重和索引配置都要显式设计。</p>
+<p>追问“为什么词频不能无限加分”：重复词不是线性增加相关性，所以有饱和项。</p>
+<h3 id="q23">Q23〔P0〕RRF 怎么算，为什么不直接加分数？</h3>
+<p>答：每路以排名计算 <code>w/(k0+rank)</code> 再相加，减少不同打分量纲的影响；当前代码 k0=60。缺席通道记零，结果按稳定 ID 去重/收尾。它不是概率模型。</p>
+<p>追问“缺点是什么”：丢失分数间距，需要候选量与权重对照；必需证据不能只靠融合排名保留。</p>
+<h3 id="q24">Q24〔P0〕Reranker 和 embedding 有何区别？</h3>
+<p>答：embedding 可预计算文档，用于大范围发现；cross-encoder 同时读 query/document，适合候选精排，成本更高。重排不创造没召回的证据，也不能判定医学安全。</p>
+<p>追问“收益没有怎么办”：保留简单基线，报告未改善而非换一个指标包装成功。</p>
+<h3 id="q25">Q25〔P1〕为什么先用 PG，不上 Milvus/Qdrant？</h3>
+<p>答：当前规模小，PG 已承担权限、版本和事务，复用能减少同步与运维。独立引擎可能在特定规模和过滤负载有优势，但需要同条件 benchmark。</p>
+<p>追问“未来怎么迁移”：稳定证据 ID、编码 manifest 和权威发布层不变，派生向量索引可重建并双读对照。</p>
+<h3 id="q26">Q26〔P1〕HNSW 与 IVFFlat 怎样选择？</h3>
+<p>答：先精确检索建立参考，再比较图索引与聚类分区索引的召回、延迟、内存、构建和更新。当前没有上线这两种索引，参数只能作为待实验设计。</p>
+<p>追问“WHERE 后只剩几条怎么办”：检查过滤选择率、扫描候选、索引版本，比较迭代扫描、分区或先过滤后精确搜索。</p>
+<h3 id="q27">Q27〔P0〕检索相似度 0.9 可以判断安全吗？</h3>
+<p>答：不可以。它是编码空间的相关度，可能找到了反对结论、不同人群或干湿形态。安全判断需要适用规则、必要证据和真实配方核对。</p>
+<p>追问“调阈值可以吗”：阈值能校准无答案接收行为，不能把相关性升级成事实或安全概率。</p>
+<h3 id="q28">Q28〔P1〕query rewrite、HyDE 和多轮指代怎么做？</h3>
+<p>答：先用权威状态解析指代，原问与改写并存，检查实体和否定不变。HyDE 的假设文本只帮助发现，不进证据库。当前未上线这些多轮改写机制。</p>
+<p>追问“改写错了”：回原问或澄清，不覆盖用户已确认条件。</p>
+<h3 id="q29">Q29〔P0〕召回为空如何处理？</h3>
+<p>答：区分无覆盖、歧义、解析失败、索引故障和候选预算不足；必要时一次有界补检索，仍不足就说明缺口。没找到证据不能解释成安全。</p>
+<p>追问“用户强迫给答案”：可以给已知范围和普通模式出口，不能补造结论。</p>
+<h3 id="q30">Q30〔P0〕回答错了，怎么定位是检索还是模型？</h3>
+<p>答：逐层查源文、解析、切块、实体、候选、重排、上下文和生成。用金标准证据给同模型，再固定生成器只换检索，分离问题。</p>
+<p>追问“调 prompt 为何不行”：源文缺失、形态错配和引用撤回都不是措辞能修的。</p>
+<h3 id="q31">Q31〔P0〕怎么防幻觉和假引用？</h3>
+<p>答：只允许使用请求证据包里的 ID，服务端核验存在、版本、撤回、定位与支持关系；真实目录 ID 独立校验。存在引用不等于支持结论，语义仍需评测。</p>
+<p>追问“LLM 给了 URL”：不直接当依据，映射到服务器已核验来源。</p>
+<h3 id="q32">Q32〔P0〕必要证据为何不走同一个 top-k？</h3>
+<p>答：top-k 优化相关性，但规则要求的例外可能排名低。已知必需证据按 ID 独立读取，带限定；缺失或撤回就返回对应状态。</p>
+<p>追问“预算放不下”：减少可选发现内容，仍放不下则停止受影响判断，不能悄悄丢例外。</p>
+<h3 id="q33">Q33〔P0〕如何把健康证据绑定到菜谱？</h3>
+<p>答：绑定目录版本/hash、recipe/variant/method、实际配料行和事实依据，检查形态与工艺。已有两道菜四条食材级样例，尚无整菜正式疾病准入。</p>
+<p>追问“一种食材有益整菜就有益吗”：不能，其他配料、工艺和条件可能改变适用性。</p>
+<h3 id="q34">Q34〔P0〕多疾病建议冲突，取最严格不就行了？</h3>
+<p>答：先判断人群、剂量、形态与工艺是否相同，可能只是适用范围不同。真正冲突要保留依据并限定结论；机械最严也可能不适用。个人接受偏好合并不等于临床规则融合。</p>
+<p>追问“多个单病种都通过”：组合仍要单独验证。</p>
+<h3 id="q35">Q35〔P1〕烹调会改变成分，怎么处理？</h3>
+<p>答：另建带工艺、介质、原料状态、是否弃汤等条件的事实，不把原料营养相加当成品。缺证据的反应产物和损失率不让模型猜。</p>
+<p>追问“用户不提供温度怎么办”：只有依据确实依赖该温度时才限制相关判断，不普遍要求所有用户精确称量测温。</p>
+<h3 id="q36">Q36〔P0〕JSON 输出合法就可以执行吗？</h3>
+<p>答：还要检查结构、ID、权限、版本、数量与业务不变量，以及完整终态。聊天和选菜各有校验器；不能假设所有路径的校验强度完全相同，未知字段策略也应统一复核。</p>
+<p>追问“半份 JSON 怎么办”：视为未完成，不能先执行已读到的字段。</p>
+<h3 id="q37">Q37〔P0〕模型会不会编一个菜名？</h3>
+<p>答：模型只选本次 packet 的临时 ID，服务端映射真实 recipe/variant，未知 ID 和重复父菜拒绝。理由仍可能不合理，因此还需真实质量评测。</p>
+<p>追问“把 ID 校验当质量保证吗”：不能，它只保证目录约束，不证明理由正确。</p>
+<h3 id="q38">Q38〔P0〕为什么候选最多 48，不给全库？</h3>
+<p>答：控制输入成本和时间；保留可行基线，显式新请求轮转尾部，避免固定前缀永远遮住后面的菜。上限是工程选择，尚无证明最优的真实模型实验。</p>
+<p>追问“没看到的菜怎么办”：scope.complete 明确范围，局部拒选不能说全库无解。</p>
+<h3 id="q39">Q39〔P0〕候选过长为什么不截断做法？</h3>
+<p>答：方法前后步骤可能关联，截断会改变模型判断。当前减少整条候选，保留完整方法；基线仍超预算时调用前拒绝。</p>
+<p>追问“这样召回变少”：是明确的范围/成本取舍，要用质量实验决定是否做分阶段读取。</p>
+<h3 id="q40">Q40〔P0〕Agent 如何限制循环？</h3>
+<p>答：当前线上选菜是单次调用；目标检索 Agent 会限制轮数、工具次数、总 token/时间/费用，检测重复动作和无新增证据。模型说“再想一下”不是继续执行的充分理由。</p>
+<p>追问“反思为什么不可靠”：没有新证据和外部检查时可能只是重复或强化错误。</p>
+<h3 id="q41">Q41〔P0〕工具调用怎样设计？</h3>
+<p>答：一个工具对应有限业务能力，参数含单位、合法范围、版本，结果有稳定 ID 和状态。执行前检查身份、授权、取消和预算。不给任意 SQL、URL 和管理员工具。</p>
+<p>追问“工具很多怎么办”：按当前任务提供相关集合，描述适用/不适用情形，减少歧义。</p>
+<h3 id="q42">Q42〔P1〕人工确认在哪里做？</h3>
+<p>答：依据产品语义，保存排除、接受偏好与应用本餐是不同动作；已经授权自动保存的自述不重复弹确认。目标高风险提案应绑定身份、内容 hash、版本和有效期。</p>
+<p>追问“旧确认还能用吗”：资源或提案变化后不能沿用。</p>
+<h3 id="q43">Q43〔P0〕一次调用怎么防重复消费？</h3>
+<p>答：PG 按账户和 operationId 原子认领，账号行锁协调跨实例限额，事务结束后才调模型；超时、断流和未知结果不自动重试。按钮禁用只改善 UI，不是幂等边界。</p>
+<p>追问“用户换 operationId”：那是新操作，仍受限流；不能承诺语义相同请求绝不再次消费。</p>
+<h3 id="q44">Q44〔P0〕能保证 exactly once 吗？</h3>
+<p>答：不能跨数据库和外部供应商保证。认领后崩溃可能没发出，也可能远端已执行；当前宁可返回未知/失败，也不自动重新消费。</p>
+<p>追问“怎么更可靠”：若供应商提供可验证幂等与查询协议可利用，否则保留状态与人工处理，不能自行假定支持。</p>
+<h3 id="q45">Q45〔P0〕用户取消和超时怎样处理？</h3>
+<p>答：传递 AbortSignal、结束等待、拒绝迟到提交，界面保留输入。取消不代表供应商必未计费；完成前再次核对版本和当前任务。</p>
+<p>追问“云函数回收后续跑吗”：当前没有通用持久任务续跑能力；长任务需要另设计持久状态与副作用边界。</p>
+<h3 id="q46">Q46〔P0〕两个标签页或两个实例会互相覆盖吗？</h3>
+<p>答：页面 taskId 隔离、operation/inputVersion 区分新旧；账号设置用 CAS。共享任务水位已有 SQL 和本地实现，但当前未上线，不能宣称所有跨实例推荐结果竞态已经解决。</p>
+<p>追问“PG 认领不就够了”：它防同操作重复消费，不决定不同操作谁的结果更新。</p>
+<h3 id="q47">Q47〔P0〕429、无效 JSON、超时都重试三次吗？</h3>
+<p>答：不。先分错误和副作用；BYOK 约定单次尝试，未知消费不自动补发。只读检索可在总截止内有界重试，但不机械套到模型。</p>
+<p>追问“成功率会低”：用明确错误和手动重试换取费用可控，再用质量/延迟证据决定是否改变产品约定。</p>
+<h3 id="q48">Q48〔P0〕短期、长期记忆和 RAG 怎么区分？</h3>
+<p>答：当前会话在页内，允许的健康自述和接受偏好按 UID 加密跨会话保存；RAG 管公共证据；任务账本记录执行状态。不同层有不同保留与删除策略。</p>
+<p>追问“能恢复全部聊天吗”：当前不能，也没有承诺完整聊天持久化。</p>
+<h3 id="q49">Q49〔P0〕现在怎样压缩上下文？</h3>
+<p>答：近期完整轮次加旧用户原话抽取，约 6,000 估计 token 的消息预算，权威档案另读。不是 LLM 摘要，也不是精确 tokenizer；选菜另有完整 packet 预算。</p>
+<p>追问“完整请求真在 6,000 内吗”：不，system、档案等还需统一预算，这是明确下一步。</p>
+<h3 id="q50">Q50〔P0〕如何防压缩丢过敏与更正？</h3>
+<p>答：权威限制从当前账户/本餐注入，摘录不改权威字段；优先较新的更正，删主题时旧历史不再参与。仍需长句截断和同义更正回归，不能仅依赖关键词优先。</p>
+<p>追问“最新输入很长”：不悄悄截断最新意图，输入校验拒绝并让用户调整。</p>
+<h3 id="q51">Q51〔P1〕摘要的摘要会怎样？如何换模型？</h3>
+<p>答：多次摘要可能积累失真，应保存来源轮次、版本和失效关系，权威状态每次重新读取。换模型要重新验证 tokenizer、协议、预算与质量；当前抽取式上下文不能包装成已有模型摘要迁移实验。</p>
+<p>追问“旧摘要能直接复用吗”：先检查来源、档案版本和已删除信息，不能直接传模型隐藏状态。</p>
+<h3 id="q52">Q52〔P1〕怎么证明上下文压缩节省费用？</h3>
+<p>答：比较完整会话所有输入、输出、摘要和失败尝试成本，同时测任务成功与不变量；还要区分缓存命中计费。当前没有真实账单收益结论。</p>
+<p>追问“prompt 短一半就是省一半吗”：不是，输出、缓存和额外调用都会改变总账。</p>
+<h3 id="q53">Q53〔P0〕输入输出预算如何计算？</h3>
+<p>答：system、工具定义、权威状态、当前问题、证据、历史加起来，再预留输出与协议开销。用对应 tokenizer 或经 usage 校准的估计。模型最大窗口只是上限，不是业务应使用的目标。</p>
+<p>追问“超预算先删什么”：去重复与可选背景、减少整条候选；不删硬约束和必要例外。</p>
+<h3 id="q54">Q54〔P0〕如何防 prompt injection？</h3>
+<p>答：低可信内容按数据处理，工具与网络白名单，服务端授权和结果校验限制后果；模型拿不到管理员能力与 Key 正文。prompt 说明不能替代执行边界。</p>
+<p>追问“资料里写删除知识库”：检索进程没有删除权限，文本不能变成控制指令。</p>
+<h3 id="q55">Q55〔P1〕除了提示词注入还有什么安全点？</h3>
+<p>答：SQL 参数化、CSRF/同源、XSS 安全渲染、请求长度与响应体上限、固定模型 URL 和禁止重定向、账号归属及速率限制。合法 JSON 里的脚本、SQL 或 URL 不能直接执行。</p>
+<p>追问“文本转 Markdown 会安全吗”：取决于渲染器配置和链接/HTML 策略，不是扩展名决定。</p>
+<h3 id="q56">Q56〔P0〕用户 Key 怎样存，有没有泄露风险？</h3>
+<p>答：服务端按 UID 和用途用 AES-GCM 加密，前端只得状态/末尾信息，调用时作为供应商鉴权头，不进 prompt 和普通日志。加密密钥独立管理且发布保留。</p>
+<p>追问“有密文就绝对安全吗”：还需访问控制、日志治理、密钥轮换与恢复验证，服务端解密路径仍是重要边界。</p>
+<h3 id="q57">Q57〔P0〕RLS 能替代接口鉴权吗？</h3>
+<p>答：不能。接口判断用户是否可执行业务，RLS 限制行范围，加密限制存储暴露；还要检查服务角色权限和 RPC search_path 等边界。客户端传 ownerId 不决定身份。</p>
+<p>追问“本地 PGlite 过了就行吗”：真实角色、RPC 和多连接需在隔离 PG/目标环境验证。</p>
+<h3 id="q58">Q58〔P0〕知识更新和撤回如何保证一致？</h3>
+<p>答：内容新版本不可变，索引与规则绑定 manifest，撤回独立追加并跨版本应用；输出前复核水位。回滚旧包不回滚撤回。</p>
+<p>追问“缓存带版本就够了吗”：不够，请求期间发生的新撤回仍需发现。</p>
+<h3 id="q59">Q59〔P0〕Recall、MRR、nDCG 各看什么？</h3>
+<p>答：Recall 看相关集合覆盖，MRR 看首个相关排名，nDCG 看分级相关排序；必要证据全覆盖单列，避免例外缺失被平均分掩盖。</p>
+<p>追问“没答案的题怎么计算”：另报误接收/误拒绝等状态指标，不把空集合分母设成方便的 1。</p>
+<h3 id="q60">Q60〔P1〕Precision 分母是 k 还是实际返回数？</h3>
+<p>答：都有人采用，必须提前说明；本手册示例固定 k，返回少会受到惩罚。报告候选不足率并保持比较口径一致；重复证据去重规则也需固定。</p>
+<p>追问“切块换了怎么办”：金标准绑定原文命题/span，再映射 chunk，不能换分母偷换指标。</p>
+<h3 id="q61">Q61〔P0〕如何避免评测泄漏？</h3>
+<p>答：按主题、来源和近重复问题簇划分，开发调参、冻结测试；独立人核对标签。AI 出题可做候选，不可自己答自己判后宣称独立。</p>
+<p>追问“看过冻结集错误还能叫未见吗”：再修复可以，但后续不能继续声称它未见，应更新报告并准备新留出集。</p>
+<h3 id="q62">Q62〔P1〕LLM-as-judge 或 Ragas 能全自动验收吗？</h3>
+<p>答：能辅助筛查引用、相关性等，但 judge 有偏差和随机性。必须与人工样本校准，关键健康结论有独立复核，工具副作用用真实状态检查。</p>
+<p>追问“多个 judge 投票”：可降低某些噪声，不能消除共同偏差或补足证据。</p>
+<h3 id="q63">Q63〔P0〕推荐合理性和做法完整性怎么测？</h3>
+<p>答：按真实配方检查材料/步骤一致、不混方法、不补造火候用量；合理性核对目标、复用、补买与品类。ID 合法只是契约，理由要人工按 rubric 判断。</p>
+<p>追问“菜谱原文就不完整”：标来源缺口，不用模型补齐后假装原方完整。</p>
+<h3 id="q64">Q64〔P0〕测试全通过能保证正式发布吗？</h3>
+<p>答：要看范围。当前本地全量基线、后续单元和维护部署核对各有边界，真实模型、身份生命周期、完整恢复和容量仍缺证据；releaseReady 不由单元数自动决定。</p>
+<p>追问“那为何维护版本已上线”：已有功能维护与新功能全面放行是不同发布范围，开关和风险单独记录。</p>
+<h3 id="q65">Q65〔P1〕怎样设计 Agent 故障注入？</h3>
+<p>答：同操作并发、同 ID 异输入、Key 变化、档案删除、模型晚到、进程在认领后退出、证据撤回、目录更新、响应截断和取消。检查最终状态与真实模拟调用数，而非只看 HTTP 200。</p>
+<p>追问“失败后结果怎么恢复”：先区分可重算只读结果与结果未知的付费副作用。</p>
+<h3 id="q66">Q66〔P0〕QPS 多少，做过优化吗？</h3>
+<p>答：没有生产 QPS 实测，所以不报数字。做了映射缓存、快照缓存、候选预算、避免无必要调用和短事务；本地检索耗时仅对应小数据暖态实验。</p>
+<p>追问“下一步怎么做”：本地分接口、并发和到达率分开、模拟供应商延迟，记录正确结果吞吐和尾延迟。</p>
+<h3 id="q67">Q67〔P0〕SSE、WebSocket、NDJSON 怎么选？</h3>
+<p>答：SSE 适合服务器单向事件，WebSocket 适合双向长连接，NDJSON 可沿 fetch 响应流传结构化事件。当前推荐有 NDJSON 阶段/终态，供应商本身非流式；流式参数需完整组装后执行。</p>
+<p>追问“断线自动重连”：恢复展示和重发业务操作不同，不能因重连重新发付费请求。</p>
+<h3 id="q68">Q68〔P0〕限流和背压有什么区别？</h3>
+<p>答：限流控制一段时间请求数，背压控制在途任务和排队；两者都要考虑全局与账户。当前每账户限额不能证明全局容量。</p>
+<p>追问“加大队列不就行了”：无界队列增加尾延迟和内存，最终仍可能超时，应有上限和明确拒绝。</p>
+<h3 id="q69">Q69〔P1〕CPU 或内存突然升高怎么排查？</h3>
+<p>答：先看流量、版本和阶段耗时，再查事件循环、组合搜索、序列化、正则、缓存和响应缓冲。区分 CPU 热点、连接等待和泄漏，结合 profile 而不是直接改框架。</p>
+<p>追问“Node 单线程怎么并发”：I/O 等待可并发，但同步 CPU 工作会阻塞事件循环；必要时 worker 或服务拆分。</p>
+<h3 id="q70">Q70〔P1〕慢 SQL、索引失效和深分页如何处理？</h3>
+<p>答：隔离环境看执行计划、实际行数、选择率、排序和锁；检查统计与表达式。深分页可比较基于稳定排序键的游标；索引要匹配过滤和排序，不能给每列随便建一个。</p>
+<p>追问“回表是什么”：二级索引定位后还需取完整行的额外访问；不同数据库实现细节不同，不把 MySQL 术语机械套到所有 PG 路径。</p>
+<h3 id="q71">Q71〔P1〕缓存穿透、击穿、雪崩怎么处理？</h3>
+<p>答：先区分无效键反复访问、热点失效并发重建和大量同时失效。可用参数校验、短时负缓存、单次构建、分散过期等；但权限、撤回和健康资料不能因缓存策略被绕过。</p>
+<p>追问“能直接缓存用户答案吗”：必须绑定 UID、条件、知识和目录版本，敏感结果不进入公共缓存；当前没有通用答案缓存。</p>
+<h3 id="q72">Q72〔P1〕什么时候要 MQ？怎么处理重复消费？</h3>
+<p>答：任务要离开短请求生命周期、需持久排队或削峰时考虑。消费者仍要幂等、状态认领、重试与死信；确认消息不等于外部副作用恰好一次。当前没有生产 MQ。</p>
+<p>追问“消息顺序保证新结果吗”：还需输入版本和 fencing，不只依赖队列顺序。</p>
+<h3 id="q73">Q73〔P1〕云函数自动扩容为什么还会有瓶颈？</h3>
+<p>答：底层数据库、Data API、模型限额、冷启动和资源预算仍共享。多实例还带来内存缓存不共享与并发状态问题。扩容不是一致性和质量的替代。</p>
+<p>追问“可以直接扩大连接池吗”：可能导致实例数乘连接数超过数据库容量，应统一预算。</p>
+<h3 id="q74">Q74〔P1〕从输入网址到页面推荐发生什么？</h3>
+<p>答：DNS、连接/TLS、HTTP 获取静态资源、浏览器解析并运行应用，再发同源 API，经鉴权和业务处理返回。缓存、CDN、连接复用和云冷启动分别影响不同阶段。</p>
+<p>追问“跨域和 CSRF 一样吗”：CORS 管浏览器跨源读权限，CSRF 关注借用户凭证执行非预期操作，不能混用。</p>
+<h3 id="q75">Q75〔P1〕线程、进程、协程和 GIL 与项目有何关系？</h3>
+<p>答：进程隔离地址空间，线程共享进程资源，协程以运行时调度协作等待。当前 Node 主要关注事件循环与 CPU 工作；Python 离线工具若使用特定 CPython 配置，应按版本说明 GIL 行为，不能说所有 Python 都一样。</p>
+<p>追问“异步就是更快吗”：它能提高等待重叠，CPU 密集计算不因 async 关键字自动加速。</p>
+<h3 id="q76">Q76〔P1〕CAS、行锁和 Redis Lua 如何选？</h3>
+<p>答：CAS 用于检测基于旧版本写入，行锁适合短事务内串行维护账户状态；Redis Lua 可原子处理其脚本操作但长脚本会阻塞服务。当前认领由 PG 完成，没有 Redis 线上方案。</p>
+<p>追问“为什么不锁整个模型调用”：外部等待长且不确定，会耗连接和锁，扩大故障。</p>
+<h3 id="q77">Q77〔P0〕MCP 与 Function Calling、HTTP 的关系？</h3>
+<p>答：Function Calling 是模型提出工具调用；MCP 是工具/资源集成协议；HTTP 是一种传输基础。它们不同层，MCP 不决定模型推理，也不自动授予业务权限。</p>
+<p>追问“项目用了 MCP 吗”：当前产品内部没有，开发工具使用 MCP 也不能冒充产品使用。</p>
+<h3 id="q78">Q78〔P1〕LangGraph checkpoint、reducer、interrupt 有哪些坑？</h3>
+<p>答：checkpoint 保存状态，reducer 定义字段如何合并，interrupt 暂停等待外部输入。恢复可能重入节点，副作用要幂等；thread_id 不是授权；存完整健康聊天还涉及保留策略。当前仅做架构研究。</p>
+<p>追问“内存 saver 可生产恢复吗”：进程退出会丢，不能作为持久故障恢复证据。</p>
+<h3 id="q79">Q79〔P1〕多 Agent 有什么收益和风险？</h3>
+<p>答：独立子任务可并行分工，风险是上下文重复、成本、冲突、循环和共同错误。先定义输出契约与合并验收，用同任务对比单 Agent。当前没有多 Agent 生产成果。</p>
+<p>追问“医学专家 Agent 投票”：角色名称不带来专业资格，也不替代来源与人工复核。</p>
+<h3 id="q80">Q80〔P2〕怎样证明研究过开源项目？</h3>
+<p>答：能指出一个具体模块、运行路径、版本、问题及与自己需求的适配判断；最好有可复现小实验与差异报告。只看 README 或背架构图不能算完成迁移验证。</p>
+<p>追问“本项目调研到哪”：官方框架/模型/索引文档核对已做，向量和框架横向性能实验未做。</p>
+<h3 id="q81">Q81〔P2〕GraphRAG 为何不直接上？</h3>
+<p>答：当前路径明确且规模小，关系表足够。GraphRAG 适合某些跨文档聚合发现，但实体对齐、社区摘要和更新有成本；图上的路径也不自动证明医学因果。</p>
+<p>追问“关系越多越好吗”：无依据的传递边会放大错误，应保留证据类型和适用条件。</p>
+<h3 id="q82">Q82〔P2〕Agentic RAG、CRAG、Self-RAG 怎么理解？</h3>
+<p>答：分别关注检索行动的动态选择、检索结果纠错/补救、检索与生成的自评控制等研究方向。概念不能互换，落地要看具体方法和外部校验。拾味可借鉴有界补检索，但没有实现这些完整算法。</p>
+<p>追问“模型自评说证据充分”：只能作为候选信号，必要证据和条件仍由程序/评测核验。</p>
+<h3 id="q83">Q83〔P0〕Transformer、Attention 至少要懂什么？</h3>
+<p>答：自回归模型逐 token 预测；注意力用 Q 与 K 的相似关系对 V 加权，常见表达 <code>softmax(QKᵀ/√d+mask)V</code>。因果 mask 控制未来信息，多头学习不同表示。生成流畅不代表有数据库知识或执行权限。</p>
+<p>追问“长输入为何慢”：prefill 计算与资源、排队和缓存等共同影响，不把所有模型所有阶段简单说成严格 n²。</p>
+<h3 id="q84">Q84〔P0〕KV Cache、prefill、decode、TTFT 怎么解释？</h3>
+<p>答：prefill 处理输入，decode 逐步输出；KV Cache 复用历史注意力状态，TTFT 还包含连接与排队。它不是应用长期记忆。项目当前非流式调用只测完整响应，不能给出已实测 TTFT。</p>
+<p>追问“KV 内存怎么估”：近似与层数、KV 头、头维度、活跃 token、字节和并发序列数成比例，另加权重和临时开销。</p>
+<h3 id="q85">Q85〔P0〕temperature、top_p、max_tokens 怎样设？</h3>
+<p>答：前两者调整采样随机性，输出上限限制生成预算，都不保证事实正确。当前只显式配置输出上限等参数，没有设温度。选择要看具体接口与冻结任务。</p>
+<p>追问“温度 0 就确定吗”：服务端实现、版本和数值等仍可能带来变化，不能承诺逐字一致。</p>
+<h3 id="q86">Q86〔P1〕SFT、LoRA、DPO 什么时候有必要？</h3>
+<p>答：先确认失败来自稳定行为/格式而非证据缺失；有高质量数据和评测后再比较。LoRA 是参数高效适配，DPO 用偏好数据优化，不负责实时知识撤回或权限。</p>
+<p>追问“训练健康知识到权重里”：难以逐条更新、引用和删除，不能替代 RAG 治理。</p>
+<h3 id="q87">Q87〔P1〕为什么不自己部署模型，显存怎么估？</h3>
+<p>答：先算权重约参数量×每参数字节，再加 KV、激活、框架和并发开销，量化还影响质量。当前云函数资源和个人运维更适合 API；本地 embedding 可离线研究，但在线仍需部署方案。</p>
+<p>追问“0.6B 就一定快吗”：上下文、batch、精度、硬件和推理框架都影响，需要实测。</p>
+<h3 id="q88">Q88〔P0〕prompt 怎样写才可维护？</h3>
+<p>答：固定任务、资料边界、输出契约、禁止行为与不足状态，少量一致示例，模板版本化。先定位数据/解析问题再改措辞，不无限追加补丁。真实 ID 与规则仍由程序保证。</p>
+<p>追问“提示词越来越长怎么办”：删除重复，拆明确职责，做配对回归，统一计入预算。</p>
+<h3 id="q89">Q89〔P0〕模型成本怎么算？</h3>
+<p>答：按输入缓存命中/未命中、输出及各调用价格求和，再计额外摘要/重试；usage 估算与实际账单区分。评测预留按最坏预算，未知消费不当零。</p>
+<p>追问“5 元能测 200 题吗”：取决于当天价格和每题 token；先算上界，预算不足只报告部分，不承诺数量。</p>
+<h3 id="q90">Q90〔P0〕备份为什么不能证明可恢复？</h3>
+<p>答：还需身份、密钥、结构权限、资产与最新删除/撤回水位；隔离目标恢复后验证真实业务。当前业务快照实现不等于 CloudBase 全系统灾备。</p>
+<p>追问“RPO/RTO 是多少”：尚无完整实测；先定义目标并做演练，再给数字。</p>
+<h3 id="q91">Q91〔P0〕忘记密码完成了吗？</h3>
+<p>答：本地实现和测试已有，线上关闭；真实邮箱与重置后会话撤销链路仍未验收。特别关注供应商重置成功、应用撤销失败的跨系统窗口。</p>
+<p>追问“发验证码能收到就算过吗”：还要测错误/过期/重放、主体绑定和旧会话失效。</p>
+<h3 id="q92">Q92〔P0〕账户注销怎么做，为什么还没开？</h3>
+<p>答：有持久意图、私有数据/会话撤销、身份删除和完成回执流程，生产独立撤销日志和管理员适配没齐。不能只删用户表，也不能恢复备份后复活注销用户。</p>
+<p>追问“半路失败”：保留可恢复状态，按幂等步骤继续，不能把部分成功显示为全部完成。</p>
+<h3 id="q93">Q93〔P0〕Git push 就是上线吗？</h3>
+<p>答：不是，必须构建、打包、部署目标和核对实际生效。本次 v46 有部署回执及六项只读检查，内容仍为 v27；未迁移或开启新功能。</p>
+<p>追问“怎么回退”：保留旧包与配置，但数据库迁移和撤回水位要另处理，不能一键倒回所有状态。</p>
+<h3 id="q94">Q94〔P0〕如何证明报告对应当前代码？</h3>
+<p>答：源码、运行时 JSON、锁文件与构建产物分别 hash，报告检查运行期间源稳定；commit 不代表脏工作树全部内容。旧报告按旧版本保存。</p>
+<p>追问“只测失败项后全绿”：只证明选择的阶段通过，未重跑阶段不能复制成当前全量通过。</p>
+<h3 id="q95">Q95〔P1〕用户体验有哪些工程难点？</h3>
+<p>答：慢请求时保留输入与取消、单卡变化不跳位、移动端方法阅读、账号切换隔离、结果与当前条件一致。体验错误往往反映状态模型问题，不只是 CSS。</p>
+<p>追问“怎么测”：浏览器完整路径、键盘/手机、前后端真实请求与迟到响应，不只截图。</p>
+<h3 id="q96">Q96〔P1〕照片识别怎么做，当前有了吗？</h3>
+<p>答：当前没有真实识别。目标是图像模型提出食品候选和置信/歧义，用户确认后进入同一食材模型；照片不能可靠给出重量、隐含调料和绝对过敏安全。</p>
+<p>追问“图片传给谁”：必须明确处理范围、内存/保留和供应商授权，不能复用文字接口就声称已完成多模态。</p>
+<h3 id="q97">Q97〔P1〕你认为当前最大技术债是什么？</h3>
+<p>答：独立质量和正式规则闭环不足，完整 prompt 预算未统一，共享任务未上线、完整恢复与容量证据缺失。局部选菜逻辑可以拆纯函数以便测试，但没有必要先全栈重写。</p>
+<p>追问“先做哪个”：按要发布的范围优先补会影响错误结果、数据和费用的证据。</p>
+<h3 id="q98">Q98〔P0〕下一阶段什么最能形成个人项目亮点？</h3>
+<p>答：选一个有限主题完成证据→真实变体→独立评测→失败分析闭环；再做 A1/dense/rerank 消融、压缩全会话对照与本地容量基线。每项有原始数据和可复现命令。</p>
+<p>追问“为什么不做更多功能”：纵深验证比未完成的大功能列表更能证明工程判断。</p>
+<h3 id="q99">Q99〔P1〕项目如何商业化，个人项目规模小怎么讲？</h3>
+<p>答：先说明用户与使用场景、维护成本和边界，没有收入/留存就不编造。BYOK 降低平台模型账单但增加用户门槛，是否适合目标人群需要反馈。个人规模不妨碍展示一致性、数据治理和评测能力。</p>
+<p>追问“以后换平台付费”：那会改变额度、滥用防护、成本和资料约定，需要独立产品设计。</p>
+<h3 id="q100">Q100〔P0〕面试官说“这不就是套壳调用模型”，怎么回答？</h3>
+<p>答：“模型调用本身很薄，我重点做的是把它放进真实业务约束：目录和完整方法、库存及限制复核、来源条件与撤回、用户状态隔离、一次调用与旧结果控制、分层评测。我可以展开游标修复或 A1 实体碰撞的代码与报告。向量、临床质量和高并发仍未证明，我不会用它们包装成果。”</p>
+<p>追问“现场删掉模型还能运行吗”：普通闭环可以运行；AI 的增益必须靠对照证明，这也是架构保留基线的价值。</p>
+<h2 id="chapter-23">23 白板、手写与深入追问练习</h2>
+<h3 id="section-240">23.1 白板一：设计一个带证据的选菜系统</h3>
+<p>先写输入和输出，再画权威层与不可信层，最后加版本/取消。输入包括本餐、限制、已确认主题、目录和知识版本；输出包括真实变体、依据、范围与终态。先问清是普通推荐还是正式疾病筛选，不默认两者相同。</p>
+<p>必答不变量：目录存在、限制不突破、整餐库存、方法不混用、必要证据完整、旧请求不覆盖、模型不能写权威状态。面试官追问复杂度时，分别分析候选枚举、组合搜索和检索，不把模型网络时间混成算法 Big-O。</p>
+<h3 id="section-241">23.2 白板二：幂等认领的伪代码</h3>
+<p>以下是原理示意，不是可直接运行的生产 SQL：</p>
+<div class="code-wrap"><span class="code-label">text</span><pre><code>BEGIN
+  verify authenticated owner and active session
+  lock owner&#x27;s state row
+  if operation already exists: return duplicate
+  if quota exceeded: return limited
+  insert (owner, operation, input_fingerprint) with unique constraint
+COMMIT
+
+invoke external provider once, outside transaction
+validate response and current input/profile/session
+publish result or explicit failed/unknown/cancelled state</code></pre></div>
+<p>必须解释：数据库提交与远端调用之间没有分布式原子事务；同 operation 重复不能再消费；进程故障不能靠自动生成新 operation 解决。若将来加 outbox，它保证的是任务发布可靠性，不自动保证外部供应商 exactly once。</p>
+<h3 id="section-242">23.3 白板三：RRF 与必要依据</h3>
+<p>给两个有重复 ID 的排名表，手算每路 <code>1/(60+rank)</code>，融合后排序。另给一个排名很低的必须例外，让候选必须带它，证明你理解 top-k 与执行依据的区别。再加入撤回例外，期望不是偷偷删例外后回答，而是返回证据缺失状态。</p>
+<p>可手写 <code>rrf(rankings)</code>、稳定去重、预算装包和 <code>allRequiredPresent()</code>。测试包括同 ID 同路重复、空路、全部为空、相同分稳定排序、必要依据撤回和预算不足。</p>
+<h3 id="section-243">23.4 白板四：预算打包器</h3>
+<p>把输入分成 mustKeep 与 optional；mustKeep 包含权威状态和必要证据。先估计 mustKeep+输出预留，超限则拒绝/澄清；optional 按优先级整项加入，不截断配方中间。返回 included/omitted 和 complete 标志，不能只返回一段文本。</p>
+<p>追问：估计偏低怎么办？用真实 usage 校准并增加余量；模型版本变化重评；服务端最终请求统一预算。追问：必须项含冲突？明确记录不足，不能让打包器自行裁决专业条件。</p>
+<h3 id="section-244">23.5 白板五：库存与单位</h3>
+<p>给两菜各需 80g、库存 120g，要求先聚合需求再比较；再把其中一个需求改成“半个”，应返回不可比较而非自动换算。补买只在用户授权时处理，不能把不匹配单位当成缺料自动买。</p>
+<p>重点不是实现一个大而全单位库，而是区分数值、单位、形态、可食基准和 unknown。切法别名与计量换算不是同一件事。</p>
+<h3 id="section-245">23.6 一条完整的追问链怎样答</h3>
+<p>面试官：“你用了 RAG？”</p>
+<p>你：“公共研究链路已完成可追溯知识包、A1 检索和食材级绑定样例；线上健康聊天仍标记一般模型，正式疾病 RAG 未启用。”</p>
+<p>面试官：“没向量怎么叫 RAG？”</p>
+<p>你：“检索增强不限定向量，关键词和结构化查询也能取证据；但我当前检索研究与线上生成还分开，因此不会说已上线端到端 RAG。”</p>
+<p>面试官：“那你优化了什么？”</p>
+<p>你：“实体最长匹配避免不饱和/饱和碰撞，形态歧义返回确认，实体和词法 RRF 保留可解释通道，必要证据独立回取。十个相关困难断言从五个通过到十个，但只是开发回归。”</p>
+<p>面试官：“为什么不直接 BGE？”</p>
+<p>你：“向量可补同义改写，但不能决定疾病分型和撤回。我已把 BGE/Qwen 列为官方资料核验过的候选，下一步固定题集测它们是否改善当前失败，而不是先把向量库建好再找理由。”</p>
+<p>面试官：“结果如何证明？”</p>
+<p>你：“先独立审核候选并按问题簇冻结；比较事实覆盖、必要证据全覆盖、条件错配、误接收、P95 和总成本。失败题保留，报告每组分母；当前还不能给这组实验结果。”</p>
+<p>这种回答并不回避未完成项，而是用已经完成的具体工程证明你知道下一步为什么做、怎样做。</p>
+<h2 id="chapter-24">24 下一步探索与实施优先级</h2>
+<p>这里是基于现状的后续建议，<strong>本次只写文档，不代表批准执行代码改造、云测试、模型调用或部署</strong>。P0/P1/P2 按正式发布范围判断；维护既有功能与开启疾病 RAG 的门槛不同。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">优先级</th><th scope="col">任务</th><th scope="col">先复用什么</th><th scope="col">验收与成果</th><th scope="col">可自动完成 / 需要人工</th></tr></thead><tbody><tr><td>P0</td><td>当前范围的独立模型质量筛查</td><td>200 候选、6 题 harness、预算账本</td><td>独立标签、真实输出、五维 rubric、失败与费用报告</td><td>工程和报告可自动；独立审核、专业裁决和付费恢复授权需人工</td></tr><tr><td>P0</td><td>完整模型请求预算</td><td>现有 estimatedTokens 与打包器</td><td>system/档案/主题/历史/输出总预算；超限不调用；更正不丢</td><td>代码及构造验证可自动；真实质量/usage 校准受预算授权</td></tr><tr><td>P0</td><td>已开放模式的账户/数据恢复底线</td><td>加密设置、生命周期与归档实现</td><td>明确恢复范围；隔离验证解密、身份、撤销水位；不可恢复时不开放</td><td>本地可自动；身份/密钥和外部目标配置需人工</td></tr><tr><td>P0（开放疾病版前）</td><td>正式规则与变体绑定</td><td>v2、独立 2 菜样例、撤回机制</td><td>限定主题完整证据链；非适用/冲突/撤回不能执行</td><td>工程可自动；专业审核不能由同一模型替代</td></tr><tr><td>P1</td><td>真实找回与注销外部验收</td><td>已有适配、白名单、独立日志接口</td><td>专用账户的收信/重置/旧会话/删除/恢复阻断</td><td>本地可自动；专用邮箱、可删除身份和隔离环境需人工</td></tr><tr><td>P1</td><td>共享推荐任务水位启用</td><td>已有 SQL 与本地测试</td><td>同任务并发、跨实例旧结果和重启故障；再受控迁移</td><td>本地可自动；云迁移另需明确发布范围</td></tr><tr><td>P1</td><td>A1 / dense / rerank 对照</td><td>A1、manifest、候选评测规范</td><td>逐题质量差异、资源、query 编码方案和成本</td><td>公共离线实验可自动；硬件/权重获取和外部费用按实际条件</td></tr><tr><td>P1</td><td>本地容量基线与热点优化</td><td>测试隔离、本地 PG、模型替身</td><td>正确结果吞吐、p95/p99、资源与失败曲线</td><td>可自动准备/执行有界本地实验；不默认压云端</td></tr><tr><td>P1</td><td>选菜器模块拆分与校验统一</td><td>现有候选、预算、游标、校验逻辑</td><td>行为等价；未知字段策略统一；不改变一次调用语义</td><td>可自动，需现有必要回归</td></tr><tr><td>P2</td><td>照片识别闭环</td><td>当前食材解析与确认流程</td><td>候选确认、识别质量、隐含食品/重量限制清楚</td><td>工程可自动；样本授权、模型配置与额度需人工</td></tr><tr><td>P2</td><td>LangGraph / 多 Agent / 图检索</td><td>当前纯领域函数</td><td>同任务收益证据；预算/恢复/权限不退化</td><td>可做独立样例，未证明收益不替换主链路</td></tr></tbody></table></div>
+<h3 id="section-247">24.1 最值得做成面试成果的三个实验</h3>
+<p><strong>实验 A：检索改进是否真的有效。</strong> 固定独立标注和内容版本，比较 A1、A1+dense、再加重排；报告困难题、必要条件、误接收和资源。即使最复杂方案没赢，也能形成有价值的选型结论。</p>
+<p><strong>实验 B：上下文管理是否保住事实。</strong> 同一批多轮任务比较滑窗、当前抽取式、目标结构化方案；记录整段成本、旧信息恢复和新更正保留。把反例和修复一起呈现，避免只展示“输入更短”。</p>
+<p><strong>实验 C：可靠执行与容量边界。</strong> 本地多连接、多 API 实例、模拟供应商故障和延迟；同时证明不重复、不越权、不提交旧结果，再找吞吐瓶颈。容量报告明确机器和负载，不跨环境夸大。</p>
+<p>这三个实验的共同交付应是配置、数据 hash、原始结果、失败分类、结论与不适用范围。它们比再加三个名词更能提高项目说服力。</p>
+<h3 id="section-248">24.2 建议学习节奏</h3>
+<p>第一轮先掌握普通规则、AI 候选和游标修复，能独立复述并画图；第二轮掌握证据模型、A1、绑定和撤回，能手算 RRF；第三轮掌握幂等、预算、评测与发布边界，能设计故障实验；最后挑一个上述实验真正完成。</p>
+<p>不要把“看完手册”当成“独立做过”。每轮至少自己修改一个小规则、补一个反例、解释一段关键代码、录一次三分钟介绍。面试的稳定发挥来自这些可检验动作。</p>
+<h2 id="chapter-25">25 代码、数据与验收证据索引</h2>
+<p>下列链接指向本次核对的真实文件。它们可能继续演进，面试前应核对日期和当前版本；本手册是 2026-10-30 快照，不替代最新源码。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">证据</th><th scope="col">能支持的陈述</th><th scope="col">不能推出的陈述</th></tr></thead><tbody><tr><td><a href="../../package.json">package.json</a></td><td>实际依赖与命令；无 LangChain 依赖</td><td>PostgreSQL 服务端版本或全组件性能</td></tr><tr><td><a href="../../backend/src/recommendation.ts">推荐核心</a></td><td>资格、套餐与游标相关逻辑</td><td>所有目录来源都已经试做</td></tr><tr><td><a href="../../backend/src/health-recipe-selection.ts">选菜器</a></td><td>候选预算、实际模型选择、ID/数量/范围核验</td><td>真实模型理由质量已独立通过</td></tr><tr><td><a href="../../backend/src/deepseek-json.ts">模型协议</a></td><td>固定供应商、JSON、终态、响应/usage 检查</td><td>供应商计费恰好一次或医学正确</td></tr><tr><td><a href="../../backend/src/health-chat.ts">健康聊天</a></td><td>general_model、结构化建议与自述约束</td><td>已接入正式 RAG</td></tr><tr><td><a href="../../shared/health-chat.ts">上下文构建</a></td><td>抽取式历史预算与保留策略</td><td>全请求精确 token 上界或无损压缩</td></tr><tr><td><a href="../../shared/context-budget.ts">预算估计</a></td><td>启发式估算和选菜预算值</td><td>实际供应商账单</td></tr><tr><td><a href="../../shared/health-topics.ts">主题状态</a></td><td>来源归属和接受记录逻辑</td><td>临床组合规则已批准</td></tr><tr><td><a href="../../deployment/db/health-chat.sql">调用认领 SQL</a></td><td>共享 PG 认领和账户限额</td><td>新共享推荐任务表已上线</td></tr><tr><td><a href="../../deployment/db/recommendation-tasks.sql">推荐任务 SQL</a></td><td>待启用跨实例水位实现</td><td>已随 v46 执行迁移</td></tr><tr><td><a href="../../backend/src/health-knowledge-retrieval.ts">A1 检索</a></td><td>最长匹配、实体/词法 RRF、必需证据</td><td>BM25、dense、reranker 已部署</td></tr><tr><td><a href="../../backend/src/health-knowledge-repository.ts">知识仓储</a></td><td>不可变快照与撤回复核</td><td>云端全量知识检索已上线</td></tr><tr><td><a href="../../datasets/health/2026-10-28-v2/manifest.json">v2 manifest</a></td><td>11/137/98/260/124/5 的版本计数</td><td>临床批准或全部菜谱绑定</td></tr><tr><td><a href="../../datasets/health/recipe-research/manifest.json">研究绑定</a></td><td>两道菜、四条食材级绑定</td><td>整菜疾病安全判断</td></tr><tr><td><a href="../../artifacts/acceptance/health-knowledge-2026-10-28-v2/retrieval-comparison.json">检索对照</a></td><td>A0/A1 编辑回归与本机观察</td><td>未见集泛化或网站 QPS</td></tr><tr><td><a href="../../datasets/evaluation/agent-candidates-v1.json">200 候选</a></td><td>五维候选设计和未审核状态</td><td>200 次真实模型调用通过</td></tr><tr><td><a href="../../scripts/freeze-evaluation-set.ts">冻结检查</a></td><td>独立标签字段、簇隔离等门槛</td><td>自动证明审核者专业资质</td></tr><tr><td><a href="../../artifacts/acceptance/project-check-2026-10-30T06-04-49-269Z/report.json">全量本地基线</a></td><td>当时版本 20 阶段通过</td><td>后续所有源码变化自动通过</td></tr><tr><td><a href="../../artifacts/acceptance/project-check-2026-10-30T10-59-36-214Z/report.json">维护版本本地报告</a></td><td>245 通过、1 跳过及权限阻塞边界</td><td>当前四浏览器六 PG 在 Codex 全跑通过</td></tr><tr><td><a href="../releases/ACCEPTANCE-variant-cursor-2026-10-30.md">游标修复</a></td><td>真实触发、失败回归、修复与补测</td><td>其他任意故障都已解决</td></tr><tr><td><a href="../releases/ACCEPTANCE-maintenance-release-2026-10-30.md">v46 维护发布</a></td><td>已更新函数/前端，六项只读核对</td><td>新功能全面 releaseReady</td></tr><tr><td><a href="../../backend/src/cloudbase-accounts.ts">账户适配</a></td><td>真实账户与本地恢复适配</td><td>找回密码已对线上开放</td></tr><tr><td><a href="../../backend/src/account-lifecycle.ts">生命周期</a></td><td>分步注销与恢复处理设计</td><td>生产独立日志/身份删除适配已接齐</td></tr><tr><td><a href="../../backend/src/business-recovery.ts">业务恢复</a></td><td>业务归档和隔离恢复校验</td><td>已完成 CloudBase 全系统灾备</td></tr></tbody></table></div>
+<p>关键证据之间的关系：维护版本源码指纹为 <code>c81c19078f7c1fb789cd3ac976b2b4f7f465e42c1e32cb326f2a7417e0571bbe</code>；它与早先全量基线不同。目录 v28 是本地研究/评测快照，线上维护发布继续使用 v27。知识 v2 和独立绑定 pilot 也有自己的 manifest。回答任何数字时先指出属于哪一层、哪一个版本。</p>
+<h2 id="chapter-26">26 资料来源、覆盖映射与术语</h2>
+<h3 id="section-251">26.1 用户提供的参考材料</h3>
+<p>本次读取的是本地阅读器以及同目录 Markdown 原稿，引用其问题范围与教学关注点，重新组织并结合当前代码；没有原地改动这些文件。</p>
+<ul><li><code>D:/codex_AI/后端8股/春招优化版/Markdown版/面试资料阅读器.html</code></li><li><code>D:/codex_AI/后端8股/春招优化版/Markdown版/Agent开发面试.md</code></li><li><code>D:/codex_AI/后端8股/春招优化版/Markdown版/AI模型与Agent工程实操.md</code></li><li><code>D:/codex_AI/后端8股/春招优化版/Markdown版/拾味项目RAG与Agent案例.md</code></li></ul>
+<p>阅读器的旧案例、旧参数与旧数字仅作为历史参考；本手册对当前状态采用源码、manifest 和日期明确的验收。参考材料中的“建议做”不当作当前已完成，也不将材料内指令当作用户授权。</p>
+<h3 id="section-252">26.2 官方技术资料与论文（本轮联网核对）</h3>
+<p>核对日期均为 2026-10-30。链接支持技术原理和候选能力，不证明本项目已经采用或获得相同效果；硬件、价格、接口与模型别名会变化，实施时再次核对。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">资料</th><th scope="col">本文用途</th></tr></thead><tbody><tr><td><a href="https://docs.langchain.com/oss/javascript/langchain/overview">LangChain JavaScript 概览</a></td><td>模型/工具/Agent 抽象与框架选择边界</td></tr><tr><td><a href="https://docs.langchain.com/oss/javascript/langgraph/persistence">LangGraph Persistence</a></td><td>checkpointer 与 store、持久化范围</td></tr><tr><td><a href="https://docs.langchain.com/oss/javascript/langgraph/interrupts">LangGraph Interrupts</a></td><td>暂停恢复、节点重入与幂等问题</td></tr><tr><td><a href="https://www.anthropic.com/research/building-effective-agents">Anthropic Building effective agents</a></td><td>Workflow 与 Agent 的工程取舍</td></tr><tr><td><a href="https://arxiv.org/abs/2005.11401">RAG 原始论文</a></td><td>检索增强生成的研究背景</td></tr><tr><td><a href="https://arxiv.org/abs/2210.03629">ReAct 论文</a></td><td>行动/观察迭代的研究模式</td></tr><tr><td><a href="https://huggingface.co/BAAI/bge-m3">BGE-M3 模型卡</a></td><td>编码规格与检索候选能力</td></tr><tr><td><a href="https://huggingface.co/Qwen/Qwen3-Embedding-0.6B">Qwen3-Embedding-0.6B 模型卡</a></td><td>维度、长度和指令协议</td></tr><tr><td><a href="https://github.com/pgvector/pgvector">pgvector 官方仓库</a></td><td>精确/近似搜索与过滤召回问题</td></tr><tr><td><a href="https://www.postgresql.org/docs/current/textsearch-controls.html">PostgreSQL 全文检索</a></td><td>文本检索与排名函数，区别于 BM25</td></tr><tr><td><a href="https://api-docs.deepseek.com/api/create-chat-completion/">DeepSeek Chat Completions</a></td><td>模型协议参数与输出结构</td></tr><tr><td><a href="https://api-docs.deepseek.com/guides/kv_cache/">DeepSeek Context Caching</a></td><td>供应商缓存与应用记忆的区别</td></tr><tr><td><a href="https://aclanthology.org/2024.tacl-1.9/">Lost in the Middle</a></td><td>长上下文利用的研究问题，不能直接外推本项目模型</td></tr><tr><td><a href="https://docs.ragas.io/en/stable/concepts/metrics/overview/">Ragas Metrics</a></td><td>自动辅助评测指标；非临床准入</td></tr><tr><td><a href="https://modelcontextprotocol.io/docs/learn/architecture">MCP 架构</a></td><td>协议层与业务授权的区别</td></tr><tr><td><a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">OWASP Prompt Injection Prevention</a></td><td>数据/指令边界、最小权限与防御组合</td></tr><tr><td><a href="https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop">Node.js Event Loop 工程说明</a></td><td>异步 I/O 与 CPU 阻塞的区别</td></tr><tr><td><a href="https://arxiv.org/abs/2310.11511">Self-RAG 论文</a></td><td>扩展阅读：检索/生成/自评的研究方法</td></tr><tr><td><a href="https://arxiv.org/abs/2401.15884">CRAG 论文</a></td><td>扩展阅读：检索结果纠错与补救</td></tr></tbody></table></div>
+<p>“做过调研”的准确含义：本轮确实核对这些第一方资料并结合代码分析适配性；没有因此宣称实际跑过所有框架、模型、索引与论文算法。数据来源的医学原文核查沿用知识包既有记录，本轮没有重新给医学结论或作者签认。</p>
+<h3 id="section-253">26.3 阅读器问题到本手册的覆盖映射</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">阅读器主题/题号</th><th scope="col">本手册对应</th><th scope="col">相比旧材料补充</th></tr></thead><tbody><tr><td>Q01～06 项目与架构</td><td>01～05、21、Q01～08</td><td>最新能力边界、实际 AI 选菜与 v46</td></tr><tr><td>Q07～24 RAG 全链路</td><td>06～10、Q09～35</td><td>当前 A1 已有 RRF、两菜绑定与真实缺口</td></tr><tr><td>Q25～36 Agent 执行</td><td>11、13、Q36～47</td><td>当前单次选择与未来工具循环分开</td></tr><tr><td>Q37～43 记忆与压缩</td><td>12、Q48～53</td><td>已有抽取式压缩、最终 prompt 预算盲区；不臆测其他产品内部算法</td></tr><tr><td>Q44～50 评测</td><td>14、Q59～65</td><td>五维 200 候选、独立审核和真实报告口径</td></tr><tr><td>Q51～60 数据库检索</td><td>07、09、13、15、Q19～27、Q70～76</td><td>云端 Data API 与本地 pg、向量结构与实际执行区分</td></tr><tr><td>Q61～72 协议/可靠性</td><td>11～15、Q43～58、Q66～79</td><td>已上线调用认领与未上线任务水位分开</td></tr><tr><td>Q73～80 基础/AI 协作</td><td>19～20、23、Q70～80</td><td>可复制任务包、真实修复与指纹</td></tr><tr><td>Q81～90 模型/扩展</td><td>04、11～12、Q81～89、Q99</td><td>模型参数按真实适配校正，研究和实验分开</td></tr><tr><td>《AI模型与Agent工程实操》</td><td>04～15、23</td><td>把通用概念放回本项目；不把教学 Python demo 当线上实现</td></tr><tr><td>《拾味项目RAG与Agent案例》</td><td>全文，尤其 01、09、12、16～17</td><td>校正 v1/v2、压缩、绑定、发布和测试的时间差</td></tr><tr><td>本次额外问题</td><td>15～20、24、Q90～100</td><td>QPS 方法、生命周期、恢复、完结态和深入路线</td></tr></tbody></table></div>
+<h3 id="section-254">26.4 术语速查</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th scope="col">术语</th><th scope="col">在本项目应如何理解</th></tr></thead><tbody><tr><td>BYOK</td><td>用户提供自己的模型 Key，平台仍负责保护和调用边界</td></tr><tr><td>证据单元</td><td>可定位原文命题及必要限定，不等于任意固定长度片段</td></tr><tr><td>bundle / manifest</td><td>一组内容及其版本、文件 hash、计数和边界记录</td></tr><tr><td>RRF</td><td>融合多路排名的方法，当前实体/词法，不天然代表向量</td></tr><tr><td>Reranker</td><td>候选精排模型，不能替代缺失证据或业务规则</td></tr><tr><td>Harness</td><td>模型外的工具、状态、预算、权限、取消和验证设施</td></tr><tr><td>CAS</td><td>只有预期版本仍当前时写入，用于发现并发覆盖</td></tr><tr><td>幂等</td><td>同一业务操作重复提交不重复产生对应副作用；不等于所有跨系统 exactly once</td></tr><tr><td>fencing token</td><td>单调版本/令牌，阻止旧工作者提交；当前为扩展设计概念</td></tr><tr><td>撤回水位</td><td>当前必须应用的撤销集合/版本，不能随旧内容回滚</td></tr><tr><td>P95</td><td>约 95% 观测耗时不高于该值，必须说明采样和负载</td></tr><tr><td>QPS / RPS</td><td>每秒请求/查询量，须区分发起、完成、正确成功与拒绝</td></tr><tr><td>RPO / RTO</td><td>可容忍数据丢失窗口 / 恢复服务时间，需真实演练支持</td></tr><tr><td>编辑回归</td><td>开发与资料整理产生的已知案例，不能冒充独立泛化</td></tr><tr><td>独立评测</td><td>标签、划分、冻结与判定尽量独立于开发调参，并可审计</td></tr></tbody></table></div>
+<h3 id="section-255">26.5 面试前最后自查</h3>
+<p>能否不看稿画出普通推荐、AI 选菜和研究 RAG 三条链？能否解释一个不变量在前端、API、领域模块和数据库各如何落实？能否打开一份报告说明哪些通过、哪些未跑、哪些仍缺实现？能否对“为什么不用 X”给出适用条件而不是贬低技术？能否说清你本人真正做过什么，以及下一次实验将怎样推翻或支持当前选择？</p>
+<p>把这些问题回答清楚，再增加真实实验结果，这份个人项目就有可讨论的工程深度。文档中的未完成项仍保留为未完成，直到代码、评测与部署分别给出对应证据。</p></article><footer>根据本地源文档生成。内容 SHA-256：2845825a21de0b401d2df59de8d0a60a62e14da3ceeda9b8c56e9c1a573c4b99<br>资料链接由你点击时打开；阅读本页不调用模型、不访问线上项目。</footer></main><script>
+const nav=document.querySelector('nav'),results=document.querySelector('#results'),input=document.querySelector('#search'),status=document.querySelector('#status');
+const blocks=[...document.querySelectorAll('article h2,article h3')].map(h=>{let text='';for(let n=h.nextElementSibling;n&&!/^H[23]$/.test(n.tagName);n=n.nextElementSibling)text+=' '+n.textContent;return{id:h.id,title:h.textContent,text};});
+function search(){const q=input.value.trim().toLowerCase();results.replaceChildren();nav.style.display=q?'none':'';results.style.display=q?'block':'none';if(!q){status.textContent='26 章 · 100 个分级问答';return;}const words=q.split(/\s+/);const hits=blocks.filter(b=>words.every(w=>(b.title+' '+b.text).toLowerCase().includes(w)));status.textContent=`找到 ${hits.length} 个段落`;for(const b of hits.slice(0,100)){const a=document.createElement('a');a.href='#'+b.id;a.textContent=b.title;const s=document.createElement('span');const pos=b.text.toLowerCase().indexOf(words[0]);const begin=Math.max(0,pos-20);s.textContent=(begin?'…':'')+b.text.slice(begin,begin+110)+'…';a.append(s);results.append(a);}}
+input.addEventListener('input',search);document.querySelector('#clear').addEventListener('click',()=>{input.value='';search();input.focus();});document.querySelector('#menu').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
+document.querySelector('#collapse').addEventListener('click',()=>nav.querySelectorAll('details').forEach(d=>d.open=false));document.querySelector('#expand').addEventListener('click',()=>nav.querySelectorAll('details').forEach(d=>d.open=true));document.querySelector('#print').addEventListener('click',()=>window.print());
+document.querySelector('aside').addEventListener('click',e=>{if(e.target.closest('a[href^="#"]'))document.body.classList.remove('menu-open');});
+window.addEventListener('scroll',()=>{const d=document.documentElement;document.querySelector('.progress i').style.width=(100*d.scrollTop/Math.max(1,d.scrollHeight-d.clientHeight))+'%';},{passive:true});
+search();
+</script></body></html>

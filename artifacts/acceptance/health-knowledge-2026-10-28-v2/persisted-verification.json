@@ -1,0 +1,352 @@
+{
+  "state": "persisted_verified",
+  "versions": [
+    "health-kb-2026-10-28-v1",
+    "health-kb-2026-10-28-v2"
+  ],
+  "counts": {
+    "sources": 11,
+    "evidence": 98,
+    "facts": 260,
+    "ruleDrafts": 124
+  },
+  "diseaseTopics": [
+    {
+      "id": "d:ckd",
+      "name": "成人慢性肾脏病"
+    },
+    {
+      "id": "d:dyslipidemia",
+      "name": "成人高脂血症"
+    },
+    {
+      "id": "d:gout",
+      "name": "成人痛风"
+    },
+    {
+      "id": "d:hypertension",
+      "name": "成人高血压"
+    },
+    {
+      "id": "d:hyperuricemia",
+      "name": "成人高尿酸血症"
+    },
+    {
+      "id": "d:obesity",
+      "name": "成人肥胖症"
+    },
+    {
+      "id": "d:primary-osteoporosis",
+      "name": "成人原发性骨质疏松症"
+    },
+    {
+      "id": "d:type2-diabetes",
+      "name": "成人2型糖尿病"
+    }
+  ],
+  "migratedLegacyRevocations": 0,
+  "currentRevocations": 0,
+  "examples": [
+    {
+      "query": "高血脂可以选择不饱和脂肪酸吗",
+      "state": "research_results",
+      "executionAllowed": false,
+      "index": "lexical-v2",
+      "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "hits": [
+        {
+          "factId": "fact:lipid-unsaturated",
+          "applicability": "needs_confirmation",
+          "citations": [
+            {
+              "evidenceId": "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b",
+              "title": "成人高脂血症食养指南（2023年版）",
+              "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+              "locator": {
+                "end": null,
+                "kind": "html_visual",
+                "start": null,
+                "pdfPage": null,
+                "section": "三（二）不饱和脂肪酸",
+                "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                "imageRegion": [
+                  0,
+                  5300,
+                  700,
+                  5700
+                ],
+                "printedPage": 6,
+                "normalization": "remove_unicode_whitespace_v1",
+                "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c"
+              },
+              "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+            }
+          ]
+        },
+        {
+          "factId": "fact:canola-oil-unsaturated-fat",
+          "applicability": "applicable_for_research",
+          "citations": [
+            {
+              "evidenceId": "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35",
+              "title": "成人高血压食养指南（2023年版）",
+              "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+              "locator": {
+                "end": 152,
+                "kind": "pdf_normalized_text",
+                "start": 69,
+                "pdfPage": 12,
+                "section": "附录1/油脂",
+                "printedPage": 10,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+            }
+          ]
+        },
+        {
+          "factId": "fact:corn-oil-unsaturated-fat",
+          "applicability": "applicable_for_research",
+          "citations": [
+            {
+              "evidenceId": "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35",
+              "title": "成人高血压食养指南（2023年版）",
+              "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+              "locator": {
+                "end": 152,
+                "kind": "pdf_normalized_text",
+                "start": 69,
+                "pdfPage": 12,
+                "section": "附录1/油脂",
+                "printedPage": 10,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "慢性肾病低蛋白大米",
+      "state": "research_results",
+      "executionAllowed": false,
+      "index": "lexical-v2",
+      "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "hits": [
+        {
+          "factId": "fact:ck-late-low-protein-rice",
+          "applicability": "needs_confirmation",
+          "citations": [
+            {
+              "evidenceId": "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 338,
+                "kind": "pdf_normalized_text",
+                "start": 17,
+                "pdfPage": 8,
+                "section": "三（一）3–5期与透析",
+                "printedPage": 6,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            },
+            {
+              "evidenceId": "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 533,
+                "kind": "pdf_normalized_text",
+                "start": 365,
+                "pdfPage": 9,
+                "section": "三（三）蛋白类型和量",
+                "printedPage": 7,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            }
+          ]
+        },
+        {
+          "factId": "fact:ck-phosphorus",
+          "applicability": "needs_confirmation",
+          "citations": [
+            {
+              "evidenceId": "ev:2e6a345f6c5b9a0817dfd4501beef1704d00525caef5918c0cd24417891f8711",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 573,
+                "kind": "pdf_normalized_text",
+                "start": 520,
+                "pdfPage": 11,
+                "section": "三（五）食物磷",
+                "printedPage": 9,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            },
+            {
+              "evidenceId": "ev:b68b09e759b0816323d0c9d8f0db271bdb53c62758a002f7311733650e44b792",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 45,
+                "kind": "pdf_normalized_text",
+                "start": 11,
+                "pdfPage": 12,
+                "section": "三（五）磷添加剂",
+                "printedPage": 10,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            }
+          ]
+        },
+        {
+          "factId": "fact:ck-protein",
+          "applicability": "needs_confirmation",
+          "citations": [
+            {
+              "evidenceId": "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 533,
+                "kind": "pdf_normalized_text",
+                "start": 365,
+                "pdfPage": 9,
+                "section": "三（三）蛋白类型和量",
+                "printedPage": 7,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            },
+            {
+              "evidenceId": "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 338,
+                "kind": "pdf_normalized_text",
+                "start": 17,
+                "pdfPage": 8,
+                "section": "三（一）3–5期与透析",
+                "printedPage": 6,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            },
+            {
+              "evidenceId": "ev:031fc63ec36d12caa34884eefeed16fd736727e6c8a86a912c5bcaec09257f3d",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 329,
+                "kind": "pdf_normalized_text",
+                "start": 271,
+                "pdfPage": 4,
+                "section": "前言/个性化监测",
+                "printedPage": 2,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query": "原发性骨质疏松症牛奶",
+      "state": "research_results",
+      "executionAllowed": false,
+      "index": "lexical-v2",
+      "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "hits": [
+        {
+          "factId": "fact:op-prefer-milk",
+          "applicability": "needs_confirmation",
+          "citations": [
+            {
+              "evidenceId": "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599",
+              "title": "成人骨质疏松症食养指南（2026年版）",
+              "url": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+              "locator": {
+                "end": 335,
+                "kind": "pdf_normalized_text",
+                "start": 215,
+                "pdfPage": 9,
+                "section": "三（一）钙/食物",
+                "printedPage": 5,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+            }
+          ]
+        },
+        {
+          "factId": "fact:ck-phosphorus-milk",
+          "applicability": "applicable_for_research",
+          "citations": [
+            {
+              "evidenceId": "ev:2e6a345f6c5b9a0817dfd4501beef1704d00525caef5918c0cd24417891f8711",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 573,
+                "kind": "pdf_normalized_text",
+                "start": 520,
+                "pdfPage": 11,
+                "section": "三（五）食物磷",
+                "printedPage": 9,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            }
+          ]
+        },
+        {
+          "factId": "fact:ck-protein-milk",
+          "applicability": "applicable_for_research",
+          "citations": [
+            {
+              "evidenceId": "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 533,
+                "kind": "pdf_normalized_text",
+                "start": 365,
+                "pdfPage": 9,
+                "section": "三（三）蛋白类型和量",
+                "printedPage": 7,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            },
+            {
+              "evidenceId": "ev:748f143b1ec4aa90aa1b87dc41ca69f036f500b3f61f10ac08686522219b9e71",
+              "title": "成人慢性肾脏病食养指南（2024年版）",
+              "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+              "locator": {
+                "end": 154,
+                "kind": "pdf_normalized_text",
+                "start": 19,
+                "pdfPage": 10,
+                "section": "三（三）奶蛋磷和豆类",
+                "printedPage": 8,
+                "normalization": "remove_unicode_whitespace_v1"
+              },
+              "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "clinicalRelease": null,
+  "onlineEnabled": false
+}

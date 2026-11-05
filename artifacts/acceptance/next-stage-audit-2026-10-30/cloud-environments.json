@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-29T17:07:45.479Z",
+  "readOnly": true,
+  "cliVersion": "3.8.7",
+  "status": "permission_blocked",
+  "reason": "ENVIRONMENT_ACCESS_DENIED",
+  "environments": [],
+  "nonProductionEnvironmentCount": null,
+  "createdResources": false,
+  "deployed": false,
+  "environmentInventoryKnown": false,
+  "note": "Query denied; no conclusion about whether a staging environment exists."
+}

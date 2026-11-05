@@ -104,14 +104,11 @@ export function extractText(original: string, context: ContentContext = construc
 }
 
 export function mergeIngredients(existing: Ingredient[], incoming: Ingredient[]): Ingredient[] {
-  const next = existing.map(i => ({ ...i }));
+  const next:Ingredient[] = existing.map(i => {const value={...i};if(value.foodId&&value.status==='conflict'){value.status='confirmed';delete value.alternative;}return value;});
   for (const item of incoming) {
     const old = next.find(i => item.foodId ? i.foodId === item.foodId : i.name === item.name);
     if (!old) { next.push({ ...item }); continue; }
-    if (old.amount !== item.amount || old.basis !== item.basis || old.form !== item.form) {
-      old.alternative = `${item.amount || '用量未填'} / ${item.form} / ${item.basis}`;
-      old.status = 'conflict';
-    }
+    if(item.amount){old.amount=item.amount;old.quantityUnit=item.quantityUnit;}
   }
   return next;
 }

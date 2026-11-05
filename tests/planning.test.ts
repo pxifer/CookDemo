@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { compositionError, servingReferences } from '../shared/meal-planning';
-import { checkDish, checkSet, recommend } from '../server/recommendation';
+import { checkDish, checkSet, recommend } from '../backend/src/recommendation';
 import { foodById } from '../shared/catalog';
 import { mealWith, request, simpleRecipe } from './fixtures';
-import { normalizeInput } from '../src/meal-input';
-import { createApp } from '../server/app';
+import { normalizeInput } from '../frontend/src/meal-input';
+import { createApp } from '../backend/src/app';
 
 test('人数参考覆盖1～12人，2/3人两荤三素，参考不是自定义限制', () => {
   assert.deepEqual(servingReferences.map(r => r.servings), Array.from({ length: 12 }, (_, i) => i + 1));
@@ -25,7 +25,7 @@ test('取消自定义忽略残留空值/超量，恢复为自动且保留食材�
   assert.deepEqual(normalized.ingredients, m.ingredients);
 });
 
-test('自动按人数与累计食材量调整：2人五道、4人七道，量少则减少', async () => {
+test('自动按人数与食材种类调整：2人五道、4人七道，填写量不影响菜数', async () => {
   const catalog = [
     ...Array.from({ length: 4 }, (_, i) => simpleRecipe(`meat-${i}`, [['chicken', 100]], { category: 'meat' })),
     ...Array.from({ length: 6 }, (_, i) => simpleRecipe(`veg-${i}`, [['potato', 100]])),
@@ -37,7 +37,7 @@ test('自动按人数与累计食材量调整：2人五道、4人七道，量少
   m.servings = 4;
   const four = await recommend(catalog, request(m)); assert.equal(four.dishes.length, 7);
   m.ingredients = mealWith('鸡肉100g土豆100g西红柿100g').ingredients;
-  const little = await recommend(catalog, request(m)); assert.equal(little.dishes.length, 3);
+  const little = await recommend(catalog, request(m)); assert.equal(little.dishes.length, 7);
   assert.equal(little.search,'complete');
   assert.deepEqual(little.reasons,[]); // Successful results no longer repeat internal planning explanations.
 });
@@ -51,10 +51,10 @@ test('自动参考是软目标，可为更多现有主料选择超过参考的�
   assert.equal(result.dishes.length, 4); assert.equal(result.target, 3);
 });
 
-test('未核实重量仍用于保守搭配估算，不伪造净量或可比单位', async () => {
+test('填写量、未知量与不同单位均不参与搭配估算，不伪造净量', async () => {
   const catalog = Array.from({ length: 4 }, (_, i) => simpleRecipe(`p-${i}`, [['potato', 100]]));
   const m = mealWith('土豆150g'); m.ingredients[0].basis = 'unknown';
-  const result = await recommend(catalog, request(m)); assert.equal(result.dishes.length, 1);
+  const result = await recommend(catalog, request(m)); assert.equal(result.dishes.length, 3);
   assert.equal(result.checks[0].state, 'unverified'); assert.equal(result.checks[0].shortage, null);
   m.ingredients[0].amount = '';
   assert.equal((await recommend(catalog, request(m))).dishes.length, 3);
@@ -62,15 +62,15 @@ test('未核实重量仍用于保守搭配估算，不伪造净量或可比单�
   assert.equal((await recommend(catalog, request(m))).dishes.length, 3);
 });
 
-test('自定义20道：库存不足说明，补买遵循指定数量而非候选六道，换菜保留19道', async () => {
+test('自定义20道：已具备食材不受填写量影响，补买仍不改变指定菜数，换菜保留19道', async () => {
   const catalog = Array.from({ length: 21 }, (_, i) => simpleRecipe(`egg-${String(i).padStart(2, '0')}`, [['egg', 1]]));
   const m = mealWith('鸡蛋2个'); m.composition = 'custom'; m.counts = { meat: 0, veg: 20, soup: 0 };
-  const limited = await recommend(catalog, request(m)); assert.equal(limited.dishes.length, 2);
-  assert(limited.reasons.some(r => r.includes('你指定了 20 道')));
+  const limited = await recommend(catalog, request(m)); assert.equal(limited.dishes.length, 20);
+  assert(limited.targetMet);assert.deepEqual(limited.reasons,[]);
   m.allowBuy = true; m.mode = 'candidates';
   const full = await recommend(catalog, request(m)); assert.equal(full.dishes.length, 20); assert(full.targetMet);
   assert.equal(new Set(full.dishes.map(d => d.recipe.id)).size, 20);
-  assert.equal(full.checks.find(c => c.foodId === 'egg')?.shortage, 18);
+  assert.equal(full.checks.find(c => c.foodId === 'egg')?.shortage, null);
   const selected = full.dishes.map(d => ({ recipeId: d.recipe.id, variantId: d.variant.id }));
   const replaced = await recommend(catalog, request(m, { action: 'replace', selected, replaceId: selected[0].recipeId }));
   assert.equal(replaced.dishes.length, 20); assert(!replaced.dishes.some(d => d.recipe.id === selected[0].recipeId));
@@ -86,15 +86,15 @@ test('补买不越过内容类别与过敏限制，不通过重复菜谱凑20道
   assert.equal(checkDish(simpleRecipe('a', [['potato', 100]]), simpleRecipe('a', [['potato', 100]]).variants[0], m).dish, undefined);
 });
 
-test('等价口味优化不丢失用量不同的变体，手选口味保留并复核整套库存', async () => {
+test('手选口味不受填写量影响，变体固定原方用量仍保留', async () => {
   const a = simpleRecipe('a', [['egg', 2]]);
   a.variants.push({ ...a.variants[0], id: 'a-small', lines: [{ ...a.variants[0].lines[0], amount: 1 }] });
   const b = simpleRecipe('b', [['egg', 2]]);
   const m = mealWith('鸡蛋3个'); m.composition = 'custom'; m.counts = { meat: 0, veg: 2, soup: 0 };
   const full = await recommend([a, b], request(m));
-  assert.equal(full.dishes.length, 2); assert.equal(full.dishes.find(d => d.recipe.id === 'a')?.variant.id, 'a-small');
+  assert.equal(full.dishes.length, 2); assert(full.dishes.find(d => d.recipe.id === 'a'));assert.equal(a.variants[0].lines[0].amount,2);assert.equal(a.variants[1].lines[0].amount,1);
   m.overrides.a = 'a-v';
-  const chosen = await recommend([a, b], request(m)); assert.equal(chosen.dishes.length, 1);
+  const chosen = await recommend([a, b], request(m)); assert.equal(chosen.dishes.length, 2);
   assert(!chosen.dishes.some(d => d.variant.id === 'a-small'));
 });
 
@@ -111,7 +111,7 @@ test('API接受20道请求和20个已选项，自动模式不再校验自定义�
   } finally { await app.close(); }
 });
 
-test('D7-14: 1/2/3/12人使用同一菜谱整道量、营养与累计补买差额，不按人数或标准份数缩放', () => {
+test('D7-14新口径: 人数不改菜谱原方量与营养，选菜不计算输入量差额', () => {
   const potato = foodById.get('potato')!, original = potato.nutrition;
   potato.nutrition = { kcal: 80, protein: 2, sodium: 5 };
   try {
@@ -121,11 +121,11 @@ test('D7-14: 1/2/3/12人使用同一菜谱整道量、营养与累计补买差�
     for (const diners of [1, 2, 3, 12]) {
       m.servings = diners;
       const dishes = [a, b].map(r => checkDish(r, r.variants[0], m).dish!);
-      assert.equal(dishes[0].checks[0].needed, 100);
+      assert.equal(dishes[0].checks[0].needed, null);assert.equal(dishes[0].variant.lines[0].amount,100);
       assert.deepEqual(dishes[0].nutrition, { kcal: 80, protein: 2, sodium: 5 });
       const set = checkSet(dishes, m); assert(set.valid);
-      assert.equal(set.checks[0].needed, 150); assert.equal(set.checks[0].shortage, 30);
-      m.allowBuy = false; assert.equal(checkSet(dishes, m).valid, false); m.allowBuy = true;
+      assert.equal(set.checks[0].needed, null); assert.equal(set.checks[0].shortage, null);
+      m.allowBuy = false; assert.equal(checkSet(dishes, m).valid, true); m.allowBuy = true;
     }
   } finally { potato.nutrition = original; }
 });
@@ -137,5 +137,5 @@ test('D7-14: 固定自定义菜数时，人数不影响选菜、口味、用量�
   const twelve = await recommend(catalog, request(m,{operationId:'fixed-order-for-servings'}));
   assert.equal(twelve.dishes.length, 3); assert(twelve.targetMet);
   assert.deepEqual(twelve.dishes, one.dishes); assert.deepEqual(twelve.checks, one.checks);
-  assert.equal(twelve.checks[0].needed, 300); assert.equal(twelve.checks[0].shortage, 0);
+  assert.equal(twelve.checks[0].needed, null); assert.equal(twelve.checks[0].shortage, null);assert(twelve.dishes.every(d=>d.variant.lines[0].amount===100));
 });

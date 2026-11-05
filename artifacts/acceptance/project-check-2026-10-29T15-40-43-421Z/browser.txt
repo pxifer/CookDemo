@@ -1,0 +1,116 @@
+
+Running 44 tests using 1 worker
+
+  ok  1 [desktop] › tests\browser.spec.ts:26:1 › 本机构造身份：直接登录、无账户Key不能启用AI，普通推荐不调用模型 (3.4s)
+  ok  2 [desktop] › tests\browser.spec.ts:45:1 › D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复 (2.7s)
+  ok  3 [desktop] › tests\browser.spec.ts:60:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 (2.2s)
+  ok  4 [desktop] › tests\browser.spec.ts:74:1 › B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断 (2.6s)
+  ok  5 [desktop] › tests\browser.spec.ts:90:1 › D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围 (2.7s)
+  ok  6 [desktop] › tests\browser.spec.ts:101:1 › D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配 (2.2s)
+  ok  7 [desktop] › tests\browser.spec.ts:117:1 › B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置 (2.3s)
+  x   8 [desktop] › tests\browser.spec.ts:130:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 (2.7s)
+  ok  9 [desktop] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 (3.7s)
+  ok 10 [desktop] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 (1.7s)
+  ok 11 [desktop] › tests\browser.spec.ts:184:1 › V-07: 编辑后晚到结果不覆盖，断流不可成功 (1.7s)
+  ok 12 [desktop] › tests\browser.spec.ts:197:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 (2.9s)
+  ok 13 [desktop] › tests\browser.spec.ts:220:1 › AR-M03: 跨页面更新须明确选择，禁止静默覆盖 (2.5s)
+  ok 14 [desktop] › tests\browser.spec.ts:231:1 › 收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化 (3.1s)
+  ok 15 [desktop] › tests\browser.spec.ts:258:1 › 本机测试：登录和刷新保留食材收藏，退出不清除本餐且不会绕过AI账户门禁 (3.6s)
+  ok 16 [desktop] › tests\browser.spec.ts:279:1 › D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响 (3.3s)
+  ok 17 [desktop] › tests\browser.spec.ts:305:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 (5.4s)
+  ok 18 [desktop] › tests\browser.spec.ts:330:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 (5.3s)
+  -  19 [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核
+  -  20 [desktop] › tests\business-browser.spec.ts:36:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱
+  -  21 [desktop] › tests\business-browser.spec.ts:49:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用
+  -  22 [desktop] › tests\business-browser.spec.ts:67:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效
+  ok 23 [mobile] › tests\browser.spec.ts:26:1 › 本机构造身份：直接登录、无账户Key不能启用AI，普通推荐不调用模型 (3.5s)
+  ok 24 [mobile] › tests\browser.spec.ts:45:1 › D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复 (2.5s)
+  ok 25 [mobile] › tests\browser.spec.ts:60:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 (2.3s)
+  ok 26 [mobile] › tests\browser.spec.ts:74:1 › B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断 (3.3s)
+  ok 27 [mobile] › tests\browser.spec.ts:90:1 › D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围 (2.1s)
+  ok 28 [mobile] › tests\browser.spec.ts:101:1 › D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配 (2.7s)
+  ok 29 [mobile] › tests\browser.spec.ts:117:1 › B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置 (2.1s)
+  x  30 [mobile] › tests\browser.spec.ts:130:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 (2.4s)
+  ok 31 [mobile] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 (3.2s)
+  ok 32 [mobile] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 (2.1s)
+  ok 33 [mobile] › tests\browser.spec.ts:184:1 › V-07: 编辑后晚到结果不覆盖，断流不可成功 (1.6s)
+  ok 34 [mobile] › tests\browser.spec.ts:197:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 (2.3s)
+  ok 35 [mobile] › tests\browser.spec.ts:220:1 › AR-M03: 跨页面更新须明确选择，禁止静默覆盖 (2.4s)
+  ok 36 [mobile] › tests\browser.spec.ts:231:1 › 收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化 (2.9s)
+  ok 37 [mobile] › tests\browser.spec.ts:258:1 › 本机测试：登录和刷新保留食材收藏，退出不清除本餐且不会绕过AI账户门禁 (3.1s)
+  ok 38 [mobile] › tests\browser.spec.ts:279:1 › D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响 (3.6s)
+  ok 39 [mobile] › tests\browser.spec.ts:305:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 (4.8s)
+  ok 40 [mobile] › tests\browser.spec.ts:330:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 (5.1s)
+  -  41 [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核
+  -  42 [mobile] › tests\business-browser.spec.ts:36:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱
+  -  43 [mobile] › tests\business-browser.spec.ts:49:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用
+  -  44 [mobile] › tests\business-browser.spec.ts:67:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效
+
+
+  1) [desktop] › tests\browser.spec.ts:130:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ─────────────────
+
+    Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier
+    Response body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.
+
+       at ui-helpers.ts:10
+
+       8 | export async function recommendationResult(response:Response):Promise<RecommendationResult>{
+       9 |   expect(response.ok()).toBe(true);
+    > 10 |   const events=(await response.text()).trim().split('\n').filter(Boolean).map(line=>JSON.parse(line));
+         |                                ^
+      11 |   const terminal=events.filter(event=>event.type==='result');expect(terminal).toHaveLength(1);
+      12 |   return terminal[0].result;
+      13 | }
+        at recommendationResult (D:\codex_AI\菜谱推荐\CookDemo\tests\ui-helpers.ts:10:32)
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:140:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile] › tests\browser.spec.ts:130:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ──────────────────
+
+    Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier
+    Response body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.
+
+       at ui-helpers.ts:10
+
+       8 | export async function recommendationResult(response:Response):Promise<RecommendationResult>{
+       9 |   expect(response.ok()).toBe(true);
+    > 10 |   const events=(await response.text()).trim().split('\n').filter(Boolean).map(line=>JSON.parse(line));
+         |                                ^
+      11 |   const terminal=events.filter(event=>event.type==='result');expect(terminal).toHaveLength(1);
+      12 |   return terminal[0].result;
+      13 | }
+        at recommendationResult (D:\codex_AI\菜谱推荐\CookDemo\tests\ui-helpers.ts:10:32)
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:140:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop] › tests\browser.spec.ts:130:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ──────────────────
+    [mobile] › tests\browser.spec.ts:130:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ───────────────────
+  8 skipped
+  34 passed (2.1m)

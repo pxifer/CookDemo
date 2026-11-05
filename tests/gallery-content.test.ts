@@ -1,45 +1,45 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
-import { galleryContent, type CandidateRow } from '../server/gallery-content';
+import { galleryContent, type CandidateRow } from '../backend/src/gallery-content';
 import { reviewedContent } from '../scripts/lib/reviewed-content';
 import { curateCandidate } from '../scripts/lib/candidate-curation';
 import { contentContext } from '../shared/content';
 import { defaultMeal, type RecommendationRequest } from '../shared/types';
-import { checkDish, recommend } from '../server/recommendation';
+import { checkDish, recommend } from '../backend/src/recommendation';
 import { inventoryChecks, nutrition } from '../shared/quantity';
 import { optionalIngredient, requiredIngredientText } from '../shared/recipe-ingredients';
 import { extractText } from '../shared/extraction';
 import { findPantryIngredient } from '../shared/ingredient-matching';
-import { resolveExtraction } from '../src/meal-input';
-import { inputIngredient } from '../src/meal-input';
-import { contentSeasonings } from '../src/meal-input';
+import { resolveExtraction } from '../frontend/src/meal-input';
+import { inputIngredient } from '../frontend/src/meal-input';
+import { contentSeasonings } from '../frontend/src/meal-input';
 import { ingredientNames } from '../shared/candidate-food-names';
 import { isCookingWater, isSeasoningFood } from '../shared/pantry';
-import { recipeLineText, shoppingList } from '../src/recipe-presentation';
+import { recipeLineText, shoppingList } from '../frontend/src/recipe-presentation';
 import { ingredientDisplayText } from '../shared/recipe-copy';
 
 export async function galleryFixture() {
   const read = async (path: string) => (await readFile(path,'utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s));
-  const raw = [...(await read('docs/data/recipe-cards-v3.jsonl')).filter(c=>c.source==='howtocook'&&c.completeness==='full_process'),...await read('docs/data/recipe-candidates-supplement-v1.jsonl')];
+  const raw = [...(await read('datasets/recipes/curation/recipe-cards-v3.jsonl')).filter(c=>c.source==='howtocook'&&c.completeness==='full_process'),...await read('datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl')];
   const rows: CandidateRow[] = raw.map(c=>{ const card=curateCandidate(c)?.record??c; return {dish_key:card.dish_key,flavor:card.flavor,source_uri:card.url,image_url:null,raw_record:card}; });
   return {rows,base:await reviewedContent()};
 }
 
 test('145道菜的独立配图映射完整，原图与压缩图均存在',async()=>{
   const {base,rows}=await galleryFixture();
-  const images=JSON.parse(await readFile('docs/data/recipe-candidate-images.json','utf8')).generated as {id:string;image:string}[];
+  const images=JSON.parse(await readFile('datasets/recipes/curation/recipe-candidate-images.json','utf8')).generated as {id:string;image:string}[];
   const byId=new Map(images.map(item=>[item.id,item.image]));
   const snapshot=galleryContent(base,rows.map(row=>({...row,image_url:byId.get(row.raw_record.id)??null})));
   assert.equal(snapshot.recipes.length,145);
   assert.equal(new Set(snapshot.recipes.map(recipe=>recipe.imageUrl)).size,145,'各菜使用自己的图片');
   for(const recipe of snapshot.recipes){
     assert(recipe.imageUrl?.startsWith('/assets/recipes/'),recipe.name);
-    for(const path of [recipe.imageUrl,recipe.imageUrl!.replace(/\.png$/,'.webp')])assert((await stat(`public${path}`)).size>1000,recipe.name);
+    for(const path of [recipe.imageUrl,recipe.imageUrl!.replace(/\.png$/,'.webp')])assert((await stat(`frontend/public${path}`)).size>1000,recipe.name);
   }
 });
 test('过短的公开做法已按原有配方补充操作分点，且不含内部备注',async()=>{
-  const review=JSON.parse(await readFile('docs/data/recipe-step-review-v28.json','utf8')) as {recipes:Record<string,{steps:string[]}>};
+  const review=JSON.parse(await readFile('datasets/recipes/curation/recipe-step-review-v28.json','utf8')) as {recipes:Record<string,{steps:string[]}>};
   for(const [id,{steps}] of Object.entries(review.recipes)){
     assert(steps.length>=3,`${id} is split into actionable steps`);
     assert.doesNotMatch(steps.join(''),/按原简介|按原文|公开配方资料|保留原始出处|未试做|待核/);

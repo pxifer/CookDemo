@@ -1,0 +1,122 @@
+
+Running 10 tests using 1 worker
+
+  ok  1 [desktop] › tests\registration-browser.spec.ts:4:1 › 忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录 (3.2s)
+  ok  2 [desktop] › tests\registration-browser.spec.ts:29:1 › 常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交 (3.5s)
+  ok  3 [desktop] › tests\registration-browser.spec.ts:57:1 › 自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离 (5.6s)
+  x   4 [desktop] › tests\registration-browser.spec.ts:114:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 (1.0m)
+  ok  5 [desktop] › tests\registration-browser.spec.ts:153:1 › 注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功 (2.9s)
+  ok  6 [mobile] › tests\registration-browser.spec.ts:4:1 › 忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录 (2.5s)
+  ok  7 [mobile] › tests\registration-browser.spec.ts:29:1 › 常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交 (2.7s)
+  ok  8 [mobile] › tests\registration-browser.spec.ts:57:1 › 自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离 (4.3s)
+  x   9 [mobile] › tests\registration-browser.spec.ts:114:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 (1.0m)
+  ok 10 [mobile] › tests\registration-browser.spec.ts:153:1 › 注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功 (2.5s)
+
+
+  1) [desktop] › tests\registration-browser.spec.ts:114:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 ───
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\彭霄\AppData\Local\Temp\playwright_chromiumdev_profile-q2NnLf --remote-debugging-pipe --no-startup-window
+    <launched> pid=53256
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=53256][err] [53256:20784:1029/212215.081:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=53256][err] [53256:23300:1029/212215.756:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+    [pid=53256][err] [53256:20784:1029/212218.197:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=53256][err] [53256:20784:1029/212221.735:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=53256][err] [53256:20784:1029/212223.810:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=53256][err] [53256:20784:1029/212224.764:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=53256][err] [53256:20784:1029/212227.320:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=53256] <gracefully close start>
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("鸡蛋")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        116 × waiting for element to be visible, enabled and editable
+            - element is not visible
+          - retrying fill action
+            - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+      128 |   await page.getByRole('button',{name:'微辣',exact:true}).click();
+      129 |   await page.getByLabel('几个人吃',{exact:true}).fill('5');
+    > 130 |   await page.getByLabel('手动添加食材',{exact:true}).fill('鸡蛋');await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+          |                                                ^
+      131 |   for(const [label,food] of [['过敏','花生'],['忌口','牛肉']]){
+      132 |     await page.locator('.preference-shortcuts').getByRole('button',{name:new RegExp(label)}).click();
+      133 |     await page.getByLabel(`${label}食物`,{exact:true}).fill(food);await page.getByRole('button',{name:'确认添加',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\registration-browser.spec.ts:130:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    acceptance\project-check-2026-10-29T13-11-31-444Z\registration\browser\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: acceptance\project-check-2026-10-29T13-11-31-444Z\registration\browser\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\error-context.md
+
+  2) [mobile] › tests\registration-browser.spec.ts:114:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 ────
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("鸡蛋")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        114 × waiting for element to be visible, enabled and editable
+            - element is not visible
+          - retrying fill action
+            - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+      128 |   await page.getByRole('button',{name:'微辣',exact:true}).click();
+      129 |   await page.getByLabel('几个人吃',{exact:true}).fill('5');
+    > 130 |   await page.getByLabel('手动添加食材',{exact:true}).fill('鸡蛋');await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+          |                                                ^
+      131 |   for(const [label,food] of [['过敏','花生'],['忌口','牛肉']]){
+      132 |     await page.locator('.preference-shortcuts').getByRole('button',{name:new RegExp(label)}).click();
+      133 |     await page.getByLabel(`${label}食物`,{exact:true}).fill(food);await page.getByRole('button',{name:'确认添加',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\registration-browser.spec.ts:130:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    acceptance\project-check-2026-10-29T13-11-31-444Z\registration\browser\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: acceptance\project-check-2026-10-29T13-11-31-444Z\registration\browser\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\error-context.md
+
+  2 failed
+    [desktop] › tests\registration-browser.spec.ts:114:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 ────
+    [mobile] › tests\registration-browser.spec.ts:114:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 ─────
+  8 passed (2.8m)

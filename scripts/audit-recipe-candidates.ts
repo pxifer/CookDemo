@@ -1,8 +1,8 @@
 // File-only review aid; no network, database writes, publication or automatic ingredient changes.
 import { readFile,writeFile } from 'node:fs/promises';
 import { curateCandidate,type CandidateCard } from './lib/candidate-curation';
-const original=(await readFile('docs/data/recipe-cards-v3.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s));
-const supplement=(await readFile('docs/data/recipe-candidates-supplement-v1.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s));
+const original=(await readFile('datasets/recipes/curation/recipe-cards-v3.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s));
+const supplement=(await readFile('datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s));
 const cards=[...original.filter(c=>c.source==='howtocook'),...supplement] as CandidateCard[];
 const manual:Record<string,string[]>={
   R271:['主料表列可选鸡蛋，但卡片步骤没有使用鸡蛋的路线；不自行补入。'],
@@ -28,15 +28,15 @@ const report={checkedAt:new Date().toISOString(),sourceCount:cards.length,source
   curated:results.filter(r=>r.curated).length,fragmentCards:results.filter(r=>r.fragments.length).length,
   stepInferredCards:results.filter(r=>r.stepInferred.length).length,manualReviewCards:Object.keys(manual).length,
   note:'机械提示只辅助逐项核方；没有提示不代表完整、准确或可发布。步骤补出的原料可能只是切法／工具误识别，不自动删料。',results};
-await writeFile('docs/data/candidate-audit-2026-10-23.json',JSON.stringify(report,null,2)+'\n');
+await writeFile('datasets/recipes/curation/candidate-audit-2026-10-23.json',JSON.stringify(report,null,2)+'\n');
 const rows=results.filter(r=>r.fragments.length||r.manual.length).map(r=>`| ${r.id} ${r.name} | ${[...r.fragments.map(f=>`疑似残行：${f.text}`),...r.manual].join('；')} |`);
-await writeFile('docs/recipes/candidate-audit-2026-10-23.md',[
+await writeFile('datasets/recipes/sources/candidate-audit-2026-10-23.md',[
   '# 候选配方质量复核','',
   `文件核查${cards.length}条固定版本社区候选，已应用${report.curated}条独立展示修订；原始卡片保留，发布0。`, '',
   `还有${report.fragmentCards}条含疑似配料残行，${report.stepInferredCards}条含从步骤补出的未定量项，另${report.manualReviewCards}条有已识别的量／步骤问题。前两类是机械提示，不等于已判错，也不能反向证明其他菜已通过。`, '',
   '| 菜品 | 待核事项 |','| --- | --- |',...rows,'',
   '## 新增原文候选的待核说明','',...supplement.map(c=>`- ${c.id} ${c.dish_key}：${c.review_notes.join('；')}`),'',
-  '逐条提示见[JSON审阅清单](../data/candidate-audit-2026-10-23.json)。已校正蒜蓉炒芹菜、黄焖鸡、乾隆白菜、排骨苦瓜汤和奶油蘑菇汤的展示；另柱候牛腩、番茄炖牛腩、牛排、广式萝卜牛腩按明确牛肉主料修正荤菜分类，仍保持待审核。原始固定提交与修订hash绑定保存于本地候选辅助表。', '',
+  '逐条提示见[JSON审阅清单](../curation/candidate-audit-2026-10-23.json)。已校正蒜蓉炒芹菜、黄焖鸡、乾隆白菜、排骨苦瓜汤和奶油蘑菇汤的展示；另柱候牛腩、番茄炖牛腩、牛排、广式萝卜牛腩按明确牛肉主料修正荤菜分类，仍保持待审核。原始固定提交与修订hash绑定保存于本地候选辅助表。', '',
   '待核量保留原文，不猜密度、温度、份数、营养或未记录工序。正式导入只选逐条核过的包，不把139条整体标成可推荐。','',
 ].join('\n'));
 console.log(JSON.stringify({sourceCount:report.sourceCount,curated:report.curated,fragmentCards:report.fragmentCards,stepInferredCards:report.stepInferredCards,manualReviewCards:report.manualReviewCards,publications:0}));

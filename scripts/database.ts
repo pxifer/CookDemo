@@ -1,6 +1,6 @@
-import { readConfig, ConfigurationError } from '../server/config';
-import { connectDatabase, migrate, type Database } from '../server/db';
-import { inspectDatabase } from '../server/deployment';
+import { readConfig, ConfigurationError } from '../backend/src/config';
+import { connectDatabase, migrate, type Database } from '../backend/src/db';
+import { inspectDatabase } from '../backend/src/deployment';
 
 const args = process.argv.slice(2), command = args.shift();
 let db: Database | undefined;

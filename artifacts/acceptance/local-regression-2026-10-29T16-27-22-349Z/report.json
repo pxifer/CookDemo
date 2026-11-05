@@ -1,0 +1,13 @@
+{
+  "exitCode": 0,
+  "log": "acceptance\\local-regression-2026-10-29T16-27-22-349Z\\unit.txt",
+  "realProviderCalls": 0,
+  "deployed": false,
+  "sourceFingerprint": "e279c0d1346c49bb27608a96b2e6b137adaf19d9ed7bbb664447c99603119007",
+  "sourceMatchesPreflight": true,
+  "tests": 235,
+  "passed": 234,
+  "failed": 0,
+  "skipped": 1,
+  "fullGateComplete": false
+}

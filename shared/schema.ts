@@ -31,8 +31,9 @@ export const mealSchema = object({
 export const selectedSchema = array(object({ recipeId: string(80), variantId: string(100) }), 20);
 export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50),aiExcludedFoods:array({...string(40),minLength:1},20),healthProfile:healthProfileSchema,aiFoodPreferences:aiFoodPreferencesSchema},['aiExcludedFoods','healthProfile','aiFoodPreferences']);
 export const recommendationSchema = object({
+  taskId: { type:'string',pattern:'^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$' },
   operationId: { type: 'string', minLength: 8, maxLength: 80, pattern: '^[a-zA-Z0-9-]+$' }, meal: mealSchema,
   action: enumOf('generate', 'reroll', 'replace', 'page', 'variant'), selected: selectedSchema, replaceId: string(80),
   page: integer(0, 10000), cursor: string(20000), previous: array(string(80), 20), contentVersion: string(100),
-}, ['replaceId', 'cursor', 'contentVersion']);
+}, ['taskId','replaceId', 'cursor', 'contentVersion']);
 export const extractionSchema = object({ text: { type: 'string', minLength: 1, maxLength: 5000 }, contentVersion: string(100) }, ['contentVersion']);

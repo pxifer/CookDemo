@@ -59,18 +59,23 @@ export interface QuantityCheck {
   reason: string; basis: Basis;
 }
 export interface Dish {
+  aiGrounding?:import('./food-guidance').RecipeGuidanceBinding;
   aiReason?: string;
+  aiBasis?: string[];
   recipe: Recipe; variant: Variant; checks: QuantityCheck[];
   nutrition: Record<'kcal' | 'protein' | 'sodium', number | null>;
   reused: string[]; omitted: string[];
 }
 export interface RecommendationRequest {
+  taskId?: string;
   contentVersion?: string;
   operationId: string; meal: Meal; action: 'generate' | 'reroll' | 'replace' | 'page' | 'variant';
   selected: { recipeId: string; variantId: string }[]; replaceId?: string;
   page: number; cursor?: string; previous: string[];
 }
 export interface RecommendationResult {
+  researchGuidance?:import('./food-guidance').ResearchMealGrounding;
+  selectionScope?: { qualifiedParents:number; offeredParents:number; qualifiedVariants:number; offeredVariants:number; complete:boolean; methodTextComplete:boolean };
   healthAssessment?: { state: 'test_only' | 'conversation_only' | 'model_selected'; message: string } | import('./health-model').HealthPreparation;
   operationId: string; mealVersion: number; contentVersion: string;
   status: 'completed' | 'needs_confirmation' | 'no_results' | 'unavailable' | 'cancelled';

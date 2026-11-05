@@ -1,0 +1,390 @@
+{
+  "index": {
+    "id": "qwen-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T07:12:46.902Z"
+  },
+  "generation": "real_deepseek",
+  "realEmbedding": true,
+  "realModelCalls": 1,
+  "verifiedReceipts": 1,
+  "budget": {
+    "maximumCny": 5,
+    "maximumCalls": 50,
+    "attempts": 1,
+    "reservedCny": 0.04459,
+    "estimatedKnownCostCny": 0.009654,
+    "unknownUsageAttempts": 0
+  },
+  "results": [
+    {
+      "id": "dev-ht-salt",
+      "elapsedMs": 3971.7619999999997,
+      "result": {
+        "status": "answered",
+        "executionAllowed": false,
+        "clinicalRelease": null,
+        "context": {
+          "question": "成人高血压的公开食养指南为什么建议少放食盐？",
+          "bundleId": "health-kb-2026-10-28-v2",
+          "indexId": "qwen-evidence-v1",
+          "context": {
+            "adult": "yes"
+          },
+          "facts": [
+            {
+              "fact": {
+                "id": "fact:ht-limit-salt",
+                "version": "2026-10-28-v1",
+                "kind": "food_guidance",
+                "subjectId": "d:hypertension",
+                "objectId": "f:salt",
+                "predicate": "limit",
+                "statement": "指南支持少选或不选；此定性规则不自行生成每餐克数。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04841188524590164,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 1,
+              "denseRank": 4
+            },
+            {
+              "fact": {
+                "id": "fact:salt-sodium",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:salt",
+                "objectId": "c:sodium",
+                "predicate": "contains",
+                "statement": "属于指南列举的含钠调味品；无品牌含量值。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04788306451612903,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 2,
+              "denseRank": 4
+            },
+            {
+              "fact": {
+                "id": "fact:ht-saturated-fat",
+                "version": "2026-10-28-v1",
+                "kind": "disease_component",
+                "subjectId": "d:hypertension",
+                "objectId": "c:saturated-fat",
+                "predicate": "adverse",
+                "statement": "关联血脂及冠心病、脑卒中风险，不宣称直接等幅升高血压。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": true,
+                "evidenceIds": [
+                  "ev:1ac9d1dac134ed647a1d5f7d8728894b77256f2d17a8b91c309a39b481eef7b5"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.016129032258064516,
+              "applicability": "applicable_for_research",
+              "denseRank": 2
+            },
+            {
+              "fact": {
+                "id": "fact:ht-sodium",
+                "version": "2026-10-28-v1",
+                "kind": "disease_component",
+                "subjectId": "d:hypertension",
+                "objectId": "c:sodium",
+                "predicate": "adverse",
+                "statement": "钠盐摄入过多与血压风险相关。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": true,
+                "evidenceIds": [
+                  "ev:2c858301b8b302d429df2e127323b8aa3eb78fdddb356d8c4d7b66e9917eb7cb",
+                  "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023",
+                  "nhc-hypertension-principles-2024": "2024"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.015873015873015872,
+              "applicability": "applicable_for_research",
+              "denseRank": 3
+            }
+          ],
+          "evidence": [
+            {
+              "evidence": {
+                "id": "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13",
+                "key": "ht-day-sodium",
+                "sourceId": "nhc-hypertension-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 12,
+                  "printedPage": 10,
+                  "section": "附录1/调味品",
+                  "start": 261,
+                  "end": 316,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "减少摄入食盐及含钠调味品（酱油、酱类、蚝油、鸡精、味精等），每日钠摄入量不超过2000mg（相当于食盐5g）。",
+                "spanHash": "0be9168a35c223d75c7da0285d3053c0718a46cef89172aad04593187b7c2440",
+                "summary": "每日钠限量是全天参考，不能自动三等分为每餐阈值。",
+                "retrievalText": "附录1/调味品 每日钠限量是全天参考，不能自动三等分为每餐阈值。 减少摄入食盐及含钠调味品（酱油、酱类、蚝油、鸡精、味精等），每日钠摄入量不超过2000mg（相当于食盐5g）。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "hash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:1ac9d1dac134ed647a1d5f7d8728894b77256f2d17a8b91c309a39b481eef7b5",
+                "key": "ht-fat",
+                "sourceId": "nhc-hypertension-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 7,
+                  "printedPage": 5,
+                  "section": "三（一）脂肪和加工红肉",
+                  "start": 171,
+                  "end": 274,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "膳食中的饱和脂肪酸可以升高血脂和血清胆固醇水平，从而增加高血压患者发生冠心病、脑卒中等风险。因此，高血压患者要注意限制膳食脂肪和胆固醇摄入量，包括油炸食品和动物内脏。少吃加工红肉制品，如培根、香肠、腊肠等。",
+                "spanHash": "cc73b9e31533015f1b8aef3024a7885a95e5653f0dfd6bf94effb6d054df5465",
+                "summary": "饱和脂肪关联心血管结局；少选油炸、内脏和加工红肉。",
+                "retrievalText": "三（一）脂肪和加工红肉 饱和脂肪关联心血管结局；少选油炸、内脏和加工红肉。 膳食中的饱和脂肪酸可以升高血脂和血清胆固醇水平，从而增加高血压患者发生冠心病、脑卒中等风险。因此，高血压患者要注意限制膳食脂肪和胆固醇摄入量，包括油炸食品和动物内脏。少吃加工红肉制品，如培根、香肠、腊肠等。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "hash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:2c858301b8b302d429df2e127323b8aa3eb78fdddb356d8c4d7b66e9917eb7cb",
+                "key": "ht-sodium",
+                "sourceId": "nhc-hypertension-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 6,
+                  "printedPage": 4,
+                  "section": "三（一）减钠增钾",
+                  "start": 204,
+                  "end": 219,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "钠盐摄入过多可增加高血压风险。",
+                "spanHash": "62572c7afb7130dccc40af64a97e97324f8d81495bf9e306d20c88c47b3362c7",
+                "summary": "钠盐过量增加风险，限制各来源钠。",
+                "retrievalText": "三（一）减钠增钾 钠盐过量增加风险，限制各来源钠。 钠盐摄入过多可增加高血压风险。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "hash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9",
+                "key": "ht24-salt",
+                "sourceId": "nhc-hypertension-principles-2024",
+                "sourceVersion": "2024",
+                "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 2,
+                  "printedPage": 4,
+                  "section": "一（三）限钠与低钠盐",
+                  "start": 116,
+                  "end": 184,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "(三)限制钠的摄入量。每人每日食盐摄入量逐步降至5g以下，控制高钠食物摄入，增加富含钾的食物摄入，可以选择低钠盐(肾病、高钾血症除外)。",
+                "spanHash": "92f265bc02a0b0f48efe9f1a7582df82cf8e66844e2846b8756a1f896f2fa858",
+                "summary": "2024原则补充高钾血症和肾病例外。",
+                "retrievalText": "一（三）限钠与低钠盐 2024原则补充高钾血症和肾病例外。 (三)限制钠的摄入量。每人每日食盐摄入量逐步降至5g以下，控制高钠食物摄入，增加富含钾的食物摄入，可以选择低钠盐(肾病、高钾血症除外)。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-hypertension-principles-2024",
+                "title": "高血压营养和运动指导原则（2024年版）",
+                "url": "https://www.gov.cn/zhengce/zhengceku/202407/P020240701700333981869.pdf",
+                "hash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+                "version": "2024"
+              }
+            }
+          ],
+          "conflicts": [],
+          "missingConditions": [
+            "inputFoodClass",
+            "medium",
+            "brothDisposition",
+            "outputFoodClass",
+            "renalFunction",
+            "hyperkalemia"
+          ],
+          "estimatedTokens": 4317,
+          "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "answer": {
+          "answer": "对成人高血压，指南建议减少摄入食盐及含钠调味品（如酱油、酱类、蚝油、鸡精、味精等）。\n之所以建议少放食盐，与钠盐摄入过多可增加高血压风险相关（剂量依赖关系，结论属于定性层面）。\n指南提到每人每日食盐摄入量应逐步降至5g以下；这是全天参考，不能自动折算为每餐的克数阈值。",
+          "claims": [
+            {
+              "text": "对成人高血压，指南建议减少摄入食盐及含钠调味品（如酱油、酱类、蚝油、鸡精、味精等）。",
+              "factIds": [
+                "fact:ht-limit-salt",
+                "fact:salt-sodium"
+              ],
+              "evidenceIds": [
+                "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+              ]
+            },
+            {
+              "text": "之所以建议少放食盐，与钠盐摄入过多可增加高血压风险相关（剂量依赖关系，结论属于定性层面）。",
+              "factIds": [
+                "fact:ht-sodium"
+              ],
+              "evidenceIds": [
+                "ev:2c858301b8b302d429df2e127323b8aa3eb78fdddb356d8c4d7b66e9917eb7cb",
+                "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9"
+              ]
+            },
+            {
+              "text": "指南提到每人每日食盐摄入量应逐步降至5g以下；这是全天参考，不能自动折算为每餐的克数阈值。",
+              "factIds": [
+                "fact:ht-limit-salt"
+              ],
+              "evidenceIds": [
+                "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13",
+                "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9"
+              ]
+            }
+          ],
+          "limitations": [
+            "资料仅覆盖一般成人高血压的限钠定性建议，未提供每餐具体克数、具体食物类型或汤等行业分类信息。",
+            "2024年版提到低钠盐可选择，但肾病、高钾血症除外；资料缺少肾功能与血钾状态等判断依据。",
+            "上述引用均来自指南/原则文本层面的表述，未提供可直接推导个体获益的干预试验结果；每条限制的临床审查状态为pending。"
+          ]
+        },
+        "invocation": {
+          "provider": "DeepSeek",
+          "requestId": "4fb8940e-5047-4250-a38e-347b6a230f6f",
+          "model": "deepseek-flash",
+          "promptTokens": 2999,
+          "completionTokens": 457,
+          "totalTokens": 3456,
+          "calledAt": "2026-11-04T11:58:29.531Z"
+        }
+      }
+    }
+  ],
+  "humanGroundingReview": "pending: valid citation IDs alone do not establish entailment or clinical suitability"
+}

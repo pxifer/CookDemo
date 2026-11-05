@@ -2,7 +2,7 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const ctx={window:{}};vm.createContext(ctx);
-for(const file of ['data.js','engine.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'dist',file),'utf8'),ctx);
+for(const file of ['data.js','engine.js'])vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'legacy/prototype',file),'utf8'),ctx);
 const W=ctx.window,E=W.ShiweiEngine,R=W.RECIPES;
 const base={ingredients:W.EXAMPLE_INGREDIENTS,servings:1,flavor:'不限',seasoningMode:'ignore',seasonings:W.SEASONINGS,allergies:'',others:'',includeOthers:false,health:false,allowBuy:false,goal:'日常均衡'};
 assert.equal(R.length,24);assert.equal(R.filter(r=>!r.special).length,16);assert.equal(R.filter(r=>r.special).length,8);

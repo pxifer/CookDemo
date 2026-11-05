@@ -63,10 +63,10 @@ const cards=specs.map(spec=>{
     completeness:'source_text_pending_review',review_state:'pending_review',main:spec.main,aux:spec.aux,seasonings:spec.seasonings,steps,
     ...(method_options?{method_options}:{}),review_notes:spec.notes,note:'来源及许可核对，仅候选；不导入简介功效、估算热量或自动缩放规则。'};
 });
-await writeFile('docs/data/recipe-candidates-supplement-v1.jsonl',cards.map(c=>JSON.stringify(c)).join('\n')+'\n');
+await writeFile('datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl',cards.map(c=>JSON.stringify(c)).join('\n')+'\n');
 const text=['# 社区原方候选增补','',
   '固定提交0e106eea348c734fe1586f781202994439cf98a5，The Unlicense；8份原文经GitHub原页blob SHA核对，仍全部待审核。只供本地候选图鉴，不进入推荐；健康简介和估算热量未收录。已有菜名只增加来源版本，不重复计新菜。', '',
-  '[固定许可证](https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/LICENSE) · [仓库所有者使用说明](https://github.com/Anduin2017/HowToCook/issues/1468#issuecomment-2811737432) · [结构化候选及来源指纹](../data/recipe-candidates-supplement-v1.jsonl)','',
+  '[固定许可证](https://github.com/Anduin2017/HowToCook/blob/0e106eea348c734fe1586f781202994439cf98a5/LICENSE) · [仓库所有者使用说明](https://github.com/Anduin2017/HowToCook/issues/1468#issuecomment-2811737432) · [结构化候选及来源指纹](../curation/recipe-candidates-supplement-v1.jsonl)','',
   '原方份数表达保留供核查，不影响本项目已经确认的固定整道用量与人数规则。皮蛋豆腐因显式引用第三方爱料理配方而暂缓，不据仓库许可证自动收录。','',
   ...cards.flatMap(c=>[`<a id="${c.id.toLowerCase()}"></a>`,`## ${c.id} ${c.name} · ${c.flavor}`,'',`[固定来源](${c.url})`,'',
     '主料：'+c.main.join('；'),'辅料：'+(c.aux.join('；')||'无'),'调料：'+c.seasonings.join('；'),'',
@@ -74,5 +74,5 @@ const text=['# 社区原方候选增补','',
     ...(c.method_options??[]).flatMap(m=>['',`### 同味做法参考：${m.label}`,...m.steps.map((s,i)=>`${i+1}. ${s}`)]),
     '',...c.review_notes.map(n=>`- 待核：${n}`),'']),
 ];
-await writeFile('docs/recipes/community-supplement-v1.md',text.join('\n'));
+await writeFile('datasets/recipes/sources/community-supplement-v1.md',text.join('\n'));
 console.log(JSON.stringify({candidates:cards.length,formalImports:0,databaseWrites:0,sourceBlobsVerified:true,excludedThirdParty:['皮蛋豆腐']}));

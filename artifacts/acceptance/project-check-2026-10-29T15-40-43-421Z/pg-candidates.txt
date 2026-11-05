@@ -1,0 +1,28 @@
+✔ local gallery reads candidate rows without exposing editorial metadata or publishing them (641.6896ms)
+✔ candidate gallery route is absent outside local environment (90.3866ms)
+✖ real local PostgreSQL candidate rows and generated image paths are served (148.0382ms)
+✔ candidate database failure is a recoverable 503 without driver details (70.1633ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1738.1953
+
+✖ failing tests:
+
+test at tests\candidate-library.test.ts:57:1
+✖ real local PostgreSQL candidate rows and generated image paths are served (148.0382ms)
+  AssertionError [ERR_ASSERTION]: 新增图片仍使用受控资源路径
+      at TestContext.<anonymous> (D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-library.test.ts:99:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

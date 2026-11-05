@@ -5,8 +5,8 @@ import { contentContext } from '../shared/content';
 import { findPantryIngredient, resolvePantryFood } from '../shared/ingredient-matching';
 import { extractText, makeRestriction } from '../shared/extraction';
 import { defaultMeal, type Food, type Line } from '../shared/types';
-import { inputIngredient, mergeInput, normalizeInput } from '../src/meal-input';
-import { checkDish, recommend } from '../server/recommendation';
+import { inputIngredient, mergeInput, normalizeInput } from '../frontend/src/meal-input';
+import { checkDish, recommend } from '../backend/src/recommendation';
 import { request, simpleRecipe } from './fixtures';
 
 const food = (name: string): Food => ({id:`test-${name}`,name,aliases:[],unit:'g',form:'raw',allergens:[],componentsComplete:true,nutrition:{}});

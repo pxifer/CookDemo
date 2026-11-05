@@ -1,9 +1,9 @@
 import { readFile,writeFile,mkdir } from 'node:fs/promises';
 import { resolve,join } from 'node:path';
-import { verifyGalleryBundle,galleryBundleHash } from '../server/cloudbase-content';
+import { verifyGalleryBundle,galleryBundleHash } from '../backend/src/cloudbase-content';
 import { ingredientEvidence, INGREDIENT_EVIDENCE_VERSION } from '../shared/ingredient-evidence';
 import { ingredientNames } from '../shared/candidate-food-names';
-import type { GalleryBundle } from '../server/cloudbase-content';
+import type { GalleryBundle } from '../backend/src/cloudbase-content';
 
 async function main(){
   const target=resolve(process.argv[2]??'.local-data/cloudbase-http/account-ingredients-20261024-v2');
@@ -26,7 +26,7 @@ async function main(){
   });
   const sqlString=(value:unknown)=>`'${JSON.stringify(value).replaceAll("'","''")}'::jsonb`;
   const seed=(table:string,rows:unknown[])=>`INSERT INTO public.${table} SELECT * FROM jsonb_populate_recordset(NULL::public.${table},${sqlString(rows)});\n`;
-  const sql=await readFile('deploy/db/account-sync.sql','utf8')+'\n'+await readFile('deploy/db/ingredient-inventory.sql','utf8')+'\n'+seed('shiwei_source_recipe_records',sources)+seed('shiwei_source_ingredient_entries',entries)+seed('shiwei_ingredient_inventory',foods)+seed('shiwei_recipe_inventory',recipes)+seed('shiwei_recipe_ingredient_lines',lines)+seed('shiwei_ingredient_proposals',proposals);
+  const sql=await readFile('deployment/db/account-sync.sql','utf8')+'\n'+await readFile('deployment/db/ingredient-inventory.sql','utf8')+'\n'+seed('shiwei_source_recipe_records',sources)+seed('shiwei_source_ingredient_entries',entries)+seed('shiwei_ingredient_inventory',foods)+seed('shiwei_recipe_inventory',recipes)+seed('shiwei_recipe_ingredient_lines',lines)+seed('shiwei_ingredient_proposals',proposals);
   await writeFile(join(target,'20261024010000_account_ingredients.sql'),sql,{flag:'wx'});
   const report={environment:'shiwei-d2gmiun66b7dc6a4f',release,foods:foods.length,recipes:snapshot.recipes.length,variants:recipes.length,ingredientLines:lines.length,sourceRecords:sources.length,sourceEntries:entries.length,unmatchedEntries:entries.filter(e=>e.parse_state==='needs-review'),candidateEvidence:proposals.length,requiresProductLabel:proposals.filter(p=>p.review_state==='requires-product-label').map(p=>p.candidate.sourceName),allergyGateChanged:false,nutritionInferred:false};
   await writeFile(join(target,'inventory-report.json'),JSON.stringify(report,null,2),{flag:'wx'});

@@ -1,0 +1,288 @@
+{
+  "scope": "P0 local business RAG; no complete workspace rollback image",
+  "rows": [
+    {
+      "path": "AGENTS.md",
+      "action": "modified",
+      "beforeSha256": "40196a50dc226ca53fe4183f9b4876ee406723e164c63e1369f63c57838fdb92",
+      "afterSha256": "36236764b284a8133d4fb51430ff4c474d068d94865c9b2f3b06b5348143342f",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\AGENTS.md",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "agent-design/docs/README.md",
+      "action": "modified",
+      "beforeSha256": "34660e02aba9bf460abed28c555add51f084443013277cbfd20bc1f5888f2ec7",
+      "afterSha256": "a00ccd775f51cf11417a4e25a625b97dedfa22cbdad89d9bbde6f82543b80283",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\agent-design\\docs\\README.md",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "agent-design/docs/business-rag-execution-2026-11-04.md",
+      "action": "created",
+      "afterSha256": "641472c6127f0e807e62b4887ef5b4dce46a65e8c5b92bb26c0426d4a6bd60fd",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "agent-design/docs/business-rag-plan.md",
+      "action": "created",
+      "afterSha256": "fe2d8423c2b82dcbe0eaea50b305aefc51582c11831f9f31f093d67dd451c52a",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "agent-design/docs/runbook.md",
+      "action": "modified",
+      "beforeSha256": "8463250370123b387f4edb17ac18652adeca067f640a680f5204b8620fdbbc91",
+      "afterSha256": "0df096dcc1968e917c6baa33369edc0a4fe35d32fffc7be8e30d75982357364d",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\agent-design\\docs\\runbook.md",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "agent-design/docs/todo.md",
+      "action": "modified",
+      "beforeSha256": "109d106eca859ca3a7afbba5b8a2d3b6e218121d9917c6424115e6d1c710f481",
+      "afterSha256": "d25007917586d7adf99426d87bfff76739bd56458bd7006e3c8c0e59833e0217",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\agent-design\\docs\\todo.md",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "agent-design/evaluation/README.md",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "dc7de5063453a17cb7bf7ecfae9e9fa254ecc417f69fa1b49671c858f4b1f244",
+      "restore": "Remove only business-RAG follow-up paragraph if not covered by recovery copy. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "agent-design/storage/README.md",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "6fada2f064a123b8876fe45f83efbbbd05d44fcff5e2aa66d92c99fb8c7c2cde",
+      "restore": "Remove only guidance_assets follow-up paragraph if not covered by recovery copy. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "backend/src/app.ts",
+      "action": "modified",
+      "beforeSha256": "3a1e1d30d73d1ddf2b27d838bfabbd1e57893c874c2d772d4567350542391556",
+      "afterSha256": "48a5736f47e4820ac73cc4979099419e62da49541dc1ec877da1b304891dce53",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\backend\\src\\app.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "backend/src/health-knowledge/004-food-guidance-assets.sql",
+      "action": "created",
+      "afterSha256": "9fa771b43be677b4d0809834bcdd198e97b8467c014572a6d2429010ca891e71",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "backend/src/health-recipe-selection.ts",
+      "action": "modified",
+      "beforeSha256": "bb3ebec19a3e11fd6c53107f9d1b3bd6a672a660e6c970aab9b469eaf52ae978",
+      "afterSha256": "5e42397a65fe36dbd16d1fec5a0143ab9bc23f7da530293c559ebb8878fe62db",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\backend\\src\\health-recipe-selection.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "backend/src/main.ts",
+      "action": "modified",
+      "beforeSha256": "9759772d954300e950559c86efb8830189f0d07428f06f8f7ef94ce22fc09283",
+      "afterSha256": "5ee49a108fc087e88831ad327d655d1f0bc08be302474716a05154690dd6786e",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\backend\\src\\main.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "backend/src/rag/food-guidance-chat.ts",
+      "action": "created",
+      "afterSha256": "4b022dd2aef1a5b6d6965ff7b2bd5e5bf7e0826898589e7a5d1679cdebe88a2e",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "backend/src/rag/food-guidance-repository.ts",
+      "action": "created",
+      "afterSha256": "7ff2711627d99298879c9f4a1154416dc209cc155db8ab58c2b74fff81af057c",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "backend/src/rag/food-guidance.ts",
+      "action": "created",
+      "afterSha256": "79e39922060f09ce366f9a176847e02541de08eb5ff1c48bd5523b9008cdee7f",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "backend/src/rag/pipeline.ts",
+      "action": "modified",
+      "beforeSha256": "5f86dd9ae208abfdd112f97d1f45894469993a493deb73c71e6101618da26383",
+      "afterSha256": "bc541a1a359d6be2a5829293d7435f18ce30faada2a32f026b61f9251d96a8e0",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\backend\\src\\rag\\pipeline.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "datasets/evaluation/business-rag-cases-v1.json",
+      "action": "created",
+      "afterSha256": "c9557a9b87c63f75075d5223a68275bc3e07e069d389d7f615efc428de95461c",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "datasets/health/food-guidance-mappings-v1.json",
+      "action": "created",
+      "afterSha256": "adcce30a690f9f47e8091437d423bdf79dc60bf37f5c700bca0991b9f4698f4c",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "datasets/health/goal-guidance-2026-11-04-v1/README.md",
+      "action": "created",
+      "afterSha256": "c302bc0b6c1f9b62927a5dd72f2abfc8d34971882d9aa4d9f230ad412692555f",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "datasets/health/goal-guidance-2026-11-04-v1/knowledge.json",
+      "action": "created",
+      "afterSha256": "6033f61e69ff02418dfb84d0ce6b86370b80cd8f4443deff56212a99a49485b6",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "datasets/health/goal-guidance-2026-11-04-v1/manifest.json",
+      "action": "created",
+      "afterSha256": "d953d242729a1958984b28d2d96b11bd257306a5605f4a26249251c8d277ff30",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "docs/architecture/overview.md",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "fa5aea4a4cc43772b62ff75632d18ed11d0ba99bacb876ba340cc4e3c1d10398",
+      "restore": "Remove only the two business-RAG status table rows introduced in this batch. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "frontend/src/health-chat.tsx",
+      "action": "modified",
+      "beforeSha256": "f637301eb134d7050a9ae8f3cdb5fd67d29fe82a141dd9e55e7889fc2cb2b0d1",
+      "afterSha256": "db7bb762fb0b38a901fa29cd8c43c738a6e33b313ba391395cd2ba20a66634bd",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\frontend\\src\\health-chat.tsx",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "action": "modified",
+      "beforeSha256": "9095973f96f7e29eb3dc0b2a696f91c2495b8f72e4a13c1f3b0314aa8e8fa105",
+      "afterSha256": "ae31d5450e627bdd7b80ac8349fb99a7b017128fa67aa86c7f3b20db3a1f2a0c",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\frontend\\src\\main.tsx",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "package.json",
+      "action": "modified",
+      "beforeSha256": "500837df2d44570a761b94034e8c4ce72986782e062911cb5b2343dc54735e33",
+      "afterSha256": "cdc37effef761d1b673ae7a86ac52f19454505d0ad6e583047d129284ddeec89",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\package.json",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "playwright.food-guidance.config.ts",
+      "action": "created",
+      "afterSha256": "edb5f393c6737779bbae51144ff76613abba7eaa3c4d1c1cd63de4d0ab4a8c10",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "playwright.health-chat.config.ts",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "4280925376b33762fd2165554a45b50b311c7ead9ca5147399711e6b23d008dc",
+      "restore": "Reverse HEALTH_CHAT_TEST_PORT parameterization only; default was 4198. Keep existing evidence/output changes from previous work. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "scripts/build-goal-guidance.py",
+      "action": "created",
+      "afterSha256": "0c9d0b12401435d13c160611f0b615945b1c211512340de1704aff8c9e44f7a2",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "scripts/evaluate-business-rag.ts",
+      "action": "created",
+      "afterSha256": "d7ce2518d31a533d3c62cc202abee15c4a386a8362df5559e65c45d308217339",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "scripts/local-test-guard.mjs",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "0bff8ba11ac7d13fc677367f80d82eb84cccb6658654f30a6e5c6f4cedd267ef",
+      "restore": "Remove only the RAG_BUSINESS_RESEARCH:0 default added by this batch, if restoring old test behavior is necessary. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "scripts/run-local-tests.ts",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "2f450459144409896df6aee6e29d4bb28b03c23e6779a7001aca5a1b5aa3e9db",
+      "restore": "Remove only food-guidance browser config mapping. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "scripts/run.ps1",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "1193182e498a781bb604aa8cb24285e41af910174a4a699c367f5ea22c043b6e",
+      "restore": "Remove only rag:business:evaluate and test:rag:e2e ValidateSet entries; retain UTF-8 BOM. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "shared/food-guidance.ts",
+      "action": "created",
+      "afterSha256": "f9387798901bc06e3278b469788772e449486db048cbbc56e24b2fd63eb6fea2",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "shared/health-chat.ts",
+      "action": "modified",
+      "beforeSha256": "6f8c094cfe1bb3905f6ae423b937feb317696219ecc8668768c959d49b82abf4",
+      "afterSha256": "85f5057eced795a903ede3dca5a9bec1d8edc46bcd2dfd117735969b2a6b4154",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\shared\\health-chat.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "shared/session.ts",
+      "action": "modified",
+      "beforeSha256": "2e96f48e42df89f9851e0ed8a7b8ef9112667ac0a5ee4eaa2cceeee709bccd5b",
+      "afterSha256": "205146a1bbe880396218505aec759814642ff6321cb016c53e5ea6078866733d",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\shared\\session.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "shared/types.ts",
+      "action": "modified",
+      "beforeSha256": "0c6b6b4c01bf3d8fd83c4bc575523f4d9e872ab591239b594690191d957410a7",
+      "afterSha256": "6d6d24bb7d00cd63fa1b1626981063fc177db9273501e7fe06115adb81bee6e9",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\shared\\types.ts",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    },
+    {
+      "path": "tests/food-guidance-http.test.ts",
+      "action": "created",
+      "afterSha256": "2f070a738c7f079e37d205f4f3cf02f0b658fbe173fee58f3cff172c5a576604",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "tests/food-guidance-selection.test.ts",
+      "action": "created",
+      "afterSha256": "4e352415fe5d99cf6e18475d57f7447fa85d0ec2589052af9139fdbb2dee4720",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "tests/food-guidance.browser.ts",
+      "action": "created",
+      "afterSha256": "a2b9fdde624d0b861d5c35d8479e522dc7d00d01641b097bbadc93424d7a0983",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "tests/food-guidance.test.ts",
+      "action": "created",
+      "afterSha256": "bb93349121290c2fefcfb09e69124456647a1f9c666c81d9c67ddc15823deba1",
+      "restore": "remove only this newly created file if hash still matches, after removing dependent references; preserve acceptance evidence and persisted immutable research assets"
+    },
+    {
+      "path": "tests/health-chat-server.ts",
+      "action": "modified_without_batch_preimage",
+      "afterSha256": "fa29018129ba46e10e02cc4a0e108e0d7691b7038181ee073cfaba997026ad60",
+      "restore": "Remove conditional guidance provider setup and supplier guidanceIds addition; reverse port parameterization to 4198 only if required. Preserve preexisting fixture logic. No complete preimage captured for this file; review a targeted reverse edit, never replace it from HEAD."
+    },
+    {
+      "path": "tsconfig.acceptance.json",
+      "action": "modified",
+      "beforeSha256": "ed5bfac482cccbe624d3bd732dab909e56596c3535d978d6f33cd886ed6f4a99",
+      "afterSha256": "20243f4ed6f103448a712b2116b5cdfe2f9a8c6625674ff53b2f9fbba4a00489",
+      "recoveryCopy": "D:\\codex_AI\\菜谱推荐\\.reorg-backups\\rag-business-20261104-231051\\snapshot\\tsconfig.acceptance.json",
+      "restore": "restore this file only if afterSha256 still matches; otherwise merge later changes"
+    }
+  ],
+  "excluded": "No credentials, local databases, node_modules, model weights, upstream demo or prior user changes included."
+}

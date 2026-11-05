@@ -2,26 +2,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash, randomBytes } from 'node:crypto';
-import { reviewedContent } from '../scripts/lib/reviewed-content';
-import { curateCandidate } from '../scripts/lib/candidate-curation';
-import { galleryContent, GALLERY_RELEASE } from '../server/gallery-content';
-import { CloudBaseGalleryRepository, galleryBundleHash, type GalleryBundle } from '../server/cloudbase-content';
-import { applyCompositionRelease, buildCompositionRelease, compositionHash, reviewedDefinitions } from '../server/composition-review';
+import { GALLERY_RELEASE } from '../backend/src/gallery-content';
+import { CloudBaseGalleryRepository, galleryBundleHash, verifyGalleryBundle, type GalleryBundle } from '../backend/src/cloudbase-content';
+import { applyCompositionRelease, buildCompositionRelease, compositionHash, COMPOSITION_BASE_HASH, reviewedDefinitions } from '../backend/src/composition-review';
 import { contentContext } from '../shared/content';
 import { defaultMeal, type Meal, type RecommendationRequest } from '../shared/types';
-import { checkDish, recommend } from '../server/recommendation';
-import { createApp } from '../server/app';
+import { checkDish, recommend } from '../backend/src/recommendation';
+import { createApp } from '../backend/src/app';
 
 async function fixture() {
-  const read = async (path: string) => (await readFile(path,'utf8')).trim().split(/\r?\n/).map(line => JSON.parse(line));
-  const cards = [...(await read('docs/data/recipe-cards-v3.jsonl')).filter(card => card.source==='howtocook'&&card.completeness==='full_process'), ...await read('docs/data/recipe-candidates-supplement-v1.jsonl')];
-  const bundle: GalleryBundle = {base:await reviewedContent(),rows:cards.map(card=>{const r=curateCandidate(card)?.record??card;return {dish_key:r.dish_key,flavor:r.flavor,source_uri:r.url,image_url:null,raw_record:r};})};
-  bundle.rows.sort((a,b)=>Number(b.raw_record.id==='R383')-Number(a.raw_record.id==='R383'));
-  // The published PG export represents missing nutrition source rows as {}.
-  // Reproduce that fixed release representation; production hashes stay strict.
-  for(const food of bundle.base.foods){food.nutritionSources={};food.aliases.sort();}
-  for(const recipe of bundle.base.recipes)for(const variant of recipe.variants)for(const line of variant.lines)line.optional??=false;
-  const snapshot = galleryContent(bundle.base,bundle.rows);
+  const bundle:GalleryBundle=JSON.parse(await readFile('tests/fixtures/composition-gallery-bundle.json','utf8'));
+  const snapshot=verifyGalleryBundle(bundle,COMPOSITION_BASE_HASH);
   const review=buildCompositionRelease(snapshot);
   const approved = applyCompositionRelease(snapshot,review,compositionHash(review));
   return { bundle,snapshot,review,approved,context:contentContext(approved) };
@@ -93,8 +84,8 @@ test('逐方证据：145份通过逐项来源核对，错绑的清蒸鳜鱼版�
   assert.equal(approved.compositionApprovals?.length,reviewedDefinitions.length);assert.deepEqual(approved.foods,snapshot.foods);
   for(const definition of reviewedDefinitions){
     const original=definition.reviewId.startsWith('composition-source-')
-      ? (JSON.parse(await readFile('acceptance/composition-v2-2026-10-24/github-sources.json','utf8')) as any[]).concat(JSON.parse(await readFile('acceptance/composition-source-review-2026-10-24/howtocook-pending-sources.json','utf8')) as any[]).find(source=>source.id===definition.sourceRecord)?.text
-      : await readFile(`acceptance/${definition.reviewId.endsWith('v2')?'composition-v2-2026-10-24':'account-ingredients-2026-10-24'}/${definition.sourceRecord}-source.md`);
+      ? (JSON.parse(await readFile('artifacts/acceptance/composition-v2-2026-10-24/github-sources.json','utf8')) as any[]).concat(JSON.parse(await readFile('artifacts/acceptance/composition-source-review-2026-10-24/howtocook-pending-sources.json','utf8')) as any[]).find(source=>source.id===definition.sourceRecord)?.text
+      : await readFile(`artifacts/acceptance/${definition.reviewId.endsWith('v2')?'composition-v2-2026-10-24':'account-ingredients-2026-10-24'}/${definition.sourceRecord}-source.md`);
     assert.ok(original,`missing fixed source ${definition.sourceRecord}`);
     assert.equal(createHash('sha256').update(original).digest('hex'),definition.sourceSha256);
   }
@@ -104,7 +95,7 @@ test('逐方证据：145份通过逐项来源核对，错绑的清蒸鳜鱼版�
 });
 test('新增成分核验只放行原方可定位的单一食材，复合商品和替代配料仍保持未核',async()=>{
   const {context}=await fixture();
-  const review=JSON.parse(await readFile('docs/data/composition-source-line-review-v6a.json','utf8')) as {approvals:any[];productLabelsInferred:number};
+  const review=JSON.parse(await readFile('datasets/recipes/curation/composition-source-line-review-v6a.json','utf8')) as {approvals:any[];productLabelsInferred:number};
   assert.equal(review.approvals.length,75);assert.equal(review.productLabelsInferred,0);
   for(const approval of review.approvals){
     const definition=reviewedDefinitions.find(item=>item.recipeId===approval.recipeId&&item.variantId===approval.variantId)!;

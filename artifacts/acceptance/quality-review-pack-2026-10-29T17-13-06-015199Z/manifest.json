@@ -1,0 +1,33 @@
+{
+  "state": "needs_independent_review",
+  "totalCases": 200,
+  "dimensions": {
+    "recognition": 40,
+    "allergy": 50,
+    "disease": 50,
+    "reasonableness": 30,
+    "method": 30
+  },
+  "independentlyApproved": false,
+  "modelQualityApproved": false,
+  "realModelCalls": 0,
+  "finalModelInputsPending": 200,
+  "missingReferences": [],
+  "sourceHashes": {
+    "data/evaluation/agent-candidates-v1.json": "bf231444b6db2f59272c228b8ee5b359d74c416ec48bfa1a6498d2b16f0bbb33",
+    "data/evaluation/catalog-snapshot-v1.json": "08ed7fb5ffc17172bf8b5a1136edfed3d16f003ff14e6198b1a61cfc0e493f1d",
+    "data/health/2026-10-28-v2/knowledge-bundle.json": "e712a86b832c12a40c9b371addd1fa9d8263a491f1b33b880c55c110a2b87384"
+  },
+  "files": {
+    "allergy.md": "4474abe2df1b0ced9151687b6984a7f558c0bd6fa3ca6a9327c40d2b24a56150",
+    "cases-for-independent-review.json": "9d6a61b184e911b10ca3718338fabe4614b420ac803ec426a96976545d663753",
+    "disease.md": "ec7b8b92062b49454bd51de344152d1e3aa157f2437008b948e8e6a6c7d47e01",
+    "evidence-index.json": "1409e47bfd893b647bb7d8586656f41b9788d5927300802b59bb797671e0d6db",
+    "fact-index.json": "dc084075b41dc1b157465bcf55d26f2df95595e00bbd46cc5c4a1906bbb0742c",
+    "method.md": "3828c568e229ea4a6f79b3436d410cb97cc7526d99ed241670b2debf0c7f3d06",
+    "README.md": "5283930f70ced5940d2d759bdbbe28a454fdbba5fb4f70d75a2bc2703f490392",
+    "reasonableness.md": "e324bbf5876b9c275baeb476d8278717789cbbc3961756400188f179b994565a",
+    "recipe-index.json": "d00000ee124c82c89f9e2cb3f3d27589853e9a3ac6098ebc5e8bb09d437685b7",
+    "recognition.md": "13acb3258b3b0fa41efa2cb5f50a3627e0cdf02aaa65f3275e43ec387cbdd850"
+  }
+}

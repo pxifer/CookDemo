@@ -1,0 +1,37 @@
+{
+  "kind": "windows_powershell_51_encoding_fix",
+  "sourceFingerprint": "4a95c3f456ec9fd6c17049e40c7d2a30eda073fde703900ea7ca40ff900a87b4",
+  "previousSourceFingerprint": "744b45dc11c8f8ea1318fad1d611442f5b6e2fdf111e72363bee62fc0630413e",
+  "changedHashedFiles": [
+    "scripts/run.ps1",
+    "scripts/verify-in-terminal.ps1"
+  ],
+  "scripts": [
+    {
+      "path": "scripts/verify-in-terminal.ps1",
+      "utf8Bom": true,
+      "bodyMatchesPrevious": true
+    },
+    {
+      "path": "scripts/run.ps1",
+      "utf8Bom": true,
+      "bodyMatchesPrevious": true
+    }
+  ],
+  "powershellVersion": "5.1.26100.9711",
+  "parseErrorsBefore": {
+    "scripts/verify-in-terminal.ps1": 2,
+    "scripts/run.ps1": 1
+  },
+  "parseErrorsAfter": {
+    "scripts/verify-in-terminal.ps1": 0,
+    "scripts/run.ps1": 0
+  },
+  "execution5_1": {
+    "status": "permission_blocked",
+    "reason": "AuthorizationManager check failed",
+    "policyChanged": false
+  },
+  "fullSuiteRerun": false,
+  "productionDeployed": false
+}

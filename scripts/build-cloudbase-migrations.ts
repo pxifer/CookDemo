@@ -2,8 +2,8 @@ import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { requiredCoreTables } from '../server/deployment';
-import { migrationFiles } from '../server/migrations';
+import { requiredCoreTables } from '../backend/src/deployment';
+import { migrationFiles } from '../backend/src/migrations';
 
 export const cloudbaseTarget = {
   environmentId: 'shiwei-d2gmiun66b7dc6a4f',
@@ -22,7 +22,7 @@ function quoteBody(source: string, tag: string) {
 
 export async function buildCloudbaseMigration(mode: 'core' | 'vector', target: Target = cloudbaseTarget) {
   const files = await Promise.all(migrationFiles.map(async file => {
-    const source = (await readFile(new URL(`../server/migrations/${file.name}`, import.meta.url), 'utf8')).replace(/\r\n/g, '\n');
+    const source = (await readFile(new URL(`../backend/src/migrations/${file.name}`, import.meta.url), 'utf8')).replace(/\r\n/g, '\n');
     return { ...file, checksum: createHash('sha256').update(source).digest('hex'),
       sql: source.replace(/^\s*BEGIN;\s*/i, '').replace(/\s*COMMIT;\s*$/i, '') };
   }));
@@ -144,7 +144,7 @@ $shiwei_deploy$;
 }
 
 async function main() {
-  const directory = new URL('../cloudbase/migrations/', import.meta.url);
+  const directory = new URL('../deployment/cloudbase/migrations', import.meta.url);
   await mkdir(directory, { recursive: true });
   for (const [mode, filename] of [
     ['core', '20261021123000_shiwei_core.sql'],

@@ -4,16 +4,16 @@ import { readFile } from 'node:fs/promises';
 import { randomBytes } from 'node:crypto';
 import { reviewedContent } from '../scripts/lib/reviewed-content';
 import { curateCandidate } from '../scripts/lib/candidate-curation';
-import { CloudBaseGalleryRepository, galleryBundleHash, type GalleryBundle } from '../server/cloudbase-content';
-import { createApp } from '../server/app';
-import { GALLERY_RELEASE, galleryContent } from '../server/gallery-content';
-import methodReview from '../docs/data/recipe-step-review-v28.json';
+import { CloudBaseGalleryRepository, galleryBundleHash, type GalleryBundle } from '../backend/src/cloudbase-content';
+import { createApp } from '../backend/src/app';
+import { GALLERY_RELEASE, galleryContent } from '../backend/src/gallery-content';
+import methodReview from '../datasets/recipes/curation/recipe-step-review-v28.json';
 import { defaultMeal } from '../shared/types';
 import { PGlite } from '@electric-sql/pglite';
 
 async function fixture():Promise<GalleryBundle>{
   const read=async(path:string)=>(await readFile(path,'utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line));
-  const cards=[...(await read('docs/data/recipe-cards-v3.jsonl')).filter(c=>c.source==='howtocook'&&c.completeness==='full_process'),...await read('docs/data/recipe-candidates-supplement-v1.jsonl')];
+  const cards=[...(await read('datasets/recipes/curation/recipe-cards-v3.jsonl')).filter(c=>c.source==='howtocook'&&c.completeness==='full_process'),...await read('datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl')];
   return{base:await reviewedContent(),rows:cards.map(card=>{const r=curateCandidate(card)?.record??card;return{dish_key:r.dish_key,flavor:r.flavor,source_uri:r.url,image_url:null,raw_record:r};})};
 }
 test('免费HTTP适配：PG只读公开内容→真实145菜→同源会话/推荐；原硬限制保留',async()=>{
@@ -55,7 +55,7 @@ test('免费HTTP适配：PG只读公开内容→真实145菜→同源会话/推�
   }finally{await app.close();}
 });
 test('已细化的原方步骤同时用于图鉴、目录及工作台做法，食材数据保持原值',async()=>{
-  const records=(await readFile('docs/data/recipe-cards-v3.jsonl','utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line));
+  const records=(await readFile('datasets/recipes/curation/recipe-cards-v3.jsonl','utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line));
   const card=records.find(row=>row.id==='R111');assert(card);
   const row={dish_key:card.dish_key,flavor:card.flavor,source_uri:card.url,image_url:null,raw_record:card};
   const snapshot=galleryContent(await reviewedContent(),[row]);
@@ -109,7 +109,7 @@ test('公开菜谱表权限：匿名仅可读已发布payload，不能读取chec
   const db=new PGlite();
   try{
     await db.exec('CREATE ROLE anon; CREATE ROLE authenticated; CREATE ROLE service_role; CREATE TABLE accounts(secret text);');
-    await db.exec(await readFile('deploy/db/gallery-http-release.sql','utf8'));
+    await db.exec(await readFile('deployment/db/gallery-http-release.sql','utf8'));
     await db.query('INSERT INTO shiwei_gallery_releases(release_id,checksum,payload,published) VALUES($1,$2,$3,true),($4,$2,$3,false)',['visible','a'.repeat(64),{},'hidden']);
     await db.exec('SET ROLE anon');
     assert.equal((await db.query('SELECT payload FROM shiwei_gallery_releases')).rows.length,1);

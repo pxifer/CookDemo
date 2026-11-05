@@ -1,0 +1,27 @@
+{
+  "checkedAtUtc": "2026-10-21T14:47:11.7155129+00:00",
+  "url": "http://127.0.0.1:4180/",
+  "runtime": "host Node.js24 + Docker PostgreSQL",
+  "status": "local_only",
+  "contentVersion": "local-business-v1",
+  "contentState": "database-constructed",
+  "foods": 25,
+  "recipes": 18,
+  "variants": 36,
+  "localTestFeatures": false,
+  "gates": {
+    "content": false,
+    "model": false,
+    "cloud": false,
+    "accounts": false,
+    "health": false
+  },
+  "database": {
+    "available": true,
+    "core": true,
+    "vector": false,
+    "ready": true
+  },
+  "dedicatedDatabase": "shiwei_business_local",
+  "formalData": false
+}

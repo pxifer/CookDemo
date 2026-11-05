@@ -9,8 +9,8 @@ export const REVIEWED_RELEASE='local-business-community-v1';
 const commit='0e106eea348c734fe1586f781202994439cf98a5';
 type Selection={id:string;recipeId:string;minutes:number;servings:number;flavor:string;blobSha:string;cardSha256:string;imageUrl:string;lines:Line[];reviewNotes:string[]};
 export async function reviewedContent(release=REVIEWED_RELEASE):Promise<ContentSnapshot>{
-  const review=JSON.parse(await readFile('docs/data/community-recipe-review-v1.json','utf8')) as {checkedAt:string;selections:Selection[]};
-  const cards=(await readFile('docs/data/recipe-cards-v3.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(line=>JSON.parse(line));
+  const review=JSON.parse(await readFile('datasets/recipes/curation/community-recipe-review-v1.json','utf8')) as {checkedAt:string;selections:Selection[]};
+  const cards=(await readFile('datasets/recipes/curation/recipe-cards-v3.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(line=>JSON.parse(line));
   const allFoods:Food[]=structuredClone([...foods,...extraPantryFoods]);
   // No synthetic nutrient values or third-party calorie estimates enter a reviewed release.
   allFoods.forEach(f=>{f.nutrition={};delete f.nutritionSources;});

@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {contentContext,type ContentSnapshot} from '../shared/content';
 import {matchesListedFood} from '../shared/food-restrictions';
 import {defaultMeal,type Meal,type RecommendationResult} from '../shared/types';
-import {CloudBaseGalleryRepository} from '../server/cloudbase-content';
-import {GALLERY_RELEASE} from '../server/gallery-content';
+import {CloudBaseGalleryRepository} from '../backend/src/cloudbase-content';
+import {GALLERY_RELEASE} from '../backend/src/gallery-content';
 const packageRoot='.local-data/cloudbase-http/release-20261026-listed-foods-v27';
 const config=JSON.parse(await readFile(`${packageRoot}/cloudbaserc.json`,'utf8'));
 const env=config.functions[0].envVariables,origin=env.APP_ORIGIN;
@@ -54,5 +54,5 @@ const html=await fetch(origin,{signal:AbortSignal.timeout(15000)});assert(html.o
 const report={liveHttp:true,releaseId:manifest.releaseId,hash:manifest.hash,recipes:catalog.recipes.length,newDishes:manifest.newDishes,
   databaseCounts:counts,databaseBundleReadbackVerified:true,restrictionScope:catalog.restrictionScope,cases,paginationVerified:true,
   replacePreservesOtherDishes:true,latenciesMs:latencies,healthEnabled:false,secretsPrinted:false};
-await writeFile('acceptance/listed-foods-v27/live-verification.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+await writeFile('artifacts/acceptance/listed-foods-v27/live-verification.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
 console.log(JSON.stringify(report));

@@ -1,5 +1,5 @@
 import {readFile,writeFile} from 'node:fs/promises';
-import {compositionHash,COMPOSITION_BASE_HASH,COMPOSITION_RELEASE} from '../server/composition-review';
+import {compositionHash,COMPOSITION_BASE_HASH,COMPOSITION_RELEASE} from '../backend/src/composition-review';
 async function main(){
   const root='.local-data/cloudbase-http/composition-review-20261024-v6';
   const manifest=JSON.parse(await readFile(`${root}/manifest.json`,'utf8'));

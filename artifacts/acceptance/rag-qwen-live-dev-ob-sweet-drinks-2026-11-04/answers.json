@@ -1,0 +1,503 @@
+{
+  "index": {
+    "id": "qwen-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T07:12:46.902Z"
+  },
+  "generation": "real_deepseek",
+  "realEmbedding": true,
+  "realModelCalls": 1,
+  "verifiedReceipts": 1,
+  "budget": {
+    "maximumCny": 5,
+    "maximumCalls": 50,
+    "attempts": 5,
+    "reservedCny": 0.24555,
+    "estimatedKnownCostCny": 0.054796,
+    "unknownUsageAttempts": 0
+  },
+  "results": [
+    {
+      "id": "dev-ob-sweet-drinks",
+      "elapsedMs": 4537.8653,
+      "result": {
+        "status": "answered",
+        "executionAllowed": false,
+        "clinicalRelease": null,
+        "context": {
+          "question": "没有复杂合并症的成年肥胖者为何要少选含糖饮料？",
+          "bundleId": "health-kb-2026-10-28-v2",
+          "indexId": "qwen-evidence-v1",
+          "context": {
+            "adult": "yes",
+            "complexComorbidity": "no",
+            "pregnantOrLactating": "no"
+          },
+          "facts": [
+            {
+              "fact": {
+                "id": "fact:sweet-drinks-fructose",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:sweet-drinks",
+                "objectId": "c:fructose",
+                "predicate": "contains",
+                "statement": "指南列举的果糖较高食品类别，具体配方因品牌变化。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-gout-2024": "2024"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04764267990074442,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 2,
+              "denseRank": 5
+            },
+            {
+              "fact": {
+                "id": "fact:ob-limit-sweet-drinks",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:obesity",
+                "objectId": "f:sweet-drinks",
+                "predicate": "limit",
+                "statement": "减重期间少选高能量或含糖加工食品，非任意量绝对禁止。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  },
+                  {
+                    "key": "pregnantOrLactating",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:a1716ee22fbac9a7111baf2934d75cf33544de77150f1018016ea5955c55aa36",
+                  "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-obesity-2024": "2024"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.044022840302081416,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 1,
+              "denseRank": 29
+            },
+            {
+              "fact": {
+                "id": "fact:ob-added-sugar",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:obesity",
+                "objectId": "c:added-sugar",
+                "predicate": "adverse",
+                "statement": "限制添加糖和含糖加工食品，保留总能量管理背景。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  },
+                  {
+                    "key": "pregnantOrLactating",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": true,
+                "evidenceIds": [
+                  "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-obesity-2024": "2024"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04298198680221152,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 3,
+              "denseRank": 29
+            },
+            {
+              "fact": {
+                "id": "fact:ob-ethanol",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:obesity",
+                "objectId": "c:ethanol",
+                "predicate": "adverse",
+                "statement": "酒精提供能量，减重期间严格限制饮酒。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  },
+                  {
+                    "key": "pregnantOrLactating",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": true,
+                "evidenceIds": [
+                  "ev:bdd07df97a1210f0edf13666b2a5a7e7b4017c8eec65d6d1270a200e12c669b3"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-obesity-2024": "2024"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.014925373134328358,
+              "applicability": "applicable_for_research",
+              "denseRank": 7
+            },
+            {
+              "fact": {
+                "id": "fact:ob-fat",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:obesity",
+                "objectId": "c:fat",
+                "predicate": "conditional",
+                "statement": "减重期间控制脂肪/油摄入与总能量；不是所有脂肪均禁用。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  },
+                  {
+                    "key": "pregnantOrLactating",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": true,
+                "evidenceIds": [
+                  "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6",
+                  "ev:37e4868586e6183122f0f23c329f33eab8a83d0ed6e0b9f76b8eb7fc34ed1439"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-obesity-2024": "2024"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.011235955056179775,
+              "applicability": "applicable_for_research",
+              "denseRank": 29
+            }
+          ],
+          "evidence": [
+            {
+              "evidence": {
+                "id": "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c",
+                "key": "go-fructose",
+                "sourceId": "nhc-gout-2024",
+                "sourceVersion": "2024",
+                "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 8,
+                  "printedPage": 6,
+                  "section": "三（二）果糖和食品",
+                  "start": 134,
+                  "end": 204,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "果糖可诱发代谢异常，并引起胰岛素抵抗，具有潜在诱发尿酸水平升高的作用，应限制果糖含量较高的食品，如含糖饮料、鲜榨果汁、果葡糖浆、果脯蜜饯等。",
+                "spanHash": "188c54c757979bd9e462d16d58b85989c7fe329b3e80036b1c6499c01f641a7c",
+                "summary": "限制果糖较高食品和果汁，不迁移至所有含果糖食物。",
+                "retrievalText": "三（二）果糖和食品 限制果糖较高食品和果汁，不迁移至所有含果糖食物。 果糖可诱发代谢异常，并引起胰岛素抵抗，具有潜在诱发尿酸水平升高的作用，应限制果糖含量较高的食品，如含糖饮料、鲜榨果汁、果葡糖浆、果脯蜜饯等。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-gout-2024",
+                "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+                "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+                "hash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f",
+                "version": "2024"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:a1716ee22fbac9a7111baf2934d75cf33544de77150f1018016ea5955c55aa36",
+                "key": "ob-high-energy",
+                "sourceId": "nhc-obesity-2024",
+                "sourceVersion": "2024",
+                "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 8,
+                  "printedPage": 6,
+                  "section": "三（二）高能量食物",
+                  "start": 576,
+                  "end": 627,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "高能量食物通常是指提供400kcal/100g以上能量的食物，如油炸食品、含糖烘焙糕点、糖果、肥肉等；",
+                "spanHash": "f1236f590e3bfb0b53d126bb57920613e9a1f6fa1647428599575192ec0eb90a",
+                "summary": "三（二）高能量食物",
+                "retrievalText": "三（二）高能量食物 高能量食物通常是指提供400kcal/100g以上能量的食物，如油炸食品、含糖烘焙糕点、糖果、肥肉等；",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-obesity-2024",
+                "title": "成人肥胖食养指南（2024年版）",
+                "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+                "hash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "version": "2024"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6",
+                "key": "ob-cooking",
+                "sourceId": "nhc-obesity-2024",
+                "sourceVersion": "2024",
+                "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 9,
+                  "printedPage": 7,
+                  "section": "三（二）烹饪和食品",
+                  "start": 166,
+                  "end": 303,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "首先，应减少烹饪过程中烹调油、盐、糖用量，多选用蒸、煮、熘及水滑等烹调方式，少油煎炸，并减少高脂肪食物用量。其次，采购时主动阅读食品的营养标签，选择脂肪、碳水化合物和（或）糖、钠含量低的食物，尽量不选或少选油炸食品、加工肉制品、含糖烘焙糕点、蜜饯、糖果、冰淇淋及含糖饮料等。",
+                "spanHash": "0070cbfbb8bea66e8aa228ecb882e35adbd76457bd58c13545c89960dcbab58d",
+                "summary": "三（二）烹饪和食品",
+                "retrievalText": "三（二）烹饪和食品 首先，应减少烹饪过程中烹调油、盐、糖用量，多选用蒸、煮、熘及水滑等烹调方式，少油煎炸，并减少高脂肪食物用量。其次，采购时主动阅读食品的营养标签，选择脂肪、碳水化合物和（或）糖、钠含量低的食物，尽量不选或少选油炸食品、加工肉制品、含糖烘焙糕点、蜜饯、糖果、冰淇淋及含糖饮料等。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-obesity-2024",
+                "title": "成人肥胖食养指南（2024年版）",
+                "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+                "hash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "version": "2024"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:bdd07df97a1210f0edf13666b2a5a7e7b4017c8eec65d6d1270a200e12c669b3",
+                "key": "ob-alcohol",
+                "sourceId": "nhc-obesity-2024",
+                "sourceVersion": "2024",
+                "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 9,
+                  "printedPage": 7,
+                  "section": "三（二）酒精",
+                  "start": 303,
+                  "end": 386,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "每克酒精可产生约7kcal能量，远高于同质量的碳水化合物和蛋白质产生的能量值。酒精除可以带来能量以外，其他对人体有用的营养素含量极少。因此，在减重期间应严格限制饮酒。",
+                "spanHash": "5a41accbfa420130ddd99876437cd6bf090de22a288c0544aaae586d36796ec7",
+                "summary": "三（二）酒精",
+                "retrievalText": "三（二）酒精 每克酒精可产生约7kcal能量，远高于同质量的碳水化合物和蛋白质产生的能量值。酒精除可以带来能量以外，其他对人体有用的营养素含量极少。因此，在减重期间应严格限制饮酒。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-obesity-2024",
+                "title": "成人肥胖食养指南（2024年版）",
+                "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+                "hash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "version": "2024"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:37e4868586e6183122f0f23c329f33eab8a83d0ed6e0b9f76b8eb7fc34ed1439",
+                "key": "ob-energy",
+                "sourceId": "nhc-obesity-2024",
+                "sourceVersion": "2024",
+                "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 7,
+                  "printedPage": 5,
+                  "section": "三（一）总能量/个体化",
+                  "start": 19,
+                  "end": 42,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "控制总能量摄入和保持合理膳食是体重管理的关键。",
+                "spanHash": "e90c23fd827e785482ad93fde65521c36f0ffcc1afd487db2929d31a7c77b21e",
+                "summary": "三（一）总能量/个体化",
+                "retrievalText": "三（一）总能量/个体化 控制总能量摄入和保持合理膳食是体重管理的关键。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-obesity-2024",
+                "title": "成人肥胖食养指南（2024年版）",
+                "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+                "hash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+                "version": "2024"
+              }
+            }
+          ],
+          "conflicts": [],
+          "missingConditions": [],
+          "estimatedTokens": 5456,
+          "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "answer": {
+          "answer": "对无复杂合并症、非孕产的成年肥胖者，减重期间应少选含糖饮料等高能量或含糖加工食品，但并非任意量绝对禁止。\n肥胖食养指导在限制添加糖和含糖加工食品时，保留总能量管理为背景，因此少选含糖饮料的用意与总能量控制相关。\n指南列举含糖饮料属于果糖较高食品类别，并建议限制此类食品，但具体配方因品牌变化，不能据此推出所有含果糖食物都应回避。",
+          "claims": [
+            {
+              "text": "对无复杂合并症、非孕产的成年肥胖者，减重期间应少选含糖饮料等高能量或含糖加工食品，但并非任意量绝对禁止。",
+              "factIds": [
+                "fact:ob-limit-sweet-drinks"
+              ],
+              "evidenceIds": [
+                "ev:a1716ee22fbac9a7111baf2934d75cf33544de77150f1018016ea5955c55aa36",
+                "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6"
+              ]
+            },
+            {
+              "text": "肥胖食养指导在限制添加糖和含糖加工食品时，保留总能量管理为背景，因此少选含糖饮料的用意与总能量控制相关。",
+              "factIds": [
+                "fact:ob-added-sugar"
+              ],
+              "evidenceIds": [
+                "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6",
+                "ev:37e4868586e6183122f0f23c329f33eab8a83d0ed6e0b9f76b8eb7fc34ed1439"
+              ]
+            },
+            {
+              "text": "指南列举含糖饮料属于果糖较高食品类别，并建议限制此类食品，但具体配方因品牌变化，不能据此推出所有含果糖食物都应回避。",
+              "factIds": [
+                "fact:sweet-drinks-fructose"
+              ],
+              "evidenceIds": [
+                "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c"
+              ]
+            }
+          ],
+          "limitations": [
+            "果糖相关证据来自成人高尿酸血症与痛风食养指南，不是肥胖人群专属研究，不能直接推为肥胖者少选含糖饮料的因果机制。",
+            "含糖饮料的果糖事实为定性来源陈述，未给出品牌配方、含糖量或阈值，不能据此量化摄入上限。",
+            "肥胖指南相关条目为定性食养指导，添加糖条目虽标记剂量依赖，但未提供剂量或阈值。",
+            "少选而非绝对禁止的表述基于指南原文，具体个体化能量与膳食安排需按总能量管理背景理解，本回答不提供个体化处方。"
+          ]
+        },
+        "invocation": {
+          "provider": "DeepSeek",
+          "requestId": "d59bce96-4329-450e-a0cd-9e5c73a4a99f",
+          "model": "deepseek-flash",
+          "promptTokens": 3748,
+          "completionTokens": 503,
+          "totalTokens": 4251,
+          "calledAt": "2026-11-04T11:59:40.067Z"
+        }
+      }
+    }
+  ],
+  "humanGroundingReview": "pending: valid citation IDs alone do not establish entailment or clinical suitability"
+}

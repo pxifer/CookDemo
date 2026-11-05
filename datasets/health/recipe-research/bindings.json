@@ -1,0 +1,82 @@
+[
+  {
+    "id": "pilot:gallery-902e943027a6fccd-r412:salt",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "contentVersion": "gallery-listed-foods-20261026-v28",
+    "recipeId": "gallery-902e943027a6fccd",
+    "variantId": "gallery-902e943027a6fccd-r412",
+    "variantHash": "ead0653ff2cb8bfbd526c0999ab7b130fa793c11393d88df3d00a95b464944af",
+    "foodId": "salt",
+    "entityId": "f:salt",
+    "factId": "fact:ht-limit-salt",
+    "factVersion": "2026-10-28-v1",
+    "factHash": "cdaadcecc140f69b15b3f49c5ebaecadc6b54735138bd74e7a84148d715e531d",
+    "method": {
+      "kind": "primary",
+      "index": 0,
+      "hash": "b7524b31b87cc049373edadbe03005941a2dd64c9881ca76a267b3fed057259a"
+    },
+    "scope": "listed_ingredient_only",
+    "mappingBasis": "明列盐食品ID与食盐食物级指南关联，不换算每餐剂量。"
+  },
+  {
+    "id": "pilot:gallery-902e943027a6fccd-r412:soy",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "contentVersion": "gallery-listed-foods-20261026-v28",
+    "recipeId": "gallery-902e943027a6fccd",
+    "variantId": "gallery-902e943027a6fccd-r412",
+    "variantHash": "ead0653ff2cb8bfbd526c0999ab7b130fa793c11393d88df3d00a95b464944af",
+    "foodId": "soy",
+    "entityId": "f:soy-sauce",
+    "factId": "fact:ht-limit-soy-sauce",
+    "factVersion": "2026-10-28-v1",
+    "factHash": "fd0a9e4bea7ca36ea678cf1035475dcda3b20c26966752cce3e0505888f35048",
+    "method": {
+      "kind": "primary",
+      "index": 0,
+      "hash": "b7524b31b87cc049373edadbe03005941a2dd64c9881ca76a267b3fed057259a"
+    },
+    "scope": "listed_ingredient_only",
+    "mappingBasis": "明列生抽/原文酱油与酱油食物级指南关联，不假设钠含量。"
+  },
+  {
+    "id": "pilot:gallery-f3dc92744e6a6c37-r039:tofu",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "contentVersion": "gallery-listed-foods-20261026-v28",
+    "recipeId": "gallery-f3dc92744e6a6c37",
+    "variantId": "gallery-f3dc92744e6a6c37-r039",
+    "variantHash": "7cdd32f114177cd7c04edfa0013b1689ce95474b85dc099ac9cefaf5246e61ea",
+    "foodId": "tofu",
+    "entityId": "f:tofu",
+    "factId": "fact:ht-prefer-tofu",
+    "factVersion": "2026-10-28-v1",
+    "factHash": "6ef3fffa1d200d743a7eaf484cbe8039e05502ef8705908635695a119c1b9393",
+    "method": {
+      "kind": "primary",
+      "index": 0,
+      "hash": "48dcd04901ac7aac1c4fb6413a57b4a9b0529d7c14cc30ec2ed092c70316e108"
+    },
+    "scope": "listed_ingredient_only",
+    "mappingBasis": "明列豆腐食品ID，关联豆腐食物级指南；不扩展至内酯豆腐或豆制品类别。"
+  },
+  {
+    "id": "pilot:gallery-f3dc92744e6a6c37-r039:salt",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "contentVersion": "gallery-listed-foods-20261026-v28",
+    "recipeId": "gallery-f3dc92744e6a6c37",
+    "variantId": "gallery-f3dc92744e6a6c37-r039",
+    "variantHash": "7cdd32f114177cd7c04edfa0013b1689ce95474b85dc099ac9cefaf5246e61ea",
+    "foodId": "salt",
+    "entityId": "f:salt",
+    "factId": "fact:ht-limit-salt",
+    "factVersion": "2026-10-28-v1",
+    "factHash": "cdaadcecc140f69b15b3f49c5ebaecadc6b54735138bd74e7a84148d715e531d",
+    "method": {
+      "kind": "primary",
+      "index": 0,
+      "hash": "48dcd04901ac7aac1c4fb6413a57b4a9b0529d7c14cc30ec2ed092c70316e108"
+    },
+    "scope": "listed_ingredient_only",
+    "mappingBasis": "明列盐食品ID与食盐食物级指南关联，不换算每餐剂量。"
+  }
+]

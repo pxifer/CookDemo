@@ -1,0 +1,342 @@
+{
+  "protectedFiles": [
+    {
+      "file": "docs/agent-interview-2026-10-28/01_Agent开发面试题与分级回答.docx",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/01_Agent开发面试题与分级回答.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/02_拾味项目RAG与Agent落地和面试讲述.docx",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/02_拾味项目RAG与Agent落地和面试讲述.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/03_拾味RAG与Agent优化选型及实施路线.docx",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/03_拾味RAG与Agent优化选型及实施路线.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/README.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/.gitignore",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/audit-baseline.ts",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/build-docs.py",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/export-word.ps1",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-1.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-10.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-11.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-12.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-13.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-14.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-15.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-16.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-17.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-2.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-3.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-4.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-5.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-6.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-7.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-8.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答/page-9.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/01_Agent开发面试题与分级回答.pdf",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-1.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-10.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-11.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-12.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-2.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-3.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-4.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-5.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-6.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-7.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-8.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述/page-9.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/02_拾味项目RAG与Agent落地和面试讲述.pdf",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-1.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-10.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-11.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-12.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-2.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-3.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-4.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-5.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-6.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-7.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-8.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线/page-9.png",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/qa/03_拾味RAG与Agent优化选型及实施路线.pdf",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/render-word-pdf.py",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/verify-docs.py",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/support/交付核验.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    },
+    {
+      "file": "docs/project-handbook-2026-10-30/build_reader.py",
+      "check": "byte-identical",
+      "passed": true
+    },
+    {
+      "file": "docs/project-handbook-2026-10-30/README.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    },
+    {
+      "file": "docs/project-handbook-2026-10-30/拾味项目全解_架构实现与面试答辩.md",
+      "check": "Chinese body sequence unchanged; only path/link transformations",
+      "passed": true
+    }
+  ],
+  "localWordHyperlinks": [
+    {
+      "file": "docs/agent-interview-2026-10-28/01_Agent开发面试题与分级回答.docx",
+      "target": "README.md",
+      "exists": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/02_拾味项目RAG与Agent落地和面试讲述.docx",
+      "target": "support/audit-baseline.ts",
+      "exists": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/02_拾味项目RAG与Agent落地和面试讲述.docx",
+      "target": "support/baseline-audit.json",
+      "exists": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/02_拾味项目RAG与Agent落地和面试讲述.docx",
+      "target": "03_拾味RAG与Agent优化选型及实施路线.md",
+      "exists": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/02_拾味项目RAG与Agent落地和面试讲述.docx",
+      "target": "01_Agent开发面试题与分级回答.md",
+      "exists": true
+    },
+    {
+      "file": "docs/agent-interview-2026-10-28/03_拾味RAG与Agent优化选型及实施路线.docx",
+      "target": "support/baseline-audit.json",
+      "exists": true
+    }
+  ],
+  "allPassed": true
+}

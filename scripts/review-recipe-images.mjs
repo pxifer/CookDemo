@@ -3,9 +3,9 @@ import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from '@playwright/test';
 
-const directory=resolve('acceptance/recipe-images-2026-10-26');
+const directory=resolve('artifacts/acceptance/recipe-images-2026-10-26');
 await mkdir(directory,{recursive:true});
-const jobs=JSON.parse(await readFile('docs/data/recipe-image-prompts-2026-10-25-complete.json','utf8'));
+const jobs=JSON.parse(await readFile('datasets/recipes/curation/recipe-image-prompts-2026-10-25-complete.json','utf8'));
 const escape=text=>String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
 const browser=await chromium.launch({channel:'msedge',headless:true});
 try{

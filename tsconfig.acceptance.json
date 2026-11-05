@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "scripts/pr-check.ts",
+    "scripts/check-project.ts",
+    "scripts/diagnose-environment.ts",
+    "scripts/release-readiness.ts",
+    "scripts/prepare-release-candidate.ts",
+    "scripts/lib/acceptance-environment.ts",
+    "scripts/lib/release-gate.ts",
+    "scripts/lib/business-archive.ts",
+    "scripts/business-snapshot.ts",
+    "scripts/build-evaluation-set.ts",
+    "scripts/freeze-evaluation-set.ts",
+    "scripts/evaluate-agent-candidates.ts",
+    "scripts/evaluate-ai-recipes.ts",
+    "scripts/evaluate-health-knowledge-v2.ts",
+    "scripts/rag.ts",
+    "scripts/rag-prepare-local.ts",
+    "scripts/evaluate-business-rag.ts",
+    "scripts/preview-rag.ts",
+    "scripts/trace-business-rag.ts"
+  ]
+}

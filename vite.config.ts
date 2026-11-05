@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 export default defineConfig({
-  root: 'src',
-  build: { outDir: '../build/web', emptyOutDir: true },
+  root: 'frontend/src',
+  build: { outDir: '../../artifacts/build/web', emptyOutDir: true },
   publicDir: '../public',
 });

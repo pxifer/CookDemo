@@ -1,0 +1,36 @@
+{
+  "data": {
+    "requestId": "46c2ef6e-8b33-40ea-83e7-57f46c9b1ab2",
+    "remote": {
+      "total": 2,
+      "latestVersion": "20261021123100",
+      "items": [
+        {
+          "version": "20261021123000",
+          "name": "shiwei_core"
+        },
+        {
+          "version": "20261021123100",
+          "name": "shiwei_vector"
+        }
+      ]
+    },
+    "local": [],
+    "merged": [
+      {
+        "version": "20261021123000",
+        "local": false,
+        "remote": true,
+        "remoteName": "shiwei_core",
+        "time": "2026-10-21 12:30:00"
+      },
+      {
+        "version": "20261021123100",
+        "local": false,
+        "remote": true,
+        "remoteName": "shiwei_vector",
+        "time": "2026-10-21 12:31:00"
+      }
+    ]
+  }
+}

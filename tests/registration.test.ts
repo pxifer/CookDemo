@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { PGlite } from '@electric-sql/pglite';
-import { CloudBaseAccounts } from '../server/cloudbase-accounts';
-import { createApp } from '../server/app';
-import { open,seal } from '../server/crypto';
+import { CloudBaseAccounts } from '../backend/src/cloudbase-accounts';
+import { createApp } from '../backend/src/app';
+import { open,seal } from '../backend/src/crypto';
 import { defaultMeal } from '../shared/types';
 
 import { fixture } from "./registration-fixture";

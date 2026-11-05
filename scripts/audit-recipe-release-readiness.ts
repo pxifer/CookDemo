@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 
 if(!process.argv.includes('--historical')){
   const manifest=JSON.parse(await readFile('.local-data/cloudbase-http/listed-foods-20261026-v27/manifest.json','utf8'));
-  const live=JSON.parse(await readFile('acceptance/listed-foods-v27/live-verification.json','utf8').catch(()=>'{"liveHttp":false}'));
+  const live=JSON.parse(await readFile('artifacts/acceptance/listed-foods-v27/live-verification.json','utf8').catch(()=>'{"liveHttp":false}'));
   console.log(JSON.stringify({standard:'D17-02/listed-foods',releaseId:manifest.releaseId,newDishes:manifest.newDishes,recipes:manifest.recipes,
     ingredientRows:manifest.ingredientRows,excluded:manifest.excluded,liveHttpVerified:live.liveHttp,healthEnabled:false,
     historicalAudit:'Use --historical only to inspect the superseded pre-D17-02 gate.'},null,2));
@@ -15,8 +15,8 @@ type Candidate = {
     aux?: string[]; seasonings?: string[]; steps?: string[]; method_options?: { label: string; steps: string[] }[]; license?: string };
 };
 const readLines = async (path: string) => (await readFile(path, 'utf8')).trim().split(/\r?\n/).map(line => JSON.parse(line) as Candidate);
-const expanded = await readLines('docs/data/recipe-expansion-simple-v1.jsonl');
-const original = await readLines('docs/data/recipe-original-drafts-2026-10-26.jsonl');
+const expanded = await readLines('datasets/recipes/curation/recipe-expansion-simple-v1.jsonl');
+const original = await readLines('datasets/recipes/curation/recipe-original-drafts-2026-10-26.jsonl');
 if (expanded.length !== 203 || new Set(expanded.map(row => row.dish_key)).size !== 200 || original.length !== 2) {
   throw new Error('RECIPE_EXPANSION_AUDIT_INPUT_INVALID');
 }

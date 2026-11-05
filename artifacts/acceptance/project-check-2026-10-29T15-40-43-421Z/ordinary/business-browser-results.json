@@ -1,0 +1,572 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.business.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.business.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/business-chain",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/business-browser.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results/business-chain",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/business-browser.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/business-browser.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4181",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/business-browser.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4181",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T15-40-43-421Z\\ordinary/business-browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --env-file=.local-data/deployment/business-local.env --import tsx server/main.ts",
+      "url": "http://127.0.0.1:4181/healthz",
+      "reuseExistingServer": false,
+      "env": {
+        "APP_ENV": "local",
+        "HOST": "127.0.0.1",
+        "PORT": "4181",
+        "APP_ORIGIN": "http://127.0.0.1:4181",
+        "CONTENT_SOURCE": "database",
+        "CONTENT_RELEASE_ID": "local-business-v1",
+        "LOCAL_TEST_FEATURES": "0"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "business-browser.spec.ts",
+      "file": "business-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4045,
+                  "error": {
+                    "message": "Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+                    "stack": "Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n    at recommendationResult (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:10:32)\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts:16:22",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                      "column": 32,
+                      "line": 10
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mui-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m recommendationResult(response\u001b[33m:\u001b[39m\u001b[33mResponse\u001b[39m)\u001b[33m:\u001b[39m\u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[33mRecommendationResult\u001b[39m\u001b[33m>\u001b[39m{\n \u001b[90m  9 |\u001b[39m   expect(response\u001b[33m.\u001b[39mok())\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m events\u001b[33m=\u001b[39m(\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mtext())\u001b[33m.\u001b[39mtrim()\u001b[33m.\u001b[39msplit(\u001b[32m'\\n'\u001b[39m)\u001b[33m.\u001b[39mfilter(\u001b[33mBoolean\u001b[39m)\u001b[33m.\u001b[39mmap(line\u001b[33m=>\u001b[39m\u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(line))\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mconst\u001b[39m terminal\u001b[33m=\u001b[39mevents\u001b[33m.\u001b[39mfilter(event\u001b[33m=>\u001b[39mevent\u001b[33m.\u001b[39mtype\u001b[33m===\u001b[39m\u001b[32m'result'\u001b[39m)\u001b[33m;\u001b[39mexpect(terminal)\u001b[33m.\u001b[39mtoHaveLength(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m   \u001b[36mreturn\u001b[39m terminal[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mresult\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                        "column": 32,
+                        "line": 10
+                      },
+                      "message": "Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n\n   at ui-helpers.ts:10\n\n   8 | export async function recommendationResult(response:Response):Promise<RecommendationResult>{\n   9 |   expect(response.ok()).toBe(true);\n> 10 |   const events=(await response.text()).trim().split('\\n').filter(Boolean).map(line=>JSON.parse(line));\n     |                                ^\n  11 |   const terminal=events.filter(event=>event.type==='result');expect(terminal).toHaveLength(1);\n  12 |   return terminal[0].result;\n  13 | }\n    at recommendationResult (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:10:32)\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts:16:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:00.256Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain\\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain\\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain\\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                    "column": 32,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-685ad5b7ddc15b011b3f",
+          "file": "business-browser.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1498,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:07.600Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-b388b4b637c2458f30a8",
+          "file": "business-browser.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3297,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:09.859Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-a9c0442b2a2f8d83bb26",
+          "file": "business-browser.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "文字整理采用数据库别名，数据库类别范围须确认后生效",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2145,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:13.188Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-37916cb33be8e7261faf",
+          "file": "business-browser.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2978,
+                  "error": {
+                    "message": "Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+                    "stack": "Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n    at recommendationResult (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:10:32)\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts:16:22",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                      "column": 32,
+                      "line": 10
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mui-helpers.ts:10\n\n\u001b[0m \u001b[90m  8 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36masync\u001b[39m \u001b[36mfunction\u001b[39m recommendationResult(response\u001b[33m:\u001b[39m\u001b[33mResponse\u001b[39m)\u001b[33m:\u001b[39m\u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[33mRecommendationResult\u001b[39m\u001b[33m>\u001b[39m{\n \u001b[90m  9 |\u001b[39m   expect(response\u001b[33m.\u001b[39mok())\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m events\u001b[33m=\u001b[39m(\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mtext())\u001b[33m.\u001b[39mtrim()\u001b[33m.\u001b[39msplit(\u001b[32m'\\n'\u001b[39m)\u001b[33m.\u001b[39mfilter(\u001b[33mBoolean\u001b[39m)\u001b[33m.\u001b[39mmap(line\u001b[33m=>\u001b[39m\u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(line))\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mconst\u001b[39m terminal\u001b[33m=\u001b[39mevents\u001b[33m.\u001b[39mfilter(event\u001b[33m=>\u001b[39mevent\u001b[33m.\u001b[39mtype\u001b[33m===\u001b[39m\u001b[32m'result'\u001b[39m)\u001b[33m;\u001b[39mexpect(terminal)\u001b[33m.\u001b[39mtoHaveLength(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m   \u001b[36mreturn\u001b[39m terminal[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mresult\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                        "column": 32,
+                        "line": 10
+                      },
+                      "message": "Error: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n\n   at ui-helpers.ts:10\n\n   8 | export async function recommendationResult(response:Response):Promise<RecommendationResult>{\n   9 |   expect(response.ok()).toBe(true);\n> 10 |   const events=(await response.text()).trim().split('\\n').filter(Boolean).map(line=>JSON.parse(line));\n     |                                ^\n  11 |   const terminal=events.filter(event=>event.type==='result');expect(terminal).toHaveLength(1);\n  12 |   return terminal[0].result;\n  13 | }\n    at recommendationResult (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:10:32)\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts:16:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:17.459Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain\\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain\\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\business-chain\\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                    "column": 32,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-b333aed5050c4dd2ddf5",
+          "file": "business-browser.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:24.169Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-e3b2ba6c55a39061b395",
+          "file": "business-browser.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:27.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-ddf9ed8db8f63a479f11",
+          "file": "business-browser.spec.ts",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "文字整理采用数据库别名，数据库类别范围须确认后生效",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2664,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T15:47:29.874Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-f876b882a79fc8db4585",
+          "file": "business-browser.spec.ts",
+          "line": 67,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T15:46:57.536Z",
+    "duration": 37314.207,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

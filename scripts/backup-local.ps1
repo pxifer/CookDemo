@@ -1,10 +1,10 @@
-param([switch]$VerifyRestore)
+﻿param([switch]$VerifyRestore)
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 Push-Location -LiteralPath $projectRoot
 $probeName = $null
 $probeCreated = $false
-$compose = @('compose','--project-directory',$projectRoot,'-f','deploy/compose.local.yml')
+$compose = @('compose','--project-directory',$projectRoot,'-f','deployment/compose.local.yml')
 $suffix = [guid]::NewGuid().ToString('N')
 $containerDump = "/tmp/shiwei-$suffix.dump"
 $containerList = "/tmp/shiwei-$suffix.list"

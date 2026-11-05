@@ -1,0 +1,13 @@
+{
+  "reviewed": 196,
+  "contactSheets": 13,
+  "criteria": [
+    "菜名与主料对应",
+    "按原方成品形态展示",
+    "已列辅料及调料",
+    "无文字或水印",
+    "完整盘碗及统一暖色背景"
+  ],
+  "issues": [],
+  "tool": "built-in image_gen"
+}

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './local-browser';
 
 test.beforeEach(async ({page},info)=>{
   // The isolated gallery case must start without a workspace session request in flight.

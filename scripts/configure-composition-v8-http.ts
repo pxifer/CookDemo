@@ -1,5 +1,5 @@
 import {readFile,writeFile} from 'node:fs/promises';
-import {COMPOSITION_RELEASE,compositionHash} from '../server/composition-review';
+import {COMPOSITION_RELEASE,compositionHash} from '../backend/src/composition-review';
 async function main(){
   const revision=process.argv[2]??'v16',previousRevision=process.argv[3]??'v15';
   if(!/^v[1-9][0-9]*$/.test(revision)||!/^v[1-9][0-9]*$/.test(previousRevision))throw Error('RELEASE_REVISION');

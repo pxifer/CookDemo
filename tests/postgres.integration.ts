@@ -3,15 +3,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { randomBytes, randomUUID } from 'node:crypto';
-import { connectDatabase, migrate } from '../server/db';
-import { ProfileRepository } from '../server/repository';
-import { InvocationLedger, type Invocation } from '../server/gateway';
-import { inspectDatabase } from '../server/deployment';
+import { connectDatabase, migrate } from '../backend/src/db';
+import { ProfileRepository } from '../backend/src/repository';
+import { InvocationLedger, type Invocation } from '../backend/src/gateway';
+import { inspectDatabase } from '../backend/src/deployment';
+import { assertLocalTestDatabase } from '../scripts/lib/local-test-config';
 
 const enabled = process.env.RUN_POSTGRES_TESTS === '1';
 test('真实PostgreSQL：并行迁移、跨连接CAS/预算竞争、向量维度约束', { skip: !enabled }, async () => {
   const url = process.env.TEST_DATABASE_URL_FILE ? readFileSync(process.env.TEST_DATABASE_URL_FILE, 'utf8').trim() : process.env.TEST_DATABASE_URL;
   assert(url && new URL(url).pathname === '/shiwei_test_structure', '只允许独立 shiwei_test_structure 构造测试库');
+  assertLocalTestDatabase(url,true);
   const db = await connectDatabase(url, { max: 4 });
   const id = randomUUID(), release = `test-${id}`, source = `source-${id}`;
   try {

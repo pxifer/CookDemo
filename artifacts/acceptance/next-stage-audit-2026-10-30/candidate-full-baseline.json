@@ -1,0 +1,21 @@
+{
+  "id": "2026-10-30T06-46-57-159Z",
+  "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+  "acceptanceReport": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-30T06-04-49-269Z\\report.json",
+  "compiledEntrySha256": "0596af27cd3b91362bfb6c841c70fa345ff27ee13013a272e10b770c7023fe85",
+  "localGateComplete": true,
+  "permissionBlocked": 0,
+  "newMigrations": [
+    "20261029200000",
+    "20261029210000"
+  ],
+  "runtimeDependenciesMatched": true,
+  "targetConfigured": false,
+  "deploymentAllowed": false,
+  "secretsCopied": false,
+  "note": "Local candidate only. No cloudbaserc/credentials copied, no migration or deployment executed; target and all mandatory release evidence still required.",
+  "candidatePath": ".local-data/release-candidates/2026-10-30T06-46-57-159Z",
+  "acceptanceScope": "full_local_20_groups_passed",
+  "fullAcceptancePending": false,
+  "matchesCurrentWorkingSource": false
+}

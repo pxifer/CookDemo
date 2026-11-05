@@ -1,0 +1,20 @@
+{
+  "cause": "Previous development left six generated images without database mappings",
+  "recordIds": [
+    "R297",
+    "R329",
+    "R330",
+    "R338",
+    "R356",
+    "R370"
+  ],
+  "resolution": "Existing idempotent candidate import fills null image URLs only",
+  "after": {
+    "candidateRows": 147,
+    "dishes": 145,
+    "images": 90,
+    "curations": 9,
+    "checksumMismatches": 0,
+    "approvedImages": 0
+  }
+}

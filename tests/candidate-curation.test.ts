@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { candidateHash,curateCandidate,type CandidateCard } from '../scripts/lib/candidate-curation';
-const cards=(await readFile('docs/data/recipe-cards-v3.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s) as CandidateCard);
+const cards=(await readFile('datasets/recipes/curation/recipe-cards-v3.jsonl','utf8')).split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s) as CandidateCard);
 test('候选纠错保留原文指纹，切法不变食材，数量区间不拆行，味型与配料一致',()=>{
   const before=JSON.stringify(cards);
   const celery=curateCandidate(cards.find(c=>c.id==='R288')!)!;

@@ -1,0 +1,572 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.registration.config.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.registration.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/project-check-2026-10-29T13-11-31-444Z/registration/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/acceptance/project-check-2026-10-29T13-11-31-444Z/registration/browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/registration-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration\\browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [],
+        "testMatch": "**/registration-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4178",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx tests/registration-server.ts",
+      "url": "http://127.0.0.1:4178/healthz",
+      "reuseExistingServer": false,
+      "env": {
+        "REGISTRATION_E2E_TEST": "1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "registration-browser.spec.ts",
+      "file": "registration-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3181,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:22:13.962Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-7c0d7ca57eddc58fb40e",
+          "file": "registration-browser.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3512,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:22:17.962Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-0c7429cfc7fd843f0651",
+          "file": "registration-browser.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5564,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:22:21.510Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-84b6ac73e7da90fce51d",
+          "file": "registration-browser.spec.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60221,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 48,
+                        "line": 130
+                      },
+                      "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-q2NnLf --remote-debugging-pipe --no-startup-window\n<launched> pid=53256\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=53256][err] [53256:20784:1029/212215.081:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=53256][err] [53256:23300:1029/212215.756:ERROR:chrome\\browser\\task_manager\\providers\\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a \"Renderer\" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.\n[pid=53256][err] [53256:20784:1029/212218.197:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=53256][err] [53256:20784:1029/212221.735:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=53256][err] [53256:20784:1029/212223.810:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=53256][err] [53256:20784:1029/212224.764:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=53256][err] [53256:20784:1029/212227.320:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=53256] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for getByLabel('手动添加食材', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" maxlength=\"100\" list=\"food-names\" aria-label=\"手动添加食材\" placeholder=\"输入食材名称…\"/>\u001b[22m\n\u001b[2m    - fill(\"鸡蛋\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    116 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying fill action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  128 |   await page.getByRole('button',{name:'微辣',exact:true}).click();\n  129 |   await page.getByLabel('几个人吃',{exact:true}).fill('5');\n> 130 |   await page.getByLabel('手动添加食材',{exact:true}).fill('鸡蛋');await page.getByLabel('手动添加食材',{exact:true}).press('Enter');\n      |                                                ^\n  131 |   for(const [label,food] of [['过敏','花生'],['忌口','牛肉']]){\n  132 |     await page.locator('.preference-shortcuts').getByRole('button',{name:new RegExp(label)}).click();\n  133 |     await page.getByLabel(`${label}食物`,{exact:true}).fill(food);await page.getByRole('button',{name:'确认添加',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:130:48"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:22:27.107Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration\\browser\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration\\browser\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-desktop\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-bf21711c7f9bde118697",
+          "file": "registration-browser.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2905,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:23:29.835Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-1e52c28fdf746df3ca50",
+          "file": "registration-browser.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2526,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:23:35.581Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-6aee802deb95b0e5a2ef",
+          "file": "registration-browser.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:23:38.957Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-a52809934c82b08ca9a9",
+          "file": "registration-browser.spec.ts",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:23:41.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-cba979c78d9f2d352437",
+          "file": "registration-browser.spec.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60244,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts",
+                        "column": 48,
+                        "line": 130
+                      },
+                      "message": "Error: locator.fill: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('手动添加食材', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" maxlength=\"100\" list=\"food-names\" aria-label=\"手动添加食材\" placeholder=\"输入食材名称…\"/>\u001b[22m\n\u001b[2m    - fill(\"鸡蛋\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    114 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m        - element is not visible\u001b[22m\n\u001b[2m      - retrying fill action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  128 |   await page.getByRole('button',{name:'微辣',exact:true}).click();\n  129 |   await page.getByLabel('几个人吃',{exact:true}).fill('5');\n> 130 |   await page.getByLabel('手动添加食材',{exact:true}).fill('鸡蛋');await page.getByLabel('手动添加食材',{exact:true}).press('Enter');\n      |                                                ^\n  131 |   for(const [label,food] of [['过敏','花生'],['忌口','牛肉']]){\n  132 |     await page.locator('.preference-shortcuts').getByRole('button',{name:new RegExp(label)}).click();\n  133 |     await page.getByLabel(`${label}食物`,{exact:true}).fill(food);await page.getByRole('button',{name:'确认添加',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\registration-browser.spec.ts:130:48"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:23:46.026Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration\\browser\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\registration\\browser\\registration-browser-个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置-mobile\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-32f6f210c62062bbaa5c",
+          "file": "registration-browser.spec.ts",
+          "line": 114,
+          "column": 1
+        },
+        {
+          "title": "注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2524,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:24:48.140Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3e6ebb315368a6b84406-772c42dc92ae87ae76c0",
+          "file": "registration-browser.spec.ts",
+          "line": 153,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T13:22:05.972Z",
+    "duration": 168070.93600000002,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

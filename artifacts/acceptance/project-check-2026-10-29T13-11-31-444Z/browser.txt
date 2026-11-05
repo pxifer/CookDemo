@@ -1,0 +1,767 @@
+
+Running 44 tests using 1 worker
+
+  x   1 [desktop] › tests\browser.spec.ts:25:1 › 健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立 (30.9s)
+  ok  2 [desktop] › tests\browser.spec.ts:48:1 › D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复 (1.9s)
+  x   3 [desktop] › tests\browser.spec.ts:63:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 (30.6s)
+  ok  4 [desktop] › tests\browser.spec.ts:78:1 › B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断 (3.4s)
+  ok  5 [desktop] › tests\browser.spec.ts:94:1 › D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围 (5.2s)
+  ok  6 [desktop] › tests\browser.spec.ts:105:1 › D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配 (4.2s)
+  ok  7 [desktop] › tests\browser.spec.ts:121:1 › B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置 (3.6s)
+  x   8 [desktop] › tests\browser.spec.ts:134:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 (9.5s)
+  x   9 [desktop] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 (9.6s)
+  x  10 [desktop] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 (9.5s)
+  ok 11 [desktop] › tests\browser.spec.ts:180:1 › V-07: 编辑后晚到结果不覆盖，断流不可成功 (2.4s)
+  x  12 [desktop] › tests\browser.spec.ts:193:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 (2.3s)
+  ok 13 [desktop] › tests\browser.spec.ts:214:1 › AR-M03: 跨页面更新须明确选择，禁止静默覆盖 (3.0s)
+  ok 14 [desktop] › tests\browser.spec.ts:225:1 › 收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化 (3.2s)
+  x  15 [desktop] › tests\browser.spec.ts:252:1 › 本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏 (30.7s)
+  ok 16 [desktop] › tests\browser.spec.ts:280:1 › D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响 (3.8s)
+  x  17 [desktop] › tests\browser.spec.ts:306:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 (12.3s)
+  x  18 [desktop] › tests\browser.spec.ts:329:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 (30.6s)
+  -  19 [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核
+  -  20 [desktop] › tests\business-browser.spec.ts:35:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱
+  -  21 [desktop] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用
+  -  22 [desktop] › tests\business-browser.spec.ts:66:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效
+  x  23 [mobile] › tests\browser.spec.ts:25:1 › 健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立 (30.5s)
+  ok 24 [mobile] › tests\browser.spec.ts:48:1 › D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复 (3.1s)
+  x  25 [mobile] › tests\browser.spec.ts:63:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 (30.5s)
+  ok 26 [mobile] › tests\browser.spec.ts:78:1 › B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断 (3.8s)
+  ok 27 [mobile] › tests\browser.spec.ts:94:1 › D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围 (2.7s)
+  ok 28 [mobile] › tests\browser.spec.ts:105:1 › D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配 (2.7s)
+  ok 29 [mobile] › tests\browser.spec.ts:121:1 › B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置 (2.0s)
+  x  30 [mobile] › tests\browser.spec.ts:134:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 (9.8s)
+  x  31 [mobile] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 (10.5s)
+  x  32 [mobile] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 (10.4s)
+  ok 33 [mobile] › tests\browser.spec.ts:180:1 › V-07: 编辑后晚到结果不覆盖，断流不可成功 (3.0s)
+  x  34 [mobile] › tests\browser.spec.ts:193:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 (1.9s)
+  ok 35 [mobile] › tests\browser.spec.ts:214:1 › AR-M03: 跨页面更新须明确选择，禁止静默覆盖 (3.6s)
+  ok 36 [mobile] › tests\browser.spec.ts:225:1 › 收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化 (3.3s)
+  x  37 [mobile] › tests\browser.spec.ts:252:1 › 本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏 (30.7s)
+  ok 38 [mobile] › tests\browser.spec.ts:280:1 › D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响 (4.9s)
+  x  39 [mobile] › tests\browser.spec.ts:306:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 (12.1s)
+  x  40 [mobile] › tests\browser.spec.ts:329:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 (30.6s)
+  -  41 [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核
+  -  42 [mobile] › tests\business-browser.spec.ts:35:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱
+  -  43 [mobile] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用
+  -  44 [mobile] › tests\business-browser.spec.ts:66:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效
+
+
+  1) [desktop] › tests\browser.spec.ts:25:1 › 健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立 ─────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })
+
+
+      31 |   await parse(page, ingredients);
+      32 |   await page.getByRole('button', { name: /健康模式/ }).click();
+    > 33 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();
+         |                                                                      ^
+      34 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
+      35 |   await expect(page.getByLabel('需要关注的疾病名称（选填）', { exact: true })).toBeVisible();
+      36 |   await page.getByLabel('DeepSeek API Key', { exact: true }).fill('sk-browser-test-only-123456789');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:33:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › tests\browser.spec.ts:63:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 ──────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\彭霄\AppData\Local\Temp\playwright_chromiumdev_profile-NmjbdM --remote-debugging-pipe --no-startup-window
+    <launched> pid=63460
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=63460][err] [63460:10668:1029/211403.446:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=63460][err] [63460:10668:1029/211405.374:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=63460] <gracefully close start>
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("土豆")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        58 × waiting for element to be visible, enabled and editable
+           - element is not visible
+         - retrying fill action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+      63 | test('D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料', async ({ page }) => {
+      64 |   const input = page.getByLabel('手动添加食材', { exact: true });
+    > 65 |   await input.fill('土豆'); await input.press('Enter');
+         |               ^
+      66 |   await expect(page.getByLabel('土豆用量', { exact: true })).toHaveValue('');
+      67 |   await expect(page.getByLabel('土豆单位', { exact: true })).toHaveValue('g');
+      68 |   await page.getByLabel('土豆单位', { exact: true }).selectOption('kg');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:65:15
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop] › tests\browser.spec.ts:134:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ─────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('dialog', { name: '西兰花鸡丁' })
+    Expected substring: "微辣"
+    Received string:    "西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('dialog', { name: '西兰花鸡丁' }) with timeout 7000ms
+      - waiting for getByRole('dialog', { name: '西兰花鸡丁' })
+        18 × locator resolved to <dialog open="" aria-labelledby="modal-title">…</dialog>
+           - unexpected value "西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味"
+
+
+      142 |   await select.selectOption(values[1]); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
+      143 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: '看看做法', exact: false }).click();
+    > 144 |   await expect(page.getByRole('dialog', { name })).toContainText('微辣'); await expect(page.getByRole('dialog')).toContainText('干辣椒剪段');
+          |                                                    ^
+      145 |   await page.keyboard.press('Escape');
+      146 |   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`, fullPage: true });
+      147 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: `收藏 ${name}`, exact: true }).click();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:144:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 ──────────────────────────
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })
+    Expected: "正在换菜…"
+    Timeout: 7000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms
+      - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })
+        5 × locator resolved to <button disabled aria-busy="true" aria-label="替换 香菇土豆煲">更新中…</button>
+          - unexpected value "更新中…"
+
+
+      162 |   const target=page.getByRole('button',{name:`替换 ${before[1]}`,exact:true});
+      163 |   await target.scrollIntoViewIfNeeded();const scroll=await page.evaluate(()=>scrollY);
+    > 164 |   await target.click();await expect(target).toHaveText('正在换菜…');await expect(target).toBeDisabled();
+          |                                             ^
+      165 |   await expect(page.locator('.progress')).toHaveCount(0);
+      166 |   await expect(cards.locator('h4').nth(1)).not.toHaveText(before[1]);
+      167 |   const after=await cards.locator('h4').allTextContents();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:164:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [desktop] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 ─────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('recipe-card').first()
+    Expected substring: "用量请参考菜谱"
+    Received string:    "SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toContainText" getByTestId('recipe-card').first() with timeout 7000ms
+      - waiting for getByTestId('recipe-card').first()
+        17 × locator resolved to <article aria-busy="false" class="recipe-card" data-testid="recipe-card">…</article>
+           - unexpected value "SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗"
+
+
+      173 |   await parse(page, '鸡蛋1g'); await page.getByLabel('几个人吃', { exact: true }).fill('12');
+      174 |   await page.getByLabel('允许补买食材', { exact: false }).check(); await generate(page);
+    > 175 |   await expect(page.getByTestId('recipe-card').first()).toContainText('用量请参考菜谱');
+          |                                                         ^
+      176 |   await page.getByLabel('几个人吃', { exact: true }).fill('1.5'); await generate(page);
+      177 |   await expect(page.getByRole('alert').filter({ hasText: '人数须为 1～12 的整数' })).toBeVisible();
+      178 | });
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:175:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [desktop] › tests\browser.spec.ts:193:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 ──────────────────
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 860
+    Received:   921.375
+
+      200 |   await parse(page, ingredients);
+      201 |   expect((await page.locator('.ingredients').boundingBox())!.height).toBeLessThanOrEqual(224);
+    > 202 |   expect((await page.locator('.input-column').boundingBox())!.height).toBeLessThan(860);
+          |                                                                       ^
+      203 |   for (const width of [320, 390, 768, 1440]) { await page.setViewportSize({ width, height: 900 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }
+      204 |   await page.setViewportSize(info.project.name === 'mobile' ? { width: 390, height: 844 } : { width: 1440, height: 1000 });
+      205 |   if (info.project.name === 'mobile') { await page.locator('.preferences').scrollIntoViewIfNeeded(); await expect(page.locator('.mobile-cta')).toBeVisible(); }
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:202:71
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [desktop] › tests\browser.spec.ts:252:1 › 本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏 ────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })
+
+
+      255 |   await card.getByRole('button', { name: `收藏 ${name}`, exact: true }).click();
+      256 |   await page.getByRole('button', { name: /健康模式/ }).click();
+    > 257 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();
+          |                                                                      ^
+      258 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
+      259 |   await page.getByLabel('需要关注的疾病名称（选填）', { exact: true }).fill('偏头痛');
+      260 |   await page.getByRole('button', { name: '糖尿病', exact: true }).click();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:257:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [desktop] › tests\browser.spec.ts:306:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 ──────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.result-state')
+    Expected substring: "目录外菜谱"
+    Received string:    "为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toContainText" locator('.result-state') with timeout 7000ms
+      - waiting for locator('.result-state')
+        17 × locator resolved to <div tabindex="-1" role="status" class="result-state ">…</div>
+           - unexpected value "为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。"
+
+
+      323 |   await page.getByLabel('汤品道数', { exact: true }).fill('0');
+      324 |   await generate(page); await expect(page.locator('.result-state')).toContainText('你指定了 20 道');
+    > 325 |   await expect(page.locator('.result-state')).toContainText('目录外菜谱');
+          |                                               ^
+      326 |   await expect(page.locator('.notice')).toHaveCount(0);
+      327 | });
+      328 |
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:325:47
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [desktop] › tests\browser.spec.ts:329:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 ───────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.innerText: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('dialog', { name: '香菇土豆煲', exact: true }).locator('.nutrition-box')
+
+
+      334 |   const reference = {
+      335 |     meta: await detail.locator('.detail-meta').innerText(), amounts: await detail.locator('.detail-lines').innerText(),
+    > 336 |     steps: await detail.locator('.steps').innerText(), nutrition: await detail.locator('.nutrition-box').innerText(),
+          |                                                                                                          ^
+      337 |   };
+      338 |   await expect(detail).not.toContainText(/人份|人数|按当前.*人/);
+      339 |   await detail.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click(); await page.keyboard.press('Escape');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:336:106
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [mobile] › tests\browser.spec.ts:25:1 › 健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立 ─────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })
+
+
+      31 |   await parse(page, ingredients);
+      32 |   await page.getByRole('button', { name: /健康模式/ }).click();
+    > 33 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();
+         |                                                                      ^
+      34 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
+      35 |   await expect(page.getByLabel('需要关注的疾病名称（选填）', { exact: true })).toBeVisible();
+      36 |   await page.getByLabel('DeepSeek API Key', { exact: true }).fill('sk-browser-test-only-123456789');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:33:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [mobile] › tests\browser.spec.ts:63:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 ──────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\彭霄\AppData\Local\Temp\playwright_chromiumdev_profile-93adYN --remote-debugging-pipe --no-startup-window
+    <launched> pid=89964
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=89964][err] [89964:89504:1029/211746.493:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=89964][err] [89964:86936:1029/211747.219:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+    [pid=89964][err] [89964:89504:1029/211749.596:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=89964] <gracefully close start>
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("土豆")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        57 × waiting for element to be visible, enabled and editable
+           - element is not visible
+         - retrying fill action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+      63 | test('D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料', async ({ page }) => {
+      64 |   const input = page.getByLabel('手动添加食材', { exact: true });
+    > 65 |   await input.fill('土豆'); await input.press('Enter');
+         |               ^
+      66 |   await expect(page.getByLabel('土豆用量', { exact: true })).toHaveValue('');
+      67 |   await expect(page.getByLabel('土豆单位', { exact: true })).toHaveValue('g');
+      68 |   await page.getByLabel('土豆单位', { exact: true }).selectOption('kg');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:65:15
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [mobile] › tests\browser.spec.ts:134:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ─────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('dialog', { name: '番茄炒蛋' })
+    Expected substring: "微辣"
+    Received string:    "番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('dialog', { name: '番茄炒蛋' }) with timeout 7000ms
+      - waiting for getByRole('dialog', { name: '番茄炒蛋' })
+        17 × locator resolved to <dialog open="" aria-labelledby="modal-title">…</dialog>
+           - unexpected value "番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味"
+
+
+      142 |   await select.selectOption(values[1]); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
+      143 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: '看看做法', exact: false }).click();
+    > 144 |   await expect(page.getByRole('dialog', { name })).toContainText('微辣'); await expect(page.getByRole('dialog')).toContainText('干辣椒剪段');
+          |                                                    ^
+      145 |   await page.keyboard.press('Escape');
+      146 |   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`, fullPage: true });
+      147 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: `收藏 ${name}`, exact: true }).click();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:144:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [mobile] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 ──────────────────────────
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })
+    Expected: "正在换菜…"
+    Timeout: 7000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms
+      - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })
+        5 × locator resolved to <button disabled aria-busy="true" aria-label="替换 香菇土豆煲">更新中…</button>
+          - unexpected value "更新中…"
+
+
+      162 |   const target=page.getByRole('button',{name:`替换 ${before[1]}`,exact:true});
+      163 |   await target.scrollIntoViewIfNeeded();const scroll=await page.evaluate(()=>scrollY);
+    > 164 |   await target.click();await expect(target).toHaveText('正在换菜…');await expect(target).toBeDisabled();
+          |                                             ^
+      165 |   await expect(page.locator('.progress')).toHaveCount(0);
+      166 |   await expect(cards.locator('h4').nth(1)).not.toHaveText(before[1]);
+      167 |   const after=await cards.locator('h4').allTextContents();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:164:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [mobile] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 ─────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('recipe-card').first()
+    Expected substring: "用量请参考菜谱"
+    Received string:    "SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toContainText" getByTestId('recipe-card').first() with timeout 7000ms
+      - waiting for getByTestId('recipe-card').first()
+        17 × locator resolved to <article aria-busy="false" class="recipe-card" data-testid="recipe-card">…</article>
+           - unexpected value "SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗"
+
+
+      173 |   await parse(page, '鸡蛋1g'); await page.getByLabel('几个人吃', { exact: true }).fill('12');
+      174 |   await page.getByLabel('允许补买食材', { exact: false }).check(); await generate(page);
+    > 175 |   await expect(page.getByTestId('recipe-card').first()).toContainText('用量请参考菜谱');
+          |                                                         ^
+      176 |   await page.getByLabel('几个人吃', { exact: true }).fill('1.5'); await generate(page);
+      177 |   await expect(page.getByRole('alert').filter({ hasText: '人数须为 1～12 的整数' })).toBeVisible();
+      178 | });
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:175:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [mobile] › tests\browser.spec.ts:193:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 ──────────────────
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 860
+    Received:   870.375
+
+      200 |   await parse(page, ingredients);
+      201 |   expect((await page.locator('.ingredients').boundingBox())!.height).toBeLessThanOrEqual(224);
+    > 202 |   expect((await page.locator('.input-column').boundingBox())!.height).toBeLessThan(860);
+          |                                                                       ^
+      203 |   for (const width of [320, 390, 768, 1440]) { await page.setViewportSize({ width, height: 900 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }
+      204 |   await page.setViewportSize(info.project.name === 'mobile' ? { width: 390, height: 844 } : { width: 1440, height: 1000 });
+      205 |   if (info.project.name === 'mobile') { await page.locator('.preferences').scrollIntoViewIfNeeded(); await expect(page.locator('.mobile-cta')).toBeVisible(); }
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:202:71
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [mobile] › tests\browser.spec.ts:252:1 › 本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏 ────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })
+
+
+      255 |   await card.getByRole('button', { name: `收藏 ${name}`, exact: true }).click();
+      256 |   await page.getByRole('button', { name: /健康模式/ }).click();
+    > 257 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();
+          |                                                                      ^
+      258 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();
+      259 |   await page.getByLabel('需要关注的疾病名称（选填）', { exact: true }).fill('偏头痛');
+      260 |   await page.getByRole('button', { name: '糖尿病', exact: true }).click();
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:257:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [mobile] › tests\browser.spec.ts:306:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 ──────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.result-state')
+    Expected substring: "目录外菜谱"
+    Received string:    "为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。"
+    Timeout: 7000ms
+
+    Call log:
+      - Expect "toContainText" locator('.result-state') with timeout 7000ms
+      - waiting for locator('.result-state')
+        18 × locator resolved to <div tabindex="-1" role="status" class="result-state ">…</div>
+           - unexpected value "为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。"
+
+
+      323 |   await page.getByLabel('汤品道数', { exact: true }).fill('0');
+      324 |   await generate(page); await expect(page.locator('.result-state')).toContainText('你指定了 20 道');
+    > 325 |   await expect(page.locator('.result-state')).toContainText('目录外菜谱');
+          |                                               ^
+      326 |   await expect(page.locator('.notice')).toHaveCount(0);
+      327 | });
+      328 |
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:325:47
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [mobile] › tests\browser.spec.ts:329:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 ───────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.innerText: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('dialog', { name: '香菇土豆煲', exact: true }).locator('.nutrition-box')
+
+
+      334 |   const reference = {
+      335 |     meta: await detail.locator('.detail-meta').innerText(), amounts: await detail.locator('.detail-lines').innerText(),
+    > 336 |     steps: await detail.locator('.steps').innerText(), nutrition: await detail.locator('.nutrition-box').innerText(),
+          |                                                                                                          ^
+      337 |   };
+      338 |   await expect(detail).not.toContainText(/人份|人数|按当前.*人/);
+      339 |   await detail.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click(); await page.keyboard.press('Escape');
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\browser.spec.ts:336:106
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18 failed
+    [desktop] › tests\browser.spec.ts:25:1 › 健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立 ──────────────────────
+    [desktop] › tests\browser.spec.ts:63:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 ───────────────────────
+    [desktop] › tests\browser.spec.ts:134:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ──────────────────
+    [desktop] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 ───────────────────────────
+    [desktop] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 ──────────────────────────
+    [desktop] › tests\browser.spec.ts:193:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 ───────────────────
+    [desktop] › tests\browser.spec.ts:252:1 › 本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏 ─────────────────
+    [desktop] › tests\browser.spec.ts:306:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 ───────────
+    [desktop] › tests\browser.spec.ts:329:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 ────────────────
+    [mobile] › tests\browser.spec.ts:25:1 › 健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立 ───────────────────────
+    [mobile] › tests\browser.spec.ts:63:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 ────────────────────────
+    [mobile] › tests\browser.spec.ts:134:1 › AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查 ───────────────────
+    [mobile] › tests\browser.spec.ts:154:1 › 单换保持卡片位置和当前滚动，加载提示只出现在目标按钮 ────────────────────────────
+    [mobile] › tests\browser.spec.ts:172:1 › B03/B04: 单位不能换算不冒充足量，非法人数拦截 ───────────────────────────
+    [mobile] › tests\browser.spec.ts:193:1 › D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误 ────────────────────
+    [mobile] › tests\browser.spec.ts:252:1 › 本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏 ──────────────────
+    [mobile] › tests\browser.spec.ts:306:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 ────────────
+    [mobile] › tests\browser.spec.ts:329:1 › D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变 ─────────────────
+  8 skipped
+  18 passed (7.6m)

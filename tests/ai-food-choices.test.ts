@@ -1,15 +1,15 @@
-import { healthChatRecipes } from '../server/health-chat-recipes';
+import { healthChatRecipes } from '../backend/src/health-chat-recipes';
 import { mergeAccountValues, reconcileAccountValues } from '../shared/account-merge';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderToStaticMarkup } from 'react-dom/server';
 import React from 'react';
-import { ChatMarkdown } from '../src/chat-markdown';
-import { recommend,checkDish } from '../server/recommendation';
+import { ChatMarkdown } from '../frontend/src/chat-markdown';
+import { recommend,checkDish } from '../backend/src/recommendation';
 import { constructedContent as context } from '../shared/catalog';
 import { mealWith,request,simpleRecipe } from './fixtures';
 import { personalSettings, applyPersonalSettings } from '../shared/account';
-import { requestHealthChat } from '../server/health-chat';
+import { requestHealthChat } from '../backend/src/health-chat';
 
 test('截图中的Markdown按强调和列表呈现，模型HTML/脚本/链接不执行',()=>{
   const html=renderToStaticMarkup(React.createElement(ChatMarkdown,{text:'**1. 蔬菜（每天尽量多安排） **\n- **菠菜**：说明\n- 西红柿\n\n<script>alert(1)</script>\n[危险链接](javascript:alert(1))'}));

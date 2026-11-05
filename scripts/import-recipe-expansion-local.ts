@@ -1,13 +1,13 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { connectDatabase, type Database } from '../server/db';
+import { connectDatabase, type Database } from '../backend/src/db';
 
 type Row = { rank:number; tier:number; dish_key:string; ingredientEntryCount:number; method:string; source:string;
   sourceUri:string; recipe:{id:string;dish_key:string;flavor:string;category:string;url:string;author:string;source:string;[key:string]:unknown} };
 const batchPrefix='recipe-expansion-20261026';
-const data=(await readFile('docs/data/recipe-expansion-simple-v1.jsonl','utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line) as Row);
-const editorialDrafts=(await readFile('docs/data/recipe-original-drafts-2026-10-26.jsonl','utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line) as Row);
+const data=(await readFile('datasets/recipes/curation/recipe-expansion-simple-v1.jsonl','utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line) as Row);
+const editorialDrafts=(await readFile('datasets/recipes/curation/recipe-original-drafts-2026-10-26.jsonl','utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line) as Row);
 if(new Set(data.map(row=>row.dish_key)).size!==200||new Set(data.map(row=>row.recipe.id)).size!==data.length||data.some(row=>row.rank<1||row.rank>200))throw Error('EXPANSION_PACK_INVALID');
 const stable=(value:unknown)=>JSON.stringify(value,(_key,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.keys(item).sort().map(key=>[key,item[key]])):item);
 const hash=(value:unknown)=>createHash('sha256').update(stable(value)).digest('hex');

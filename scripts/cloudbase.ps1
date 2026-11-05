@@ -1,14 +1,15 @@
-param([ValidateSet('Inspect','Capabilities','Plan','Apply','History','Login')][string]$Task = 'Inspect')
+﻿param([ValidateSet('Inspect','Capabilities','Plan','Apply','History','Login')][string]$Task = 'Inspect')
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $targetEnv = 'shiwei-d2gmiun66b7dc6a4f'
 $targetRegion = 'ap-shanghai'
 $nodeExecutable = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'
 if (-not (Test-Path -LiteralPath $nodeExecutable)) { $nodeExecutable = (Get-Command node -ErrorAction Stop).Source }
-if ((& $nodeExecutable -p 'process.versions.node.split(".")[0]') -ne '24') { throw '需要Node.js 24' }
-$cliRoot = Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli'
+$selectedNodeVersion = & $nodeExecutable --version
+if ($LASTEXITCODE -ne 0 -or $selectedNodeVersion -notmatch '^v24\.') { throw '需要Node.js 24' }
+$cliRoot = Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli'
 $cliPackage = Get-Content -LiteralPath (Join-Path $cliRoot 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-if ($cliPackage.name -ne '@cloudbase/cli' -or $cliPackage.version -ne '3.8.7') { throw '需要已核验的官方CloudBase CLI 3.8.7，见操作手册' }
+if ($cliPackage.name -ne '@deployment/cloudbase/cli' -or $cliPackage.version -ne '3.8.7') { throw '需要已核验的官方CloudBase CLI 3.8.7，见操作手册' }
 $cliEntry = Join-Path $cliRoot 'bin/tcb'
 $env:TCB_NO_BROWSER = 'true'
 
@@ -87,7 +88,7 @@ try {
         readOnly = $true; releaseReady = $false; checks = $checks } | ConvertTo-Json -Depth 12
     }
     'Inspect' {
-      $inspectionSql = Get-Content -LiteralPath (Join-Path $projectRoot 'deploy/db/cloudbase-verify.sql') -Raw -Encoding UTF8
+      $inspectionSql = Get-Content -LiteralPath (Join-Path $projectRoot 'deployment/db/cloudbase-verify.sql') -Raw -Encoding UTF8
       $response = Invoke-CloudJson -CloudArguments @('db','execute','-e',$targetEnv,'--region',$targetRegion,'--role','cloudbase_postgres','--sql',$inspectionSql,'--json')
       $values = @($response.data.Rows[0] | ConvertFrom-Json)
       $result = $values[0] | ConvertFrom-Json
@@ -99,7 +100,7 @@ try {
       if ($result.migrations.Count -ne $expectedMigrations.Count -or -not $result.vector.version -or $result.vector.schema -ne 'extensions') { throw '迁移账本/vector核验未通过' }
       for ($migrationIndex = 0; $migrationIndex -lt $expectedMigrations.Count; $migrationIndex++) {
         $migrationName = $expectedMigrations[$migrationIndex]
-        $migrationSource = (Get-Content -LiteralPath (Join-Path $projectRoot "server/migrations/$migrationName") -Raw -Encoding UTF8).Replace("`r`n","`n")
+        $migrationSource = (Get-Content -LiteralPath (Join-Path $projectRoot "backend/src/migrations/$migrationName") -Raw -Encoding UTF8).Replace("`r`n","`n")
         $migrationHasher = [Security.Cryptography.SHA256]::Create()
         try { $migrationHash = [BitConverter]::ToString($migrationHasher.ComputeHash([Text.Encoding]::UTF8.GetBytes($migrationSource))).Replace('-','').ToLowerInvariant() }
         finally { $migrationHasher.Dispose() }

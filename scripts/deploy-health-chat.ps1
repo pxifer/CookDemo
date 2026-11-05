@@ -2,12 +2,12 @@ param([ValidateSet('Plan','Apply','Function')][string]$Task='Plan',[ValidateSet(
 $ErrorActionPreference='Stop'
 $project=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $node=Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe'
-$cli=Join-Path $project '.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb'
+$cli=Join-Path $project '.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb'
 $package=Join-Path $project ".local-data/cloudbase-http/release-20261027-health-chat-$Revision"
 $migration=Join-Path $package 'migration'
 $previousConfig=Join-Path $project '.local-data/cloudbase-http/release-20261027-all-recipe-images-v32/cloudbaserc.json'
 if((Get-FileHash -LiteralPath $previousConfig).Hash -ne (Get-FileHash -LiteralPath (Join-Path $package 'cloudbaserc.json')).Hash){throw 'Existing deployment configuration changed'}
-if((Get-FileHash -LiteralPath (Join-Path $project 'build/web/index.html')).Hash -ne (Get-FileHash -LiteralPath (Join-Path $package 'function/build/web/index.html')).Hash){throw 'Packaged UI differs from tested build'}
+if((Get-FileHash -LiteralPath (Join-Path $project 'artifacts/build/web/index.html')).Hash -ne (Get-FileHash -LiteralPath (Join-Path $package 'function/build/web/index.html')).Hash){throw 'Packaged UI differs from tested artifacts/build'}
 $networkEnvironment=@{HTTP_PROXY='';HTTPS_PROXY='';ALL_PROXY='';NO_PROXY='*';TCB_NO_BROWSER='true';NO_UPDATE_NOTIFIER='true'}
 function Invoke-PrivateCloud([string]$Label,[string[]]$CloudArguments,[string]$Directory=$package){
   $stdout=Join-Path $package "$Label.stdout.private.txt";$stderr=Join-Path $package "$Label.stderr.private.txt"

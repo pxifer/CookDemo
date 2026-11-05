@@ -1,0 +1,42 @@
+✖ candidate gallery reads unapproved recipes only in local mode and keeps them unpublished (399.8344ms)
+✖ 鱼和玉米：过敏及忌口均可返回已核实菜谱，现有库存不强迫使用被限制食材 (106.6978ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1326.6044
+
+✖ failing tests:
+
+test at tests\candidate-library.test.ts:15:1
+✖ candidate gallery reads unapproved recipes only in local mode and keeps them unpublished (399.8344ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'candidate_only'
+  
+      at TestContext.<anonymous> (D:\codex_AI\菜谱推荐\CookDemo\tests\candidate-library.test.ts:29:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'candidate_only',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\composition-review.test.ts:34:1
+✖ 鱼和玉米：过敏及忌口均可返回已核实菜谱，现有库存不强迫使用被限制食材 (106.6978ms)
+  Error: COMPOSITION_CORRECTION_MISMATCH
+      at reviewSnapshot (D:\codex_AI\菜谱推荐\CookDemo\server\composition-review.ts:52:110)
+      at buildCompositionRelease (D:\codex_AI\菜谱推荐\CookDemo\server\composition-review.ts:105:95)
+      at fixture (D:\codex_AI\菜谱推荐\CookDemo\tests\composition-review.test.ts:25:16)
+      at async TestContext.<anonymous> (D:\codex_AI\菜谱推荐\CookDemo\tests\composition-review.test.ts:35:19)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

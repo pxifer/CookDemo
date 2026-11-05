@@ -1,0 +1,8 @@
+D:\codex_AI\菜谱推荐\CookDemo\scripts\freeze-evaluation-set.ts:11
+  if(a?.status!=='reviewed'||a.sourceVerified!==true||!Number.isFinite(Date.parse(a.reviewedAt))||!Array.isArray(a.reviewers)||new Set(a.reviewers).size<(row.dimension==='disease'?2:1)||a.reviewers.includes(a.author)||a.reviewers.some((name:unknown)=>typeof name!=='string'||!name.trim()))throw Error(`INDEPENDENT_REVIEW_PENDING:${row.id}`);
+                                                                                                                                                                                                                                                                                                       ^
+
+Error: INDEPENDENT_REVIEW_PENDING:recognition-001
+    at <anonymous> (D:\codex_AI\菜谱推荐\CookDemo\scripts\freeze-evaluation-set.ts:11:296)
+
+Node.js v24.22.1

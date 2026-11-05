@@ -6,7 +6,7 @@ const root='.local-data/cloudbase-http/account-ingredients-20261024';
 const files=['fixtures.private.json','initial-password-fixtures.private.json'];
 const allowed=new Set(['shiwei-test-20261024-a','shiwei-test-20261024-b','shiwei-test-20261024-initial-desktop','shiwei-test-20261024-initial-mobile']);
 async function command(args:string[]){
-  const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e','shiwei-d2gmiun66b7dc6a4f','--region','ap-shanghai','--json'],{maxBuffer:1024*1024});
+  const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb',...args,'-e','shiwei-d2gmiun66b7dc6a4f','--region','ap-shanghai','--json'],{maxBuffer:1024*1024});
   const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('FIXTURE_CLEANUP_CLOUD_ERROR');return result;
 }
 async function main(){
@@ -30,7 +30,7 @@ async function main(){
   }
   const deletedAt=new Date().toISOString();
   for(const group of groups)await writeFile(`${root}/${group.name}`,JSON.stringify(group.records.map(r=>({...r,deletedAt}))),{mode:0o600});
-  await writeFile('acceptance/account-ingredients-2026-10-24/fixture-cleanup.json',JSON.stringify({deletedAt,syntheticAccountsDeleted:4,syntheticStateDeleted:true,projectOwnerUntouched:true,administratorUntouched:true,credentialsPrinted:false},null,2),{flag:'wx'});
+  await writeFile('artifacts/acceptance/account-ingredients-2026-10-24/fixture-cleanup.json',JSON.stringify({deletedAt,syntheticAccountsDeleted:4,syntheticStateDeleted:true,projectOwnerUntouched:true,administratorUntouched:true,credentialsPrinted:false},null,2),{flag:'wx'});
   console.log('Four synthetic accounts and their test state removed; owner and administrator untouched');
 }
 main().catch(()=>{console.error('FIXTURE_CLEANUP_FAILED_NO_CREDENTIALS_PRINTED');process.exitCode=1;});

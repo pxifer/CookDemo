@@ -1,0 +1,1 @@
+{"mode":"mock_contract_only","total":6,"contractPassed":6,"qualityPassed":null,"report":"D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T06-00-18-366Z\\ai-contract\\report.json"}

@@ -1,5 +1,5 @@
-import completion from '../docs/data/recipe-image-completion-2026-10-25.json';
-import additions from '../docs/data/recipe-image-additions-2026-10-27.json';
+import completion from '../datasets/recipes/curation/recipe-image-completion-2026-10-25.json';
+import additions from '../datasets/recipes/curation/recipe-image-additions-2026-10-27.json';
 
 // Versioned presentation assets are independent of immutable ingredient releases.
 const images = new Map([...completion, ...additions].map(item => [item.dish, item.image]));

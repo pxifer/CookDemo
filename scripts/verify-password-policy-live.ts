@@ -2,10 +2,10 @@ import { readFile,writeFile } from 'node:fs/promises';
 import { randomBytes } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { CloudBaseAccounts } from '../server/cloudbase-accounts';
+import { CloudBaseAccounts } from '../backend/src/cloudbase-accounts';
 const execute=promisify(execFile),envId='shiwei-d2gmiun66b7dc6a4f',root='.local-data/cloudbase-http/password-feedback-20261024';
 async function cli(args:string[]){
-  const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024});
+  const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024});
   const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;
 }
 async function main(){
@@ -33,7 +33,7 @@ async function main(){
       if((deleted.Data?.SuccessCount??deleted.SuccessCount)!==1)throw Error('CLEANUP_NOT_CONFIRMED');cleaned=true;
     }
     report.cleanup=cleaned;
-    await writeFile('acceptance/password-feedback-2026-10-24/provider-password-policy.json',JSON.stringify(report,null,2),{flag:'wx'});
+    await writeFile('artifacts/acceptance/password-feedback-2026-10-24/provider-password-policy.json',JSON.stringify(report,null,2),{flag:'wx'});
   }
   if(!report.oldPasswordRejected)throw Error('OLD_PASSWORD_STILL_VALID');console.log(JSON.stringify(report));
 }

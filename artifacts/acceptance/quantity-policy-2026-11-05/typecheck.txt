@@ -1,0 +1,4 @@
+Observed command exit code: 0
+Node.js 24; node_modules/typescript/bin/tsc --noEmit
+Node.js 24; node_modules/typescript/bin/tsc --noEmit -p tsconfig.acceptance.json
+Both commands completed with no diagnostics.

@@ -1,0 +1,269 @@
+
+Running 8 tests using 1 worker
+
+  x  1 [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 (30.6s)
+  ok 2 [desktop] › tests\business-browser.spec.ts:35:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱 (2.6s)
+  x  3 [desktop] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 (30.7s)
+  ok 4 [desktop] › tests\business-browser.spec.ts:66:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效 (3.7s)
+  x  5 [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 (30.6s)
+  ok 6 [mobile] › tests\business-browser.spec.ts:35:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱 (925ms)
+  x  7 [mobile] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 (30.6s)
+  ok 8 [mobile] › tests\business-browser.spec.ts:66:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效 (4.0s)
+
+
+  1) [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ──────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\彭霄\AppData\Local\Temp\playwright_chromiumdev_profile-xYO8hq --remote-debugging-pipe --no-startup-window
+    <launched> pid=47604
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=47604][err] [47604:90268:1029/212500.580:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=47604][err] [47604:36656:1029/212501.292:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+    [pid=47604] <gracefully close start>
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("构造角瓜")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        56 × waiting for element to be visible, enabled and editable
+           - element is not visible
+         - retrying fill action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+       7 |   await page.goto('/');
+       8 |   await expect(page.getByText('本地构造测试内容：食谱与营养值仅用于功能验证。')).toHaveCount(0);
+    >  9 |   await page.getByLabel('手动添加食材',{exact:true}).fill('构造角瓜');
+         |                                                ^
+      10 |   await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+      11 | }
+      12 | test('数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核',async ({page},info) => {
+        at add (D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:9:48)
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:13:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 ─────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("构造角瓜")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        57 × waiting for element to be visible, enabled and editable
+           - element is not visible
+         - retrying fill action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+       7 |   await page.goto('/');
+       8 |   await expect(page.getByText('本地构造测试内容：食谱与营养值仅用于功能验证。')).toHaveCount(0);
+    >  9 |   await page.getByLabel('手动添加食材',{exact:true}).fill('构造角瓜');
+         |                                                ^
+      10 |   await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+      11 | }
+      12 | test('数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核',async ({page},info) => {
+        at add (D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:9:48)
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:49:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ───────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\彭霄\AppData\Local\Temp\playwright_chromiumdev_profile-lHgQmj --remote-debugging-pipe --no-startup-window
+    <launched> pid=39308
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=39308][err] [39308:22460:1029/212617.666:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=39308][err] [39308:19368:1029/212618.330:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+    [pid=39308] <gracefully close start>
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("构造角瓜")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        57 × waiting for element to be visible, enabled and editable
+           - element is not visible
+         - retrying fill action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+       7 |   await page.goto('/');
+       8 |   await expect(page.getByText('本地构造测试内容：食谱与营养值仅用于功能验证。')).toHaveCount(0);
+    >  9 |   await page.getByLabel('手动添加食材',{exact:true}).fill('构造角瓜');
+         |                                                ^
+      10 |   await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+      11 | }
+      12 | test('数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核',async ({page},info) => {
+        at add (D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:9:48)
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:13:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\business-chain\business-browser-数据库专有食材→推荐→步骤-营养→变体→收藏刷新复核-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [mobile] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 ──────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\彭霄\AppData\Local\Temp\playwright_chromiumdev_profile-NzXWXd --remote-debugging-pipe --no-startup-window
+    <launched> pid=24260
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] libpng warning: iCCP: known incorrect sRGB profile
+    [pid=24260][err] [24260:26964:1029/212651.066:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=24260][err] [24260:26964:1029/212651.778:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.
+    [pid=24260] <gracefully close start>
+    Call log:
+      - waiting for getByLabel('手动添加食材', { exact: true })
+        - locator resolved to <input value="" maxlength="100" list="food-names" aria-label="手动添加食材" placeholder="输入食材名称…"/>
+        - fill("构造角瓜")
+      - attempting fill action
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and editable
+          - element is not visible
+        - retrying fill action
+          - waiting 100ms
+        58 × waiting for element to be visible, enabled and editable
+           - element is not visible
+         - retrying fill action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and editable
+
+
+       7 |   await page.goto('/');
+       8 |   await expect(page.getByText('本地构造测试内容：食谱与营养值仅用于功能验证。')).toHaveCount(0);
+    >  9 |   await page.getByLabel('手动添加食材',{exact:true}).fill('构造角瓜');
+         |                                                ^
+      10 |   await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+      11 | }
+      12 | test('数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核',async ({page},info) => {
+        at add (D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:9:48)
+        at D:\codex_AI\菜谱推荐\CookDemo\tests\business-browser.spec.ts:49:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\business-chain\business-browser-候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ───────────────────
+    [desktop] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 ──────────────
+    [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 ────────────────────
+    [mobile] › tests\business-browser.spec.ts:48:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 ───────────────
+  4 passed (2.6m)

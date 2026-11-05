@@ -1,0 +1,23 @@
+[WebServer] (node:25768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:60084) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\health-chat-browser.spec.ts:14:1 › Key随账户恢复、无健康弹框、不入浏览器存储，清空可停用 (6.7s)
+  ok  2 [desktop] › tests\health-chat-browser.spec.ts:25:1 › 健康目标和推荐/不推荐自动保存恢复；既有过敏忌口不重复；本餐筛选保持输入 (6.3s)
+  ok  3 [desktop] › tests\health-chat-browser.spec.ts:39:1 › 多轮、取消和Key错误保留输入；桌面手机不横向溢出 (4.8s)
+  ok  4 [desktop] › tests\health-chat-browser.spec.ts:47:1 › 三栏分别接受并保存、页内查看做法、提示自动消失，搭配后定位菜品 (8.9s)
+  ok  5 [desktop] › tests\health-chat-browser.spec.ts:64:1 › 病症独立接受取消与综合、删病撤销约束、模式开关保留对话 (7.9s)
+  ok  6 [desktop] › tests\health-chat-browser.spec.ts:97:1 › 普通个人设置尚在保存时，更换Key等待同步并只提交一次 (5.6s)
+(node:17996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  7 [mobile] › tests\health-chat-browser.spec.ts:14:1 › Key随账户恢复、无健康弹框、不入浏览器存储，清空可停用 (3.5s)
+  ok  8 [mobile] › tests\health-chat-browser.spec.ts:25:1 › 健康目标和推荐/不推荐自动保存恢复；既有过敏忌口不重复；本餐筛选保持输入 (3.8s)
+  ok  9 [mobile] › tests\health-chat-browser.spec.ts:39:1 › 多轮、取消和Key错误保留输入；桌面手机不横向溢出 (2.7s)
+  ok 10 [mobile] › tests\health-chat-browser.spec.ts:47:1 › 三栏分别接受并保存、页内查看做法、提示自动消失，搭配后定位菜品 (7.1s)
+  ok 11 [mobile] › tests\health-chat-browser.spec.ts:64:1 › 病症独立接受取消与综合、删病撤销约束、模式开关保留对话 (6.3s)
+  ok 12 [mobile] › tests\health-chat-browser.spec.ts:97:1 › 普通个人设置尚在保存时，更换Key等待同步并只提交一次 (3.5s)
+
+  12 passed (1.9m)

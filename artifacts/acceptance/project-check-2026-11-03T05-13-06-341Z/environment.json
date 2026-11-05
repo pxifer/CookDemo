@@ -1,0 +1,43 @@
+{
+  "runtime": "24.22.1",
+  "platform": "win32",
+  "sandboxedLocalAppData": true,
+  "tcp": [
+    {
+      "port": 4175,
+      "state": "permission_blocked",
+      "code": "EACCES"
+    },
+    {
+      "port": 4178,
+      "state": "permission_blocked",
+      "code": "EACCES"
+    },
+    {
+      "port": 4181,
+      "state": "permission_blocked",
+      "code": "EACCES"
+    },
+    {
+      "port": 4198,
+      "state": "permission_blocked",
+      "code": "EACCES"
+    },
+    {
+      "port": 5432,
+      "state": "permission_blocked",
+      "code": "EACCES"
+    }
+  ],
+  "docker": {
+    "state": "unavailable",
+    "code": "DOCKER_DAEMON_UNAVAILABLE"
+  },
+  "configurationFiles": {
+    "appDatabase": true,
+    "ownerDatabase": true,
+    "structureTestDatabase": true,
+    "businessEnvironment": true
+  },
+  "note": "Availability checks only; no database created, service started, security policy changed, credential contents printed or network restriction bypassed."
+}

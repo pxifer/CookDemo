@@ -1,0 +1,9 @@
+{
+  "state": "verified",
+  "sources": 11,
+  "evidence": 98,
+  "preservedV1Facts": 155,
+  "newFacts": 105,
+  "visualExcerpts": 10,
+  "note": "Character locators and original file/image hashes verified; the ten image excerpts were manually read, not claimed to be OCR. Not clinical review."
+}

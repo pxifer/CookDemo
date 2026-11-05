@@ -1,0 +1,666 @@
+{
+  "state": "research_results",
+  "clinicalRelease": null,
+  "executionAllowed": false,
+  "index": "lexical-v1",
+  "hits": [
+    {
+      "fact": {
+        "id": "fact:gout-prefer-milk",
+        "kind": "food_guidance",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "f:milk",
+        "quantity": null,
+        "predicate": "prefer",
+        "statement": "指南有直接食物层面支持，仍核对个体限制。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:aeb6550f1008ab9af38824ce8419faf94e9fc4a77663faad130b63ed129ee79b"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 8,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:aeb6550f1008ab9af38824ce8419faf94e9fc4a77663faad130b63ed129ee79b",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 134,
+            "kind": "pdf_normalized_text",
+            "start": 40,
+            "pdfPage": 8,
+            "section": "三（二）蔬菜和乳蛋白",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:milk-protein",
+        "kind": "food_component",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "c:milk-protein",
+        "quantity": null,
+        "predicate": "contains",
+        "statement": "奶类含乳蛋白，过敏和其他限制另行核验。",
+        "subjectId": "f:milk",
+        "validFrom": "2026-10-28",
+        "conditions": [],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:aeb6550f1008ab9af38824ce8419faf94e9fc4a77663faad130b63ed129ee79b"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 5,
+      "applicability": "applicable_for_research",
+      "citations": [
+        {
+          "evidenceId": "ev:aeb6550f1008ab9af38824ce8419faf94e9fc4a77663faad130b63ed129ee79b",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 134,
+            "kind": "pdf_normalized_text",
+            "start": 40,
+            "pdfPage": 8,
+            "section": "三（二）蔬菜和乳蛋白",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:nhc-purine-milk",
+        "kind": "food_component",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "c:purines",
+        "quantity": {
+          "kind": "classification_range",
+          "unit": "mg",
+          "lower": null,
+          "upper": 30,
+          "value": null,
+          "method": "Guideline Table 1-1; secondary classification, not a sample measurement",
+          "category": "low",
+          "basisUnit": "g",
+          "basisAmount": 100,
+          "upperExclusive": true
+        },
+        "predicate": "contains",
+        "statement": "指南嘌呤分类范围；不取中点、不转为每餐限量，不据此自动禁止食物。",
+        "subjectId": "f:milk",
+        "validFrom": "2026-10-28",
+        "conditions": [],
+        "directness": "guideline_classification",
+        "evidenceIds": [
+          "ev:fa0fed61b955bc0ba0b430976357c190813a965e8752105b2e69753d85ceed02"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 5,
+      "applicability": "applicable_for_research",
+      "citations": [
+        {
+          "evidenceId": "ev:fa0fed61b955bc0ba0b430976357c190813a965e8752105b2e69753d85ceed02",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 370,
+            "kind": "pdf_normalized_text",
+            "start": 13,
+            "pdfPage": 13,
+            "section": "附录1/表1-1",
+            "printedPage": 11,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-alcohol",
+        "kind": "food_guidance",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "f:alcohol",
+        "quantity": null,
+        "predicate": "limit",
+        "statement": "通常限制饮酒；明确避酒条件应优先覆盖本条。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 603,
+            "kind": "pdf_normalized_text",
+            "start": 434,
+            "pdfPage": 8,
+            "section": "三（三）饮酒",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-alcohol-avoid",
+        "kind": "food_guidance",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "f:alcohol",
+        "quantity": null,
+        "predicate": "avoid",
+        "statement": "急性痛风发作、药物控制不佳或慢性痛风性关节炎任一时不饮酒。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          },
+          {
+            "key": "goutAlcoholAvoidanceContext",
+            "values": [
+              "acute_attack",
+              "poor_control",
+              "chronic_gouty_arthritis"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 603,
+            "kind": "pdf_normalized_text",
+            "start": 434,
+            "pdfPage": 8,
+            "section": "三（三）饮酒",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-avoid-kidney",
+        "kind": "food_guidance",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "f:kidney",
+        "quantity": null,
+        "predicate": "avoid",
+        "statement": "指南尽量避免选择动物内脏，不靠浓度阈值推导。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:51b5772e6d9f7c74700ade2c7f2237d1d13bdc1b0561f3c0559897feb0109ac6"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:51b5772e6d9f7c74700ade2c7f2237d1d13bdc1b0561f3c0559897feb0109ac6",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 266,
+            "kind": "pdf_normalized_text",
+            "start": 211,
+            "pdfPage": 7,
+            "section": "三（一）内脏与蛋奶",
+            "printedPage": 5,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-avoid-liver",
+        "kind": "food_guidance",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "f:liver",
+        "quantity": null,
+        "predicate": "avoid",
+        "statement": "指南尽量避免选择动物内脏，不靠浓度阈值推导。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:51b5772e6d9f7c74700ade2c7f2237d1d13bdc1b0561f3c0559897feb0109ac6"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:51b5772e6d9f7c74700ade2c7f2237d1d13bdc1b0561f3c0559897feb0109ac6",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 266,
+            "kind": "pdf_normalized_text",
+            "start": 211,
+            "pdfPage": 7,
+            "section": "三（一）内脏与蛋奶",
+            "printedPage": 5,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-cured-meat",
+        "kind": "food_guidance",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "f:cured-meat",
+        "quantity": null,
+        "predicate": "avoid",
+        "statement": "指南列举腊腌熏肉不宜食用；不扩展到所有鲜肉。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:81b157f8456f2b8932640333bcdfeb27c40b4e089e37c3f23a8558cbfcb7d64c"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:81b157f8456f2b8932640333bcdfeb27c40b4e089e37c3f23a8558cbfcb7d64c",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 177,
+            "kind": "pdf_normalized_text",
+            "start": 140,
+            "pdfPage": 9,
+            "section": "三（四）加工肉",
+            "printedPage": 7,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-ethanol",
+        "kind": "disease_component",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "c:ethanol",
+        "quantity": null,
+        "predicate": "adverse",
+        "statement": "酒精可增加尿酸生成并减少排泄；低嘌呤酒仍有酒精风险。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": false,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": []
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 603,
+            "kind": "pdf_normalized_text",
+            "start": 434,
+            "pdfPage": 8,
+            "section": "三（三）饮酒",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "fact": {
+        "id": "fact:gout-fructose",
+        "kind": "disease_component",
+        "scope": "qualitative",
+        "version": "2026-10-28-v1",
+        "objectId": "c:fructose",
+        "quantity": null,
+        "predicate": "adverse",
+        "statement": "高果糖食品的限制需区分完整水果。",
+        "subjectId": "d:gout",
+        "validFrom": "2026-10-28",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "renalFunction",
+            "values": [
+              "normal"
+            ]
+          },
+          {
+            "key": "complexComorbidity",
+            "values": [
+              "no"
+            ]
+          }
+        ],
+        "directness": "source_statement",
+        "evidenceIds": [
+          "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c"
+        ],
+        "reviewState": "source_checked",
+        "withdrawnAt": null,
+        "doseDependent": true,
+        "clinicalReview": "pending",
+        "sourceVersions": {
+          "nhc-gout-2024": "2024"
+        },
+        "qualifyingEvidenceIds": [
+          "ev:fe963bdc951d4f6abc6bad4fab952345e0bb9affe402cb0e67d80558f8a47ef9"
+        ]
+      },
+      "score": 4,
+      "applicability": "needs_confirmation",
+      "citations": [
+        {
+          "evidenceId": "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 204,
+            "kind": "pdf_normalized_text",
+            "start": 134,
+            "pdfPage": 8,
+            "section": "三（二）果糖和食品",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        },
+        {
+          "evidenceId": "ev:fe963bdc951d4f6abc6bad4fab952345e0bb9affe402cb0e67d80558f8a47ef9",
+          "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+          "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+          "locator": {
+            "end": 291,
+            "kind": "pdf_normalized_text",
+            "start": 204,
+            "pdfPage": 8,
+            "section": "三（二）完整水果例外",
+            "printedPage": 6,
+            "normalization": "remove_unicode_whitespace_v1"
+          },
+          "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+        }
+      ],
+      "conflicts": []
+    }
+  ]
+}

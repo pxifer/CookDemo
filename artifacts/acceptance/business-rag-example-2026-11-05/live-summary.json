@@ -1,0 +1,67 @@
+{
+  "authorizationDate": "2026-11-05",
+  "ceilingCny": 1,
+  "agentVerificationAttempts": 5,
+  "allRequestsHaveSupplierResponses": true,
+  "peakCacheMissCostUpperCny": 0.070274,
+  "reservedCny": 0.46519599999999994,
+  "calls": [
+    {
+      "number": 1,
+      "started": "2026-11-05T05:45:53.401Z",
+      "reservedCny": 0.101998,
+      "status": "response_received",
+      "httpStatus": 200,
+      "peakCostUpperCny": 0.017452,
+      "requestId": "1a9e195f-c13d-465b-9ee7-5e1f8d91dad0",
+      "model": "deepseek-flash",
+      "finished": "2026-11-05T05:45:55.344Z"
+    },
+    {
+      "number": 2,
+      "started": "2026-11-05T05:59:28.001Z",
+      "reservedCny": 0.073904,
+      "status": "response_received",
+      "httpStatus": 200,
+      "peakCostUpperCny": 0.007912,
+      "requestId": "d1f2f01c-a516-4fc6-a7ec-ad72774ce2b5",
+      "model": "deepseek-flash",
+      "finished": "2026-11-05T05:59:29.251Z"
+    },
+    {
+      "number": 3,
+      "started": "2026-11-05T06:09:52.926Z",
+      "reservedCny": 0.074962,
+      "status": "response_received",
+      "httpStatus": 200,
+      "peakCostUpperCny": 0.008496,
+      "requestId": "3807ec29-c54d-44b1-a378-1aad9f0ddd16",
+      "model": "deepseek-flash",
+      "finished": "2026-11-05T06:09:54.513Z"
+    },
+    {
+      "number": 4,
+      "started": "2026-11-05T06:12:18.619Z",
+      "reservedCny": 0.10717,
+      "status": "response_received",
+      "httpStatus": 200,
+      "peakCostUpperCny": 0.018478,
+      "requestId": "fd33b0a9-e5e5-4258-abe8-ae066a2f6d99",
+      "model": "deepseek-flash",
+      "finished": "2026-11-05T06:12:21.289Z"
+    },
+    {
+      "number": 5,
+      "started": "2026-11-05T06:19:10.871Z",
+      "reservedCny": 0.107162,
+      "status": "response_received",
+      "httpStatus": 200,
+      "peakCostUpperCny": 0.017936,
+      "requestId": "b14c92d7-a7e7-4877-a36f-caf0c0a63a43",
+      "model": "deepseek-flash",
+      "finished": "2026-11-05T06:19:13.838Z"
+    }
+  ],
+  "scope": "5 controlled user-authorized UI calls; no cloud deployment; no automatic retry",
+  "note": "Token-price upper estimate, not an account invoice. Calls2/4 exposed failures and remain failures."
+}

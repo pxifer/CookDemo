@@ -1,5 +1,31 @@
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect,type Page} from './local-browser';
 import { defaultMeal } from '../shared/types';
+import { addManualFood } from './ui-helpers';
+
+test('忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录',async({page},info)=>{
+  const name=`recovery-${info.project.name}`,email=`${name}@example.invalid`,oldPassword='Ab1!xyZ9',newPassword='New9!abcZ';
+  await page.goto('/?settings=1');
+  await page.getByRole('button',{name:'注册账号',exact:true}).click();
+  await page.getByLabel('用户名',{exact:true}).fill(name);await page.getByLabel('邮箱',{exact:true}).fill(email);
+  await page.getByRole('button',{name:'获取验证码',exact:true}).click();
+  await expect(page.locator('.account-form')).toContainText('验证码已发送');
+  await page.getByLabel('邮箱验证码',{exact:true}).fill('123456');
+  await page.getByLabel('密码',{exact:true}).fill(oldPassword);await page.getByLabel('确认密码',{exact:true}).fill(oldPassword);
+  await page.getByRole('button',{name:'注册并登录',exact:true}).click();await expect(page.locator('.account-state')).toContainText(name);
+  await page.getByRole('button',{name:'退出登录',exact:true}).click();
+  await page.getByRole('button',{name:'忘记密码',exact:true}).click();
+  await page.getByLabel('注册邮箱',{exact:true}).fill(email);await page.getByRole('button',{name:'获取找回验证码',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('若该邮箱可用于找回');
+  await page.getByLabel('邮箱验证码',{exact:true}).fill('123456');await page.getByLabel('新密码',{exact:true}).fill(newPassword);await page.getByLabel('确认新密码',{exact:true}).fill(newPassword);
+  let resets=0;page.on('request',request=>{if(request.method()==='POST'&&request.url().endsWith('/auth/recovery/complete'))resets++;});
+  await page.route('**/api/v1/auth/recovery/complete',async route=>{await new Promise(resolve=>setTimeout(resolve,200));await route.continue();},{times:1});
+  await page.locator('section[aria-label="找回密码"] form').evaluate((form:HTMLFormElement)=>{form.requestSubmit();form.requestSubmit();});
+  await expect(page.getByRole('status')).toContainText('密码已重置');expect(resets).toBe(1);
+  await page.getByRole('button',{name:'返回登录',exact:true}).click();
+  await page.getByLabel('用户名',{exact:true}).fill(name);await page.getByLabel('密码',{exact:true}).fill(oldPassword);await page.getByRole('button',{name:'登录',exact:true}).click();
+  await expect(page.getByRole('alert')).toContainText('用户名或密码不正确');
+  await page.getByLabel('密码',{exact:true}).fill(newPassword);await page.getByRole('button',{name:'登录',exact:true}).click();await expect(page.locator('.account-state')).toContainText(name);
+});
 
 test('常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交',async({page},info)=>{
   const name=`autofill-${info.project.name}`,password='Ab1!xyZ9';
@@ -102,7 +128,7 @@ test('个人设置自动保存恢复：不重载页面，不同步人数或草�
   const uploads:any[]=[];page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/account/state'))uploads.push(r.postDataJSON());});
   await page.getByRole('button',{name:'微辣',exact:true}).click();
   await page.getByLabel('几个人吃',{exact:true}).fill('5');
-  await page.getByLabel('手动添加食材',{exact:true}).fill('鸡蛋');await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+  await addManualFood(page,'鸡蛋');
   for(const [label,food] of [['过敏','花生'],['忌口','牛肉']]){
     await page.locator('.preference-shortcuts').getByRole('button',{name:new RegExp(label)}).click();
     await page.getByLabel(`${label}食物`,{exact:true}).fill(food);await page.getByRole('button',{name:'确认添加',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();

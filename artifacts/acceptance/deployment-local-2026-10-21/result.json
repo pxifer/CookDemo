@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-10-21T14:24:08.0109587+08:00",
+  "scope": "local-empty-structure",
+  "database": {
+    "postgresql": "17.11 (Debian 17.11-1.pgdg12+2)",
+    "pgvector": "0.8.7",
+    "tableCount": 26,
+    "migrations": [
+      {
+        "version": 1,
+        "file": "001-initial.sql",
+        "checksum": "65db5344b7b1fd72f49ae7b79e41a204db8b75960c703b68618d664ea454e81b"
+      },
+      {
+        "version": 2,
+        "file": "002-content-structure.sql",
+        "checksum": "1938c4b1a38cb001f2b8cea074f61d0d78898527c30486025f4a4cc22314fab5"
+      },
+      {
+        "version": 3,
+        "file": "003-vector-structure.sql",
+        "checksum": "ac813bd9580cead7d171e9d49bde731a42182e3e6c04607a16548a10fa891da5"
+      }
+    ],
+    "emptyCounts": {
+      "accounts": 0,
+      "recipes": 0,
+      "embeddings": 0
+    },
+    "runtimeRoleCanCreate": false,
+    "runtimeRoleCanUpdateMigrationLedger": false,
+    "runtimeRoleCanUseProfiles": true
+  },
+  "realPostgresTest": {
+    "failed": 0,
+    "skipped": 0,
+    "passed": 1
+  },
+  "backupRestore": {
+    "checkedAt": "2026-10-21T14:18:43.3776431+08:00",
+    "migrationVersions": 3,
+    "sha256": "D77ACC1FBB75C8657631112926425904B822A0A4F52B2E2BA38C6F17486EB56B",
+    "restoreChecked": true,
+    "kind": "local-empty-structure-only",
+    "restoredTables": 26
+  },
+  "appImage": {
+    "networkTest": "temporary app shares local DB network namespace; no cloud TLS or public ingress tested",
+    "nodeVersion": "24.22.0",
+    "runtimeManifest": "sha256:7384f16bb08e90de80854c95e5e3d9f5b9adf0857ed96787db09afdfbbd12fc6",
+    "id": "sha256:50ae94cc5fcb67d439c6e9505ba6d8bbd47bfeed3d5afb962df2c0481cb4a685",
+    "user": "node",
+    "probes": {
+      "/readyz": 503,
+      "/healthz": 200,
+      "/": 200,
+      "/api/v1/catalog/recipes": 503,
+      "/deploymentz": 200
+    },
+    "baseDigest": "sha256:91acba91b842bec0bf7ea6f5e09c644c7ccad72c4996ed9616d861d1c7cd60d4"
+  },
+  "cloudDeployed": false,
+  "realDataImported": false,
+  "modelConnected": false
+}

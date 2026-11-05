@@ -1,4 +1,4 @@
-param([ValidateSet('Plan','Import','Inspect')][string]$Task='Plan')
+﻿param([ValidateSet('Plan','Import','Inspect')][string]$Task='Plan')
 $ErrorActionPreference='Stop'
 $projectRoot=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $nodeExecutable=Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'

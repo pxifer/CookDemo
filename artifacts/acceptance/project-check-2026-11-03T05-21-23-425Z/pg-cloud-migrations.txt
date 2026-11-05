@@ -1,0 +1,10 @@
+Verified atomic core/vector migrations, repeat runs, checksum/collision rejection, and client grant/RLS denial on real PG.
+✔ CloudBase atomic migrations close inherited default grants, preserve checksums, and reject collisions (1654.3134ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1971.8027

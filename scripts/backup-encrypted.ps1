@@ -1,4 +1,4 @@
-param([switch]$VerifyRestore, [string]$Archive)
+﻿param([switch]$VerifyRestore, [string]$Archive)
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $nodeExecutable = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'

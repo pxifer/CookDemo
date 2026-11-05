@@ -1,0 +1,369 @@
+{
+  "task": "recipe_selection",
+  "evidenceGuidance": {
+    "guidance": [
+      {
+        "id": "guide:fact:lipid-prefer-fresh-vegetables",
+        "factId": "fact:lipid-prefer-fresh-vegetables",
+        "topic": {
+          "id": "d:dyslipidemia",
+          "kind": "condition",
+          "name": "成人高脂血症",
+          "inputName": "成人高脂血症"
+        },
+        "objectId": "f:fresh-vegetables",
+        "objectName": "新鲜蔬菜",
+        "objectKind": "food_group",
+        "direction": "prefer",
+        "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "broccoli",
+            "cabbage",
+            "carrot",
+            "cucumber",
+            "pepper",
+            "spinach",
+            "tomato",
+            "winter-melon",
+            "gallery-food-53f356a4dfae8657",
+            "gallery-food-1354bbffdcdce7c5",
+            "gallery-food-9cf831318b256277",
+            "gallery-food-e0468aa0c2c927b2",
+            "gallery-food-e2adfbdf8ad05988",
+            "gallery-food-844bb771219ba31c",
+            "gallery-food-1d740e0aaa9de330",
+            "gallery-food-437d9112a26dbe2e",
+            "gallery-food-36977dd6259e593e",
+            "gallery-food-5d0a727235792b93",
+            "gallery-food-78e2582d80b5b855",
+            "gallery-food-cbe62979975930dd",
+            "gallery-food-c35f1a0c32046f11",
+            "gallery-food-d273b4076f1d7226"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:fact:lipid-steam",
+        "factId": "fact:lipid-steam",
+        "topic": {
+          "id": "d:dyslipidemia",
+          "kind": "condition",
+          "name": "成人高脂血症",
+          "inputName": "成人高脂血症"
+        },
+        "objectId": "p:steam-boil",
+        "objectName": "蒸煮汆制",
+        "objectKind": "process",
+        "direction": "prefer",
+        "statement": "优先少油蒸煮方式。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "processRule": "steam-boil-primary",
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:goal:fat-loss-steam-boil",
+        "factId": "goal:fat-loss-steam-boil",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "p:steam-boil",
+        "objectName": "蒸煮汆制",
+        "objectKind": "process",
+        "direction": "prefer",
+        "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "processRule": "steam-boil-primary",
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1",
+        "sourceId": "cdc-dyslipidemia-2023",
+        "title": "成人高脂血症食养指南（2023年版）",
+        "version": "2023",
+        "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+        "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+        "originalSpan": "在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+        "locator": {
+          "kind": "html_visual",
+          "pdfPage": null,
+          "printedPage": 6,
+          "section": "三（三）膳食纤维",
+          "start": null,
+          "end": null,
+          "normalization": "remove_unicode_whitespace_v1",
+          "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+          "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+          "imageRegion": [
+            0,
+            5500,
+            700,
+            6300
+          ]
+        },
+        "spanHash": "318982b6dec2e3c5468a7d6af66effc5926311fd2b483555ee05b1056a9d5843"
+      },
+      {
+        "id": "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578",
+        "sourceId": "cdc-dyslipidemia-2023",
+        "title": "成人高脂血症食养指南（2023年版）",
+        "version": "2023",
+        "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+        "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+        "originalSpan": "高脂血症人群食物制作应选择少油蒸煮方式，减少食品过度加工，少用油炸、油煎等多油烹饪方法，多选择蒸、煮等方式。",
+        "locator": {
+          "kind": "html_visual",
+          "pdfPage": null,
+          "printedPage": 6,
+          "section": "三（二）烹调",
+          "start": null,
+          "end": null,
+          "normalization": "remove_unicode_whitespace_v1",
+          "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+          "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+          "imageRegion": [
+            0,
+            5300,
+            700,
+            5800
+          ]
+        },
+        "spanHash": "885d69aed05d651b6f7327e4869652b645ae0e0277fedab07cd3f0013613676f"
+      },
+      {
+        "id": "goal-ev:weight-food-method",
+        "sourceId": "nhc-weight-management-2024",
+        "title": "体重管理指导原则（2024年版）",
+        "version": "2024",
+        "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+        "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+        "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+        "locator": {
+          "kind": "pdf_normalized_text",
+          "pdfPage": 10,
+          "normalization": "remove_unicode_whitespace_v1",
+          "section": "四、体重管理策略/合理膳食",
+          "start": 101,
+          "end": 137
+        },
+        "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+      }
+    ],
+    "uncoveredTopics": [],
+    "missingConditions": [
+      "lipidPattern"
+    ],
+    "clinicalRelease": null
+  },
+  "scope": {
+    "qualifiedParents": 1,
+    "offeredParents": 1,
+    "qualifiedVariants": 1,
+    "offeredVariants": 1,
+    "complete": true,
+    "methodTextComplete": true
+  },
+  "mode": "meal",
+  "min": 1,
+  "max": 1,
+  "count": 1,
+  "categories": {
+    "meat": 0,
+    "veg": 0,
+    "soup": 1
+  },
+  "requestedCounts": {
+    "meat": 0,
+    "veg": 0,
+    "soup": 1
+  },
+  "user": {
+    "healthProfile": {
+      "conditions": [
+        "成人高脂血症"
+      ],
+      "goals": [
+        "减脂"
+      ],
+      "notes": "我是成年人",
+      "suggestions": [],
+      "updatedAt": "2026-11-05"
+    },
+    "accepted": {
+      "preferred": [],
+      "limited": [],
+      "excluded": []
+    },
+    "ingredients": [
+      {
+        "name": "白菜",
+        "amount": "500g",
+        "form": "raw",
+        "status": "confirmed"
+      },
+      {
+        "name": "豆腐",
+        "amount": "500g",
+        "form": "raw",
+        "status": "confirmed"
+      }
+    ],
+    "seasonings": [
+      "食用油",
+      "盐",
+      "生抽",
+      "大蒜"
+    ],
+    "checkSeasonings": false,
+    "allowBuy": false,
+    "servings": 1,
+    "flavor": "不限",
+    "restrictions": [
+      {
+        "name": "花生",
+        "kind": "allergy"
+      }
+    ]
+  },
+  "locked": [],
+  "previous": [],
+  "catalog": [
+    {
+      "id": "c1",
+      "name": "白菜豆腐汤",
+      "category": "soup",
+      "flavor": "清鲜",
+      "guidanceIds": [
+        "guide:fact:lipid-prefer-fresh-vegetables",
+        "guide:fact:lipid-steam",
+        "guide:goal:fat-loss-steam-boil"
+      ],
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "鸡精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "白胡椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "开水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "姜切丝，豆腐和白菜切成小块。",
+        "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+        "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+      ],
+      "reused": [
+        "白菜",
+        "豆腐"
+      ],
+      "shopping": []
+    }
+  ]
+}

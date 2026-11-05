@@ -1,10 +1,10 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
-import {compositionFingerprint,compositionHash,COMPOSITION_BASE_HASH} from '../server/composition-review';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
+import {compositionFingerprint,compositionHash,COMPOSITION_BASE_HASH} from '../backend/src/composition-review';
 import {ingredientEvidence} from '../shared/ingredient-evidence';
 import type {Line} from '../shared/types';
-const root='acceptance/composition-v2-2026-10-24';
+const root='artifacts/acceptance/composition-v2-2026-10-24';
 const plans=[
   {id:'R396',coverage:'核必备、计算及5步。萝卜由附加内容明确可省，品种不明时仍未核准，仅实际省略时通过；仅固定基础调味，不包含附加自由加生抽/芝麻等方案。',equivalents:{蒜头:['大蒜'],姜片:['生姜'],小米辣:['干辣椒']},optional:['萝卜'],add:[],unresolved:['萝卜']},
   {id:'R318',coverage:'核必备、计算及11步；花菜、大蒜、盐、油、炒制水完整。焯水1000ml为操作水，不冒充投料。',equivalents:{},optional:[],add:[]},
@@ -53,7 +53,7 @@ async function main(){
   for(const definition of definitions){const r=snapshot.recipes.find(r=>r.id===definition.recipeId)!,v=r.variants.find(v=>v.id===definition.variantId)!;definition.fingerprint=compositionFingerprint(r,v,snapshot,definition.leaves.flatMap((l:any)=>l.equivalentIds));}
   const evidence=ingredientEvidence(original),inventory=original.recipes.flatMap(r=>r.variants.map(v=>({recipeId:r.id,variantId:v.id,name:r.name,sourceRecord:r.source.recordId,sourceUri:r.source.uri,ingredients:v.lines.map(l=>({foodId:l.foodId,name:original.foods.find(f=>f.id===l.foodId)!.name,sourceText:l.sourceText,optional:l.optional,role:l.role,evidenceState:evidence.find(e=>e.foodId===l.foodId)!.reviewState})),sourceReview:definitions.some(d=>d.variantId===v.id)?'individually-checked-v2':r.source.recordId==='R382'||r.source.recordId==='R380'?'verified-v1':'pending-individual-evidence'})));
   const data={definitions,corrections,relations,unresolvedComponents};
-  await writeFile('docs/data/composition-review-v2.json',JSON.stringify(data,null,2));
+  await writeFile('datasets/recipes/curation/composition-review-v2.json',JSON.stringify(data,null,2));
   await writeFile(`${root}/all-recipe-ingredient-inventory.json`,JSON.stringify(inventory,null,2),{flag:'wx'});
   await writeFile(`${root}/preparation.json`,JSON.stringify({recipes:original.recipes.length,variants:inventory.length,newSourceChecks:definitions.length,corrections:corrections.length,knownContainsRelations:relations.length,ambiguousIngredients:unresolvedComponents.length,globalCompletenessChanged:false,nutritionInferred:false,sourceSnapshots:definitions.map(d=>({id:d.sourceRecord,sha256:d.sourceSha256})),dataHash:compositionHash(data)},null,2),{flag:'wx'});
   console.log(JSON.stringify({prepared:true,sourceChecks:definitions.length,corrections:corrections.length,relations:relations.length,ambiguousIngredients:unresolvedComponents.length,globalCompletenessChanged:false}));

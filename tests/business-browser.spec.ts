@@ -1,34 +1,33 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './local-browser';
 import { mkdir } from 'node:fs/promises';
 import { defaultMeal } from '../shared/types';
+import {addManualFood,openSavedRecipe,recommendationAfter} from './ui-helpers';
 const enabled=process.env.BUSINESS_BROWSER==='1';
 test.skip(!enabled,'Requires the isolated local database workflow and business Playwright config');
 async function add(page: import('@playwright/test').Page) {
   await page.goto('/');
   await expect(page.getByText('本地构造测试内容：食谱与营养值仅用于功能验证。')).toHaveCount(0);
-  await page.getByLabel('手动添加食材',{exact:true}).fill('构造角瓜');
-  await page.getByLabel('手动添加食材',{exact:true}).press('Enter');
+  await addManualFood(page,'构造角瓜');
 }
 test('数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核',async ({page},info) => {
   await add(page);
-  await page.getByRole('button',{name:'安排这一餐',exact:true}).click();
+  const result=await recommendationAfter(page,()=>page.getByRole('button',{name:'安排这一餐',exact:true}).click(),'generate');expect(result.dishes[0].nutrition.sodium).toBeNull();
   const card=page.getByTestId('recipe-card');
   await expect(card).toHaveCount(1);await expect(card.getByRole('heading',{name:'构造西葫芦小炒'})).toBeVisible();
   await expect(card.getByText('热量 20 kcal / 整道菜')).toBeVisible();
   await card.getByRole('button',{name:'看看做法'}).click();
   const dialog=page.getByRole('dialog');
   await expect(dialog.getByText('构造步骤一：核对测试食材。')).toBeVisible();
-  await expect(dialog.getByText('钠：暂无法计算',{exact:false})).toBeVisible();
-  await expect(dialog.getByText(/营养记录为构造测试值/)).toBeVisible();
+  await expect(dialog.locator('.nutrition-box')).not.toContainText('钠：');
+  await expect(dialog.locator('.nutrition-box')).toContainText('标准配方整道菜的投料估算');
   await dialog.getByRole('button',{name:'关闭弹层'}).click();
   await card.getByLabel('构造西葫芦小炒口味').selectOption('local-zucchini-spicy');
   await expect(page.getByTestId('recipe-card').getByText('热量 30 kcal / 整道菜')).toBeVisible();
   await page.getByTestId('recipe-card').getByRole('button',{name:'收藏 构造西葫芦小炒',exact:true}).click();
   await page.reload();await page.getByRole('link',{name:/我的收藏/}).click();
-  await page.locator('.saved-recipes').getByRole('button',{name:/构造西葫芦小炒 · 微辣/}).click();
+  const reopened=await openSavedRecipe(page,'构造西葫芦小炒');await expect(reopened.locator('.detail-meta')).toContainText('微辣');
   await expect(page.getByRole('dialog').getByText(/构造微辣步骤/)).toBeVisible();
-  await expect(page.getByRole('dialog').getByText(/已按当前食材与饮食要求复查/)).toBeVisible();
-  const folder=process.env.ACCEPTANCE_DIR ?? 'acceptance/business-chain';await mkdir(folder,{recursive:true});
+  const folder=process.env.ACCEPTANCE_DIR ?? 'artifacts/acceptance/business-chain';await mkdir(folder,{recursive:true});
   await page.screenshot({path:`${folder}/database-detail-${info.project.name}.png`,fullPage:true});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

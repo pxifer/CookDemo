@@ -1,15 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PGlite } from '@electric-sql/pglite';
-import { migrate, type Database } from '../server/db';
-import { ContentRepository } from '../server/content-repository';
+import { migrate, type Database } from '../backend/src/db';
+import { ContentRepository } from '../backend/src/content-repository';
 import { businessFixture } from './content-fixture';
 import { contentContext } from '../shared/content';
 import { extractText } from '../shared/extraction';
-import { recommend } from '../server/recommendation';
+import { recommend } from '../backend/src/recommendation';
 import { request, simpleRecipe } from './fixtures';
 import { defaultMeal } from '../shared/types';
-import { createApp } from '../server/app';
+import { createApp } from '../backend/src/app';
 import { constructedContent } from '../shared/catalog';
 
 async function embedded() {

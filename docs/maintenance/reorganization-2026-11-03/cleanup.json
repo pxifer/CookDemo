@@ -1,0 +1,44 @@
+{
+  "deletedDocuments": [
+    {
+      "path": "docs/technical/release-execution-2026-10-29.md",
+      "bytes": 14246,
+      "sha256": "69d8d36b5d6572d1593032c21cecf11c86a106777a73b25a36d6ca3e360a6c84",
+      "oldPath": "docs/technical/release-execution-2026-10-29.md",
+      "newPath": "docs/operations/validation-status.md",
+      "action": "delete-obsolete-progress",
+      "restorePath": "../.reorg-backups/20261103-layout/snapshot/docs/technical/release-execution-2026-10-29.md",
+      "referencedByBeforeMigration": [],
+      "referenceStrategy": "explicit-import/link-or-root-mapping"
+    },
+    {
+      "path": "docs/technical/review-implementation-2026-10-29.md",
+      "bytes": 6235,
+      "sha256": "1396eda67cff084c3b84e45c935bcab1881f8d4c232649e33f2ede00df86834e",
+      "oldPath": "docs/technical/review-implementation-2026-10-29.md",
+      "newPath": "docs/releases/ACCEPTANCE-review-improvements-2026-10-29.md",
+      "action": "delete-obsolete-progress",
+      "restorePath": "../.reorg-backups/20261103-layout/snapshot/docs/technical/review-implementation-2026-10-29.md",
+      "referencedByBeforeMigration": [],
+      "referenceStrategy": "explicit-import/link-or-root-mapping"
+    }
+  ],
+  "protected": [
+    "datasets",
+    "frontend/public",
+    "backend/src/migrations",
+    "deployment/cloudbase/migrations",
+    "artifacts/acceptance",
+    "artifacts/review",
+    "legacy/prototype",
+    "docs/project-handbook-2026-10-30",
+    "docs/agent-interview-2026-10-28"
+  ],
+  "temporarySourcesRetained": "artifacts/tmp/health-sources",
+  "emptyDockerMountDirectoriesRemoved": [
+    "deploy/db/init.sh",
+    "deploy/db",
+    "deploy"
+  ],
+  "dataOrSecretDeletion": false
+}

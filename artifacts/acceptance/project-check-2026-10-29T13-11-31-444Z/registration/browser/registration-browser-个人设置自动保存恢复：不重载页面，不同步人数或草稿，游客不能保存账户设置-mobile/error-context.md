@@ -1,0 +1,202 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: registration-browser.spec.ts >> 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置
+- Location: tests\registration-browser.spec.ts:114:1
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - link "跳到本餐工作台" [ref=e3] [cursor=pointer]:
+    - /url: "#workspace"
+  - banner [ref=e4]:
+    - link "拾味首页" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e6]: 拾
+      - generic [ref=e7]:
+        - text: 拾味
+        - generic [ref=e8]: SHIWEI KITCHEN
+    - navigation "主导航" [ref=e9]:
+      - link "做饭工作台" [ref=e10] [cursor=pointer]:
+        - /url: /#workspace
+      - link "菜谱图鉴" [ref=e11] [cursor=pointer]:
+        - /url: /recipes
+      - link "我的收藏" [ref=e12] [cursor=pointer]:
+        - /url: /favorites
+    - button "个人设置" [ref=e14] [cursor=pointer]: 我
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: A LITTLE INSPIRATION, EVERY DAY
+        - heading "今天，吃点什么？" [level=1] [ref=e19]:
+          - text: 今天，吃点什么？
+          - generic [aria-hidden] [ref=e20]: ✳
+        - paragraph [ref=e21]: 打开冰箱，把手边的食材变成一顿好饭。
+      - button [ref=e22] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e23]: ♡
+        - strong [ref=e25]: 健康模式
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: 少一点纠结，多一点烟火气
+        - heading "有啥，做啥。 好好吃一餐。" [level=2] [ref=e31]: 有啥，做啥。好好吃一餐。
+        - paragraph [ref=e32]: 食材不浪费，搭配刚刚好。
+      - img "番茄炒蛋、时蔬和汤的家常餐食示意" [ref=e33]:
+        - generic [ref=e34]: 家常滋味 · 图片为示意
+      - generic [aria-hidden] [ref=e35]: ✳
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "01 看看有什么食材" [level=2] [ref=e40]:
+              - generic [ref=e41]: "01"
+              - text: 看看有什么食材
+            - generic [ref=e42]: 0 种
+          - group "输入方式" [ref=e43]:
+            - button "图片备忘（暂不识别）" [pressed] [ref=e44] [cursor=pointer]
+            - button "文字输入" [ref=e45] [cursor=pointer]
+          - generic [ref=e46]:
+            - strong [ref=e52]: 对照照片，补充食材
+            - generic [ref=e53]: 仅供本页查看；添加食材请用文字或手动输入
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - button "选择图片" [ref=e56] [cursor=pointer]
+                - button "手机拍照" [ref=e57] [cursor=pointer]
+              - paragraph [ref=e58]: 图片仅在本页预览；识别暂不可用，请用文字或手动添加食材。手机拍照由设备支持情况决定。
+            - button "转到文字录入 →" [ref=e59] [cursor=pointer]
+          - generic [ref=e60]:
+            - strong [ref=e61]: 我的食材
+            - generic [ref=e62]: 用量选填
+          - paragraph [ref=e63]: 填写用量，搭配菜数和补买建议会更精确。
+          - generic [ref=e64]: 添加现有食材，或允许补买查看默认推荐
+          - list "我的食材"
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - text: 分类
+                - combobox "食材分类" [ref=e68]:
+                  - option "全部食材" [selected]
+                  - option "肉禽"
+                  - option "鱼虾海鲜"
+                  - option "蛋类"
+                  - option "蔬菜"
+                  - option "菌菇"
+                  - option "豆制品"
+                  - option "主食杂粮"
+                  - option "豆类坚果"
+              - generic [ref=e69]:
+                - text: 食材
+                - combobox "选择食材" [ref=e70]:
+                  - option "请选择食材" [selected]
+                  - option "鸡肉"
+                  - option "牛肉"
+                  - option "羊肉"
+                  - option "猪肉"
+                  - option "虾"
+                  - option "鱼"
+                  - option "鸡蛋"
+                  - option "白菜"
+                  - option "菠菜"
+                  - option "胡萝卜"
+                  - option "花菜"
+                  - option "黄瓜"
+                  - option "青椒"
+                  - option "土豆"
+                  - option "西红柿"
+                  - option "西兰花"
+                  - option "蘑菇"
+                  - option "香菇"
+                  - option "豆腐"
+                  - option "粉条"
+                  - option "花生"
+              - button "添加" [disabled] [ref=e71]
+            - group [ref=e72]:
+              - generic "搜索或直接输入食材" [ref=e73] [cursor=pointer]
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - heading "02 这一餐的偏好" [level=2] [ref=e76]:
+              - generic [ref=e77]: "02"
+              - text: 这一餐的偏好
+            - button "个人设置 ↗" [ref=e78] [cursor=pointer]
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: 几个人吃
+              - button "5 人配菜参考 · 查看人数表" [ref=e82] [cursor=pointer]: 配菜参考 ↗
+            - generic [ref=e83]:
+              - button "减少人数" [ref=e84] [cursor=pointer]: −
+              - spinbutton "几个人吃" [active] [ref=e85]: "5"
+              - button "增加人数" [ref=e86] [cursor=pointer]: ＋
+          - group "今天的口味" [ref=e87]:
+            - generic [ref=e89]:
+              - button "不限" [ref=e90] [cursor=pointer]
+              - button "清淡" [ref=e91] [cursor=pointer]
+              - button "微辣" [pressed] [ref=e92] [cursor=pointer]
+              - combobox "更多口味" [ref=e93]:
+                - option "更多" [selected]
+          - generic [ref=e94]:
+            - button "过敏 未设置" [ref=e95] [cursor=pointer]:
+              - generic [ref=e96]: 过敏
+              - generic [ref=e97]:
+                - text: 未设置
+                - generic [aria-hidden] [ref=e98]: ›
+            - button "忌口 未设置" [ref=e99] [cursor=pointer]:
+              - generic [ref=e100]: 忌口
+              - generic [ref=e101]:
+                - text: 未设置
+                - generic [aria-hidden] [ref=e102]: ›
+            - button "调料 不限库存" [ref=e103] [cursor=pointer]:
+              - generic [ref=e104]: 调料
+              - generic [ref=e105]:
+                - text: 不限库存
+                - generic [aria-hidden] [ref=e106]: ›
+          - generic [ref=e107] [cursor=pointer]:
+            - checkbox "允许补买食材 只用现有食材，直接搭配一餐" [ref=e108]
+            - generic [ref=e109]:
+              - text: 允许补买食材
+              - generic [ref=e110]: 只用现有食材，直接搭配一餐
+          - button "安排这一餐" [ref=e112] [cursor=pointer]:
+            - text: 搭配这一餐
+            - generic [ref=e113]: ✧
+      - region "本餐推荐" [ref=e114]:
+        - generic [ref=e116]:
+          - generic [ref=e117]: MADE FOR YOUR TABLE
+          - heading "这一餐，安排好了" [level=2] [ref=e118]
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - strong [ref=e121]: 一键搭配
+            - generic [ref=e122]: 按人数、食材种类和用量灵活搭配
+          - generic [ref=e123]:
+            - button "开始新一餐 ↻" [ref=e124] [cursor=pointer]
+            - button "荤素汤搭配 ⌄" [ref=e125] [cursor=pointer]
+        - generic [ref=e126]:
+          - generic [aria-hidden] [ref=e127]: ✳ 🥬
+          - heading "好好吃饭，从手边开始" [level=3] [ref=e128]
+          - paragraph [ref=e129]: 添加手边食材，选好口味，让我们把这一餐搭配好。
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - generic [ref=e132]: "1"
+              - text: 添加食材
+            - generic [ref=e133]:
+              - generic [ref=e134]: "2"
+              - text: 搭配一餐
+            - generic [ref=e135]:
+              - generic [ref=e136]: "3"
+              - text: 照着做就好
+  - contentinfo [ref=e137]:
+    - generic [ref=e138]: 拾味 把日子，过得有滋有味。
+    - generic [ref=e139]: 好好吃饭，好好生活。
+  - button "搭配这一餐 0 种食材 · 5 人用餐" [ref=e141] [cursor=pointer]:
+    - text: 搭配这一餐
+    - generic [ref=e142]: 0 种食材 · 5 人用餐
+```

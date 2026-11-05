@@ -1,0 +1,36 @@
+{
+  "id": "health-kb-2026-10-28-v2",
+  "schemaVersion": "1.0.0",
+  "status": "research_ready",
+  "createdDate": "2026-10-28",
+  "parentBundle": {
+    "id": "health-kb-2026-10-28-v1",
+    "sha256": "eb2ab98555cc3290043ffe0e23773912a82880ff0a67c4326d3a3535cf9b1fd7"
+  },
+  "files": {
+    "conflicts.jsonl": "50267608f10abe14cbc7b51bc7ef4f7233ae7ae01469ede378d8a8a365299ee0",
+    "entities.jsonl": "b81c8d85150939d34bede52d9867931e953e7be5f56b0fae5c7962ee04271b39",
+    "evidence.jsonl": "acbcf75fa7027d0985a7110a5fbb4cfcb8d04b500792c0fc3ed68e6e9f4d1fe4",
+    "facts.jsonl": "6fe80e54edcfc1985a2705c5ad502107e7a71b6b88ebd05fb16ae5354dfec808",
+    "knowledge-bundle.json": "e712a86b832c12a40c9b371addd1fa9d8263a491f1b33b880c55c110a2b87384",
+    "relations.csv": "99d0b6ed299e6c5d12c21fc3e43a45d3d5f96a6308bf214fd9afdf581b90be4e",
+    "rule-drafts.jsonl": "68a0cd42953be14a6232749b5dd2481581736df36504358b42ff3edda9f1a2f7",
+    "sources.jsonl": "b3115cb097330f81b51a4f298d5c729bb7a084dfc3980a22b365f41555420e05"
+  },
+  "counts": {
+    "sources": 11,
+    "entities": 137,
+    "evidence": 98,
+    "facts": 260,
+    "ruleDrafts": 124,
+    "conflicts": 5,
+    "recipeBindings": 0
+  },
+  "index": {
+    "kind": "structured_plus_controlled_keywords",
+    "version": "lexical-v2",
+    "embedding": null,
+    "reranker": null
+  },
+  "clinicalRelease": null
+}

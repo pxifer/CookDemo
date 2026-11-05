@@ -1,7 +1,7 @@
 import {readFile,writeFile} from 'node:fs/promises';
-import data from '../docs/data/composition-review-v2.json';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
-import {COMPOSITION_BASE_HASH,reviewSnapshot,compositionFingerprint} from '../server/composition-review';
+import data from '../datasets/recipes/curation/composition-review-v2.json';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
+import {COMPOSITION_BASE_HASH,reviewSnapshot,compositionFingerprint} from '../backend/src/composition-review';
 
 const bundle=JSON.parse(await readFile('.local-data/cloudbase-http/release-20261023/gallery-bundle.json','utf8'));
 const original=verifyGalleryBundle(bundle,COMPOSITION_BASE_HASH);
@@ -20,5 +20,5 @@ for(const definition of data.definitions){
   const variant=recipe.variants.find(variant=>variant.id===definition.variantId)!;
   definition.fingerprint=compositionFingerprint(recipe,variant,reviewed,definition.leaves.flatMap(leaf=>leaf.equivalentIds));
 }
-await writeFile('docs/data/composition-review-v2.json',JSON.stringify(data,null,2));
+await writeFile('datasets/recipes/curation/composition-review-v2.json',JSON.stringify(data,null,2));
 console.log(JSON.stringify({unitsCorrected:true,genericOilRemainsUnresolved:true,newImmutableRelease:'composition-review-20261024-v4',amountsInferred:false}));

@@ -1,0 +1,14 @@
+{
+  "state": "verified",
+  "id": "health-kb-2026-10-28-v2",
+  "counts": {
+    "sources": 11,
+    "entities": 137,
+    "evidence": 98,
+    "facts": 260,
+    "ruleDrafts": 124,
+    "conflicts": 5,
+    "recipeBindings": 0
+  },
+  "clinicalRelease": null
+}

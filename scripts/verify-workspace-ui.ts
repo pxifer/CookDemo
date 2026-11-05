@@ -5,19 +5,19 @@ import assert from 'node:assert/strict';
 import {chromium,expect} from '@playwright/test';
 import {defaultMeal} from '../shared/types';
 import {contentContext} from '../shared/content';
-import {inputIngredient} from '../src/meal-input';
-import {createApp} from '../server/app';
-import {GALLERY_RELEASE} from '../server/gallery-content';
-import {verifyGalleryBundle,type GalleryBundle} from '../server/cloudbase-content';
+import {inputIngredient} from '../frontend/src/meal-input';
+import {createApp} from '../backend/src/app';
+import {GALLERY_RELEASE} from '../backend/src/gallery-content';
+import {verifyGalleryBundle,type GalleryBundle} from '../backend/src/cloudbase-content';
 
 const live=process.argv.includes('--live');
-const output=process.env.ACCEPTANCE_DIR??`acceptance/workspace-ui-2026-10-26/${live?'live':'local'}`;
+const output=process.env.ACCEPTANCE_DIR??`artifacts/acceptance/workspace-ui-2026-10-26/${live?'live':'local'}`;
 const root='.local-data/cloudbase-http/listed-foods-20261026-v27';
 const bundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8')) as GalleryBundle;
 const manifest=JSON.parse(await readFile(`${root}/manifest.json`,'utf8'));
 const snapshot=verifyGalleryBundle(bundle,manifest.hash);
 const app=await createApp({environment:'preview',origin:'https://shiwei.example',contentSource:'cloudbase',contentRelease:GALLERY_RELEASE,
-  sessionSecret:randomBytes(32),csrfSecret:randomBytes(32),staticRoot:resolve('build/web'),
+  sessionSecret:randomBytes(32),csrfSecret:randomBytes(32),staticRoot:resolve('artifacts/build/web'),
   contentRepository:{load:async()=>snapshot,candidates:async()=>bundle.rows}});
 await mkdir(output,{recursive:true});
 await app.ready();
@@ -31,7 +31,7 @@ try{
     if(!live)await page.route('**/*',async route=>{
       const request=route.request(),url=new URL(request.url()),path=url.pathname;
       if(path.startsWith('/assets/recipes/')){
-        await route.fulfill({body:await readFile(resolve('public',path.slice(1))),contentType:path.endsWith('.webp')?'image/webp':'image/png'});return;
+        await route.fulfill({body:await readFile(resolve('frontend/public',path.slice(1))),contentType:path.endsWith('.webp')?'image/webp':'image/png'});return;
       }
       assert.equal(url.origin,origin);
       const response=await app.inject({method:request.method() as 'GET'|'POST',url:path+url.search,headers:request.headers(),payload:request.postDataBuffer()??undefined});

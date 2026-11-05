@@ -1,0 +1,94 @@
+{
+  "agentsLines": 93,
+  "missingLinks": [],
+  "immutableKnowledge": [
+    {
+      "path": "datasets/health/2026-10-28-v1/conflicts.jsonl",
+      "sha256": "6040322bf1c9bb1eaf3f7189498ba9f3a07e882a25cfcb2fd29fa66495b3e963",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/entities.jsonl",
+      "sha256": "448c6849ae28e192d952b994c4d82885e9bff9ec9f3e052a9d9f4728171f0340",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/evidence.jsonl",
+      "sha256": "7484b834160666c6161a9830f2b4e4127641a86b0fd93787770b429005baa575",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/facts.jsonl",
+      "sha256": "2de5de2366674a2379c58f8ebe8c33e84b97cd0a60607e6940e2fd103cd3d40a",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/knowledge-bundle.json",
+      "sha256": "eb2ab98555cc3290043ffe0e23773912a82880ff0a67c4326d3a3535cf9b1fd7",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/relations.csv",
+      "sha256": "401b75a441eaab9d87c4113cf4fa6612adf93468e660643e096cb213ed4ec887",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/rule-drafts.jsonl",
+      "sha256": "8b3acd4605991254971779b56865c597104511d691307fea00f56a344d3bf358",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/sources.jsonl",
+      "sha256": "f4925cb6686d38c46db2c7974e83618a2a29f3fcdeadc0951b80bc99196b6999",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/conflicts.jsonl",
+      "sha256": "50267608f10abe14cbc7b51bc7ef4f7233ae7ae01469ede378d8a8a365299ee0",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/entities.jsonl",
+      "sha256": "b81c8d85150939d34bede52d9867931e953e7be5f56b0fae5c7962ee04271b39",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/evidence.jsonl",
+      "sha256": "acbcf75fa7027d0985a7110a5fbb4cfcb8d04b500792c0fc3ed68e6e9f4d1fe4",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/facts.jsonl",
+      "sha256": "6fe80e54edcfc1985a2705c5ad502107e7a71b6b88ebd05fb16ae5354dfec808",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/knowledge-bundle.json",
+      "sha256": "e712a86b832c12a40c9b371addd1fa9d8263a491f1b33b880c55c110a2b87384",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/relations.csv",
+      "sha256": "99d0b6ed299e6c5d12c21fc3e43a45d3d5f96a6308bf214fd9afdf581b90be4e",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/rule-drafts.jsonl",
+      "sha256": "68a0cd42953be14a6232749b5dd2481581736df36504358b42ff3edda9f1a2f7",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/sources.jsonl",
+      "sha256": "b3115cb097330f81b51a4f298d5c729bb7a084dfc3980a22b365f41555420e05",
+      "unchanged": true
+    },
+    {
+      "path": "datasets/health/goal-guidance-2026-11-04-v1/knowledge.json",
+      "sha256": "6033f61e69ff02418dfb84d0ce6b86370b80cd8f4443deff56212a99a49485b6",
+      "unchanged": true
+    }
+  ],
+  "lockUnchanged": true,
+  "scopedDiffCheck": true,
+  "keyPatternsInPublicArtifacts": []
+}

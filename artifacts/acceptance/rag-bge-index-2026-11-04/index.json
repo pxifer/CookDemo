@@ -1,0 +1,31 @@
+{
+  "manifest": {
+    "id": "bge-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "BAAI/bge-m3",
+      "pooling": "cls_token",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T12:05:35.469Z"
+  },
+  "batchLatency": {
+    "samples": 13,
+    "p50ms": 9120.1271,
+    "p95ms": 18516.4608
+  },
+  "maxInputTokens": 306,
+  "totalInputTokens": 7936,
+  "realEmbedding": true,
+  "paidCalls": 0,
+  "approximateIndex": false
+}

@@ -1,0 +1,18 @@
+{
+  "state": "local_research_imported",
+  "id": "health-kb-2026-10-28-v2",
+  "imported": true,
+  "hash": "8ef79acaf14a4bab29ab7c2f02379f1c9c17b20e1eee691c22a41e8280c09c1e",
+  "counts": {
+    "sources": 11,
+    "entities": 137,
+    "evidence": 98,
+    "facts": 260,
+    "ruleDrafts": 124,
+    "conflicts": 5,
+    "recipeBindings": 0
+  },
+  "databasePath": "D:\\codex_AI\\菜谱推荐\\CookDemo\\.local-data\\health-knowledge\\shared",
+  "clinicalRelease": null,
+  "onlineEnabled": false
+}
