@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "reviewOrigin": "project_agent_visual_inspection",
+  "independentHumanReview": "pending",
+  "sourcesExposedDuringDevelopment": true,
+  "scope": "Representative page layout inspection only; no clinical signing, OCR or full table cell gold. Full page images not redistributed.",
+  "pages": [
+    {
+      "sourceId": "nhc-hypertension-2023",
+      "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+      "physicalPdfPage": 7,
+      "renderedImageHash": "218331f5ba9cc7288eb23e2ab26dd0244c05d5ba4271569b70755a298e4cf544",
+      "renderedImageStorage": "ignored local private review cache",
+      "reviewOrigin": "project_agent_visual_inspection",
+      "criteriaChecked": [
+        "single_column_order_checked",
+        "renal_condition_and_negative_clause_preserved",
+        "printed_page_number_removed_with_multi_page_evidence"
+      ],
+      "wordAccounting": {
+        "duplicateIds": [],
+        "missingIds": [],
+        "original": 26,
+        "removedWithReason": 1,
+        "retained": 25
+      },
+      "reviewFlags": [],
+      "professionalTableReview": "pending"
+    },
+    {
+      "sourceId": "nhc-hypertension-principles-2024",
+      "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+      "physicalPdfPage": 2,
+      "renderedImageHash": "141f65aa1807a1294aa271d6769b485b7bc5cceecef9949a3b421e9d42fb233a",
+      "renderedImageStorage": "ignored local private review cache",
+      "reviewOrigin": "project_agent_visual_inspection",
+      "criteriaChecked": [
+        "mixed_image_and_existing_text_layer",
+        "quantity_unit_exception_kept",
+        "page_number_retained_insufficient_sequence_evidence"
+      ],
+      "wordAccounting": {
+        "duplicateIds": [],
+        "missingIds": [],
+        "original": 65,
+        "removedWithReason": 0,
+        "retained": 65
+      },
+      "reviewFlags": [],
+      "professionalTableReview": "pending"
+    },
+    {
+      "sourceId": "nhc-hypertension-principles-2024",
+      "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+      "physicalPdfPage": 3,
+      "renderedImageHash": "1f6edf483a30285004556058b3c72b51f1da19771ac9bebfa7f3f7539e4d7885",
+      "renderedImageStorage": "ignored local private review cache",
+      "reviewOrigin": "project_agent_visual_inspection",
+      "criteriaChecked": [
+        "visible_table_but_no_extractable_text",
+        "queued_for_ocr_no_text_invented"
+      ],
+      "wordAccounting": {
+        "duplicateIds": [],
+        "missingIds": [],
+        "original": 0,
+        "removedWithReason": 0,
+        "retained": 0
+      },
+      "reviewFlags": [
+        "sparse_page_needs_ocr_or_blank_page_review"
+      ],
+      "professionalTableReview": "pending"
+    },
+    {
+      "sourceId": "nhc-weight-management-2024",
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "physicalPdfPage": 10,
+      "renderedImageHash": "f19f8692fec088efa52647353cb1d745e7608fa7037f63a533fce021f1f58ec4",
+      "renderedImageStorage": "ignored local private review cache",
+      "reviewOrigin": "project_agent_visual_inspection",
+      "criteriaChecked": [
+        "mixed_font_percentage_order_fixed",
+        "existing_anchor_retained_after_fix",
+        "numbered_headings_and_decorated_page_number_checked"
+      ],
+      "wordAccounting": {
+        "duplicateIds": [],
+        "missingIds": [],
+        "original": 47,
+        "removedWithReason": 1,
+        "retained": 46
+      },
+      "reviewFlags": [],
+      "professionalTableReview": "pending"
+    },
+    {
+      "sourceId": "kaneko-purines-2014",
+      "sourceHash": "8761dd2142a6313234451b26e0fbcf2ac4136dfc3a7aca94f3b009f9a8031e34",
+      "physicalPdfPage": 4,
+      "renderedImageHash": "c969d2f9555dae0ca14c027e239e4124088a6fdda7ddb07dd2dc0056eb83d981",
+      "renderedImageStorage": "ignored local private review cache",
+      "reviewOrigin": "project_agent_visual_inspection",
+      "criteriaChecked": [
+        "whole_width_table_atomic_before_two_columns",
+        "unit_and_footnote_kept",
+        "left_then_right_column_order_checked",
+        "table_cells_unreviewed_not_numeric_facts"
+      ],
+      "wordAccounting": {
+        "duplicateIds": [],
+        "missingIds": [],
+        "original": 780,
+        "removedWithReason": 5,
+        "retained": 775
+      },
+      "reviewFlags": [
+        "two_column_order_candidate",
+        "table_structure_requires_review"
+      ],
+      "professionalTableReview": "pending"
+    }
+  ]
+}

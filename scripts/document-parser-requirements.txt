@@ -1,0 +1,10 @@
+# Tested with bundled Python 3.12.14. No OCR model or service.
+pdfplumber==0.11.9
+pdfminer.six==20251230
+lxml==6.1.1
+Pillow==13.0.0
+pypdfium2==5.14.0
+cryptography==50.0.2
+charset-normalizer==3.5.2
+cffi==2.1.1
+pycparser==3.12

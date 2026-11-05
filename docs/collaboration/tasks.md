@@ -10,6 +10,7 @@
 | BASE-001 | 管理 chat | 验收当前本地项目为共同 main 基线，保留既有材料 | RAG-001 + `chore/managed-baseline-review` | 敏感文件/附件核对、构建与回归、安全保存原目录并正常合并复验 | 完成；业务合并 `6fa893b`，合并后复验通过；[管理审核](reviews/BASE-001-2026-11-05.md)，精确结果在 `.local-data/management/baseline-acceptance.json` |
 | RAG-001 | 当前开发 chat（重构 AGENTS.md） | 完成既有目录重整、基础/业务RAG及用户参考量策略，提供兼容旧 main 的完整本地候选；含现有协作工具依赖，详见交接 | `agent/rag/RAG-001-reorg-business-rag`，本地提交，不推送 | 保留原件/面试材料；排除密钥/本地配置/缓存；构建、主/验收类型、单元、相关桌面/手机与离线RAG；按确切SHA审核 | 完成；`ae41df2` 已通过BASE-001审核并合入本地main；[交接](submissions/RAG-001-2026-11-05.md) |
 | RAG-002 | 当前开发 chat | TODO C1标注/数据划分与B1离线原件重建；补建议均衡、明确补问、映射版本缺口；涉及研究后端、scripts、datasets、Agent文档与专项测试 | `agent/rag/RAG-002-quality-governance` | 冻结资料不变、杜绝评测泄漏与伪造人审、缓存可重复重建、真实目录回归、无新增付费或部署 | 开发完成，待审；已纳入通过BASE-001的最新main，最终SHA检查与交接后导入本地队列 |
+| RAG-003 | 当前开发 chat | 继续B线：HTML正文识别、PDF页边噪声/阅读顺序、坐标与转换追踪；为表格/OCR保留结构及待核项 | `agent/rag/RAG-003-document-parsing` | 原件/冻结包不变，否定/条件/单位保留，真实页视觉核对与版本化工程样本、可重复离线产物和本地检查 | 开发完成，待审；依赖已合入main的RAG-002；专项与[实际范围](../../agent-design/docs/document-parsing-execution-2026-11-06.md)已记录，最终SHA检查及本地队列交接另存；不接入正式知识或部署 |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
