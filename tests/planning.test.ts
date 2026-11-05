@@ -22,7 +22,7 @@ test('取消自定义忽略残留空值/超量，恢复为自动且保留食材�
   assert(compositionError(m)); assert.equal(normalizeInput(m).mode, 'meal');
   m.composition = 'auto'; const normalized = normalizeInput(m);
   assert.equal(normalized.mode, 'candidates'); assert.deepEqual(normalized.counts, servingReferences[0].counts);
-  assert.deepEqual(normalized.ingredients, m.ingredients);
+  assert.deepEqual(normalized.ingredients.map(i=>i.foodId), m.ingredients.map(i=>i.foodId)); assert(normalized.ingredients.every(i=>i.amount==='')); assert.equal(normalized.allowBuy,m.allowBuy);
 });
 
 test('自动按人数与食材种类调整：2人五道、4人七道，填写量不影响菜数', async () => {

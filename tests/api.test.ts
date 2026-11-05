@@ -19,7 +19,7 @@ test('V-01 / V-09: 运行时Schema、来源和CSRF拒绝、无秘密错误输出
     const extra = await app.inject({ method: 'POST', url: '/api/v1/recognitions/text', payload: { text: '鸡蛋', execute: 'ignore safety' }, headers });
     assert.equal(extra.statusCode, 400);
     const model = await app.inject({ method: 'POST', url: '/api/v1/recognitions/image', payload: {}, headers });
-    assert.equal(model.statusCode, 503); assert.equal(model.json().error.code, 'MODEL_NOT_ADMITTED');
+    assert.equal(model.statusCode, 400); assert.equal(model.json().error.code, 'INVALID_REQUEST');
     const auth = await app.inject({ method: 'POST', url: '/api/v1/auth/login', payload: {}, headers }); assert.equal(auth.statusCode, 503);
     const schema = await app.inject('/api/v1/openapi.json'); assert.equal(schema.statusCode, 200); assert(schema.json().paths['/api/v1/recommendations']);
     assert.match(session.headers['set-cookie']!.toString(), /HttpOnly/); assert.match(session.headers['set-cookie']!.toString(), /SameSite=Strict/);

@@ -29,6 +29,8 @@ import { fixedRecipeText, ingredientDisplayText } from '../../shared/recipe-copy
 import methodReview from '../../datasets/recipes/curation/recipe-step-review-v28.json';
 import type { HealthModel } from './health-model';
 import { requestHealthChat, during, assertChat } from './health-chat';
+import { recognizeImage, validateImage, type ImageModelConfig } from './image-recognition';
+import { imageRecognitionSchema, type ImageRecognitionRequest } from '../../shared/image-recognition';
 import { healthChatSchema, type HealthChatRequest } from '../../shared/health-chat';
 
 type MethodCopy={steps:string[];method_options?:{label:string;steps:string[]}[]};
@@ -78,6 +80,8 @@ export async function createApp(options: {
   accounts?: Accounts;
   healthModel?: HealthModel;
   healthChatFetch?: typeof fetch;
+  imageModel?: ImageModelConfig;
+  imageRecognitionFetch?: typeof fetch;
   healthRecipeFetch?: typeof fetch;
   healthRecipeObserve?: (diagnostics:import('./health-recipe-selection').SelectionDiagnostics)=>void;
   foodGuidance?:FoodGuidanceProvider;
@@ -154,7 +158,7 @@ export async function createApp(options: {
     rate.set(subject, bucket);
   });
   app.addHook('preHandler', async req => {
-    if (!['/api/v1/catalog/recipes', '/api/v1/recognitions/text', '/api/v1/recommendations'].includes(req.url.split('?')[0])) return;
+    if (!['/api/v1/catalog/recipes', '/api/v1/recognitions/text', '/api/v1/recognitions/image', '/api/v1/recommendations'].includes(req.url.split('?')[0])) return;
     if (options.contentSource === 'pending') {
       throw new DomainError('CONTENT_NOT_READY', 503, '正式内容尚未录入，此环境暂不提供推荐');
     }
@@ -191,7 +195,7 @@ export async function createApp(options: {
     const id = session(req.headers.cookie) ?? randomBytes(16).toString('hex');
     reply.header('Set-Cookie', `shiwei_guest=${id}.${sign(id)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=1800${options.origin?.startsWith('https:') ? '; Secure' : ''}`);
     const loggedIn = Boolean(testSession(req.headers.cookie));
-    const modelCapabilities = { erasureAvailable:Boolean(options.accounts?.erasureAvailable&&options.accounts.eraseAccount),recoveryAvailable:Boolean(options.accounts?.recoveryAvailable&&options.accounts.recoveryCode&&options.accounts.recoverPassword),healthChatAvailable, healthModelAvailable: Boolean(options.healthModel),...(options.foodGuidance?{healthGuidanceResearch:true}:{}), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
+    const modelCapabilities = { imageRecognitionProvider:options.imageModel?.provider??"deepseek", erasureAvailable:Boolean(options.accounts?.erasureAvailable&&options.accounts.eraseAccount),recoveryAvailable:Boolean(options.accounts?.recoveryAvailable&&options.accounts.recoveryCode&&options.accounts.recoverPassword),healthChatAvailable, healthModelAvailable: Boolean(options.healthModel),...(options.foodGuidance?{healthGuidanceResearch:true}:{}), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
     const account=await options.accounts?.authenticate(req.headers.cookie);
     if(account)return {...modelCapabilities,identity:'account',userId:account.userId,displayName:account.displayName,mustChangePassword:account.mustChangePassword,csrfToken:signCsrf(`csrf:${id}`),accountAvailable:true,registrationAvailable:registrationAvailable(),localTestFeatures:false,...((req.query as {state?:string}).state==='1'&&!account.mustChangePassword?{accountSnapshot:await options.accounts!.load(account)}:{})};
     return { ...modelCapabilities,identity: loggedIn ? 'local-test' : 'guest', ...(loggedIn ? { displayName: '本机测试账号' } : {}), csrfToken: signCsrf(`csrf:${id}`), accountAvailable: localTestFeatures||Boolean(options.accounts),registrationAvailable:registrationAvailable(), localTestFeatures };
@@ -213,7 +217,35 @@ export async function createApp(options: {
   });
   app.get('/api/v1/openapi.json', async () => app.swagger());
   app.post<{ Body: { text: string } }>('/api/v1/recognitions/text', { schema: { body: extractionSchema } }, async req => extractText(req.body.text,contextFor(req)));
-  app.post('/api/v1/recognitions/image', async () => { throw new DomainError('MODEL_NOT_ADMITTED', 503, '图片识别尚未准入，请保留图片并使用文字或人工录入'); });
+  app.post<{Body:ImageRecognitionRequest}>('/api/v1/recognitions/image',{bodyLimit:2800000,schema:{body:imageRecognitionSchema}},async(req,reply)=>{
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
+    const disconnect=()=>{if(!reply.raw.writableFinished)controller.abort();};reply.raw.once('close',disconnect);
+    const signal=controller.signal;let reserved=false;
+    try{
+      const identity=await during(options.accounts?.authenticate(req.headers.cookie)??Promise.resolve(null),signal);
+      if(!identity)throw new DomainError('LOGIN_REQUIRED',401,'请先登录，再识别图片中的食材');
+      if(identity.mustChangePassword)throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
+      validateImage(req.body.image);
+      const config=options.imageModel??{provider:'deepseek' as const};
+      const stored=config.provider==='deepseek'?await during(options.accounts!.healthKey?.(identity)??Promise.resolve(null),signal):null;
+      const apiKey=config.provider==='zhipu'?config.apiKey:stored?.apiKey;
+      if(!apiKey)throw new DomainError('CHAT_KEY_REQUIRED',400,'请先在个人设置中保存 DeepSeek API Key，再识别食材图片');
+      if(chatsInFlight>=4)throw new DomainError('CHAT_BUSY',429,'AI 使用人数较多，请稍后再试');
+      chatsInFlight++;reserved=true;
+      if(!options.accounts?.claimAiChat)throw new DomainError('CHAT_NOT_READY',503,'图片识别暂不可用');
+      const fingerprint=createHmac('sha256',secret).update('ingredient-image-v1\0').update(req.body.image).update(config.provider).update(apiKey).digest('hex');
+      const claim=await during(options.accounts.claimAiChat(identity,req.body.operationId,fingerprint),signal);
+      if(!claim.claimed)throw new DomainError(claim.reason==='duplicate'?'CHAT_OPERATION_USED':'CHAT_RATE_LIMIT',claim.reason==='duplicate'?409:429,claim.reason==='duplicate'?'这张图片已提交，未自动重发':'识别较频繁，请稍后再试');
+      const result=await during(recognizeImage(req.body.image,req.body.operationId,config,apiKey,contextFor(req),signal,options.imageRecognitionFetch),signal);
+      const active=await during(options.accounts.authenticate(req.headers.cookie),signal);
+      if(!active||active.userId!==identity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
+      if(config.provider==='deepseek'){
+        const current=await during(options.accounts.healthKey?.(active)??Promise.resolve(null),signal);
+        if(current?.apiKey!==apiKey)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已变更，请重新识别');
+      }
+      return result;
+    }finally{clearTimeout(timer);reply.raw.off('close',disconnect);if(reserved)chatsInFlight--;}
+  });
   const requireRegistration=()=>{if(!registrationAvailable())throw new DomainError('REGISTRATION_UNAVAILABLE',503,'注册暂不可用，请稍后重试');return options.accounts!;};
   app.post('/api/v1/auth/registration/captcha',{schema:{body:{type:'object',additionalProperties:false,maxProperties:0}}},async req=>{
     if(!options.accounts?.captcha)throw new DomainError('ACCOUNT_UNAVAILABLE',503,'图片验证暂不可用，请稍后重试');

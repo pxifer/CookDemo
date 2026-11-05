@@ -9,6 +9,7 @@
 | MAN-001 | 管理 chat | 协作规则、模板、SHA绑定工具及自主检查任务 | `chore/managed-baseline-review` | 类型、工具单元、本地基线及主分支复验 | 完成；自主检查按北京时间13/15/17/19/21点执行，不再等待通知 |
 | BASE-001 | 管理 chat | 验收当前本地项目为共同 main 基线，保留既有材料 | RAG-001 + `chore/managed-baseline-review` | 敏感文件/附件核对、构建与回归、安全保存原目录并正常合并复验 | 完成；业务合并 `6fa893b`，合并后复验通过；[管理审核](reviews/BASE-001-2026-11-05.md)，精确结果在 `.local-data/management/baseline-acceptance.json` |
 | RAG-001 | 当前开发 chat（重构 AGENTS.md） | 完成既有目录重整、基础/业务RAG及用户参考量策略，提供兼容旧 main 的完整本地候选；含现有协作工具依赖，详见交接 | `agent/rag/RAG-001-reorg-business-rag`，本地提交，不推送 | 保留原件/面试材料；排除密钥/本地配置/缓存；构建、主/验收类型、单元、相关桌面/手机与离线RAG；按确切SHA审核 | 完成；`ae41df2` 已通过BASE-001审核并合入本地main；[交接](submissions/RAG-001-2026-11-05.md) |
+| INPUT-001 | 当前开发 chat | 去掉食材输入用量、旧草稿迁移；图片识别及确认，免费智谱可配置/复用DeepSeek；含shared契约、API、前端、测试与启动配置 | `agent/codex/INPUT-001-photo-ingredients`，独立本地clone | 构建、验收类型、离线单元及手机/桌面核心和识图回归；无付费/云端调用 | 待审；构建/主及验收类型通过，单元328通过2跳过，浏览器40通过；基线09b03b0；见submissions/INPUT-001-2026-11-05.md |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 

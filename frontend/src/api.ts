@@ -22,7 +22,7 @@ export async function establishSession(withState=false): Promise<SessionInfo> {
 }
 async function post(url: string, body: unknown, signal?: AbortSignal, stream = false) {
   if (!csrf) await establishSession();
-  if (contentVersion && ['recognitions/text','recommendations'].includes(url)) body = { ...(body as object), contentVersion };
+  if (contentVersion && ['recognitions/text','recognitions/image','recommendations'].includes(url)) body = { ...(body as object), contentVersion };
   const response = await fetch(`/api/v1/${url}`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf!, Accept: stream ? 'application/x-ndjson' : 'application/json' }, body: JSON.stringify(body), signal:signal??AbortSignal.timeout(25000) }).catch(error=>{if(error.name==='TimeoutError')throw Error('连接超时，输入已保留，请稍后重试');throw error;});
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
@@ -100,3 +100,9 @@ export async function requestRecommendation(body: RecommendationRequest, signal:
 }
 
 export async function updateHealthApiKey(expectedVersion:number,apiKey:string|null):Promise<import('../../shared/account').AccountSnapshot>{return (await post('account/health-key',{expectedVersion,apiKey})).json();}
+
+export async function recognizePhoto(image:string,operationId:string,signal:AbortSignal):Promise<import("../../shared/image-recognition").ImageRecognitionResult>{
+  const data=await (await post("recognitions/image",{image,operationId},signal)).json();
+  if(data.operationId!==operationId||!Array.isArray(data.extraction?.ingredients)||!Array.isArray(data.uncertain))throw Error("图片识别结果不完整，请手动重试");
+  return data;
+}

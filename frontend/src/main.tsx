@@ -9,7 +9,7 @@ import type { AiFoodChoices, HealthProfile } from '../../shared/health-chat';
 import { combinedTopicChoices, healthTopics, toggleTopicGroup } from '../../shared/health-topics';
 import { contentContext, type ContentContext } from '../../shared/content';
 import { makeRestriction as makeRestrictionBase } from '../../shared/extraction';
-import { amountParts, inputIngredient, mergeInput, normalizeInput, resolveExtraction, contentSeasonings, setAmount, units } from './meal-input';
+import { inputIngredient, mergeInput, normalizeInput, resolveExtraction, contentSeasonings } from './meal-input';
 import { type Dish, type Extraction, type Favorite, type Ingredient, type Meal, type QuantityCheck, type Recipe, type RecommendationRequest, type RecommendationResult, type Variant } from '../../shared/types';
 import { fetchCatalog, extract, loginForLocalTest, logout, requestRecommendation } from './api';
 import type { SessionInfo } from '../../shared/session';
@@ -135,7 +135,6 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
     mealRef.current = next; setMeal(next); savePersonalSettings(next); return next;
   };
   useEffect(() => { if (sessionInfo?.identity === 'guest' && mealRef.current.health) edit({health:false}); }, [healthIdentity, sessionInfo?.identity]);
-  const ingredient = (id: string, fields: Partial<Ingredient>) => edit(m => ({ ...m, ingredients: m.ingredients.map(i => i.id === id ? { ...i, ...fields } : i) }));
   const renameIngredient = (id: string, name: string) => {
     const current = mealRef.current.ingredients.find(i => i.id === id);
     if (!current) return;
@@ -324,18 +323,14 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
       {crossTab && <div className="warning-box" role="alert">另一页面更新了这一餐，请选择使用哪份内容。<div className="actions"><button onClick={() => { const restored = normalizeInput(applyPersonalSettings(readMeal(),accountState().local.defaults), catalog); setCrossTab(false); edit(restored); }}>载入另一页面版本</button><button onClick={() => { setCrossTab(false); edit({}); }}>保留当前编辑并写回</button></div></div>}
       {storageError && <p role="alert" className="warning-box">浏览器未允许本机保存。当前页面可继续，刷新可能无法恢复。</p>}
       <div id="workspace" className="workspace"><div className="input-column"><section className="panel ingredient-panel"><div className="section-heading"><h2><span className="step-number">01</span>看看有什么食材</h2><span className="subtle">{meal.ingredients.length} 种</span></div>
-          <div className="input-tabs" role="group" aria-label="输入方式"><button className={tab === 'image' ? 'selected' : ''} aria-pressed={tab === 'image'} onClick={() => { setTab('image'); setEntryOpen(true); }}>图片备忘（暂不识别）</button><button className={tab === 'text' ? 'selected' : ''} aria-pressed={tab === 'text'} onClick={() => { setTab('text'); setEntryOpen(true); }}>文字输入</button></div>
-          {entryOpen && (tab === 'text' ? <><label className="sr-only" htmlFor="raw">输入食材与本餐信息</label><textarea id="raw" maxLength={5000} value={meal.raw} onChange={e => edit({ raw: e.target.value })} placeholder="例如：西红柿2个鸡蛋3个菠菜一把，2个人吃，对虾过敏"/><button className="button outline full organize-button" onClick={() => void organize()}>整理信息 ↗</button></> : <div className="upload-zone"><span className="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="16" cy="9" r="1.5"/><path d="m3 16 5-5 5 5 3-3 5 5"/></svg></span><strong>对照照片，补充食材</strong><span>仅供本页查看；添加食材请用文字或手动输入</span><PhotoInput/><button className="text-button" onClick={() => { setTab('text'); setEntryOpen(true); }}>转到文字录入 →</button></div>)}
-          <div className="ingredient-heading list-label"><strong>我的食材</strong><span>用量选填</span></div>
-          <p className="amount-hint">用量仅供做饭参考，选菜按食材有无、人数和饮食要求进行。</p>
+          <div className="input-tabs" role="group" aria-label="输入方式"><button className={tab === 'image' ? 'selected' : ''} aria-pressed={tab === 'image'} onClick={() => { setTab('image'); setEntryOpen(true); }}>拍照识别</button><button className={tab === 'text' ? 'selected' : ''} aria-pressed={tab === 'text'} onClick={() => { setTab('text'); setEntryOpen(true); }}>文字输入</button></div>
+          {entryOpen && (tab === 'text' ? <><label className="sr-only" htmlFor="raw">输入食材与本餐信息</label><textarea id="raw" maxLength={5000} value={meal.raw} onChange={e => edit({ raw: e.target.value })} placeholder="例如：西红柿、鸡蛋、菠菜，2个人吃，对虾过敏"/><button className="button outline full organize-button" onClick={() => void organize()}>整理信息 ↗</button></> : <div className="upload-zone"><span className="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="16" cy="9" r="1.5"/><path d="m3 16 5-5 5 5 3-3 5 5"/></svg></span><strong>拍照或上传食材图片</strong><span>识别后确认食材，再加入本餐清单</span><PhotoInput onAdd={addParsed} provider={sessionInfo?.imageRecognitionProvider} userId={sessionInfo?.userId} configured={Boolean(healthKey?.configured)} version={meal.version}/><button className="text-button" onClick={() => { setTab('text'); setEntryOpen(true); }}>转到文字录入 →</button></div>)}
+          <div className="ingredient-heading list-label"><strong>我的食材</strong></div>
           {!meal.ingredients.length && <div className="ingredient-empty">添加现有食材，或允许补买查看默认推荐</div>}
-          <ul className="ingredients" aria-label="我的食材">{meal.ingredients.map(i => { const amount = amountParts(i); return <li key={i.id}><div className="ingredient-row">
+          <ul className="ingredients" aria-label="我的食材">{meal.ingredients.map(i => { return <li key={i.id}><div className="ingredient-row">
             {i.foodId ? <span className="ingredient-name" title={i.name}>{i.name}</span> : <input className="ingredient-name-edit" aria-label={`更正未识别名称 ${i.name}`} list="food-names" maxLength={100} value={i.name} onChange={e => renameIngredient(i.id,e.target.value)}/>}
-            <input aria-label={`${i.name}用量`} inputMode="decimal" maxLength={80} value={amount.value} placeholder="选填" onChange={e => ingredient(i.id, setAmount(i, e.target.value, amount.unit))}/>
-            <select aria-label={`${i.name}单位`} value={amount.unit} onChange={e => ingredient(i.id, setAmount(i, amount.value, e.target.value))}>{units.map(unit => <option key={unit}>{unit}</option>)}</select>
             <button className="icon-button" aria-label={`删除食材 ${i.name}`} onClick={() => edit(m => ({ ...m, ingredients: m.ingredients.filter(x => x.id !== i.id) }))}>×</button></div>
             {!i.foodId && <p className="ingredient-unrecognized">未识别，不参与推荐；可改名或删除</p>}
-            {i.status === 'conflict' && <div className="quantity-conflict"><p>已有用量 {i.amount || '未填'}，新输入 {i.alternative}，这次用哪个？</p><button onClick={() => ingredient(i.id, { status: i.foodId ? 'confirmed' : 'pending', alternative: undefined })}>保留原用量</button><button onClick={() => ingredient(i.id, { amount: i.alternative ?? '', status: i.foodId ? 'confirmed' : 'pending', alternative: undefined })}>使用新用量</button></div>}
           </li>; })}</ul>
           <FoodPicker foods={foods} add={addManual}/>
           <datalist id="food-names">{foods.filter(f => !seasoningIds.includes(f.id)).map(f => <option key={f.id} value={f.name}/>)}</datalist>
