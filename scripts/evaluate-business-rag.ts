@@ -11,11 +11,12 @@ import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
 import {sourceHashes,sourceFingerprint} from './lib/source-fingerprint';
 
 async function main(){
-const args=process.argv.slice(2);let pg=false,gallery=false,output='artifacts/acceptance/business-rag-2026-11-04';
-for(let i=0;i<args.length;i++){if(args[i]==='--pg')pg=true;else if(args[i]==='--gallery')gallery=true;else if(args[i]==='--output'&&args[i+1])output=args[++i];else throw Error('BUSINESS_RAG_ARGUMENT_INVALID_NO_LIVE_MODE');}
+const args=process.argv.slice(2);let pg=false,gallery=false,output='artifacts/acceptance/business-rag-2026-11-04',databaseUrlFile='.local-data/rag/database-url';
+for(let i=0;i<args.length;i++){if(args[i]==='--pg')pg=true;else if(args[i]==='--gallery')gallery=true;else if(args[i]==='--output'&&args[i+1])output=args[++i];else if(args[i]==='--database-url-file'&&args[i+1])databaseUrlFile=args[++i];else throw Error('BUSINESS_RAG_ARGUMENT_INVALID_NO_LIVE_MODE');}
+if(!pg&&databaseUrlFile!=='.local-data/rag/database-url')throw Error('BUSINESS_RAG_DATABASE_FILE_REQUIRES_PG');
 await mkdir(output,{recursive:true});
 const assets=await readFoodGuidanceAssets();
-const provider=pg?await createLocalFoodGuidanceProvider():createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set());
+const provider=pg?await createLocalFoodGuidanceProvider(databaseUrlFile):createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set());
 try{
   let snapshot:ContentSnapshot=JSON.parse(await readFile('datasets/health/recipe-research/recipe-snapshot.json','utf8'));
   if(gallery){const directory='.local-data/cloudbase-http/listed-foods-20261026-v28';const manifest=JSON.parse(await readFile(join(directory,'manifest.json'),'utf8'));snapshot=verifyGalleryBundle(JSON.parse(await readFile(join(directory,'gallery-bundle.json'),'utf8')),manifest.hash);}

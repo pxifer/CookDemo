@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "id": "health-source-rebuild-registry-v1",
+  "parserRequirements": {
+    "python": "3.11",
+    "pypdf": "6.21.4",
+    "cryptography": "50.0.2",
+    "cffi": "2.1.1",
+    "pycparser": "3.12",
+    "fonttools": "4.68.0"
+  },
+  "policy": "Local originals only. Derived full text remains ignored. No semantic/clinical approval, table reconstruction or OCR claimed.",
+  "sources": [
+    {
+      "id": "nhc-hypertension-2023",
+      "cache": "health",
+      "file": "nhc-hypertension-2023.pdf",
+      "format": "pdf",
+      "sha256": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+      "expectedPages": 56,
+      "attribution": {
+        "title": "成人高血压食养指南（2023年版）",
+        "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+        "version": "2023"
+      }
+    },
+    {
+      "id": "nhc-diabetes-2023",
+      "cache": "health",
+      "file": "nhc-diabetes-2023.pdf",
+      "format": "pdf",
+      "sha256": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "expectedPages": 64,
+      "attribution": {
+        "title": "成人糖尿病食养指南（2023年版）",
+        "url": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+        "version": "2023"
+      }
+    },
+    {
+      "id": "nhc-gout-2024",
+      "cache": "health",
+      "file": "nhc-gout-2024.pdf",
+      "format": "pdf",
+      "sha256": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f",
+      "expectedPages": 74,
+      "attribution": {
+        "title": "成人高尿酸血症与痛风食养指南（2024年版）",
+        "url": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+        "version": "2024"
+      }
+    },
+    {
+      "id": "nhc-hypertension-principles-2024",
+      "cache": "health",
+      "file": "nhc-hypertension-principles-2024.pdf",
+      "format": "pdf",
+      "sha256": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+      "expectedPages": 14,
+      "attribution": {
+        "title": "高血压营养和运动指导原则（2024年版）",
+        "url": "https://www.gov.cn/zhengce/zhengceku/202407/P020240701700333981869.pdf",
+        "version": "2024"
+      }
+    },
+    {
+      "id": "kaneko-purines-2014",
+      "cache": "health",
+      "file": "kaneko-purines-2014.pdf",
+      "format": "pdf",
+      "sha256": "8761dd2142a6313234451b26e0fbcf2ac4136dfc3a7aca94f3b009f9a8031e34",
+      "expectedPages": 13,
+      "attribution": {
+        "title": "Total Purine and Purine Base Content of Common Foodstuffs for Facilitating Nutritional Therapy for Gout and Hyperuricemia",
+        "url": "https://www.jstage.jst.go.jp/article/bpb/37/5/37_b13-00967/_pdf",
+        "version": "2014"
+      }
+    },
+    {
+      "id": "shinoda-cooking-1982",
+      "cache": "health",
+      "file": "shinoda-cooking-1982.html",
+      "format": "html",
+      "sha256": "b3a9f81e4f7497ea59fcc6bc4baa8be0ee9f780b82d8b672753c69a095012813",
+      "expectedPages": 1,
+      "attribution": {
+        "title": "Purine Base Contents in Foods and Effects of Cooking Methods",
+        "url": "https://www.jstage.jst.go.jp/article/jsnfs1949/35/2/35_2_103/_article/-char/en",
+        "version": "1982"
+      }
+    },
+    {
+      "id": "nci-cooked-meats-2017",
+      "cache": "health",
+      "file": "nci-cooked-meats-2017.html",
+      "format": "html",
+      "sha256": "0c3ddbad4d9ba5587f0cce17a1c1b2f7465c44a78b791666a9479d5d5a2bf19e",
+      "expectedPages": 1,
+      "attribution": {
+        "title": "Chemicals in Meat Cooked at High Temperatures and Cancer Risk",
+        "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/diet/cooked-meats-fact-sheet",
+        "version": "reviewed-2017-07-11"
+      }
+    },
+    {
+      "id": "nhc-obesity-2024",
+      "cache": "health",
+      "file": "nhc-obesity-2024.pdf",
+      "format": "pdf",
+      "sha256": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+      "expectedPages": 70,
+      "attribution": {
+        "title": "成人肥胖食养指南（2024年版）",
+        "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+        "version": "2024"
+      }
+    },
+    {
+      "id": "nhc-ckd-2024",
+      "cache": "health",
+      "file": "nhc-ckd-2024.pdf",
+      "format": "pdf",
+      "sha256": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+      "expectedPages": 69,
+      "attribution": {
+        "title": "成人慢性肾脏病食养指南（2024年版）",
+        "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+        "version": "2024"
+      }
+    },
+    {
+      "id": "nhc-osteoporosis-2026",
+      "cache": "health",
+      "file": "nhc-osteoporosis-2026.pdf",
+      "format": "pdf",
+      "sha256": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+      "expectedPages": 85,
+      "attribution": {
+        "title": "成人骨质疏松症食养指南（2026年版）",
+        "url": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+        "version": "2026"
+      }
+    },
+    {
+      "id": "cdc-dyslipidemia-2023",
+      "cache": "health",
+      "file": "t20250407_305765.html.html",
+      "format": "html",
+      "sha256": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+      "assets": [
+        {
+          "file": "cdc-dyslipidemia-2023-1.jpg",
+          "sha256": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c"
+        },
+        {
+          "file": "cdc-dyslipidemia-2023-2.jpg",
+          "sha256": "93df86c55366820769b74fcb3bfeec12db864270fa9cef0e4c1d68819c1ee61f"
+        },
+        {
+          "file": "cdc-dyslipidemia-2023-3.jpg",
+          "sha256": "faf498b781263720030dc8f56c75a555e5853280c2b3687a3390827716b82fe6"
+        }
+      ],
+      "attribution": {
+        "title": "成人高脂血症食养指南（2023年版）",
+        "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+        "version": "2023"
+      }
+    },
+    {
+      "id": "nhc-weight-management-2024",
+      "cache": "goals",
+      "file": "nhc-weight-2024.pdf",
+      "format": "pdf",
+      "sha256": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "attribution": {
+        "title": "体重管理指导原则（2024年版）",
+        "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+        "version": "2024"
+      }
+    },
+    {
+      "id": "issn-protein-exercise-2017",
+      "cache": "goals",
+      "file": "issn-protein-2017.html",
+      "format": "html",
+      "sha256": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+      "attribution": {
+        "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+        "version": "2017"
+      }
+    }
+  ]
+}

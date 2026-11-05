@@ -34,6 +34,7 @@
 - `agent-design/` 按接入、检索、增强、生成、记忆、存储、编排、评测与优化维护设计和实现导航；运行代码留在后端，不因规划目录存在而宣称向量/RAG已完成。
 - 需求涉及 RAG/Embedding、向量库选型、召回融合、上下文增强、证据问答生成、RAG 评测或优化时，先查 [Agent 文档目录](agent-design/docs/README.md)及[本轮基础 RAG 计划](agent-design/docs/basic-rag-plan-2026-11-04.md)，再定位对应模块；执行命令与当前验收状态见同目录运行说明。
 - 需求涉及 RAG 接入食谱推荐、减脂/增肌目标知识、资料正文/表格/OCR 治理、检索偏题或独立评测与人工审核集时，先读[后续行动 TODO](agent-design/docs/todo.md)，按业务主线、资料治理、评测依赖推进并附完成证据；证据问答跑通不代表 RAG 食谱推荐闭环完成。
+- 修改资料解析/重建或评测数据时，先读[离线重建](agent-design/docs/source-rebuild-runbook.md)和[标注划分规范](agent-design/docs/quality-annotation-protocol.md)；原件/冻结定位不覆盖，gold不进模型，固定库问题评测与新来源泛化分开，候选冻结不冒充独立人审。
 - 食材指导接入本地聊天/选菜的当前契约及实测见[业务RAG记录](agent-design/docs/business-rag-execution-2026-11-04.md)：显式local/loopback研究开关、直接指导及动态配方绑定；新增目标未向量化，真实生成质量与专业审核仍待完成。
 - 当前真实界面链路及5次样例见[2026-11-05例子](agent-design/docs/business-rag-example-2026-11-05.md)：无健康依据不全局拦截合格菜，保留健康判断；模型只选目录ID，程序按真实配方绑定证据，不采信模型自由填写引用。独立/专业质量评测仍未完成。
 - `backend/src/rag/` 为研究 RAG 实现，`backend/rag-runtime/` 为本机 Embedding 推理；`rag:prepare/index/query/evaluate/smoke` 从根目录运行，研究凭证、权重和账本仅在 `.local-data/rag/`。
