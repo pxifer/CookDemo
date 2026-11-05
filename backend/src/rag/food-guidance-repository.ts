@@ -6,7 +6,8 @@ import { createFoodGuidanceProvider, type GoalKnowledge, type GuidanceMappings }
 import type { FoodGuidanceProvider } from '../../../shared/food-guidance';
 
 const data=(path:string)=>new URL(`../../../datasets/health/${path}`,import.meta.url);
-export async function readFoodGuidanceAssets(){
+export async function readFoodGuidanceAssets(mappingVersion:1|2=2){
+  if(mappingVersion!==1&&mappingVersion!==2)throw Error('GUIDANCE_MAPPING_VERSION_INVALID');
   const directory='2026-10-28-v2',manifest=JSON.parse(await readFile(data(`${directory}/manifest.json`),'utf8'));
   for(const [file,hash] of Object.entries(manifest.files))if(!/^[\w.-]+$/.test(file)||sha256(await readFile(data(`${directory}/${file}`)))!==hash)throw Error('GUIDANCE_BUNDLE_INTEGRITY');
   const bundle=validateKnowledgeBundle(JSON.parse(await readFile(data(`${directory}/knowledge-bundle.json`),'utf8')));
@@ -14,7 +15,8 @@ export async function readFoodGuidanceAssets(){
   const raw=await readFile(data('goal-guidance-2026-11-04-v1/knowledge.json'));
   if(sha256(raw)!==goalManifest.files['knowledge.json'])throw Error('GUIDANCE_GOAL_INTEGRITY');
   const goals=JSON.parse(raw.toString('utf8')) as GoalKnowledge;
-  const mappings=JSON.parse(await readFile(data('food-guidance-mappings-v1.json'),'utf8')) as GuidanceMappings;
+  const mappings=JSON.parse(await readFile(data(`food-guidance-mappings-v${mappingVersion}.json`),'utf8')) as GuidanceMappings;
+  if(mappings.id!==`food-guidance-mappings-v${mappingVersion}`)throw Error('GUIDANCE_MAPPING_ID_INVALID');
   if(goals.id!==goalManifest.id||!goals.facts.length||new Set(goals.facts.map(f=>f.id)).size!==goals.facts.length)throw Error('GUIDANCE_ASSETS_INVALID');
   for(const f of goals.facts)if(!['prefer','limit','avoid'].includes(f.direction)||!goals.topics.some(t=>t.id===f.topicId)||[...f.evidenceIds,...f.qualifyingEvidenceIds].some(id=>!goals.evidence.some(e=>e.id===id)))throw Error('GUIDANCE_ASSETS_INVALID');
   return {bundle,manifest,goals,mappings};

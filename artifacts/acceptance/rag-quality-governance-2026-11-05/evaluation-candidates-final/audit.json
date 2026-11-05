@@ -1,0 +1,29 @@
+{
+  "id": "rag-quality-candidates-v1",
+  "sha256": "8eaa3ac63be3880c383c17cf78c3daa341572493b88acf828ba3207d0be54e4c",
+  "holdoutPolicy": "question_family_disjoint",
+  "sharedCorpusDisclosure": [],
+  "errors": [],
+  "pendingIndependentReview": [],
+  "pendingAnnotation": [
+    "parse-total-column",
+    "retrieve-direct-vs-background",
+    "guidance-display-diversity",
+    "meal-reference-quantity"
+  ],
+  "holdoutStatus": "not_created",
+  "coverage": {
+    "parsing": 1,
+    "retrieval": 1,
+    "food_guidance": 1,
+    "meal": 1
+  },
+  "counts": {
+    "development": 0,
+    "acceptance": 0,
+    "hard": 0,
+    "regression": 4
+  },
+  "independentAcceptanceReady": false,
+  "scope": "Declared review metadata only; this tool does not verify reviewer identity or confer clinical approval."
+}

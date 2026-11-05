@@ -19,6 +19,7 @@
     "scripts/rag-prepare-local.ts",
     "scripts/evaluate-business-rag.ts",
     "scripts/preview-rag.ts",
-    "scripts/trace-business-rag.ts"
+    "scripts/trace-business-rag.ts",
+    "scripts/rag-quality.ts"
   ]
 }

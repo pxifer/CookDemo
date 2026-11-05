@@ -6,7 +6,7 @@ import type { Recipe, Variant } from '../../../shared/types';
 import type { FoodGuidance, FoodGuidancePacket, FoodGuidanceProvider, GuidanceEvidence, GuidanceInput, GuidanceTopic, RecipeGuidanceBinding } from '../../../shared/food-guidance';
 import { factAvailability, canonicalKnowledgeHash } from '../health-knowledge';
 
-export const businessPolicyVersion='food-guidance-business-v1';
+export const businessPolicyVersion='food-guidance-business-v2';
 export const guidanceHash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const guidanceTextHash=(value:string)=>createHash('sha256').update(value).digest('hex');
 const norm=(value:string)=>value.normalize('NFKC').trim();
@@ -39,6 +39,9 @@ export function reportedConditions(notes:string, currentText=''):Record<string,s
   if(/(?:本人|我)正在透析/.test(text))result.dialysis='yes';
   if(/(?:本人|我)有个体营养方案/.test(text))result.clinicianNutritionPlan='yes';
   if(/(?:本人|我)没有个体营养方案/.test(text))result.clinicianNutritionPlan='no';
+  const lipid=text.match(/(?:本人|我)(?:已知|确诊的)?血脂(?:异常)?分型(?:为|是|[:：])\s*(高胆固醇(?:血症)?|高甘油三酯(?:血症)?|混合型)/);
+  if(lipid)result.lipidPattern=lipid[1].startsWith('高胆固醇')?'high_cholesterol':lipid[1].startsWith('高甘油三酯')?'high_triglycerides':'mixed';
+  if(/(?:本人|我)(?:不清楚|不知道)血脂(?:异常)?分型/.test(text))result.lipidPattern='unknown';
   const stage=text.match(/(?:已知|确诊|分期(?:为|是)?|慢性肾病|CKD)\s*(G[1-5])/i);if(stage)result.ckdStage=stage[1].toUpperCase();
   return result;};
   return Object.assign({},...norm(notes+'。'+currentText).split(/[。；，\n]/).map(parse));

@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "id": "rag-quality-candidates-v1",
+  "holdoutPolicy": "question_family_disjoint",
+  "cases": [
+    {
+      "exposure": "used_for_tuning",
+      "gold": null,
+      "review": {
+        "status": "pending",
+        "origin": "project_agent",
+        "independent": false,
+        "reviewerId": null,
+        "role": null,
+        "date": null,
+        "rationale": null
+      },
+      "id": "parse-total-column",
+      "task": "parsing",
+      "split": "regression",
+      "questionFamily": "table-total-units",
+      "sourceFamilies": [
+        "kaneko-purines-2014"
+      ],
+      "sourceHashes": [
+        "8761dd2142a6313234451b26e0fbcf2ac4136dfc3a7aca94f3b009f9a8031e34"
+      ],
+      "topics": [
+        "kaneko-purines-2014"
+      ],
+      "input": {
+        "sourceId": "kaneko-purines-2014",
+        "page": 4
+      },
+      "requiresProfessionalReview": false
+    },
+    {
+      "exposure": "used_for_tuning",
+      "gold": null,
+      "review": {
+        "status": "pending",
+        "origin": "project_agent",
+        "independent": false,
+        "reviewerId": null,
+        "role": null,
+        "date": null,
+        "rationale": null
+      },
+      "id": "retrieve-direct-vs-background",
+      "task": "retrieval",
+      "split": "regression",
+      "questionFamily": "lipid-food-vs-component",
+      "sourceFamilies": [
+        "cdc-dyslipidemia-2023"
+      ],
+      "sourceHashes": [
+        "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+      ],
+      "topics": [
+        "cdc-dyslipidemia-2023"
+      ],
+      "input": {
+        "query": "已明确成年且有高脂血症，哪些食材指导有直接依据？"
+      },
+      "requiresProfessionalReview": true
+    },
+    {
+      "exposure": "used_for_tuning",
+      "gold": null,
+      "review": {
+        "status": "pending",
+        "origin": "project_agent",
+        "independent": false,
+        "reviewerId": null,
+        "role": null,
+        "date": null,
+        "rationale": null
+      },
+      "id": "guidance-display-diversity",
+      "task": "food_guidance",
+      "split": "regression",
+      "questionFamily": "balanced-guidance-display",
+      "sourceFamilies": [
+        "cdc-dyslipidemia-2023"
+      ],
+      "sourceHashes": [
+        "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+      ],
+      "topics": [
+        "cdc-dyslipidemia-2023"
+      ],
+      "input": {
+        "conditions": [
+          "高脂血症"
+        ],
+        "goals": [
+          "减脂"
+        ],
+        "context": {
+          "adult": "yes"
+        }
+      },
+      "requiresProfessionalReview": true
+    },
+    {
+      "exposure": "used_for_tuning",
+      "gold": null,
+      "review": {
+        "status": "pending",
+        "origin": "project_agent",
+        "independent": false,
+        "reviewerId": null,
+        "role": null,
+        "date": null,
+        "rationale": null
+      },
+      "id": "meal-reference-quantity",
+      "task": "meal",
+      "split": "regression",
+      "questionFamily": "quantity-reference-only",
+      "sourceFamilies": [
+        "nhc-hypertension-2023"
+      ],
+      "sourceHashes": [
+        "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+      ],
+      "topics": [
+        "nhc-hypertension-2023"
+      ],
+      "input": {
+        "conditions": [
+          "高血压"
+        ],
+        "context": {
+          "adult": "yes"
+        },
+        "meal": {
+          "ingredients": [
+            "白菜",
+            "豆腐"
+          ],
+          "servings": 1,
+          "allowBuy": false
+        }
+      },
+      "requiresProfessionalReview": true
+    }
+  ]
+}
