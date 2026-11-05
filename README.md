@@ -28,7 +28,7 @@
 
 ## 项目目录
 
-多 Agent 开发先读[协作与 PR 流程](docs/collaboration/README.md)，从[任务登记](docs/collaboration/tasks.md)领取明确范围。各 agent 使用独立目录和分支，PR 交给管理 chat 审查、合并及主分支复验。
+多 Agent 开发先读[本地 Git 协作流程](docs/collaboration/README.md)，从[任务登记](docs/collaboration/tasks.md)领取明确范围。各 agent 从已验收本地 main 使用独立目录和任务分支提交，由管理 chat 自主审查、合并及主分支复验，不依赖 GitHub PR。
 
 | 目录 | 职责 |
 | --- | --- |
