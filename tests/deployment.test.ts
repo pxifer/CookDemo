@@ -2,10 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
 import { PGlite } from '@electric-sql/pglite';
-import { readConfig } from '../server/config';
-import { migrate, type Database } from '../server/db';
-import { inspectDatabase } from '../server/deployment';
-import { createApp } from '../server/app';
+import { readConfig } from '../backend/src/config';
+import { migrate, type Database } from '../backend/src/db';
+import { inspectDatabase } from '../backend/src/deployment';
+import { createApp } from '../backend/src/app';
 
 const stage = () => ({ APP_ENV: 'staging', APP_ORIGIN: 'https://shiwei.example', DATABASE_URL: 'postgresql://owner:test@127.0.0.1/shiwei_test',
   SESSION_SECRET_B64: randomBytes(32).toString('base64'), CSRF_SECRET_B64: randomBytes(32).toString('base64') });

@@ -1,0 +1,901 @@
+{
+  "task": "recipe_selection",
+  "evidenceGuidance": {
+    "guidance": [
+      {
+        "id": "guide:fact:lipid-prefer-fresh-vegetables",
+        "factId": "fact:lipid-prefer-fresh-vegetables",
+        "topic": {
+          "id": "d:dyslipidemia",
+          "kind": "condition",
+          "name": "成人高脂血症",
+          "inputName": "成人高脂血症"
+        },
+        "objectId": "f:fresh-vegetables",
+        "objectName": "新鲜蔬菜",
+        "objectKind": "food_group",
+        "direction": "prefer",
+        "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "broccoli",
+            "cabbage",
+            "carrot",
+            "cucumber",
+            "pepper",
+            "spinach",
+            "tomato",
+            "winter-melon",
+            "gallery-food-53f356a4dfae8657",
+            "gallery-food-1354bbffdcdce7c5",
+            "gallery-food-9cf831318b256277",
+            "gallery-food-e0468aa0c2c927b2",
+            "gallery-food-e2adfbdf8ad05988",
+            "gallery-food-844bb771219ba31c",
+            "gallery-food-1d740e0aaa9de330",
+            "gallery-food-437d9112a26dbe2e",
+            "gallery-food-36977dd6259e593e",
+            "gallery-food-5d0a727235792b93",
+            "gallery-food-78e2582d80b5b855",
+            "gallery-food-cbe62979975930dd",
+            "gallery-food-c35f1a0c32046f11",
+            "gallery-food-d273b4076f1d7226"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:fact:lipid-fry",
+        "factId": "fact:lipid-fry",
+        "topic": {
+          "id": "d:dyslipidemia",
+          "kind": "condition",
+          "name": "成人高脂血症",
+          "inputName": "成人高脂血症"
+        },
+        "objectId": "p:fry",
+        "objectName": "油炸或煎制",
+        "objectKind": "process",
+        "direction": "limit",
+        "statement": "少用多油煎炸方式。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "processRule": "fry-primary",
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:fact:lipid-steam",
+        "factId": "fact:lipid-steam",
+        "topic": {
+          "id": "d:dyslipidemia",
+          "kind": "condition",
+          "name": "成人高脂血症",
+          "inputName": "成人高脂血症"
+        },
+        "objectId": "p:steam-boil",
+        "objectName": "蒸煮汆制",
+        "objectKind": "process",
+        "direction": "prefer",
+        "statement": "优先少油蒸煮方式。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "processRule": "steam-boil-primary",
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:goal:fat-loss-limit-sugar",
+        "factId": "goal:fat-loss-limit-sugar",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "f:added-sugar",
+        "objectName": "白糖",
+        "objectKind": "food",
+        "direction": "limit",
+        "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "sugar",
+            "gallery-food-4f7a2bfbb8b66631",
+            "gallery-food-8926045c491adf47"
+          ],
+          "status": "mapped"
+        },
+        "basis": "project_interpretation",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:goal:fat-loss-steam-boil",
+        "factId": "goal:fat-loss-steam-boil",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "p:steam-boil",
+        "objectName": "蒸煮汆制",
+        "objectKind": "process",
+        "direction": "prefer",
+        "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "processRule": "steam-boil-primary",
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      {
+        "id": "guide:goal:fat-loss-limit-fry",
+        "factId": "goal:fat-loss-limit-fry",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "p:fry",
+        "objectName": "油炸或煎制",
+        "objectKind": "process",
+        "direction": "limit",
+        "statement": "体重管理少选来源列举的煎炸做法；不从菜名推断实际工艺、摄入能量或减脂效果。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "processRule": "fry-primary",
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1",
+        "sourceId": "cdc-dyslipidemia-2023",
+        "title": "成人高脂血症食养指南（2023年版）",
+        "version": "2023",
+        "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+        "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+        "originalSpan": "在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+        "locator": {
+          "kind": "html_visual",
+          "pdfPage": null,
+          "printedPage": 6,
+          "section": "三（三）膳食纤维",
+          "start": null,
+          "end": null,
+          "normalization": "remove_unicode_whitespace_v1",
+          "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+          "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+          "imageRegion": [
+            0,
+            5500,
+            700,
+            6300
+          ]
+        },
+        "spanHash": "318982b6dec2e3c5468a7d6af66effc5926311fd2b483555ee05b1056a9d5843"
+      },
+      {
+        "id": "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578",
+        "sourceId": "cdc-dyslipidemia-2023",
+        "title": "成人高脂血症食养指南（2023年版）",
+        "version": "2023",
+        "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+        "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+        "originalSpan": "高脂血症人群食物制作应选择少油蒸煮方式，减少食品过度加工，少用油炸、油煎等多油烹饪方法，多选择蒸、煮等方式。",
+        "locator": {
+          "kind": "html_visual",
+          "pdfPage": null,
+          "printedPage": 6,
+          "section": "三（二）烹调",
+          "start": null,
+          "end": null,
+          "normalization": "remove_unicode_whitespace_v1",
+          "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+          "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+          "imageRegion": [
+            0,
+            5300,
+            700,
+            5800
+          ]
+        },
+        "spanHash": "885d69aed05d651b6f7327e4869652b645ae0e0277fedab07cd3f0013613676f"
+      },
+      {
+        "id": "goal-ev:weight-food-method",
+        "sourceId": "nhc-weight-management-2024",
+        "title": "体重管理指导原则（2024年版）",
+        "version": "2024",
+        "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+        "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+        "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+        "locator": {
+          "kind": "pdf_normalized_text",
+          "pdfPage": 10,
+          "normalization": "remove_unicode_whitespace_v1",
+          "section": "四、体重管理策略/合理膳食",
+          "start": 101,
+          "end": 137
+        },
+        "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+      }
+    ],
+    "uncoveredTopics": [],
+    "missingConditions": [
+      "lipidPattern"
+    ],
+    "clinicalRelease": null
+  },
+  "scope": {
+    "qualifiedParents": 6,
+    "offeredParents": 6,
+    "qualifiedVariants": 6,
+    "offeredVariants": 6,
+    "complete": true,
+    "methodTextComplete": true
+  },
+  "mode": "meal",
+  "min": 6,
+  "max": 6,
+  "count": 3,
+  "categories": {
+    "meat": 0,
+    "veg": 2,
+    "soup": 1
+  },
+  "user": {
+    "healthProfile": {
+      "conditions": [
+        "成人高脂血症"
+      ],
+      "goals": [
+        "减脂"
+      ],
+      "notes": "我是成年人",
+      "note": "Public constructed case; account timestamps/suggestion history omitted from this export"
+    },
+    "accepted": {
+      "preferred": [],
+      "limited": [],
+      "excluded": []
+    },
+    "ingredients": [
+      {
+        "name": "豆腐",
+        "amount": "500g",
+        "form": "raw",
+        "status": "confirmed"
+      },
+      {
+        "name": "白菜",
+        "amount": "500g",
+        "form": "raw",
+        "status": "confirmed"
+      }
+    ],
+    "seasonings": [
+      "食用油",
+      "盐",
+      "生抽",
+      "大蒜"
+    ],
+    "checkSeasonings": false,
+    "allowBuy": false,
+    "servings": 1,
+    "flavor": "不限",
+    "restrictions": []
+  },
+  "locked": [],
+  "previous": [],
+  "catalog": [
+    {
+      "id": "c1",
+      "name": "炝拌白菜心",
+      "category": "veg",
+      "flavor": "咸鲜带辣",
+      "guidanceIds": [],
+      "ingredients": [
+        {
+          "name": "白菜心",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "香菜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "米醋",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "干辣椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "花椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "辣椒油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "白菜心切成细丝。",
+        "锅内放少许底油烧热，加入花椒炝香。",
+        "将辣椒段放入勺中，倒入热油制成辣椒油。",
+        "把辣椒油浇在白菜心上，加入盐、米醋和香菜拌匀。"
+      ],
+      "reused": [
+        "白菜心"
+      ],
+      "shopping": []
+    },
+    {
+      "id": "c2",
+      "name": "豆腐烧小白菜",
+      "category": "veg",
+      "flavor": "咸鲜酱香",
+      "guidanceIds": [
+        "guide:fact:lipid-prefer-fresh-vegetables",
+        "guide:fact:lipid-fry",
+        "guide:goal:fat-loss-limit-fry"
+      ],
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "小白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "蒜片",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "葱花",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "水淀粉",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "清水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "花椒油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": true
+        },
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "auxiliary",
+          "optional": false
+        },
+        {
+          "name": "水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "豆腐切约1厘米厚片，小白菜梗叶分开。",
+        "锅中放油并撒盐，豆腐煎至两面金黄后取出。",
+        "锅中补油，先炒白菜梗并加盐；半熟时放入菜叶，炒出水后盛出沥水。",
+        "锅中放少许油，将蒜片煎黄后下葱花炒香，烹入酱油并放入豆腐。",
+        "加水至刚没过豆腐，放盐1.5克，小火烧约2分钟；转大火铺入白菜，盖约1分钟后翻匀收汁，勾薄芡。出锅前可放少量花椒油。"
+      ],
+      "reused": [
+        "豆腐",
+        "小白菜"
+      ],
+      "shopping": []
+    },
+    {
+      "id": "c3",
+      "name": "白菜豆腐汤",
+      "category": "soup",
+      "flavor": "清鲜",
+      "guidanceIds": [
+        "guide:fact:lipid-prefer-fresh-vegetables",
+        "guide:fact:lipid-steam",
+        "guide:goal:fat-loss-steam-boil"
+      ],
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "鸡精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "白胡椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "开水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "姜切丝，豆腐和白菜切成小块。",
+        "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+        "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+      ],
+      "reused": [
+        "白菜",
+        "豆腐"
+      ],
+      "shopping": []
+    },
+    {
+      "id": "c4",
+      "name": "乾隆白菜",
+      "category": "veg",
+      "flavor": "麻酱酸甜",
+      "guidanceIds": [
+        "guide:fact:lipid-prefer-fresh-vegetables",
+        "guide:goal:fat-loss-limit-sugar"
+      ],
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": 300,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "芝麻酱",
+          "amount": 30,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "陈醋",
+          "amount": 45,
+          "unit": "ml",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "白糖",
+          "amount": 5,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "香油",
+          "amount": 5,
+          "unit": "ml",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": 1,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "熟白芝麻",
+          "amount": 3,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "大白菜只取内部嫩叶（黄色部分），去除菜帮，用手撕成半个巴掌大的块，不要用刀切（手撕截面粗糙更易挂酱）",
+        "将撕好的白菜叶冲洗干净，充分控干水分，水分残留会导致酱汁无法挂附",
+        "碗中加入 30g 芝麻酱，先加入 45ml 陈醋，沿同一方向搅拌，将麻酱慢慢稀释开，直至成细线状滴落为止（切勿来回搅拌，会导致芝麻酱\"走油\"）",
+        "向麻酱汁中加入 5g 白糖，搅拌均匀；再加入 1g 食盐，搅拌均匀；最后加入 5ml 香油，搅拌均匀（各调料需分次加入并分别搅拌，边加边感受稀稠度）",
+        "将调好的麻酱汁均匀淋在白菜叶上，用手轻轻抓拌，使每片菜叶都裹上酱汁",
+        "撒上熟白芝麻，装盘即可食用；若时间充裕，可静置 5 分钟待其入味后再食用"
+      ],
+      "reused": [
+        "白菜"
+      ],
+      "shopping": []
+    },
+    {
+      "id": "c5",
+      "name": "葱烧豆腐",
+      "category": "veg",
+      "flavor": "葱香酱香",
+      "guidanceIds": [
+        "guide:fact:lipid-fry",
+        "guide:goal:fat-loss-limit-fry"
+      ],
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "葱白",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "八角",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "味精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "水淀粉",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "葱油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "清水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "葱",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "豆腐切厚三角片；葱白纵向剖开，再斜切成约6毫米宽的眉毛葱。",
+        "热油加入八角和一半葱白，大火炒黄，捞出葱料后降低火力。",
+        "豆腐沿锅边下锅，中火煎至两面金黄。",
+        "先烹酱油，再加水与煸好的葱，用盐、味精调味，小火烧约3分钟。",
+        "加入余下葱白，淋水淀粉收成芡汁，最后加葱油出锅。"
+      ],
+      "reused": [
+        "豆腐"
+      ],
+      "shopping": []
+    },
+    {
+      "id": "c6",
+      "name": "小葱拌豆腐",
+      "category": "veg",
+      "flavor": "葱香",
+      "guidanceIds": [],
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "optional": false
+        },
+        {
+          "name": "葱",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "白芝麻",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        },
+        {
+          "name": "葱油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "optional": false
+        }
+      ],
+      "steps": [
+        "豆腐切小丁，小葱切段并留少量作最后点缀。",
+        "锅中热油，放一部分小葱炸成葱油留用。",
+        "豆腐与白芝麻、小葱、盐及香油拌匀。",
+        "淋入葱油，再撒小葱装盘。"
+      ],
+      "reused": [
+        "豆腐"
+      ],
+      "shopping": []
+    }
+  ]
+}

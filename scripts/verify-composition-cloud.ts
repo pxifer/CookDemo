@@ -1,9 +1,9 @@
 import {readFile,writeFile} from 'node:fs/promises';
-import {CloudBaseGalleryRepository} from '../server/cloudbase-content';
-import {GALLERY_RELEASE} from '../server/gallery-content';
+import {CloudBaseGalleryRepository} from '../backend/src/cloudbase-content';
+import {GALLERY_RELEASE} from '../backend/src/gallery-content';
 import {contentContext} from '../shared/content';
 import {defaultMeal} from '../shared/types';
-import {checkDish,recommend} from '../server/recommendation';
+import {checkDish,recommend} from '../backend/src/recommendation';
 
 async function main(){
   const config=JSON.parse(await readFile('.local-data/cloudbase-http/release-20261024-account-v11/cloudbaserc.json','utf8'));
@@ -28,7 +28,7 @@ async function main(){
     supersededVersionsWithdrawn=true;
   }
   const report={databaseReadback:true,releaseId:vars.COMPOSITION_RELEASE_ID,hash:vars.COMPOSITION_RELEASE_SHA256,recipes:snapshot.recipes.length,compositionApprovals:snapshot.compositionApprovals?.length,syntheticFishCornNoBuying:result.dishes.map(dish=>dish.recipe.name),knownDerivativeExclusions:blocked,supersededVersionsWithdrawn,rawCredentialsPrinted:false};
-  await writeFile(`acceptance/composition-v2-2026-10-24/cloud-database-readback-v4${afterRetire?'-final':''}.json`,JSON.stringify(report,null,2),{flag:'wx'});
+  await writeFile(`artifacts/acceptance/composition-v2-2026-10-24/cloud-database-readback-v4${afterRetire?'-final':''}.json`,JSON.stringify(report,null,2),{flag:'wx'});
   console.log(JSON.stringify(report));
 }
 main().catch(()=>{console.error('COMPOSITION_CLOUD_VERIFICATION_FAILED');process.exitCode=1;});

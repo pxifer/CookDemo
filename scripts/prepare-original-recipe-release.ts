@@ -1,10 +1,10 @@
 import { readFile } from 'node:fs/promises';
-import { galleryContent, type CandidateRow } from '../server/gallery-content';
-import { compositionFingerprint, reviewSnapshot } from '../server/composition-review';
+import { galleryContent, type CandidateRow } from '../backend/src/gallery-content';
+import { compositionFingerprint, reviewSnapshot } from '../backend/src/composition-review';
 import { contentContext, type ContentSnapshot } from '../shared/content';
-import compositionV2 from '../docs/data/composition-review-v2.json';
+import compositionV2 from '../datasets/recipes/curation/composition-review-v2.json';
 import { defaultMeal } from '../shared/types';
-import { checkDish } from '../server/recommendation';
+import { checkDish } from '../backend/src/recommendation';
 import { verifiedIngredientIdentities } from '../shared/ingredient-evidence';
 import { createHash } from 'node:crypto';
 const canonical = (value: unknown) => JSON.stringify(value, (_key, item) => item && typeof item === 'object' && !Array.isArray(item)
@@ -13,9 +13,9 @@ const canonical = (value: unknown) => JSON.stringify(value, (_key, item) => item
 const bundle = JSON.parse(await readFile('.local-data/cloudbase-http/release-20261023/gallery-bundle.json', 'utf8')) as {
   base: ContentSnapshot; rows: CandidateRow[];
 };
-const drafts = (await readFile('docs/data/recipe-original-drafts-2026-10-26.jsonl', 'utf8'))
+const drafts = (await readFile('datasets/recipes/curation/recipe-original-drafts-2026-10-26.jsonl', 'utf8'))
   .trim().split(/\r?\n/).map(line => JSON.parse(line));
-const sourceCards = (await readFile('docs/data/recipe-cards-v3.jsonl', 'utf8')).trim().split(/\r?\n/).map(line => JSON.parse(line));
+const sourceCards = (await readFile('datasets/recipes/curation/recipe-cards-v3.jsonl', 'utf8')).trim().split(/\r?\n/).map(line => JSON.parse(line));
 const rows: CandidateRow[] = drafts.map(({ recipe }) => ({
   dish_key: recipe.name, flavor: recipe.flavor, source_uri: recipe.url, image_url: null,
   raw_record: { ...recipe, source: 'shiwei-original-draft', license: 'Original recipe authored for Shiwei',

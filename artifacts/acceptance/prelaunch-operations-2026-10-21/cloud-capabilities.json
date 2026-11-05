@@ -1,0 +1,56 @@
+{
+  "environmentId": "shiwei-d2gmiun66b7dc6a4f",
+  "region": "ap-shanghai",
+  "checkedAtUtc": "2026-10-21T21:27:54.2944581+08:00",
+  "readOnly": true,
+  "releaseReady": false,
+  "checks": {
+    "DescribeDBInstanceAttribute": {
+      "status": "queried",
+      "requestId": "5ce5f0e2-d499-4e7f-a65f-f6fe60c136e0",
+      "instanceStatus": "running",
+      "tenantType": "tenant",
+      "networks": [
+        {
+          "type": "jnsgw",
+          "protocol": "pg_direct_link",
+          "status": "running",
+          "hasAddress": false,
+          "hasIp": true,
+          "hasPort": true
+        },
+        {
+          "type": "jnsgw",
+          "protocol": "pgrest_direct_link",
+          "status": "running",
+          "hasAddress": false,
+          "hasIp": true,
+          "hasPort": true
+        },
+        {
+          "type": "public",
+          "protocol": "",
+          "status": "initing",
+          "hasAddress": false,
+          "hasIp": false,
+          "hasPort": false
+        }
+      ]
+    },
+    "DescribeDBInstanceSSLConfig": {
+      "status": "unknown",
+      "errorCode": "OperationDenied.CamDeniedError",
+      "requestId": "4fcd795b-b04c-41ab-8cc3-08c8aae9c455"
+    },
+    "DescribeAccounts": {
+      "status": "unknown",
+      "errorCode": "OperationDenied.CamDeniedError",
+      "requestId": "7c405bd7-4ec6-427d-a215-e1af7394ff04"
+    },
+    "DescribeBackupPlans": {
+      "status": "unknown",
+      "errorCode": "AuthFailure.UnauthorizedOperation",
+      "requestId": "241ff918-4ad9-47bf-822a-8baa5442339b"
+    }
+  }
+}

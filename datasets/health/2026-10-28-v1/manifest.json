@@ -1,0 +1,32 @@
+{
+  "id": "health-kb-2026-10-28-v1",
+  "schemaVersion": "1.0.0",
+  "status": "research_ready",
+  "createdDate": "2026-10-28",
+  "files": {
+    "conflicts.jsonl": "6040322bf1c9bb1eaf3f7189498ba9f3a07e882a25cfcb2fd29fa66495b3e963",
+    "entities.jsonl": "448c6849ae28e192d952b994c4d82885e9bff9ec9f3e052a9d9f4728171f0340",
+    "evidence.jsonl": "7484b834160666c6161a9830f2b4e4127641a86b0fd93787770b429005baa575",
+    "facts.jsonl": "2de5de2366674a2379c58f8ebe8c33e84b97cd0a60607e6940e2fd103cd3d40a",
+    "knowledge-bundle.json": "eb2ab98555cc3290043ffe0e23773912a82880ff0a67c4326d3a3535cf9b1fd7",
+    "relations.csv": "401b75a441eaab9d87c4113cf4fa6612adf93468e660643e096cb213ed4ec887",
+    "rule-drafts.jsonl": "8b3acd4605991254971779b56865c597104511d691307fea00f56a344d3bf358",
+    "sources.jsonl": "f4925cb6686d38c46db2c7974e83618a2a29f3fcdeadc0951b80bc99196b6999"
+  },
+  "counts": {
+    "sources": 7,
+    "entities": 103,
+    "evidence": 53,
+    "facts": 155,
+    "ruleDrafts": 58,
+    "conflicts": 4,
+    "recipeBindings": 0
+  },
+  "index": {
+    "kind": "structured_plus_controlled_keywords",
+    "version": "lexical-v1",
+    "embedding": null,
+    "reranker": null
+  },
+  "clinicalRelease": null
+}

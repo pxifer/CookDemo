@@ -1,0 +1,69 @@
+{
+  "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+  "evidence": [
+    {
+      "id": "local_check",
+      "kind": "local",
+      "status": "passed",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "acceptance\\project-check-2026-10-29T17-01-54-832Z\\report.json",
+      "reportSha256": "7dcb427dbb5c2ec259e329055110e24df04674b22bf639d3ef3d73441ea6708d"
+    },
+    {
+      "id": "postgres_integrations",
+      "kind": "postgres",
+      "status": "permission_blocked",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "acceptance\\project-check-2026-10-29T17-01-54-832Z\\report.json",
+      "reportSha256": "7dcb427dbb5c2ec259e329055110e24df04674b22bf639d3ef3d73441ea6708d"
+    },
+    {
+      "id": "browser_regressions",
+      "kind": "browser",
+      "status": "permission_blocked",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "acceptance\\project-check-2026-10-29T17-01-54-832Z\\report.json",
+      "reportSha256": "7dcb427dbb5c2ec259e329055110e24df04674b22bf639d3ef3d73441ea6708d"
+    },
+    {
+      "id": "account_recovery_erasure",
+      "kind": "account",
+      "status": "not_run",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "",
+      "reportSha256": ""
+    },
+    {
+      "id": "business_restore_drill",
+      "kind": "restore",
+      "status": "not_run",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "",
+      "reportSha256": ""
+    },
+    {
+      "id": "independent_ai_quality",
+      "kind": "human_review",
+      "status": "not_run",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "",
+      "reportSha256": ""
+    },
+    {
+      "id": "staging_acceptance",
+      "kind": "staging",
+      "status": "not_run",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "",
+      "reportSha256": ""
+    },
+    {
+      "id": "rollback_drill",
+      "kind": "rollback",
+      "status": "not_run",
+      "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+      "report": "",
+      "reportSha256": ""
+    }
+  ]
+}

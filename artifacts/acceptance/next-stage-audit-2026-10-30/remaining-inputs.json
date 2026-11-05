@@ -1,0 +1,84 @@
+{
+  "sourceFingerprint": "c81c19078f7c1fb789cd3ac976b2b4f7f465e42c1e32cb326f2a7417e0571bbe",
+  "status": "maintenance_deployed_new_feature_evidence_deferred",
+  "preparedOnChinaDate": "2026-10-30",
+  "fullSameVersionAcceptancePending": true,
+  "cloudInventoryKnown": false,
+  "required": [
+    {
+      "id": "staging_target",
+      "kind": "configuration",
+      "value": null,
+      "status": "user_reported_absent",
+      "createAutomatically": false
+    },
+    {
+      "id": "test_mailbox",
+      "kind": "configuration",
+      "value": "stored_in_git_ignored_local_configuration",
+      "status": "personal_mailbox_provided_unverified"
+    },
+    {
+      "id": "disposable_account",
+      "kind": "configuration",
+      "value": null
+    },
+    {
+      "id": "dedicated_deepseek_key_file",
+      "kind": "configuration",
+      "value": ".local-data/evaluation/deepseek-key.txt",
+      "status": "file_present_nonempty_validity_unverified"
+    },
+    {
+      "id": "independent_revocation_store",
+      "kind": "configuration_and_implementation",
+      "value": null
+    },
+    {
+      "id": "administrator_erasure_adapter",
+      "kind": "implementation_and_credentials",
+      "value": null
+    },
+    {
+      "id": "identity_backup_restore",
+      "kind": "implementation_and_real_drill",
+      "value": null
+    },
+    {
+      "id": "independent_reviewers",
+      "kind": "human_review",
+      "value": []
+    }
+  ],
+  "pricingVerifiedDate": "2026-10-30",
+  "budgetCny": 5,
+  "realModelCalls": 0,
+  "createdCloudResources": false,
+  "productionDeployed": true,
+  "fullLocalBaselinePassed": true,
+  "fullLocalBaselineSourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+  "fullLocalBaselineReport": "acceptance/project-check-2026-10-30T06-04-49-269Z/report.json",
+  "stagingRecoveryAllowlistImplemented": true,
+  "currentWorkingSourceFullAcceptancePending": true,
+  "testsPaused": false,
+  "paidModelCallsPaused": true,
+  "additionalCloudTestEnvironmentAvailable": false,
+  "environmentAvailabilitySource": "user_report",
+  "cloudResourcePoints": {
+    "total": 3000,
+    "usedApprox": 2800,
+    "remainingApprox": 200,
+    "source": "user_report",
+    "providerVerified": false
+  },
+  "keyFilePresentNonEmpty": true,
+  "keyValidityVerified": false,
+  "operatorConfiguration": ".local-data/evaluation/test-configuration.json",
+  "localTestsAllowed": true,
+  "cloudTestsAllowed": false,
+  "cloudTestEnvironmentRequiredForLocalTests": false,
+  "localOnlyReport": "acceptance/local-only-2026-10-30/implementation.json",
+  "productionDeploymentScope": "existing_features_maintenance_v46",
+  "productionDeploymentReport": "acceptance/maintenance-release-2026-10-30/deployment.json",
+  "formalNewFeatureReleaseReady": false
+}

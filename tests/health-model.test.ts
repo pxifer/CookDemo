@@ -2,10 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
 import { PGlite } from '@electric-sql/pglite';
-import { createHealthModel, readHealthModelConfig, type HealthModelConfig } from '../server/health-model';
-import { InvocationLedger } from '../server/gateway';
-import { migrate, type Database } from '../server/db';
-import { createApp } from '../server/app';
+import { createHealthModel, readHealthModelConfig, type HealthModelConfig } from '../backend/src/health-model';
+import { InvocationLedger } from '../backend/src/gateway';
+import { migrate, type Database } from '../backend/src/db';
+import { createApp } from '../backend/src/app';
 import { mealWith, request } from './fixtures';
 
 const config: HealthModelConfig = { provider: 'deepseek', model: 'deepseek-flash', feeMode: 'byok', apiKey: 'test-secret-never-return', timeoutMs: 500, quotaBucket: 'health-test' };

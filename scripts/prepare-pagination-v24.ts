@@ -16,11 +16,11 @@ async function main() {
     || !env?.CSRF_SECRET_B64 || !env?.PROFILE_ENCRYPTION_KEY_B64 || env?.ACCOUNT_SYNC_ENABLED !== '1') throw new Error('PREVIOUS_RELEASE_CONFIGURATION');
   const fn = join(destination, 'function');
   await mkdir(fn);
-  await build({ entryPoints: ['cloudbase/http-main.ts'], outfile: join(fn, 'http-main.cjs'), bundle: true, platform: 'node', target: 'node24', format: 'cjs', packages: 'external' });
+  await build({ entryPoints: ['deployment/cloudbase/http-main.ts'], outfile: join(fn, 'http-main.cjs'), bundle: true, platform: 'node', target: 'node24', format: 'cjs', packages: 'external' });
   for (const name of ['package.json', 'package-lock.json', 'scf_bootstrap', 'index.js']) await copyFile(join(source, 'function', name), join(fn, name));
   await cp(join(source, 'function/node_modules'), join(fn, 'node_modules'), { recursive: true });
   await mkdir(join(fn, 'build'));
-  await cp('build/web', join(fn, 'build/web'), { recursive: true });
+  await cp('artifacts/build/web', join(fn, 'build/web'), { recursive: true });
   await rm(join(fn, 'build/web/assets/recipes'), { recursive: true, force: true });
   await writeFile(join(destination, 'cloudbaserc.json'), JSON.stringify(config, null, 2), { flag: 'wx', mode: 0o600 });
   console.log(JSON.stringify({ prepared: true, functionName: config.functions[0].name, revision, existingKeysAndReleasesPreserved: true, secretsPrinted: false }));

@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { contentContext } from '../shared/content';
 import { availableFlavors } from '../shared/flavors';
 import { defaultMeal, type Meal } from '../shared/types';
-import { recommend } from '../server/recommendation';
+import { recommend } from '../backend/src/recommendation';
 import { localUiContent } from '../scripts/lib/local-ui-content';
-import { contentSeasonings, normalizeInput } from '../src/meal-input';
+import { contentSeasonings, normalizeInput } from '../frontend/src/meal-input';
 import { request } from './fixtures';
 
 const context=contentContext(localUiContent());

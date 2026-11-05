@@ -1,0 +1,31 @@
+{
+  "manifest": {
+    "id": "qwen-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T07:12:46.902Z"
+  },
+  "batchLatency": {
+    "samples": 13,
+    "p50ms": 6544.3611,
+    "p95ms": 16475.489299999994
+  },
+  "maxInputTokens": 339,
+  "totalInputTokens": 7515,
+  "realEmbedding": true,
+  "paidCalls": 0,
+  "approximateIndex": false
+}

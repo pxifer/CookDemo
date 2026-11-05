@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-03",
+  "scope": "CookDemo repository layout; local verification only",
+  "baseline": {
+    "unitTests": 246,
+    "passed": 245,
+    "skipped": 1,
+    "types": "passed",
+    "backupFiles": 3018
+  },
+  "final": {
+    "groupsPassed": 20,
+    "groupsTotal": 20,
+    "postgresGroupsPassed": 6,
+    "browserGroupsPassed": 4,
+    "unitTests": 248,
+    "unitPassed": 247,
+    "unitSkipped": 1,
+    "sourceStable": true,
+    "sourceFingerprint": "aa7e291378c5bec7de5fcb12c890fbb1f97d495dcce9fb92592bd45f5676d28d",
+    "report": "artifacts/acceptance/project-check-2026-11-03T05-26-18-294Z/report.json",
+    "reportSha256": "b907b1d02ca37d3c1998e60573efec93fb44e888a3e6bffe064cece485a0a995"
+  },
+  "preservation": {
+    "frozenFilesChecked": 2462,
+    "mismatches": 0,
+    "missingOriginalFiles": 0,
+    "protectedMaterialsPassed": true,
+    "protectedChecks": 61,
+    "localWordHyperlinks": 6,
+    "readerChapters": 26,
+    "readerQuestions": 100,
+    "brokenCurrentMarkdownLinks": 0
+  },
+  "additionalChecks": {
+    "powershellVersion": "5.1.26100.9711",
+    "powershellScriptsParsed": 32,
+    "powershellParseErrors": 0,
+    "relativeImportsChecked": 811,
+    "pythonFilesParsed": 12,
+    "offlineCloudBundle": "passed in project-layout.test.ts",
+    "staticPageScriptCssAndImageURLs": "passed in project-layout.test.ts",
+    "legacySmokeTest": "passed",
+    "offlineLinuxRuntime": {
+      "passed": true,
+      "node": "24.22.0",
+      "cachedImage": "shiwei:staging",
+      "network": "none",
+      "sourceMounts": "read-only",
+      "home": 200,
+      "script": 200,
+      "lockMatchesWorkspace": true
+    },
+    "sourceManifestAndOpenAPI": "artifacts/acceptance/layout-reorganization-2026-11-03"
+  },
+  "changes": {
+    "movedOrDeletedFiles": 2667,
+    "modifiedAtSamePath": 218,
+    "newFiles": 18,
+    "obsoleteProgressDocumentsDeleted": 2
+  },
+  "localDatabase": {
+    "container": "shiwei-local-db-1",
+    "existingVolumeRetained": "shiwei-local_shiwei_pg17",
+    "mountUpdated": "deployment/db/init.sh",
+    "passwordsRegenerated": false,
+    "imagesDownloaded": false
+  },
+  "boundaries": {
+    "cloudDeployments": 0,
+    "cloudMigrations": 0,
+    "realModelCalls": 0,
+    "realEmailsSent": 0,
+    "releaseReady": false,
+    "reason": "Local layout verification is complete; independent model quality, account lifecycle and cloud release gates remain separate."
+  },
+  "backup": "../.reorg-backups/20261103-layout"
+}

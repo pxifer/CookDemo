@@ -33,7 +33,7 @@ async function main(){
   }
   const report={liveHttp:true,functionName:'shiwei-http-preview',recipeCount:catalog.recipes.length,pantryNames,results,
     fishAllergyAndAvoidModesVerified:true,cornAllergyAndAvoidModesVerified:true,credentialsPrinted:false};
-  await writeFile('acceptance/composition-source-review-2026-10-24/recommendation-live-v22.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+  await writeFile('artifacts/acceptance/composition-source-review-2026-10-24/recommendation-live-v22.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
   console.log(JSON.stringify(report));
 }
 main().catch(error=>{const value=error as {message?:string};console.error(JSON.stringify({error:'LIVE_ALLERGY_MATCH_V22_FAILED',message:(value.message??'').slice(0,120)}));process.exitCode=1;});

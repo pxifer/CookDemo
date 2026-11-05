@@ -1,0 +1,164 @@
+{
+  "scope": "real published recipe / source-bound research annotations; no clinical recipe approval or online activation",
+  "recipe": "白菜豆腐汤",
+  "contentVersion": "gallery-listed-foods-20261026-v28",
+  "knowledge": "health-kb-2026-10-28-v2",
+  "applicable": {
+    "state": "research_annotations",
+    "executionAllowed": false,
+    "clinicalRelease": null,
+    "trace": [
+      {
+        "tool": "inspect_variant",
+        "status": "completed"
+      },
+      {
+        "tool": "retrieve_bound_facts",
+        "status": "completed"
+      },
+      {
+        "tool": "revalidate",
+        "status": "completed"
+      }
+    ],
+    "annotations": [
+      {
+        "bindingId": "pilot:gallery-f3dc92744e6a6c37-r039:tofu",
+        "factId": "fact:ht-prefer-tofu",
+        "foodId": "tofu",
+        "action": "prefer",
+        "statement": "膳食模式下可优先选择，仍需个人适用性及过敏核验。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "evidenceId": "ev:b72d441dc713ab701836fa0226a7ae8b0ecddd33005d87cb3745e22b3c09a8d8",
+            "sourceId": "nhc-hypertension-2023",
+            "version": "2023",
+            "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+            "title": "成人高血压食养指南（2023年版）",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 11,
+              "printedPage": 9,
+              "section": "附录1/大豆",
+              "start": 254,
+              "end": 355,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+            "spanHash": "bbcb259a74c58c64b70a65499c3835adfebef0ac202daeb798002a30b0652b9a"
+          }
+        ],
+        "conflicts": []
+      },
+      {
+        "bindingId": "pilot:gallery-f3dc92744e6a6c37-r039:salt",
+        "factId": "fact:ht-limit-salt",
+        "foodId": "salt",
+        "action": "limit",
+        "statement": "指南支持少选或不选；此定性规则不自行生成每餐克数。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "evidenceId": "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13",
+            "sourceId": "nhc-hypertension-2023",
+            "version": "2023",
+            "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+            "title": "成人高血压食养指南（2023年版）",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 12,
+              "printedPage": 10,
+              "section": "附录1/调味品",
+              "start": 261,
+              "end": 316,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+            "spanHash": "0be9168a35c223d75c7da0285d3053c0718a46cef89172aad04593187b7c2440"
+          }
+        ],
+        "conflicts": []
+      }
+    ],
+    "missingConditions": [],
+    "uncoveredFoodIds": [
+      "cabbage",
+      "ginger",
+      "chicken-powder",
+      "white-pepper",
+      "sesame-oil",
+      "gallery-food-900b6de53f9a9c3e"
+    ]
+  },
+  "unknown": {
+    "state": "needs_confirmation",
+    "executionAllowed": false,
+    "clinicalRelease": null,
+    "trace": [
+      {
+        "tool": "inspect_variant",
+        "status": "completed"
+      },
+      {
+        "tool": "retrieve_bound_facts",
+        "status": "completed"
+      },
+      {
+        "tool": "revalidate",
+        "status": "completed"
+      }
+    ],
+    "annotations": [],
+    "missingConditions": [
+      "adult"
+    ],
+    "uncoveredFoodIds": [
+      "cabbage",
+      "ginger",
+      "chicken-powder",
+      "white-pepper",
+      "sesame-oil",
+      "gallery-food-900b6de53f9a9c3e"
+    ]
+  },
+  "withdrawn": {
+    "state": "withdrawn",
+    "executionAllowed": false,
+    "clinicalRelease": null,
+    "trace": [
+      {
+        "tool": "inspect_variant",
+        "status": "completed"
+      },
+      {
+        "tool": "retrieve_bound_facts",
+        "status": "completed"
+      }
+    ],
+    "annotations": [],
+    "missingConditions": [],
+    "uncoveredFoodIds": [
+      "cabbage",
+      "ginger",
+      "chicken-powder",
+      "white-pepper",
+      "sesame-oil",
+      "gallery-food-900b6de53f9a9c3e"
+    ]
+  }
+}

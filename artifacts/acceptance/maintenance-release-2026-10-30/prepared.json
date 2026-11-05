@@ -1,0 +1,36 @@
+{
+  "release": "maintenance-v46",
+  "sourceFingerprint": "c81c19078f7c1fb789cd3ac976b2b4f7f465e42c1e32cb326f2a7417e0571bbe",
+  "acceptanceReport": "acceptance/project-check-2026-10-30T10-59-36-214Z/report.json",
+  "fullLocalBaseline": "acceptance/project-check-2026-10-30T06-04-49-269Z/report.json",
+  "runtimeDeltaFromFullBaseline": [
+    "cloudbase/http-main.ts",
+    "server/cloud-target.ts",
+    "server/cloudbase-accounts.ts",
+    "server/staging-accounts.ts"
+  ],
+  "currentUnitPassed": 245,
+  "currentUnitSkipped": 1,
+  "currentNativeIntegrations": "permission_blocked",
+  "userAuthorizedProductionMaintenance": true,
+  "formalNewFeatureReleaseReady": false,
+  "environmentId": "shiwei-d2gmiun66b7dc6a4f",
+  "functionName": "shiwei-http-preview",
+  "existingConfigurationByteIdentical": true,
+  "compiledEntrySha256": "c3e4466ea60f1d6e00083568b7f12424476d4985e4404cd66e0c242ed5d26ee0",
+  "entryHtmlSha256": "718c05667f2f1b62fd4b6802c00c1e8e221dc4088344c0a3824db78d49d101ce",
+  "migrations": [],
+  "staticImagesUploaded": false,
+  "resourcesCreated": false,
+  "modelCalls": 0,
+  "disabledFeatures": [
+    "password_recovery",
+    "account_erasure",
+    "shared_recommendation_tasks",
+    "clinical_disease_rag"
+  ],
+  "rollbackPackage": ".local-data/cloudbase-http/release-20261027-health-chat-v45",
+  "contentVersion": "gallery-listed-foods-20261026-v27",
+  "prepared": true,
+  "deployed": false
+}

@@ -1,0 +1,22 @@
+LOCAL_DYNAMIC_PORT=2798; SYNTHETIC ONLY; NO USER KEYS
+[WebServer] (node:79504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:79504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:48976) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › tests\browser.spec.ts:45:1 › D7-04新口径: 食材自动使用、用量仅作参考不重算、单位与刷新恢复 (1.6s)
+  ok 2 [desktop] › tests\browser.spec.ts:64:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 (1.1s)
+  ok 3 [desktop] › tests\browser.spec.ts:78:1 › B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断 (1.4s)
+  ok 4 [desktop] › tests\browser.spec.ts:307:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 (3.4s)
+(node:19852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [mobile] › tests\browser.spec.ts:45:1 › D7-04新口径: 食材自动使用、用量仅作参考不重算、单位与刷新恢复 (1.9s)
+  ok 6 [mobile] › tests\browser.spec.ts:64:1 › D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料 (2.3s)
+  ok 7 [mobile] › tests\browser.spec.ts:78:1 › B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断 (4.6s)
+  ok 8 [mobile] › tests\browser.spec.ts:307:1 › D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝 (5.6s)
+
+  8 passed (33.3s)

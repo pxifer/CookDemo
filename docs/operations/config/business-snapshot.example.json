@@ -1,0 +1,13 @@
+{
+  "databaseUrlFile":"",
+  "databaseCaFile":"",
+  "backupKeyFile":"",
+  "authorityKeyFile":"",
+  "journalHeadFile":"",
+  "identityAttestationFile":"",
+  "assetManifestFile":"",
+  "assetRoot":"",
+  "migrationChecksums":[],
+  "archive":"",
+  "profileKeyFiles":{}
+}

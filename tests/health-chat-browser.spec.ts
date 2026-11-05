@@ -1,6 +1,6 @@
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect,type Page} from './local-browser';
 const key='sk-browser-test-only-health-123456789';
-const evidence=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'acceptance/health-account-2026-10-27';
+const evidence=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'artifacts/acceptance/health-account-2026-10-27';
 async function enter(page:Page,name:string){
   await page.goto('/');await page.getByRole('button',{name:/健康模式/}).click();await expect(page.getByRole('dialog')).not.toContainText('健康模式');
   await page.getByRole('button',{name:'注册账号',exact:true}).click();const username=`save-${name}-${Date.now().toString().slice(-5)}`;

@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fixture } from './registration-fixture';
-import { createApp } from '../server/app';
-import { CloudBaseAccounts } from '../server/cloudbase-accounts';
+import { createApp } from '../backend/src/app';
+import { CloudBaseAccounts } from '../backend/src/cloudbase-accounts';
 import { defaultMeal } from '../shared/types';
-import { seal } from '../server/crypto';
+import { seal } from '../backend/src/crypto';
 import { constructedContent } from '../shared/catalog';
 import { expandFoodSuggestions, withoutExistingRestrictions, withoutRepeatedFoodText } from '../shared/health-guidance';
 const key='sk-saved-account-test-only-123456789';

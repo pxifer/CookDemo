@@ -1,0 +1,1653 @@
+{
+  "dataset": "agent-evaluation-candidates-2026-10-29-v1",
+  "sourceContentVersion": "gallery-listed-foods-20261026-v28",
+  "total": 200,
+  "automaticContracts": 120,
+  "needsTriage": 0,
+  "pendingIndependentQuality": 80,
+  "qualityPassed": null,
+  "realProviderCalls": 0,
+  "rows": [
+    {
+      "id": "recognition-001",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "beef",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "beef",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-002",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "beef",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "beef",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-003",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "broccoli",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "broccoli",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-004",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "broccoli",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "broccoli",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-005",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "cabbage",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "cabbage",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-006",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "cabbage",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "cabbage",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-007",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "carrot",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "carrot",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-008",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "carrot",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "carrot",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-009",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "chicken",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "chicken",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-010",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "chicken",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "chicken",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-011",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "cordyceps-flower",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "cordyceps-flower",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-012",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "cordyceps-flower",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "cordyceps-flower",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-013",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "cucumber",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "cucumber",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-014",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "cucumber",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "cucumber",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-015",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "egg",
+        "amount": "100个",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "egg",
+          "amount": "100个",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-016",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "egg",
+        "amount": "100个",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "egg",
+          "amount": "100个",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-017",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "fish",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "fish",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-018",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "fish",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "fish",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-019",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-009c2d87c53a19fc",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-009c2d87c53a19fc",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-020",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-009c2d87c53a19fc",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-009c2d87c53a19fc",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-021",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-00b3aecbb19f4724",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-00b3aecbb19f4724",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-022",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-00b3aecbb19f4724",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-00b3aecbb19f4724",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-023",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-0320138e3031a79c",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-0320138e3031a79c",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-024",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-0320138e3031a79c",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-0320138e3031a79c",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-025",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-0384636e421ad642",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-0384636e421ad642",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-026",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-0384636e421ad642",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-0384636e421ad642",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-027",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-03ce4de0ac59ddcf",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-03ce4de0ac59ddcf",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-028",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-03ce4de0ac59ddcf",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-03ce4de0ac59ddcf",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-029",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-03f3ffefcd80e11e",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-03f3ffefcd80e11e",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-030",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-03f3ffefcd80e11e",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-03f3ffefcd80e11e",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-031",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04a2228f5278aa90",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04a2228f5278aa90",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-032",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04a2228f5278aa90",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04a2228f5278aa90",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-033",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04b12dbad56b6c1b",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04b12dbad56b6c1b",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-034",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04b12dbad56b6c1b",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04b12dbad56b6c1b",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-035",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04b3cdae9e680521",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04b3cdae9e680521",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-036",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04b3cdae9e680521",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04b3cdae9e680521",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-037",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04bf1bcc3fe14f82",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04bf1bcc3fe14f82",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-038",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04bf1bcc3fe14f82",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04bf1bcc3fe14f82",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-039",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04e92b744fadfeae",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04e92b744fadfeae",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "recognition-040",
+      "dimension": "recognition",
+      "state": "contract_passed",
+      "expected": {
+        "foodId": "gallery-food-04e92b744fadfeae",
+        "amount": "100g",
+        "unknownIsNotZero": true
+      },
+      "actual": [
+        {
+          "foodId": "gallery-food-04e92b744fadfeae",
+          "amount": "100g",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "allergy-001",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 13,
+      "violations": []
+    },
+    {
+      "id": "allergy-002",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 13,
+      "violations": []
+    },
+    {
+      "id": "allergy-003",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-004",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-005",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 8,
+      "violations": []
+    },
+    {
+      "id": "allergy-006",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 8,
+      "violations": []
+    },
+    {
+      "id": "allergy-007",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 19,
+      "violations": []
+    },
+    {
+      "id": "allergy-008",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 19,
+      "violations": []
+    },
+    {
+      "id": "allergy-009",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 17,
+      "violations": []
+    },
+    {
+      "id": "allergy-010",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 17,
+      "violations": []
+    },
+    {
+      "id": "allergy-011",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-012",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-013",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 11,
+      "violations": []
+    },
+    {
+      "id": "allergy-014",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 11,
+      "violations": []
+    },
+    {
+      "id": "allergy-015",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 46,
+      "violations": []
+    },
+    {
+      "id": "allergy-016",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 46,
+      "violations": []
+    },
+    {
+      "id": "allergy-017",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 4,
+      "violations": []
+    },
+    {
+      "id": "allergy-018",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 4,
+      "violations": []
+    },
+    {
+      "id": "allergy-019",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-020",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-021",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-022",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-023",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 4,
+      "violations": []
+    },
+    {
+      "id": "allergy-024",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 4,
+      "violations": []
+    },
+    {
+      "id": "allergy-025",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 3,
+      "violations": []
+    },
+    {
+      "id": "allergy-026",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 3,
+      "violations": []
+    },
+    {
+      "id": "allergy-027",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-028",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-029",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-030",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-031",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-032",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 2,
+      "violations": []
+    },
+    {
+      "id": "allergy-033",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 4,
+      "violations": []
+    },
+    {
+      "id": "allergy-034",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 4,
+      "violations": []
+    },
+    {
+      "id": "allergy-035",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-036",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-037",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 0,
+      "violations": []
+    },
+    {
+      "id": "allergy-038",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 0,
+      "violations": []
+    },
+    {
+      "id": "allergy-039",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-040",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-041",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-042",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-043",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-044",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-045",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 3,
+      "violations": []
+    },
+    {
+      "id": "allergy-046",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 3,
+      "violations": []
+    },
+    {
+      "id": "allergy-047",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-048",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-049",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "allergy-050",
+      "dimension": "allergy",
+      "state": "contract_passed",
+      "checkedVariants": 1,
+      "violations": []
+    },
+    {
+      "id": "disease-001",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-002",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-003",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-004",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-005",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-006",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-007",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-008",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-009",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-010",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-011",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-012",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-013",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-014",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-015",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-016",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-017",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-018",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-019",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-020",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-021",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-022",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-023",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-024",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-025",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-026",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-027",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-028",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-029",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-030",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-031",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-032",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-033",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-034",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-035",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-036",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-037",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-038",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-039",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-040",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-041",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-042",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-043",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-044",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-045",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-046",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-047",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-048",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-049",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "disease-050",
+      "dimension": "disease",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-001",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-002",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-003",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-004",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-005",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-006",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-007",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-008",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-009",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-010",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-011",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-012",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-013",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-014",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-015",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-016",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-017",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-018",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-019",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-020",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-021",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-022",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-023",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-024",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-025",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-026",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-027",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-028",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-029",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "reasonableness-030",
+      "dimension": "reasonableness",
+      "state": "requires_independent_quality_review"
+    },
+    {
+      "id": "method-001",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-002",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-003",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-004",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-005",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-006",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-007",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-008",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-009",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-010",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-011",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-012",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-013",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-014",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-015",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-016",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-017",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-018",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-019",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-020",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-021",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-022",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-023",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-024",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-025",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-026",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-027",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-028",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-029",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    },
+    {
+      "id": "method-030",
+      "dimension": "method",
+      "state": "contract_passed",
+      "inspected": true,
+      "complete": true
+    }
+  ],
+  "note": "Source-derived candidate checks only. Triage may identify annotation or implementation errors; no independent benchmark or model-quality claim."
+}

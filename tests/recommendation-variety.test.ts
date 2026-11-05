@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { recommend, checkSet } from '../server/recommendation';
+import { recommend, checkSet } from '../backend/src/recommendation';
 import { mealWith, request, simpleRecipe } from './fixtures';
 
 const catalog=Array.from({length:10},(_,i)=>simpleRecipe(`variety-${i}`,[['egg',1]],{category:i<4?'meat':'veg'}));

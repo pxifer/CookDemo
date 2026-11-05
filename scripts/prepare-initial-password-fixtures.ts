@@ -8,7 +8,7 @@ async function main(){
   const records=[];
   for(const project of ['desktop','mobile']){
     const name=`shiwei-test-20261024-initial-${project}`,initialPassword=`Sw!9${randomBytes(18).toString('base64url')}`,password=`Sw!9${randomBytes(18).toString('base64url')}`;
-    const {stdout}=await promisify(execFile)(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb','user','create',name,'--password',initialPassword,'--type','externalUser','--description','首次改密构造验收账号','-e','shiwei-d2gmiun66b7dc6a4f','--region','ap-shanghai','--json'],{maxBuffer:1024*1024});
+    const {stdout}=await promisify(execFile)(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb','user','create',name,'--password',initialPassword,'--type','externalUser','--description','首次改密构造验收账号','-e','shiwei-d2gmiun66b7dc6a4f','--region','ap-shanghai','--json'],{maxBuffer:1024*1024});
     const result=JSON.parse(stdout.slice(stdout.indexOf('{'))),uid=result.data?.Data?.Uid??result.data?.Uid;
     if(typeof uid!=='string')throw Error('FIXTURE_CREATE_FAILED');
     records.push({name,uid,project,initialPassword,password});await writeFile(file,JSON.stringify(records),{mode:0o600});

@@ -1,0 +1,13 @@
+{
+  "status": "research_pilot",
+  "onlineEnabled": false,
+  "clinicalRelease": null,
+  "sourceContentVersion": "gallery-listed-foods-20261026-v28",
+  "sourcePublicBundleSha256": "4756e7ac953a5743ac8e14437fa72a2679107cf92935f334f5b901b543c733ee",
+  "contentHash": "d77fc094aa51ed5bc96b61854694df6ab3532a3876bb12653086e1a2e5107fde",
+  "bindingsHash": "90b18112068a8c45d65e28b8f3c34a7096d605680f99f79cc99ab63a479d0275",
+  "recipes": 2,
+  "bindings": 4,
+  "unboundIngredients": "unknown, not safe",
+  "scope": "ingredient-level annotations; no whole-recipe recommendation or new cooking-effect inference"
+}

@@ -1,4 +1,0 @@
-    Expected: < 860
-    Received:   921.375
-    Expected: < 860
-    Received:   870.375

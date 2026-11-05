@@ -9,9 +9,13 @@ qa/
 .env.*
 !.env.example
 .dev.vars
-build/
-test-results/
-playwright-report/
+artifacts/build/
+artifacts/test-results/
+artifacts/playwright-report/
 .local-data/
 .local-backups/
-acceptance/**/trace.zip
+artifacts/tmp/health-sources/
+artifacts/tmp/business-rag-offline/
+artifacts/acceptance/**/trace.zip
+__pycache__/
+*.py[cod]

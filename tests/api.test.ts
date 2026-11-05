@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createApp } from '../server/app';
+import { createApp } from '../backend/src/app';
 import { mealWith, request } from './fixtures';
 
 test('V-01 / V-09: 运行时Schema、来源和CSRF拒绝、无秘密错误输出、OpenAPI', async () => {

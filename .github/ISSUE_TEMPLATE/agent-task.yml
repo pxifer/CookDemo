@@ -1,0 +1,31 @@
+name: Agent 开发任务
+description: 登记可独立开发、验收和回退的任务
+title: "[Task] "
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: 负责人 / agent 与分支
+      description: 一个任务一个负责人；使用独立工作目录。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 目标、改动范围与不涉及的内容
+      description: 写明目录、共享文件、依赖任务及 API / 数据影响。
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准与验证命令
+      description: 给出可观察的行为和本地验证方式；资源边界遵循 AGENTS.md。
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: 风险与回退方式
+    validations:
+      required: true

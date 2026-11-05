@@ -1,6 +1,6 @@
 import { readFile,writeFile,mkdir } from 'node:fs/promises';
 import { createHmac,randomBytes } from 'node:crypto';
-import { CloudBaseAccounts } from '../server/cloudbase-accounts';
+import { CloudBaseAccounts } from '../backend/src/cloudbase-accounts';
 import { defaultMeal } from '../shared/types';
 
 async function main(){
@@ -39,9 +39,9 @@ async function main(){
   const cookie=service.cookie(alice);await service.logout(alice);
   if(await new CloudBaseAccounts(opts).authenticate(cookie))throw Error('LOGOUT_REVOCATION');
   await service.logout(bob);
-  await mkdir('acceptance/account-ingredients-2026-10-24',{recursive:true});
+  await mkdir('artifacts/acceptance/account-ingredients-2026-10-24',{recursive:true});
   const report={verifiedAt:new Date().toISOString(),realCloudBaseLogin:true,firstPasswordChange:true,crossInstanceEncryptedSync:true,casConflict:true,directRlsIsolation:true,plaintextAbsent:true,logoutRevocation:true,fixtureOnly:true,credentialsPrinted:false};
-  await writeFile('acceptance/account-ingredients-2026-10-24/cloud-account-verification.json',JSON.stringify(report,null,2),{flag:'wx'});
+  await writeFile('artifacts/acceptance/account-ingredients-2026-10-24/cloud-account-verification.json',JSON.stringify(report,null,2),{flag:'wx'});
   console.log(JSON.stringify(report));
 }
 main().catch(error=>{console.error('CLOUD_ACCOUNT_VERIFY_FAILED',error?.code??error?.name??'Error');process.exitCode=1;});

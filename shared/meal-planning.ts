@@ -18,8 +18,8 @@ export const compositionError = (meal: Pick<Meal, 'composition' | 'counts'>) => 
 };
 export const inputMode = (meal: Pick<Meal, 'allowBuy' | 'composition'>): Meal['mode'] => meal.allowBuy && meal.composition === 'auto' ? 'candidates' : 'meal';
 
-// A nominal amount is useful for planning even when edible/gross basis is unknown.
-// It never upgrades an unverified inventory check to "enough" or invents a net gap.
+// Legacy quantity diagnostic, retained for historical callers only.
+// D19-13: recommendation paths must not use pantry amounts to plan or reject dishes.
 export function estimatedShortages(checks: QuantityCheck[], meal: Meal) {
   return checks.filter(c => {
     if (c.state !== 'unverified' || c.basis !== 'edible' || !c.reason.includes('基准')) return false;

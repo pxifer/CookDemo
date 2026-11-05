@@ -1,0 +1,30 @@
+{
+  "total": 50,
+  "passed": 50,
+  "failed": [],
+  "commonV1": {
+    "a0": 20,
+    "a1": 20
+  },
+  "hardContrast": {
+    "a0": 5,
+    "a1": 10,
+    "total": 10
+  },
+  "bench": {
+    "node": "v24.22.1",
+    "platform": "win32",
+    "a0": {
+      "samples": 100,
+      "p50ms": 0.9588999999999714,
+      "p95ms": 2.0037999999999556,
+      "note": "warm in-memory single-process observations; not SQL/cloud SLO or independent retrieval benchmark"
+    },
+    "a1": {
+      "samples": 100,
+      "p50ms": 0.3705999999999676,
+      "p95ms": 0.8001000000001568,
+      "note": "warm in-memory single-process observations; not SQL/cloud SLO or independent retrieval benchmark"
+    }
+  }
+}

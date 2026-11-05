@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-29",
+  "reviewFile": "docs\\technical\\project-review-2026-10-29.md",
+  "chars": 12004,
+  "missingLocalLinks": [],
+  "runtimeChanges": false,
+  "fullTests": {
+    "total": 211,
+    "passed": 196,
+    "failed": 14,
+    "skipped": 1,
+    "durationMs": 42360.8749
+  },
+  "foodGroupProbes": [
+    {
+      "name": "肉桂皮",
+      "actual": "肉禽"
+    },
+    {
+      "name": "湖南米醋",
+      "actual": "主食杂粮"
+    }
+  ],
+  "browserScope": "Default-domain interstitial and home page confirmed. No reliable new full ordinary-recommendation end-to-end result; automation failures are not asserted as product defects. Prior dated acceptance images inspected. No real model inference or user key use."
+}

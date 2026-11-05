@@ -1,0 +1,1961 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4175",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4175",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T16-34-57-373Z\\ordinary/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx server/main.ts",
+      "url": "http://127.0.0.1:4175/healthz",
+      "reuseExistingServer": true,
+      "env": {
+        "LOCAL_TEST_FEATURES": "1",
+        "APP_ENV": "local",
+        "HOST": "127.0.0.1",
+        "PORT": "4175",
+        "APP_ORIGIN": "http://127.0.0.1:4175",
+        "CONTENT_SOURCE": "constructed"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "browser.spec.ts",
+      "file": "browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "本机构造身份：直接登录、无账户Key不能启用AI，普通推荐不调用模型",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1530,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:04.040Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-9c7f63e30b276df609ba",
+          "file": "browser.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1257,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:06.110Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-0c2ad5a9f66aa0285303",
+          "file": "browser.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 959,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:07.377Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-5ee89d473a062b76b27d",
+          "file": "browser.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1341,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:08.345Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-4cff00b09d7a77548a69",
+          "file": "browser.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1002,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:09.695Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-57f4a62b8f1d42dbf83b",
+          "file": "browser.spec.ts",
+          "line": 90,
+          "column": 1
+        },
+        {
+          "title": "D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1060,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:10.705Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-879ddb9ecc48a880385d",
+          "file": "browser.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1158,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:11.772Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-618ef881302369da37d0",
+          "file": "browser.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1107,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n    at handler (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:24:85)",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                      "column": 85,
+                      "line": 24
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mui-helpers.ts:24\n\n\u001b[0m \u001b[90m 22 |\u001b[39m         \u001b[36mconst\u001b[39m body\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mtext()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m route\u001b[33m.\u001b[39mfulfill({response\u001b[33m,\u001b[39mbody})\u001b[33m;\u001b[39mexpect(response\u001b[33m.\u001b[39mok())\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m         \u001b[36mconst\u001b[39m events\u001b[33m=\u001b[39mbody\u001b[33m.\u001b[39mtrim()\u001b[33m.\u001b[39msplit(\u001b[32m'\\n'\u001b[39m)\u001b[33m.\u001b[39mfilter(\u001b[33mBoolean\u001b[39m)\u001b[33m.\u001b[39mmap(line\u001b[33m=>\u001b[39m\u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(line))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m         \u001b[36mconst\u001b[39m terminal\u001b[33m=\u001b[39mevents\u001b[33m.\u001b[39mfilter(event\u001b[33m=>\u001b[39mevent\u001b[33m.\u001b[39mtype\u001b[33m===\u001b[39m\u001b[32m'result'\u001b[39m)\u001b[33m;\u001b[39mexpect(terminal)\u001b[33m.\u001b[39mtoHaveLength(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39mexpect(events\u001b[33m.\u001b[39mat(\u001b[33m-\u001b[39m\u001b[35m1\u001b[39m)\u001b[33m.\u001b[39mtype)\u001b[33m.\u001b[39mtoBe(\u001b[32m'result'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m         resolve(terminal[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mresult)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m       }\u001b[36mfinally\u001b[39m{\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mdispose()\u001b[33m;\u001b[39m}\n \u001b[90m 27 |\u001b[39m     }\u001b[36mcatch\u001b[39m(error){\u001b[36mawait\u001b[39m route\u001b[33m.\u001b[39mabort()\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(()\u001b[33m=>\u001b[39m{})\u001b[33m;\u001b[39mreject(error)\u001b[33m;\u001b[39m}\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                        "column": 85,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n\n   at ui-helpers.ts:24\n\n  22 |         const body=await response.text();await route.fulfill({response,body});expect(response.ok()).toBe(true);\n  23 |         const events=body.trim().split('\\n').filter(Boolean).map(line=>JSON.parse(line));\n> 24 |         const terminal=events.filter(event=>event.type==='result');expect(terminal).toHaveLength(1);expect(events.at(-1).type).toBe('result');\n     |                                                                                     ^\n  25 |         resolve(terminal[0].result);\n  26 |       }finally{await response.dispose();}\n  27 |     }catch(error){await route.abort().catch(()=>{});reject(error);}\n    at handler (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:24:85)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:12.938Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                    "column": 85,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-adee625c938fdf2682db",
+          "file": "browser.spec.ts",
+          "line": 130,
+          "column": 1
+        },
+        {
+          "title": "单换保持卡片位置和当前滚动，加载提示只出现在目标按钮",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:15.389Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-3a1649cf7163febf5b7f",
+          "file": "browser.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "B03/B04: 单位不能换算不冒充足量，非法人数拦截",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1579,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:18.072Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-46723b5e405ec9250ba0",
+          "file": "browser.spec.ts",
+          "line": 171,
+          "column": 1
+        },
+        {
+          "title": "V-07: 编辑后晚到结果不覆盖，断流不可成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:19.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-b459022912e0c818be95",
+          "file": "browser.spec.ts",
+          "line": 182,
+          "column": 1
+        },
+        {
+          "title": "D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1485,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:20.711Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-33ac7fc20e01a4dde920",
+          "file": "browser.spec.ts",
+          "line": 195,
+          "column": 1
+        },
+        {
+          "title": "AR-M03: 跨页面更新须明确选择，禁止静默覆盖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1311,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:22.207Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-71207840dd0daf8b84df",
+          "file": "browser.spec.ts",
+          "line": 218,
+          "column": 1
+        },
+        {
+          "title": "收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2120,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:23.534Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-bc2dc917884038451bbd",
+          "file": "browser.spec.ts",
+          "line": 229,
+          "column": 1
+        },
+        {
+          "title": "本机测试：登录和刷新保留食材收藏，退出不清除本餐且不会绕过AI账户门禁",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2036,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:25.675Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-020d68b4dd80973d403d",
+          "file": "browser.spec.ts",
+          "line": 256,
+          "column": 1
+        },
+        {
+          "title": "D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:27.724Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-b288db894c274c94d82f",
+          "file": "browser.spec.ts",
+          "line": 277,
+          "column": 1
+        },
+        {
+          "title": "D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3454,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:29.486Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-234f99d701476ea6dd1b",
+          "file": "browser.spec.ts",
+          "line": 303,
+          "column": 1
+        },
+        {
+          "title": "D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:32.949Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-7244820171d07bd70b2a",
+          "file": "browser.spec.ts",
+          "line": 328,
+          "column": 1
+        },
+        {
+          "title": "本机构造身份：直接登录、无账户Key不能启用AI，普通推荐不调用模型",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2578,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:36.942Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-066eec2826ce34b4a923",
+          "file": "browser.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1654,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:40.360Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-83f17b8c38f12f9a1b10",
+          "file": "browser.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:42.026Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-27988dab6a294bc29c22",
+          "file": "browser.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2100,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:43.373Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-d63ccd282518a6fc40d3",
+          "file": "browser.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1661,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:45.487Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-dbe2fd18f01c976dee46",
+          "file": "browser.spec.ts",
+          "line": 90,
+          "column": 1
+        },
+        {
+          "title": "D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1415,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:47.163Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-9b9e6855ccc0cdb43e2f",
+          "file": "browser.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1265,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:48.588Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-cd7b61b6ecb1b59ae324",
+          "file": "browser.spec.ts",
+          "line": 117,
+          "column": 1
+        },
+        {
+          "title": "AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1547,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n    at handler (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:24:85)",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                      "column": 85,
+                      "line": 24
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mui-helpers.ts:24\n\n\u001b[0m \u001b[90m 22 |\u001b[39m         \u001b[36mconst\u001b[39m body\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mtext()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m route\u001b[33m.\u001b[39mfulfill({response\u001b[33m,\u001b[39mbody})\u001b[33m;\u001b[39mexpect(response\u001b[33m.\u001b[39mok())\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m         \u001b[36mconst\u001b[39m events\u001b[33m=\u001b[39mbody\u001b[33m.\u001b[39mtrim()\u001b[33m.\u001b[39msplit(\u001b[32m'\\n'\u001b[39m)\u001b[33m.\u001b[39mfilter(\u001b[33mBoolean\u001b[39m)\u001b[33m.\u001b[39mmap(line\u001b[33m=>\u001b[39m\u001b[33mJSON\u001b[39m\u001b[33m.\u001b[39mparse(line))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m         \u001b[36mconst\u001b[39m terminal\u001b[33m=\u001b[39mevents\u001b[33m.\u001b[39mfilter(event\u001b[33m=>\u001b[39mevent\u001b[33m.\u001b[39mtype\u001b[33m===\u001b[39m\u001b[32m'result'\u001b[39m)\u001b[33m;\u001b[39mexpect(terminal)\u001b[33m.\u001b[39mtoHaveLength(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39mexpect(events\u001b[33m.\u001b[39mat(\u001b[33m-\u001b[39m\u001b[35m1\u001b[39m)\u001b[33m.\u001b[39mtype)\u001b[33m.\u001b[39mtoBe(\u001b[32m'result'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m         resolve(terminal[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mresult)\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m       }\u001b[36mfinally\u001b[39m{\u001b[36mawait\u001b[39m response\u001b[33m.\u001b[39mdispose()\u001b[33m;\u001b[39m}\n \u001b[90m 27 |\u001b[39m     }\u001b[36mcatch\u001b[39m(error){\u001b[36mawait\u001b[39m route\u001b[33m.\u001b[39mabort()\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(()\u001b[33m=>\u001b[39m{})\u001b[33m;\u001b[39mreject(error)\u001b[33m;\u001b[39m}\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                        "column": 85,
+                        "line": 24
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m1\u001b[39m\nReceived length: \u001b[31m0\u001b[39m\nReceived array:  \u001b[31m[]\u001b[39m\n\n   at ui-helpers.ts:24\n\n  22 |         const body=await response.text();await route.fulfill({response,body});expect(response.ok()).toBe(true);\n  23 |         const events=body.trim().split('\\n').filter(Boolean).map(line=>JSON.parse(line));\n> 24 |         const terminal=events.filter(event=>event.type==='result');expect(terminal).toHaveLength(1);expect(events.at(-1).type).toBe('result');\n     |                                                                                     ^\n  25 |         resolve(terminal[0].result);\n  26 |       }finally{await response.dispose();}\n  27 |     }catch(error){await route.abort().catch(()=>{});reject(error);}\n    at handler (D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts:24:85)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:49.862Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\ui-helpers.ts",
+                    "column": 85,
+                    "line": 24
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-8f762cee989e7ff2670e",
+          "file": "browser.spec.ts",
+          "line": 130,
+          "column": 1
+        },
+        {
+          "title": "单换保持卡片位置和当前滚动，加载提示只出现在目标按钮",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2608,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:53.373Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-3716e1730bfe602ca488",
+          "file": "browser.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "B03/B04: 单位不能换算不冒充足量，非法人数拦截",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1115,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:56.651Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-c53340a54986b44de99f",
+          "file": "browser.spec.ts",
+          "line": 171,
+          "column": 1
+        },
+        {
+          "title": "V-07: 编辑后晚到结果不覆盖，断流不可成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1435,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:57.782Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-2beb6ae2844d8512632e",
+          "file": "browser.spec.ts",
+          "line": 182,
+          "column": 1
+        },
+        {
+          "title": "D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1423,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:59.233Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-7638e435db74a69f771d",
+          "file": "browser.spec.ts",
+          "line": 195,
+          "column": 1
+        },
+        {
+          "title": "AR-M03: 跨页面更新须明确选择，禁止静默覆盖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1341,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:00.674Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-2b05ff83d0518de8973b",
+          "file": "browser.spec.ts",
+          "line": 218,
+          "column": 1
+        },
+        {
+          "title": "收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1753,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:02.025Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-222ea758f317ddfd7530",
+          "file": "browser.spec.ts",
+          "line": 229,
+          "column": 1
+        },
+        {
+          "title": "本机测试：登录和刷新保留食材收藏，退出不清除本餐且不会绕过AI账户门禁",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2427,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:03.788Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-b6abac1d3d2045cdfaf3",
+          "file": "browser.spec.ts",
+          "line": 256,
+          "column": 1
+        },
+        {
+          "title": "D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1785,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:06.225Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-66cd7c204c3a5cda86e0",
+          "file": "browser.spec.ts",
+          "line": 277,
+          "column": 1
+        },
+        {
+          "title": "D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3616,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:08.020Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-0b0a02df7bd3874c12af",
+          "file": "browser.spec.ts",
+          "line": 303,
+          "column": 1
+        },
+        {
+          "title": "D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:11.649Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-ddb7369b7ebaa33fa2fb",
+          "file": "browser.spec.ts",
+          "line": 328,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "business-browser.spec.ts",
+      "file": "business-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:35.623Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-685ad5b7ddc15b011b3f",
+          "file": "business-browser.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:35.623Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-b388b4b637c2458f30a8",
+          "file": "business-browser.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:35.623Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-a9c0442b2a2f8d83bb26",
+          "file": "business-browser.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "文字整理采用数据库别名，数据库类别范围须确认后生效",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:35:35.623Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-37916cb33be8e7261faf",
+          "file": "business-browser.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:15.038Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-b333aed5050c4dd2ddf5",
+          "file": "business-browser.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:15.038Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-e3b2ba6c55a39061b395",
+          "file": "business-browser.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:15.038Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-ddf9ed8db8f63a479f11",
+          "file": "business-browser.spec.ts",
+          "line": 47,
+          "column": 1
+        },
+        {
+          "title": "文字整理采用数据库别名，数据库类别范围须确认后生效",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 6,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T16:36:15.038Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 6,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-f876b882a79fc8db4585",
+          "file": "business-browser.spec.ts",
+          "line": 65,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T16:35:01.450Z",
+    "duration": 75407.708,
+    "expected": 34,
+    "skipped": 8,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

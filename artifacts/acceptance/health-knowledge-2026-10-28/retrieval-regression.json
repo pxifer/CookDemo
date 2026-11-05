@@ -1,0 +1,252 @@
+{
+  "id": "health-kb-2026-10-28-v1",
+  "evaluation": "20 editorial regression cases; not an independent held-out retrieval benchmark or clinical evaluation",
+  "index": "lexical-v1",
+  "embedding": null,
+  "total": 20,
+  "passed": 20,
+  "rows": [
+    {
+      "id": "ht-salt",
+      "query": "高血压 食盐",
+      "expectedFactIds": [
+        "fact:ht-limit-salt"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "ht-potassium",
+      "query": "高血压 钾",
+      "expectedFactIds": [
+        "fact:ht-potassium"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "ht-soy-sauce",
+      "query": "高血压 酱油",
+      "expectedFactIds": [
+        "fact:ht-limit-soy-sauce"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "ht-milk",
+      "query": "高血压 低脂或脱脂奶",
+      "expectedFactIds": [
+        "fact:ht-prefer-low-fat-milk"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "ht-oil",
+      "query": "菜籽油 不饱和脂肪酸",
+      "expectedFactIds": [
+        "fact:canola-oil-unsaturated-fat"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "dm-carbs",
+      "query": "2型糖尿病 碳水化合物",
+      "expectedFactIds": [
+        "fact:dm-carbohydrate"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "dm-sweet-drink",
+      "query": "2型糖尿病 含糖饮料",
+      "expectedFactIds": [
+        "fact:dm-sweet-drinks"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "dm-alcohol",
+      "query": "2型糖尿病 含酒精饮品",
+      "expectedFactIds": [
+        "fact:dm-alcohol"
+      ],
+      "passed": true,
+      "ranks": [
+        2
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "dm-grains",
+      "query": "2型糖尿病 全谷物",
+      "expectedFactIds": [
+        "fact:dm-prefer-whole-grains"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "dm-fruit",
+      "query": "2型糖尿病 新鲜水果",
+      "expectedFactIds": [
+        "fact:dm-fruit"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "gout-liver",
+      "query": "痛风 动物肝脏",
+      "expectedFactIds": [
+        "fact:gout-avoid-liver"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "gout-milk",
+      "query": "痛风 牛奶",
+      "expectedFactIds": [
+        "fact:gout-prefer-milk"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "gout-tofu",
+      "query": "痛风 豆腐",
+      "expectedFactIds": [
+        "fact:gout-tofu"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "gout-fruit",
+      "query": "痛风 新鲜水果",
+      "expectedFactIds": [
+        "fact:gout-fruit"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "gout-juice",
+      "query": "痛风 鲜榨果汁",
+      "expectedFactIds": [
+        "fact:gout-limit-juice"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "hua-purines",
+      "query": "高尿酸血症 总嘌呤",
+      "expectedFactIds": [
+        "fact:hyperuricemia-purines"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "gout-broth",
+      "query": "痛风 肉汤",
+      "expectedFactIds": [
+        "fact:gout-broth"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "cooking-hca",
+      "query": "肉类高温煎烤 杂环胺",
+      "expectedFactIds": [
+        "fact:high-heat-hca"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "cooking-pah",
+      "query": "肉类烟熏 多环芳烃",
+      "expectedFactIds": [
+        "fact:smoking-pah"
+      ],
+      "passed": true,
+      "ranks": [
+        1
+      ],
+      "executionAllowed": false
+    },
+    {
+      "id": "fresh-mushroom-conflict",
+      "query": "鲜香菇 总嘌呤",
+      "expectedFactIds": [
+        "fact:nhc-purine-shiitake-fresh",
+        "fact:kaneko-purine-shiitake-fresh"
+      ],
+      "passed": true,
+      "ranks": [
+        2,
+        1
+      ],
+      "executionAllowed": false
+    }
+  ]
+}

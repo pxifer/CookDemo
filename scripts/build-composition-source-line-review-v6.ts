@@ -1,16 +1,16 @@
 import {createHash} from 'node:crypto';
 import {readFile,writeFile} from 'node:fs/promises';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
-import {COMPOSITION_BASE_HASH,reviewSnapshot,reviewedDefinitions} from '../server/composition-review';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
+import {COMPOSITION_BASE_HASH,reviewSnapshot,reviewedDefinitions} from '../backend/src/composition-review';
 import {verifiedIngredientIdentities} from '../shared/ingredient-evidence';
 
 const commit='0e106eea348c734fe1586f781202994439cf98a5';
-const inventory=JSON.parse(await readFile('acceptance/composition-v2-2026-10-24/all-recipe-ingredient-inventory.json','utf8')) as any[];
+const inventory=JSON.parse(await readFile('artifacts/acceptance/composition-v2-2026-10-24/all-recipe-ingredient-inventory.json','utf8')) as any[];
 const bundle=JSON.parse(await readFile('.local-data/cloudbase-http/release-20261023/gallery-bundle.json','utf8'));
 const snapshot=reviewSnapshot(verifyGalleryBundle(bundle,COMPOSITION_BASE_HASH));
 const identities=new Map(verifiedIngredientIdentities(snapshot).map(item=>[item.foodId,item]));
 const sources=new Map<string,{text:string;sha256:string;uri?:string}>();
-for(const path of ['acceptance/composition-v2-2026-10-24/github-sources.json','acceptance/composition-source-review-2026-10-24/howtocook-pending-sources.json']){
+for(const path of ['artifacts/acceptance/composition-v2-2026-10-24/github-sources.json','artifacts/acceptance/composition-source-review-2026-10-24/howtocook-pending-sources.json']){
   const records=JSON.parse(await readFile(path,'utf8')) as any[];
   for(const source of records){
     if(source.commit!==commit)throw Error(`SOURCE_COMMIT:${source.id}`);
@@ -19,7 +19,7 @@ for(const path of ['acceptance/composition-v2-2026-10-24/github-sources.json','a
   }
 }
 for(const id of ['R380','R382']){
-  const text=await readFile(`acceptance/account-ingredients-2026-10-24/${id}-source.md`,'utf8');
+  const text=await readFile(`artifacts/acceptance/account-ingredients-2026-10-24/${id}-source.md`,'utf8');
   const prior=reviewedDefinitions.find(item=>item.sourceRecord===id);
   if(!prior||createHash('sha256').update(text).digest('hex')!==prior.sourceSha256)throw Error(`LOCAL_SOURCE_HASH:${id}`);
   sources.set(id,{text,sha256:prior.sourceSha256,uri:prior.sourceUri});
@@ -59,6 +59,6 @@ const report={version:'composition-source-line-review-v6',sourceCommit:commit,de
   unresolvedLeavesConsidered:considered,sourceAnchoredSingleIngredientApprovals:approvals.length,
   productLabelsInferred:0,unresolvedCompositesRemainBlocked:true,sourceHashAndRecipeVariantBound:true};
 const document={...report,approvals};
-await writeFile('docs/data/composition-source-line-review-v6a.json',JSON.stringify(document,null,2)+'\n',{flag:'wx'});
-await writeFile('acceptance/composition-source-review-2026-10-24/source-composition-binding-v6a.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+await writeFile('datasets/recipes/curation/composition-source-line-review-v6a.json',JSON.stringify(document,null,2)+'\n',{flag:'wx'});
+await writeFile('artifacts/acceptance/composition-source-review-2026-10-24/source-composition-binding-v6a.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
 console.log(JSON.stringify(report));

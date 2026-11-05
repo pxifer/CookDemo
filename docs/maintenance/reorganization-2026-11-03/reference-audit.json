@@ -1,0 +1,15 @@
+{
+  "sourceFiles": 282,
+  "relativeImportsChecked": 811,
+  "missingImports": [],
+  "generatedModuleReferences": [
+    {
+      "file": "scripts/configure-http-preview.ts",
+      "import": "./http-main.cjs",
+      "reason": "Literal written into generated function/index.js; bundled sibling is verified by offline cloud bundle test"
+    }
+  ],
+  "pythonFilesParsed": 12,
+  "pythonSyntaxErrors": [],
+  "legacyStaticEntryExists": true
+}

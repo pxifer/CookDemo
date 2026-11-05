@@ -1,9 +1,9 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {chromium} from '@playwright/test';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
-import methodReview from '../docs/data/recipe-step-review-v28.json';
-const output='acceptance/recipe-copy-2026-10-26-verified';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
+import methodReview from '../datasets/recipes/curation/recipe-step-review-v28.json';
+const output='artifacts/acceptance/recipe-copy-2026-10-26-verified';
 const origin='https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com';
 const root='.local-data/cloudbase-http/listed-foods-20261026-v27';
 const bundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8'));

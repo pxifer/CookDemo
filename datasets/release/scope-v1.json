@@ -1,0 +1,12 @@
+{
+  "id":"release-scope-2026-10-29-v1",
+  "state":"implementation_in_progress",
+  "included":["ordinary_recommendation","accounts_and_sync","byok_general_diet_assistant"],
+  "excluded":["image_recognition","clinically_verified_disease_recipe_recommendation"],
+  "requiredEvidence":["local_check","postgres_integrations","browser_regressions","account_recovery_erasure","business_restore_drill","independent_ai_quality","staging_acceptance","rollback_drill"],
+  "aiEvaluation":{"provider":"DeepSeek","budgetCny":5,"dedicatedKeyConfigured":false,"liveAuthorizedWithDedicatedKeyOnly":true},
+  "accountRecovery":{"testMailbox":null,"disposableAccount":null},
+  "staging":{"target":null,"createPaidResources":false},
+  "productionReleaseAuthorized":false,
+  "notes":["Scope follows the approved plan; enabling excluded features requires adding their release evidence.","A budget is not a credential and does not authorize borrowing an account key."]
+}

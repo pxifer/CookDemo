@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fixture } from './registration-fixture';
-import { createApp } from '../server/app';
-import { requestHealthChat } from '../server/health-chat';
+import { createApp } from '../backend/src/app';
+import { requestHealthChat } from '../backend/src/health-chat';
 import { chatContext, type HealthChatRequest } from '../shared/health-chat';
 
 const apiKey='sk-test-only-health-chat-123456789';

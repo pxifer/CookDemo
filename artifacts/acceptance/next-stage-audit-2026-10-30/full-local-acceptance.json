@@ -1,0 +1,46 @@
+{
+  "checkedOnChinaDate": "2026-10-30",
+  "report": "acceptance/project-check-2026-10-30T06-04-49-269Z/report.json",
+  "reportSha256": "fa17c92ac1d686ad8dc5d107eb7980567d8dd7a03cd2df1aad25a0bac4e19ed7",
+  "sourceFingerprint": "ec413b9993b99fdb4adb5de5aaea0f0a92e2da714fcff37d6c1745f1c8746bbb",
+  "sourceAndBuildVerifiedBeforeNextChanges": true,
+  "runMode": "full",
+  "passedGroups": 20,
+  "failed": 0,
+  "permissionBlocked": 0,
+  "notRun": 0,
+  "localGateComplete": true,
+  "releaseReady": false,
+  "unit": {
+    "total": 241,
+    "passed": 240,
+    "failed": 0,
+    "skipped": 1
+  },
+  "browser": {
+    "ordinaryPassed": 36,
+    "healthPassed": 14,
+    "registrationPassed": 10,
+    "businessPassed": 8,
+    "ordinaryBusinessDuplicatesSkipped": 8
+  },
+  "postgresGroupsPassed": [
+    "pg-structure",
+    "pg-business",
+    "pg-candidates",
+    "pg-community",
+    "pg-health-and-tasks",
+    "pg-cloud-migrations"
+  ],
+  "remainingReleaseEvidence": [
+    "account_recovery_erasure",
+    "business_restore_drill",
+    "independent_ai_quality",
+    "staging_acceptance",
+    "rollback_drill"
+  ],
+  "subsequentSourceFingerprint": "62d68869f2ba508ded048e143ea230d6f247d05049790892bb7b1740c94db8a7",
+  "scope": "Preserved full local acceptance baseline; subsequent staging changes are assessed separately.",
+  "productionDeployed": false,
+  "realModelCalls": 0
+}

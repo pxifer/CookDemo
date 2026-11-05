@@ -1,12 +1,12 @@
 $ErrorActionPreference='Stop'
 $project=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $node=Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe'
-$cli=Join-Path $project '.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb'
+$cli=Join-Path $project '.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb'
 $package=Join-Path $project '.local-data/cloudbase-http/release-20261026-workspace-ui-v30'
 $source=Join-Path $project '.local-data/cloudbase-http/release-20261026-recipe-copy-v29/cloudbaserc.json'
 $configPath=Join-Path $package 'cloudbaserc.json'
 if((Get-FileHash -LiteralPath $source).Hash -ne (Get-FileHash -LiteralPath $configPath).Hash){throw 'Existing configuration changed'}
-if((Get-FileHash -LiteralPath (Join-Path $project 'build/web/index.html')).Hash -ne (Get-FileHash -LiteralPath (Join-Path $package 'function/build/web/index.html')).Hash){throw 'Packaged UI differs from verified build'}
+if((Get-FileHash -LiteralPath (Join-Path $project 'artifacts/build/web/index.html')).Hash -ne (Get-FileHash -LiteralPath (Join-Path $package 'function/build/web/index.html')).Hash){throw 'Packaged UI differs from verified artifacts/build'}
 $config=Get-Content -LiteralPath $configPath -Raw|ConvertFrom-Json
 $settings=$config.functions[0].envVariables
 $networkEnvironment=@{HTTP_PROXY='';HTTPS_PROXY='';ALL_PROXY='';NO_PROXY='*';TCB_NO_BROWSER='true';NO_UPDATE_NOTIFIER='true'}

@@ -4,8 +4,8 @@ import { existsSync } from 'node:fs';
 import { lstat, mkdir, open, readFile, realpath, stat, unlink, writeFile } from 'node:fs/promises';
 import { basename, dirname, join, resolve } from 'node:path';
 import { Readable } from 'node:stream';
-import { requiredCoreTables } from '../server/deployment';
-import { migrationFiles } from '../server/migrations';
+import { requiredCoreTables } from '../backend/src/deployment';
+import { migrationFiles } from '../backend/src/migrations';
 import { decryptBackup, encryptBackup, sha256File, type BackupMetadata } from './lib/backup-archive';
 
 // Deliberately not a real-data/cloud recovery tool. It cannot back up business rows.
@@ -33,7 +33,7 @@ async function main() {
   const emptyCheck = projectTables.map(table => `(SELECT count(*) FROM public.${table})`).join('+');
   if (!existingArchive && sql('shiwei_dev', `SELECT ${emptyCheck};`) !== '0') throw new Error('BACKUP_REQUIRES_EMPTY_PROJECT_TABLES');
   const migrations = await Promise.all(migrationFiles.map(async file => ({ version: file.version, filename: file.name,
-    checksum: createHash('sha256').update((await readFile(new URL(`../server/migrations/${file.name}`, import.meta.url), 'utf8')).replace(/\r\n/g,'\n')).digest('hex') })));
+    checksum: createHash('sha256').update((await readFile(new URL(`../backend/src/migrations/${file.name}`, import.meta.url), 'utf8')).replace(/\r\n/g,'\n')).digest('hex') })));
   if (!existingArchive) {
     const remote = JSON.parse(sql('shiwei_dev', `SELECT json_agg(t ORDER BY version) FROM (SELECT version,filename,checksum FROM public.schema_migrations) t;`));
     if (JSON.stringify(remote) !== JSON.stringify(migrations)) throw new Error('BACKUP_MIGRATION_MISMATCH');
@@ -61,7 +61,7 @@ async function main() {
   let databaseCreated = false, archiveCreated = false;
   async function restore(expected?: BackupMetadata) {
     const authenticated = await decryptBackup(destination, temporaryDump, key);
-    if ((expected && JSON.stringify(authenticated) !== JSON.stringify(expected)) || authenticated.database !== 'shiwei_dev' ||
+    if (authenticated.scope!=='local-empty-structure'||authenticated.format!=='pg_dump-custom'||(expected && JSON.stringify(authenticated) !== JSON.stringify(expected)) || authenticated.database !== 'shiwei_dev' ||
         JSON.stringify(authenticated.migrationChecksums) !== JSON.stringify(migrations.map(file => file.checksum))) throw new Error('BACKUP_AUTHENTICATED_METADATA_MISMATCH');
     run(['cp',temporaryDump,`${container}:${containerDump}`]);
     run(['exec',container,'createdb','-U','postgres','-T','template0',restoreDatabase]); databaseCreated = true;

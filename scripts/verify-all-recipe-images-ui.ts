@@ -3,15 +3,15 @@ import {resolve} from 'node:path';
 import {randomBytes} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {chromium,expect as baseExpect} from '@playwright/test';
-import {createApp} from '../server/app';
-import {GALLERY_RELEASE} from '../server/gallery-content';
-import {CloudBaseGalleryRepository,galleryBundleHash,type GalleryBundle} from '../server/cloudbase-content';
+import {createApp} from '../backend/src/app';
+import {GALLERY_RELEASE} from '../backend/src/gallery-content';
+import {CloudBaseGalleryRepository,galleryBundleHash,type GalleryBundle} from '../backend/src/cloudbase-content';
 const expect=baseExpect.configure({timeout:30000});
 const live=process.argv.includes('--live');
-const output=`acceptance/recipe-images-2026-10-27/${live?'live':'local'}`;
+const output=`artifacts/acceptance/recipe-images-2026-10-27/${live?'live':'local'}`;
 const bundle=JSON.parse(await readFile('.local-data/cloudbase-http/listed-foods-20261026-v27/gallery-bundle.json','utf8')) as GalleryBundle;
 const repository=new CloudBaseGalleryRepository({envId:'shiwei-test',publishableKey:'test-public',releaseId:'images-test',hash:galleryBundleHash(bundle),fetch:async input=>new Response(JSON.stringify(String(input).includes('select=release_id')?[{release_id:'images-test'}]:[{payload:bundle}]))});
-const app=await createApp({environment:'preview',origin:'https://shiwei.example',contentSource:'cloudbase',contentRelease:GALLERY_RELEASE,sessionSecret:randomBytes(32),csrfSecret:randomBytes(32),staticRoot:resolve('build/web'),contentRepository:repository});
+const app=await createApp({environment:'preview',origin:'https://shiwei.example',contentSource:'cloudbase',contentRelease:GALLERY_RELEASE,sessionSecret:randomBytes(32),csrfSecret:randomBytes(32),staticRoot:resolve('artifacts/build/web'),contentRepository:repository});
 await app.ready();await mkdir(output,{recursive:true});
 const origin=live?'https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com':'https://shiwei.example';
 const browser=await chromium.launch({channel:'msedge',headless:true});
@@ -21,7 +21,7 @@ try{
     const page=await browser.newPage({viewport:{width,height},locale:'zh-CN'});page.setDefaultTimeout(30000);
     if(!live)await page.route('**/*',async route=>{
       const request=route.request(),url=new URL(request.url());
-      if(url.pathname.startsWith('/assets/recipes/')){await route.fulfill({body:await readFile('public'+url.pathname),contentType:url.pathname.endsWith('.webp')?'image/webp':'image/png'});return;}
+      if(url.pathname.startsWith('/assets/recipes/')){await route.fulfill({body:await readFile('frontend/public'+url.pathname),contentType:url.pathname.endsWith('.webp')?'image/webp':'image/png'});return;}
       assert.equal(url.origin,origin);
       const response=await app.inject({method:request.method() as 'GET'|'POST',url:url.pathname+url.search,headers:request.headers(),payload:request.postDataBuffer()??undefined});
       await route.fulfill({status:response.statusCode,headers:Object.fromEntries(Object.entries(response.headers).map(([key,value])=>[key,Array.isArray(value)?value.join('\n'):String(value)])),body:response.rawPayload});

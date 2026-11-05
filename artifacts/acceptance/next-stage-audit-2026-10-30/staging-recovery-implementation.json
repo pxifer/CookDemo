@@ -1,0 +1,32 @@
+{
+  "checkedOnChinaDate": "2026-10-30",
+  "sourceFingerprint": "62d68869f2ba508ded048e143ea230d6f247d05049790892bb7b1740c94db8a7",
+  "report": "acceptance/project-check-2026-10-30T06-51-19-467Z/report.json",
+  "sourceStable": true,
+  "localPassedGroups": [
+    "validation",
+    "types",
+    "acceptance-types",
+    "web-build",
+    "unit",
+    "knowledge-integrity",
+    "retrieval-editorial",
+    "recipe-evidence",
+    "ai-contract",
+    "agent-candidates-contract"
+  ],
+  "permissionBlocked": 10,
+  "failed": 0,
+  "localGateComplete": false,
+  "unit": {
+    "total": 243,
+    "passed": 242,
+    "failed": 0,
+    "skipped": 1
+  },
+  "powershell51CloudbaseParsePassed": true,
+  "realRecoveryValidated": false,
+  "deployed": false,
+  "realModelCalls": 0,
+  "note": "Allowlist policy tested with synthetic provider and PGlite; current browser/PG blocked by Codex permissions. Historical baseline passes are not copied."
+}

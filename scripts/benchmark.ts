@@ -1,7 +1,7 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { monitorEventLoopDelay } from 'node:perf_hooks';
 import { recipes } from '../shared/catalog';
-import { recommend } from '../server/recommendation';
+import { recommend } from '../backend/src/recommendation';
 import { mealWith, request, simpleRecipe } from '../tests/fixtures';
 const timings: number[] = [], nodes: number[] = [];
 for (let i = 0; i < 5; i++) await recommend(recipes, request());
@@ -24,6 +24,6 @@ const report = {
   eventLoopMaxMs: Math.round(histogram.max / 1e6 * 100) / 100,
   limitations: ['In-process synthetic data, not HTTP or cloud latency', 'No model calls, cold starts, concurrent load, or billing measurements', 'Not production SLO evidence'],
 };
-await mkdir(new URL('../acceptance/', import.meta.url), { recursive: true });
-await writeFile(new URL('../acceptance/benchmark.json', import.meta.url), JSON.stringify(report, null, 2));
+await mkdir(new URL('../artifacts/acceptance', import.meta.url), { recursive: true });
+await writeFile(new URL('../artifacts/acceptance/benchmark.json', import.meta.url), JSON.stringify(report, null, 2));
 console.log(JSON.stringify(report, null, 2));

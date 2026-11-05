@@ -1,0 +1,43 @@
+{
+  "runtime": "24.22.1",
+  "platform": "win32",
+  "sandboxedLocalAppData": false,
+  "tcp": [
+    {
+      "port": 4175,
+      "state": "not_listening",
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 4178,
+      "state": "not_listening",
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 4181,
+      "state": "not_listening",
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 4198,
+      "state": "not_listening",
+      "code": "ECONNREFUSED"
+    },
+    {
+      "port": 5432,
+      "state": "available",
+      "code": "CONNECTED"
+    }
+  ],
+  "docker": {
+    "state": "available",
+    "code": "DOCKER_READY"
+  },
+  "configurationFiles": {
+    "appDatabase": true,
+    "ownerDatabase": true,
+    "structureTestDatabase": true,
+    "businessEnvironment": true
+  },
+  "note": "Availability checks only; no database created, service started, security policy changed, credential contents printed or network restriction bypassed."
+}

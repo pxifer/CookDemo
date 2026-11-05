@@ -35,7 +35,7 @@ test('CloudBase atomic migrations close inherited default grants, preserve check
   let created = false;
   const core = await buildCloudbaseMigration('core', { database, owner, clientRoles: clients });
   const vector = await buildCloudbaseMigration('vector', { database, owner, clientRoles: clients });
-  const vectorProbe = await readFile(new URL('../deploy/db/cloudbase-vector-probe.sql', import.meta.url), 'utf8');
+  const vectorProbe = await readFile(new URL('../deployment/db/cloudbase-vector-probe.sql', import.meta.url), 'utf8');
   try {
     psql('postgres', `CREATE DATABASE ${database};`);
     created = true;

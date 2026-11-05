@@ -1,0 +1,26 @@
+[
+  {
+    "source": "01_Agent开发面试题与分级回答.md",
+    "output": "01_Agent开发面试题与分级回答.docx",
+    "sourceChars": 22913,
+    "paragraphs": 309,
+    "tables": 3,
+    "sha256": "2b46382a44ed2e1842ee349ab178b22687c075fa1d5388e3bb41a10fe93933d3"
+  },
+  {
+    "source": "02_拾味项目RAG与Agent落地和面试讲述.md",
+    "output": "02_拾味项目RAG与Agent落地和面试讲述.docx",
+    "sourceChars": 15203,
+    "paragraphs": 223,
+    "tables": 4,
+    "sha256": "eff3c9530da2321b05951ed4af60c35742e3e78d488227777d8b3d5f8c2bb9a2"
+  },
+  {
+    "source": "03_拾味RAG与Agent优化选型及实施路线.md",
+    "output": "03_拾味RAG与Agent优化选型及实施路线.docx",
+    "sourceChars": 15584,
+    "paragraphs": 239,
+    "tables": 7,
+    "sha256": "ad9f439c69c72dc035084c979e4eff22b828de7c3f4556d1b0fbe5328bf9d305"
+  }
+]

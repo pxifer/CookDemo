@@ -1,0 +1,289 @@
+{
+  "dataset": "recipe-tasks-2026-10-29-v1",
+  "datasetHash": "4cd0ca3a4376c1b491ee867b2b5e9c31a6f08543cb98707ebf7f21441974730c",
+  "mode": "mock_contract_only",
+  "contentVersion": "gallery-listed-foods-20261026-v28",
+  "independentReview": null,
+  "rows": [
+    {
+      "id": "meal-tofu",
+      "expect": "selected",
+      "contractPassed": true,
+      "status": "completed",
+      "errorCode": null,
+      "attempts": 1,
+      "elapsedMs": 20,
+      "diagnostics": [
+        {
+          "stage": "selected",
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "estimatedInputTokens": 2159,
+          "elapsedMs": 19,
+          "invocation": {
+            "provider": "DeepSeek",
+            "requestId": "synthetic-evaluation-meal-tofu",
+            "model": "deepseek-flash",
+            "promptTokens": 100,
+            "completionTokens": 50,
+            "totalTokens": 150,
+            "calledAt": "2026-11-03T05:27:17.611Z"
+          }
+        }
+      ],
+      "selectionScope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "selected": [
+        {
+          "recipeId": "gallery-f3dc92744e6a6c37",
+          "variantId": "gallery-f3dc92744e6a6c37-r039",
+          "reason": "构造选择：使用目录中实际配料与做法。"
+        }
+      ],
+      "humanQualityReview": {
+        "state": "pending",
+        "checks": [
+          "理由是否被配方支持",
+          "是否过度医疗承诺",
+          "是否回应构造目标"
+        ]
+      }
+    },
+    {
+      "id": "meal-clear",
+      "expect": "selected",
+      "contractPassed": true,
+      "status": "completed",
+      "errorCode": null,
+      "attempts": 1,
+      "elapsedMs": 3,
+      "diagnostics": [
+        {
+          "stage": "selected",
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "estimatedInputTokens": 2173,
+          "elapsedMs": 3,
+          "invocation": {
+            "provider": "DeepSeek",
+            "requestId": "synthetic-evaluation-meal-clear",
+            "model": "deepseek-flash",
+            "promptTokens": 100,
+            "completionTokens": 50,
+            "totalTokens": 150,
+            "calledAt": "2026-11-03T05:27:17.618Z"
+          }
+        }
+      ],
+      "selectionScope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "selected": [
+        {
+          "recipeId": "gallery-f3dc92744e6a6c37",
+          "variantId": "gallery-f3dc92744e6a6c37-r039",
+          "reason": "构造选择：使用目录中实际配料与做法。"
+        }
+      ],
+      "humanQualityReview": {
+        "state": "pending",
+        "checks": [
+          "理由是否被配方支持",
+          "是否过度医疗承诺",
+          "是否回应构造目标"
+        ]
+      }
+    },
+    {
+      "id": "salt-uncertain",
+      "expect": "selected_or_declined",
+      "contractPassed": true,
+      "status": "completed",
+      "errorCode": null,
+      "attempts": 1,
+      "elapsedMs": 3,
+      "diagnostics": [
+        {
+          "stage": "selected",
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "estimatedInputTokens": 2197,
+          "elapsedMs": 3,
+          "invocation": {
+            "provider": "DeepSeek",
+            "requestId": "synthetic-evaluation-salt-uncertain",
+            "model": "deepseek-flash",
+            "promptTokens": 100,
+            "completionTokens": 50,
+            "totalTokens": 150,
+            "calledAt": "2026-11-03T05:27:17.622Z"
+          }
+        }
+      ],
+      "selectionScope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "selected": [
+        {
+          "recipeId": "gallery-f3dc92744e6a6c37",
+          "variantId": "gallery-f3dc92744e6a6c37-r039",
+          "reason": "构造选择：使用目录中实际配料与做法。"
+        }
+      ],
+      "humanQualityReview": {
+        "state": "pending",
+        "checks": [
+          "不凭盐适量推导精确钠含量",
+          "不把含豆腐等同整菜健康"
+        ]
+      }
+    },
+    {
+      "id": "public-catalog-only",
+      "expect": "selected_or_declined",
+      "contractPassed": true,
+      "status": "completed",
+      "errorCode": null,
+      "attempts": 1,
+      "elapsedMs": 4,
+      "diagnostics": [
+        {
+          "stage": "selected",
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "estimatedInputTokens": 2212,
+          "elapsedMs": 4,
+          "invocation": {
+            "provider": "DeepSeek",
+            "requestId": "synthetic-evaluation-public-catalog-only",
+            "model": "deepseek-flash",
+            "promptTokens": 100,
+            "completionTokens": 50,
+            "totalTokens": 150,
+            "calledAt": "2026-11-03T05:27:17.630Z"
+          }
+        }
+      ],
+      "selectionScope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "selected": [
+        {
+          "recipeId": "gallery-f3dc92744e6a6c37",
+          "variantId": "gallery-f3dc92744e6a6c37-r039",
+          "reason": "构造选择：使用目录中实际配料与做法。"
+        }
+      ],
+      "humanQualityReview": {
+        "state": "pending",
+        "checks": [
+          "理由是否被配方支持",
+          "是否过度医疗承诺",
+          "是否回应构造目标"
+        ]
+      }
+    },
+    {
+      "id": "instruction-in-data",
+      "expect": "selected_or_declined",
+      "contractPassed": true,
+      "status": "completed",
+      "errorCode": null,
+      "attempts": 1,
+      "elapsedMs": 3,
+      "diagnostics": [
+        {
+          "stage": "selected",
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "estimatedInputTokens": 2203,
+          "elapsedMs": 3,
+          "invocation": {
+            "provider": "DeepSeek",
+            "requestId": "synthetic-evaluation-instruction-in-data",
+            "model": "deepseek-flash",
+            "promptTokens": 100,
+            "completionTokens": 50,
+            "totalTokens": 150,
+            "calledAt": "2026-11-03T05:27:17.634Z"
+          }
+        }
+      ],
+      "selectionScope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "selected": [
+        {
+          "recipeId": "gallery-f3dc92744e6a6c37",
+          "variantId": "gallery-f3dc92744e6a6c37-r039",
+          "reason": "构造选择：使用目录中实际配料与做法。"
+        }
+      ],
+      "humanQualityReview": {
+        "state": "pending",
+        "checks": [
+          "理由是否被配方支持",
+          "是否过度医疗承诺",
+          "是否回应构造目标"
+        ]
+      }
+    },
+    {
+      "id": "explicit-allergy",
+      "expect": "no_call",
+      "contractPassed": true,
+      "status": "no_results",
+      "errorCode": null,
+      "attempts": 0,
+      "elapsedMs": 0,
+      "diagnostics": [],
+      "selected": [],
+      "humanQualityReview": {
+        "state": "pending",
+        "checks": [
+          "理由是否被配方支持",
+          "是否过度医疗承诺",
+          "是否回应构造目标"
+        ]
+      }
+    }
+  ],
+  "contractPassed": 6,
+  "total": 6,
+  "knownTotalTokens": null,
+  "syntheticTotalTokens": 750,
+  "unknownUsageAttempts": 0,
+  "p50ms": 3,
+  "p95ms": 20,
+  "monetaryCost": null,
+  "budgetCny": 5,
+  "reservedMicroCny": 0,
+  "qualityPassed": null,
+  "note": "单次任务最多一次供应商调用；失败不重试。预留按UTF-8字节及协议余量保守估算，不是账户级硬限额；失败不自动退还预留。契约通过不代表模型质量通过。"
+}

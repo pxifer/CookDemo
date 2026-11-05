@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
-import { createHealthRecipeSelector } from '../server/health-recipe-selection';
+import { createHealthRecipeSelector } from '../backend/src/health-recipe-selection';
 import { constructedContent } from '../shared/catalog';
 import { mealWith, request, simpleRecipe } from './fixtures';
-import { createApp } from '../server/app';
+import { createApp } from '../backend/src/app';
 import { fixture } from './registration-fixture';
 import type { Meal } from '../shared/types';
 
@@ -14,14 +14,14 @@ const context=(recipes:ReturnType<typeof simpleRecipe>[])=>({...constructedConte
 const oneMeal=()=>({...mealWith('西红柿600g鸡蛋5个'),health:true,composition:'custom' as const,counts:{meat:0,veg:1,soup:0}});
 const options=(meal:Meal,recipes:ReturnType<typeof simpleRecipe>[],fetcher:typeof fetch)=>({request:request(meal),owner:'owner-a',apiKey,context:context(recipes),signal:new AbortController().signal,fetcher,present:(dish:any)=>dish,claim:async()=>{},progress:()=>{}});
 
-test('AI读取档案、已接受食材、库存用量、调料检查、补买及实际做法，模型指定菜品成为结果',async()=>{
+test('AI读取档案、已接受食材、食材有无、调料检查、补买及实际做法，模型指定菜品成为结果',async()=>{
   const meal=oneMeal();meal.healthProfile={conditions:['构造健康关注'],goals:['增肌'],notes:'自述测试',suggestions:[],updatedAt:'2026-10-28'};meal.aiFoodPreferences={preferred:['鸡蛋'],limited:[],excluded:[]};
   const recipes=[simpleRecipe('tomato',[['tomato',100]]),simpleRecipe('egg',[['egg',1]])];recipes[1].variants[0].steps=['蒸至熟透，按原菜谱操作'];
   let called=0,claimed=0;
   const input=options(meal,recipes,async(url,init)=>{
     called++;assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(new Headers(init?.headers).get('authorization'),`Bearer ${apiKey}`);
     const body=JSON.parse(String(init?.body)),packet=JSON.parse(body.messages.at(-1).content);
-    assert.equal(packet.user.ingredients[0].amount,'600g');assert.deepEqual(packet.user.healthProfile.conditions,['构造健康关注']);assert.deepEqual(packet.user.accepted.preferred,['鸡蛋']);assert.equal(packet.user.allowBuy,false);assert.equal(packet.user.checkSeasonings,false);assert(packet.user.seasonings.length);
+    assert.equal(packet.user.ingredients[0].amount,'');assert.deepEqual(packet.user.healthProfile.conditions,['构造健康关注']);assert.deepEqual(packet.user.accepted.preferred,['鸡蛋']);assert.equal(packet.user.allowBuy,false);assert.equal(packet.user.checkSeasonings,false);assert(packet.user.seasonings.length);
     const chosen=packet.catalog.find((item:any)=>item.name==='egg');assert(chosen.steps.includes('蒸至熟透，按原菜谱操作'));assert(chosen.ingredients.some((item:any)=>item.name==='鸡蛋'));
     return envelope({summary:'构造搭配说明',choices:[{id:chosen.id,reason:'模型明确选择鸡蛋菜，复用库存并采用已给做法。'}]});
   });input.claim=async()=>{claimed++;};
@@ -29,7 +29,7 @@ test('AI读取档案、已接受食材、库存用量、调料检查、补买及
   assert.deepEqual(result.dishes.map(dish=>dish.recipe.id),['egg']);assert.match(result.dishes[0].aiReason!,/模型明确选择/);assert.equal(result.healthAssessment?.state,'model_selected');assert.equal(called,1);assert.equal(claimed,1);
 });
 
-test('过敏、AI已接受避开、不补买及累计库存不能被模型绕过，非法ID/重复选择/断连不回退普通推荐',async()=>{
+test('过敏、AI已接受避开及不补买不能被模型绕过，填写用量不拦截多菜，非法ID/重复选择/断连不回退普通推荐',async()=>{
   const meal=oneMeal();meal.aiFoodPreferences={preferred:[],limited:[],excluded:['花生']};
   const recipes=[simpleRecipe('tomato-a',[['tomato',400]]),simpleRecipe('tomato-b',[['tomato',400]]),simpleRecipe('peanut',[['peanut',10]]),simpleRecipe('beef',[['beef',100]])];
   let calls=0;
@@ -37,7 +37,7 @@ test('过敏、AI已接受避开、不补买及累计库存不能被模型绕过
   await assert.rejects(createHealthRecipeSelector(randomBytes(32))(base),/未通过/);assert.equal(calls,1);
   base.fetcher=async()=>{calls++;throw Error('private upstream '+apiKey);};await assert.rejects(createHealthRecipeSelector(randomBytes(32))(base),error=>!/sk-recipe/.test(String(error)));assert.equal(calls,2);
   const two={...meal,counts:{meat:0,veg:2,soup:0}};const enough=options(two,[...recipes,simpleRecipe('egg',[['egg',1]])],async(_url,init)=>{const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'构造累计用量冲突',choices:packet.catalog.filter((item:any)=>item.name.startsWith('tomato')).map((item:any)=>({id:item.id,reason:'构造'}))});});
-  await assert.rejects(createHealthRecipeSelector(randomBytes(32))(enough),/未通过/);
+  const quantityIndependent=await createHealthRecipeSelector(randomBytes(32))(enough);assert.equal(quantityIndependent.status,'completed');assert.equal(quantityIndependent.dishes.length,2);
 });
 
 test('AI候选翻页与手选口味复用加密游标，不额外调用；跨实例可用，换账号/条件/篡改拒绝',async()=>{

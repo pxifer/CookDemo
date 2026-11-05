@@ -1,0 +1,12 @@
+✔ local gallery reads candidate rows without exposing editorial metadata or publishing them (514.3322ms)
+✔ candidate gallery route is absent outside local environment (92.1809ms)
+✔ real local PostgreSQL candidate rows and generated image paths are served (17677.9725ms)
+✔ candidate database failure is a recoverable 503 without driver details (108.8913ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19145.3666

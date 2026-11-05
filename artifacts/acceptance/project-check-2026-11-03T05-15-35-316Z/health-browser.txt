@@ -1,0 +1,27 @@
+[WebServer] (node:42584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:42584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:10680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\health-chat-browser.spec.ts:14:1 › Key随账户恢复、无健康弹框、不入浏览器存储，清空可停用 (2.5s)
+  ok  2 [desktop] › tests\health-chat-browser.spec.ts:25:1 › 健康目标和推荐/不推荐自动保存恢复；既有过敏忌口不重复；本餐筛选保持输入 (2.7s)
+  ok  3 [desktop] › tests\health-chat-browser.spec.ts:39:1 › 多轮、取消和Key错误保留输入；桌面手机不横向溢出 (1.4s)
+  ok  4 [desktop] › tests\health-chat-browser.spec.ts:47:1 › 三栏分别接受并保存、页内查看做法、提示自动消失，搭配后定位菜品 (4.7s)
+  ok  5 [desktop] › tests\health-chat-browser.spec.ts:64:1 › 病症独立接受取消与综合、删病撤销约束、模式开关保留对话 (4.5s)
+  ok  6 [desktop] › tests\health-chat-browser.spec.ts:97:1 › 普通个人设置尚在保存时，更换Key等待同步并只提交一次 (3.3s)
+  ok  7 [desktop] › tests\health-chat-browser.spec.ts:108:1 › AI实际读取本餐与菜谱后返回菜品理由，结果定位并支持页内做法 (2.0s)
+(node:61748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  8 [mobile] › tests\health-chat-browser.spec.ts:14:1 › Key随账户恢复、无健康弹框、不入浏览器存储，清空可停用 (2.6s)
+  ok  9 [mobile] › tests\health-chat-browser.spec.ts:25:1 › 健康目标和推荐/不推荐自动保存恢复；既有过敏忌口不重复；本餐筛选保持输入 (2.4s)
+  ok 10 [mobile] › tests\health-chat-browser.spec.ts:39:1 › 多轮、取消和Key错误保留输入；桌面手机不横向溢出 (1.4s)
+  ok 11 [mobile] › tests\health-chat-browser.spec.ts:47:1 › 三栏分别接受并保存、页内查看做法、提示自动消失，搭配后定位菜品 (4.7s)
+  ok 12 [mobile] › tests\health-chat-browser.spec.ts:64:1 › 病症独立接受取消与综合、删病撤销约束、模式开关保留对话 (4.3s)
+  ok 13 [mobile] › tests\health-chat-browser.spec.ts:97:1 › 普通个人设置尚在保存时，更换Key等待同步并只提交一次 (3.2s)
+  ok 14 [mobile] › tests\health-chat-browser.spec.ts:108:1 › AI实际读取本餐与菜谱后返回菜品理由，结果定位并支持页内做法 (1.4s)
+
+  14 passed (50.1s)

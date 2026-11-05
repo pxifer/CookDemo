@@ -20,7 +20,7 @@ try{
     await page.locator('.library-recipe-columns').waitFor();
     assert((await page.locator('.library-recipe-columns').innerText()).includes('猪里脊'));
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-    await page.screenshot({path:`acceptance/listed-foods-v27/${name}-recipe.png`,fullPage:true});
+    await page.screenshot({path:`artifacts/acceptance/listed-foods-v27/${name}-recipe.png`,fullPage:true});
     await page.goto(origin);
     await page.locator('.site-header').waitFor();
     await page.getByRole('button',{name:/过敏/}).first().click();
@@ -31,10 +31,10 @@ try{
     const confirmScope=dialog.getByRole('button',{name:'确认避开这些食物',exact:true});
     if(await confirmScope.isVisible())await confirmScope.click();
     assert((await dialog.innerText()).includes('猪肉'));
-    await page.screenshot({path:`acceptance/listed-foods-v27/${name}-restriction.png`,fullPage:true});
+    await page.screenshot({path:`artifacts/acceptance/listed-foods-v27/${name}-restriction.png`,fullPage:true});
     results.push({name,newRecipeVisible:true,methodAndIngredientsVisible:true,restrictionScopeVisible:true,restrictionAdded:true,noOverflow:true});
     await context.close();
   }
 }finally{await browser.close();}
-await writeFile('acceptance/listed-foods-v27/browser-verification.json',JSON.stringify({origin,results,realAccountsUsed:false},null,2)+'\n',{flag:'wx'});
+await writeFile('artifacts/acceptance/listed-foods-v27/browser-verification.json',JSON.stringify({origin,results,realAccountsUsed:false},null,2)+'\n',{flag:'wx'});
 console.log(JSON.stringify({results,realAccountsUsed:false}));

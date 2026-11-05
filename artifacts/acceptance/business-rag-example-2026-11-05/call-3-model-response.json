@@ -1,0 +1,28 @@
+{
+  "id": "3807ec29-c54d-44b1-a378-1aad9f0ddd16",
+  "object": "chat.completion",
+  "created": 1793858993,
+  "model": "deepseek-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"summary\":\"本餐仅有一道合格候选，按 veg 类别完成选择。主料使用已备豆腐，做法完整；因无匹配证据指导，健康判断保持未知，不评价整菜功效。\",\"choices\":[{\"id\":\"c1\",\"reason\":\"使用现有豆腐，葱香风味与用户口味一致，且可作为本餐蔬菜类菜品；调料均在可用范围内。\",\"guidanceIds\":[]}]}"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3892,
+    "completion_tokens": 89,
+    "total_tokens": 3981,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3892
+  },
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+}

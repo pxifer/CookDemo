@@ -1,0 +1,870 @@
+{
+  "ev:031fc63ec36d12caa34884eefeed16fd736727e6c8a86a912c5bcaec09257f3d": {
+    "summary": "前言/个性化监测",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 4,
+      "printedPage": 2,
+      "section": "前言/个性化监测",
+      "start": 271,
+      "end": 329,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:04a9e60536f61e7e12909b32761e0f5357ddea0f440ded075580baa4719f79d6": {
+    "summary": "直接支持蔬果、全谷物、奶、鱼及豆制品的膳食选择。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（二）合理膳食",
+      "start": 463,
+      "end": 584,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-2023",
+    "sourceTitle": "成人高血压食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+  },
+  "ev:04e0f367f4296cf6cf50c66b9b97a6c7b491878b885d3c0682aa1fae8698df85": {
+    "summary": "不能从影响血糖推出零碳水更好。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（三）碳水边界",
+      "start": 177,
+      "end": 239,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:0cba708a8f28354f90ee90b7b86d2a5dc2b06635ccb5dfc42bf299a130a59784": {
+    "summary": "三（二）胆固醇/分型；官方长图目视转录，未声称OCR或PDF字符定位。",
+    "locator": {
+      "kind": "html_visual",
+      "pdfPage": null,
+      "printedPage": 5,
+      "section": "三（二）胆固醇/分型",
+      "start": null,
+      "end": null,
+      "normalization": "remove_unicode_whitespace_v1",
+      "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+      "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+      "imageRegion": [
+        0,
+        4500,
+        700,
+        5400
+      ]
+    },
+    "status": "active",
+    "sourceId": "cdc-dyslipidemia-2023",
+    "sourceTitle": "成人高脂血症食养指南（2023年版）",
+    "sourceUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+    "sourceVersion": "2023",
+    "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+  },
+  "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9": {
+    "summary": "2024原则补充高钾血症和肾病例外。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 2,
+      "printedPage": 4,
+      "section": "一（三）限钠与低钠盐",
+      "start": 116,
+      "end": 184,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-principles-2024",
+    "sourceTitle": "高血压营养和运动指导原则（2024年版）",
+    "sourceUrl": "https://www.gov.cn/zhengce/zhengceku/202407/P020240701700333981869.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173"
+  },
+  "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b": {
+    "summary": "三（二）不饱和脂肪酸；官方长图目视转录，未声称OCR或PDF字符定位。",
+    "locator": {
+      "kind": "html_visual",
+      "pdfPage": null,
+      "printedPage": 6,
+      "section": "三（二）不饱和脂肪酸",
+      "start": null,
+      "end": null,
+      "normalization": "remove_unicode_whitespace_v1",
+      "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+      "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+      "imageRegion": [
+        0,
+        5300,
+        700,
+        5700
+      ]
+    },
+    "status": "active",
+    "sourceId": "cdc-dyslipidemia-2023",
+    "sourceTitle": "成人高脂血症食养指南（2023年版）",
+    "sourceUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+    "sourceVersion": "2023",
+    "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+  },
+  "ev:1809dd48c794c910323088052eec202c97bbac57f591f3e11a05448613fd7266": {
+    "summary": "三（二）反式脂肪与替代；官方长图目视转录，未声称OCR或PDF字符定位。",
+    "locator": {
+      "kind": "html_visual",
+      "pdfPage": null,
+      "printedPage": 5,
+      "section": "三（二）反式脂肪与替代",
+      "start": null,
+      "end": null,
+      "normalization": "remove_unicode_whitespace_v1",
+      "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+      "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+      "imageRegion": [
+        0,
+        4500,
+        700,
+        5400
+      ]
+    },
+    "status": "active",
+    "sourceId": "cdc-dyslipidemia-2023",
+    "sourceTitle": "成人高脂血症食养指南（2023年版）",
+    "sourceUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+    "sourceVersion": "2023",
+    "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+  },
+  "ev:1926600d1dbde1b77e1306beabf407f66d4c878d2b5b5767ec30bfee225ecb5b": {
+    "summary": "增加富钾食物；低钠盐须核对肾功能；不建议钾补充剂降压。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（一）钾与肾功能",
+      "start": 1,
+      "end": 94,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-2023",
+    "sourceTitle": "成人高血压食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+  },
+  "ev:1ac9d1dac134ed647a1d5f7d8728894b77256f2d17a8b91c309a39b481eef7b5": {
+    "summary": "饱和脂肪关联心血管结局；少选油炸、内脏和加工红肉。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（一）脂肪和加工红肉",
+      "start": 171,
+      "end": 274,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-2023",
+    "sourceTitle": "成人高血压食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+  },
+  "ev:1becd045858d570ca466b5cc79741ec1e94e9ddfa7b02c3216f73d831af38bff": {
+    "summary": "2024原则给出性别相关日/周上限；2023更鼓励戒酒，不视为安全剂量。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 2,
+      "printedPage": 4,
+      "section": "一（六）饮酒",
+      "start": 270,
+      "end": 333,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-principles-2024",
+    "sourceTitle": "高血压营养和运动指导原则（2024年版）",
+    "sourceUrl": "https://www.gov.cn/zhengce/zhengceku/202407/P020240701700333981869.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173"
+  },
+  "ev:1ece3a94c596d9c6a6a0e33bde84a403378ff7ebb789e91eceb815bdfbfd7653": {
+    "summary": "饮酒可导致波动和低血糖，用药情境尤其重要。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 11,
+      "printedPage": 9,
+      "section": "三（五）饮酒和低血糖",
+      "start": 73,
+      "end": 135,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599": {
+    "summary": "三（一）钙/食物",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 5,
+      "section": "三（一）钙/食物",
+      "start": 215,
+      "end": 335,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-osteoporosis-2026",
+    "sourceTitle": "成人骨质疏松症食养指南（2026年版）",
+    "sourceUrl": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+    "sourceVersion": "2026",
+    "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+  },
+  "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156": {
+    "summary": "三（五）钾的例外",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 12,
+      "printedPage": 10,
+      "section": "三（五）钾的例外",
+      "start": 207,
+      "end": 279,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:24dd91339b1ac848a987c063a1ee9de6d290c592e59b3bf33f05d22b0f389b98": {
+    "summary": "优选全谷物和低GI食物，仍需主食定量。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（三）低GI",
+      "start": 350,
+      "end": 608,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:2c858301b8b302d429df2e127323b8aa3eb78fdddb356d8c4d7b66e9917eb7cb": {
+    "summary": "钠盐过量增加风险，限制各来源钠。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 6,
+      "printedPage": 4,
+      "section": "三（一）减钠增钾",
+      "start": 204,
+      "end": 219,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-2023",
+    "sourceTitle": "成人高血压食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+  },
+  "ev:2e6a345f6c5b9a0817dfd4501beef1704d00525caef5918c0cd24417891f8711": {
+    "summary": "三（五）食物磷",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 11,
+      "printedPage": 9,
+      "section": "三（五）食物磷",
+      "start": 520,
+      "end": 573,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:353c3398a0f13e8afe743659d248797d930f0cc549ed0d6168f5c418f594cd06": {
+    "summary": "指南建议不饮酒或尽量戒酒，不能给出安全饮酒量。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（四）饮酒",
+      "start": 248,
+      "end": 326,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-hypertension-2023",
+    "sourceTitle": "成人高血压食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000"
+  },
+  "ev:37e4868586e6183122f0f23c329f33eab8a83d0ed6e0b9f76b8eb7fc34ed1439": {
+    "summary": "三（一）总能量/个体化",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（一）总能量/个体化",
+      "start": 19,
+      "end": 42,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-obesity-2024",
+    "sourceTitle": "成人肥胖食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7"
+  },
+  "ev:5cc2dd3ca3ba40d66de83ec9541d20a8e1c9ff34a62d55af3f57eba31e28f924": {
+    "summary": "三（一）食物选择",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（一）食物选择",
+      "start": 179,
+      "end": 303,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-obesity-2024",
+    "sourceTitle": "成人肥胖食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7"
+  },
+  "ev:628eab37c5d8ad21f9109fa3c6d24c9f53aab286d7c7dd36a13499492e24f7cc": {
+    "summary": "全谷物、蔬菜、奶豆等直接食物建议；水果限量。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（一）合理膳食",
+      "start": 49,
+      "end": 186,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6": {
+    "summary": "三（二）烹饪和食品",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（二）烹饪和食品",
+      "start": 166,
+      "end": 303,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-obesity-2024",
+    "sourceTitle": "成人肥胖食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7"
+  },
+  "ev:6599f82853eb38b5edc127559e8dd4569c1fdd194d6b96d392d0dc28c7f053bb": {
+    "summary": "三（五）糖和咖啡因",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 14,
+      "printedPage": 10,
+      "section": "三（五）糖和咖啡因",
+      "start": 436,
+      "end": 470,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-osteoporosis-2026",
+    "sourceTitle": "成人骨质疏松症食养指南（2026年版）",
+    "sourceUrl": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+    "sourceVersion": "2026",
+    "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+  },
+  "ev:681c8232e9a96f70a0a06750f11c8c9ca7a3229ef15a3b4744598ba8620d4304": {
+    "summary": "碳水化合物是餐后血糖因素，管理种类和数量，非全部禁止。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（三）主食与GI",
+      "start": 359,
+      "end": 405,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:6af0f1d45d4373f8ff6e2971cd67b3311968b9750297cb6598bbc8b23b82ff74": {
+    "summary": "三（一）维生素D/作用",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 5,
+      "section": "三（一）维生素D/作用",
+      "start": 379,
+      "end": 503,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-osteoporosis-2026",
+    "sourceTitle": "成人骨质疏松症食养指南（2026年版）",
+    "sourceUrl": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+    "sourceVersion": "2026",
+    "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+  },
+  "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199": {
+    "summary": "三（一）3–5期与透析",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（一）3–5期与透析",
+      "start": 17,
+      "end": 338,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:75ca0dffe59a825911d85f4b710c3578c0cbd4777213bef422eea274b2a70e34": {
+    "summary": "三（六）特殊人群减重",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 11,
+      "printedPage": 9,
+      "section": "三（六）特殊人群减重",
+      "start": 521,
+      "end": 573,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-obesity-2024",
+    "sourceTitle": "成人肥胖食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7"
+  },
+  "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06": {
+    "summary": "三（三）蛋白类型和量",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（三）蛋白类型和量",
+      "start": 365,
+      "end": 533,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:7fd4719d3d79afa96c101f4c5247eed258ae2e8be7739b3dc3fc22dc2271b5d6": {
+    "summary": "低GI过量也增负担，高GI不等于绝对禁食；GI不是成分。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 14,
+      "printedPage": 12,
+      "section": "附录1/GI解释与限制",
+      "start": 232,
+      "end": 300,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62": {
+    "summary": "减缓餐后波动；胃肠功能弱老人须保留工艺与用量限制。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（三）全谷物/膳食纤维",
+      "start": 348,
+      "end": 468,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-diabetes-2023",
+    "sourceTitle": "成人糖尿病食养指南（2023年版）",
+    "sourceUrl": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+    "sourceVersion": "2023",
+    "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87"
+  },
+  "ev:8aa4f285a5f620469407590b4fea283a4191f972ded801709e1e1caf5aceb1ae": {
+    "summary": "过高嘌呤摄入不利；食物选择仍有来源差异。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（一）嘌呤",
+      "start": 70,
+      "end": 141,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-gout-2024",
+    "sourceTitle": "成人高尿酸血症与痛风食养指南（2024年版）",
+    "sourceUrl": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+  },
+  "ev:8c32186d3300f8ff19b43022e72c19abd12a4323063069f3e60d1559fc0c3de6": {
+    "summary": "植物利用率与加工差异；不因含嘌呤禁所有豆制品。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 7,
+      "printedPage": 5,
+      "section": "三（一）豆制品例外",
+      "start": 266,
+      "end": 328,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-gout-2024",
+    "sourceTitle": "成人高尿酸血症与痛风食养指南（2024年版）",
+    "sourceUrl": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+  },
+  "ev:ac3ac9f8a9c092e3bc3667aa95fc941cff3cba63ddf440cb29b4c7cadea8bc87": {
+    "summary": "三（六）盐与骨丢失",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 15,
+      "printedPage": 11,
+      "section": "三（六）盐与骨丢失",
+      "start": 39,
+      "end": 74,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-osteoporosis-2026",
+    "sourceTitle": "成人骨质疏松症食养指南（2026年版）",
+    "sourceUrl": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+    "sourceVersion": "2026",
+    "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+  },
+  "ev:aeb6550f1008ab9af38824ce8419faf94e9fc4a77663faad130b63ed129ee79b": {
+    "summary": "直接蔬菜和奶建议；乳蛋白促尿酸排泄。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（二）蔬菜和乳蛋白",
+      "start": 40,
+      "end": 134,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-gout-2024",
+    "sourceTitle": "成人高尿酸血症与痛风食养指南（2024年版）",
+    "sourceUrl": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+  },
+  "ev:b67cdb8f074f072dec3b20f0658b1f1bd7434e59ff5dcdc8d216e4c2bef5c6be": {
+    "summary": "三（二）充足蛋白",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 10,
+      "printedPage": 6,
+      "section": "三（二）充足蛋白",
+      "start": 301,
+      "end": 347,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-osteoporosis-2026",
+    "sourceTitle": "成人骨质疏松症食养指南（2026年版）",
+    "sourceUrl": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+    "sourceVersion": "2026",
+    "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+  },
+  "ev:b68b09e759b0816323d0c9d8f0db271bdb53c62758a002f7311733650e44b792": {
+    "summary": "三（五）磷添加剂",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 12,
+      "printedPage": 10,
+      "section": "三（五）磷添加剂",
+      "start": 11,
+      "end": 45,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:b9405f67529acef9e6423945f51f368ed71a330a4eddea1df4781661a0a0cd72": {
+    "summary": "三（二）调控脂肪；官方长图目视转录，未声称OCR或PDF字符定位。",
+    "locator": {
+      "kind": "html_visual",
+      "pdfPage": null,
+      "printedPage": 5,
+      "section": "三（二）调控脂肪",
+      "start": null,
+      "end": null,
+      "normalization": "remove_unicode_whitespace_v1",
+      "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+      "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+      "imageRegion": [
+        0,
+        4500,
+        700,
+        5400
+      ]
+    },
+    "status": "active",
+    "sourceId": "cdc-dyslipidemia-2023",
+    "sourceTitle": "成人高脂血症食养指南（2023年版）",
+    "sourceUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+    "sourceVersion": "2023",
+    "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+  },
+  "ev:bd5a1ffe7563bd5fbc82435f79b17ec74484f894e7e8af6351f796fdb75ea884": {
+    "summary": "三（一）营养和骨矿化",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 4,
+      "section": "三（一）营养和骨矿化",
+      "start": 165,
+      "end": 204,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-osteoporosis-2026",
+    "sourceTitle": "成人骨质疏松症食养指南（2026年版）",
+    "sourceUrl": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+    "sourceVersion": "2026",
+    "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f"
+  },
+  "ev:bdd07df97a1210f0edf13666b2a5a7e7b4017c8eec65d6d1270a200e12c669b3": {
+    "summary": "三（二）酒精",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（二）酒精",
+      "start": 303,
+      "end": 386,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-obesity-2024",
+    "sourceTitle": "成人肥胖食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7"
+  },
+  "ev:d104418e66e822f56df293a503bff81e15905ff4c46884fffbabf05baf5df654": {
+    "summary": "三（五）高钾条件",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 12,
+      "printedPage": 10,
+      "section": "三（五）高钾条件",
+      "start": 279,
+      "end": 385,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:d3b41c931a7c7d6e90e2d82991589a644da3eca42eea955febfe8063dc26034a": {
+    "summary": "三（二）纤维",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 9,
+      "printedPage": 7,
+      "section": "三（二）纤维",
+      "start": 58,
+      "end": 94,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-obesity-2024",
+    "sourceTitle": "成人肥胖食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710156.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7"
+  },
+  "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287": {
+    "summary": "三（五）少盐和调味品",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 11,
+      "printedPage": 9,
+      "section": "三（五）少盐和调味品",
+      "start": 35,
+      "end": 159,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:e3152e3198d9c4d35133b2c1b3ad1e300247d218e0487cc877819fd61ebb9e2b": {
+    "summary": "三（六）饮水条件",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 12,
+      "printedPage": 10,
+      "section": "三（六）饮水条件",
+      "start": 412,
+      "end": 547,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-ckd-2024",
+    "sourceTitle": "成人慢性肾脏病食养指南（2024年版）",
+    "sourceUrl": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9"
+  },
+  "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c": {
+    "summary": "限制果糖较高食品和果汁，不迁移至所有含果糖食物。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（二）果糖和食品",
+      "start": 134,
+      "end": 204,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-gout-2024",
+    "sourceTitle": "成人高尿酸血症与痛风食养指南（2024年版）",
+    "sourceUrl": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+  },
+  "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1": {
+    "summary": "三（三）膳食纤维；官方长图目视转录，未声称OCR或PDF字符定位。",
+    "locator": {
+      "kind": "html_visual",
+      "pdfPage": null,
+      "printedPage": 6,
+      "section": "三（三）膳食纤维",
+      "start": null,
+      "end": null,
+      "normalization": "remove_unicode_whitespace_v1",
+      "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+      "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+      "imageRegion": [
+        0,
+        5500,
+        700,
+        6300
+      ]
+    },
+    "status": "active",
+    "sourceId": "cdc-dyslipidemia-2023",
+    "sourceTitle": "成人高脂血症食养指南（2023年版）",
+    "sourceUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+    "sourceVersion": "2023",
+    "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878"
+  },
+  "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755": {
+    "summary": "一般限酒；急性发作、控制不佳或慢性关节炎时不饮酒。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（三）饮酒",
+      "start": 434,
+      "end": 603,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-gout-2024",
+    "sourceTitle": "成人高尿酸血症与痛风食养指南（2024年版）",
+    "sourceUrl": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+  },
+  "ev:fe963bdc951d4f6abc6bad4fab952345e0bb9affe402cb0e67d80558f8a47ef9": {
+    "summary": "完整水果和果汁区别，不能仅按果糖一律禁水果。",
+    "locator": {
+      "kind": "pdf_normalized_text",
+      "pdfPage": 8,
+      "printedPage": 6,
+      "section": "三（二）完整水果例外",
+      "start": 204,
+      "end": 291,
+      "normalization": "remove_unicode_whitespace_v1"
+    },
+    "status": "active",
+    "sourceId": "nhc-gout-2024",
+    "sourceTitle": "成人高尿酸血症与痛风食养指南（2024年版）",
+    "sourceUrl": "https://hncdc.com/upload/1/cms/content/editor/1741857707075.pdf",
+    "sourceVersion": "2024",
+    "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f"
+  }
+}

@@ -1,0 +1,9 @@
+✔ 本机真实社区发布：只读应用账号回读、真实推荐、约束、固定量与旧版本回退 (960.0408ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1770.2375

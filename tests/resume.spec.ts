@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './local-browser';
 import { defaultMeal } from '../shared/types';
 
 test('推荐展示：补买只列原方食材与用量，不限调料不标葱姜，无开发提示',async({page},info)=>{

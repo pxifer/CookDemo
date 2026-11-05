@@ -1,0 +1,22 @@
+[
+  {"id":"ht-salt","query":"高血压 食盐","expectedFactIds":["fact:ht-limit-salt"]},
+  {"id":"ht-potassium","query":"高血压 钾","expectedFactIds":["fact:ht-potassium"]},
+  {"id":"ht-soy-sauce","query":"高血压 酱油","expectedFactIds":["fact:ht-limit-soy-sauce"]},
+  {"id":"ht-milk","query":"高血压 低脂或脱脂奶","expectedFactIds":["fact:ht-prefer-low-fat-milk"]},
+  {"id":"ht-oil","query":"菜籽油 不饱和脂肪酸","expectedFactIds":["fact:canola-oil-unsaturated-fat"]},
+  {"id":"dm-carbs","query":"2型糖尿病 碳水化合物","expectedFactIds":["fact:dm-carbohydrate"]},
+  {"id":"dm-sweet-drink","query":"2型糖尿病 含糖饮料","expectedFactIds":["fact:dm-sweet-drinks"]},
+  {"id":"dm-alcohol","query":"2型糖尿病 含酒精饮品","expectedFactIds":["fact:dm-alcohol"]},
+  {"id":"dm-grains","query":"2型糖尿病 全谷物","expectedFactIds":["fact:dm-prefer-whole-grains"]},
+  {"id":"dm-fruit","query":"2型糖尿病 新鲜水果","expectedFactIds":["fact:dm-fruit"]},
+  {"id":"gout-liver","query":"痛风 动物肝脏","expectedFactIds":["fact:gout-avoid-liver"]},
+  {"id":"gout-milk","query":"痛风 牛奶","expectedFactIds":["fact:gout-prefer-milk"]},
+  {"id":"gout-tofu","query":"痛风 豆腐","expectedFactIds":["fact:gout-tofu"]},
+  {"id":"gout-fruit","query":"痛风 新鲜水果","expectedFactIds":["fact:gout-fruit"]},
+  {"id":"gout-juice","query":"痛风 鲜榨果汁","expectedFactIds":["fact:gout-limit-juice"]},
+  {"id":"hua-purines","query":"高尿酸血症 总嘌呤","expectedFactIds":["fact:hyperuricemia-purines"]},
+  {"id":"gout-broth","query":"痛风 肉汤","expectedFactIds":["fact:gout-broth"]},
+  {"id":"cooking-hca","query":"肉类高温煎烤 杂环胺","expectedFactIds":["fact:high-heat-hca"]},
+  {"id":"cooking-pah","query":"肉类烟熏 多环芳烃","expectedFactIds":["fact:smoking-pah"]},
+  {"id":"fresh-mushroom-conflict","query":"鲜香菇 总嘌呤","expectedFactIds":["fact:nhc-purine-shiitake-fresh","fact:kaneko-purine-shiitake-fresh"]}
+]

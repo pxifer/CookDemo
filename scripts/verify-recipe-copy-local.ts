@@ -3,16 +3,16 @@ import {resolve} from 'node:path';
 import {randomBytes} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {chromium} from '@playwright/test';
-import {createApp} from '../server/app';
-import {GALLERY_RELEASE} from '../server/gallery-content';
-import {verifyGalleryBundle,type GalleryBundle} from '../server/cloudbase-content';
-const output=process.argv[2]??'acceptance/recipe-copy-2026-10-26';
+import {createApp} from '../backend/src/app';
+import {GALLERY_RELEASE} from '../backend/src/gallery-content';
+import {verifyGalleryBundle,type GalleryBundle} from '../backend/src/cloudbase-content';
+const output=process.argv[2]??'artifacts/acceptance/recipe-copy-2026-10-26';
 const root='.local-data/cloudbase-http/listed-foods-20261026-v27';
 const bundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8')) as GalleryBundle;
 const manifest=JSON.parse(await readFile(`${root}/manifest.json`,'utf8'));
 const snapshot=verifyGalleryBundle(bundle,manifest.hash);
 const app=await createApp({environment:'preview',origin:'https://shiwei.example',contentSource:'cloudbase',contentRelease:GALLERY_RELEASE,
-  sessionSecret:randomBytes(32),csrfSecret:randomBytes(32),staticRoot:resolve('build/web'),
+  sessionSecret:randomBytes(32),csrfSecret:randomBytes(32),staticRoot:resolve('artifacts/build/web'),
   contentRepository:{load:async()=>snapshot,candidates:async()=>bundle.rows}});
 await mkdir(output,{recursive:false});
 const origin=await app.listen({host:'127.0.0.1',port:0});

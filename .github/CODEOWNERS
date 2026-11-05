@@ -1,0 +1,3 @@
+# Logical review owner. Same-account agents cannot provide independent approvals.
+# Enforcement requires repository rules configured separately; see collaboration docs.
+* @pxifer

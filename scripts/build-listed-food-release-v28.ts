@@ -1,19 +1,19 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {galleryContent,type CandidateRow} from '../server/gallery-content';
-import {galleryBundleHash,verifyGalleryBundle,type GalleryBundle} from '../server/cloudbase-content';
+import {galleryContent,type CandidateRow} from '../backend/src/gallery-content';
+import {galleryBundleHash,verifyGalleryBundle,type GalleryBundle} from '../backend/src/cloudbase-content';
 import {listedIngredients} from './lib/listed-food-curation';
 import {ingredientNames,candidateFoodNames} from '../shared/candidate-food-names';
 import {isCookingWater,isSeasoningFood} from '../shared/pantry';
 import {listedFoodKeys} from '../shared/food-restrictions';
-import corrections from '../docs/data/composition-review-v2.json';
+import corrections from '../datasets/recipes/curation/composition-review-v2.json';
 
 export const RELEASE_ID='gallery-listed-foods-20261026-v28';
 const root='.local-data/cloudbase-http/listed-foods-20261026-v28';
 const read=async(path:string)=>(await readFile(path,'utf8')).trim().split(/\r?\n/).map(line=>JSON.parse(line));
 const original:GalleryBundle=JSON.parse(await readFile('.local-data/cloudbase-http/release-20261023/gallery-bundle.json','utf8'));
-const extra=[...await read('docs/data/recipe-expansion-simple-v1.jsonl'),...await read('docs/data/recipe-original-drafts-2026-10-26.jsonl')];
-const stepReview=JSON.parse(await readFile('docs/data/recipe-step-review-v28.json','utf8')) as {version:string;reviewedSourceRows:number;reviewedDistinctDishes:number;recipes:Record<string,{steps:string[];method_options?:{label:string;steps:string[]}[]}>};
+const extra=[...await read('datasets/recipes/curation/recipe-expansion-simple-v1.jsonl'),...await read('datasets/recipes/curation/recipe-original-drafts-2026-10-26.jsonl')];
+const stepReview=JSON.parse(await readFile('datasets/recipes/curation/recipe-step-review-v28.json','utf8')) as {version:string;reviewedSourceRows:number;reviewedDistinctDishes:number;recipes:Record<string,{steps:string[];method_options?:{label:string;steps:string[]}[]}>};
 const excluded:Record<string,string>={
   R224:'原料栏混入调料且部分列料未在做法交代用途，待对照原方。',
   R184:'原文存在多处转写错误及禽肉熟制条件不清。',
@@ -113,5 +113,5 @@ const manifest={releaseId:RELEASE_ID,hash,...review,foods:snapshot.foods.length,
   restrictionScope:'listed-foods',healthEnabled:false,chemicalCompositionInferred:false,bytes:Buffer.byteLength(payload)};
 await writeFile(`${root}/gallery-bundle.json`,JSON.stringify(bundle),{flag:'wx'});
 await writeFile(`${root}/manifest.json`,JSON.stringify(manifest,null,2),{flag:'wx'});
-await writeFile('docs/data/recipe-listed-foods-v28.json',JSON.stringify({releaseId:RELEASE_ID,hash,recipes:snapshot.recipes.map(recipe=>({id:recipe.id,name:recipe.name,source:recipe.source,variants:recipe.variants.map(variant=>({id:variant.id,flavor:variant.flavor,steps:variant.steps,methodOptions:variant.methodOptions,ingredients:matrix.filter(line=>line.variantId===variant.id)}))})),excluded:manifest.excluded},null,2),{flag:'wx'});
+await writeFile('datasets/recipes/curation/recipe-listed-foods-v28.json',JSON.stringify({releaseId:RELEASE_ID,hash,recipes:snapshot.recipes.map(recipe=>({id:recipe.id,name:recipe.name,source:recipe.source,variants:recipe.variants.map(variant=>({id:variant.id,flavor:variant.flavor,steps:variant.steps,methodOptions:variant.methodOptions,ingredients:matrix.filter(line=>line.variantId===variant.id)}))})),excluded:manifest.excluded},null,2),{flag:'wx'});
 console.log(JSON.stringify({...manifest,sourceRecordHashes:undefined}));

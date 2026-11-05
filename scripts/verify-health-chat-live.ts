@@ -5,12 +5,12 @@ import { promisify } from 'node:util';
 import { chromium, expect } from '@playwright/test';
 import { contentContext } from '../shared/content';
 import { aiFoodMatch } from '../shared/ai-food-choices';
-import { CloudBaseAccounts } from '../server/cloudbase-accounts';
+import { CloudBaseAccounts } from '../backend/src/cloudbase-accounts';
 const execute=promisify(execFile),envId='shiwei-d2gmiun66b7dc6a4f';
 let stage='init';
-const root=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'acceptance/ai-recipes-2026-10-28',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
+const root=process.env.HEALTH_CHAT_ACCEPTANCE_DIR??'artifacts/acceptance/ai-recipes-2026-10-28',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
 async function cli(args:string[]){
-  const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024,windowsHide:true});
+  const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024,windowsHide:true});
   const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;
 }
 async function main(){

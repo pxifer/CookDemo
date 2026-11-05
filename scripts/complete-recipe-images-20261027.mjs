@@ -4,8 +4,8 @@ import {join,resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 const require=createRequire(import.meta.url);
 const sharp=require(process.env.SHARP_PACKAGE_PATH??'C:/Users/彭霄/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
-const jobs=JSON.parse(await readFile('docs/data/recipe-image-jobs-2026-10-27.json','utf8'));
-const directory=resolve('public/assets/recipes'),output=resolve('acceptance/recipe-images-2026-10-27');
+const jobs=JSON.parse(await readFile('datasets/recipes/curation/recipe-image-jobs-2026-10-27.json','utf8'));
+const directory=resolve('frontend/public/assets/recipes'),output=resolve('artifacts/acceptance/recipe-images-2026-10-27');
 await mkdir(output,{recursive:true});
 const sha=data=>createHash('sha256').update(data).digest('hex');
 const complete=new Map();
@@ -37,7 +37,7 @@ do{
 if(complete.size===jobs.length){
   const records=jobs.map(job=>complete.get(job.id));
   if(new Set(records.map(record=>record.sha256)).size!==records.length)throw Error('DUPLICATE_GENERATED_IMAGE');
-  await writeFile('docs/data/recipe-image-additions-2026-10-27.json',JSON.stringify(records.map(({id,dish,image})=>({id,dish,image})),null,2)+'\n');
+  await writeFile('datasets/recipes/curation/recipe-image-additions-2026-10-27.json',JSON.stringify(records.map(({id,dish,image})=>({id,dish,image})),null,2)+'\n');
   await writeFile(join(output,'assets.json'),JSON.stringify({count:records.length,tool:'built-in image_gen',originalsPreserved:true,quality:90,maxWidth:1280,records},null,2)+'\n');
   console.log(JSON.stringify({complete:true,count:records.length}));
 }

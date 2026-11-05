@@ -6,8 +6,8 @@ import { constructedContent } from '../shared/catalog';
 import { contentContext } from '../shared/content';
 import { inventoryChecks, nutrition, parseQuantity, quantityCheck } from '../shared/quantity';
 import { findPantryIngredient } from '../shared/ingredient-matching';
-import { checkDish, checkSet, recommend } from '../server/recommendation';
-import { verifyHealthRelease, type HealthRelease, type HealthRule } from '../server/health';
+import { checkDish, checkSet, recommend } from '../backend/src/recommendation';
+import { verifyHealthRelease, type HealthRelease, type HealthRule } from '../backend/src/health';
 import { mealWith, request, simpleRecipe } from './fixtures';
 
 test('AC-02: 连续中文拆分、约量与原文保留', () => {
@@ -32,11 +32,11 @@ test('连续食材后紧接过敏短语仍按类型拆分', () => {
   assert.equal(x.ingredients.length, 3); assert.equal(x.restrictions.length, 1);
   assert.equal(x.restrictions[0].name, '海产品');
 });
-test('AC-04: 同名数量冲突保留旧值不相加', () => {
+test('AC-04新口径: 同名食材用量仅作参考，更新显示值不相加、不阻断', () => {
   const m = mealWith('鸡肉300g');
   const merged = mergeIngredients(m.ingredients, extractText('鸡肉500g').ingredients);
-  assert.equal(merged.length, 1); assert.equal(merged[0].amount, '300g');
-  assert.equal(merged[0].status, 'conflict'); assert.match(merged[0].alternative!, /500g/);
+  assert.equal(merged.length, 1); assert.equal(merged[0].amount, '500g');
+  assert.equal(merged[0].status, 'confirmed'); assert.equal(merged[0].alternative, undefined);
 });
 test('AC-05: 未理解片段留待归类，不静默吞掉限制', () => {
   const x = extractText('鸡蛋，神秘食物，不能吃怪果');
@@ -125,7 +125,7 @@ test('B03 / AC-10: 鸡蛋克与个不可比较，允许推荐但结果标未核�
   const m = mealWith('鸡蛋1g'); m.mode = 'candidates'; m.servings = 12;
   const res = await recommend([simpleRecipe('egg', [['egg', 1]])], request(m));
   assert.equal(res.status, 'completed'); assert.equal(res.dishes[0].checks[0].state, 'unverified');
-  assert.match(res.dishes[0].checks[0].reason, /单位/);
+  assert.match(res.dishes[0].checks[0].reason, /用量仅供参考/);
 });
 test('B01 / D0-01: 未知过敏、忌口、未分类和待确认范围阻断', async () => {
   for (const kind of ['allergy', 'avoid', 'unclassified'] as const) {
@@ -166,18 +166,18 @@ test('用户新确认: 默认一荤两素，库存不足按可行性调整', asy
   const m = mealWith('土豆500g菠菜500g黄瓜500g');
   assert.equal((await recommend(recipes, request(m))).dishes.length, 3);
 });
-test('AC-10: 套餐累计库存不能由逐菜通过替代', async () => {
+test('AC-10新口径: 同种食材可用于多菜，用户填写用量不限制整套', async () => {
   const catalog = [simpleRecipe('a', [['egg', 2]]), simpleRecipe('b', [['egg', 2]])];
   const m = mealWith('鸡蛋3个'); m.composition = 'custom'; m.counts = { meat: 0, veg: 2, soup: 0 };
   const res = await recommend(catalog, request(m));
-  assert.equal(res.dishes.length, 1); assert.equal(res.targetMet, false);
-  assert.equal(checkSet(catalog.map(r => checkDish(r, r.variants[0], m).dish!), m).valid, false);
+  assert.equal(res.dishes.length, 2); assert.equal(res.targetMet, true);
+  assert.equal(checkSet(catalog.map(r => checkDish(r, r.variants[0], m).dish!), m).valid, true);
 });
-test('B06 / D7-14: 补买按固定菜谱量计算差额，不随12人放大', async () => {
+test('B06 / D7-14新口径: 补买只列缺失食材，不根据输入量计算差额', async () => {
   const m = mealWith('鸡肉1g香菇1g'); m.servings = 12; m.allowBuy = true; m.mode = 'candidates';
   const r = await recommend(recipes, request(m)); const d = r.dishes.find(d => d.recipe.id === 'chicken-mushroom')!;
-  assert.equal(d.checks.find(c => c.foodId === 'chicken')?.shortage, 119);
-  assert.equal(d.checks.find(c => c.foodId === 'mushroom')?.shortage, 59);
+  assert.equal(d.checks.find(c => c.foodId === 'chicken')?.shortage, null);
+  assert.equal(d.checks.find(c => c.foodId === 'mushroom')?.shortage, null);
   m.ingredients.forEach(i => { i.basis = 'unknown'; });
   const unknown = await recommend(recipes, request(m));
   assert(unknown.dishes[0].checks.every(c => c.shortage === null));
@@ -235,16 +235,15 @@ test('撤回独立于固定内容版本，最终发布前再次核验', async ()
   const res = await recommend(catalog, request(mealWith('鸡蛋2个')), { beforePublish: () => { catalog[0].state = 'withdrawn'; } });
   assert.equal(res.status, 'unavailable'); assert.equal(res.dishes.length, 0);
 });
-test('D4-09: 独立穷举小目录对照自定义组合和未知量', async () => {
+test('D4-09新口径: 独立穷举按食材有无验证自定义组合，填写量不影响可行集', async () => {
   const catalog = [simpleRecipe('a', [['egg', 2]]), simpleRecipe('b', [['egg', 1], ['potato', 100]]), simpleRecipe('c', [['potato', 150]]), simpleRecipe('d', [['egg', 3]])];
-  for (const eggs of [1, 2, 3, 4, 5, 6]) for (const potato of [100, 200, 300]) {
-    const m = mealWith(`鸡蛋${eggs}个土豆${potato}g`); m.composition = 'custom'; m.counts = { meat: 0, veg: 2, soup: 0 };
+  for (const eggs of [0, 1, 6]) for (const potato of [0, 100, 300]) {
+    const m = mealWith(`${eggs?`鸡蛋${eggs}个`:''}${potato?`土豆${potato}g`:''}`); m.composition = 'custom'; m.counts = { meat: 0, veg: 2, soup: 0 };
     let expected = 0;
     for (let mask = 1; mask < 1 << catalog.length; mask++) {
       const chosen = catalog.filter((_, i) => mask & 1 << i); if (chosen.length > 2) continue;
-      let eggNeed = 0, potatoNeed = 0;
-      for (const r of chosen) for (const l of r.variants[0].lines) { assert.notEqual(l.amount, null); if (l.foodId === 'egg') eggNeed += l.amount!; else potatoNeed += l.amount!; }
-      if (eggNeed <= eggs && potatoNeed <= potato) expected = Math.max(expected, chosen.length);
+      const present=new Set([...(eggs?['egg']:[]),...(potato?['potato']:[])]);
+      if(chosen.every(r=>r.variants[0].lines.every(l=>present.has(l.foodId))))expected=Math.max(expected,chosen.length);
     }
     const actual = await recommend(catalog, request(m)); assert.equal(actual.dishes.length, expected, `eggs=${eggs}, potato=${potato}`);
   }

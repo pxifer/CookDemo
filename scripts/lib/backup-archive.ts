@@ -8,18 +8,21 @@ import { pipeline } from 'node:stream/promises';
 const magic = Buffer.from('SWBK0001');
 const maxHeader = 4096;
 export interface BackupMetadata {
-  scope: 'local-empty-structure'; format: 'pg_dump-custom'; database: string;
+  scope: 'local-empty-structure'|'business-snapshot'; format: 'pg_dump-custom'|'business-json-v1'; database: string;
   createdAt: string; migrationChecksums: string[];
+  manifestHash?:string;
 }
 interface Header extends BackupMetadata { algorithm: 'aes-256-gcm'; keyId: string; nonce: string }
 const keyId = (key: Buffer) => createHash('sha256').update(key).digest('hex').slice(0, 16);
 function validateKey(key: Buffer) { if (key.length !== 32) throw new Error('BACKUP_KEY_INVALID'); }
 function validateMetadata(value: BackupMetadata) {
-  if (value.scope !== 'local-empty-structure' || value.format !== 'pg_dump-custom' ||
+  const structure=value.scope==='local-empty-structure'&&value.format==='pg_dump-custom'&&value.migrationChecksums?.length===3;
+  const business=value.scope==='business-snapshot'&&value.format==='business-json-v1'&&/^[a-f0-9]{64}$/.test(value.manifestHash??'')&&value.migrationChecksums?.length>0&&value.migrationChecksums.length<=100;
+  if ((!structure&&!business) ||
       !/^[a-z][a-z0-9_]{0,62}$/.test(value.database) ||
       !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z$/.test(value.createdAt) ||
       !Number.isFinite(Date.parse(value.createdAt)) || !Array.isArray(value.migrationChecksums) ||
-      value.migrationChecksums.length !== 3 || value.migrationChecksums.some(v => !/^[a-f0-9]{64}$/.test(v))) {
+      value.migrationChecksums.some(v => !/^[a-f0-9]{64}$/.test(v))) {
     throw new Error('BACKUP_METADATA_INVALID');
   }
 }
@@ -82,7 +85,7 @@ export async function decryptBackup(source: string, destination: string, key: Bu
     // Nothing at destination is visible to restore tools until GCM authentication succeeds.
     await publish(temporary, destination);
     return { scope: header.scope, format: header.format, database: header.database,
-      createdAt: header.createdAt, migrationChecksums: header.migrationChecksums };
+      createdAt: header.createdAt, migrationChecksums: header.migrationChecksums,...(header.scope==='business-snapshot'?{manifestHash:header.manifestHash}:{}) };
   } catch {
     throw new Error('BACKUP_RESTORE_REJECTED');
   } finally {

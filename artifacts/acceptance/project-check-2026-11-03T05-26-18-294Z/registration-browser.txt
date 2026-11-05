@@ -1,0 +1,21 @@
+[WebServer] (node:23184) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 10 tests using 1 worker
+
+(node:54204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › tests\registration-browser.spec.ts:5:1 › 忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录 (2.0s)
+  ok  2 [desktop] › tests\registration-browser.spec.ts:30:1 › 常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交 (2.5s)
+  ok  3 [desktop] › tests\registration-browser.spec.ts:58:1 › 自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离 (4.5s)
+  ok  4 [desktop] › tests\registration-browser.spec.ts:115:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 (4.3s)
+  ok  5 [desktop] › tests\registration-browser.spec.ts:154:1 › 注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功 (1.7s)
+(node:14704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  6 [mobile] › tests\registration-browser.spec.ts:5:1 › 忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录 (2.5s)
+  ok  7 [mobile] › tests\registration-browser.spec.ts:30:1 › 常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交 (2.9s)
+  ok  8 [mobile] › tests\registration-browser.spec.ts:58:1 › 自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离 (3.9s)
+  ok  9 [mobile] › tests\registration-browser.spec.ts:115:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 (3.9s)
+  ok 10 [mobile] › tests\registration-browser.spec.ts:154:1 › 注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功 (1.4s)
+
+  10 passed (39.5s)

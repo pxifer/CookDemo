@@ -1,0 +1,538 @@
+{
+  "id": "shiwei-rag-acceptance-v1",
+  "bundleId": "health-kb-2026-10-28-v2",
+  "createdDate": "2026-11-04",
+  "scope": "Public-source engineering cases for basic RAG; source-derived, not independent clinical evaluation",
+  "splitPolicy": "development cases may guide implementation; acceptance cases are reported separately; never inject expected* annotations into retrieval/generation",
+  "conditionPolicy": "Each case explicitly supplies context; no shared adult/renal/dialysis/diagnosis defaults",
+  "faultPolicy": "revokedTargets are run-local fault injections; do not persist them into the canonical research store",
+  "cases": [
+    {
+      "id": "dev-ht-salt",
+      "split": "development",
+      "question": "成人高血压的公开食养指南为什么建议少放食盐？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ht-limit-salt"
+      ],
+      "expectedEvidenceIds": [
+        "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "只解释来源的定性少盐建议，不推每餐克数。",
+      "suggestedLiveSmoke": true
+    },
+    {
+      "id": "dev-lipid-unsaturated",
+      "split": "development",
+      "question": "成人高脂血症选择不饱和脂肪的依据是什么？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:lipid-unsaturated"
+      ],
+      "expectedEvidenceIds": [
+        "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [
+        "fact:lipid-saturated-fat"
+      ],
+      "notes": "不把替代脂肪来源变成无限量补油。",
+      "suggestedLiveSmoke": true
+    },
+    {
+      "id": "dev-lipid-grain",
+      "split": "development",
+      "question": "高血脂选择全谷物有哪些指南依据？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:lipid-prefer-whole-grains"
+      ],
+      "expectedEvidenceIds": [
+        "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "食物选择依据，不等于治疗承诺。",
+      "suggestedLiveSmoke": true
+    },
+    {
+      "id": "dev-lipid-milk",
+      "split": "development",
+      "question": "成人高脂血症选低脂或脱脂奶的资料依据是什么？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:lipid-prefer-low-fat-milk"
+      ],
+      "expectedEvidenceIds": [
+        "ev:5b129a290488b4a0f1828299e35be29d6681267758ba2b6e69642435c9cc5b17"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "",
+      "suggestedLiveSmoke": true
+    },
+    {
+      "id": "dev-ob-sweet-drinks",
+      "split": "development",
+      "question": "没有复杂合并症的成年肥胖者为何要少选含糖饮料？",
+      "context": {
+        "adult": "yes",
+        "complexComorbidity": "no",
+        "pregnantOrLactating": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ob-limit-sweet-drinks"
+      ],
+      "expectedEvidenceIds": [
+        "ev:a1716ee22fbac9a7111baf2934d75cf33544de77150f1018016ea5955c55aa36",
+        "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "限定构造人群，不解释为任何量绝对禁止。",
+      "suggestedLiveSmoke": true
+    },
+    {
+      "id": "dev-op-calcium",
+      "split": "development",
+      "question": "成人原发性骨质疏松的膳食钙依据是什么？",
+      "context": {
+        "adult": "yes",
+        "osteoporosisType": "primary",
+        "complexComorbidity": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:op-calcium"
+      ],
+      "expectedEvidenceIds": [
+        "ev:bd5a1ffe7563bd5fbc82435f79b17ec74484f894e7e8af6351f796fdb75ea884",
+        "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "不输出补充剂处方或越多越好。",
+      "suggestedLiveSmoke": true
+    },
+    {
+      "id": "dev-ckd-rice",
+      "split": "development",
+      "question": "慢性肾病G4非透析并已有专业营养计划时，低蛋白大米的依据是什么？",
+      "context": {
+        "adult": "yes",
+        "ckdStage": "G4",
+        "dialysis": "no",
+        "clinicianNutritionPlan": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ck-late-low-protein-rice"
+      ],
+      "expectedEvidenceIds": [
+        "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+        "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "不调整药物或全天蛋白处方。"
+    },
+    {
+      "id": "dev-diabetes-unknown",
+      "split": "development",
+      "question": "糖尿病能吃哪些食物？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "没有提供分型，不能默认成人2型。"
+    },
+    {
+      "id": "accept-ht-alias",
+      "split": "acceptance",
+      "question": "高血压病的人做菜少放食盐，有什么来源可以解释？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ht-limit-salt"
+      ],
+      "expectedEvidenceIds": [
+        "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "别名表达；adult是本题显式构造输入。"
+    },
+    {
+      "id": "accept-lipid-alias-fiber",
+      "split": "acceptance",
+      "question": "血脂异常时，膳食纤维的建议有什么依据？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:lipid-fiber"
+      ],
+      "expectedEvidenceIds": [
+        "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "不声称任意纤维补充剂有疗效。"
+    },
+    {
+      "id": "accept-lipid-negation",
+      "split": "acceptance",
+      "question": "高血脂不是说不饱和脂肪越多越好吧，原文怎样限定？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:lipid-unsaturated"
+      ],
+      "expectedEvidenceIds": [
+        "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [
+        "fact:lipid-saturated-fat"
+      ],
+      "notes": "否定/限定表达不能翻转原事实方向。"
+    },
+    {
+      "id": "accept-ob-frying",
+      "split": "acceptance",
+      "question": "肥胖食养中少用油煎炸有什么依据？",
+      "context": {
+        "adult": "yes",
+        "complexComorbidity": "no",
+        "pregnantOrLactating": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ob-fry"
+      ],
+      "expectedEvidenceIds": [
+        "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "不凭菜名捏造吸油率。"
+    },
+    {
+      "id": "accept-ob-fish-qualifier",
+      "split": "acceptance",
+      "question": "成人肥胖、无复杂合并症且非孕哺期，优先鱼类的证据及限制有哪些？",
+      "context": {
+        "adult": "yes",
+        "complexComorbidity": "no",
+        "pregnantOrLactating": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ob-prefer-fish"
+      ],
+      "expectedEvidenceIds": [
+        "ev:5cc2dd3ca3ba40d66de83ec9541d20a8e1c9ff34a62d55af3f57eba31e28f924",
+        "ev:d3b41c931a7c7d6e90e2d82991589a644da3eca42eea955febfe8063dc26034a",
+        "ev:75ca0dffe59a825911d85f4b710c3578c0cbd4777213bef422eea274b2a70e34"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "必须自动补齐该fact的qualifyingEvidenceIds，不由gold作为检索输入。"
+    },
+    {
+      "id": "accept-op-yogurt",
+      "split": "acceptance",
+      "question": "原发性骨质疏松成人选无糖酸奶的依据和限制是什么？",
+      "context": {
+        "adult": "yes",
+        "osteoporosisType": "primary",
+        "complexComorbidity": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:op-yogurt"
+      ],
+      "expectedEvidenceIds": [
+        "ev:981dd4a625ff45dd327d4111876f3973f13c823354d8fe926e9e66d32022e729"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "乳糖不耐不等于牛奶蛋白过敏已排除。"
+    },
+    {
+      "id": "accept-fresh-shiitake",
+      "split": "acceptance",
+      "question": "鲜香菇总嘌呤的两份来源怎样不同？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:nhc-purine-shiitake-fresh",
+        "fact:kaneko-purine-shiitake-fresh"
+      ],
+      "expectedEvidenceIds": [
+        "ev:fa0fed61b955bc0ba0b430976357c190813a965e8752105b2e69753d85ceed02",
+        "ev:8f00b5df00c98ffee2c3b754cab67c73dfbd3106e39b47959fd162b05780ba9a",
+        "ev:751fbf8deb8683525f2f2f9f9a6b8dc3c620d9ce4a4607454e1e76cc3ce6374c"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [
+        "fact:kaneko-purine-shiitake-dry"
+      ],
+      "notes": "保留分类范围和特定样品测定差异，不平均或据浓度自动禁食。",
+      "expectedConflictIds": [
+        "conflict:shiitake"
+      ]
+    },
+    {
+      "id": "accept-dry-shiitake",
+      "split": "acceptance",
+      "question": "干香菇总嘌呤论文样品测定的适用限制是什么？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:kaneko-purine-shiitake-dry"
+      ],
+      "expectedEvidenceIds": [
+        "ev:8f00b5df00c98ffee2c3b754cab67c73dfbd3106e39b47959fd162b05780ba9a",
+        "ev:751fbf8deb8683525f2f2f9f9a6b8dc3c620d9ce4a4607454e1e76cc3ce6374c"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [
+        "fact:kaneko-purine-shiitake-fresh"
+      ],
+      "notes": "食品形态明确，不用鲜品值替代。"
+    },
+    {
+      "id": "accept-mushroom-ambiguous",
+      "split": "acceptance",
+      "question": "香菇能吃吗？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "未给出鲜/干形态，不能猜测。"
+    },
+    {
+      "id": "accept-kidney-ambiguous",
+      "split": "acceptance",
+      "question": "肾病能吃什么？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "泛称不能默认为成人CKD或某分期。"
+    },
+    {
+      "id": "accept-ht-age-missing",
+      "split": "acceptance",
+      "question": "高血压食盐应该怎样选择？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "即使疾病名字命中，不能默认adult=yes。"
+    },
+    {
+      "id": "accept-ckd-stage-missing",
+      "split": "acceptance",
+      "question": "慢性肾病蛋白质应该怎样理解？",
+      "context": {
+        "adult": "yes",
+        "dialysis": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "缺分期不补G4。"
+    },
+    {
+      "id": "accept-ckd-plan-missing",
+      "split": "acceptance",
+      "question": "慢性肾病G4非透析者可以用低蛋白大米吗？",
+      "context": {
+        "adult": "yes",
+        "ckdStage": "G4",
+        "dialysis": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "没有专业营养计划，不能把替换规则视为适用。"
+    },
+    {
+      "id": "accept-ob-special-condition",
+      "split": "acceptance",
+      "question": "肥胖时含糖饮料的指南建议适用于我吗？",
+      "context": {
+        "adult": "yes",
+        "complexComorbidity": "unknown",
+        "pregnantOrLactating": "unknown"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "特殊人群条件未知必须保留。"
+    },
+    {
+      "id": "accept-unknown-subject",
+      "split": "acceptance",
+      "question": "火星果xyz的食养证据是什么？",
+      "context": {},
+      "mode": "hybrid",
+      "expectedStatus": "insufficient_evidence",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "无该对象证据，不凭最近向量命中编造。"
+    },
+    {
+      "id": "accept-combination-conflict",
+      "split": "acceptance",
+      "question": "慢性肾病合并原发性骨质疏松，蛋白质建议能直接合并吗？",
+      "context": {
+        "adult": "yes",
+        "ckdStage": "G4",
+        "dialysis": "no",
+        "osteoporosisType": "primary",
+        "complexComorbidity": "unknown"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "needs_confirmation",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "未核验疾病组合，不机械取最严或用益处抵消限制。",
+      "expectedConflictIds": [
+        "conflict:ckd-osteoporosis-protein"
+      ]
+    },
+    {
+      "id": "accept-required-source-withdrawn",
+      "split": "acceptance",
+      "question": "成人高血压少盐建议的这条必需出处还能使用吗？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "insufficient_evidence",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [
+        "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+      ],
+      "forbiddenFactIds": [],
+      "notes": "故障注入：实际支持来源撤回；必需证据不满足不得生成回答。",
+      "fault": {
+        "revokedTargets": [
+          "nhc-hypertension-2023"
+        ]
+      }
+    },
+    {
+      "id": "accept-required-qualifier-withdrawn",
+      "split": "acceptance",
+      "question": "成人肥胖选择鱼类时这条必需限定证据是否完整？",
+      "context": {
+        "adult": "yes",
+        "complexComorbidity": "no",
+        "pregnantOrLactating": "no"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "insufficient_evidence",
+      "expectedFactIds": [],
+      "expectedEvidenceIds": [],
+      "requiredEvidenceIds": [
+        "ev:75ca0dffe59a825911d85f4b710c3578c0cbd4777213bef422eea274b2a70e34"
+      ],
+      "forbiddenFactIds": [],
+      "notes": "故障注入：限定证据撤回，不能只留支持结论。",
+      "fault": {
+        "revokedTargets": [
+          "ev:75ca0dffe59a825911d85f4b710c3578c0cbd4777213bef422eea274b2a70e34"
+        ]
+      }
+    },
+    {
+      "id": "accept-unrelated-fact-withdrawn",
+      "split": "acceptance",
+      "question": "成人高血压食盐为什么建议少放？",
+      "context": {
+        "adult": "yes"
+      },
+      "mode": "hybrid",
+      "expectedStatus": "answered",
+      "expectedFactIds": [
+        "fact:ht-limit-salt"
+      ],
+      "expectedEvidenceIds": [
+        "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+      ],
+      "requiredEvidenceIds": [],
+      "forbiddenFactIds": [],
+      "notes": "撤回无关干香菇事实不应使全部问答不可用。",
+      "fault": {
+        "revokedTargets": [
+          "fact:kaneko-purine-shiitake-dry"
+        ]
+      }
+    }
+  ]
+}

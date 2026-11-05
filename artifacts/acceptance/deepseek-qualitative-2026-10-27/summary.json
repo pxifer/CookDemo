@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-27",
+  "base_commit": "243adbc",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "fee_mode": "byok",
+  "task_version": "health-query-v2-qualitative",
+  "build": "passed",
+  "targeted_tests": {
+    "total": 22,
+    "pass": 22,
+    "fail": 0
+  },
+  "real_model_calls": false,
+  "health_rag_implemented": false,
+  "cloud_deployed": false,
+  "full_suite_rerun": false,
+  "browser_rerun": false
+}

@@ -1,0 +1,524 @@
+{
+  "index": {
+    "id": "qwen-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T07:12:46.902Z"
+  },
+  "generation": "real_deepseek",
+  "realEmbedding": true,
+  "realModelCalls": 1,
+  "verifiedReceipts": 1,
+  "budget": {
+    "maximumCny": 5,
+    "maximumCalls": 50,
+    "attempts": 2,
+    "reservedCny": 0.096122,
+    "estimatedKnownCostCny": 0.020804,
+    "unknownUsageAttempts": 0
+  },
+  "results": [
+    {
+      "id": "dev-lipid-unsaturated",
+      "elapsedMs": 4265.188700000001,
+      "result": {
+        "status": "answered",
+        "executionAllowed": false,
+        "clinicalRelease": null,
+        "context": {
+          "question": "成人高脂血症选择不饱和脂肪的依据是什么？",
+          "bundleId": "health-kb-2026-10-28-v2",
+          "indexId": "qwen-evidence-v1",
+          "context": {
+            "adult": "yes"
+          },
+          "facts": [
+            {
+              "fact": {
+                "id": "fact:lipid-unsaturated",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:dyslipidemia",
+                "objectId": "c:unsaturated-fat",
+                "predicate": "beneficial_tendency",
+                "statement": "以不饱和脂肪来源替代部分脂肪来源；不表示无限量补油。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "cdc-dyslipidemia-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04918032786885246,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 1,
+              "denseRank": 1
+            },
+            {
+              "fact": {
+                "id": "fact:canola-oil-unsaturated-fat",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:canola-oil",
+                "objectId": "c:unsaturated-fat",
+                "predicate": "contains",
+                "statement": "指南列举的富不饱和脂肪酸油类；仍限制总油量。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04787506400409626,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 3,
+              "denseRank": 2
+            },
+            {
+              "fact": {
+                "id": "fact:corn-oil-unsaturated-fat",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:corn-oil",
+                "objectId": "c:unsaturated-fat",
+                "predicate": "contains",
+                "statement": "指南列举的富不饱和脂肪酸油类；仍限制总油量。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04689826302729529,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 5,
+              "denseRank": 2
+            },
+            {
+              "fact": {
+                "id": "fact:flax-oil-unsaturated-fat",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:flax-oil",
+                "objectId": "c:unsaturated-fat",
+                "predicate": "contains",
+                "statement": "指南列举的富不饱和脂肪酸油类；仍限制总油量。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.045979778526721235,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 7,
+              "denseRank": 2
+            },
+            {
+              "fact": {
+                "id": "fact:lipid-prefer-fish",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:dyslipidemia",
+                "objectId": "f:fish",
+                "predicate": "prefer",
+                "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:5b129a290488b4a0f1828299e35be29d6681267758ba2b6e69642435c9cc5b17"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "cdc-dyslipidemia-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04559139784946237,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 2,
+              "denseRank": 15
+            },
+            {
+              "fact": {
+                "id": "fact:olive-oil-unsaturated-fat",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:olive-oil",
+                "objectId": "c:unsaturated-fat",
+                "predicate": "contains",
+                "statement": "指南列举的富不饱和脂肪酸油类；仍限制总油量。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04511453950444133,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 9,
+              "denseRank": 2
+            },
+            {
+              "fact": {
+                "id": "fact:sunflower-oil-unsaturated-fat",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:sunflower-oil",
+                "objectId": "c:unsaturated-fat",
+                "predicate": "contains",
+                "statement": "指南列举的富不饱和脂肪酸油类；仍限制总油量。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-hypertension-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04429804634257156,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 11,
+              "denseRank": 2
+            },
+            {
+              "fact": {
+                "id": "fact:lipid-prefer-fresh-vegetables",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:dyslipidemia",
+                "objectId": "f:fresh-vegetables",
+                "predicate": "prefer",
+                "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "cdc-dyslipidemia-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04407051282051282,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 4,
+              "denseRank": 18
+            }
+          ],
+          "evidence": [
+            {
+              "evidence": {
+                "id": "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b",
+                "key": "lipid-unsaturated",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 6,
+                  "section": "三（二）不饱和脂肪酸",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    5300,
+                    700,
+                    5700
+                  ]
+                },
+                "originalSpan": "四是适当增加不饱和脂肪酸的摄入，特别是富含n-3系列多不饱和脂肪酸的食物。",
+                "spanHash": "5dd0a9e6150675f689843807f31b706e1550a03dca335e3c8339e43032f80896",
+                "summary": "三（二）不饱和脂肪酸；官方长图目视转录，未声称OCR或PDF字符定位。",
+                "retrievalText": "三（二）不饱和脂肪酸；官方长图目视转录，未声称OCR或PDF字符定位。 四是适当增加不饱和脂肪酸的摄入，特别是富含n-3系列多不饱和脂肪酸的食物。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "hash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35",
+                "key": "ht-oils",
+                "sourceId": "nhc-hypertension-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 12,
+                  "printedPage": 10,
+                  "section": "附录1/油脂",
+                  "start": 69,
+                  "end": 152,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "优先选择富含不饱和脂肪酸的菜籽油、亚麻籽油、橄榄油、葵花籽油、玉米油等。推荐交替使用不同种类的植物油，每天控制在25～30g。少食用或不食用油炸和含反式脂肪酸的食品。",
+                "spanHash": "77060bc9d1b7d433946fa91d466c0f7ebd882537f19893024f56f83c726265fd",
+                "summary": "优先含不饱和脂肪酸植物油，仍有全天用量背景。",
+                "retrievalText": "附录1/油脂 优先含不饱和脂肪酸植物油，仍有全天用量背景。 优先选择富含不饱和脂肪酸的菜籽油、亚麻籽油、橄榄油、葵花籽油、玉米油等。推荐交替使用不同种类的植物油，每天控制在25～30g。少食用或不食用油炸和含反式脂肪酸的食品。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "hash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:5b129a290488b4a0f1828299e35be29d6681267758ba2b6e69642435c9cc5b17",
+                "key": "lipid-protein-foods",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 6,
+                  "section": "三（三）蛋白质来源",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    5700,
+                    700,
+                    6350
+                  ]
+                },
+                "originalSpan": "蛋白质摄入应充足，动物蛋白摄入可适当选择脂肪含量较低的鱼虾类、去皮禽肉、瘦肉等；奶类可选择脱脂或低脂牛奶等。",
+                "spanHash": "8e64c857a3d6e52e7a3b007fa5701c0e36c25df7e70120b5acc16a0b4a033d85",
+                "summary": "三（三）蛋白质来源；官方长图目视转录，未声称OCR或PDF字符定位。",
+                "retrievalText": "三（三）蛋白质来源；官方长图目视转录，未声称OCR或PDF字符定位。 蛋白质摄入应充足，动物蛋白摄入可适当选择脂肪含量较低的鱼虾类、去皮禽肉、瘦肉等；奶类可选择脱脂或低脂牛奶等。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "hash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1",
+                "key": "lipid-fiber",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 6,
+                  "section": "三（三）膳食纤维",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    5500,
+                    700,
+                    6300
+                  ]
+                },
+                "originalSpan": "在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+                "spanHash": "318982b6dec2e3c5468a7d6af66effc5926311fd2b483555ee05b1056a9d5843",
+                "summary": "三（三）膳食纤维；官方长图目视转录，未声称OCR或PDF字符定位。",
+                "retrievalText": "三（三）膳食纤维；官方长图目视转录，未声称OCR或PDF字符定位。 在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "hash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "version": "2023"
+              }
+            }
+          ],
+          "conflicts": [],
+          "missingConditions": [],
+          "estimatedTokens": 5897,
+          "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "answer": {
+          "answer": "成人高脂血症食养指南提出适当增加不饱和脂肪酸摄入，特别是富含n-3系列多不饱和脂肪酸的食物；该表述为定性食养建议，不表示无限量补油。\n另一部指南列举了菜籽油、亚麻籽油、橄榄油、葵花籽油、玉米油等富含不饱和脂肪酸的植物油作为优先选择，同时有全天总油量的限制背景；这属于食用油选择层面的表述，不能据此推及其他油脂可无限量摄入。",
+          "claims": [
+            {
+              "text": "成人高脂血症食养指南提出适当增加不饱和脂肪酸摄入，特别是富含n-3系列多不饱和脂肪酸的食物；该表述为定性食养建议，不表示无限量补油。",
+              "factIds": [
+                "fact:lipid-unsaturated"
+              ],
+              "evidenceIds": [
+                "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b"
+              ]
+            },
+            {
+              "text": "另一部指南列举了菜籽油、亚麻籽油、橄榄油、葵花籽油、玉米油等富含不饱和脂肪酸的植物油作为优先选择，同时有全天总油量的限制背景；这属于食用油选择层面的表述，不能据此推及其他油脂可无限量摄入。",
+              "factIds": [
+                "fact:canola-oil-unsaturated-fat",
+                "fact:corn-oil-unsaturated-fat",
+                "fact:flax-oil-unsaturated-fat",
+                "fact:olive-oil-unsaturated-fat",
+                "fact:sunflower-oil-unsaturated-fat"
+              ],
+              "evidenceIds": [
+                "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35"
+              ]
+            }
+          ],
+          "limitations": [
+            "现有资料未给出不饱和脂肪替代的具体数量、比例或剂量-反应关系，仅停留于定性食养建议。",
+            "来源为食养指南类文件，非针对成人高脂血症人群的干预试验或系统综述，机制性成分说明不能直接外推为食用某食物即可获益。",
+            "含不饱和脂肪酸油类的列举来自成人高血压食养指南，适用于高脂血症人群的迁移需谨慎；且指南强调仍需控制总油量。",
+            "各事实的临床复核状态为pending，证据仅达到来源核对层级。"
+          ]
+        },
+        "invocation": {
+          "provider": "DeepSeek",
+          "requestId": "62f77105-65fc-4138-8292-0d5404f58f06",
+          "model": "deepseek-flash",
+          "promptTokens": 4023,
+          "completionTokens": 388,
+          "totalTokens": 4411,
+          "calledAt": "2026-11-04T11:59:19.975Z"
+        }
+      }
+    }
+  ],
+  "humanGroundingReview": "pending: valid citation IDs alone do not establish entailment or clinical suitability"
+}

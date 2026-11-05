@@ -1,9 +1,9 @@
 import {readFile} from 'node:fs/promises';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
 import {contentContext} from '../shared/content';
 import {defaultMeal} from '../shared/types';
-import {inputIngredient} from '../src/meal-input';
-import {recommend} from '../server/recommendation';
+import {inputIngredient} from '../frontend/src/meal-input';
+import {recommend} from '../backend/src/recommendation';
 const root='.local-data/cloudbase-http/listed-foods-20261026-v27';
 const bundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8')),manifest=JSON.parse(await readFile(`${root}/manifest.json`,'utf8'));
 const context=contentContext(verifyGalleryBundle(bundle,manifest.hash));

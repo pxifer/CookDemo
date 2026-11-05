@@ -1,0 +1,24 @@
+{
+  "inventory": {
+    "foods": 372,
+    "lines": 1762,
+    "variants": 146,
+    "source_entries": 1726,
+    "source_records": 147
+  },
+  "base_release": {
+    "checksum": "a8672d832d83d0e77fcd331334612a5a3697e89b301d2c49183cd0f830b1063b",
+    "published": true
+  },
+  "anon_can_write": false,
+  "release_table_rls": true,
+  "anon_private_access": false,
+  "composition_release": {
+    "id": "composition-review-20261024-v1",
+    "pending": 144,
+    "checksum": "53ce824bff66238765091a9b145c4a38f57e0e4d8819de936a1721a688007c07",
+    "verified": 2,
+    "published": true,
+    "variant_records": 146
+  }
+}

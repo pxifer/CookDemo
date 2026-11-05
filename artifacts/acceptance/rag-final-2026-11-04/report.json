@@ -1,0 +1,481 @@
+{
+  "date": "2026-11-04",
+  "scope": "Local research RAG: retrieval, augmentation, generation and evidence-vector storage",
+  "phases": [
+    {
+      "id": 1,
+      "name": "plan, routing and environment",
+      "status": "complete"
+    },
+    {
+      "id": 2,
+      "name": "real CPU embedding and isolated PG indexes",
+      "status": "complete"
+    },
+    {
+      "id": 3,
+      "name": "A1/dense/hybrid comparison and evidence closure",
+      "status": "complete"
+    },
+    {
+      "id": 4,
+      "name": "six real DeepSeek answers and citation verification",
+      "status": "complete"
+    },
+    {
+      "id": 5,
+      "name": "regression, source preservation and bounded authorization close",
+      "status": "complete"
+    }
+  ],
+  "hardware": {
+    "cpu": "Intel Core i5-13500H",
+    "ramGiB": 31.7,
+    "gpu": "Intel Iris Xe integrated graphics",
+    "inference": "CPU, six threads; one loaded model at a time"
+  },
+  "modelComparison": [
+    {
+      "name": "qwen",
+      "identity": {
+        "modelId": "Qwen/Qwen3-Embedding-0.6B",
+        "pooling": "lasttoken",
+        "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+        "dimensions": 1024,
+        "normalization": "l2",
+        "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+        "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+        "documentInstruction": "",
+        "representationVersion": "health-evidence-retrieval-text-v1"
+      },
+      "indexId": "qwen-evidence-v1",
+      "evidenceVectors": 98,
+      "summary": [
+        {
+          "mode": "a1",
+          "cases": 27,
+          "correctStates": 27,
+          "recallAt10": 1,
+          "mrr": 1,
+          "ndcgAt10": 1,
+          "evidenceClosureComplete": true,
+          "latency": {
+            "samples": 27,
+            "p50ms": 14.883699999999862,
+            "p95ms": 33.05930000000001
+          }
+        },
+        {
+          "mode": "dense",
+          "cases": 27,
+          "correctStates": 26,
+          "recallAt10": 1,
+          "mrr": 0.49635416666666665,
+          "ndcgAt10": 0.6167710691346544,
+          "evidenceClosureComplete": true,
+          "latency": {
+            "samples": 27,
+            "p50ms": 1077.4146,
+            "p95ms": 1770.9742999999999
+          }
+        },
+        {
+          "mode": "hybrid",
+          "cases": 27,
+          "correctStates": 27,
+          "recallAt10": 1,
+          "mrr": 0.9375,
+          "ndcgAt10": 0.9538662191964322,
+          "evidenceClosureComplete": true,
+          "latency": {
+            "samples": 27,
+            "p50ms": 59.829499999999825,
+            "p95ms": 93.44850000000224
+          }
+        }
+      ],
+      "uniqueQueryEncodingLatency": {
+        "samples": 16,
+        "p50ms": 1173.2784999999985,
+        "p95ms": 1706.0473000000002
+      },
+      "resourceObservation": {
+        "model": "Qwen/Qwen3-Embedding-0.6B",
+        "modelLoadMs": 38187.48,
+        "workingSetBytes": 1808556032,
+        "privateBytes": 4922146816,
+        "cpuSeconds": 587.078125,
+        "note": "post-index/query observation, not peak memory"
+      }
+    },
+    {
+      "name": "bge",
+      "identity": {
+        "modelId": "BAAI/bge-m3",
+        "pooling": "cls_token",
+        "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "dimensions": 1024,
+        "normalization": "l2",
+        "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+        "queryInstruction": "",
+        "documentInstruction": "",
+        "representationVersion": "health-evidence-retrieval-text-v1"
+      },
+      "indexId": "bge-evidence-v1",
+      "evidenceVectors": 98,
+      "summary": [
+        {
+          "mode": "a1",
+          "cases": 27,
+          "correctStates": 27,
+          "recallAt10": 1,
+          "mrr": 1,
+          "ndcgAt10": 1,
+          "evidenceClosureComplete": true,
+          "latency": {
+            "samples": 27,
+            "p50ms": 14.741899999999987,
+            "p95ms": 42.08770000000004
+          }
+        },
+        {
+          "mode": "dense",
+          "cases": 27,
+          "correctStates": 26,
+          "recallAt10": 0.9375,
+          "mrr": 0.5536458333333333,
+          "ndcgAt10": 0.6441706746568512,
+          "evidenceClosureComplete": true,
+          "latency": {
+            "samples": 27,
+            "p50ms": 413.3865999999998,
+            "p95ms": 648.1563999999998
+          }
+        },
+        {
+          "mode": "hybrid",
+          "cases": 27,
+          "correctStates": 27,
+          "recallAt10": 1,
+          "mrr": 0.90625,
+          "ndcgAt10": 0.9307993287946483,
+          "evidenceClosureComplete": true,
+          "latency": {
+            "samples": 27,
+            "p50ms": 49.84279999999853,
+            "p95ms": 77.90279999999984
+          }
+        }
+      ],
+      "uniqueQueryEncodingLatency": {
+        "samples": 16,
+        "p50ms": 483.6298999999999,
+        "p95ms": 656.0958
+      },
+      "resourceObservation": {
+        "model": "BAAI/bge-m3",
+        "modelLoadMs": 58756.72,
+        "workingSetBytes": 1904693248,
+        "privateBytes": 4208799744,
+        "cpuSeconds": 580.71875,
+        "note": "post-index/query observation, not peak memory"
+      }
+    }
+  ],
+  "defaultModel": "Qwen/Qwen3-Embedding-0.6B",
+  "defaultIndex": "qwen-evidence-v1",
+  "selection": "Qwen retains the validated live-generation path and slightly better observed hybrid ordering; BGE is a faster CPU alternative. Both hybrid variants recall all labeled positives in this small engineering regression set. A1 also reaches 1.0, so no claim that vectors improve quality is established.",
+  "retrievalPolicy": {
+    "version": "fact-scope-v2",
+    "factLevelRRF": {
+      "constant": 60,
+      "lexicalWeight": 2,
+      "denseWeight": 1
+    },
+    "queryShorthandAliases": [
+      "不饱和脂肪→不饱和脂肪酸",
+      "原发性骨质疏松→原发性骨质疏松症"
+    ],
+    "factsAndUserDiagnosesMutated": false,
+    "requiredEvidenceTruncated": false
+  },
+  "evaluationLimits": {
+    "cases": 27,
+    "development": 8,
+    "acceptance": 19,
+    "positiveCases": 16,
+    "usage": "source-derived cases used for debugging and regression; not a blind holdout or clinical benchmark",
+    "rawModeLatency": "hybrid reuses query vectors within the process; compare encoding latency separately",
+    "failuresRetained": "artifacts/acceptance/rag-qwen-evaluation-2026-11-04/evaluation.json",
+    "denseAloneNotSelected": true
+  },
+  "liveSamples": [
+    {
+      "caseId": "dev-ht-salt",
+      "status": "answered",
+      "invocation": {
+        "provider": "DeepSeek",
+        "requestId": "4fb8940e-5047-4250-a38e-347b6a230f6f",
+        "model": "deepseek-flash",
+        "promptTokens": 2999,
+        "completionTokens": 457,
+        "totalTokens": 3456,
+        "calledAt": "2026-11-04T11:58:29.531Z"
+      },
+      "claims": 3,
+      "citationContractPassed": true,
+      "agentSourceAlignmentReviewed": true,
+      "independentHumanOrClinicalReview": false,
+      "report": "artifacts/acceptance/rag-qwen-live-first-2026-11-04/answers.json"
+    },
+    {
+      "caseId": "dev-lipid-unsaturated",
+      "status": "answered",
+      "invocation": {
+        "provider": "DeepSeek",
+        "requestId": "62f77105-65fc-4138-8292-0d5404f58f06",
+        "model": "deepseek-flash",
+        "promptTokens": 4023,
+        "completionTokens": 388,
+        "totalTokens": 4411,
+        "calledAt": "2026-11-04T11:59:19.975Z"
+      },
+      "claims": 2,
+      "citationContractPassed": true,
+      "agentSourceAlignmentReviewed": true,
+      "independentHumanOrClinicalReview": false,
+      "report": "artifacts/acceptance/rag-qwen-live-dev-lipid-unsaturated-2026-11-04/answers.json"
+    },
+    {
+      "caseId": "dev-lipid-grain",
+      "status": "answered",
+      "invocation": {
+        "provider": "DeepSeek",
+        "requestId": "d26ad963-7fd4-4019-8d0d-79715e80fc43",
+        "model": "deepseek-flash",
+        "promptTokens": 3546,
+        "completionTokens": 605,
+        "totalTokens": 4151,
+        "calledAt": "2026-11-04T11:59:27.306Z"
+      },
+      "claims": 4,
+      "citationContractPassed": true,
+      "agentSourceAlignmentReviewed": true,
+      "independentHumanOrClinicalReview": false,
+      "report": "artifacts/acceptance/rag-qwen-live-dev-lipid-grain-2026-11-04/answers.json"
+    },
+    {
+      "caseId": "dev-lipid-milk",
+      "status": "answered",
+      "invocation": {
+        "provider": "DeepSeek",
+        "requestId": "ebe99de2-ee02-4ff1-9d75-490ca73aff2a",
+        "model": "deepseek-flash",
+        "promptTokens": 4094,
+        "completionTokens": 294,
+        "totalTokens": 4388,
+        "calledAt": "2026-11-04T11:59:33.510Z"
+      },
+      "claims": 2,
+      "citationContractPassed": true,
+      "agentSourceAlignmentReviewed": true,
+      "independentHumanOrClinicalReview": false,
+      "report": "artifacts/acceptance/rag-qwen-live-dev-lipid-milk-2026-11-04/answers.json"
+    },
+    {
+      "caseId": "dev-ob-sweet-drinks",
+      "status": "answered",
+      "invocation": {
+        "provider": "DeepSeek",
+        "requestId": "d59bce96-4329-450e-a0cd-9e5c73a4a99f",
+        "model": "deepseek-flash",
+        "promptTokens": 3748,
+        "completionTokens": 503,
+        "totalTokens": 4251,
+        "calledAt": "2026-11-04T11:59:40.067Z"
+      },
+      "claims": 3,
+      "citationContractPassed": true,
+      "agentSourceAlignmentReviewed": true,
+      "independentHumanOrClinicalReview": false,
+      "report": "artifacts/acceptance/rag-qwen-live-dev-ob-sweet-drinks-2026-11-04/answers.json"
+    },
+    {
+      "caseId": "dev-op-calcium",
+      "status": "answered",
+      "invocation": {
+        "provider": "DeepSeek",
+        "requestId": "6f39b2f9-4d0a-4b43-b13c-826bc88e6b7e",
+        "model": "deepseek-flash",
+        "promptTokens": 3526,
+        "completionTokens": 339,
+        "totalTokens": 3865,
+        "calledAt": "2026-11-04T11:59:45.850Z"
+      },
+      "claims": 2,
+      "citationContractPassed": true,
+      "agentSourceAlignmentReviewed": true,
+      "independentHumanOrClinicalReview": false,
+      "report": "artifacts/acceptance/rag-qwen-live-dev-op-calcium-2026-11-04/answers.json"
+    }
+  ],
+  "budget": {
+    "authorizedCny": 5,
+    "authorizedCalls": 50,
+    "attempts": 6,
+    "verifiedReceipts": 6,
+    "unknownUsageAttempts": 0,
+    "reservedCny": 0.294058,
+    "estimatedCostAtVerifiedPeakCny": 0.06456,
+    "pricing": "2 CNY/million input, 8 CNY/million output; verified official peak rates on 2026-11-04; this is an estimate, not a provider account bill",
+    "pricingSource": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "authorizationStatus": "completed",
+    "automaticRetries": 0
+  },
+  "checks": {
+    "unit": {
+      "tests": 283,
+      "pass": 281,
+      "fail": 0,
+      "skipped": 2,
+      "cancelled": 0
+    },
+    "unitConcurrency": 4,
+    "unitInitialFailure": {
+      "type": "composition-review.test.ts subprocess failed without an assertion diagnostic under default concurrency",
+      "isolatedFile": {
+        "pass": 13,
+        "fail": 0
+      },
+      "finalRerun": "all tests passed with file concurrency capped at four; root cause of initial subprocess termination not established",
+      "originalLog": "unit-initial-subprocess-failure.txt"
+    },
+    "realPgStorage": {
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "realPgIntegrationTests": 1,
+      "otherValidationAndConstructedDatabaseTests": 3
+    },
+    "pythonContracts": 2,
+    "build": "passed",
+    "types": "passed",
+    "acceptanceTypes": "passed",
+    "originalEditorialRetrieval": {
+      "total": 50,
+      "passed": 50
+    },
+    "knowledgeIntegrity": "verified",
+    "modelRestartAndPersistentRead": "passed using a separate process after Qwen reload",
+    "sourceBundleFilesVerified": 16,
+    "originalResearchSqlUnchanged": true,
+    "legacyRevocations": 0,
+    "sourceFingerprint": "63c0090bdb4b00b5fb41b39d79329d8675e910d8a0c634d79d634d2b4c91b443",
+    "sourceFileCount": 507
+  },
+  "documentAndPlatformChecks": {
+    "powershell": {
+      "version": "5.1.26100.9711",
+      "files": 34,
+      "failures": []
+    },
+    "documents": {
+      "files": 18,
+      "localLinksChecked": 120,
+      "brokenLinks": [],
+      "agentsLines": 88,
+      "dedicatedKeyOutsideIgnoredFiles": false
+    },
+    "gitDiffCheck": "passed",
+    "npmLockfile": "unchanged",
+    "localConfiguration": "ignored by Git"
+  },
+  "sourcePreservation": [
+    {
+      "path": "datasets/health/2026-10-28-v1/conflicts.jsonl",
+      "sha256": "6040322bf1c9bb1eaf3f7189498ba9f3a07e882a25cfcb2fd29fa66495b3e963"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/entities.jsonl",
+      "sha256": "448c6849ae28e192d952b994c4d82885e9bff9ec9f3e052a9d9f4728171f0340"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/evidence.jsonl",
+      "sha256": "7484b834160666c6161a9830f2b4e4127641a86b0fd93787770b429005baa575"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/facts.jsonl",
+      "sha256": "2de5de2366674a2379c58f8ebe8c33e84b97cd0a60607e6940e2fd103cd3d40a"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/knowledge-bundle.json",
+      "sha256": "eb2ab98555cc3290043ffe0e23773912a82880ff0a67c4326d3a3535cf9b1fd7"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/relations.csv",
+      "sha256": "401b75a441eaab9d87c4113cf4fa6612adf93468e660643e096cb213ed4ec887"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/rule-drafts.jsonl",
+      "sha256": "8b3acd4605991254971779b56865c597104511d691307fea00f56a344d3bf358"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v1/sources.jsonl",
+      "sha256": "f4925cb6686d38c46db2c7974e83618a2a29f3fcdeadc0951b80bc99196b6999"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/conflicts.jsonl",
+      "sha256": "50267608f10abe14cbc7b51bc7ef4f7233ae7ae01469ede378d8a8a365299ee0"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/entities.jsonl",
+      "sha256": "b81c8d85150939d34bede52d9867931e953e7be5f56b0fae5c7962ee04271b39"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/evidence.jsonl",
+      "sha256": "acbcf75fa7027d0985a7110a5fbb4cfcb8d04b500792c0fc3ed68e6e9f4d1fe4"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/facts.jsonl",
+      "sha256": "6fe80e54edcfc1985a2705c5ad502107e7a71b6b88ebd05fb16ae5354dfec808"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/knowledge-bundle.json",
+      "sha256": "e712a86b832c12a40c9b371addd1fa9d8263a491f1b33b880c55c110a2b87384"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/relations.csv",
+      "sha256": "99d0b6ed299e6c5d12c21fc3e43a45d3d5f96a6308bf214fd9afdf581b90be4e"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/rule-drafts.jsonl",
+      "sha256": "68a0cd42953be14a6232749b5dd2481581736df36504358b42ff3edda9f1a2f7"
+    },
+    {
+      "path": "datasets/health/2026-10-28-v2/sources.jsonl",
+      "sha256": "b3115cb097330f81b51a4f298d5c729bb7a084dfc3980a22b365f41555420e05"
+    }
+  ],
+  "dataBoundaries": {
+    "originalBundleEmbeddingBuilt": false,
+    "derivedIndexesContainRealEmbeddings": true,
+    "clinicalRelease": null,
+    "productHealthRagEnabled": false,
+    "personalDataIncluded": false
+  },
+  "limitations": [
+    "No independent human/clinical quality sign-off. Agent source-alignment review is not human clinical approval.",
+    "Some initial live answer limitations included irrelevant unselected-condition field names; subsequent context assembly no longer passes such unrelated missing fields. Original receipts are retained.",
+    "No production deployment, frontend integration, reranker, autonomous agent or full recipe-disease binding is claimed."
+  ],
+  "operationalState": {
+    "embeddingService": "stopped after validation to release RAM; start via scripts/rag-runtime.ps1 -Task Start -Model qwen",
+    "port": 15199,
+    "researchDatabase": "shiwei_rag_research",
+    "secrets": "only ignored local configuration",
+    "productionDeployments": 0,
+    "cloudMigrations": 0
+  }
+}

@@ -1,0 +1,443 @@
+{
+  "index": {
+    "id": "qwen-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T07:12:46.902Z"
+  },
+  "generation": "real_deepseek",
+  "realEmbedding": true,
+  "realModelCalls": 1,
+  "verifiedReceipts": 1,
+  "budget": {
+    "maximumCny": 5,
+    "maximumCalls": 50,
+    "attempts": 3,
+    "reservedCny": 0.144624,
+    "estimatedKnownCostCny": 0.032736,
+    "unknownUsageAttempts": 0
+  },
+  "results": [
+    {
+      "id": "dev-lipid-grain",
+      "elapsedMs": 5119.6646,
+      "result": {
+        "status": "answered",
+        "executionAllowed": false,
+        "clinicalRelease": null,
+        "context": {
+          "question": "高血脂选择全谷物有哪些指南依据？",
+          "bundleId": "health-kb-2026-10-28-v2",
+          "indexId": "qwen-evidence-v1",
+          "context": {
+            "adult": "yes"
+          },
+          "facts": [
+            {
+              "fact": {
+                "id": "fact:whole-grains-fiber",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:whole-grains",
+                "objectId": "c:fiber",
+                "predicate": "contains",
+                "statement": "指南列举的膳食纤维来源，不作全部同量。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-diabetes-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.048651507139079855,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 2,
+              "denseRank": 1
+            },
+            {
+              "fact": {
+                "id": "fact:lipid-prefer-whole-grains",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:dyslipidemia",
+                "objectId": "f:whole-grains",
+                "predicate": "prefer",
+                "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "cdc-dyslipidemia-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04727963886909005,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 1,
+              "denseRank": 9
+            },
+            {
+              "fact": {
+                "id": "fact:lipid-saturated-fat",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:dyslipidemia",
+                "objectId": "c:saturated-fat",
+                "predicate": "adverse",
+                "statement": "指南支持限制饱和脂肪以管理血脂及心血管风险。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": true,
+                "evidenceIds": [
+                  "ev:b9405f67529acef9e6423945f51f368ed71a330a4eddea1df4781661a0a0cd72"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "cdc-dyslipidemia-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04533450704225352,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 4,
+              "denseRank": 11
+            },
+            {
+              "fact": {
+                "id": "fact:lipid-fiber",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:dyslipidemia",
+                "objectId": "c:fiber",
+                "predicate": "beneficial_tendency",
+                "statement": "指南支持富纤维食物与减少胆酸吸收的解释，非任意纤维补充剂疗效。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "cdc-dyslipidemia-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04526198439241918,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 5,
+              "denseRank": 9
+            },
+            {
+              "fact": {
+                "id": "fact:whole-grains-carbs",
+                "version": "2026-10-28-v1",
+                "kind": "food_component",
+                "subjectId": "f:whole-grains",
+                "objectId": "c:carbohydrate",
+                "predicate": "contains",
+                "statement": "碳水化合物来源之一，具体量未列入本数据。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:628eab37c5d8ad21f9109fa3c6d24c9f53aab286d7c7dd36a13499492e24f7cc"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-diabetes-2023": "2023"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04379422451711608,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 3,
+              "denseRank": 23
+            }
+          ],
+          "evidence": [
+            {
+              "evidence": {
+                "id": "ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62",
+                "key": "dm-fiber",
+                "sourceId": "nhc-diabetes-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 9,
+                  "printedPage": 7,
+                  "section": "三（三）全谷物/膳食纤维",
+                  "start": 348,
+                  "end": 468,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "全谷物、杂豆类、蔬菜等富含膳食纤维、植物化学物，GI较低，含有丰富的维生素B1、维生素B2以及钾、镁等矿物质，更耐饥饿，可有效减缓餐后血糖波动。胃肠功能弱的老年糖尿病患者，在富含膳食纤维的全谷物选择上，要注意烹饪方法和用量，降低消化道负担。",
+                "spanHash": "adca23e1dac785b853e67132bda45734ef3b9d3ff7da2cd8e8debd30a4a4c999",
+                "summary": "减缓餐后波动；胃肠功能弱老人须保留工艺与用量限制。",
+                "retrievalText": "三（三）全谷物/膳食纤维 减缓餐后波动；胃肠功能弱老人须保留工艺与用量限制。 全谷物、杂豆类、蔬菜等富含膳食纤维、植物化学物，GI较低，含有丰富的维生素B1、维生素B2以及钾、镁等矿物质，更耐饥饿，可有效减缓餐后血糖波动。胃肠功能弱的老年糖尿病患者，在富含膳食纤维的全谷物选择上，要注意烹饪方法和用量，降低消化道负担。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-diabetes-2023",
+                "title": "成人糖尿病食养指南（2023年版）",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+                "hash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1",
+                "key": "lipid-fiber",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 6,
+                  "section": "三（三）膳食纤维",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    5500,
+                    700,
+                    6300
+                  ]
+                },
+                "originalSpan": "在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+                "spanHash": "318982b6dec2e3c5468a7d6af66effc5926311fd2b483555ee05b1056a9d5843",
+                "summary": "三（三）膳食纤维；官方长图目视转录，未声称OCR或PDF字符定位。",
+                "retrievalText": "三（三）膳食纤维；官方长图目视转录，未声称OCR或PDF字符定位。 在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "hash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:b9405f67529acef9e6423945f51f368ed71a330a4eddea1df4781661a0a0cd72",
+                "key": "lipid-fat",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 5,
+                  "section": "三（二）调控脂肪",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    4500,
+                    700,
+                    5400
+                  ]
+                },
+                "originalSpan": "限制总脂肪、饱和脂肪、胆固醇和反式脂肪酸的摄入，是防治高脂血症和动脉粥样硬化性心血管病的重要措施。",
+                "spanHash": "1b65000388af0839809c8d89b10013da19306343834606fca23fcbeec88e69e2",
+                "summary": "三（二）调控脂肪；官方长图目视转录，未声称OCR或PDF字符定位。",
+                "retrievalText": "三（二）调控脂肪；官方长图目视转录，未声称OCR或PDF字符定位。 限制总脂肪、饱和脂肪、胆固醇和反式脂肪酸的摄入，是防治高脂血症和动脉粥样硬化性心血管病的重要措施。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "hash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "version": "2023"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:628eab37c5d8ad21f9109fa3c6d24c9f53aab286d7c7dd36a13499492e24f7cc",
+                "key": "dm-foods",
+                "sourceId": "nhc-diabetes-2023",
+                "sourceVersion": "2023",
+                "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 7,
+                  "printedPage": 5,
+                  "section": "三（一）合理膳食",
+                  "start": 49,
+                  "end": 186,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "主食要定量，碳水化合物主要来源以全谷物、各种豆类、蔬菜等为好，水果要限量；餐餐都应有蔬菜，每天应达500g，其中深色蔬菜占一半以上；天天有奶类和大豆，常吃鱼、禽，适量蛋和畜肉，这些是蛋白质的良好来源；减少肥肉摄入，少吃烟熏、烘烤、腌制等加工肉类制品，控制盐、糖和油的使用量。",
+                "spanHash": "f78a9a237924645acaa88adafa52a7f3e748ee5e60a84b8731529f013db6a314",
+                "summary": "全谷物、蔬菜、奶豆等直接食物建议；水果限量。",
+                "retrievalText": "三（一）合理膳食 全谷物、蔬菜、奶豆等直接食物建议；水果限量。 主食要定量，碳水化合物主要来源以全谷物、各种豆类、蔬菜等为好，水果要限量；餐餐都应有蔬菜，每天应达500g，其中深色蔬菜占一半以上；天天有奶类和大豆，常吃鱼、禽，适量蛋和畜肉，这些是蛋白质的良好来源；减少肥肉摄入，少吃烟熏、烘烤、腌制等加工肉类制品，控制盐、糖和油的使用量。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-diabetes-2023",
+                "title": "成人糖尿病食养指南（2023年版）",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/4fcbecd2c18e46baaf291bf46c2b79cd.pdf",
+                "hash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+                "version": "2023"
+              }
+            }
+          ],
+          "conflicts": [],
+          "missingConditions": [
+            "inputFoodClass",
+            "medium",
+            "brothDisposition",
+            "outputFoodClass",
+            "lipidPattern"
+          ],
+          "estimatedTokens": 5396,
+          "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "answer": {
+          "answer": "成人高脂血症食养指南有直接食品选择支持：在主食中适当控制精白米面摄入，适量多吃富含膳食纤维的食物，如全谷物、杂豆类、蔬菜等；仍需结合整体膳食和个体条件核对。\n上述指南对膳食纤维的解释是：膳食纤维能与胆酸结合，减少胆酸吸收，从而降低血胆固醇水平；这是富纤维食物层面的倾向，不等于任意纤维补充剂的疗效。\n指南支持限制总脂肪、饱和脂肪、胆固醇和反式脂肪酸摄入以防治高脂血症和动脉粥样硬化性心血管病，该指导为剂量依赖，需结合个体条件。\n另有成人糖尿病食养指南把全谷物列为膳食纤维来源之一，并指出全谷物富含膳食纤维、GI较低，可减缓餐后血糖波动；对胃肠功能弱的老年糖尿病患者，需注意烹饪方法和用量以降低消化道负担，该来源不是高脂血症的直接依据。",
+          "claims": [
+            {
+              "text": "成人高脂血症食养指南有直接食品选择支持：在主食中适当控制精白米面摄入，适量多吃富含膳食纤维的食物，如全谷物、杂豆类、蔬菜等；仍需结合整体膳食和个体条件核对。",
+              "factIds": [
+                "fact:lipid-prefer-whole-grains"
+              ],
+              "evidenceIds": [
+                "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+              ]
+            },
+            {
+              "text": "上述指南对膳食纤维的解释是：膳食纤维能与胆酸结合，减少胆酸吸收，从而降低血胆固醇水平；这是富纤维食物层面的倾向，不等于任意纤维补充剂的疗效。",
+              "factIds": [
+                "fact:lipid-fiber"
+              ],
+              "evidenceIds": [
+                "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+              ]
+            },
+            {
+              "text": "指南支持限制总脂肪、饱和脂肪、胆固醇和反式脂肪酸摄入以防治高脂血症和动脉粥样硬化性心血管病，该指导为剂量依赖，需结合个体条件。",
+              "factIds": [
+                "fact:lipid-saturated-fat"
+              ],
+              "evidenceIds": [
+                "ev:b9405f67529acef9e6423945f51f368ed71a330a4eddea1df4781661a0a0cd72"
+              ]
+            },
+            {
+              "text": "另有成人糖尿病食养指南把全谷物列为膳食纤维来源之一，并指出全谷物富含膳食纤维、GI较低，可减缓餐后血糖波动；对胃肠功能弱的老年糖尿病患者，需注意烹饪方法和用量以降低消化道负担，该来源不是高脂血症的直接依据。",
+              "factIds": [
+                "fact:whole-grains-fiber"
+              ],
+              "evidenceIds": [
+                "ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62"
+              ]
+            }
+          ],
+          "limitations": [
+            "高脂血症相关依据来自《成人高脂血症食养指南（2023年版）》，为官方长图目视转录，未声称OCR或PDF字符定位。",
+            "全谷物与膳食纤维的关联描述部分来自《成人糖尿病食养指南（2023年版）》，适用人群为成人糖尿病，不能直接外推为高脂血症的独立证据。",
+            "资料均为定性表述，未提供全谷物的具体种类、摄入量、剂量阈值或分型差异；成分机制（如膳食纤维结合胆酸）不能直接推成吃某一种全谷物食物即获益。",
+            "缺少输入食物类别、烹调方式、汤/汤汁处理、输出食物类别及血脂分型等信息，无法据此给出个体化选择。"
+          ]
+        },
+        "invocation": {
+          "provider": "DeepSeek",
+          "requestId": "d26ad963-7fd4-4019-8d0d-79715e80fc43",
+          "model": "deepseek-flash",
+          "promptTokens": 3546,
+          "completionTokens": 605,
+          "totalTokens": 4151,
+          "calledAt": "2026-11-04T11:59:27.306Z"
+        }
+      }
+    }
+  ],
+  "humanGroundingReview": "pending: valid citation IDs alone do not establish entailment or clinical suitability"
+}

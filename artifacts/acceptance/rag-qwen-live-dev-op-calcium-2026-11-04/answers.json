@@ -1,0 +1,540 @@
+{
+  "index": {
+    "id": "qwen-evidence-v1",
+    "bundleId": "health-kb-2026-10-28-v2",
+    "bundleHash": "0d1ae387b3f89bff5a3e57d4bcf3dfe07063b972d87df2f755eed5e986885a7d",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 98,
+    "state": "ready",
+    "createdAt": "2026-11-04T07:12:46.902Z"
+  },
+  "generation": "real_deepseek",
+  "realEmbedding": true,
+  "realModelCalls": 1,
+  "verifiedReceipts": 1,
+  "budget": {
+    "maximumCny": 5,
+    "maximumCalls": 50,
+    "attempts": 6,
+    "reservedCny": 0.294058,
+    "estimatedKnownCostCny": 0.06456,
+    "unknownUsageAttempts": 0
+  },
+  "results": [
+    {
+      "id": "dev-op-calcium",
+      "elapsedMs": 3723.5579999999995,
+      "result": {
+        "status": "answered",
+        "executionAllowed": false,
+        "clinicalRelease": null,
+        "context": {
+          "question": "成人原发性骨质疏松的膳食钙依据是什么？",
+          "bundleId": "health-kb-2026-10-28-v2",
+          "indexId": "qwen-evidence-v1",
+          "context": {
+            "adult": "yes",
+            "osteoporosisType": "primary",
+            "complexComorbidity": "no"
+          },
+          "facts": [
+            {
+              "fact": {
+                "id": "fact:op-calcium",
+                "version": "2026-10-28-v2",
+                "kind": "disease_component",
+                "subjectId": "d:primary-osteoporosis",
+                "objectId": "c:calcium",
+                "predicate": "beneficial_tendency",
+                "statement": "充足膳食钙有助维持血钙和减少骨流失，不能理解为补得越多越好。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "osteoporosisType",
+                    "values": [
+                      "primary"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:bd5a1ffe7563bd5fbc82435f79b17ec74484f894e7e8af6351f796fdb75ea884",
+                  "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04865990111891751,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 1,
+              "denseRank": 3
+            },
+            {
+              "fact": {
+                "id": "fact:op-calcium-fresh-vegetables",
+                "version": "2026-10-28-v2",
+                "kind": "food_component",
+                "subjectId": "f:fresh-vegetables",
+                "objectId": "c:calcium",
+                "predicate": "contains",
+                "statement": "指南列举的钙来源，形态和具体含量未在本批量化。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.048131080389144903,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 2,
+              "denseRank": 3
+            },
+            {
+              "fact": {
+                "id": "fact:op-calcium-milk",
+                "version": "2026-10-28-v2",
+                "kind": "food_component",
+                "subjectId": "f:milk",
+                "objectId": "c:calcium",
+                "predicate": "contains",
+                "statement": "指南列举的钙来源，形态和具体含量未在本批量化。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.047619047619047616,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 3,
+              "denseRank": 3
+            },
+            {
+              "fact": {
+                "id": "fact:op-calcium-soy-products",
+                "version": "2026-10-28-v2",
+                "kind": "food_component",
+                "subjectId": "f:soy-products",
+                "objectId": "c:calcium",
+                "predicate": "contains",
+                "statement": "指南列举的钙来源，形态和具体含量未在本批量化。",
+                "conditions": [],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.04712301587301587,
+              "applicability": "applicable_for_research",
+              "lexicalRank": 4,
+              "denseRank": 3
+            },
+            {
+              "fact": {
+                "id": "fact:op-fry",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:primary-osteoporosis",
+                "objectId": "p:fry",
+                "predicate": "limit",
+                "statement": "减少多油煎炸。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "osteoporosisType",
+                    "values": [
+                      "primary"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:d47ceb4ddd0e193de011b68d8c2ecb84b9553b1d5b972f61962c0b64ab41cbab"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.01639344262295082,
+              "applicability": "applicable_for_research",
+              "denseRank": 1
+            },
+            {
+              "fact": {
+                "id": "fact:op-limit-cured-meat",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:primary-osteoporosis",
+                "objectId": "f:cured-meat",
+                "predicate": "limit",
+                "statement": "保留原文少选或尽量不饮方向，不扩大为任意量绝对禁用。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "osteoporosisType",
+                    "values": [
+                      "primary"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:d47ceb4ddd0e193de011b68d8c2ecb84b9553b1d5b972f61962c0b64ab41cbab"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.01639344262295082,
+              "applicability": "applicable_for_research",
+              "denseRank": 1
+            },
+            {
+              "fact": {
+                "id": "fact:op-limit-salt",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:primary-osteoporosis",
+                "objectId": "f:salt",
+                "predicate": "limit",
+                "statement": "保留原文少选或尽量不饮方向，不扩大为任意量绝对禁用。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "osteoporosisType",
+                    "values": [
+                      "primary"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:d47ceb4ddd0e193de011b68d8c2ecb84b9553b1d5b972f61962c0b64ab41cbab"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.01639344262295082,
+              "applicability": "applicable_for_research",
+              "denseRank": 1
+            },
+            {
+              "fact": {
+                "id": "fact:op-steam",
+                "version": "2026-10-28-v2",
+                "kind": "food_guidance",
+                "subjectId": "d:primary-osteoporosis",
+                "objectId": "p:steam-boil",
+                "predicate": "prefer",
+                "statement": "优先蒸煮汆等少油工艺。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  },
+                  {
+                    "key": "osteoporosisType",
+                    "values": [
+                      "primary"
+                    ]
+                  },
+                  {
+                    "key": "complexComorbidity",
+                    "values": [
+                      "no"
+                    ]
+                  }
+                ],
+                "quantity": null,
+                "doseDependent": false,
+                "evidenceIds": [
+                  "ev:d47ceb4ddd0e193de011b68d8c2ecb84b9553b1d5b972f61962c0b64ab41cbab"
+                ],
+                "qualifyingEvidenceIds": [],
+                "sourceVersions": {
+                  "nhc-osteoporosis-2026": "2026"
+                },
+                "reviewState": "source_checked",
+                "clinicalReview": "pending",
+                "validFrom": "2026-10-28",
+                "withdrawnAt": null,
+                "scope": "qualitative",
+                "directness": "source_statement"
+              },
+              "score": 0.01639344262295082,
+              "applicability": "applicable_for_research",
+              "denseRank": 1
+            }
+          ],
+          "evidence": [
+            {
+              "evidence": {
+                "id": "ev:bd5a1ffe7563bd5fbc82435f79b17ec74484f894e7e8af6351f796fdb75ea884",
+                "key": "op-nutrients",
+                "sourceId": "nhc-osteoporosis-2026",
+                "sourceVersion": "2026",
+                "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 8,
+                  "printedPage": 4,
+                  "section": "三（一）营养和骨矿化",
+                  "start": 165,
+                  "end": 204,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "钙是形成骨骼的基石，维生素D是钙的“搬运工”和“调节器”，对骨骼矿化不可或缺。",
+                "spanHash": "c7a5c940d28573a084eb2849a6f02b36be5819cf0e7fc781703b10cf9d2cddcb",
+                "summary": "三（一）营养和骨矿化",
+                "retrievalText": "三（一）营养和骨矿化 钙是形成骨骼的基石，维生素D是钙的“搬运工”和“调节器”，对骨骼矿化不可或缺。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-osteoporosis-2026",
+                "title": "成人骨质疏松症食养指南（2026年版）",
+                "url": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+                "hash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+                "version": "2026"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599",
+                "key": "op-calcium-foods",
+                "sourceId": "nhc-osteoporosis-2026",
+                "sourceVersion": "2026",
+                "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 9,
+                  "printedPage": 5,
+                  "section": "三（一）钙/食物",
+                  "start": 215,
+                  "end": 335,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "钙的主要食物来源为奶及其制品、豆类及其制品、叶菜、花菜和豆荚等蔬菜、贝壳类和鱼类、坚果、种子类以及柑橘类水果等，见附录2表2.1。奶制品含钙丰富，且吸收率高，是补充钙的最好的天然食品，建议每天应摄入300mL或以上的液态奶或相当量的奶制品。",
+                "spanHash": "e1f867e875e0205da053d89006da286548f29d4d667e09fd76439a5d61ef9598",
+                "summary": "三（一）钙/食物",
+                "retrievalText": "三（一）钙/食物 钙的主要食物来源为奶及其制品、豆类及其制品、叶菜、花菜和豆荚等蔬菜、贝壳类和鱼类、坚果、种子类以及柑橘类水果等，见附录2表2.1。奶制品含钙丰富，且吸收率高，是补充钙的最好的天然食品，建议每天应摄入300mL或以上的液态奶或相当量的奶制品。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-osteoporosis-2026",
+                "title": "成人骨质疏松症食养指南（2026年版）",
+                "url": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+                "hash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+                "version": "2026"
+              }
+            },
+            {
+              "evidence": {
+                "id": "ev:d47ceb4ddd0e193de011b68d8c2ecb84b9553b1d5b972f61962c0b64ab41cbab",
+                "key": "op-cooking",
+                "sourceId": "nhc-osteoporosis-2026",
+                "sourceVersion": "2026",
+                "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 15,
+                  "printedPage": 11,
+                  "section": "三（六）工艺和盐",
+                  "start": 74,
+                  "end": 179,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "originalSpan": "因此应减少油炸、煎制、卤制等烹饪方式，提倡蒸、煮、汆等烹饪方式。少盐少油、减少高钠/盐调味品、清淡饮食有助于防控骨质疏松症的发生发展。推荐每天食盐摄入量不超过5g，少吃含钠高的调味品以及腊制、腌制或熏制的食物。",
+                "spanHash": "6c0b148f41b6df0ce28fee6179f9224d5a1e97eef9db89142a9010041cfeb54f",
+                "summary": "三（六）工艺和盐",
+                "retrievalText": "三（六）工艺和盐 因此应减少油炸、煎制、卤制等烹饪方式，提倡蒸、煮、汆等烹饪方式。少盐少油、减少高钠/盐调味品、清淡饮食有助于防控骨质疏松症的发生发展。推荐每天食盐摄入量不超过5g，少吃含钠高的调味品以及腊制、腌制或熏制的食物。",
+                "chunkerVersion": "proposition-v1",
+                "verification": "source_checked",
+                "status": "active"
+              },
+              "source": {
+                "id": "nhc-osteoporosis-2026",
+                "title": "成人骨质疏松症食养指南（2026年版）",
+                "url": "https://www.chinanutri.cn/fgbz/fgbzjszn/202605/P020260526508120776682.rar",
+                "hash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+                "version": "2026"
+              }
+            }
+          ],
+          "conflicts": [],
+          "missingConditions": [],
+          "estimatedTokens": 5129,
+          "revocationWatermark": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "answer": {
+          "answer": "对于无复杂共病的成人原发性骨质疏松，充足膳食钙有助维持血钙和减少骨流失；但不能理解为钙补得越多越好。\n该指南将奶及其制品、豆类及其制品、新鲜蔬菜等列为钙的食物来源；其形态和具体含量在本批资料中未量化。",
+          "claims": [
+            {
+              "text": "对于无复杂共病的成人原发性骨质疏松，充足膳食钙有助维持血钙和减少骨流失；但不能理解为钙补得越多越好。",
+              "factIds": [
+                "fact:op-calcium"
+              ],
+              "evidenceIds": [
+                "ev:bd5a1ffe7563bd5fbc82435f79b17ec74484f894e7e8af6351f796fdb75ea884",
+                "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+              ]
+            },
+            {
+              "text": "该指南将奶及其制品、豆类及其制品、新鲜蔬菜等列为钙的食物来源；其形态和具体含量在本批资料中未量化。",
+              "factIds": [
+                "fact:op-calcium-milk",
+                "fact:op-calcium-soy-products",
+                "fact:op-calcium-fresh-vegetables"
+              ],
+              "evidenceIds": [
+                "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599"
+              ]
+            }
+          ],
+          "limitations": [
+            "依据仅为《成人骨质疏松症食养指南（2026年版）》的定性表述，未提供膳食钙的剂量、阈值或具体食物含量。",
+            "指南所称食物来源属于食物成分列举，不能据此推导为食用某一食物即可获得临床获益。",
+            "本资料不涉及复杂共病人群；相关结论不适用于该人群。",
+            "证据均为来源已核对但临床复核待定的状态。"
+          ]
+        },
+        "invocation": {
+          "provider": "DeepSeek",
+          "requestId": "6f39b2f9-4d0a-4b43-b13c-826bc88e6b7e",
+          "model": "deepseek-flash",
+          "promptTokens": 3526,
+          "completionTokens": 339,
+          "totalTokens": 3865,
+          "calledAt": "2026-11-04T11:59:45.850Z"
+        }
+      }
+    }
+  ],
+  "humanGroundingReview": "pending: valid citation IDs alone do not establish entailment or clinical suitability"
+}

@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { connectDatabase, type Database } from '../server/db';
+import { connectDatabase, type Database } from '../backend/src/db';
 import { curateCandidate, type CandidateCard } from './lib/candidate-curation';
 
 const releaseCommit = '0e106eea348c734fe1586f781202994439cf98a5';
@@ -12,9 +12,9 @@ const licenseEvidence = [
   `https://github.com/${repository}/blob/${releaseCommit}/LICENSE`,
   'https://github.com/Anduin2017/HowToCook/issues/1468',
 ].join('\n');
-const dataPath = resolve('docs/data/recipe-cards-v3.jsonl');
-const supplementPath=resolve('docs/data/recipe-candidates-supplement-v1.jsonl');
-const imagePath = resolve('docs/data/recipe-candidate-images.json');
+const dataPath = resolve('datasets/recipes/curation/recipe-cards-v3.jsonl');
+const supplementPath=resolve('datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl');
+const imagePath = resolve('datasets/recipes/curation/recipe-candidate-images.json');
 const ddl = `
 CREATE TABLE IF NOT EXISTS recipe_candidate_batches (
   id text PRIMARY KEY,

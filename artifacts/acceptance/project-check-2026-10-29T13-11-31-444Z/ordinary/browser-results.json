@@ -1,0 +1,2537 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\CookDemo\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\playwright.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/CookDemo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/CookDemo/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4175",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4175",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T13-11-31-444Z\\ordinary/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx server/main.ts",
+      "url": "http://127.0.0.1:4175/healthz",
+      "reuseExistingServer": true,
+      "env": {
+        "LOCAL_TEST_FEATURES": "1",
+        "APP_ENV": "local",
+        "HOST": "127.0.0.1",
+        "PORT": "4175",
+        "APP_ORIGIN": "http://127.0.0.1:4175",
+        "CONTENT_SOURCE": "constructed"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "browser.spec.ts",
+      "file": "browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30862,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 70,
+                        "line": 33
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })\u001b[22m\n\n\n  31 |   await parse(page, ingredients);\n  32 |   await page.getByRole('button', { name: /健康模式/ }).click();\n> 33 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();\n     |                                                                      ^\n  34 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();\n  35 |   await expect(page.getByLabel('需要关注的疾病名称（选填）', { exact: true })).toBeVisible();\n  36 |   await page.getByLabel('DeepSeek API Key', { exact: true }).fill('sk-browser-test-only-123456789');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:33:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:13:28.709Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-ccd00e4b64ac2b92f6ca",
+          "file": "browser.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1905,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:02.585Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-0c2ad5a9f66aa0285303",
+          "file": "browser.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30639,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 15,
+                        "line": 65
+                      },
+                      "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-NmjbdM --remote-debugging-pipe --no-startup-window\n<launched> pid=63460\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=63460][err] [63460:10668:1029/211403.446:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=63460][err] [63460:10668:1029/211405.374:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=63460] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for getByLabel('手动添加食材', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" maxlength=\"100\" list=\"food-names\" aria-label=\"手动添加食材\" placeholder=\"输入食材名称…\"/>\u001b[22m\n\u001b[2m    - fill(\"土豆\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying fill action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  63 | test('D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料', async ({ page }) => {\n  64 |   const input = page.getByLabel('手动添加食材', { exact: true });\n> 65 |   await input.fill('土豆'); await input.press('Enter');\n     |               ^\n  66 |   await expect(page.getByLabel('土豆用量', { exact: true })).toHaveValue('');\n  67 |   await expect(page.getByLabel('土豆单位', { exact: true })).toHaveValue('g');\n  68 |   await page.getByLabel('土豆单位', { exact: true }).selectOption('kg');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:65:15"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:05.193Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-5ee89d473a062b76b27d",
+          "file": "browser.spec.ts",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:37.834Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-4cff00b09d7a77548a69",
+          "file": "browser.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5221,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:41.962Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-57f4a62b8f1d42dbf83b",
+          "file": "browser.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4181,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:47.276Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-879ddb9ecc48a880385d",
+          "file": "browser.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3592,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:51.576Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-618ef881302369da37d0",
+          "file": "browser.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9485,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: '西兰花鸡丁' })\nExpected substring: \u001b[32m\"微辣\"\u001b[39m\nReceived string:    \u001b[31m\"西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('dialog', { name: '西兰花鸡丁' }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '西兰花鸡丁' })\u001b[22m\n\u001b[2m    18 × locator resolved to <dialog open=\"\" aria-labelledby=\"modal-title\">…</dialog>\u001b[22m\n\u001b[2m       - unexpected value \"西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: '西兰花鸡丁' })\nExpected substring: \u001b[32m\"微辣\"\u001b[39m\nReceived string:    \u001b[31m\"西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('dialog', { name: '西兰花鸡丁' }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '西兰花鸡丁' })\u001b[22m\n\u001b[2m    18 × locator resolved to <dialog open=\"\" aria-labelledby=\"modal-title\">…</dialog>\u001b[22m\n\u001b[2m       - unexpected value \"西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:144:52",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 52,
+                      "line": 144
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 142 |\u001b[39m   \u001b[36mawait\u001b[39m select\u001b[33m.\u001b[39mselectOption(values[\u001b[35m1\u001b[39m])\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 143 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m name })\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'看看做法'\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 144 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m\u001b[33m,\u001b[39m { name }))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'微辣'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'干辣椒剪段'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 145 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 146 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 147 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m name })\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m`收藏 ${name}`\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 52,
+                        "line": 144
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: '西兰花鸡丁' })\nExpected substring: \u001b[32m\"微辣\"\u001b[39m\nReceived string:    \u001b[31m\"西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('dialog', { name: '西兰花鸡丁' }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '西兰花鸡丁' })\u001b[22m\n\u001b[2m    18 × locator resolved to <dialog open=\"\" aria-labelledby=\"modal-title\">…</dialog>\u001b[22m\n\u001b[2m       - unexpected value \"西兰花鸡丁×清淡 · 20 分钟SHIWEI KITCHEN西兰花鸡丁食材与用量鸡肉 120g西兰花 150g食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法去骨鸡肉切丁，西兰花分小朵焯水。热锅下油，鸡丁炒至熟透。放入西兰花，加盐及少量水炒匀。收藏此口味\"\u001b[22m\n\n\n  142 |   await select.selectOption(values[1]); await expect(page.getByTestId('recipe-card')).toHaveCount(3);\n  143 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: '看看做法', exact: false }).click();\n> 144 |   await expect(page.getByRole('dialog', { name })).toContainText('微辣'); await expect(page.getByRole('dialog')).toContainText('干辣椒剪段');\n      |                                                    ^\n  145 |   await page.keyboard.press('Escape');\n  146 |   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`, fullPage: true });\n  147 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: `收藏 ${name}`, exact: true }).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:144:52"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:14:55.239Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 52,
+                    "line": 144
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-adee625c938fdf2682db",
+          "file": "browser.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "单换保持卡片位置和当前滚动，加载提示只出现在目标按钮",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9622,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })\nExpected: \u001b[32m\"正在换菜…\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })\u001b[22m\n\u001b[2m    5 × locator resolved to <button disabled aria-busy=\"true\" aria-label=\"替换 香菇土豆煲\">更新中…</button>\u001b[22m\n\u001b[2m      - unexpected value \"更新中…\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })\nExpected: \u001b[32m\"正在换菜…\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })\u001b[22m\n\u001b[2m    5 × locator resolved to <button disabled aria-busy=\"true\" aria-label=\"替换 香菇土豆煲\">更新中…</button>\u001b[22m\n\u001b[2m      - unexpected value \"更新中…\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:164:45",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 45,
+                      "line": 164
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 162 |\u001b[39m   \u001b[36mconst\u001b[39m target\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m`替换 ${before[1]}`\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m 163 |\u001b[39m   \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\u001b[36mconst\u001b[39m scroll\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 164 |\u001b[39m   \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(target)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'正在换菜…'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(target)\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 165 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.progress'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 166 |\u001b[39m   \u001b[36mawait\u001b[39m expect(cards\u001b[33m.\u001b[39mlocator(\u001b[32m'h4'\u001b[39m)\u001b[33m.\u001b[39mnth(\u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveText(before[\u001b[35m1\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 167 |\u001b[39m   \u001b[36mconst\u001b[39m after\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m cards\u001b[33m.\u001b[39mlocator(\u001b[32m'h4'\u001b[39m)\u001b[33m.\u001b[39mallTextContents()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 45,
+                        "line": 164
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })\nExpected: \u001b[32m\"正在换菜…\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })\u001b[22m\n\u001b[2m    5 × locator resolved to <button disabled aria-busy=\"true\" aria-label=\"替换 香菇土豆煲\">更新中…</button>\u001b[22m\n\u001b[2m      - unexpected value \"更新中…\"\u001b[22m\n\n\n  162 |   const target=page.getByRole('button',{name:`替换 ${before[1]}`,exact:true});\n  163 |   await target.scrollIntoViewIfNeeded();const scroll=await page.evaluate(()=>scrollY);\n> 164 |   await target.click();await expect(target).toHaveText('正在换菜…');await expect(target).toBeDisabled();\n      |                                             ^\n  165 |   await expect(page.locator('.progress')).toHaveCount(0);\n  166 |   await expect(cards.locator('h4').nth(1)).not.toHaveText(before[1]);\n  167 |   const after=await cards.locator('h4').allTextContents();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:164:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:06.946Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 45,
+                    "line": 164
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-3a1649cf7163febf5b7f",
+          "file": "browser.spec.ts",
+          "line": 154,
+          "column": 1
+        },
+        {
+          "title": "B03/B04: 单位不能换算不冒充足量，非法人数拦截",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9542,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('recipe-card').first()\nExpected substring: \u001b[32m\"用量请参考菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('recipe-card').first() with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card').first()\u001b[22m\n\u001b[2m    17 × locator resolved to <article aria-busy=\"false\" class=\"recipe-card\" data-testid=\"recipe-card\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('recipe-card').first()\nExpected substring: \u001b[32m\"用量请参考菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('recipe-card').first() with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card').first()\u001b[22m\n\u001b[2m    17 × locator resolved to <article aria-busy=\"false\" class=\"recipe-card\" data-testid=\"recipe-card\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:175:57",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 57,
+                      "line": 175
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 173 |\u001b[39m   \u001b[36mawait\u001b[39m parse(page\u001b[33m,\u001b[39m \u001b[32m'鸡蛋1g'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'几个人吃'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfill(\u001b[32m'12'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 174 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'允许补买食材'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m.\u001b[39mcheck()\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m generate(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 175 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[32m'用量请参考菜谱'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 176 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'几个人吃'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfill(\u001b[32m'1.5'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m generate(page)\u001b[33m;\u001b[39m\n \u001b[90m 177 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'alert'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'人数须为 1～12 的整数'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 178 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 57,
+                        "line": 175
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('recipe-card').first()\nExpected substring: \u001b[32m\"用量请参考菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('recipe-card').first() with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card').first()\u001b[22m\n\u001b[2m    17 × locator resolved to <article aria-busy=\"false\" class=\"recipe-card\" data-testid=\"recipe-card\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"SHIWEI KITCHEN番茄蛋花汤番茄蛋花汤汤品家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 100g看看做法 ↗\"\u001b[22m\n\n\n  173 |   await parse(page, '鸡蛋1g'); await page.getByLabel('几个人吃', { exact: true }).fill('12');\n  174 |   await page.getByLabel('允许补买食材', { exact: false }).check(); await generate(page);\n> 175 |   await expect(page.getByTestId('recipe-card').first()).toContainText('用量请参考菜谱');\n      |                                                         ^\n  176 |   await page.getByLabel('几个人吃', { exact: true }).fill('1.5'); await generate(page);\n  177 |   await expect(page.getByRole('alert').filter({ hasText: '人数须为 1～12 的整数' })).toBeVisible();\n  178 | });\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:175:57"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:19.492Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 57,
+                    "line": 175
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-46723b5e405ec9250ba0",
+          "file": "browser.spec.ts",
+          "line": 172,
+          "column": 1
+        },
+        {
+          "title": "V-07: 编辑后晚到结果不覆盖，断流不可成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2358,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:31.911Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-b459022912e0c818be95",
+          "file": "browser.spec.ts",
+          "line": 180,
+          "column": 1
+        },
+        {
+          "title": "D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2293,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m860\u001b[39m\nReceived:   \u001b[31m921.375\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m860\u001b[39m\nReceived:   \u001b[31m921.375\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:202:71",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 71,
+                      "line": 202
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 200 |\u001b[39m   \u001b[36mawait\u001b[39m parse(page\u001b[33m,\u001b[39m ingredients)\u001b[33m;\u001b[39m\n \u001b[90m 201 |\u001b[39m   expect((\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.ingredients'\u001b[39m)\u001b[33m.\u001b[39mboundingBox())\u001b[33m!\u001b[39m\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m224\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 202 |\u001b[39m   expect((\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.input-column'\u001b[39m)\u001b[33m.\u001b[39mboundingBox())\u001b[33m!\u001b[39m\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m860\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 203 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m width \u001b[36mof\u001b[39m [\u001b[35m320\u001b[39m\u001b[33m,\u001b[39m \u001b[35m390\u001b[39m\u001b[33m,\u001b[39m \u001b[35m768\u001b[39m\u001b[33m,\u001b[39m \u001b[35m1440\u001b[39m]) { \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({ width\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m900\u001b[39m })\u001b[33m;\u001b[39m expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m innerWidth))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m }\n \u001b[90m 204 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize(info\u001b[33m.\u001b[39mproject\u001b[33m.\u001b[39mname \u001b[33m===\u001b[39m \u001b[32m'mobile'\u001b[39m \u001b[33m?\u001b[39m { width\u001b[33m:\u001b[39m \u001b[35m390\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m844\u001b[39m } \u001b[33m:\u001b[39m { width\u001b[33m:\u001b[39m \u001b[35m1440\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m1000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 205 |\u001b[39m   \u001b[36mif\u001b[39m (info\u001b[33m.\u001b[39mproject\u001b[33m.\u001b[39mname \u001b[33m===\u001b[39m \u001b[32m'mobile'\u001b[39m) { \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.preferences'\u001b[39m)\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-cta'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 71,
+                        "line": 202
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m860\u001b[39m\nReceived:   \u001b[31m921.375\u001b[39m\n\n  200 |   await parse(page, ingredients);\n  201 |   expect((await page.locator('.ingredients').boundingBox())!.height).toBeLessThanOrEqual(224);\n> 202 |   expect((await page.locator('.input-column').boundingBox())!.height).toBeLessThan(860);\n      |                                                                       ^\n  203 |   for (const width of [320, 390, 768, 1440]) { await page.setViewportSize({ width, height: 900 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }\n  204 |   await page.setViewportSize(info.project.name === 'mobile' ? { width: 390, height: 844 } : { width: 1440, height: 1000 });\n  205 |   if (info.project.name === 'mobile') { await page.locator('.preferences').scrollIntoViewIfNeeded(); await expect(page.locator('.mobile-cta')).toBeVisible(); }\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:202:71"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:34.975Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 71,
+                    "line": 202
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-33ac7fc20e01a4dde920",
+          "file": "browser.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "AR-M03: 跨页面更新须明确选择，禁止静默覆盖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3039,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:39.604Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-71207840dd0daf8b84df",
+          "file": "browser.spec.ts",
+          "line": 214,
+          "column": 1
+        },
+        {
+          "title": "收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3233,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:43.434Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-bc2dc917884038451bbd",
+          "file": "browser.spec.ts",
+          "line": 225,
+          "column": 1
+        },
+        {
+          "title": "本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30696,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 70,
+                        "line": 257
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })\u001b[22m\n\n\n  255 |   await card.getByRole('button', { name: `收藏 ${name}`, exact: true }).click();\n  256 |   await page.getByRole('button', { name: /健康模式/ }).click();\n> 257 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();\n      |                                                                      ^\n  258 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();\n  259 |   await page.getByLabel('需要关注的疾病名称（选填）', { exact: true }).fill('偏头痛');\n  260 |   await page.getByRole('button', { name: '糖尿病', exact: true }).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:257:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:15:46.704Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-54984385fa72bb66cd5d",
+          "file": "browser.spec.ts",
+          "line": 252,
+          "column": 1
+        },
+        {
+          "title": "D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3779,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:16:19.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-b288db894c274c94d82f",
+          "file": "browser.spec.ts",
+          "line": 280,
+          "column": 1
+        },
+        {
+          "title": "D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12280,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-state')\nExpected substring: \u001b[32m\"目录外菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-state') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-state')\u001b[22m\n\u001b[2m    17 × locator resolved to <div tabindex=\"-1\" role=\"status\" class=\"result-state \">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-state')\nExpected substring: \u001b[32m\"目录外菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-state') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-state')\u001b[22m\n\u001b[2m    17 × locator resolved to <div tabindex=\"-1\" role=\"status\" class=\"result-state \">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:325:47",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 47,
+                      "line": 325
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 323 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'汤品道数'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfill(\u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 324 |\u001b[39m   \u001b[36mawait\u001b[39m generate(page)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.result-state'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'你指定了 20 道'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 325 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.result-state'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'目录外菜谱'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 326 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.notice'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 327 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 328 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 47,
+                        "line": 325
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-state')\nExpected substring: \u001b[32m\"目录外菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-state') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-state')\u001b[22m\n\u001b[2m    17 × locator resolved to <div tabindex=\"-1\" role=\"status\" class=\"result-state \">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[22m\n\n\n  323 |   await page.getByLabel('汤品道数', { exact: true }).fill('0');\n  324 |   await generate(page); await expect(page.locator('.result-state')).toContainText('你指定了 20 道');\n> 325 |   await expect(page.locator('.result-state')).toContainText('目录外菜谱');\n      |                                               ^\n  326 |   await expect(page.locator('.notice')).toHaveCount(0);\n  327 | });\n  328 |\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:325:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:16:24.087Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 47,
+                    "line": 325
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-234f99d701476ea6dd1b",
+          "file": "browser.spec.ts",
+          "line": 306,
+          "column": 1
+        },
+        {
+          "title": "D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30587,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 106,
+                        "line": 336
+                      },
+                      "message": "Error: locator.innerText: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '香菇土豆煲', exact: true }).locator('.nutrition-box')\u001b[22m\n\n\n  334 |   const reference = {\n  335 |     meta: await detail.locator('.detail-meta').innerText(), amounts: await detail.locator('.detail-lines').innerText(),\n> 336 |     steps: await detail.locator('.steps').innerText(), nutrition: await detail.locator('.nutrition-box').innerText(),\n      |                                                                                                          ^\n  337 |   };\n  338 |   await expect(detail).not.toContainText(/人份|人数|按当前.*人/);\n  339 |   await detail.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click(); await page.keyboard.press('Escape');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:336:106"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:16:38.719Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-desktop\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-7244820171d07bd70b2a",
+          "file": "browser.spec.ts",
+          "line": 329,
+          "column": 1
+        },
+        {
+          "title": "健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30545,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 70,
+                        "line": 33
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })\u001b[22m\n\n\n  31 |   await parse(page, ingredients);\n  32 |   await page.getByRole('button', { name: /健康模式/ }).click();\n> 33 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();\n     |                                                                      ^\n  34 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();\n  35 |   await expect(page.getByLabel('需要关注的疾病名称（选填）', { exact: true })).toBeVisible();\n  36 |   await page.getByLabel('DeepSeek API Key', { exact: true }).fill('sk-browser-test-only-123456789');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:33:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:12.007Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-健康模式入口：登录、个人Key、疾病选填、对话与普通菜谱保持独立-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-9de1e8db3ccee3355830",
+          "file": "browser.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 食材自动使用、数量冲突明确选择、单位与刷新恢复",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3096,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:45.273Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-83f17b8c38f12f9a1b10",
+          "file": "browser.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30476,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 15,
+                        "line": 65
+                      },
+                      "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\彭霄\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-93adYN --remote-debugging-pipe --no-startup-window\n<launched> pid=89964\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] libpng warning: iCCP: known incorrect sRGB profile\n[pid=89964][err] [89964:89504:1029/211746.493:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=89964][err] [89964:86936:1029/211747.219:ERROR:chrome\\browser\\task_manager\\providers\\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a \"Renderer\" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.\n[pid=89964][err] [89964:89504:1029/211749.596:ERROR:chrome\\browser\\importer\\edge_china_browsers\\edge_qqbrowser_importer_utils_win.cc:165] QQBrowser user data path not found.\n[pid=89964] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for getByLabel('手动添加食材', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"\" maxlength=\"100\" list=\"food-names\" aria-label=\"手动添加食材\" placeholder=\"输入食材名称…\"/>\u001b[22m\n\u001b[2m    - fill(\"土豆\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying fill action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n\n  63 | test('D7-04: 手动添加不用确认，单位选填不补零，清单不混入调料', async ({ page }) => {\n  64 |   const input = page.getByLabel('手动添加食材', { exact: true });\n> 65 |   await input.fill('土豆'); await input.press('Enter');\n     |               ^\n  66 |   await expect(page.getByLabel('土豆用量', { exact: true })).toHaveValue('');\n  67 |   await expect(page.getByLabel('土豆单位', { exact: true })).toHaveValue('g');\n  68 |   await page.getByLabel('土豆单位', { exact: true }).selectOption('kg');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:65:15"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:49.306Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-04-手动添加不用确认，单位选填不补零，清单不混入调料-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-27988dab6a294bc29c22",
+          "file": "browser.spec.ts",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限制阻断",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3792,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:21.931Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-d63ccd282518a6fc40d3",
+          "file": "browser.spec.ts",
+          "line": 78,
+          "column": 1
+        },
+        {
+          "title": "D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2728,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:26.536Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-dbe2fd18f01c976dee46",
+          "file": "browser.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2687,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:29.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-9b9e6855ccc0cdb43e2f",
+          "file": "browser.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2006,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:32.033Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-cd7b61b6ecb1b59ae324",
+          "file": "browser.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9805,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: '番茄炒蛋' })\nExpected substring: \u001b[32m\"微辣\"\u001b[39m\nReceived string:    \u001b[31m\"番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('dialog', { name: '番茄炒蛋' }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '番茄炒蛋' })\u001b[22m\n\u001b[2m    17 × locator resolved to <dialog open=\"\" aria-labelledby=\"modal-title\">…</dialog>\u001b[22m\n\u001b[2m       - unexpected value \"番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: '番茄炒蛋' })\nExpected substring: \u001b[32m\"微辣\"\u001b[39m\nReceived string:    \u001b[31m\"番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('dialog', { name: '番茄炒蛋' }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '番茄炒蛋' })\u001b[22m\n\u001b[2m    17 × locator resolved to <dialog open=\"\" aria-labelledby=\"modal-title\">…</dialog>\u001b[22m\n\u001b[2m       - unexpected value \"番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:144:52",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 52,
+                      "line": 144
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 142 |\u001b[39m   \u001b[36mawait\u001b[39m select\u001b[33m.\u001b[39mselectOption(values[\u001b[35m1\u001b[39m])\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 143 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m name })\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'看看做法'\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 144 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m\u001b[33m,\u001b[39m { name }))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'微辣'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'干辣椒剪段'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 145 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 146 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({ path\u001b[33m:\u001b[39m \u001b[32m`${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`\u001b[39m\u001b[33m,\u001b[39m fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 147 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m name })\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m`收藏 ${name}`\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 52,
+                        "line": 144
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog', { name: '番茄炒蛋' })\nExpected substring: \u001b[32m\"微辣\"\u001b[39m\nReceived string:    \u001b[31m\"番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('dialog', { name: '番茄炒蛋' }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '番茄炒蛋' })\u001b[22m\n\u001b[2m    17 × locator resolved to <dialog open=\"\" aria-labelledby=\"modal-title\">…</dialog>\u001b[22m\n\u001b[2m       - unexpected value \"番茄炒蛋×清淡 · 12 分钟SHIWEI KITCHEN番茄炒蛋食材与用量西红柿 150g鸡蛋 1个食用油 6ml盐 1g大蒜 3g（可选）慢慢来，一步步做做法西红柿洗净切块，鸡蛋打散；蒜切碎。热锅下油，倒入蛋液炒至凝固后盛出。下西红柿翻炒出汁，倒回鸡蛋，加盐拌匀，炒熟盛出。收藏此口味\"\u001b[22m\n\n\n  142 |   await select.selectOption(values[1]); await expect(page.getByTestId('recipe-card')).toHaveCount(3);\n  143 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: '看看做法', exact: false }).click();\n> 144 |   await expect(page.getByRole('dialog', { name })).toContainText('微辣'); await expect(page.getByRole('dialog')).toContainText('干辣椒剪段');\n      |                                                    ^\n  145 |   await page.keyboard.press('Escape');\n  146 |   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-meal.png`, fullPage: true });\n  147 |   await page.getByTestId('recipe-card').filter({ hasText: name }).getByRole('button', { name: `收藏 ${name}`, exact: true }).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:144:52"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:34.083Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-AC-18-19-20-21-单换保留其他菜、变体详情、收藏刷新复查-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 52,
+                    "line": 144
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-8f762cee989e7ff2670e",
+          "file": "browser.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "单换保持卡片位置和当前滚动，加载提示只出现在目标按钮",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10504,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })\nExpected: \u001b[32m\"正在换菜…\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })\u001b[22m\n\u001b[2m    5 × locator resolved to <button disabled aria-busy=\"true\" aria-label=\"替换 香菇土豆煲\">更新中…</button>\u001b[22m\n\u001b[2m      - unexpected value \"更新中…\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })\nExpected: \u001b[32m\"正在换菜…\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })\u001b[22m\n\u001b[2m    5 × locator resolved to <button disabled aria-busy=\"true\" aria-label=\"替换 香菇土豆煲\">更新中…</button>\u001b[22m\n\u001b[2m      - unexpected value \"更新中…\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:164:45",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 45,
+                      "line": 164
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 162 |\u001b[39m   \u001b[36mconst\u001b[39m target\u001b[33m=\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m{name\u001b[33m:\u001b[39m\u001b[32m`替换 ${before[1]}`\u001b[39m\u001b[33m,\u001b[39mexact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m;\u001b[39m\n \u001b[90m 163 |\u001b[39m   \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m\u001b[36mconst\u001b[39m scroll\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(()\u001b[33m=>\u001b[39mscrollY)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 164 |\u001b[39m   \u001b[36mawait\u001b[39m target\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(target)\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'正在换菜…'\u001b[39m)\u001b[33m;\u001b[39m\u001b[36mawait\u001b[39m expect(target)\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 165 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.progress'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 166 |\u001b[39m   \u001b[36mawait\u001b[39m expect(cards\u001b[33m.\u001b[39mlocator(\u001b[32m'h4'\u001b[39m)\u001b[33m.\u001b[39mnth(\u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoHaveText(before[\u001b[35m1\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 167 |\u001b[39m   \u001b[36mconst\u001b[39m after\u001b[33m=\u001b[39m\u001b[36mawait\u001b[39m cards\u001b[33m.\u001b[39mlocator(\u001b[32m'h4'\u001b[39m)\u001b[33m.\u001b[39mallTextContents()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 45,
+                        "line": 164
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: '替换 香菇土豆煲', exact: true })\nExpected: \u001b[32m\"正在换菜…\"\u001b[39m\nTimeout: 7000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByRole('button', { name: '替换 香菇土豆煲', exact: true }) with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '替换 香菇土豆煲', exact: true })\u001b[22m\n\u001b[2m    5 × locator resolved to <button disabled aria-busy=\"true\" aria-label=\"替换 香菇土豆煲\">更新中…</button>\u001b[22m\n\u001b[2m      - unexpected value \"更新中…\"\u001b[22m\n\n\n  162 |   const target=page.getByRole('button',{name:`替换 ${before[1]}`,exact:true});\n  163 |   await target.scrollIntoViewIfNeeded();const scroll=await page.evaluate(()=>scrollY);\n> 164 |   await target.click();await expect(target).toHaveText('正在换菜…');await expect(target).toBeDisabled();\n      |                                             ^\n  165 |   await expect(page.locator('.progress')).toHaveCount(0);\n  166 |   await expect(cards.locator('h4').nth(1)).not.toHaveText(before[1]);\n  167 |   const after=await cards.locator('h4').allTextContents();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:164:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:46.139Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-单换保持卡片位置和当前滚动，加载提示只出现在目标按钮-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 45,
+                    "line": 164
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-3716e1730bfe602ca488",
+          "file": "browser.spec.ts",
+          "line": 154,
+          "column": 1
+        },
+        {
+          "title": "B03/B04: 单位不能换算不冒充足量，非法人数拦截",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10450,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('recipe-card').first()\nExpected substring: \u001b[32m\"用量请参考菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('recipe-card').first() with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card').first()\u001b[22m\n\u001b[2m    17 × locator resolved to <article aria-busy=\"false\" class=\"recipe-card\" data-testid=\"recipe-card\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('recipe-card').first()\nExpected substring: \u001b[32m\"用量请参考菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('recipe-card').first() with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card').first()\u001b[22m\n\u001b[2m    17 × locator resolved to <article aria-busy=\"false\" class=\"recipe-card\" data-testid=\"recipe-card\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:175:57",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 57,
+                      "line": 175
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 173 |\u001b[39m   \u001b[36mawait\u001b[39m parse(page\u001b[33m,\u001b[39m \u001b[32m'鸡蛋1g'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'几个人吃'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfill(\u001b[32m'12'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 174 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'允许补买食材'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m })\u001b[33m.\u001b[39mcheck()\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m generate(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 175 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'recipe-card'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[32m'用量请参考菜谱'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 176 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'几个人吃'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfill(\u001b[32m'1.5'\u001b[39m)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m generate(page)\u001b[33m;\u001b[39m\n \u001b[90m 177 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'alert'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'人数须为 1～12 的整数'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 178 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 57,
+                        "line": 175
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('recipe-card').first()\nExpected substring: \u001b[32m\"用量请参考菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('recipe-card').first() with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('recipe-card').first()\u001b[22m\n\u001b[2m    17 × locator resolved to <article aria-busy=\"false\" class=\"recipe-card\" data-testid=\"recipe-card\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"SHIWEI KITCHEN番茄炒蛋番茄炒蛋素菜家常菜12 分钟西红柿 · 鸡蛋单菜口味清淡微辣补买 1 项西红柿 150g看看做法 ↗\"\u001b[22m\n\n\n  173 |   await parse(page, '鸡蛋1g'); await page.getByLabel('几个人吃', { exact: true }).fill('12');\n  174 |   await page.getByLabel('允许补买食材', { exact: false }).check(); await generate(page);\n> 175 |   await expect(page.getByTestId('recipe-card').first()).toContainText('用量请参考菜谱');\n      |                                                         ^\n  176 |   await page.getByLabel('几个人吃', { exact: true }).fill('1.5'); await generate(page);\n  177 |   await expect(page.getByRole('alert').filter({ hasText: '人数须为 1～12 的整数' })).toBeVisible();\n  178 | });\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:175:57"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:18:59.933Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-B03-B04-单位不能换算不冒充足量，非法人数拦截-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 57,
+                    "line": 175
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-c53340a54986b44de99f",
+          "file": "browser.spec.ts",
+          "line": 172,
+          "column": 1
+        },
+        {
+          "title": "V-07: 编辑后晚到结果不覆盖，断流不可成功",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:19:13.919Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-2beb6ae2844d8512632e",
+          "file": "browser.spec.ts",
+          "line": 180,
+          "column": 1
+        },
+        {
+          "title": "D7-07: 精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1929,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m860\u001b[39m\nReceived:   \u001b[31m870.375\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m860\u001b[39m\nReceived:   \u001b[31m870.375\u001b[39m\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:202:71",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 71,
+                      "line": 202
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 200 |\u001b[39m   \u001b[36mawait\u001b[39m parse(page\u001b[33m,\u001b[39m ingredients)\u001b[33m;\u001b[39m\n \u001b[90m 201 |\u001b[39m   expect((\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.ingredients'\u001b[39m)\u001b[33m.\u001b[39mboundingBox())\u001b[33m!\u001b[39m\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m224\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 202 |\u001b[39m   expect((\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.input-column'\u001b[39m)\u001b[33m.\u001b[39mboundingBox())\u001b[33m!\u001b[39m\u001b[33m.\u001b[39mheight)\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m860\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 203 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m width \u001b[36mof\u001b[39m [\u001b[35m320\u001b[39m\u001b[33m,\u001b[39m \u001b[35m390\u001b[39m\u001b[33m,\u001b[39m \u001b[35m768\u001b[39m\u001b[33m,\u001b[39m \u001b[35m1440\u001b[39m]) { \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize({ width\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m900\u001b[39m })\u001b[33m;\u001b[39m expect(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mevaluate(() \u001b[33m=>\u001b[39m document\u001b[33m.\u001b[39mdocumentElement\u001b[33m.\u001b[39mscrollWidth \u001b[33m<=\u001b[39m innerWidth))\u001b[33m.\u001b[39mtoBe(\u001b[36mtrue\u001b[39m)\u001b[33m;\u001b[39m }\n \u001b[90m 204 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39msetViewportSize(info\u001b[33m.\u001b[39mproject\u001b[33m.\u001b[39mname \u001b[33m===\u001b[39m \u001b[32m'mobile'\u001b[39m \u001b[33m?\u001b[39m { width\u001b[33m:\u001b[39m \u001b[35m390\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m844\u001b[39m } \u001b[33m:\u001b[39m { width\u001b[33m:\u001b[39m \u001b[35m1440\u001b[39m\u001b[33m,\u001b[39m height\u001b[33m:\u001b[39m \u001b[35m1000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 205 |\u001b[39m   \u001b[36mif\u001b[39m (info\u001b[33m.\u001b[39mproject\u001b[33m.\u001b[39mname \u001b[33m===\u001b[39m \u001b[32m'mobile'\u001b[39m) { \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.preferences'\u001b[39m)\u001b[33m.\u001b[39mscrollIntoViewIfNeeded()\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.mobile-cta'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 71,
+                        "line": 202
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m860\u001b[39m\nReceived:   \u001b[31m870.375\u001b[39m\n\n  200 |   await parse(page, ingredients);\n  201 |   expect((await page.locator('.ingredients').boundingBox())!.height).toBeLessThanOrEqual(224);\n> 202 |   expect((await page.locator('.input-column').boundingBox())!.height).toBeLessThan(860);\n      |                                                                       ^\n  203 |   for (const width of [320, 390, 768, 1440]) { await page.setViewportSize({ width, height: 900 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true); }\n  204 |   await page.setViewportSize(info.project.name === 'mobile' ? { width: 390, height: 844 } : { width: 1440, height: 1000 });\n  205 |   if (info.project.name === 'mobile') { await page.locator('.preferences').scrollIntoViewIfNeeded(); await expect(page.locator('.mobile-cta')).toBeVisible(); }\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:202:71"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:19:18.059Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-07-精简左栏、多尺寸无溢出、弹层焦点、无开发用语及前端错误-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 71,
+                    "line": 202
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-7638e435db74a69f771d",
+          "file": "browser.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "AR-M03: 跨页面更新须明确选择，禁止静默覆盖",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3594,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:19:22.198Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-2b05ff83d0518de8973b",
+          "file": "browser.spec.ts",
+          "line": 214,
+          "column": 1
+        },
+        {
+          "title": "收藏修复：详情按钮反馈、实心状态、卡片同步、快速取消与刷新持久化",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3292,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:19:27.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-222ea758f317ddfd7530",
+          "file": "browser.spec.ts",
+          "line": 225,
+          "column": 1
+        },
+        {
+          "title": "本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30658,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 70,
+                        "line": 257
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登录并设置健康模式', exact: true })\u001b[22m\n\n\n  255 |   await card.getByRole('button', { name: `收藏 ${name}`, exact: true }).click();\n  256 |   await page.getByRole('button', { name: /健康模式/ }).click();\n> 257 |   await page.getByRole('button', { name: '登录并设置健康模式', exact: true }).click();\n      |                                                                      ^\n  258 |   await page.getByRole('button', { name: '登录测试账号', exact: true }).click();\n  259 |   await page.getByLabel('需要关注的疾病名称（选填）', { exact: true }).fill('偏头痛');\n  260 |   await page.getByRole('button', { name: '糖尿病', exact: true }).click();\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:257:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:19:30.520Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-本机测试：登录开启健康、标签不清空输入、刷新保持、退出关闭并保留食材收藏-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-9df4dc080ffb349215a4",
+          "file": "browser.spec.ts",
+          "line": 252,
+          "column": 1
+        },
+        {
+          "title": "D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4895,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:03.710Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-66cd7c204c3a5cda86e0",
+          "file": "browser.spec.ts",
+          "line": 280,
+          "column": 1
+        },
+        {
+          "title": "D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12118,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-state')\nExpected substring: \u001b[32m\"目录外菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-state') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-state')\u001b[22m\n\u001b[2m    18 × locator resolved to <div tabindex=\"-1\" role=\"status\" class=\"result-state \">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-state')\nExpected substring: \u001b[32m\"目录外菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-state') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-state')\u001b[22m\n\u001b[2m    18 × locator resolved to <div tabindex=\"-1\" role=\"status\" class=\"result-state \">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[22m\n\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:325:47",
+                    "location": {
+                      "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                      "column": 47,
+                      "line": 325
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 323 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'汤品道数'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfill(\u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 324 |\u001b[39m   \u001b[36mawait\u001b[39m generate(page)\u001b[33m;\u001b[39m \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.result-state'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'你指定了 20 道'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 325 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.result-state'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'目录外菜谱'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 326 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.notice'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 327 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 328 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 47,
+                        "line": 325
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.result-state')\nExpected substring: \u001b[32m\"目录外菜谱\"\u001b[39m\nReceived string:    \u001b[31m\"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[39m\nTimeout: 7000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('.result-state') with timeout 7000ms\u001b[22m\n\u001b[2m  - waiting for locator('.result-state')\u001b[22m\n\u001b[2m    18 × locator resolved to <div tabindex=\"-1\" role=\"status\" class=\"result-state \">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"为你找到 10 道你指定了 20 道，目前可搭配 10 道。可以减少菜数或调整口味后再试。\"\u001b[22m\n\n\n  323 |   await page.getByLabel('汤品道数', { exact: true }).fill('0');\n  324 |   await generate(page); await expect(page.locator('.result-state')).toContainText('你指定了 20 道');\n> 325 |   await expect(page.locator('.result-state')).toContainText('目录外菜谱');\n      |                                               ^\n  326 |   await expect(page.locator('.notice')).toHaveCount(0);\n  327 | });\n  328 |\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:325:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:09.399Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-11-自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                    "column": 47,
+                    "line": 325
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-0b0a02df7bd3874c12af",
+          "file": "browser.spec.ts",
+          "line": 306,
+          "column": 1
+        },
+        {
+          "title": "D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30605,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts",
+                        "column": 106,
+                        "line": 336
+                      },
+                      "message": "Error: locator.innerText: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '香菇土豆煲', exact: true }).locator('.nutrition-box')\u001b[22m\n\n\n  334 |   const reference = {\n  335 |     meta: await detail.locator('.detail-meta').innerText(), amounts: await detail.locator('.detail-lines').innerText(),\n> 336 |     steps: await detail.locator('.steps').innerText(), nutrition: await detail.locator('.nutrition-box').innerText(),\n      |                                                                                                          ^\n  337 |   };\n  338 |   await expect(detail).not.toContainText(/人份|人数|按当前.*人/);\n  339 |   await detail.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click(); await page.keyboard.press('Escape');\n    at D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\browser.spec.ts:336:106"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:24.505Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo\\test-results\\browser-D7-14-做法和收藏不标人数，3-12人及人数暂留空时用量做法保持不变-mobile\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fbeac1b2decfba2c3acd-ddb7369b7ebaa33fa2fb",
+          "file": "browser.spec.ts",
+          "line": 329,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "business-browser.spec.ts",
+      "file": "business-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:11.511Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-685ad5b7ddc15b011b3f",
+          "file": "business-browser.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:11.512Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-b388b4b637c2458f30a8",
+          "file": "business-browser.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:11.512Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-a9c0442b2a2f8d83bb26",
+          "file": "business-browser.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "文字整理采用数据库别名，数据库类别范围须确认后生效",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:17:11.512Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-37916cb33be8e7261faf",
+          "file": "business-browser.spec.ts",
+          "line": 66,
+          "column": 1
+        },
+        {
+          "title": "数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:57.143Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-b333aed5050c4dd2ddf5",
+          "file": "business-browser.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:57.144Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-e3b2ba6c55a39061b395",
+          "file": "business-browser.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:57.144Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-ddf9ed8db8f63a479f11",
+          "file": "business-browser.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "文字整理采用数据库别名，数据库类别范围须确认后生效",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Requires the isolated local database workflow and business Playwright config",
+                  "location": {
+                    "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                    "line": 5,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T13:20:57.144Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires the isolated local database workflow and business Playwright config",
+                      "location": {
+                        "file": "D:\\codex_AI\\菜谱推荐\\CookDemo\\tests\\business-browser.spec.ts",
+                        "line": 5,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "6a03060df5865f7f68b7-f876b882a79fc8db4585",
+          "file": "business-browser.spec.ts",
+          "line": 66,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T13:13:24.179Z",
+    "duration": 453980.341,
+    "expected": 18,
+    "skipped": 8,
+    "unexpected": 18,
+    "flaky": 0
+  }
+}

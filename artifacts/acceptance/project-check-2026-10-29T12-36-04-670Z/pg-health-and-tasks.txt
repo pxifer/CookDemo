@@ -1,0 +1,1 @@
+Required environment operation denied: DOCKER_PIPE_ACCESS_DENIED; this is not a test pass.

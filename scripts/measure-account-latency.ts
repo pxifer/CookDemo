@@ -2,9 +2,9 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {randomBytes} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {CloudBaseAccounts} from '../server/cloudbase-accounts';
+import {CloudBaseAccounts} from '../backend/src/cloudbase-accounts';
 const execute=promisify(execFile),envId='shiwei-d2gmiun66b7dc6a4f';
-async function cli(args:string[]){const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024});const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;}
+async function cli(args:string[]){const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024});const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;}
 const origin='https://shiwei-d2gmiun66b7dc6a4f-1512010497.ap-shanghai.app.tcloudbase.com';
 async function main(){
   const phase=process.argv[2];if(!['before','after'].includes(phase))throw Error('PHASE_REQUIRED');
@@ -41,8 +41,8 @@ async function main(){
         if(restored.userId!==uid||saved?.flavor!=='微辣'||saved?.checkSeasonings!==true||saved?.seasonings?.join(',')!=='salt'||saved?.restrictions?.[0]?.name!=='牛肉')throw Error('SYNTHETIC_SETTINGS_NOT_RESTORED');personalSettingsVerified=true;
       }finally{try{await call('otherDeviceLogoutMs','/api/v1/auth/logout',{});}finally{cookie=firstCookie;csrf=firstCsrf;}}
     }
-    await mkdir('acceptance/personal-settings-2026-10-24',{recursive:true});
-    await writeFile(`acceptance/personal-settings-2026-10-24/latency-${phase}.json`,JSON.stringify({verifiedAt:new Date().toISOString(),phase,network:'local-client-to-Shanghai',sampleCount:1,times,syntheticAccount:true,personalSettingsVerified,personalContentsPrinted:false,includesColdStartUncontrolled:true},null,2),{flag:'wx'});
+    await mkdir('artifacts/acceptance/personal-settings-2026-10-24',{recursive:true});
+    await writeFile(`artifacts/acceptance/personal-settings-2026-10-24/latency-${phase}.json`,JSON.stringify({verifiedAt:new Date().toISOString(),phase,network:'local-client-to-Shanghai',sampleCount:1,times,syntheticAccount:true,personalSettingsVerified,personalContentsPrinted:false,includesColdStartUncontrolled:true},null,2),{flag:'wx'});
     console.log(JSON.stringify({phase,times,secretsPrinted:false}));
   }finally{
     try{if(signedIn)await call('logoutMs','/api/v1/auth/logout',{});}

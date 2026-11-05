@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PGlite } from '@electric-sql/pglite';
-import { migrate, type Database } from '../server/db';
-import { ContentRepository } from '../server/content-repository';
+import { migrate, type Database } from '../backend/src/db';
+import { ContentRepository } from '../backend/src/content-repository';
 import { reviewedContent } from '../scripts/lib/reviewed-content';
 import { contentContext } from '../shared/content';
 import { defaultMeal } from '../shared/types';
-import { recommend } from '../server/recommendation';
+import { recommend } from '../backend/src/recommendation';
 import { request } from './fixtures';
 
 test('真实社区资料只导入核过的用量步骤，不导入构造营养或简介功效',async()=>{

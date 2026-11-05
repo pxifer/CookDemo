@@ -1,0 +1,45 @@
+{
+  "ready": false,
+  "missing": [],
+  "duplicate": [],
+  "invalid": [
+    {
+      "id": "postgres_integrations",
+      "status": "permission_blocked",
+      "reason": "not_passed"
+    },
+    {
+      "id": "browser_regressions",
+      "status": "permission_blocked",
+      "reason": "not_passed"
+    },
+    {
+      "id": "account_recovery_erasure",
+      "status": "not_run",
+      "reason": "report_missing"
+    },
+    {
+      "id": "business_restore_drill",
+      "status": "not_run",
+      "reason": "report_missing"
+    },
+    {
+      "id": "independent_ai_quality",
+      "status": "not_run",
+      "reason": "report_missing"
+    },
+    {
+      "id": "staging_acceptance",
+      "status": "not_run",
+      "reason": "report_missing"
+    },
+    {
+      "id": "rollback_drill",
+      "status": "not_run",
+      "reason": "report_missing"
+    }
+  ],
+  "scope": "release-scope-2026-10-29-v1",
+  "productionReleaseAuthorized": false,
+  "note": "Evidence assessment only; never deploys or overrides a required missing check"
+}

@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomBytes, randomUUID } from 'node:crypto';
 import { PGlite } from '@electric-sql/pglite';
-import { migrate, type Database } from '../server/db';
-import { open, seal } from '../server/crypto';
-import { ProfileRepository } from '../server/repository';
-import { InvocationLedger, type Invocation } from '../server/gateway';
-import { ErasureProcessor, restoreCanOpen } from '../server/erasure';
+import { migrate, type Database } from '../backend/src/db';
+import { open, seal } from '../backend/src/crypto';
+import { ProfileRepository } from '../backend/src/repository';
+import { InvocationLedger, type Invocation } from '../backend/src/gateway';
+import { ErasureProcessor, restoreCanOpen } from '../backend/src/erasure';
 
 async function database() {
   const pg = new PGlite();

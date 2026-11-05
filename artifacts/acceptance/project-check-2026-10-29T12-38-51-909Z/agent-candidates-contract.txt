@@ -1,0 +1,1 @@
+{"total":200,"automaticContracts":120,"needsTriage":0,"pendingIndependentQuality":80,"qualityPassed":null,"report":"D:\\codex_AI\\菜谱推荐\\CookDemo\\acceptance\\project-check-2026-10-29T12-38-51-909Z\\agent-candidates\\report.json"}

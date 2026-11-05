@@ -1,10 +1,10 @@
 import {readFile,writeFile} from 'node:fs/promises';
-import {CloudBaseGalleryRepository} from '../server/cloudbase-content';
-import {GALLERY_RELEASE} from '../server/gallery-content';
+import {CloudBaseGalleryRepository} from '../backend/src/cloudbase-content';
+import {GALLERY_RELEASE} from '../backend/src/gallery-content';
 import {contentContext} from '../shared/content';
 import {defaultMeal} from '../shared/types';
-import {recommend} from '../server/recommendation';
-import {compositionHash} from '../server/composition-review';
+import {recommend} from '../backend/src/recommendation';
+import {compositionHash} from '../backend/src/composition-review';
 async function main(){
   const config=JSON.parse(await readFile('.local-data/cloudbase-http/release-20261024-account-v12/cloudbaserc.json','utf8'));
   const vars=config.functions[0].envVariables;
@@ -29,7 +29,7 @@ async function main(){
     recipeCount:snapshot.recipes.length,variantCount:snapshot.recipes.flatMap(recipe=>recipe.variants).length,
     verifiedIngredientIdentities:snapshot.verifiedIngredientIdentities?.length,fishAllergyAndCornAvoidEligible:eligible[0],fishAvoidAndCornAllergyEligible:eligible[1],
     bothRestrictionModesPassed:true,excludedIngredientsChecked:true,rawCredentialsPrinted:false};
-  await writeFile('acceptance/composition-source-review-2026-10-24/cloud-database-readback-v6.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+  await writeFile('artifacts/acceptance/composition-source-review-2026-10-24/cloud-database-readback-v6.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
   console.log(JSON.stringify(report));
 }
 main().catch(error=>{const value=error as {name?:string;message?:string;code?:string;statusCode?:number};console.error(JSON.stringify({error:'COMPOSITION_V6_CLOUD_VERIFICATION_FAILED',name:value.name??'Error',message:(value.message??'').slice(0,180),code:value.code??'UNKNOWN',statusCode:value.statusCode??null}));process.exitCode=1;});

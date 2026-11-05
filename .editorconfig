@@ -1,0 +1,3 @@
+# Preserve Windows PowerShell 5.1 decoding for these Chinese-language entrypoints.
+[scripts/*.ps1]
+charset = utf-8-bom

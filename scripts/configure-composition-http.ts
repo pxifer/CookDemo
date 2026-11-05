@@ -1,5 +1,5 @@
 import { readFile,writeFile } from 'node:fs/promises';
-import { COMPOSITION_RELEASE,compositionHash } from '../server/composition-review';
+import { COMPOSITION_RELEASE,compositionHash } from '../backend/src/composition-review';
 async function main(){
   const path='.local-data/cloudbase-http/release-20261024-account-v3/cloudbaserc.json';
   const config=JSON.parse(await readFile(path,'utf8'));

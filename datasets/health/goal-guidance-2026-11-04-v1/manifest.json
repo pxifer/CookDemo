@@ -1,0 +1,12 @@
+{
+  "id": "goal-guidance-2026-11-04-v1",
+  "files": {
+    "knowledge.json": "6033f61e69ff02418dfb84d0ce6b86370b80cd8f4443deff56212a99a49485b6"
+  },
+  "sources": {
+    "nhc-weight-2024.pdf": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+    "issn-protein-2017.html": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9"
+  },
+  "scope": "qualitative goal research, no numerical intake prescription",
+  "sourceVerification": "project source extraction, not independent human or clinical review"
+}

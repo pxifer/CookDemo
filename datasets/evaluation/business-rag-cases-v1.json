@@ -1,0 +1,21 @@
+{
+  "id": "shiwei-business-rag-cases-v1",
+  "createdDate": "2026-11-04",
+  "status": "project_constructed_pending_independent_human_review",
+  "protocol": "business-rag-plan.md; expected fields are scoring only, never prompt input; reserve acceptance cases before tuning; no claim of independent clinical gold",
+  "cases": [
+    {"id":"dev-hypertension","split":"development","conditions":["高血压"],"goals":[],"context":{"adult":"yes"},"expected":{"factId":"fact:ht-limit-salt","direction":"limit","objectId":"f:salt"}},
+    {"id":"dev-fat-loss","split":"development","conditions":[],"goals":["减脂"],"context":{"adult":"yes"},"expected":{"factId":"goal:fat-loss-limit-sugar","direction":"limit","objectId":"f:added-sugar"}},
+    {"id":"dev-muscle","split":"development","conditions":[],"goals":["增肌"],"context":{"adult":"yes","healthyExerciser":"yes","resistanceTraining":"yes"},"expected":{"factId":"goal:muscle-prefer-egg","direction":"prefer","objectId":"f:egg"}},
+    {"id":"dev-alias-bulking","split":"development","conditions":[],"goals":["增加肌肉"],"context":{"adult":"yes","healthyExerciser":"yes","resistanceTraining":"yes"},"expected":{"factId":"goal:muscle-prefer-egg","direction":"prefer","objectId":"f:egg"}},
+    {"id":"accept-no-adult-default","split":"acceptance","conditions":["高血压"],"goals":[],"context":{},"expected":{"factId":"fact:ht-limit-salt","applicability":"needs_confirmation"}},
+    {"id":"accept-goal-not-obesity","split":"acceptance","conditions":[],"goals":["减脂"],"context":{"adult":"yes"},"expected":{"noDiseaseTopic":true,"factId":"goal:fat-loss-limit-sugar","direction":"limit"}},
+    {"id":"accept-muscle-no-training","split":"acceptance","conditions":[],"goals":["增肌"],"context":{"adult":"yes","healthyExerciser":"yes"},"expected":{"factId":"goal:muscle-prefer-egg","applicability":"needs_confirmation"}},
+    {"id":"accept-muscle-disease-scope","split":"acceptance","conditions":["慢性肾病"],"goals":["增肌"],"context":{"adult":"yes","healthyExerciser":"yes","resistanceTraining":"yes"},"expected":{"factId":"goal:muscle-prefer-egg","applicability":"not_applicable"}},
+    {"id":"accept-uncovered-goal","split":"acceptance","conditions":[],"goals":["治疗疾病"],"context":{"adult":"yes"},"expected":{"uncoveredTopic":"goal:治疗疾病"}},
+    {"id":"accept-lipid-direct-food","split":"acceptance","conditions":["高血脂"],"goals":[],"context":{"adult":"yes"},"expected":{"factId":"fact:lipid-prefer-low-fat-milk","direction":"prefer","objectId":"f:low-fat-milk"}},
+    {"id":"accept-renal-unknown-is-not-no","split":"acceptance","conditions":["慢性肾病"],"goals":[],"context":{"adult":"yes"},"expected":{"factId":"fact:ck-high-k-low-sodium-potassium-salt","applicability":"needs_confirmation"}},
+    {"id":"accept-underage","split":"acceptance","conditions":[],"goals":["减脂"],"context":{"adult":"no"},"expected":{"factId":"goal:fat-loss-limit-sugar","applicability":"not_applicable"}}
+  ],
+  "mealScenarioRequirements": ["allergy cannot be overridden", "accepted exclusion remains", "limit is not avoid", "no purchasing means missing required ingredient excluded", "cumulative inventory checked", "catalog-only IDs", "reason IDs bound to actual ingredient and primary method", "revocation before and during generation", "pagination no additional model call", "method change recomputes binding", "knowledge change invalidates cursor", "unknown facts are not invented"]
+}

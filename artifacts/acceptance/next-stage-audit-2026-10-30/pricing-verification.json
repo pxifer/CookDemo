@@ -1,0 +1,17 @@
+{
+  "model": "deepseek-flash",
+  "currency": "CNY",
+  "inputPerMillion": 2,
+  "outputPerMillion": 8,
+  "verifiedDate": "2026-10-30",
+  "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "checkedOnChinaDate": "2026-10-30",
+  "basis": "Published peak, uncached input rates used conservatively; no reliance on cache or off-peak discounts",
+  "providerRevision": "DeepSeek-V4.1-Flash-1017",
+  "authorizedMaximumCny": 5,
+  "actualCalls": 0,
+  "actualSpendCny": 0,
+  "dedicatedKeyConfigured": false,
+  "priceFile": ".local-data/evaluation/pricing-2026-10-30.json",
+  "validOnlyOnVerifiedDate": true
+}

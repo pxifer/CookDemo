@@ -1,0 +1,23 @@
+使用 Node.js v24.22.1
+
+> shiwei@0.1.0 build
+> tsx scripts/generate-validation.ts && tsc --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 59 modules transformed.
+rendering chunks...
+computing gzip size...
+artifacts/build/web/index.html                   0.54 kB │ gzip:   0.40 kB
+artifacts/build/web/assets/index-CuOXQor2.css   79.05 kB │ gzip:  16.24 kB
+artifacts/build/web/assets/index-CBfWaxra.js   439.64 kB │ gzip: 125.33 kB
+
+✓ built in 11.15s
+[PLUGIN_TIMINGS] JavaScript callbacks ran for 10.0s of this 11.1s build (90%).
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin vite:prepare-out-dir renderStart (45%, 5.1s, 1 call)
+  - plugin vite:css transform (25%, 2.7s, 3 calls)
+  - plugin vite:css-post renderChunk (16%, 1.8s, 1 call)
+Additional callback time came from callbacks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+

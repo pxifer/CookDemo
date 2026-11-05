@@ -1,0 +1,24 @@
+[WebServer] (node:7268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] node:internal/modules/esm/resolve:272
+[WebServer]     throw new ERR_MODULE_NOT_FOUND(
+[WebServer]           ^
+[WebServer] 
+[WebServer] Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'D:\codex_AI\菜谱推荐\CookDemo\server\main.ts' imported from D:\codex_AI\菜谱推荐\CookDemo\
+[WebServer]     at finalizeResolution (node:internal/modules/esm/resolve:272:11)
+[WebServer]     at moduleResolve (node:internal/modules/esm/resolve:879:10)
+[WebServer]     at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+[WebServer]     at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+[WebServer]     at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+[WebServer]     at nextStep (node:internal/modules/customization_hooks:189:26)
+[WebServer]     at resolveBaseSync (file:///D:/codex_AI/%E8%8F%9C%E8%B0%B1%E6%8E%A8%E8%8D%90/CookDemo/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:11092)
+[WebServer]     at resolveDirectorySync (file:///D:/codex_AI/%E8%8F%9C%E8%B0%B1%E6%8E%A8%E8%8D%90/CookDemo/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:12398)
+[WebServer]     at resolveTsPathsSync (file:///D:/codex_AI/%E8%8F%9C%E8%B0%B1%E6%8E%A8%E8%8D%90/CookDemo/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:13605)
+[WebServer]     at resolve (file:///D:/codex_AI/%E8%8F%9C%E8%B0%B1%E6%8E%A8%E8%8D%90/CookDemo/node_modules/tsx/dist/register-nyXW-TH3.mjs:2:16832) {
+[WebServer]   code: 'ERR_MODULE_NOT_FOUND',
+[WebServer]   url: 'file:///D:/codex_AI/%E8%8F%9C%E8%B0%B1%E6%8E%A8%E8%8D%90/CookDemo/server/main.ts'
+[WebServer] }
+[WebServer] 
+[WebServer] Node.js v24.22.1
+Error: Process from config.webServer was not able to start. Exit code: 1
+

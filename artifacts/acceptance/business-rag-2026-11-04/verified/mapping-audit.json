@@ -1,0 +1,433 @@
+{
+  "contentVersion": "gallery-listed-foods-20261026-v28",
+  "recipes": 341,
+  "foods": 666,
+  "diseaseGuidance": 124,
+  "coverage": {
+    "total": 124,
+    "mapped": 49,
+    "unmappedObjects": [
+      "f:fresh-fruit",
+      "f:whole-grains",
+      "f:low-fat-milk",
+      "f:nuts-unsalted",
+      "f:sweet-drinks",
+      "f:alcohol",
+      "f:pulses",
+      "f:egg-white",
+      "f:kidney",
+      "f:juice",
+      "f:fructose-syrup",
+      "f:preserved-fruit",
+      "f:stew-broth",
+      "f:cured-meat",
+      "f:skinless-poultry",
+      "f:sweet-cakes",
+      "f:candies",
+      "f:fried-food",
+      "f:fatty-meat",
+      "f:phosphate-additives-food",
+      "f:low-protein-rice",
+      "f:mung-starch-noodles",
+      "f:starch-roots",
+      "f:vegetable-broth",
+      "f:low-sodium-potassium-salt",
+      "p:vegetable-blanch-discard",
+      "f:high-fat-marine-fish",
+      "f:vitamin-d-fortified-milk",
+      "f:plain-yogurt",
+      "f:strong-tea",
+      "f:strong-coffee"
+    ]
+  },
+  "objects": [
+    {
+      "objectId": "f:fresh-vegetables",
+      "name": "新鲜蔬菜",
+      "foodIds": [
+        "broccoli",
+        "cabbage",
+        "carrot",
+        "cucumber",
+        "pepper",
+        "spinach",
+        "tomato",
+        "winter-melon",
+        "gallery-food-53f356a4dfae8657",
+        "gallery-food-1354bbffdcdce7c5",
+        "gallery-food-9cf831318b256277",
+        "gallery-food-e0468aa0c2c927b2",
+        "gallery-food-e2adfbdf8ad05988",
+        "gallery-food-844bb771219ba31c",
+        "gallery-food-1d740e0aaa9de330",
+        "gallery-food-437d9112a26dbe2e",
+        "gallery-food-36977dd6259e593e",
+        "gallery-food-5d0a727235792b93",
+        "gallery-food-78e2582d80b5b855",
+        "gallery-food-cbe62979975930dd",
+        "gallery-food-c35f1a0c32046f11",
+        "gallery-food-d273b4076f1d7226"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:fresh-fruit",
+      "name": "完整新鲜水果",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:whole-grains",
+      "name": "全谷物",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:tofu",
+      "name": "豆腐",
+      "foodIds": [
+        "tofu",
+        "gallery-food-4bee13f9774a4b84",
+        "gallery-food-1fa7ad4b79d90c19",
+        "gallery-food-c4543828e66649bb"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:low-fat-milk",
+      "name": "低脂或脱脂奶",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:nuts-unsalted",
+      "name": "原味坚果",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:salt",
+      "name": "食盐",
+      "foodIds": [
+        "salt"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:soy-sauce",
+      "name": "酱油",
+      "foodIds": [
+        "dark-soy",
+        "soy"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:oyster-sauce",
+      "name": "蚝油",
+      "foodIds": [
+        "oyster-sauce"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:fermented-bean-curd",
+      "name": "腐乳",
+      "foodIds": [
+        "gallery-food-6ecc1fcba64189a4",
+        "gallery-food-3b0d00bc4b42732a"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:bacon",
+      "name": "培根",
+      "foodIds": [
+        "gallery-food-00b3aecbb19f4724"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:sausage",
+      "name": "香肠",
+      "foodIds": [
+        "gallery-food-ac5fcc985fc1a1df",
+        "gallery-food-69b1bad14919412a"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:sweet-drinks",
+      "name": "含糖饮料",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:alcohol",
+      "name": "含酒精饮品",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:pulses",
+      "name": "杂豆",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:pickles",
+      "name": "咸菜",
+      "foodIds": [
+        "gallery-food-d835a6bf571c41da",
+        "gallery-food-009c2d87c53a19fc"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:milk",
+      "name": "牛奶",
+      "foodIds": [
+        "gallery-food-e46485a2658f3419",
+        "gallery-food-5b926df8c961666a"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:egg-white",
+      "name": "鸡蛋蛋白",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:liver",
+      "name": "动物肝脏",
+      "foodIds": [
+        "gallery-food-da5172fc8cb9d62f",
+        "gallery-food-3449f9ada931c9bb"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:kidney",
+      "name": "动物肾脏",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:juice",
+      "name": "鲜榨果汁",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:fructose-syrup",
+      "name": "果葡糖浆",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:preserved-fruit",
+      "name": "果脯蜜饯",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "p:boil-discard",
+      "name": "汆煮并弃汤",
+      "foodIds": [],
+      "processRule": "blanch-discard-primary",
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:stew-broth",
+      "name": "肉汤",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "p:fry",
+      "name": "油炸或煎制",
+      "foodIds": [],
+      "processRule": "fry-primary",
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:cured-meat",
+      "name": "腊肉",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:fish",
+      "name": "鱼类",
+      "foodIds": [
+        "fish",
+        "gallery-food-fd7cae30bad8386c",
+        "gallery-food-04b12dbad56b6c1b",
+        "gallery-food-9e41272b06c152d9",
+        "gallery-food-ac5bb80fb7475d89",
+        "gallery-food-7390fed99bf241ed"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:skinless-poultry",
+      "name": "去皮禽肉",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:lean-meat",
+      "name": "瘦肉",
+      "foodIds": [
+        "gallery-food-62bd7a0801ad7b30"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:organ-meat",
+      "name": "动物内脏",
+      "foodIds": [
+        "gallery-food-da5172fc8cb9d62f",
+        "gallery-food-49ab72a5fed621cc",
+        "gallery-food-3449f9ada931c9bb"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:sweet-cakes",
+      "name": "含糖烘焙糕点",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:candies",
+      "name": "糖果",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "p:steam-boil",
+      "name": "蒸煮汆制",
+      "foodIds": [],
+      "processRule": "steam-boil-primary",
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:fried-food",
+      "name": "油炸食品",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:fatty-meat",
+      "name": "肥肉",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:chicken-seasoning",
+      "name": "鸡精",
+      "foodIds": [
+        "chicken-powder"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:msg",
+      "name": "味精",
+      "foodIds": [
+        "msg"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:phosphate-additives-food",
+      "name": "含磷添加剂较多的加工食品",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:soy-products",
+      "name": "大豆制品",
+      "foodIds": [
+        "tofu",
+        "gallery-food-e930a9da55b4ac2d",
+        "gallery-food-75f53b5e47261724",
+        "gallery-food-4bee13f9774a4b84",
+        "gallery-food-1fa7ad4b79d90c19",
+        "gallery-food-c4543828e66649bb",
+        "gallery-food-0e918b32cebf9606",
+        "gallery-food-9f104c5ac5211557"
+      ],
+      "status": "mapped"
+    },
+    {
+      "objectId": "f:low-protein-rice",
+      "name": "低蛋白大米",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:mung-starch-noodles",
+      "name": "绿豆粉丝",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:starch-roots",
+      "name": "低蛋白淀粉类主食",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:vegetable-broth",
+      "name": "菜汤",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:low-sodium-potassium-salt",
+      "name": "高钾低钠盐",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "p:vegetable-blanch-discard",
+      "name": "蔬菜浸泡焯水弃汤",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:high-fat-marine-fish",
+      "name": "高脂肪海鱼",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:vitamin-d-fortified-milk",
+      "name": "维生素D强化牛奶",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:plain-yogurt",
+      "name": "无糖酸奶",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:strong-tea",
+      "name": "浓茶",
+      "foodIds": [],
+      "status": "unmapped"
+    },
+    {
+      "objectId": "f:strong-coffee",
+      "name": "浓咖啡",
+      "foodIds": [],
+      "status": "unmapped"
+    }
+  ],
+  "scope": "Mapping coverage only; no fabricated shared clinical context or health approval"
+}

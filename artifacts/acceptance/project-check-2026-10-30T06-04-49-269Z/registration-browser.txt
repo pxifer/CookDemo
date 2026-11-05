@@ -1,0 +1,15 @@
+
+Running 10 tests using 1 worker
+
+  ok  1 [desktop] › tests\registration-browser.spec.ts:5:1 › 忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录 (3.6s)
+  ok  2 [desktop] › tests\registration-browser.spec.ts:30:1 › 常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交 (3.2s)
+  ok  3 [desktop] › tests\registration-browser.spec.ts:58:1 › 自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离 (5.6s)
+  ok  4 [desktop] › tests\registration-browser.spec.ts:115:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 (4.5s)
+  ok  5 [desktop] › tests\registration-browser.spec.ts:154:1 › 注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功 (2.1s)
+  ok  6 [mobile] › tests\registration-browser.spec.ts:5:1 › 忘记密码：通过受控邮箱验证码重置，旧密码失效，新密码可登录 (3.1s)
+  ok  7 [mobile] › tests\registration-browser.spec.ts:30:1 › 常规登录：只有一个登录按钮，未触发input事件的自动填充值可提交，失败不清空且防重复提交 (3.5s)
+  ok  8 [mobile] › tests\registration-browser.spec.ts:58:1 › 自助注册：无需邀请、错误码可重试、自动同步、刷新/换设备恢复与新账号隔离 (6.9s)
+  ok  9 [mobile] › tests\registration-browser.spec.ts:115:1 › 个人设置自动保存恢复：不重载页面，不同步人数或草稿，游客不能保存账户设置 (6.1s)
+  ok 10 [mobile] › tests\registration-browser.spec.ts:154:1 › 注册失败保留输入并聚焦原因；注册已受理但会话未确认时不能显示成功 (1.9s)
+
+  10 passed (54.5s)

@@ -1,0 +1,445 @@
+{
+  "checkedAt": "2026-10-28 Asia/Shanghai",
+  "scope": "Read-only application-in-memory audit. Editorial expected facts only; not evidence Recall, SQL throughput, independent test or medical validation.",
+  "bundle": "health-kb-2026-10-28-v1",
+  "bundleHash": "eb2ab98555cc3290043ffe0e23773912a82880ff0a67c4326d3a3535cf9b1fd7",
+  "counts": {
+    "sources": 7,
+    "entities": 103,
+    "evidence": 53,
+    "facts": 155,
+    "ruleDrafts": 58,
+    "recipeBindings": 0
+  },
+  "cases": 20,
+  "allExpectedAt": {
+    "1": 18,
+    "5": 20,
+    "10": 20,
+    "20": 20
+  },
+  "rows": [
+    {
+      "id": "ht-salt",
+      "query": "高血压 食盐",
+      "expectedFactIds": [
+        "fact:ht-limit-salt"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "ht-potassium",
+      "query": "高血压 钾",
+      "expectedFactIds": [
+        "fact:ht-potassium"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "ht-soy-sauce",
+      "query": "高血压 酱油",
+      "expectedFactIds": [
+        "fact:ht-limit-soy-sauce"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "ht-milk",
+      "query": "高血压 低脂或脱脂奶",
+      "expectedFactIds": [
+        "fact:ht-prefer-low-fat-milk"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "ht-oil",
+      "query": "菜籽油 不饱和脂肪酸",
+      "expectedFactIds": [
+        "fact:canola-oil-unsaturated-fat"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "dm-carbs",
+      "query": "2型糖尿病 碳水化合物",
+      "expectedFactIds": [
+        "fact:dm-carbohydrate"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "dm-sweet-drink",
+      "query": "2型糖尿病 含糖饮料",
+      "expectedFactIds": [
+        "fact:dm-sweet-drinks"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "dm-alcohol",
+      "query": "2型糖尿病 含酒精饮品",
+      "expectedFactIds": [
+        "fact:dm-alcohol"
+      ],
+      "ranks": [
+        2
+      ],
+      "allExpectedAt": {
+        "1": false,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "dm-grains",
+      "query": "2型糖尿病 全谷物",
+      "expectedFactIds": [
+        "fact:dm-prefer-whole-grains"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "dm-fruit",
+      "query": "2型糖尿病 新鲜水果",
+      "expectedFactIds": [
+        "fact:dm-fruit"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "gout-liver",
+      "query": "痛风 动物肝脏",
+      "expectedFactIds": [
+        "fact:gout-avoid-liver"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "gout-milk",
+      "query": "痛风 牛奶",
+      "expectedFactIds": [
+        "fact:gout-prefer-milk"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "gout-tofu",
+      "query": "痛风 豆腐",
+      "expectedFactIds": [
+        "fact:gout-tofu"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "gout-fruit",
+      "query": "痛风 新鲜水果",
+      "expectedFactIds": [
+        "fact:gout-fruit"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "gout-juice",
+      "query": "痛风 鲜榨果汁",
+      "expectedFactIds": [
+        "fact:gout-limit-juice"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "hua-purines",
+      "query": "高尿酸血症 总嘌呤",
+      "expectedFactIds": [
+        "fact:hyperuricemia-purines"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "gout-broth",
+      "query": "痛风 肉汤",
+      "expectedFactIds": [
+        "fact:gout-broth"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "cooking-hca",
+      "query": "肉类高温煎烤 杂环胺",
+      "expectedFactIds": [
+        "fact:high-heat-hca"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "cooking-pah",
+      "query": "肉类烟熏 多环芳烃",
+      "expectedFactIds": [
+        "fact:smoking-pah"
+      ],
+      "ranks": [
+        1
+      ],
+      "allExpectedAt": {
+        "1": true,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    },
+    {
+      "id": "fresh-mushroom-conflict",
+      "query": "鲜香菇 总嘌呤",
+      "expectedFactIds": [
+        "fact:nhc-purine-shiitake-fresh",
+        "fact:kaneko-purine-shiitake-fresh"
+      ],
+      "ranks": [
+        2,
+        1
+      ],
+      "allExpectedAt": {
+        "1": false,
+        "5": true,
+        "10": true,
+        "20": true
+      }
+    }
+  ],
+  "probes": [
+    {
+      "query": "高血压少吃盐吗",
+      "state": "research_results",
+      "executionAllowed": false,
+      "top": [
+        {
+          "id": "fact:ht-limit-salt",
+          "score": 8,
+          "applicability": "needs_confirmation"
+        },
+        {
+          "id": "fact:salt-sodium",
+          "score": 5,
+          "applicability": "applicable_for_research"
+        },
+        {
+          "id": "fact:ht-alcohol",
+          "score": 3,
+          "applicability": "needs_confirmation"
+        },
+        {
+          "id": "fact:ht-limit-alcohol",
+          "score": 3,
+          "applicability": "needs_confirmation"
+        },
+        {
+          "id": "fact:ht-limit-bacon",
+          "score": 3,
+          "applicability": "needs_confirmation"
+        }
+      ]
+    },
+    {
+      "query": "痛风牛奶能不能喝",
+      "state": "research_results",
+      "executionAllowed": false,
+      "top": [
+        {
+          "id": "fact:gout-prefer-milk",
+          "score": 8,
+          "applicability": "needs_confirmation"
+        },
+        {
+          "id": "fact:milk-protein",
+          "score": 5,
+          "applicability": "applicable_for_research"
+        },
+        {
+          "id": "fact:nhc-purine-milk",
+          "score": 5,
+          "applicability": "applicable_for_research"
+        },
+        {
+          "id": "fact:gout-alcohol",
+          "score": 3,
+          "applicability": "needs_confirmation"
+        },
+        {
+          "id": "fact:gout-alcohol-avoid",
+          "score": 3,
+          "applicability": "needs_confirmation"
+        }
+      ]
+    },
+    {
+      "query": "糖尿病可以吃什么",
+      "state": "needs_confirmation",
+      "executionAllowed": false,
+      "top": []
+    },
+    {
+      "query": "鲜香菇和干香菇一样吗",
+      "state": "research_results",
+      "executionAllowed": false,
+      "top": [
+        {
+          "id": "fact:kaneko-purine-shiitake-dry",
+          "score": 5,
+          "applicability": "applicable_for_research"
+        },
+        {
+          "id": "fact:kaneko-purine-shiitake-fresh",
+          "score": 5,
+          "applicability": "applicable_for_research"
+        },
+        {
+          "id": "fact:nhc-purine-shiitake-fresh",
+          "score": 5,
+          "applicability": "applicable_for_research"
+        }
+      ]
+    },
+    {
+      "query": "完全未知食材ZQ9",
+      "state": "insufficient_evidence",
+      "executionAllowed": false,
+      "top": []
+    }
+  ]
+}

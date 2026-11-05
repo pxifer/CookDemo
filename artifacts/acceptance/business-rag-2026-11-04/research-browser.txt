@@ -1,0 +1,15 @@
+[WebServer] (node:51224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:51224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:54604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › tests\food-guidance.browser.ts:3:1 › 研究RAG：明确条件→有来源建议→实际菜品依据，桌面与手机衔接 (3.7s)
+(node:2984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [mobile] › tests\food-guidance.browser.ts:3:1 › 研究RAG：明确条件→有来源建议→实际菜品依据，桌面与手机衔接 (3.5s)
+
+  2 passed (21.3s)

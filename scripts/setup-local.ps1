@@ -1,4 +1,4 @@
-param([switch]$PrepareOnly)
+﻿param([switch]$PrepareOnly)
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 Push-Location -LiteralPath $projectRoot
@@ -20,11 +20,11 @@ try {
   $env:PATH = (Split-Path -Parent $dockerExecutable) + ';' + $env:PATH
   $dockerOsType = & $dockerExecutable info --format '{{.OSType}}'
   if ($LASTEXITCODE -ne 0 -or $dockerOsType -ne 'linux') { throw 'Docker Linux 引擎未就绪' }
-  $compose = @('compose','--project-directory',$projectRoot,'-f','deploy/compose.local.yml')
+  $compose = @('compose','--project-directory',$projectRoot,'-f','deployment/compose.local.yml')
   & $dockerExecutable @compose up -d --wait db
   if ($LASTEXITCODE -ne 0) { throw '数据库启动未通过；保留数据卷，不自动删除或重建' }
   & "$PSScriptRoot\run.ps1" 'db:migrate' -EnvFile '.local-data/deployment/migration.env' -Vector
-  & $dockerExecutable @compose cp 'deploy/db/runtime-grants.sql' 'db:/tmp/runtime-grants.sql'
+  & $dockerExecutable @compose cp 'deployment/db/runtime-grants.sql' 'db:/tmp/runtime-grants.sql'
   if ($LASTEXITCODE -ne 0) { throw '授权脚本复制失败' }
   & $dockerExecutable @compose exec -T db psql -U shiwei_owner -d shiwei_dev -v ON_ERROR_STOP=1 -f /tmp/runtime-grants.sql
   if ($LASTEXITCODE -ne 0) { throw '运行角色授权失败' }

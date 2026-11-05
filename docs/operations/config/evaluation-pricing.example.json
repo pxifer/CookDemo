@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-flash",
+  "currency": "CNY",
+  "inputPerMillion": null,
+  "outputPerMillion": null,
+  "verifiedDate": "REPLACE_WITH_SHANGHAI_DATE_YYYY-MM-DD",
+  "source": "https://api-docs.deepseek.com/quick_start/pricing"
+}

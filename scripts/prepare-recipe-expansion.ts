@@ -9,10 +9,10 @@ type Card = {
 const readLines = async (path: string): Promise<Card[]> => (await readFile(path, 'utf8'))
   .split(/\r?\n/).filter(Boolean).map(line => JSON.parse(line) as Card);
 const sha = (text: string) => createHash('sha256').update(text).digest('hex');
-const sourceFiles = ['docs/data/recipe-cards-v3.jsonl', 'docs/data/recipe-candidates-supplement-v1.jsonl'];
+const sourceFiles = ['datasets/recipes/curation/recipe-cards-v3.jsonl', 'datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl'];
 const [sourceCards, supplement] = await Promise.all(sourceFiles.map(readLines));
 const cards = [...sourceCards, ...supplement];
-const reviewed = JSON.parse(await readFile('docs/data/community-recipe-review-v1.json', 'utf8')) as { selections: { id: string }[] };
+const reviewed = JSON.parse(await readFile('datasets/recipes/curation/community-recipe-review-v1.json', 'utf8')) as { selections: { id: string }[] };
 const currentNames = new Set([
   ...sourceCards.filter(card => card.source === 'howtocook' && card.completeness === 'full_process').map(card => card.dish_key),
   ...supplement.map(card => card.dish_key),
@@ -71,15 +71,15 @@ const rows = selected.flatMap(({ dish, versions }, index) => {
     recipe: card,
   }));
 });
-const out = 'docs/data/recipe-expansion-simple-v1.jsonl';
+const out = 'datasets/recipes/curation/recipe-expansion-simple-v1.jsonl';
 await writeFile(out, rows.map(row => JSON.stringify(row)).join('\n') + '\n');
 const editorialRows=editorialDrafts.map((recipe,index)=>({rank:index+1,tier:0,dish_key:recipe.dish_key,
   ingredientEntryCount:ingredientCount(recipe),method:method(recipe),source:recipe.source,sourceUri:recipe.url,recipe}));
-await writeFile('docs/data/recipe-original-drafts-2026-10-26.jsonl',editorialRows.map(row=>JSON.stringify(row)).join('\n')+'\n');
+await writeFile('datasets/recipes/curation/recipe-original-drafts-2026-10-26.jsonl',editorialRows.map(row=>JSON.stringify(row)).join('\n')+'\n');
 const stats = {
   status: 'internal-candidate-only',
   note: 'No recipe source or license is upgraded by this selection. Keep original per-card source and pending review state.',
-  sourceDataset: 'docs/data/recipe-cards-v3.jsonl + docs/data/recipe-candidates-supplement-v1.jsonl',
+  sourceDataset: 'datasets/recipes/curation/recipe-cards-v3.jsonl + datasets/recipes/curation/recipe-candidates-supplement-v1.jsonl',
   currentCatalogDishes: currentNames.size,
   newUniqueDishes: selected.length,
   recipeVersions: rows.length,
@@ -93,15 +93,15 @@ const stats = {
   hash: sha(rows.map(row => JSON.stringify(row)).join('\n') + '\n'),
 };
 if (stats.ids !== rows.length || stats.uniqueDishes !== 200 || rows.some(row => !row.recipe.steps?.length || !row.recipe.main?.length)) throw new Error('EXPANSION_PACK_INVALID');
-await mkdir('docs/recipes', { recursive: true });
-await writeFile('docs/data/recipe-expansion-simple-v1.json', JSON.stringify(stats, null, 2) + '\n');
+await mkdir('datasets/recipes/sources', { recursive: true });
+await writeFile('datasets/recipes/curation/recipe-expansion-simple-v1.json', JSON.stringify(stats, null, 2) + '\n');
 const table = selected.map((item, index) => `| ${index + 1} | ${item.first.id} | ${item.dish} | ${ingredientCount(item.first)} | ${item.first.category} | ${item.first.source} | ${item.first.url.startsWith('urn:')?'拾味自编草稿':`[原文](${item.first.url})`} |`).join('\n');
 const report = `# 家常少配料菜谱扩展候选 v1\n\n` +
   `本批在当前145道菜之外，按原始配料条目数从少到多挑选200道完整流程：第1～150道为第一批，第151～200道为扩展储备。` +
   `保留各条原始来源、做法、未知用量和待核状态；相同菜名的不同口味只保留不同口味版本，不把同味重复来源当成新菜。` +
   `这份清单用于内部候选库逐方审核，不表示取得来源再发布许可，不改变成分核验、过敏/忌口拦截或正式上线状态。另有两道用户举例的自编短配方候选（辣椒炒肉片、蒜薹肉丝），各含另一种同料做法，未试做并单独存档。\n\n` +
-  `生成数据： [JSONL](../data/recipe-expansion-simple-v1.jsonl) · [盘点](../data/recipe-expansion-simple-v1.json)。` +
-  ` 自编候选： [单独数据文件](../data/recipe-original-drafts-2026-10-26.jsonl)。当前线上菜谱照片仍是原145道；本批不借用其他菜品图片。\n\n` +
+  `生成数据： [JSONL](../curation/recipe-expansion-simple-v1.jsonl) · [盘点](../curation/recipe-expansion-simple-v1.json)。` +
+  ` 自编候选： [单独数据文件](../curation/recipe-original-drafts-2026-10-26.jsonl)。当前线上菜谱照片仍是原145道；本批不借用其他菜品图片。\n\n` +
   `| 顺序 | 原方ID | 菜名 | 配料条目 | 分类 | 来源组 | 来源 |\n|---:|---|---|---:|---|---|---|\n${table}\n`;
-await writeFile('docs/recipes/expansion-simple-v1.md', report);
+await writeFile('datasets/recipes/sources/expansion-simple-v1.md', report);
 console.log(JSON.stringify(stats, null, 2));

@@ -1,0 +1,13 @@
+
+Running 8 tests using 1 worker
+
+  ok 1 [desktop] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 (5.4s)
+  ok 2 [desktop] › tests\business-browser.spec.ts:34:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱 (1.4s)
+  ok 3 [desktop] › tests\business-browser.spec.ts:47:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 (2.7s)
+  ok 4 [desktop] › tests\business-browser.spec.ts:65:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效 (2.9s)
+  ok 5 [mobile] › tests\business-browser.spec.ts:12:1 › 数据库专有食材→推荐→步骤/营养→变体→收藏刷新复核 (4.5s)
+  ok 6 [mobile] › tests\business-browser.spec.ts:34:1 › 数据库目录首次失败可重试，原草稿保留；不会显示源码备用菜谱 (1.2s)
+  ok 7 [mobile] › tests\business-browser.spec.ts:47:1 › 候选不足不凑数；推荐故障不清空输入；过敏过滤仍生效且健康未启用 (2.7s)
+  ok 8 [mobile] › tests\business-browser.spec.ts:65:1 › 文字整理采用数据库别名，数据库类别范围须确认后生效 (2.3s)
+
+  8 passed (33.7s)

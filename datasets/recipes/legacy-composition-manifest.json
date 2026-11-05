@@ -1,0 +1,9 @@
+{
+  "scope": "immutable historical composition release only; not current listed-food policy",
+  "baseHash": "a8672d832d83d0e77fcd331334612a5a3697e89b301d2c49183cd0f830b1063b",
+  "snapshotHash": "91c2dfa381b940282b2c3a3e87ee9708c668de5c05d43c84bca717f3165dcdd6",
+  "parserArtifact": "release-20261024-account-v12/function/http-main.cjs",
+  "parserSha256": "ada64c79e34cac79fcb19bf99f30094a957908bb2e5e71fe10cc8f3cb1377ae1",
+  "variants": 146,
+  "approved": 145
+}

@@ -5,7 +5,7 @@ import { randomBytes } from 'node:crypto';
 
 const execute=promisify(execFile);
 const envId='shiwei-d2gmiun66b7dc6a4f';
-const cli='.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb';
+const cli='.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb';
 const directory='.local-data/cloudbase-http/account-ingredients-20261024';
 async function command(args:string[]){const {stdout}=await execute(process.execPath,[cli,...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:1024*1024});const start=stdout.indexOf('{');if(start<0)throw Error('CLI_RESPONSE');return JSON.parse(stdout.slice(start));}
 async function main(){

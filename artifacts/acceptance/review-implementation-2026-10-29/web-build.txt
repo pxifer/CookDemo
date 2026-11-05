@@ -1,0 +1,16 @@
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 57 modules transformed.
+rendering chunks...
+computing gzip size...
+build/web/index.html                   0.54 kB │ gzip:   0.41 kB
+build/web/assets/index-CuOXQor2.css   79.05 kB │ gzip:  16.24 kB
+build/web/assets/index-01X0l20t.js   434.62 kB │ gzip: 123.94 kB
+
+✓ built in 8.38s
+[33m[PLUGIN_TIMINGS] [0mJavaScript callbacks ran for 7.8s of this 8.4s build (94%).
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin vite:prepare-out-dir renderStart (87%, 7.3s, 1 call)
+Additional callback time came from callbacks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+

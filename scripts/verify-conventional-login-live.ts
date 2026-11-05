@@ -3,10 +3,10 @@ import {randomBytes} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {chromium,expect} from '@playwright/test';
-import {CloudBaseAccounts} from '../server/cloudbase-accounts';
+import {CloudBaseAccounts} from '../backend/src/cloudbase-accounts';
 const execute=promisify(execFile),envId='shiwei-d2gmiun66b7dc6a4f';
-const root='acceptance/conventional-login-2026-10-24',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
-async function cli(args:string[]){const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024});const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;}
+const root='artifacts/acceptance/conventional-login-2026-10-24',origin=`https://${envId}-1512010497.ap-shanghai.app.tcloudbase.com`;
+async function cli(args:string[]){const {stdout}=await execute(process.execPath,['.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli/bin/tcb',...args,'-e',envId,'--region','ap-shanghai','--json'],{maxBuffer:2*1024*1024});const result=JSON.parse(stdout.slice(stdout.indexOf('{')));if(result.error)throw Error('CLOUD_COMMAND_FAILED');return result.data;}
 async function main(){
   const name=`sw-login-${randomBytes(4).toString('hex')}`,password=`Ab1!${randomBytes(8).toString('hex')}`,next=`Ab1!${randomBytes(8).toString('hex')}`;
   let uid:string|undefined;const report={verifiedAt:new Date().toISOString(),desktop:false,mobile:false,oneLoginButton:false,silentDomFillSubmitted:false,oneRequestPerLogin:false,cleanup:false,syntheticAccount:true,secretsPrinted:false,realUserCredentialsUsed:false};

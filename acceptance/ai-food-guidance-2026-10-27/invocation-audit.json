@@ -1,8 +1,0 @@
-{
-  "publishedBaseline": "health-chat-v35",
-  "fixedDeepSeekEndpoint": true,
-  "cloudEntryInjectsTestFetch": false,
-  "constructedRepliesInBundle": false,
-  "historicProviderUsageRecorded": false,
-  "reasonForPrivateDashboardMismatch": "not established; provider console not accessed"
-}

@@ -1,14 +1,14 @@
 import {createHash} from 'node:crypto';
 import {readFile,writeFile} from 'node:fs/promises';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
-import {COMPOSITION_BASE_HASH,compositionFingerprint,reviewSnapshot,reviewedDefinitions} from '../server/composition-review';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
+import {COMPOSITION_BASE_HASH,compositionFingerprint,reviewSnapshot,reviewedDefinitions} from '../backend/src/composition-review';
 import {verifiedIngredientIdentities} from '../shared/ingredient-evidence';
 
-const root='acceptance/composition-source-review-2026-10-24';
-const inventory=JSON.parse(await readFile('acceptance/composition-v2-2026-10-24/all-recipe-ingredient-inventory.json','utf8')) as any[];
+const root='artifacts/acceptance/composition-source-review-2026-10-24';
+const inventory=JSON.parse(await readFile('artifacts/acceptance/composition-v2-2026-10-24/all-recipe-ingredient-inventory.json','utf8')) as any[];
 const bundle=JSON.parse(await readFile('.local-data/cloudbase-http/release-20261023/gallery-bundle.json','utf8'));
 const sourceMap=new Map<string,any>();
-for(const path of ['acceptance/composition-v2-2026-10-24/github-sources.json',`${root}/howtocook-pending-sources.json`]){
+for(const path of ['artifacts/acceptance/composition-v2-2026-10-24/github-sources.json',`${root}/howtocook-pending-sources.json`]){
   const list=JSON.parse(await readFile(path,'utf8')) as any[];
   for(const source of list){
     if(source.commit!=='0e106eea348c734fe1586f781202994439cf98a5')throw Error(`SOURCE_COMMIT:${source.id}`);
@@ -18,7 +18,7 @@ for(const path of ['acceptance/composition-v2-2026-10-24/github-sources.json',`$
   }
 }
 const known=reviewedDefinitions;
-for(const [id,file] of [['R380','acceptance/account-ingredients-2026-10-24/R380-source.md'],['R382','acceptance/account-ingredients-2026-10-24/R382-source.md']]){
+for(const [id,file] of [['R380','artifacts/acceptance/account-ingredients-2026-10-24/R380-source.md'],['R382','artifacts/acceptance/account-ingredients-2026-10-24/R382-source.md']]){
   const text=await readFile(file,'utf8'),prior=known.find(item=>item.sourceRecord===id);
   const sha256=createHash('sha256').update(text).digest('hex');
   if(!prior||prior.sourceSha256!==sha256)throw Error(`LOCAL_SOURCE_HASH:${id}`);
@@ -28,7 +28,7 @@ const recordIds=new Set(inventory.map(row=>row.sourceRecord));
 if(recordIds.size!==145||[...recordIds].some(id=>!sourceMap.has(id)))throw Error('SOURCE_COVERAGE_INCOMPLETE');
 const snapshot=reviewSnapshot(verifyGalleryBundle(bundle,COMPOSITION_BASE_HASH));
 const identityMap=new Map(verifiedIngredientIdentities(snapshot).map(item=>[item.foodId,item]));
-const correctionRows=JSON.parse(await readFile('docs/data/composition-review-v2.json','utf8')).corrections as any[];
+const correctionRows=JSON.parse(await readFile('datasets/recipes/curation/composition-review-v2.json','utf8')).corrections as any[];
 const output:any[]=[];let anchoredLines=0,unanchoredLines=0,unknownFoods=0;
 const normalize=(value:string)=>value.normalize('NFKC').replace(/\s+/g,'').replace(/[“”‘’`*_—‐-]/g,'');
 for(const recipe of snapshot.recipes)for(const variant of recipe.variants){
@@ -60,7 +60,7 @@ for(const recipe of snapshot.recipes)for(const variant of recipe.variants){
     sourceCoverage:`固定提交 ${source.commit} 的逐菜原文；发布前逐项绑定配料行、可省状态、口味配方、步骤、食材身份及来源状态。复合商品成分未因原方出现而推定，未核成分继续阻断对应限制。`,leaves});
 }
 if(output.length!==135)throw Error(`EXPECTED_PENDING_VARIANTS:${output.length}`);
-await writeFile('docs/data/composition-source-review-v4.json',JSON.stringify({version:'composition-source-review-v4',sourceCommit:'0e106eea348c734fe1586f781202994439cf98a5',definitions:output},null,2)+'\n',{flag:'wx'});
+await writeFile('datasets/recipes/curation/composition-source-review-v4.json',JSON.stringify({version:'composition-source-review-v4',sourceCommit:'0e106eea348c734fe1586f781202994439cf98a5',definitions:output},null,2)+'\n',{flag:'wx'});
 const report={newSourceBoundRecords:output.length,totalSourceDocuments:sourceMap.size,verifiedSourceGitBlobs:sourceMap.size-2,
   ingredientLinesAnchoredByExactOriginalText:anchoredLines,foodLeavesWithUnanchoredOrUnresolvedIdentity:unknownFoods,foodLeavesWithoutExactSourceText:unanchoredLines,
   productLabelClaimsAdded:0,unknownIngredientsRemainBlocked:true,hashBoundToRecipeVariant:true};

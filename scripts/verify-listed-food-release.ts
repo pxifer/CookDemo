@@ -1,9 +1,9 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {PGlite} from '@electric-sql/pglite';
-import {verifyGalleryBundle} from '../server/cloudbase-content';
+import {verifyGalleryBundle} from '../backend/src/cloudbase-content';
 import {contentContext} from '../shared/content';
-import {checkDish,recommend} from '../server/recommendation';
+import {checkDish,recommend} from '../backend/src/recommendation';
 import {defaultMeal} from '../shared/types';
 const root='.local-data/cloudbase-http/listed-foods-20261026-v27';
 const bundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8'));
@@ -36,7 +36,7 @@ assert.equal(mealResult.status,'completed');assert(mealResult.dishes.length);
 const db=new PGlite();let anonymousWriteDenied=false;
 try{
   await db.exec('CREATE ROLE anon; CREATE ROLE authenticated; CREATE ROLE service_role;');
-  await db.exec(await readFile('deploy/db/gallery-http-release.sql','utf8'));
+  await db.exec(await readFile('deployment/db/gallery-http-release.sql','utf8'));
   await db.exec(await readFile(`${root}/migration/cloudbase/migrations/20261026120000_listed_food_expansion.sql`,'utf8'));
   await db.exec('SET ROLE anon');
   const records=await db.query<{count:number}>('SELECT count(*)::int AS count FROM shiwei_recipe_food_records');assert.equal(records.rows[0].count,manifest.ingredientRows);
@@ -46,6 +46,6 @@ const report={releaseId:manifest.releaseId,hash:manifest.hash,recipes:snapshot.r
   variants:manifest.variants,ingredientRows:manifest.ingredientRows,ingredientExclusions,allNamedFoodsResolvable:true,
   optionalIngredientsAndSeasoningsExcluded:true,porkCutFamilyVerified:true,hiddenSoySauceComponentsNotInferred:true,
   paginationVerified:true,sqlRoundTrip:true,anonymousWriteDenied,healthEnabled:false,chemicalCompositionInferred:false};
-await mkdir('acceptance/listed-foods-v27',{recursive:true});
-await writeFile('acceptance/listed-foods-v27/local-verification.json',JSON.stringify(report,null,2)+'\n');
+await mkdir('artifacts/acceptance/listed-foods-v27',{recursive:true});
+await writeFile('artifacts/acceptance/listed-foods-v27/local-verification.json',JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
