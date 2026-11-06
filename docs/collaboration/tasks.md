@@ -13,7 +13,7 @@
 | INPUT-001 | 输入开发agent | 去除用量输入、受控图片识别及撤销保护 | `agent/codex/INPUT-001-photo-ingredients`，审核 `7843ea6` | 身份/Key/费用/隐私及输入回归 | 完成；合并 `42407d0` 并复验；[集成审核](reviews/INTEGRATION-2026-11-06.md)，旧P1已关闭 |
 | RAG-003 | RAG开发agent | 正文与版面离线解析候选 | `agent/rag/RAG-003-document-parsing`，`dedb500` | 可回溯、重复重建及冻结资料保留 | 工程范围完成；随RAG-004合并 `9a6dee5` 并复验；[集成审核](reviews/INTEGRATION-2026-11-06.md)；独立质量审核待办 |
 | RAG-004 | RAG开发agent | 表格逐格、真实离线OCR、定位候选与机械门禁 | `agent/rag/RAG-004-tables-ocr`，审核 `fa99864` | 原字符/坐标/血缘保真、待核隔离及不发布事实 | 工程范围完成；合并 `9a6dee5` 并复验；[集成审核](reviews/INTEGRATION-2026-11-06.md)；独立/专业审核及事实发布未完成 |
-| RAG-005 | RAG开发agent | v3无竖线表格、下标/单元格顺序、旧证据定位治理及P2来源核验修复 | `agent/rag/RAG-005-evidence-resolution`，旧审核 `7f74a30`，修复 `6e5c9a5` | 原字符保真；旧来源/偏移核验不依赖新文本命中数；实际builder回归及真实候选双跑 | 修复待复审，未合并：旧SHA的P2阻断及原检查结论保留在[管理审核](reviews/RAG-005-2026-11-06.md)；新分支补唯一/多正文导航隔离及hash/偏移拒收，见[v3记录](../../agent-design/docs/evidence-resolution-2026-11-06.md)；新SHA完整检查交接另存，无事实/索引发布 |
+| RAG-005 | RAG开发agent | v3无竖线表格、下标/单元格顺序与旧证据定位治理 | `agent/rag/RAG-005-evidence-resolution`，审核 `187ba82` | 原字符保真、旧来源/偏移与导航误引隔离、回归 | 工程范围完成；原P2关闭，合并 `bba9659` 并复验，345单元通过/2跳过、13来源独立重建核对通过；[管理审核](reviews/RAG-005-2026-11-06.md)；新事实/索引未发布 |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
