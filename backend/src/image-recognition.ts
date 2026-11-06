@@ -6,7 +6,8 @@ import type { ImageRecognitionResult } from '../../shared/image-recognition';
 
 export interface ImageModelConfig { provider:'deepseek'|'zhipu'; apiKey?:string }
 export function readImageModelConfig(env:NodeJS.ProcessEnv):ImageModelConfig {
-  const provider=env.IMAGE_MODEL_PROVIDER??'deepseek';
+  const selection=env.IMAGE_MODEL_PROVIDER??'auto';
+  const provider=selection==='auto'?(env.IMAGE_ZHIPU_API_KEY?.trim()?'zhipu':'deepseek'):selection;
   if(provider!=='deepseek'&&provider!=='zhipu')throw new ConfigurationError('IMAGE_MODEL_PROVIDER');
   if(provider==='zhipu'&&!env.IMAGE_ZHIPU_API_KEY?.trim())throw new ConfigurationError('IMAGE_ZHIPU_API_KEY');
   return {provider,...(provider==='zhipu'?{apiKey:env.IMAGE_ZHIPU_API_KEY!.trim()}:{})};

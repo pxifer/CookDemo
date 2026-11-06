@@ -15,6 +15,52 @@ test('图片格式和固定供应商配置：拒绝远程URL、伪造类型和�
   assert.throws(()=>readImageModelConfig({IMAGE_MODEL_PROVIDER:'other'}));
   assert.throws(()=>readImageModelConfig({IMAGE_MODEL_PROVIDER:'zhipu'}));
   assert.deepEqual(readImageModelConfig({}),{provider:'deepseek'});
+  assert.deepEqual(readImageModelConfig({IMAGE_MODEL_PROVIDER:'auto'}),{provider:'deepseek'});
+  assert.deepEqual(readImageModelConfig({IMAGE_ZHIPU_API_KEY:'server-only-test-key'}),{provider:'zhipu',apiKey:'server-only-test-key'});
+  assert.deepEqual(readImageModelConfig({IMAGE_MODEL_PROVIDER:'deepseek',IMAGE_ZHIPU_API_KEY:'server-only-test-key'}),{provider:'deepseek'});
+});
+
+test('P1：认领挂起期间清空/替换Key或撤销会话，均在上传前终止且供应商零调用',async(t)=>{
+  for(const change of ['clear','replace','logout'] as const)await t.test(change,async()=>{
+    const {db,accounts}=await fixture();let calls=0;
+    let entered!:()=>void,release!:()=>void;
+    const started=new Promise<void>(resolve=>entered=resolve),gate=new Promise<void>(resolve=>release=resolve);
+    const originalClaim=accounts.claimAiChat.bind(accounts);
+    accounts.claimAiChat=async(...args)=>{const result=await originalClaim(...args);entered();await gate;return result;};
+    const app=await createApp({accounts,imageRecognitionFetch:async()=>{calls++;return success();}});
+    try{
+      const session=await app.inject('/api/v1/auth/session');
+      const code=await accounts.registrationCode!('revocation@example.invalid','offline-revoke');
+      const identity=await accounts.register!({username:'image-revoke',password:'Image!Test123',code:'123456',challenge:code.challenge},'offline-revoke');
+      const saved=await accounts.setHealthKey(identity,0,key);
+      const headers={cookie:`${String(session.headers['set-cookie']).split(';')[0]}; ${accounts.cookie(identity).split(';')[0]}`,origin:'http://localhost:80','x-csrf-token':session.json().csrfToken};
+      const pending=app.inject({method:'POST',url:'/api/v1/recognitions/image',headers,payload:{operationId:crypto.randomUUID(),image}}).then(response=>response);
+      await started;
+      if(change==='logout')await accounts.logout(identity);
+      else await accounts.setHealthKey(identity,saved.version,change==='clear'?null:'sk-new-offline-key-123456789');
+      release();const response=await pending;
+      assert.equal(response.statusCode,change==='logout'?401:409);
+      assert.equal(response.json().error.code,change==='logout'?'LOGIN_REQUIRED':'CHAT_KEY_CHANGED');
+      assert.equal(calls,0,'revoked credentials must never upload the image');
+      assert.equal((await db.query('SELECT * FROM shiwei_ai_chat_operations')).rows.length,1,'claim stays consumed; no replay');
+    }finally{release();await app.close();await db.close();}
+  });
+});
+
+test('内部免费模型：登录账户不需个人Key即可识别，不切换为付费请求',async()=>{
+  const {db,accounts}=await fixture();let calls=0;
+  const app=await createApp({accounts,imageModel:readImageModelConfig({IMAGE_ZHIPU_API_KEY:'offline-internal-free-key'}),imageRecognitionFetch:async(url,init)=>{
+    calls++;assert.equal(String(url),'https://open.bigmodel.cn/api/paas/v4/chat/completions');assert.equal(new Headers(init?.headers).get('authorization'),'Bearer offline-internal-free-key');return success();
+  }});
+  try{
+    const session=await app.inject('/api/v1/auth/session');assert.equal(session.json().imageRecognitionProvider,'zhipu');
+    const code=await accounts.registrationCode!('free-image@example.invalid','offline-free');
+    const identity=await accounts.register!({username:'image-free',password:'Image!Test123',code:'123456',challenge:code.challenge},'offline-free');
+    assert.equal((await accounts.healthKey(identity)).apiKey,'');
+    const headers={cookie:`${String(session.headers['set-cookie']).split(';')[0]}; ${accounts.cookie(identity).split(';')[0]}`,origin:'http://localhost:80','x-csrf-token':session.json().csrfToken};
+    const response=await app.inject({method:'POST',url:'/api/v1/recognitions/image',headers,payload:{operationId:crypto.randomUUID(),image}});
+    assert.equal(response.statusCode,200);assert.equal(calls,1);assert(!response.body.includes('offline-internal-free-key'));
+  }finally{await app.close();await db.close();}
 });
 test('两种视觉适配：只发送图片与食材提示，结果无用量、不改变限制；错误不重试',async()=>{
   for(const provider of ['deepseek','zhipu'] as const){let calls=0;

@@ -236,13 +236,20 @@ export async function createApp(options: {
       const fingerprint=createHmac('sha256',secret).update('ingredient-image-v1\0').update(req.body.image).update(config.provider).update(apiKey).digest('hex');
       const claim=await during(options.accounts.claimAiChat(identity,req.body.operationId,fingerprint),signal);
       if(!claim.claimed)throw new DomainError(claim.reason==='duplicate'?'CHAT_OPERATION_USED':'CHAT_RATE_LIMIT',claim.reason==='duplicate'?409:429,claim.reason==='duplicate'?'这张图片已提交，未自动重发':'识别较频繁，请稍后再试');
+      const assertCurrent=async()=>{
+        const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
+        if(!active||active.userId!==identity.userId)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
+        if(active.mustChangePassword)throw new DomainError('PASSWORD_CHANGE_REQUIRED',403,'请先修改密码');
+        if(config.provider==='deepseek'){
+          const current=await during(options.accounts!.healthKey?.(active)??Promise.resolve(null),signal);
+          if(current?.apiKey!==apiKey)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已变更，请重新识别');
+        }
+        signal.throwIfAborted();
+      };
+      // Claiming can wait on another transaction. Recheck revocations before uploading any pixels.
+      await assertCurrent();
       const result=await during(recognizeImage(req.body.image,req.body.operationId,config,apiKey,contextFor(req),signal,options.imageRecognitionFetch),signal);
-      const active=await during(options.accounts.authenticate(req.headers.cookie),signal);
-      if(!active||active.userId!==identity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
-      if(config.provider==='deepseek'){
-        const current=await during(options.accounts.healthKey?.(active)??Promise.resolve(null),signal);
-        if(current?.apiKey!==apiKey)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已变更，请重新识别');
-      }
+      await assertCurrent();
       return result;
     }finally{clearTimeout(timer);reply.raw.off('close',disconnect);if(reserved)chatsInFlight--;}
   });
