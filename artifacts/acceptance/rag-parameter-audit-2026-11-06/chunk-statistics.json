@@ -1,0 +1,1250 @@
+{
+  "cleanedStructuralBlocks": {
+    "indexed": false,
+    "kinds": {
+      "not_declared": 3717
+    },
+    "parserReportHash": "b28cc5b4168b723c090a2de7bd8a78664998275a6b900e485d0f972f680729ab",
+    "sizes": {
+      "count": 3717,
+      "max": 4036,
+      "min": 1,
+      "p50": 26,
+      "p95": 798,
+      "total": 517990
+    }
+  },
+  "datasets": {
+    "datasets/health/2026-10-28-v2/knowledge-bundle.json": {
+      "chunkerVersions": {
+        "proposition-v1": 98
+      },
+      "locators": {
+        "html_normalized_text": 5,
+        "html_visual": 10,
+        "pdf_normalized_text": 82,
+        "pdf_visual": 1
+      },
+      "longestEvidence": [
+        {
+          "key": "go-purine-table",
+          "locatorKind": "pdf_normalized_text",
+          "originalCharacters": 357,
+          "retrievalCharacters": 397
+        },
+        {
+          "key": "ck-late",
+          "locatorKind": "pdf_normalized_text",
+          "originalCharacters": 321,
+          "retrievalCharacters": 333
+        },
+        {
+          "key": "dm-low-gi",
+          "locatorKind": "pdf_normalized_text",
+          "originalCharacters": 258,
+          "retrievalCharacters": 286
+        },
+        {
+          "key": "go-alcohol",
+          "locatorKind": "pdf_normalized_text",
+          "originalCharacters": 169,
+          "retrievalCharacters": 202
+        },
+        {
+          "key": "ck-protein",
+          "locatorKind": "pdf_normalized_text",
+          "originalCharacters": 168,
+          "retrievalCharacters": 179
+        }
+      ],
+      "overlappingNormalizedLocatorPairs": [
+        [
+          "dm-carbs",
+          "dm-low-gi"
+        ]
+      ],
+      "retrievalFormats": {
+        "section_summary_original": 53,
+        "summary_original": 45
+      },
+      "sha256": "e712a86b832c12a40c9b371addd1fa9d8263a491f1b33b880c55c110a2b87384",
+      "sizes": {
+        "originalSpan": {
+          "count": 98,
+          "max": 357,
+          "min": 7,
+          "p50": 64,
+          "p95": 168,
+          "total": 7797
+        },
+        "retrievalText": {
+          "count": 98,
+          "max": 397,
+          "min": 33,
+          "p50": 95,
+          "p95": 190,
+          "total": 10481
+        }
+      }
+    },
+    "datasets/health/goal-guidance-2026-11-04-v1/knowledge.json": {
+      "chunkerVersions": {
+        "not_present": 4
+      },
+      "locators": {
+        "html_normalized_text": 3,
+        "pdf_normalized_text": 1
+      },
+      "longestEvidence": [
+        {
+          "key": "goal-ev:exercise-egg",
+          "locatorKind": "html_normalized_text",
+          "originalCharacters": 53,
+          "retrievalCharacters": 53
+        },
+        {
+          "key": "goal-ev:exercise-beef",
+          "locatorKind": "html_normalized_text",
+          "originalCharacters": 42,
+          "retrievalCharacters": 42
+        },
+        {
+          "key": "goal-ev:weight-food-method",
+          "locatorKind": "pdf_normalized_text",
+          "originalCharacters": 36,
+          "retrievalCharacters": 36
+        },
+        {
+          "key": "goal-ev:exercise-scope",
+          "locatorKind": "html_normalized_text",
+          "originalCharacters": 31,
+          "retrievalCharacters": 31
+        }
+      ],
+      "overlappingNormalizedLocatorPairs": [],
+      "retrievalFormats": {
+        "no_retrievalText_not_vectorized": 4
+      },
+      "sha256": "6033f61e69ff02418dfb84d0ce6b86370b80cd8f4443deff56212a99a49485b6",
+      "sizes": {
+        "originalSpan": {
+          "count": 4,
+          "max": 53,
+          "min": 31,
+          "p50": 36,
+          "p95": 53,
+          "total": 162
+        }
+      }
+    }
+  },
+  "embeddingForwardCalls": 0,
+  "generationCalls": 0,
+  "inspectedCodeCommit": "187ba823ebd99869ac88cb64748ac196133919d8",
+  "inspectedCodeHashes": {
+    "backend/rag-runtime/runtime.py": "aa1082a8f4c1d4efca699cd117d8209696fd3dee10e54c8c001659b9ec7620cb",
+    "backend/src/deepseek-json.ts": "d9e2a864141fef952ed60b9c5c623131559a00ec348b53c16a95f843023e7726",
+    "backend/src/health-recipe-selection.ts": "4fc81de5421db3f0b1daabcf2d81b270e172f39c8bfc92f2f6d16953907bbf66",
+    "backend/src/rag/retrieval.ts": "ecc945d4dab26a298964fc366de6fcc6349805cc6e8d7ed7284d3668911d21f6",
+    "scripts/build-goal-guidance.py": "0c9d0b12401435d13c160611f0b615945b1c211512340de1704aff8c9e44f7a2",
+    "scripts/build-health-knowledge-v2.py": "67157d158a45155ef1e9fdb563e1654241999dc6a75831ebe0916245c494fa82",
+    "scripts/build-health-knowledge.py": "a4c12fc27aa7d1bddaf92dc1b1d4f66f5ce2191d8d1f24424eee64a1445899c2",
+    "scripts/lib/document-parser.py": "af13a7b0edf8f891bea0e7e2b8914875c63a69b70b6c2515e03f57ae618f9b9a",
+    "shared/context-budget.ts": "10b9449a7456128502ada10eb05bfbf5433c99190dff553640f45849686e6146"
+  },
+  "knowledgeChanged": false,
+  "measurementScriptHash": "5ebe40c63c912e223cd4c2ae8c686e920733b9ea1ea17dbe7651a117027a824d",
+  "method": "Unicode codepoint lengths; quantiles nearest-rank ceil(p*n)-1; no model calls, no knowledge changes",
+  "schemaVersion": 1,
+  "structuralMeasurementScriptHash": "bdb33bdc26b2dfb5bb275131644b235f403084d21bb7db141520ac5778121ed0",
+  "tokenizers": {
+    "bge": {
+      "cleanedStructuralBlocks": {
+        "blocksExceedingCandidateCap": {
+          "128": 459,
+          "256": 319,
+          "512": 204
+        },
+        "indexed": false,
+        "interpretation": "Length-only measurement; not retrieval or generation quality evaluation",
+        "sizes": {
+          "count": 3717,
+          "max": 935,
+          "min": 3,
+          "p50": 17,
+          "p95": 565,
+          "total": 291655
+        }
+      },
+      "indexedIdentity": {
+        "dimensions": 1024,
+        "documentInstruction": "",
+        "modelId": "BAAI/bge-m3",
+        "normalization": "l2",
+        "pooling": "cls_token",
+        "queryInstruction": "",
+        "representationVersion": "health-evidence-retrieval-text-v1",
+        "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2"
+      },
+      "method": "document role, no query instruction; add_special_tokens=True, truncation=False; offline tokenizer only, no model forward",
+      "modelId": "BAAI/bge-m3",
+      "perEvidence": [
+        {
+          "key": "ht-scope",
+          "originalTokens": 85,
+          "retrievalTokens": 103
+        },
+        {
+          "key": "ht-sodium",
+          "originalTokens": 16,
+          "retrievalTokens": 37
+        },
+        {
+          "key": "ht-potassium",
+          "originalTokens": 76,
+          "retrievalTokens": 107
+        },
+        {
+          "key": "ht-fat",
+          "originalTokens": 86,
+          "retrievalTokens": 117
+        },
+        {
+          "key": "ht-fiber-food",
+          "originalTokens": 91,
+          "retrievalTokens": 118
+        },
+        {
+          "key": "ht-condiments",
+          "originalTokens": 22,
+          "retrievalTokens": 54
+        },
+        {
+          "key": "ht-alcohol",
+          "originalTokens": 63,
+          "retrievalTokens": 87
+        },
+        {
+          "key": "ht-dash",
+          "originalTokens": 81,
+          "retrievalTokens": 112
+        },
+        {
+          "key": "ht-grains",
+          "originalTokens": 100,
+          "retrievalTokens": 125
+        },
+        {
+          "key": "ht-soy",
+          "originalTokens": 77,
+          "retrievalTokens": 98
+        },
+        {
+          "key": "ht-vegetables",
+          "originalTokens": 80,
+          "retrievalTokens": 105
+        },
+        {
+          "key": "ht-nuts",
+          "originalTokens": 45,
+          "retrievalTokens": 65
+        },
+        {
+          "key": "ht-oils",
+          "originalTokens": 68,
+          "retrievalTokens": 92
+        },
+        {
+          "key": "ht-drinks",
+          "originalTokens": 21,
+          "retrievalTokens": 39
+        },
+        {
+          "key": "ht-day-sodium",
+          "originalTokens": 46,
+          "retrievalTokens": 72
+        },
+        {
+          "key": "ht24-salt",
+          "originalTokens": 54,
+          "retrievalTokens": 77
+        },
+        {
+          "key": "ht24-vegetables",
+          "originalTokens": 32,
+          "retrievalTokens": 62
+        },
+        {
+          "key": "ht24-alcohol",
+          "originalTokens": 43,
+          "retrievalTokens": 74
+        },
+        {
+          "key": "ht24-table",
+          "originalTokens": 92,
+          "retrievalTokens": 114
+        },
+        {
+          "key": "dm-scope",
+          "originalTokens": 87,
+          "retrievalTokens": 112
+        },
+        {
+          "key": "dm-foods",
+          "originalTokens": 113,
+          "retrievalTokens": 137
+        },
+        {
+          "key": "dm-carbs",
+          "originalTokens": 33,
+          "retrievalTokens": 60
+        },
+        {
+          "key": "dm-low-gi",
+          "originalTokens": 181,
+          "retrievalTokens": 205
+        },
+        {
+          "key": "dm-fiber",
+          "originalTokens": 90,
+          "retrievalTokens": 121
+        },
+        {
+          "key": "dm-carbs-not-zero",
+          "originalTokens": 46,
+          "retrievalTokens": 65
+        },
+        {
+          "key": "dm-alcohol",
+          "originalTokens": 47,
+          "retrievalTokens": 72
+        },
+        {
+          "key": "dm-seasoning",
+          "originalTokens": 107,
+          "retrievalTokens": 130
+        },
+        {
+          "key": "dm-not-drink",
+          "originalTokens": 27,
+          "retrievalTokens": 51
+        },
+        {
+          "key": "dm-gi-caveat",
+          "originalTokens": 48,
+          "retrievalTokens": 78
+        },
+        {
+          "key": "dm-gi-vegetables",
+          "originalTokens": 38,
+          "retrievalTokens": 66
+        },
+        {
+          "key": "go-scope",
+          "originalTokens": 110,
+          "retrievalTokens": 135
+        },
+        {
+          "key": "go-purines",
+          "originalTokens": 57,
+          "retrievalTokens": 78
+        },
+        {
+          "key": "go-organs",
+          "originalTokens": 43,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "go-soy",
+          "originalTokens": 49,
+          "retrievalTokens": 74
+        },
+        {
+          "key": "go-triggers",
+          "originalTokens": 42,
+          "retrievalTokens": 70
+        },
+        {
+          "key": "go-milk",
+          "originalTokens": 68,
+          "retrievalTokens": 91
+        },
+        {
+          "key": "go-fructose",
+          "originalTokens": 59,
+          "retrievalTokens": 86
+        },
+        {
+          "key": "go-fruit-exception",
+          "originalTokens": 65,
+          "retrievalTokens": 88
+        },
+        {
+          "key": "go-water",
+          "originalTokens": 34,
+          "retrievalTokens": 60
+        },
+        {
+          "key": "go-alcohol",
+          "originalTokens": 137,
+          "retrievalTokens": 165
+        },
+        {
+          "key": "go-cooking",
+          "originalTokens": 30,
+          "retrievalTokens": 53
+        },
+        {
+          "key": "go-preserved",
+          "originalTokens": 37,
+          "retrievalTokens": 63
+        },
+        {
+          "key": "go-purine-table",
+          "originalTokens": 282,
+          "retrievalTokens": 306
+        },
+        {
+          "key": "paper-method",
+          "originalTokens": 11,
+          "retrievalTokens": 41
+        },
+        {
+          "key": "paper-table1",
+          "originalTokens": 5,
+          "retrievalTokens": 33
+        },
+        {
+          "key": "paper-table2",
+          "originalTokens": 4,
+          "retrievalTokens": 41
+        },
+        {
+          "key": "paper-table3",
+          "originalTokens": 5,
+          "retrievalTokens": 33
+        },
+        {
+          "key": "paper-drying",
+          "originalTokens": 7,
+          "retrievalTokens": 33
+        },
+        {
+          "key": "cook-boiling",
+          "originalTokens": 17,
+          "retrievalTokens": 47
+        },
+        {
+          "key": "cook-reabsorption",
+          "originalTokens": 15,
+          "retrievalTokens": 51
+        },
+        {
+          "key": "nci-formation",
+          "originalTokens": 7,
+          "retrievalTokens": 46
+        },
+        {
+          "key": "nci-limits",
+          "originalTokens": 10,
+          "retrievalTokens": 42
+        },
+        {
+          "key": "nci-reduce",
+          "originalTokens": 10,
+          "retrievalTokens": 47
+        },
+        {
+          "key": "lipid-scope",
+          "originalTokens": 55,
+          "retrievalTokens": 80
+        },
+        {
+          "key": "lipid-fat",
+          "originalTokens": 43,
+          "retrievalTokens": 69
+        },
+        {
+          "key": "lipid-cholesterol",
+          "originalTokens": 59,
+          "retrievalTokens": 89
+        },
+        {
+          "key": "lipid-trans",
+          "originalTokens": 43,
+          "retrievalTokens": 72
+        },
+        {
+          "key": "lipid-unsaturated",
+          "originalTokens": 29,
+          "retrievalTokens": 58
+        },
+        {
+          "key": "lipid-cooking",
+          "originalTokens": 44,
+          "retrievalTokens": 70
+        },
+        {
+          "key": "lipid-fiber",
+          "originalTokens": 61,
+          "retrievalTokens": 88
+        },
+        {
+          "key": "lipid-protein-foods",
+          "originalTokens": 46,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "lipid-salt-sugar",
+          "originalTokens": 47,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "lipid-alcohol",
+          "originalTokens": 70,
+          "retrievalTokens": 96
+        },
+        {
+          "key": "ob-scope",
+          "originalTokens": 83,
+          "retrievalTokens": 92
+        },
+        {
+          "key": "ob-energy",
+          "originalTokens": 18,
+          "retrievalTokens": 27
+        },
+        {
+          "key": "ob-balanced",
+          "originalTokens": 99,
+          "retrievalTokens": 105
+        },
+        {
+          "key": "ob-special-diets",
+          "originalTokens": 52,
+          "retrievalTokens": 61
+        },
+        {
+          "key": "ob-high-energy",
+          "originalTokens": 36,
+          "retrievalTokens": 43
+        },
+        {
+          "key": "ob-fiber",
+          "originalTokens": 30,
+          "retrievalTokens": 35
+        },
+        {
+          "key": "ob-cooking",
+          "originalTokens": 110,
+          "retrievalTokens": 118
+        },
+        {
+          "key": "ob-alcohol",
+          "originalTokens": 59,
+          "retrievalTokens": 64
+        },
+        {
+          "key": "ob-special-populations",
+          "originalTokens": 38,
+          "retrievalTokens": 46
+        },
+        {
+          "key": "ck-scope",
+          "originalTokens": 38,
+          "retrievalTokens": 43
+        },
+        {
+          "key": "ck-early",
+          "originalTokens": 108,
+          "retrievalTokens": 116
+        },
+        {
+          "key": "ck-late",
+          "originalTokens": 238,
+          "retrievalTokens": 249
+        },
+        {
+          "key": "ck-protein",
+          "originalTokens": 118,
+          "retrievalTokens": 126
+        },
+        {
+          "key": "ck-soy",
+          "originalTokens": 100,
+          "retrievalTokens": 110
+        },
+        {
+          "key": "ck-fruit",
+          "originalTokens": 67,
+          "retrievalTokens": 77
+        },
+        {
+          "key": "ck-salt",
+          "originalTokens": 100,
+          "retrievalTokens": 110
+        },
+        {
+          "key": "ck-phosphorus-food",
+          "originalTokens": 53,
+          "retrievalTokens": 59
+        },
+        {
+          "key": "ck-phosphate-additives",
+          "originalTokens": 24,
+          "retrievalTokens": 31
+        },
+        {
+          "key": "ck-potassium-exception",
+          "originalTokens": 57,
+          "retrievalTokens": 64
+        },
+        {
+          "key": "ck-hyperkalemia",
+          "originalTokens": 80,
+          "retrievalTokens": 87
+        },
+        {
+          "key": "ck-water",
+          "originalTokens": 105,
+          "retrievalTokens": 112
+        },
+        {
+          "key": "ck-alcohol",
+          "originalTokens": 38,
+          "retrievalTokens": 46
+        },
+        {
+          "key": "op-scope",
+          "originalTokens": 27,
+          "retrievalTokens": 35
+        },
+        {
+          "key": "op-nutrients",
+          "originalTokens": 36,
+          "retrievalTokens": 45
+        },
+        {
+          "key": "op-calcium-foods",
+          "originalTokens": 92,
+          "retrievalTokens": 99
+        },
+        {
+          "key": "op-vitamin-d",
+          "originalTokens": 96,
+          "retrievalTokens": 104
+        },
+        {
+          "key": "op-vitamin-d-foods",
+          "originalTokens": 65,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "op-protein",
+          "originalTokens": 37,
+          "retrievalTokens": 43
+        },
+        {
+          "key": "op-soy-nuts",
+          "originalTokens": 55,
+          "retrievalTokens": 64
+        },
+        {
+          "key": "op-vegetables",
+          "originalTokens": 90,
+          "retrievalTokens": 98
+        },
+        {
+          "key": "op-fermented-milk",
+          "originalTokens": 58,
+          "retrievalTokens": 71
+        },
+        {
+          "key": "op-alcohol",
+          "originalTokens": 22,
+          "retrievalTokens": 27
+        },
+        {
+          "key": "op-caffeine-sugar",
+          "originalTokens": 31,
+          "retrievalTokens": 39
+        },
+        {
+          "key": "op-salt",
+          "originalTokens": 33,
+          "retrievalTokens": 42
+        },
+        {
+          "key": "op-cooking",
+          "originalTokens": 89,
+          "retrievalTokens": 96
+        }
+      ],
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "sizes": {
+        "originalSpan": {
+          "count": 98,
+          "max": 282,
+          "min": 4,
+          "p50": 52,
+          "p95": 118,
+          "total": 5978
+        },
+        "retrievalText": {
+          "count": 98,
+          "max": 306,
+          "min": 27,
+          "p50": 73,
+          "p95": 137,
+          "total": 7936
+        }
+      },
+      "tokenizerConfigHash": "a62b2b6784f990259fddef5f16388693a8043be4f69179e6a5257eeb3f9abac4"
+    },
+    "qwen": {
+      "cleanedStructuralBlocks": {
+        "blocksExceedingCandidateCap": {
+          "128": 449,
+          "256": 321,
+          "512": 223
+        },
+        "indexed": false,
+        "interpretation": "Length-only measurement; not retrieval or generation quality evaluation",
+        "sizes": {
+          "count": 3717,
+          "max": 1934,
+          "min": 2,
+          "p50": 16,
+          "p95": 606,
+          "total": 314862
+        }
+      },
+      "indexedIdentity": {
+        "dimensions": 1024,
+        "documentInstruction": "",
+        "modelId": "Qwen/Qwen3-Embedding-0.6B",
+        "normalization": "l2",
+        "pooling": "lasttoken",
+        "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+        "representationVersion": "health-evidence-retrieval-text-v1",
+        "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+        "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2"
+      },
+      "method": "document role, no query instruction; add_special_tokens=True, truncation=False; offline tokenizer only, no model forward",
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "perEvidence": [
+        {
+          "key": "ht-scope",
+          "originalTokens": 76,
+          "retrievalTokens": 92
+        },
+        {
+          "key": "ht-sodium",
+          "originalTokens": 10,
+          "retrievalTokens": 34
+        },
+        {
+          "key": "ht-potassium",
+          "originalTokens": 69,
+          "retrievalTokens": 105
+        },
+        {
+          "key": "ht-fat",
+          "originalTokens": 69,
+          "retrievalTokens": 102
+        },
+        {
+          "key": "ht-fiber-food",
+          "originalTokens": 85,
+          "retrievalTokens": 114
+        },
+        {
+          "key": "ht-condiments",
+          "originalTokens": 19,
+          "retrievalTokens": 51
+        },
+        {
+          "key": "ht-alcohol",
+          "originalTokens": 50,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "ht-dash",
+          "originalTokens": 72,
+          "retrievalTokens": 103
+        },
+        {
+          "key": "ht-grains",
+          "originalTokens": 102,
+          "retrievalTokens": 130
+        },
+        {
+          "key": "ht-soy",
+          "originalTokens": 76,
+          "retrievalTokens": 100
+        },
+        {
+          "key": "ht-vegetables",
+          "originalTokens": 82,
+          "retrievalTokens": 110
+        },
+        {
+          "key": "ht-nuts",
+          "originalTokens": 37,
+          "retrievalTokens": 58
+        },
+        {
+          "key": "ht-oils",
+          "originalTokens": 65,
+          "retrievalTokens": 86
+        },
+        {
+          "key": "ht-drinks",
+          "originalTokens": 16,
+          "retrievalTokens": 35
+        },
+        {
+          "key": "ht-day-sodium",
+          "originalTokens": 43,
+          "retrievalTokens": 71
+        },
+        {
+          "key": "ht24-salt",
+          "originalTokens": 49,
+          "retrievalTokens": 75
+        },
+        {
+          "key": "ht24-vegetables",
+          "originalTokens": 33,
+          "retrievalTokens": 69
+        },
+        {
+          "key": "ht24-alcohol",
+          "originalTokens": 43,
+          "retrievalTokens": 76
+        },
+        {
+          "key": "ht24-table",
+          "originalTokens": 88,
+          "retrievalTokens": 110
+        },
+        {
+          "key": "dm-scope",
+          "originalTokens": 82,
+          "retrievalTokens": 107
+        },
+        {
+          "key": "dm-foods",
+          "originalTokens": 106,
+          "retrievalTokens": 129
+        },
+        {
+          "key": "dm-carbs",
+          "originalTokens": 30,
+          "retrievalTokens": 58
+        },
+        {
+          "key": "dm-low-gi",
+          "originalTokens": 173,
+          "retrievalTokens": 197
+        },
+        {
+          "key": "dm-fiber",
+          "originalTokens": 80,
+          "retrievalTokens": 109
+        },
+        {
+          "key": "dm-carbs-not-zero",
+          "originalTokens": 39,
+          "retrievalTokens": 59
+        },
+        {
+          "key": "dm-alcohol",
+          "originalTokens": 39,
+          "retrievalTokens": 66
+        },
+        {
+          "key": "dm-seasoning",
+          "originalTokens": 94,
+          "retrievalTokens": 120
+        },
+        {
+          "key": "dm-not-drink",
+          "originalTokens": 22,
+          "retrievalTokens": 49
+        },
+        {
+          "key": "dm-gi-caveat",
+          "originalTokens": 42,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "dm-gi-vegetables",
+          "originalTokens": 31,
+          "retrievalTokens": 61
+        },
+        {
+          "key": "go-scope",
+          "originalTokens": 104,
+          "retrievalTokens": 127
+        },
+        {
+          "key": "go-purines",
+          "originalTokens": 51,
+          "retrievalTokens": 74
+        },
+        {
+          "key": "go-organs",
+          "originalTokens": 40,
+          "retrievalTokens": 72
+        },
+        {
+          "key": "go-soy",
+          "originalTokens": 44,
+          "retrievalTokens": 73
+        },
+        {
+          "key": "go-triggers",
+          "originalTokens": 38,
+          "retrievalTokens": 65
+        },
+        {
+          "key": "go-milk",
+          "originalTokens": 66,
+          "retrievalTokens": 93
+        },
+        {
+          "key": "go-fructose",
+          "originalTokens": 52,
+          "retrievalTokens": 79
+        },
+        {
+          "key": "go-fruit-exception",
+          "originalTokens": 63,
+          "retrievalTokens": 89
+        },
+        {
+          "key": "go-water",
+          "originalTokens": 36,
+          "retrievalTokens": 61
+        },
+        {
+          "key": "go-alcohol",
+          "originalTokens": 122,
+          "retrievalTokens": 147
+        },
+        {
+          "key": "go-cooking",
+          "originalTokens": 26,
+          "retrievalTokens": 52
+        },
+        {
+          "key": "go-preserved",
+          "originalTokens": 33,
+          "retrievalTokens": 61
+        },
+        {
+          "key": "go-purine-table",
+          "originalTokens": 310,
+          "retrievalTokens": 339
+        },
+        {
+          "key": "paper-method",
+          "originalTokens": 10,
+          "retrievalTokens": 43
+        },
+        {
+          "key": "paper-table1",
+          "originalTokens": 4,
+          "retrievalTokens": 34
+        },
+        {
+          "key": "paper-table2",
+          "originalTokens": 4,
+          "retrievalTokens": 36
+        },
+        {
+          "key": "paper-table3",
+          "originalTokens": 4,
+          "retrievalTokens": 30
+        },
+        {
+          "key": "paper-drying",
+          "originalTokens": 6,
+          "retrievalTokens": 29
+        },
+        {
+          "key": "cook-boiling",
+          "originalTokens": 15,
+          "retrievalTokens": 44
+        },
+        {
+          "key": "cook-reabsorption",
+          "originalTokens": 12,
+          "retrievalTokens": 45
+        },
+        {
+          "key": "nci-formation",
+          "originalTokens": 7,
+          "retrievalTokens": 46
+        },
+        {
+          "key": "nci-limits",
+          "originalTokens": 9,
+          "retrievalTokens": 39
+        },
+        {
+          "key": "nci-reduce",
+          "originalTokens": 8,
+          "retrievalTokens": 44
+        },
+        {
+          "key": "lipid-scope",
+          "originalTokens": 51,
+          "retrievalTokens": 74
+        },
+        {
+          "key": "lipid-fat",
+          "originalTokens": 34,
+          "retrievalTokens": 58
+        },
+        {
+          "key": "lipid-cholesterol",
+          "originalTokens": 50,
+          "retrievalTokens": 76
+        },
+        {
+          "key": "lipid-trans",
+          "originalTokens": 39,
+          "retrievalTokens": 66
+        },
+        {
+          "key": "lipid-unsaturated",
+          "originalTokens": 24,
+          "retrievalTokens": 51
+        },
+        {
+          "key": "lipid-cooking",
+          "originalTokens": 41,
+          "retrievalTokens": 65
+        },
+        {
+          "key": "lipid-fiber",
+          "originalTokens": 53,
+          "retrievalTokens": 76
+        },
+        {
+          "key": "lipid-protein-foods",
+          "originalTokens": 41,
+          "retrievalTokens": 68
+        },
+        {
+          "key": "lipid-salt-sugar",
+          "originalTokens": 40,
+          "retrievalTokens": 64
+        },
+        {
+          "key": "lipid-alcohol",
+          "originalTokens": 57,
+          "retrievalTokens": 81
+        },
+        {
+          "key": "ob-scope",
+          "originalTokens": 71,
+          "retrievalTokens": 79
+        },
+        {
+          "key": "ob-energy",
+          "originalTokens": 14,
+          "retrievalTokens": 24
+        },
+        {
+          "key": "ob-balanced",
+          "originalTokens": 94,
+          "retrievalTokens": 103
+        },
+        {
+          "key": "ob-special-diets",
+          "originalTokens": 42,
+          "retrievalTokens": 52
+        },
+        {
+          "key": "ob-high-energy",
+          "originalTokens": 38,
+          "retrievalTokens": 46
+        },
+        {
+          "key": "ob-fiber",
+          "originalTokens": 25,
+          "retrievalTokens": 31
+        },
+        {
+          "key": "ob-cooking",
+          "originalTokens": 102,
+          "retrievalTokens": 112
+        },
+        {
+          "key": "ob-alcohol",
+          "originalTokens": 51,
+          "retrievalTokens": 58
+        },
+        {
+          "key": "ob-special-populations",
+          "originalTokens": 32,
+          "retrievalTokens": 42
+        },
+        {
+          "key": "ck-scope",
+          "originalTokens": 32,
+          "retrievalTokens": 38
+        },
+        {
+          "key": "ck-early",
+          "originalTokens": 103,
+          "retrievalTokens": 114
+        },
+        {
+          "key": "ck-late",
+          "originalTokens": 226,
+          "retrievalTokens": 240
+        },
+        {
+          "key": "ck-protein",
+          "originalTokens": 99,
+          "retrievalTokens": 111
+        },
+        {
+          "key": "ck-soy",
+          "originalTokens": 93,
+          "retrievalTokens": 105
+        },
+        {
+          "key": "ck-fruit",
+          "originalTokens": 57,
+          "retrievalTokens": 67
+        },
+        {
+          "key": "ck-salt",
+          "originalTokens": 85,
+          "retrievalTokens": 95
+        },
+        {
+          "key": "ck-phosphorus-food",
+          "originalTokens": 47,
+          "retrievalTokens": 55
+        },
+        {
+          "key": "ck-phosphate-additives",
+          "originalTokens": 22,
+          "retrievalTokens": 28
+        },
+        {
+          "key": "ck-potassium-exception",
+          "originalTokens": 50,
+          "retrievalTokens": 57
+        },
+        {
+          "key": "ck-hyperkalemia",
+          "originalTokens": 81,
+          "retrievalTokens": 90
+        },
+        {
+          "key": "ck-water",
+          "originalTokens": 95,
+          "retrievalTokens": 102
+        },
+        {
+          "key": "ck-alcohol",
+          "originalTokens": 29,
+          "retrievalTokens": 37
+        },
+        {
+          "key": "op-scope",
+          "originalTokens": 26,
+          "retrievalTokens": 35
+        },
+        {
+          "key": "op-nutrients",
+          "originalTokens": 28,
+          "retrievalTokens": 39
+        },
+        {
+          "key": "op-calcium-foods",
+          "originalTokens": 91,
+          "retrievalTokens": 100
+        },
+        {
+          "key": "op-vitamin-d",
+          "originalTokens": 86,
+          "retrievalTokens": 96
+        },
+        {
+          "key": "op-vitamin-d-foods",
+          "originalTokens": 58,
+          "retrievalTokens": 69
+        },
+        {
+          "key": "op-protein",
+          "originalTokens": 31,
+          "retrievalTokens": 41
+        },
+        {
+          "key": "op-soy-nuts",
+          "originalTokens": 45,
+          "retrievalTokens": 56
+        },
+        {
+          "key": "op-vegetables",
+          "originalTokens": 105,
+          "retrievalTokens": 116
+        },
+        {
+          "key": "op-fermented-milk",
+          "originalTokens": 52,
+          "retrievalTokens": 67
+        },
+        {
+          "key": "op-alcohol",
+          "originalTokens": 18,
+          "retrievalTokens": 25
+        },
+        {
+          "key": "op-caffeine-sugar",
+          "originalTokens": 27,
+          "retrievalTokens": 37
+        },
+        {
+          "key": "op-salt",
+          "originalTokens": 27,
+          "retrievalTokens": 38
+        },
+        {
+          "key": "op-cooking",
+          "originalTokens": 78,
+          "retrievalTokens": 87
+        }
+      ],
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "sizes": {
+        "originalSpan": {
+          "count": 98,
+          "max": 310,
+          "min": 4,
+          "p50": 44,
+          "p95": 106,
+          "total": 5476
+        },
+        "retrievalText": {
+          "count": 98,
+          "max": 339,
+          "min": 24,
+          "p50": 68,
+          "p95": 130,
+          "total": 7515
+        }
+      },
+      "tokenizerConfigHash": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+    }
+  }
+}
