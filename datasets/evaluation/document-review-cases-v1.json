@@ -1,0 +1,21 @@
+{
+  "id": "document-review-engineering-v1",
+  "split": "regression",
+  "origin": "project_agent_visual_and_constructed",
+  "independentHumanReview": "pending",
+  "scope": "Selected engineering preservation checks only. All source families already exposed; no clinical or independent quality score.",
+  "actualCellChecks": [
+    {"id":"flour-label","sourceId":"kaneko-purines-2014","tableId":"p4:table0","row":7,"column":0,"expectedText":"Flour (cake flour)"},
+    {"id":"flour-total-token","sourceId":"kaneko-purines-2014","tableId":"p4:table0","row":7,"column":6,"expectedText":"15.7"},
+    {"id":"category-merged-header","sourceId":"nhc-diabetes-2023","tableId":"p15:table0","row":0,"column":0,"expectedText":"食物分类","columnSpan":2},
+    {"id":"category-merged-rows","sourceId":"nhc-diabetes-2023","tableId":"p15:table0","row":1,"column":0,"expectedText":"谷类及制品","rowSpan":13},
+    {"id":"exchange-range","sourceId":"nhc-diabetes-2023","tableId":"p17:table0","row":1,"column":2,"expectedText":"23～27"},
+    {"id":"exchange-unit-header","sourceId":"nhc-diabetes-2023","tableId":"p17:table0","row":0,"column":2,"expectedText":"每份质量（g）"},
+    {"id":"salt-unit-header","sourceId":"nhc-diabetes-2023","tableId":"p21:table1","row":0,"column":2,"expectedText":"钠含量（mg）"}
+  ],
+  "actualContextChecks": [
+    {"id":"exchange-basis","sourceId":"nhc-diabetes-2023","tableId":"p17:table0","field":"unitAndBasisCandidates","mustContain":"90kcal"},
+    {"id":"salt-basis","sourceId":"nhc-diabetes-2023","tableId":"p21:table1","field":"unitAndBasisCandidates","mustContain":"2000mg钠或5g盐"},
+    {"id":"purine-footnote","sourceId":"kaneko-purines-2014","tableId":"p4:table0","field":"footnoteCandidates","mustContain":"Classification according to purine content"}
+  ]
+}
