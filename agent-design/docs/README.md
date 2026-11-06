@@ -8,6 +8,7 @@
 | 按缓存原件离线重建、锁定解析器、比较输出/定位，不覆盖冻结资料 | [资料重建运行说明](source-rebuild-runbook.md) |
 | 修改HTML正文、PDF页边噪声/双栏/断行、表格候选、OCR检测和原文回溯 | [正文解析运行说明](document-parsing-runbook.md)、[2026-11-06实测](document-parsing-execution-2026-11-06.md)；工程候选不等于语义签认 |
 | 运行真实离线OCR、长图分片/坐标回映、表格逐格关系、工程修订及新证据定位/入库拒收 | [表格与OCR运行说明](table-ocr-runbook.md)、[本批实测](table-ocr-execution-2026-11-06.md)；原始记录和修订视图分开 |
+| 处理无竖线列界、上下标、跨列串文、旧偏移歧义或导航误引 | [v3定位治理与复现](evidence-resolution-2026-11-06.md)，保留真实失败和替代正文重整候选 |
 | 建立四类标注、登记曝光、划分/冻结候选、隔离gold与独立人审 | [质量标注规范](quality-annotation-protocol.md)，候选冻结不等于质量通过 |
 | 核对本批B1/C1基础、建议均衡/补问及映射v2的真实完成范围 | [质量治理执行记录](quality-governance-execution-2026-11-05.md) |
 | 疾病/减脂/增肌如何关联食材、实际配方与选菜理由；接入本地聊天/选菜 | [业务契约](business-rag-plan.md)、[本地执行记录](business-rag-execution-2026-11-04.md)，区分构造供应商、真实PG与专业待审 |

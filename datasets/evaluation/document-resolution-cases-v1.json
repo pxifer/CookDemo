@@ -1,0 +1,19 @@
+{
+  "id": "document-resolution-regression-v1",
+  "origin": "project_agent_visual_and_engineering",
+  "split": "regression",
+  "independentHumanReview": "pending",
+  "scope": "Previously exposed source exceptions; geometry and locator checks only, no clinical approval or independent score.",
+  "tables": [
+    {"sourceId":"nhc-weight-management-2024","tableId":"p23:table0","page":23,"columns":5,"businessScope":"child_bmi_screening_not_general_recipe_guidance"},
+    {"sourceId":"nhc-weight-management-2024","tableId":"p24:table0","page":24,"columns":4,"businessScope":"pregnancy_weight_reference_not_general_recipe_guidance"},
+    {"sourceId":"nhc-weight-management-2024","tableId":"p27:table0","page":27,"columns":4,"businessScope":"exercise_intervention_not_food_direction"}
+  ],
+  "evidence": [
+    {"id":"ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62","cause":"numeric_subscripts"},
+    {"id":"ev:d71b674edd0e26b483b483cd4ea5113bccfc7662a218d046b759f6ee4c104dc8","cause":"wrapped_table_cell_reading_order"},
+    {"id":"ev:fa0fed61b955bc0ba0b430976357c190813a965e8752105b2e69753d85ceed02","cause":"multi_column_table_reading_order"},
+    {"id":"ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb","cause":"legacy_navigation_link_not_supporting_evidence","state":"legacy_navigation_anchor_do_not_index","mustFlag":"navigation_fragment_is_not_supporting_evidence"},
+    {"id":"goal-ev:exercise-scope","cause":"legacy_offset_plus_context"}
+  ]
+}
