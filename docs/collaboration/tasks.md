@@ -12,6 +12,7 @@
 | RAG-002 | 当前开发 chat | TODO C1标注/数据划分与B1离线原件重建；补建议均衡、明确补问、映射版本缺口；涉及研究后端、scripts、datasets、Agent文档与专项测试 | `agent/rag/RAG-002-quality-governance` | 冻结资料不变、杜绝评测泄漏与伪造人审、缓存可重复重建、真实目录回归、无新增付费或部署 | 完成；合并 `d61cf63` 并复验通过；[管理审核](reviews/RAG-002-2026-11-06.md) |
 | INPUT-001 | 输入开发agent | 去除食材用量输入及受控图片识别 | `agent/codex/INPUT-001-photo-ingredients`，审核 `70520c0` | 输入、身份/Key/费用与图片隐私回归 | 需修改，未合并：1个P1及任务表冲突；[管理审核](reviews/INPUT-001-2026-11-06.md) |
 | RAG-003 | 当前开发 chat | 继续B线：HTML正文识别、PDF页边噪声/阅读顺序、坐标与转换追踪；为表格/OCR保留结构及待核项 | `agent/rag/RAG-003-document-parsing` | 原件/冻结包不变，否定/条件/单位保留，真实页视觉核对与版本化工程样本、可重复离线产物和本地检查 | 开发完成，待审；依赖已合入main的RAG-002；专项与[实际范围](../../agent-design/docs/document-parsing-execution-2026-11-06.md)已记录，最终SHA检查及本地队列交接另存；不接入正式知识或部署 |
+| RAG-004 | 当前开发 chat | B线后续：修复正文残留/断行，表格逐格关系候选、真实本地OCR及高风险复核门禁；scripts/datasets/测试/文档 | `agent/rag/RAG-004-tables-ocr` | 原件/冻结库不变，原字符与坐标可回查，真实OCR记录版本/置信缺口，表格逐格样本和入库拒收可验证 | 开发完成，待审；依赖RAG-003待审SHA；[实际范围](../../agent-design/docs/table-ocr-execution-2026-11-06.md)及最终SHA交接另存，独立/专业审核与新事实发布未完成；无付费生成/部署 |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 

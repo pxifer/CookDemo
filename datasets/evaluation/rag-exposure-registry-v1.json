@@ -1,5 +1,6 @@
 {
   "datasetIds": [
+    "document-review-engineering-v1",
     "document-parsing-engineering-cases-v1",
     "shiwei-business-rag-cases-v1",
     "shiwei-rag-acceptance-v1",
@@ -7,6 +8,16 @@
     "agent-evaluation-candidates-2026-10-29-v1"
   ],
   "questionFamilies": [
+    "flour-label",
+    "flour-total-token",
+    "category-merged-header",
+    "category-merged-rows",
+    "exchange-range",
+    "exchange-unit-header",
+    "salt-unit-header",
+    "exchange-basis",
+    "salt-basis",
+    "purine-footnote",
     "article-with-navigation",
     "split-unit-and-external-footnote",
     "image-article-with-external-text",

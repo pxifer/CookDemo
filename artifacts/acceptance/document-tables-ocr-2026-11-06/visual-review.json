@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "origin": "project_agent_visual_inspection",
+  "independentHumanReview": false,
+  "professionalReview": "pending",
+  "caseDatasetHash": "2d4610dde0253f577985d58a53c54e9f91d35115198c11626137aee33ab42db7",
+  "pages": [
+    {
+      "sourceId": "nhc-diabetes-2023",
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "physicalPdfPage": 15,
+      "renderedImageHash": "93dc6dd1a6a41a151bfea55043927e68cf775ddf6f2701be9e4bdfba4dd55cdc",
+      "checks": [
+        "merged header and category row spans"
+      ]
+    },
+    {
+      "sourceId": "nhc-diabetes-2023",
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "physicalPdfPage": 17,
+      "renderedImageHash": "f04601c449fd2decc409d93a4843f904becf7d3451797a0035505e5d07915b05",
+      "checks": [
+        "original range token, g header, 90kcal basis, dry/raw form"
+      ]
+    },
+    {
+      "sourceId": "nhc-diabetes-2023",
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "physicalPdfPage": 21,
+      "renderedImageHash": "c3edd8bb60895411bfc32b21b7cd35b53b25090df6574034e55e819bafffe98d",
+      "checks": [
+        "two separate tables; g/mg units and equivalent exchange basis"
+      ]
+    }
+  ],
+  "ocrNumberReview": {
+    "sourceId": "nhc-hypertension-principles-2024",
+    "physicalPdfPage": 3,
+    "proposalsHash": "4d1a422c778b610b96dae2c34b58381fecc484119dee7db02eaca024e003a8af",
+    "cropHashes": [
+      "749afac7a7af30829bed1f69f2e16d14efe0db02cafd358da606c00b93e815e3",
+      "f8d62d780679833e5e64547ed5ee47837392bca37af51bdb24064380428b1b11"
+    ],
+    "rawOcrOverwritten": false,
+    "derivedEngineeringViewsByteIdentical": true
+  },
+  "totalLocalOcrIssuedThisTask": 306,
+  "factsPublished": 0,
+  "indexesChanged": 0,
+  "scope": "Selected visual engineering checks. Source pages/images remain private; no independent score or clinical approval."
+}

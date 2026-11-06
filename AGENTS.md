@@ -36,6 +36,7 @@
 - 需求涉及 RAG 接入食谱推荐、减脂/增肌目标知识、资料正文/表格/OCR 治理、检索偏题或独立评测与人工审核集时，先读[后续行动 TODO](agent-design/docs/todo.md)，按业务主线、资料治理、评测依赖推进并附完成证据；证据问答跑通不代表 RAG 食谱推荐闭环完成。
 - 修改资料解析/重建或评测数据时，先读[离线重建](agent-design/docs/source-rebuild-runbook.md)和[标注划分规范](agent-design/docs/quality-annotation-protocol.md)；原件/冻结定位不覆盖，gold不进模型，固定库问题评测与新来源泛化分开，候选冻结不冒充独立人审。
 - 修改HTML正文、PDF页边噪声/双栏/断行、表格结构或OCR检测时，先读[正文解析说明](agent-design/docs/document-parsing-runbook.md)及[本批实测](agent-design/docs/document-parsing-execution-2026-11-06.md)；全文留本地，转换可回查，候选/复核队列不冒充事实或OCR完成，接入须新版本。
+- 继续表格逐格关系、真实OCR/长图分片、工程修订、新证据定位或入库门禁时，读[表格与OCR运行说明](agent-design/docs/table-ocr-runbook.md)及[实测](agent-design/docs/table-ocr-execution-2026-11-06.md)；原始OCR不覆盖，不伪造置信度/人审，多重匹配不默认取首条，未核候选不替换事实/向量。
 - 食材指导接入本地聊天/选菜的当前契约及实测见[业务RAG记录](agent-design/docs/business-rag-execution-2026-11-04.md)：显式local/loopback研究开关、直接指导及动态配方绑定；新增目标未向量化，真实生成质量与专业审核仍待完成。
 - 当前真实界面链路及5次样例见[2026-11-05例子](agent-design/docs/business-rag-example-2026-11-05.md)：无健康依据不全局拦截合格菜，保留健康判断；模型只选目录ID，程序按真实配方绑定证据，不采信模型自由填写引用。独立/专业质量评测仍未完成。
 - `backend/src/rag/` 为研究 RAG 实现，`backend/rag-runtime/` 为本机 Embedding 推理；`rag:prepare/index/query/evaluate/smoke` 从根目录运行，研究凭证、权重和账本仅在 `.local-data/rag/`。

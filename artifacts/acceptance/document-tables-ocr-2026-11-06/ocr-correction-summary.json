@@ -1,0 +1,15 @@
+{
+  "appliedCorrections": 2,
+  "codeHash": "d6ab6034f7be70fde15967a8c96cda837d0770cd266a892c4cf1f5309427d583",
+  "factsPublished": 0,
+  "fullPayloadHash": "dba796094f4f25fa91d0ead425cac9d9f91cc5cf88cc357c438946bcdecb5275",
+  "independentHumanReview": "pending",
+  "indexesChanged": 0,
+  "origin": "project_agent_visual_proposal",
+  "parentOcrHash": "a91d84b4dfc39a01d45fe7aab986c1a19e003c2df2de205cfc66f730b2c6b805",
+  "proposalHash": "4d1a422c778b610b96dae2c34b58381fecc484119dee7db02eaca024e003a8af",
+  "rawOcrOverwritten": false,
+  "schemaVersion": 1,
+  "state": "separate_engineering_view_not_semantic_approval",
+  "views": 2
+}

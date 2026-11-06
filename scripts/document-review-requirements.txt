@@ -1,0 +1,4 @@
+# Reuse the existing Python 3.12.14 bundled environment; no OCR service/model download.
+-r document-parser-requirements.txt
+numpy==2.3.5
+# Windows.Media.Ocr engine and language resources are pinned by ocr-engine-windows-v1.json.

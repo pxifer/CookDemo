@@ -3,7 +3,7 @@ from collections import Counter, defaultdict
 import hashlib
 import re
 
-POLICY = 'document-parsing-v1'
+POLICY = 'document-parsing-v2'
 VERSIONS = {'pdfplumber': '0.11.9', 'pdfminer.six': '20251230', 'lxml': '6.1.1', 'Pillow': '13.0.0', 'pypdfium2': '5.14.0', 'cryptography': '50.0.2', 'charset-normalizer': '3.5.2', 'cffi': '2.1.1', 'pycparser': '3.12'}
 CRITICAL = re.compile(r'不|勿|忌|避免|限制|禁止|未|无|除外|例外|仅|慎|至少|适用|人群|儿童|妊娠|孕|哺乳|肾功能|低血糖|\b(?:not|no|without|except|unless|avoid|limit|contraindicat\w*)\b|[≤≥<>±μµ%℃]|\d\s*(?:mg|kg|g|ml|kcal|mmol|克|毫克|微克|毫升)', re.I)
 NOTE = re.compile(r'footnote|fn-group|ref-list|references|(?:^|[ _-])note(?:$|[ _-])', re.I)
@@ -104,7 +104,7 @@ def html_document(data):
         noisy = any(n.tag in ('nav', 'header', 'footer') or n.get('role') in ('navigation', 'banner', 'contentinfo') or NOISE.search(n.get('id', '') + ' ' + n.get('class', '')) for n in chain)
         hidden = any(n.get('hidden') is not None or n.get('aria-hidden') == 'true' or re.search(r'(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\s*(?:;|$)', n.get('style', ''), re.I) for n in chain)
         in_body = node in selected_nodes
-        keep = not executable and (in_body or note or heading or critical) and not ((noisy or hidden) and not (note or critical or heading))
+        keep = not executable and (in_body or note or heading or critical) and not ((noisy or hidden) and not (note or critical))
         text = re.sub(r'\s+', ' ', raw).strip()
         item = {'id': f'html:{len(atoms)}', 'text': text, 'rawText': raw, 'inBody': in_body, 'blockKey': tree.getpath(paragraph), 'locator': {'domPath': tree.getpath(node), 'slot': slot, 'rawHash': sha(raw.encode('utf-8'))}, 'protected': note or critical, 'role': 'footnote_or_reference' if note else 'heading' if heading else 'body'}
         atoms.append(item)
@@ -263,7 +263,7 @@ def ordered_blocks(page):
     barriers = [{'id': t['id'], 'role': 'table_candidate', 'bbox': t['bbox'], 'text': t['text'], 'wordIds': t['wordIds']} for t in page['tables']]
     ordinary = []
     for line in kept:
-        block = {'id': line['id'], 'role': 'footnote' if re.match(r'^[#*†‡]', line['text']) else 'heading' if re.match(r'^(?:[一二三四五六七八九十]+[、.]|\d+(?:\.\d+)+\.?\s|附录|Table\s+\d)', line['text']) else 'body', **{k: line[k] for k in ('bbox', 'text', 'wordIds')}}
+        block = {'id': line['id'], 'size': line.get('size', 9), 'role': 'footnote' if re.match(r'^[#*†‡]', line['text']) else 'heading' if re.match(r'^(?:[一二三四五六七八九十]+[、.]|\d+(?:\.\d+)+\.?\s|附录|Table\s+\d)', line['text']) else 'body', **{k: line[k] for k in ('bbox', 'text', 'wordIds')}}
         if gutter and line['bbox'][0] < gutter < line['bbox'][2]:
             barriers.append(block)
         else:
@@ -314,8 +314,11 @@ def reflow_blocks(blocks, gutter):
         block = dict(block, sourceBlockIds=[block['id']])
         previous = output[-1] if output else None
         same_column = previous and (gutter is None or (previous['bbox'][0] >= gutter) == (block['bbox'][0] >= gutter))
-        if previous and previous['role'] == block['role'] == 'body' and same_column and abs(previous['bbox'][0] - block['bbox'][0]) < 25 and 0 <= block['bbox'][1] - previous['bbox'][3] < 14 and not re.search(r'[。！？.!?;；:：]$', previous['text']) and not re.match(r'^[\d*#†‡（(]', block['text']):
-            separator = '' if re.search(r'[\u3400-\u9fff-]$', previous['text']) and re.match(r'^[\u3400-\u9fff]|^[a-z]', block['text']) else ' '
+        cjk_continuation = previous and re.search(r'[\u3400-\u9fff，、；：）]$', previous['text']) and re.match(r'^[\u3400-\u9fff]', block['text'])
+        indent_tolerance = 45 if cjk_continuation else 25
+        gap_tolerance = max(14, min(24, block.get('size', 9) * 1.05))
+        if previous and previous['role'] == block['role'] == 'body' and same_column and abs(previous['bbox'][0] - block['bbox'][0]) < indent_tolerance and 0 <= block['bbox'][1] - previous['bbox'][3] < gap_tolerance and not re.search(r'[。！？.!?;；:：]$', previous['text']) and not re.match(r'^[\d*#†‡（(]', block['text']):
+            separator = '' if cjk_continuation or re.search(r'-$', previous['text']) and re.match(r'^[a-z]', block['text']) else ' '
             previous['text'] += separator + block['text']
             previous['wordIds'] += block['wordIds'];previous['sourceBlockIds'] += block['sourceBlockIds']
             previous['bbox'] = [min(previous['bbox'][0], block['bbox'][0]), previous['bbox'][1], max(previous['bbox'][2], block['bbox'][2]), block['bbox'][3]]

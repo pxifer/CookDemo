@@ -107,6 +107,21 @@ class DocumentParserTests(unittest.TestCase):
         self.assertEqual(out[0]['sourceBlockIds'], ['a', 'b'])
         self.assertEqual(out[0]['wordIds'], ['a', 'b'])
 
+    @unittest.skipUnless(importlib.util.find_spec('lxml'), 'lxml layout runtime unavailable')
+    def test_navigation_heading_removed_but_body_heading_and_critical_note_retained(self):
+        doc = core.html_document('<article><nav><h2>On This Page</h2><a>Contents</a><p>不适用于儿童</p></nav><h2>正文标题</h2><p>正文保留</p></article>'.encode())
+        text = core.enhance(doc)['text']
+        self.assertNotIn('On This Page', text)
+        self.assertNotIn('Contents', text)
+        self.assertIn('正文标题', text)
+        self.assertIn('不适用于儿童', text)
+
+    def test_cjk_font_scaled_gap_and_indented_continuation_without_changing_numbers(self):
+        blocks = [{'id': 'a', 'role': 'body', 'size': 15.95, 'bbox': [122, 100, 500, 116], 'text': '减少高糖、高油、', 'wordIds': ['a']}, {'id': 'b', 'role': 'body', 'size': 15.95, 'bbox': [90, 130.05, 500, 146], 'text': '高盐食物，保留30%烹饪方', 'wordIds': ['b']}, {'id': 'c', 'role': 'body', 'size': 15.95, 'bbox': [90, 160.05, 120, 176], 'text': '式。', 'wordIds': ['c']}]
+        output = core.reflow_blocks(blocks, None)
+        self.assertEqual(len(output), 1)
+        self.assertEqual(output[0]['text'], '减少高糖、高油、高盐食物，保留30%烹饪方式。')
+
     def test_merged_table_cells_keep_geometry_without_approving_headers_or_numbers(self):
         words = [word('header', 10, 2, 80), word('A', 10, 22, 20), word('0.5 mg', 60, 22, 30)]
         table = core.table_record([[0, 0, 100, 20], [0, 20, 50, 40], [50, 20, 100, 40]], [0, 0, 100, 40], words, 'ruled_grid')

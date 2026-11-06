@@ -1,0 +1,23 @@
+{
+  "provider": "windows.media.ocr",
+  "osBuild": "10.0.26200.0",
+  "engineFileVersion": "10.0.26100.9278 (WinBuild.160101.0800)",
+  "engineSha256": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+  "languages": [
+    "en-US",
+    "zh-Hans-CN"
+  ],
+  "modelFiles": [
+    {
+      "file": "en-us/MsOcrRes.orp",
+      "sha256": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+    },
+    {
+      "file": "zh-cn/MsOcrRes.orp",
+      "sha256": "9dfdfe421624cd8873e13e0746ac0b9f8345729e35b2da6991720bece6ad4db4"
+    }
+  ],
+  "maxImageDimension": 10000,
+  "confidenceAvailable": false,
+  "identityHash": "268629782c2e4611344f8ddd9e2521e271db49a0e48fc568137e967ceb611809"
+}

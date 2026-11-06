@@ -36,7 +36,9 @@
 
 比较器核对两个独立产物逐字节一致、来源覆盖、代码/工具链身份、词/DOM分区、增强范围及数字/否定原字符保真；任何失败均不出具通过报告。公开报告仅包含计数/hash/定位ID，完整原文、表格和原页渲染仍留忽略目录。
 
-Node本地单元套件通过 `tests/document-parser.test.ts` 调用14项Python专项；设置 `DOCUMENT_PARSER_PYTHON` 指向锁定环境，缺环境/依赖需单独标未运行。B1另用 `RAG_PARSER_PYTHON`，二者不混用。
+Node本地单元套件通过 `tests/document-parser.test.ts` 调用当前16项Python专项；设置 `DOCUMENT_PARSER_PYTHON` 指向锁定环境，缺环境/依赖需单独标未运行。B1另用 `RAG_PARSER_PYTHON`，二者不混用。
+
+后续 `document-parsing-v2` 已修复显式导航中的目录标题残留，以及中文混合字号/段首缩进下的断行。v1产物及当时14项验收不覆盖；v2实测与真实OCR/表格后续见[本批记录](table-ocr-execution-2026-11-06.md)。
 
 ## 验收、后续与恢复
 
