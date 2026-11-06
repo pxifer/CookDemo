@@ -8,6 +8,7 @@
 | 按缓存原件离线重建、锁定解析器、比较输出/定位，不覆盖冻结资料 | [资料重建运行说明](source-rebuild-runbook.md) |
 | 修改HTML正文、PDF页边噪声/双栏/断行、表格候选、OCR检测和原文回溯 | [正文解析运行说明](document-parsing-runbook.md)、[2026-11-06实测](document-parsing-execution-2026-11-06.md)；工程候选不等于语义签认 |
 | 运行真实离线OCR、长图分片/坐标回映、表格逐格关系、工程修订及新证据定位/入库拒收 | [表格与OCR运行说明](table-ocr-runbook.md)、[本批实测](table-ocr-execution-2026-11-06.md)；原始记录和修订视图分开 |
+| 处理无竖线列界、上下标、跨列串文、旧偏移歧义或导航误引 | [v3定位治理与复现](evidence-resolution-2026-11-06.md)，保留真实失败和替代正文重整候选 |
 | 建立四类标注、登记曝光、划分/冻结候选、隔离gold与独立人审 | [质量标注规范](quality-annotation-protocol.md)，候选冻结不等于质量通过 |
 | 核对本批B1/C1基础、建议均衡/补问及映射v2的真实完成范围 | [质量治理执行记录](quality-governance-execution-2026-11-05.md) |
 | 疾病/减脂/增肌如何关联食材、实际配方与选菜理由；接入本地聊天/选菜 | [业务契约](business-rag-plan.md)、[本地执行记录](business-rag-execution-2026-11-04.md)，区分构造供应商、真实PG与专业待审 |
@@ -15,6 +16,7 @@
 | 修改用户食材用量、库存资格、菜数或只改量的刷新/调用行为 | [D19-13用量策略及验收](../../docs/releases/ACCEPTANCE-quantity-policy-2026-11-05.md)，普通与AI均按食材有无，原菜谱量保留 |
 | 设计或实施基础 RAG；确认本轮范围、阶段与完成标准 | [基础 RAG 计划](basic-rag-plan-2026-11-04.md) |
 | 比较向量库、Embedding、混合召回、增强、生成与编排；解释取舍 | [技术决策](technology-decisions.md) |
+| 逐项解释RAG具体技术/算法/理论、RRF原理、替代方案与真实对比范围 | [技术与原理清单](rag-technology-explained.md)，区分业务、研究、离线候选及已测/未测 |
 | 准备本地模型/数据库，建索引、查询、对照评测与真实冒烟 | [运行说明](runbook.md) |
 | 修改证据向量结构、索引版本、模型身份、输入输出或重建流程 | [数据与调用契约](contracts.md)，结合技术决策与运行说明核对实际代码及新增 SQL |
 | 修改 top-k、RRF、证据闭包、上下文预算、引用或失败状态 | 技术决策的检索/增强/生成章节及本轮验收数据 |

@@ -3,7 +3,7 @@ from collections import Counter, defaultdict
 import hashlib
 import re
 
-POLICY = 'document-parsing-v2'
+POLICY = 'document-parsing-v3'
 VERSIONS = {'pdfplumber': '0.11.9', 'pdfminer.six': '20251230', 'lxml': '6.1.1', 'Pillow': '13.0.0', 'pypdfium2': '5.14.0', 'cryptography': '50.0.2', 'charset-normalizer': '3.5.2', 'cffi': '2.1.1', 'pycparser': '3.12'}
 CRITICAL = re.compile(r'不|勿|忌|避免|限制|禁止|未|无|除外|例外|仅|慎|至少|适用|人群|儿童|妊娠|孕|哺乳|肾功能|低血糖|\b(?:not|no|without|except|unless|avoid|limit|contraindicat\w*)\b|[≤≥<>±μµ%℃]|\d\s*(?:mg|kg|g|ml|kcal|mmol|克|毫克|微克|毫升)', re.I)
 NOTE = re.compile(r'footnote|fn-group|ref-list|references|(?:^|[ _-])note(?:$|[ _-])', re.I)
@@ -35,12 +35,36 @@ def word_rows(words):
             match = {'top': word['top'], 'words': []}
             rows.append(match)
         match['words'].append(word)
-    return sorted(rows, key=lambda row: row['top'])
+    # Attach only small numeric super/subscripts next to an alphabetic base.
+    # Keep the original words/characters, recording their new reading order.
+    bases=[(row,w) for row in rows for w in row['words'] if re.search(r'[A-Za-z]$',w['text'])]
+    max_base_size=max((w.get('size',9) for _,w in bases),default=0)
+    for row in list(rows):
+        for word in list(row['words']):
+            if word.get('size',9)>=max_base_size*.8 or not re.fullmatch(r'\d+', word['text']):
+                continue
+            candidates = []
+            for other,base in bases:
+                if other is row or word.get('size',9)>=base.get('size',9)*.8:
+                    continue
+                height = min(word['bottom']-word['top'], base['bottom']-base['top'])
+                overlap_y = min(word['bottom'],base['bottom'])-max(word['top'],base['top'])
+                dx = abs(word['x0']-base['x1'])
+                if dx < max(3,base.get('size',9)*.4) and overlap_y >= height*.2:
+                    candidates.append((dx, abs(word['top']-base['top']), other))
+            if candidates:
+                best=min(candidates,key=lambda x:(x[0],x[1]))[2]
+                row['words'].remove(word);best['words'].append(word)
+    return sorted([row for row in rows if row['words']], key=lambda row: row['top'])
+
+
+def ordered_words(words):
+    return [w for row in word_rows(words) for w in sorted(row['words'], key=lambda w:w['x0'])]
 
 
 def text_of(words):
     parts = []
-    for word in [w for row in word_rows(words) for w in sorted(row['words'], key=lambda w: w['x0'])]:
+    for word in ordered_words(words):
         value = word['text']
         if parts and re.search(r'[\u3400-\u9fff]$', parts[-1]) and re.match(r'^[\u3400-\u9fff，。；：、）]', value):
             parts[-1] += value
@@ -157,12 +181,69 @@ def pdf_tables(page, words):
             for value in sorted(set(x for r in runs for x in r['junctions'])):
                 if not xs or value - xs[-1] > 3:
                     xs.append(value)
+            inferred = len(xs) <= 2
+            column_evidence = infer_column_boundaries(selected, region) if inferred else None
+            if column_evidence:
+                xs = column_evidence['boundaries']
             row_lines = text_lines(selected, page.width)
             centers = sorted(set(round((line['bbox'][1] + line['bbox'][3]) / 2, 1) for line in row_lines))
             ys = [region[1]] + [(a + b) / 2 for a, b in zip(centers, centers[1:])] + [region[3]]
             boxes = [[a, top, b, bottom] for top, bottom in zip(ys, ys[1:]) for a, b in zip(xs, xs[1:])] if 2 < len(xs) <= 30 else []
-            tables.append(table_record(boxes, region, words, 'horizontal_rules_candidate'))
+            record = table_record(boxes, region, words, 'aligned_whitespace_candidate' if column_evidence else 'horizontal_rules_candidate')
+            if column_evidence:
+                record['columnBoundaryEvidence'] = column_evidence
+            tables.append(record)
     return tables
+
+
+def infer_column_boundaries(words, region):
+    width = region[2]-region[0]
+    rows = word_rows(words)
+    support = {}
+    for row_index,row in enumerate(rows):
+        values = sorted(row['words'],key=lambda w:w['x0'])
+        for a,b in zip(values,values[1:]):
+            if b['x0']-a['x1'] >= max(12,width*.025):
+                for x in range(int(a['x1'])+2,int(b['x0'])-1):
+                    if region[0]+width*.05 < x < region[2]-width*.05:
+                        support.setdefault(x,set()).add(row_index)
+    # Wrapped cells add baseline rows without adding independent table rows.
+    # Require repeated support, but do not divide by all of those wrap lines.
+    threshold=max(2,len(rows)*.18)
+    xs=sorted(x for x,matched in support.items() if len(matched)>=threshold)
+    groups=[]
+    for x in xs:
+        if groups and x==groups[-1][-1]+1:groups[-1].append(x)
+        else:groups.append([x])
+    bands=[]
+    for group in groups:
+        if len(group)<4:continue
+        peak=max(len(support[x]) for x in group)
+        best=[x for x in group if len(support[x])==peak]
+        boundary=round((best[0]+best[-1])/2,3)
+        bands.append({'x':boundary,'supportingRows':peak,'rowCount':len(rows),'emptyBand':[group[0],group[-1]]})
+    # Centered labels and values may use different baselines. In an unusually
+    # wide inferred column, require a fully empty x-band across the entire grid.
+    supplemental=[]
+    boundaries=[region[0],*[b['x'] for b in bands],region[2]]
+    for left,right in zip(boundaries,boundaries[1:]):
+        if right-left<=width*.45:continue
+        empty=[]
+        for x in range(int(left+width*.05),int(right-width*.05)):
+            if not any(w['x0']<=x<=w['x1'] for w in words):empty.append(x)
+        runs=[]
+        for x in empty:
+            if runs and x==runs[-1][-1]+1:runs[-1].append(x)
+            else:runs.append([x])
+        runs=[run for run in runs if len(run)>=6]
+        if not runs:continue
+        best=max(runs,key=len);x=round((best[0]+best[-1])/2,3)
+        left_rows=sum(any(w['x1']<x for w in row['words']) for row in rows)
+        right_rows=sum(any(w['x0']>x for w in row['words']) for row in rows)
+        if min(left_rows,right_rows)>=2:supplemental.append({'x':x,'supportingRows':min(left_rows,right_rows),'rowCount':len(rows),'emptyBand':[best[0],best[-1]],'method':'zero_word_overlap_in_wide_band'})
+    bands=sorted(bands+supplemental,key=lambda b:b['x'])
+    if not 1 <= len(bands) <= 12:return None
+    return {'method':'row_gaps_with_empty_projection_fallback' if supplemental else 'repeated_inter_word_empty_bands','boundaries':[region[0],*[b['x'] for b in bands],region[2]],'bands':bands,'reviewRequired':True}
 
 
 def overlap(a, b):
@@ -174,11 +255,13 @@ def table_record(boxes, region, words, method):
     xs, ys = sorted(set(x for cell in boxes for x in (cell[0], cell[2]))), sorted(set(y for cell in boxes for y in (cell[1], cell[3])))
     cells = []
     for cell in sorted(boxes, key=lambda b: (b[1], b[0])):
-        selected = [w for w in words if inside(w, cell)]
+        selected = ordered_words([w for w in words if inside(w, cell)])
         row, col = ys.index(cell[1]), xs.index(cell[0])
         cells.append({'row': row, 'column': col, 'rowSpan': ys.index(cell[3]) - row, 'columnSpan': xs.index(cell[2]) - col, 'bbox': [round(x, 3) for x in cell], 'text': text_of(selected), 'wordIds': [w['id'] for w in selected]})
-    selected = [w for w in words if inside(w, region)]
-    return {'bbox': [round(x, 3) for x in region], 'method': method, 'cells': cells, 'text': '\n'.join(l['text'] for l in text_lines(selected, region[2] - region[0])), 'wordIds': [w['id'] for w in selected], 'headers': 'unreviewed', 'unitsAndFootnotes': 'retain nearby source blocks; no numeric facts inferred', 'reviewRequired': True}
+    selected = ordered_words([w for w in words if inside(w, region)])
+    cell_ids = [i for c in cells for i in c['wordIds']]
+    valid = bool(cells) and Counter(cell_ids)==Counter(w['id'] for w in selected)
+    return {'bbox': [round(x, 3) for x in region], 'method': method, 'cells': cells, 'text': '\n'.join(c['text'] for c in cells) if valid else text_of(selected), 'wordIds': cell_ids if valid else [w['id'] for w in selected], 'serialization': 'cell_row_column_once' if valid else 'geometry_fallback_requires_review', 'headers': 'unreviewed', 'unitsAndFootnotes': 'retain nearby source blocks; no numeric facts inferred', 'reviewRequired': True}
 
 
 def detect_gutter(words, width):

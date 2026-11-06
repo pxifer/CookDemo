@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "origin": "project_agent_visual_inspection",
+  "independentHumanReview": false,
+  "professionalReview": "pending",
+  "pages": [
+    {
+      "sourceId": "nhc-weight-management-2024",
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "physicalPdfPage": 23,
+      "renderedImageHash": "65bfafe4b12ad8b701820d236d476907bbc9cf1349616bd59c92e711a52d0cd1"
+    },
+    {
+      "sourceId": "nhc-weight-management-2024",
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "physicalPdfPage": 24,
+      "renderedImageHash": "8a38ff24fef449ce1ffdb5f706ba7e6e4086839f34e6b490566a0834f12d6aa6"
+    },
+    {
+      "sourceId": "nhc-weight-management-2024",
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "physicalPdfPage": 27,
+      "renderedImageHash": "b04a4af2fadc3f404818c8fcc0d272c6ed83bf6d8bd0fa82cf369db94d266917"
+    },
+    {
+      "sourceId": "nhc-diabetes-2023",
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "physicalPdfPage": 9,
+      "renderedImageHash": "62e92486e81ddb02eaa64e9b5a9b92761ec4d7d13189e10acd04927dea5fc000"
+    },
+    {
+      "sourceId": "nhc-gout-2024",
+      "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f",
+      "physicalPdfPage": 13,
+      "renderedImageHash": "93f9abf35e26f23464c195de26616d9d3f0fec1c223839b60f8111d6ed42f765"
+    }
+  ],
+  "scope": "Selected geometry/reading-order checks, not clinical interpretation. Full images remain private."
+}

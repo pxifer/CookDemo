@@ -45,7 +45,7 @@ def verify_provenance(document, enhanced):
             require(len(words) == len(page['words']) and Counter(kept + discarded) == Counter(words.keys()), 'PDF_WORD_PARTITION')
             require(all(b['reason'] for b in page['removed']), 'PDF_REMOVAL_WITHOUT_REASON')
             for block in page['blocks']:
-                require(core.compact(block['text']) == core.compact(core.text_of([words[i] for i in block['wordIds']])), 'PDF_BLOCK_CHARACTERS_CHANGED')
+                require(core.compact(block['text']) == core.compact(''.join(words[i]['text'] for i in block['wordIds'])), 'PDF_BLOCK_CHARACTERS_CHANGED')
                 if block['text']:
                     expected_ranges.append((page['page'], block['id'], block['wordIds']))
             total += len(words);removed += len(discarded);units += 1

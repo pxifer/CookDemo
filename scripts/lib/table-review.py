@@ -58,7 +58,7 @@ def build_table(table, page, source_id, source_hash):
         warnings.append('inferred_horizontal_grid_not_verified_physical_rows')
     return {'id': f'{source_id}:{table["id"]}', 'sourceId': source_id, 'sourceHash': source_hash, 'page': page,
             'sourceTableId': table['id'], 'bbox': table['bbox'], 'method': table['method'], 'cells': cells,
-            'columnGeometry': table.get('columnGeometry', []), 'rowCountCandidate': row_count, 'columnCountCandidate': columns,
+            'columnGeometry': table.get('columnGeometry', []), 'columnBoundaryEvidence': table.get('columnBoundaryEvidence'), 'rowCountCandidate': row_count, 'columnCountCandidate': columns,
             'headerBoundaryCandidate': first_data, 'columnHeaders': [{'column': col, 'pathCandidates': path} for col, path in headers.items()],
             'unitAndBasisCandidates': unit_sources, 'footnoteCandidates': table.get('footnoteCandidates', []),
             'relationshipCandidates': entries, 'wordAccounting': accounting, 'reviewFlags': warnings,
