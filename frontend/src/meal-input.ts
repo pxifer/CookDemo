@@ -47,13 +47,12 @@ export function resolveExtraction(data: Extraction, context: ContentContext = co
   return { ingredients: parsedIngredients(data, context), restrictions: data.restrictions };
 }
 export function mergeInput(existing: Ingredient[], incoming: Ingredient[]): Ingredient[] {
-  const next:Ingredient[] = existing.map(i => {const value={...i};if(value.foodId&&value.status==='conflict'){value.status='confirmed';delete value.alternative;}return value;});
+  const next:Ingredient[] = existing.map(i => {const value={...i,amount:"",original:i.name};delete value.quantityUnit;delete value.alternative;if(value.foodId&&value.status==='conflict'){value.status='confirmed';delete value.alternative;}return value;});
   for (const item of incoming) {
     if (item.foodId && seasoningIds.includes(item.foodId)) continue;
     const old = next.find(i => item.foodId ? i.foodId === item.foodId : i.name === item.name);
-    if (!old) { next.push({ ...item,status:item.foodId?'confirmed':'pending' }); continue; }
-    // Keep the latest nonblank reference amount; never add quantities or block a known food.
-    if(item.amount){old.amount=item.amount;old.quantityUnit=item.quantityUnit;}
+    if (!old) { next.push({ ...item,amount:"",quantityUnit:undefined,alternative:undefined,original:item.name,status:item.foodId?'confirmed':'pending' }); continue; }
+
   }
   return next;
 }

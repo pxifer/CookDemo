@@ -1,3 +1,4 @@
+import {readImageModelConfig} from './image-recognition';
 import { createApp } from './app';
 import { readConfig, ConfigurationError } from './config';
 import { connectDatabase, type Database } from './db';
@@ -25,7 +26,7 @@ try {
     if (!(await inspectDatabase(database, config.requireVector)).ready) throw new ConfigurationError('DATABASE_SCHEMA_OR_CONNECTIVITY');
   }
   const healthModel = modelConfig ? createHealthModel(modelConfig, new InvocationLedger(database!, createHmac('sha256', config.sessionSecret!).update('health-model-invocation-v1').digest())) : undefined;
-  const app = await createApp({ staticRoot: process.env.STATIC_ROOT ? resolve(process.env.STATIC_ROOT) : undefined, origin: config.origin, localTestFeatures: config.localTestFeatures, healthModel,
+  const app = await createApp({imageModel:readImageModelConfig(process.env), staticRoot: process.env.STATIC_ROOT ? resolve(process.env.STATIC_ROOT) : undefined, origin: config.origin, localTestFeatures: config.localTestFeatures, healthModel,
     sessionSecret: config.sessionSecret, csrfSecret: config.csrfSecret, database,
     environment: config.environment, contentSource: config.contentSource, contentRelease: config.contentRelease, requireVector: config.requireVector,foodGuidance });
   app.addHook('onClose', async () => { await foodGuidance?.close?.();await database?.close(); });

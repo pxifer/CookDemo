@@ -13,5 +13,6 @@ export interface SessionInfo {
   healthChatAvailable?: boolean;
   healthGuidanceResearch?:boolean;
   healthModelProvider?: string;
+  imageRecognitionProvider?: "deepseek" | "zhipu";
   csrfToken: string;
 }

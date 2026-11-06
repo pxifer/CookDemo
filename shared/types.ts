@@ -19,7 +19,7 @@ export interface Restriction {
 export interface Extraction {
   original: string; ingredients: Ingredient[]; restrictions: Restriction[];
   diseases: string[]; servings: number | null; unresolved: string[];
-  method: 'local-dictionary';
+  method: 'local-dictionary' | 'model';
 }
 export interface Line {
   foodId: string; amount: number | null; unit: 'g' | '个' | 'ml';
