@@ -1,0 +1,278 @@
+{
+  "casesHash": "588c8b90951da306d43c8febd39146d496d0c01015ed4aff44f52dae54a7115e",
+  "cellCount": 14214,
+  "codeHash": "484f227694dd92fc411b03b3fc9b70b15bd5ea5dc14a8e29e15b239c6d5612f1",
+  "evidenceStates": {
+    "legacy_navigation_anchor_do_not_index": 1,
+    "located_candidate_requires_review": 90,
+    "visual_original_requires_review": 11
+  },
+  "factsPublished": 0,
+  "generativeApiCalls": 0,
+  "independentHumanReview": "pending",
+  "indexesChanged": 0,
+  "ocrCallsThisBatch": 0,
+  "pairedOutputBytesIdentical": true,
+  "parserVerificationHash": "8114c032ccf0002b4b86e99a8ad92f6a42a7877741bbb58a12283523660161a1",
+  "payloadHashes": {
+    "evidence": "903725d8561e4699d8b2aee7d27280ef022a7e2d03485a2bf8bd2a2575451bab",
+    "tables": "ba26045b4780104d660effa4c88d7bf8e5d22c0ca20e84edbea7288daada6208"
+  },
+  "policy": "document-parsing-v3",
+  "quarantinedStructures": 0,
+  "relationshipCount": 7510,
+  "schemaVersion": 1,
+  "scope": "Geometry and exact locator fixes only. Invalid navigation evidence isolated; source body replacement contexts still require curation. No new independent score.",
+  "selectedEvidenceChecks": [
+    {
+      "candidateId": "clean-ev:fb227d1ff900bfd3db530ad26fc021eb7dacc25f0ec66e7dec4beff2ebf55b9b",
+      "id": "ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62",
+      "replacementContextCount": 0,
+      "resolutionProof": null,
+      "reviewFlags": [],
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "state": "located_candidate_requires_review"
+    },
+    {
+      "candidateId": "clean-ev:faf89183ff669c261fb46692001953012e38d1c1c1bdbd77236c7f8badc2fe84",
+      "id": "ev:d71b674edd0e26b483b483cd4ea5113bccfc7662a218d046b759f6ee4c104dc8",
+      "replacementContextCount": 0,
+      "resolutionProof": null,
+      "reviewFlags": [],
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "state": "located_candidate_requires_review"
+    },
+    {
+      "candidateId": "clean-ev:0039d16eabb7c47978ddbbedf5c0c1026b9d292266f654ddb828097d5a9a5d1d",
+      "id": "ev:fa0fed61b955bc0ba0b430976357c190813a965e8752105b2e69753d85ceed02",
+      "replacementContextCount": 0,
+      "resolutionProof": null,
+      "reviewFlags": [],
+      "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f",
+      "state": "located_candidate_requires_review"
+    },
+    {
+      "candidateId": "clean-ev:3cc584d1137fee28bba9b9f645d840cd0da6e6de87af28457f4fb47ecd83e883",
+      "id": "ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb",
+      "replacementContextCount": 1,
+      "resolutionProof": {
+        "atoms": [
+          {
+            "id": "html:52",
+            "locator": {
+              "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/nav/ul/li[5]/a/p",
+              "rawHash": "46e43151afa7863cee3035f74120d377c6baa122250ed4d3f2945bcfdd5fae48",
+              "slot": "text"
+            }
+          }
+        ],
+        "legacyNormalizedTextHash": "30002daaa9b36039481d68d80ed3f326c16ae2e37af3ac38fd69f0cd64651b1a",
+        "method": "exact_legacy_stream_and_removed_dom_nodes",
+        "verifiedOldEnd": 1127,
+        "verifiedOldStart": 1103
+      },
+      "reviewFlags": [
+        "navigation_fragment_is_not_supporting_evidence"
+      ],
+      "sourceHash": "0c3ddbad4d9ba5587f0cce17a1c1b2f7465c44a78b791666a9479d5d5a2bf19e",
+      "state": "legacy_navigation_anchor_do_not_index"
+    },
+    {
+      "candidateId": "clean-ev:68a1a605a3b0bf99525a2b6b0026b0f3a28d86fe6e8618465fe3d0f544696d91",
+      "id": "goal-ev:exercise-scope",
+      "replacementContextCount": 0,
+      "resolutionProof": {
+        "legacyNormalizedTextHash": "f3699dfca4e9745a101fda9a21039681ecdec03da412cd23b9f991aa54b7b58b",
+        "method": "verified_legacy_offset_and_adjacent_context",
+        "originalMatchingOccurrences": 3,
+        "prefixHash": "7748f12dcc2cc282a33d4da6523eeb08848a7b6cfa55a5781193b82b5d9d10b0",
+        "suffixHash": "f947a35206138eeabb71b4b5f2e775f015d749dc7591597b089ebea82557b0c7",
+        "verifiedOldEnd": 8484,
+        "verifiedOldStart": 8453
+      },
+      "reviewFlags": [],
+      "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+      "state": "located_candidate_requires_review"
+    }
+  ],
+  "selectedTableChecks": [
+    {
+      "businessScope": "child_bmi_screening_not_general_recipe_guidance",
+      "cells": 245,
+      "columnBoundaryEvidence": {
+        "bands": [
+          {
+            "emptyBand": [
+              134,
+              192
+            ],
+            "rowCount": 26,
+            "supportingRows": 23,
+            "x": 164.5
+          },
+          {
+            "emptyBand": [
+              220,
+              282
+            ],
+            "rowCount": 26,
+            "supportingRows": 24,
+            "x": 251.0
+          },
+          {
+            "emptyBand": [
+              311,
+              373
+            ],
+            "rowCount": 26,
+            "supportingRows": 25,
+            "x": 341.5
+          },
+          {
+            "emptyBand": [
+              401,
+              464
+            ],
+            "rowCount": 26,
+            "supportingRows": 24,
+            "x": 432.5
+          }
+        ],
+        "boundaries": [
+          71.55,
+          164.5,
+          251.0,
+          341.5,
+          432.5,
+          523.8
+        ],
+        "method": "repeated_inter_word_empty_bands",
+        "reviewRequired": true
+      },
+      "columns": 5,
+      "foodGuidanceApproved": false,
+      "id": "nhc-weight-management-2024:p23:table0",
+      "page": 23,
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "wordAccounting": {
+        "duplicateWordIds": [],
+        "missingWordIds": [],
+        "originalTableWords": 138,
+        "unknownWordIds": []
+      }
+    },
+    {
+      "businessScope": "pregnancy_weight_reference_not_general_recipe_guidance",
+      "cells": 88,
+      "columnBoundaryEvidence": {
+        "bands": [
+          {
+            "emptyBand": [
+              226,
+              235
+            ],
+            "method": "zero_word_overlap_in_wide_band",
+            "rowCount": 17,
+            "supportingRows": 9,
+            "x": 230.5
+          },
+          {
+            "emptyBand": [
+              304,
+              352
+            ],
+            "rowCount": 17,
+            "supportingRows": 5,
+            "x": 323.5
+          },
+          {
+            "emptyBand": [
+              388,
+              423
+            ],
+            "rowCount": 17,
+            "supportingRows": 7,
+            "x": 412.5
+          }
+        ],
+        "boundaries": [
+          42.05,
+          230.5,
+          323.5,
+          412.5,
+          545.8
+        ],
+        "method": "row_gaps_with_empty_projection_fallback",
+        "reviewRequired": true
+      },
+      "columns": 4,
+      "foodGuidanceApproved": false,
+      "id": "nhc-weight-management-2024:p24:table0",
+      "page": 24,
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "wordAccounting": {
+        "duplicateWordIds": [],
+        "missingWordIds": [],
+        "originalTableWords": 56,
+        "unknownWordIds": []
+      }
+    },
+    {
+      "businessScope": "exercise_intervention_not_food_direction",
+      "cells": 76,
+      "columnBoundaryEvidence": {
+        "bands": [
+          {
+            "emptyBand": [
+              114,
+              144
+            ],
+            "rowCount": 13,
+            "supportingRows": 3,
+            "x": 129.0
+          },
+          {
+            "emptyBand": [
+              300,
+              487
+            ],
+            "rowCount": 13,
+            "supportingRows": 6,
+            "x": 400.0
+          },
+          {
+            "emptyBand": [
+              509,
+              639
+            ],
+            "rowCount": 13,
+            "supportingRows": 5,
+            "x": 593.5
+          }
+        ],
+        "boundaries": [
+          55.55,
+          129.0,
+          400.0,
+          593.5,
+          787.8
+        ],
+        "method": "repeated_inter_word_empty_bands",
+        "reviewRequired": true
+      },
+      "columns": 4,
+      "foodGuidanceApproved": false,
+      "id": "nhc-weight-management-2024:p27:table0",
+      "page": 27,
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "wordAccounting": {
+        "duplicateWordIds": [],
+        "missingWordIds": [],
+        "originalTableWords": 70,
+        "unknownWordIds": []
+      }
+    }
+  ],
+  "state": "engineering_exception_resolution_verified_not_publication",
+  "tableCount": 322
+}

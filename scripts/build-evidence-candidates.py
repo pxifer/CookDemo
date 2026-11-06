@@ -106,27 +106,33 @@ def build(args):
         row,enhanced,digest,structure_hash=documents[ev['sourceId']]
         if ev['sourceHash']!=row['sourceHash']:
             raise ValueError('EVIDENCE_SOURCE_IDENTITY')
-        result=anchor(ev,enhanced)
-        if result['state']=='ambiguous_do_not_index' and ev['locator']['kind']=='html_normalized_text':
+        legacy=None;navigation=None;document=None
+        # Old provenance is independent of how many equal strings survived cleaning.
+        # In particular, a unique body copy must never rehabilitate a navigation quote.
+        if ev['locator']['kind']=='html_normalized_text':
             descriptor=source_registry[ev['sourceId']]
             cache=getattr(args,'legacy_health_cache',None) if descriptor['cache']=='health' else getattr(args,'legacy_goal_cache',None)
             if cache:
                 raw=parsing.source_file(cache,descriptor['file']).read_bytes()
                 if core.sha(raw)!=ev['sourceHash']:raise ValueError('LEGACY_SOURCE_HASH_MISMATCH')
                 legacy=legacy_html_text(raw,ev['locator']['normalization'])
-                result=anchor(ev,enhanced,legacy)
+                start,end=ev['locator'].get('start',-1),ev['locator'].get('end',-1)
+                if not 0<=start<end<=len(legacy) or legacy[start:end]!=ev['originalSpan']:
+                    raise ValueError('LEGACY_EVIDENCE_OFFSET_MISMATCH')
                 source_bytes=(args.parser_root/ev['sourceId']/'structure.json').read_bytes()
                 if core.sha(source_bytes)!=structure_hash:raise ValueError('EVIDENCE_ROLE_SOURCE_HASH_MISMATCH')
                 document=json.loads(source_bytes)
                 navigation=removed_navigation_origin(ev,document,legacy)
-                if navigation:
-                    roles={a['id']:a['role'] for a in document['retained']};contexts=[]
-                    for block in enhanced['ranges']:
-                        text=enhanced['text'][block['start']:block['end']]
-                        block_roles=[roles[i] for i in block.get('sourceAtomIds',[])]
-                        if core.compact(ev['originalSpan']) in core.compact(text) and not text.rstrip().endswith(('?','？')) and block_roles and all(r=='body' for r in block_roles):
-                            contexts.append({'sourceRange':block,'contextText':text,'contextHash':core.sha(text.encode('utf8')),'state':'recuration_context_only_not_approved_evidence'})
-                    result={'state':'legacy_navigation_anchor_do_not_index','candidateLocator':None,'resolutionProof':navigation,'replacementContextCandidates':contexts,'requiresEvidenceRecuration':True}
+        if navigation:
+            roles={a['id']:a['role'] for a in document['retained']};contexts=[]
+            for block in enhanced['ranges']:
+                text=enhanced['text'][block['start']:block['end']]
+                block_roles=[roles[i] for i in block.get('sourceAtomIds',[])]
+                if core.compact(ev['originalSpan']) in core.compact(text) and not text.rstrip().endswith(('?','？')) and block_roles and all(r=='body' for r in block_roles):
+                    contexts.append({'sourceRange':block,'contextText':text,'contextHash':core.sha(text.encode('utf8')),'state':'recuration_context_only_not_approved_evidence'})
+            result={'state':'legacy_navigation_anchor_do_not_index','candidateLocator':None,'resolutionProof':navigation,'replacementContextCandidates':contexts,'requiresEvidenceRecuration':True}
+        else:
+            result=anchor(ev,enhanced,legacy)
         flags=['navigation_fragment_is_not_supporting_evidence'] if result['state']=='legacy_navigation_anchor_do_not_index' else []
         if result.get('candidateLocator') and ev['locator']['kind']=='html_normalized_text':
             structure_raw=(args.parser_root/ev['sourceId']/'structure.json').read_bytes()
