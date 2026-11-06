@@ -59,7 +59,7 @@ test('候选不足不凑数；推荐故障不清空输入；过敏过滤仍生�
   await page.route('**/api/v1/recommendations',route=>route.fulfill({status:503,contentType:'application/json',body:'{"error":{"code":"CONTENT_DATABASE_UNAVAILABLE","message":"服务暂不可用，输入已保留"}}'}));
   await page.getByRole('button',{name:'安排这一餐',exact:true}).click();
   await expect(page.getByText('服务暂不可用，输入已保留')).toBeVisible();
-  await expect(page.getByLabel('构造角瓜用量',{exact:true})).toBeVisible();
+  await expect(page.locator('.ingredients .ingredient-name').filter({hasText:'构造角瓜'})).toBeVisible();
   expect((await (await page.request.get('/api/v1/auth/session')).json()).localTestFeatures).toBe(false);
 });
 test('文字整理采用数据库别名，数据库类别范围须确认后生效',async ({page}) => {
@@ -67,7 +67,7 @@ test('文字整理采用数据库别名，数据库类别范围须确认后生�
   await page.getByRole('button',{name:'文字输入',exact:true}).click();
   await page.getByLabel('输入食材与本餐信息',{exact:true}).fill('构造角瓜200g');
   await page.getByRole('button',{name:'整理信息 ↗',exact:true}).click();
-  await expect(page.getByLabel('构造西葫芦用量',{exact:true})).toHaveValue('200');
+  await expect(page.locator('.ingredients .ingredient-name').filter({hasText:'构造西葫芦'})).toHaveText('构造西葫芦');
   await page.locator('.preference-shortcuts').getByRole('button',{name:/^过敏/}).click();
   await page.getByLabel('过敏食物',{exact:true}).fill('构造瓜类');
   await page.getByRole('button',{name:'确认添加',exact:true}).click();

@@ -1,3 +1,4 @@
+import {readImageModelConfig} from '../backend/src/image-recognition';
 /** Explicit local preview: cached public recipes, research PG, ephemeral local accounts.
  * Generation uses the user's own UI-supplied key and the existing fixed DeepSeek adapter.
  * This entry never reads evaluation keys and never starts an automatic model request.
@@ -26,7 +27,7 @@ const live=process.env.LOCAL_RAG_PREVIEW_BUDGET==='1'?localPreviewBudget():undef
 // Dedicated ephemeral identity, no real email, no preset model key.
 const code=await accounts.registrationCode!('rag-preview@example.invalid','preview-bootstrap');
 await accounts.register!({username:'rag-preview',password:'RagPreview!2026',code:'123456',challenge:code.challenge},'preview-bootstrap');
-const app=await createApp({environment:'local',origin,accounts,foodGuidance,
+const app=await createApp({imageModel:readImageModelConfig(process.env),environment:'local',origin,accounts,foodGuidance,
   healthRecipeFetch:live?.fetch,
   healthRecipeObserve:live?diagnostic=>appendFileSync('.local-data/rag-preview/selection-observations.jsonl',JSON.stringify(diagnostic)+'\n'):undefined,
   contentSource:'local-cache',contentRelease:snapshot.contentVersion,
