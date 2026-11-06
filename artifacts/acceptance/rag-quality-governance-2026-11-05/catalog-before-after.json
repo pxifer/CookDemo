@@ -1,0 +1,314 @@
+{
+  "kind": "offline program reconstruction on public cached catalog; not a new model response",
+  "contentVersion": "gallery-listed-foods-20261026-v28",
+  "recipes": 341,
+  "case": "constructed adult dyslipidemia + fat loss",
+  "policy": "Both sides use current display policy; mapping v1/v2 differ only in explicit membership. Quantities not a selection constraint.",
+  "modelCalls": 0,
+  "results": [
+    {
+      "mapping": "food-guidance-mappings-v1",
+      "recipe": "炝拌白菜心",
+      "recipeId": "gallery-60e5ebb11282d8ac",
+      "variantId": "gallery-60e5ebb11282d8ac-r095",
+      "recipeHash": "bb8e107d32faa350b2e0b7498becaf3387021a35a1699e38826351d65d65a91c",
+      "matchedGuidance": [],
+      "fingerprint": "fc63e385cbad14ac9b27e744054764631c60d761fab24919da7fa215c0e0cc9c",
+      "suggestions": [
+        {
+          "name": "白糖",
+          "direction": "limit",
+          "topics": [
+            "goal:减脂"
+          ]
+        },
+        {
+          "name": "西兰花",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "白砂糖",
+          "direction": "limit",
+          "topics": [
+            "goal:减脂"
+          ]
+        },
+        {
+          "name": "鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "绵白糖",
+          "direction": "limit",
+          "topics": [
+            "goal:减脂"
+          ]
+        },
+        {
+          "name": "猪瘦肉",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "白菜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "鳜鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "胡萝卜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "草鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "黄瓜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "鲤鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "青椒",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "带鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "菠菜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "鲫鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "西红柿",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "冬瓜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "莴笋",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "包菜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        }
+      ]
+    },
+    {
+      "mapping": "food-guidance-mappings-v2",
+      "recipe": "炝拌白菜心",
+      "recipeId": "gallery-60e5ebb11282d8ac",
+      "variantId": "gallery-60e5ebb11282d8ac-r095",
+      "recipeHash": "bb8e107d32faa350b2e0b7498becaf3387021a35a1699e38826351d65d65a91c",
+      "matchedGuidance": [
+        "guide:fact:lipid-prefer-fresh-vegetables"
+      ],
+      "fingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+      "suggestions": [
+        {
+          "name": "白糖",
+          "direction": "limit",
+          "topics": [
+            "goal:减脂"
+          ]
+        },
+        {
+          "name": "西兰花",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "白砂糖",
+          "direction": "limit",
+          "topics": [
+            "goal:减脂"
+          ]
+        },
+        {
+          "name": "鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "绵白糖",
+          "direction": "limit",
+          "topics": [
+            "goal:减脂"
+          ]
+        },
+        {
+          "name": "猪瘦肉",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "白菜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "鳜鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "胡萝卜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "草鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "黄瓜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "鲤鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "青椒",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "带鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "菠菜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "鲫鱼",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "西红柿",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "冬瓜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "莴笋",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        },
+        {
+          "name": "包菜",
+          "direction": "prefer",
+          "topics": [
+            "condition:高脂血症"
+          ]
+        }
+      ]
+    }
+  ]
+}

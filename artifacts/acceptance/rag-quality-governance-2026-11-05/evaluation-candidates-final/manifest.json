@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "rag-quality-candidates-v1",
+  "normalizedPayloadSha256": "8eaa3ac63be3880c383c17cf78c3daa341572493b88acf828ba3207d0be54e4c",
+  "files": {
+    "dataset.json": "4e55edd43f83cf6d461d4b92b24235129541c42fbbf517b5f5d724df47d90e8d"
+  },
+  "independentAcceptanceReady": false,
+  "pendingIndependentReview": [],
+  "kind": "candidate_assignment_only"
+}

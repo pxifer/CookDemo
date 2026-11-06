@@ -1,0 +1,3230 @@
+{
+  "date": "2026-11-04",
+  "mode": "local_research_structured_RAG_with_synthetic_selection_supplier",
+  "realPaidCalls": 0,
+  "realPg": true,
+  "actualCatalog": {
+    "version": "gallery-listed-foods-20261026-v28",
+    "recipes": 341,
+    "sha256": "934becbc991b93946f19d71224328d9ce70b895b909e70cbc11a73bc71bb5ab1"
+  },
+  "knowledge": {
+    "base": "health-kb-2026-10-28-v2",
+    "goal": "goal-guidance-2026-11-04-v1",
+    "diseaseFoodGuidance": 124,
+    "goalFacts": 5,
+    "goalEvidence": 4,
+    "newGoalVectors": false
+  },
+  "dataset": {
+    "id": "shiwei-business-rag-cases-v1",
+    "sha256": "0534032f97035dc3bef7ea58fa66af7eeb401e8975f4925e2350171e51250764",
+    "independentHumanReview": false,
+    "acceptanceCasesUsedForDebugging": true
+  },
+  "guidanceResults": [
+    {
+      "id": "dev-hypertension",
+      "split": "development",
+      "passed": true,
+      "expected": {
+        "factId": "fact:ht-limit-salt",
+        "direction": "limit",
+        "objectId": "f:salt"
+      },
+      "observed": {
+        "id": "guide:fact:ht-limit-salt",
+        "factId": "fact:ht-limit-salt",
+        "topic": {
+          "id": "d:hypertension",
+          "kind": "condition",
+          "name": "成人高血压",
+          "inputName": "高血压"
+        },
+        "objectId": "f:salt",
+        "objectName": "食盐",
+        "objectKind": "food",
+        "direction": "limit",
+        "statement": "指南支持少选或不选；此定性规则不自行生成每餐克数。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "salt"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "dev-fat-loss",
+      "split": "development",
+      "passed": true,
+      "expected": {
+        "factId": "goal:fat-loss-limit-sugar",
+        "direction": "limit",
+        "objectId": "f:added-sugar"
+      },
+      "observed": {
+        "id": "guide:goal:fat-loss-limit-sugar",
+        "factId": "goal:fat-loss-limit-sugar",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "f:added-sugar",
+        "objectName": "白糖",
+        "objectKind": "food",
+        "direction": "limit",
+        "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "sugar",
+            "gallery-food-4f7a2bfbb8b66631",
+            "gallery-food-8926045c491adf47"
+          ],
+          "status": "mapped"
+        },
+        "basis": "project_interpretation",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "dev-muscle",
+      "split": "development",
+      "passed": true,
+      "expected": {
+        "factId": "goal:muscle-prefer-egg",
+        "direction": "prefer",
+        "objectId": "f:egg"
+      },
+      "observed": {
+        "id": "guide:goal:muscle-prefer-egg",
+        "factId": "goal:muscle-prefer-egg",
+        "topic": {
+          "id": "goal:muscle-gain",
+          "kind": "goal",
+          "name": "增肌",
+          "inputName": "增肌"
+        },
+        "objectId": "f:egg",
+        "objectName": "鸡蛋",
+        "objectKind": "food",
+        "direction": "prefer",
+        "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "healthyExerciser",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "resistanceTraining",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:exercise-egg"
+        ],
+        "qualifyingEvidenceIds": [
+          "goal-ev:exercise-scope"
+        ],
+        "mapping": {
+          "foodIds": [
+            "egg"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "dev-alias-bulking",
+      "split": "development",
+      "passed": true,
+      "expected": {
+        "factId": "goal:muscle-prefer-egg",
+        "direction": "prefer",
+        "objectId": "f:egg"
+      },
+      "observed": {
+        "id": "guide:goal:muscle-prefer-egg",
+        "factId": "goal:muscle-prefer-egg",
+        "topic": {
+          "id": "goal:muscle-gain",
+          "kind": "goal",
+          "name": "增肌",
+          "inputName": "增加肌肉"
+        },
+        "objectId": "f:egg",
+        "objectName": "鸡蛋",
+        "objectKind": "food",
+        "direction": "prefer",
+        "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "healthyExerciser",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "resistanceTraining",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:exercise-egg"
+        ],
+        "qualifyingEvidenceIds": [
+          "goal-ev:exercise-scope"
+        ],
+        "mapping": {
+          "foodIds": [
+            "egg"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "accept-no-adult-default",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "factId": "fact:ht-limit-salt",
+        "applicability": "needs_confirmation"
+      },
+      "observed": {
+        "id": "guide:fact:ht-limit-salt",
+        "factId": "fact:ht-limit-salt",
+        "topic": {
+          "id": "d:hypertension",
+          "kind": "condition",
+          "name": "成人高血压",
+          "inputName": "高血压"
+        },
+        "objectId": "f:salt",
+        "objectName": "食盐",
+        "objectKind": "food",
+        "direction": "limit",
+        "statement": "指南支持少选或不选；此定性规则不自行生成每餐克数。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "needs_confirmation",
+        "missingConditions": [
+          "adult"
+        ],
+        "evidenceIds": [
+          "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "salt"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": [
+        "condition:高血压"
+      ]
+    },
+    {
+      "id": "accept-goal-not-obesity",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "noDiseaseTopic": true,
+        "factId": "goal:fat-loss-limit-sugar",
+        "direction": "limit"
+      },
+      "observed": {
+        "id": "guide:goal:fat-loss-limit-sugar",
+        "factId": "goal:fat-loss-limit-sugar",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "f:added-sugar",
+        "objectName": "白糖",
+        "objectKind": "food",
+        "direction": "limit",
+        "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "sugar",
+            "gallery-food-4f7a2bfbb8b66631",
+            "gallery-food-8926045c491adf47"
+          ],
+          "status": "mapped"
+        },
+        "basis": "project_interpretation",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "accept-muscle-no-training",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "factId": "goal:muscle-prefer-egg",
+        "applicability": "needs_confirmation"
+      },
+      "observed": {
+        "id": "guide:goal:muscle-prefer-egg",
+        "factId": "goal:muscle-prefer-egg",
+        "topic": {
+          "id": "goal:muscle-gain",
+          "kind": "goal",
+          "name": "增肌",
+          "inputName": "增肌"
+        },
+        "objectId": "f:egg",
+        "objectName": "鸡蛋",
+        "objectKind": "food",
+        "direction": "prefer",
+        "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "healthyExerciser",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "resistanceTraining",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "needs_confirmation",
+        "missingConditions": [
+          "resistanceTraining"
+        ],
+        "evidenceIds": [
+          "goal-ev:exercise-egg"
+        ],
+        "qualifyingEvidenceIds": [
+          "goal-ev:exercise-scope"
+        ],
+        "mapping": {
+          "foodIds": [
+            "egg"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": [
+        "goal:增肌"
+      ]
+    },
+    {
+      "id": "accept-muscle-disease-scope",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "factId": "goal:muscle-prefer-egg",
+        "applicability": "not_applicable"
+      },
+      "observed": {
+        "id": "guide:goal:muscle-prefer-egg",
+        "factId": "goal:muscle-prefer-egg",
+        "topic": {
+          "id": "goal:muscle-gain",
+          "kind": "goal",
+          "name": "增肌",
+          "inputName": "增肌"
+        },
+        "objectId": "f:egg",
+        "objectName": "鸡蛋",
+        "objectKind": "food",
+        "direction": "prefer",
+        "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "healthyExerciser",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "resistanceTraining",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "not_applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:exercise-egg"
+        ],
+        "qualifyingEvidenceIds": [
+          "goal-ev:exercise-scope"
+        ],
+        "mapping": {
+          "foodIds": [
+            "egg"
+          ],
+          "status": "mapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": [
+        "goal:增肌"
+      ]
+    },
+    {
+      "id": "accept-uncovered-goal",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "uncoveredTopic": "goal:治疗疾病"
+      },
+      "observed": null,
+      "uncoveredTopics": [
+        "goal:治疗疾病"
+      ]
+    },
+    {
+      "id": "accept-lipid-direct-food",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "factId": "fact:lipid-prefer-low-fat-milk",
+        "direction": "prefer",
+        "objectId": "f:low-fat-milk"
+      },
+      "observed": {
+        "id": "guide:fact:lipid-prefer-low-fat-milk",
+        "factId": "fact:lipid-prefer-low-fat-milk",
+        "topic": {
+          "id": "d:dyslipidemia",
+          "kind": "condition",
+          "name": "成人高脂血症",
+          "inputName": "高血脂"
+        },
+        "objectId": "f:low-fat-milk",
+        "objectName": "低脂或脱脂奶",
+        "objectKind": "food",
+        "direction": "prefer",
+        "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "ev:5b129a290488b4a0f1828299e35be29d6681267758ba2b6e69642435c9cc5b17"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [],
+          "status": "unmapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "accept-renal-unknown-is-not-no",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "factId": "fact:ck-high-k-low-sodium-potassium-salt",
+        "applicability": "needs_confirmation"
+      },
+      "observed": {
+        "id": "guide:fact:ck-high-k-low-sodium-potassium-salt",
+        "factId": "fact:ck-high-k-low-sodium-potassium-salt",
+        "topic": {
+          "id": "d:ckd",
+          "kind": "condition",
+          "name": "成人慢性肾脏病",
+          "inputName": "慢性肾病"
+        },
+        "objectId": "f:low-sodium-potassium-salt",
+        "objectName": "高钾低钠盐",
+        "objectKind": "food",
+        "direction": "avoid",
+        "statement": "高钾血症下避免相关汤汁或高钾低钠盐；不能用这一条件禁所有肾病食物。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          },
+          {
+            "key": "hyperkalemia",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "needs_confirmation",
+        "missingConditions": [
+          "hyperkalemia"
+        ],
+        "evidenceIds": [
+          "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9"
+        ],
+        "qualifyingEvidenceIds": [
+          "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156"
+        ],
+        "mapping": {
+          "foodIds": [],
+          "status": "unmapped"
+        },
+        "basis": "source_statement",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": []
+    },
+    {
+      "id": "accept-underage",
+      "split": "acceptance",
+      "passed": true,
+      "expected": {
+        "factId": "goal:fat-loss-limit-sugar",
+        "applicability": "not_applicable"
+      },
+      "observed": {
+        "id": "guide:goal:fat-loss-limit-sugar",
+        "factId": "goal:fat-loss-limit-sugar",
+        "topic": {
+          "id": "goal:fat-loss",
+          "kind": "goal",
+          "name": "减脂",
+          "inputName": "减脂"
+        },
+        "objectId": "f:added-sugar",
+        "objectName": "白糖",
+        "objectKind": "food",
+        "direction": "limit",
+        "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+        "conditions": [
+          {
+            "key": "adult",
+            "values": [
+              "yes"
+            ]
+          }
+        ],
+        "applicability": "not_applicable",
+        "missingConditions": [],
+        "evidenceIds": [
+          "goal-ev:weight-food-method"
+        ],
+        "qualifyingEvidenceIds": [],
+        "mapping": {
+          "foodIds": [
+            "sugar",
+            "gallery-food-4f7a2bfbb8b66631",
+            "gallery-food-8926045c491adf47"
+          ],
+          "status": "mapped"
+        },
+        "basis": "project_interpretation",
+        "clinicalReview": "pending"
+      },
+      "uncoveredTopics": [
+        "goal:减脂"
+      ]
+    }
+  ],
+  "mealResults": [
+    {
+      "id": "real-recipe-hypertension-no-buy",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "syntheticSupplierCalls": 1,
+      "result": {
+        "operationId": "14fd8783-1b88-4f23-9830-5f62a7b3aa95",
+        "mealVersion": 0,
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "status": "completed",
+        "search": "complete",
+        "target": 1,
+        "targetMet": true,
+        "dishes": [
+          {
+            "recipe": {
+              "id": "gallery-f3dc92744e6a6c37",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "homeStyle": true,
+              "minutes": null,
+              "servings": 1,
+              "image": "veg",
+              "version": "local-business-gallery-v1",
+              "state": "published",
+              "source": {
+                "kind": "local-candidate",
+                "author": "央视网《天天饮食》",
+                "license": "公开配方资料；保留原始出处",
+                "reviewed": true,
+                "uri": "https://tv.cctv.com/2015/12/10/VIDE1449724801125709.shtml",
+                "recordId": "R039",
+                "reviewBasis": "source-and-structure"
+              },
+              "variants": [
+                {
+                  "id": "gallery-f3dc92744e6a6c37-r039",
+                  "flavor": "清鲜",
+                  "lines": [
+                    {
+                      "foodId": "cabbage",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "tofu",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "ginger",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "姜适量"
+                    },
+                    {
+                      "foodId": "salt",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "chicken-powder",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "white-pepper",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "sesame-oil",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "gallery-food-900b6de53f9a9c3e",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    }
+                  ],
+                  "ingredientNotes": [
+                    "白菜、豆腐各适量",
+                    "姜适量",
+                    "盐、鸡精、白胡椒粉、香油、开水适量"
+                  ],
+                  "reviewNotes": [],
+                  "steps": [
+                    "姜切丝，豆腐和白菜切成小块。",
+                    "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                    "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+                  ]
+                }
+              ]
+            },
+            "variant": {
+              "id": "gallery-f3dc92744e6a6c37-r039",
+              "flavor": "清鲜",
+              "lines": [
+                {
+                  "foodId": "cabbage",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "tofu",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "ginger",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "姜适量"
+                },
+                {
+                  "foodId": "salt",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "chicken-powder",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "white-pepper",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "sesame-oil",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "gallery-food-900b6de53f9a9c3e",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                }
+              ],
+              "ingredientNotes": [
+                "白菜、豆腐各适量",
+                "姜适量",
+                "盐、鸡精、白胡椒粉、香油、开水适量"
+              ],
+              "reviewNotes": [],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ]
+            },
+            "checks": [
+              {
+                "foodId": "cabbage",
+                "name": "白菜",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              },
+              {
+                "foodId": "tofu",
+                "name": "豆腐",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              }
+            ],
+            "reused": [
+              "cabbage",
+              "tofu"
+            ],
+            "omitted": [],
+            "nutrition": {
+              "kcal": null,
+              "protein": null,
+              "sodium": null
+            },
+            "aiReason": "高血压：可优先选择新鲜蔬菜（定性依据，不代表整菜达标）。高血压：可优先选择豆腐（定性依据，不代表整菜达标）。高血压：含建议少选项食盐（定性依据，不代表整菜达标）。",
+            "aiGrounding": {
+              "contentVersion": "gallery-listed-foods-20261026-v28",
+              "recipeId": "gallery-f3dc92744e6a6c37",
+              "recipeVersion": "local-business-gallery-v1",
+              "variantId": "gallery-f3dc92744e6a6c37-r039",
+              "methodId": "primary",
+              "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+              "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+              "guidanceFingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+              "matches": [
+                {
+                  "guidanceId": "guide:fact:ht-prefer-fresh-vegetables",
+                  "direction": "prefer",
+                  "foodIds": [
+                    "cabbage"
+                  ],
+                  "lineIndexes": [
+                    0
+                  ]
+                },
+                {
+                  "guidanceId": "guide:fact:ht-prefer-tofu",
+                  "direction": "prefer",
+                  "foodIds": [
+                    "tofu"
+                  ],
+                  "lineIndexes": [
+                    1
+                  ]
+                },
+                {
+                  "guidanceId": "guide:fact:ht-limit-salt",
+                  "direction": "limit",
+                  "foodIds": [
+                    "salt"
+                  ],
+                  "lineIndexes": [
+                    3
+                  ]
+                }
+              ]
+            },
+            "aiBasis": [
+              "复用本餐食材：白菜、豆腐",
+              "少选提醒：含食盐；未据此认定整菜含量或个人摄入量。",
+              "已核对明列配料、过敏忌口与本餐补买条件；做法采用“清鲜”版本。"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "foodId": "cabbage",
+            "name": "白菜",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          },
+          {
+            "foodId": "tofu",
+            "name": "豆腐",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          }
+        ],
+        "reasons": [],
+        "total": 1,
+        "page": 0,
+        "cursor": "ai1.eyJjaXBoZXJ0ZXh0IjoiLzFCODZLZEdNN09abnFHQlhkZWMxY1V1eXFCWStwTlYwZDdMa09rUTRIVnFMbWNDbHJNdEJYL2lWaUxBcC9VZlJMa0duNXFNdGpYT3RYQTJaZzZtT0R5RUsxZnRTMWVVZUlpNFIvOFJyTnMzNWVKOENGZ2puaVhyM1VmR3I5cUFPUmdENkZxcE5aNjJCNk42aW1oeGpIU1dONGpsQ2NsNEtsNndTTEdGWG1oQ1Z2TUxxOW9mSDd3a0Foa2xnaVJTellGMjBsc2IrMXpEd3BHVCtsQ2EwOFIySVJDVVBXZFFGVXpIbEZMakJhNlNnQ1ZiYUhMbldSM0NSSG5hNnNDQWpIR2pSSEQvNXR5VFhmRnEvKzYxdjRuMmhNaXhuWnlBTTBwQndFaFZSZkR3dnBMdk4zVUl3dlRHRXh1Ni9sc2JzelJjdVdpYnhBb2tvaVRaSW43VVhGb2hNaksxV09jUTBoWHBQckdVOWJLVUFndWEvbUJndE1MUms2V1MzekVOOEhObXhUMVVsUDBmSnRQZzhrUHBPTkZ2THhRdCt1bkdoamFHTlQzTTBmRU15em4xdmhFS0RQNm96Y29jalZuQ01mVmlhWXpoNHFtdG9HSWRleVFCQXNVZlhCT2o1OE1xL0hucUFFeEtmNlFYdGtoOWhpMDlxRGVRbE1WK3pHSGZicmhzdU4zbFBzcVc5eHB1TGtCN25jMFpreHJKYkNWT1NRMHg4MjRUa1UxcytvbVlrZDdTcU5WQnlLcmE5cjdpZVRKSWZZVWl1MXlCZktuZWVVa0ZLL0l2VjVtVlYxOU9qZ3Q3clVWeld3QTJiUHNZTzEyTFlCZkhVWGluNTkvMEUyOHp3ckpHNzhnYjNsSUgvYzhqYkN0aUdGaFUzK0h6dzV4WElmVGxLMVRnWG85YWVvUmJCQVgzL0tTa2E4c3Q2Y1NBRjhSWDRvOTlVMWxzaTVGWXFGUmV1Sko2aTVwWmpub2RsVzN3dlpLSFhFZkJCVXFOcUtnUmt4a1FvOURUSkVobU1PK2ZoUzg9Iiwibm9uY2UiOiJodys0LzZwVEt6T0VYNW9yIiwidGFnIjoiN1YrOWlPR2lJNjVxRmF0WW8veVhuUT09Iiwia2V5VmVyc2lvbiI6InYxIn0",
+        "nodes": 0,
+        "changed": true,
+        "elapsedMs": 94,
+        "selectionScope": {
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "qualifiedVariants": 1,
+          "offeredVariants": 1,
+          "complete": true,
+          "methodTextComplete": true
+        },
+        "researchGuidance": {
+          "mode": "local_research",
+          "knowledgeVersion": "health-kb-2026-10-28-v2+goal-guidance-2026-11-04-v1+food-guidance-mappings-v2",
+          "fingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+          "coverage": "matched",
+          "uncoveredTopics": [],
+          "missingConditions": [
+            "energyPlanCompatible"
+          ],
+          "clinicalRelease": null
+        },
+        "healthAssessment": {
+          "state": "model_selected",
+          "message": "已结合有来源的食材/做法建议和本餐条件选择；不代表整菜营养达标。部分指导仍需确认适用条件。"
+        }
+      },
+      "providerPackets": [
+        {
+          "task": "recipe_selection",
+          "evidenceGuidance": {
+            "guidance": [
+              {
+                "id": "guide:fact:ht-prefer-fresh-vegetables",
+                "factId": "fact:ht-prefer-fresh-vegetables",
+                "topic": {
+                  "id": "d:hypertension",
+                  "kind": "condition",
+                  "name": "成人高血压",
+                  "inputName": "高血压"
+                },
+                "objectId": "f:fresh-vegetables",
+                "objectName": "新鲜蔬菜",
+                "objectKind": "food_group",
+                "direction": "prefer",
+                "statement": "膳食模式下可优先选择，仍需个人适用性及过敏核验。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "ev:04a9e60536f61e7e12909b32761e0f5357ddea0f440ded075580baa4719f79d6"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [
+                    "broccoli",
+                    "cabbage",
+                    "carrot",
+                    "cucumber",
+                    "pepper",
+                    "spinach",
+                    "tomato",
+                    "winter-melon",
+                    "gallery-food-53f356a4dfae8657",
+                    "gallery-food-1354bbffdcdce7c5",
+                    "gallery-food-9cf831318b256277",
+                    "gallery-food-e0468aa0c2c927b2",
+                    "gallery-food-e2adfbdf8ad05988",
+                    "gallery-food-844bb771219ba31c",
+                    "gallery-food-1d740e0aaa9de330",
+                    "gallery-food-437d9112a26dbe2e",
+                    "gallery-food-36977dd6259e593e",
+                    "gallery-food-4afe991ead408694",
+                    "gallery-food-5d0a727235792b93",
+                    "gallery-food-78e2582d80b5b855",
+                    "gallery-food-cbe62979975930dd",
+                    "gallery-food-c35f1a0c32046f11",
+                    "gallery-food-d273b4076f1d7226"
+                  ],
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              },
+              {
+                "id": "guide:fact:ht-prefer-tofu",
+                "factId": "fact:ht-prefer-tofu",
+                "topic": {
+                  "id": "d:hypertension",
+                  "kind": "condition",
+                  "name": "成人高血压",
+                  "inputName": "高血压"
+                },
+                "objectId": "f:tofu",
+                "objectName": "豆腐",
+                "objectKind": "food",
+                "direction": "prefer",
+                "statement": "膳食模式下可优先选择，仍需个人适用性及过敏核验。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "ev:b72d441dc713ab701836fa0226a7ae8b0ecddd33005d87cb3745e22b3c09a8d8"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [
+                    "tofu",
+                    "gallery-food-4bee13f9774a4b84",
+                    "gallery-food-1fa7ad4b79d90c19",
+                    "gallery-food-c4543828e66649bb"
+                  ],
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              },
+              {
+                "id": "guide:fact:ht-limit-salt",
+                "factId": "fact:ht-limit-salt",
+                "topic": {
+                  "id": "d:hypertension",
+                  "kind": "condition",
+                  "name": "成人高血压",
+                  "inputName": "高血压"
+                },
+                "objectId": "f:salt",
+                "objectName": "食盐",
+                "objectKind": "food",
+                "direction": "limit",
+                "statement": "指南支持少选或不选；此定性规则不自行生成每餐克数。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [
+                    "salt"
+                  ],
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "ev:04a9e60536f61e7e12909b32761e0f5357ddea0f440ded075580baa4719f79d6",
+                "sourceId": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "version": "2023",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "originalSpan": "推荐高血压患者多吃含膳食纤维丰富的蔬果，且深色蔬菜要占到总蔬菜量的一半以上，蔬菜和水果不能相互替代；摄入适量的谷类、薯类，其中全谷物或杂豆占谷类的1/4～1/2；适当补充蛋白质，可多选择奶类、鱼类、大豆及其制品作为蛋白质来源；限制添加糖摄入；",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 7,
+                  "printedPage": 5,
+                  "section": "三（二）合理膳食",
+                  "start": 463,
+                  "end": 584,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "spanHash": "2869db45ba7fe7be5f99c204d6c698abde7ba4cd9ef988d73f97b5fc3650e1cc"
+              },
+              {
+                "id": "ev:b72d441dc713ab701836fa0226a7ae8b0ecddd33005d87cb3745e22b3c09a8d8",
+                "sourceId": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "version": "2023",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "originalSpan": "每日食用适量的大豆及其制品，例如大豆、青豆、豆腐、豆浆、豆腐干等。推荐每日摄入大豆15～25g，相当于豆浆220～360g或者南豆腐84～140g，其他豆制品按蛋白质含量折算。少食豆豉、豆瓣酱、腐乳等。",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 11,
+                  "printedPage": 9,
+                  "section": "附录1/大豆",
+                  "start": 254,
+                  "end": 355,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "spanHash": "bbcb259a74c58c64b70a65499c3835adfebef0ac202daeb798002a30b0652b9a"
+              },
+              {
+                "id": "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13",
+                "sourceId": "nhc-hypertension-2023",
+                "title": "成人高血压食养指南（2023年版）",
+                "version": "2023",
+                "url": "https://www.nhc.gov.cn/cms-search/downFiles/63f752a17cfd4b4781f744477561866f.pdf",
+                "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+                "originalSpan": "减少摄入食盐及含钠调味品（酱油、酱类、蚝油、鸡精、味精等），每日钠摄入量不超过2000mg（相当于食盐5g）。",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 12,
+                  "printedPage": 10,
+                  "section": "附录1/调味品",
+                  "start": 261,
+                  "end": 316,
+                  "normalization": "remove_unicode_whitespace_v1"
+                },
+                "spanHash": "0be9168a35c223d75c7da0285d3053c0718a46cef89172aad04593187b7c2440"
+              }
+            ],
+            "uncoveredTopics": [],
+            "missingConditions": [
+              "energyPlanCompatible"
+            ],
+            "clinicalRelease": null
+          },
+          "scope": {
+            "qualifiedParents": 1,
+            "offeredParents": 1,
+            "qualifiedVariants": 1,
+            "offeredVariants": 1,
+            "complete": true,
+            "methodTextComplete": true
+          },
+          "mode": "meal",
+          "min": 1,
+          "max": 1,
+          "count": 1,
+          "categories": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "requestedCounts": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "user": {
+            "healthProfile": {
+              "conditions": [
+                "高血压"
+              ],
+              "goals": [],
+              "notes": "我是成年人",
+              "suggestions": [],
+              "updatedAt": "2026-11-04"
+            },
+            "accepted": {
+              "preferred": [],
+              "limited": [],
+              "excluded": []
+            },
+            "ingredients": [
+              {
+                "name": "白菜",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              },
+              {
+                "name": "豆腐",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              }
+            ],
+            "seasonings": [
+              "食用油",
+              "盐",
+              "生抽",
+              "大蒜"
+            ],
+            "checkSeasonings": false,
+            "allowBuy": false,
+            "servings": 1,
+            "flavor": "不限",
+            "restrictions": []
+          },
+          "locked": [],
+          "previous": [],
+          "catalog": [
+            {
+              "id": "c1",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "flavor": "清鲜",
+              "guidanceIds": [
+                "guide:fact:ht-prefer-fresh-vegetables",
+                "guide:fact:ht-prefer-tofu",
+                "guide:fact:ht-limit-salt"
+              ],
+              "ingredients": [
+                {
+                  "name": "白菜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "豆腐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "生姜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "盐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "鸡精",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "白胡椒",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "香油",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "开水",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                }
+              ],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ],
+              "reused": [
+                "白菜",
+                "豆腐"
+              ],
+              "shopping": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "real-recipe-fat-loss-method",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "syntheticSupplierCalls": 1,
+      "result": {
+        "operationId": "1ee3c19e-b6a2-4d35-aa6f-597c8bc6ec61",
+        "mealVersion": 0,
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "status": "completed",
+        "search": "complete",
+        "target": 1,
+        "targetMet": true,
+        "dishes": [
+          {
+            "recipe": {
+              "id": "gallery-f3dc92744e6a6c37",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "homeStyle": true,
+              "minutes": null,
+              "servings": 1,
+              "image": "veg",
+              "version": "local-business-gallery-v1",
+              "state": "published",
+              "source": {
+                "kind": "local-candidate",
+                "author": "央视网《天天饮食》",
+                "license": "公开配方资料；保留原始出处",
+                "reviewed": true,
+                "uri": "https://tv.cctv.com/2015/12/10/VIDE1449724801125709.shtml",
+                "recordId": "R039",
+                "reviewBasis": "source-and-structure"
+              },
+              "variants": [
+                {
+                  "id": "gallery-f3dc92744e6a6c37-r039",
+                  "flavor": "清鲜",
+                  "lines": [
+                    {
+                      "foodId": "cabbage",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "tofu",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "ginger",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "姜适量"
+                    },
+                    {
+                      "foodId": "salt",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "chicken-powder",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "white-pepper",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "sesame-oil",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "gallery-food-900b6de53f9a9c3e",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    }
+                  ],
+                  "ingredientNotes": [
+                    "白菜、豆腐各适量",
+                    "姜适量",
+                    "盐、鸡精、白胡椒粉、香油、开水适量"
+                  ],
+                  "reviewNotes": [],
+                  "steps": [
+                    "姜切丝，豆腐和白菜切成小块。",
+                    "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                    "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+                  ]
+                }
+              ]
+            },
+            "variant": {
+              "id": "gallery-f3dc92744e6a6c37-r039",
+              "flavor": "清鲜",
+              "lines": [
+                {
+                  "foodId": "cabbage",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "tofu",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "ginger",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "姜适量"
+                },
+                {
+                  "foodId": "salt",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "chicken-powder",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "white-pepper",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "sesame-oil",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "gallery-food-900b6de53f9a9c3e",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                }
+              ],
+              "ingredientNotes": [
+                "白菜、豆腐各适量",
+                "姜适量",
+                "盐、鸡精、白胡椒粉、香油、开水适量"
+              ],
+              "reviewNotes": [],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ]
+            },
+            "checks": [
+              {
+                "foodId": "cabbage",
+                "name": "白菜",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              },
+              {
+                "foodId": "tofu",
+                "name": "豆腐",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              }
+            ],
+            "reused": [
+              "cabbage",
+              "tofu"
+            ],
+            "omitted": [],
+            "nutrition": {
+              "kcal": null,
+              "protein": null,
+              "sodium": null
+            },
+            "aiReason": "减脂：可优先选择蒸煮汆制（定性依据，不代表整菜达标）。",
+            "aiGrounding": {
+              "contentVersion": "gallery-listed-foods-20261026-v28",
+              "recipeId": "gallery-f3dc92744e6a6c37",
+              "recipeVersion": "local-business-gallery-v1",
+              "variantId": "gallery-f3dc92744e6a6c37-r039",
+              "methodId": "primary",
+              "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+              "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+              "guidanceFingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+              "matches": [
+                {
+                  "guidanceId": "guide:goal:fat-loss-steam-boil",
+                  "direction": "prefer",
+                  "foodIds": [],
+                  "lineIndexes": [],
+                  "processRule": "steam-boil-primary"
+                }
+              ]
+            },
+            "aiBasis": [
+              "复用本餐食材：白菜、豆腐",
+              "已核对明列配料、过敏忌口与本餐补买条件；做法采用“清鲜”版本。"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "foodId": "cabbage",
+            "name": "白菜",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          },
+          {
+            "foodId": "tofu",
+            "name": "豆腐",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          }
+        ],
+        "reasons": [],
+        "total": 1,
+        "page": 0,
+        "cursor": "ai1.eyJjaXBoZXJ0ZXh0IjoieWg4cmZYZnVVT3RMVzNPVzk0bFJqZzNieGlUbjAzeVZET3lZYTNqaHpDUkZLZzBqY3dNUXZnZ1g5UGdjNHNlNWdlTlFOMXRrYlkwSXFPNXNuVHlPR2JUN1JoaVdmUk5xb3NlZWo4aVZJNytwZ0s5aFI1VjBsNFNpTU0wRUloSjE1cXcxNmxOSGFFNUJwRnBGQmZ0UVlEWnd2eitDOHc0N2RlYjRNRUU2RTNQOVo0RXpaZXZhY2hCaUczZjNadjNpeE5UL3VVQ3pkWFhMMWdKRXpzQndDclhDVWRJNisyWjN1TlhjYTNQeGVVWmtabmZRZ2laUDlDU0p6WkpUUTJqK0h5clR4RXZBUXFYZ05uQlVRTFVMY3A0c1J5UlhVZGRnaDhqK2g3MWhUcVlPTE8wRjhOTmJJU1ZlZTVzN3lITDdiQ25IY3p1THYwTTlqTkJhUjVQK1k3dDI0Q3Z2b1BaMkk4NFdNaFlxUDhrTWRtdXJuZXlMYVllYW5Ua1RBY0tHZXRneFJjODJCWDNWaTF1M1BhMVN3R05ZZ2ZMaUJ6UjVCRnQrS3dwdUZzVVU2SmZMdGFTSGx2QURReVlMSGZxWFY3dzJvUlBnU3JackN2YVdibHBoQ3NKMXFYT0dRVHdUVUpQMmVjQ2VFM1Arc2dsQ2wrWW5NZ3dpcitZOTVZVktCSWlreFNYbFhZVmEvOTZhR3V0UDl1MlI2U3NrRHRZTXk4dzNzMmRRY1FhNjBRUlRNVk9LbGNkb1g0MjBqbm5sRWVqbnJrZjFqejI5c3pINjR5MlBvcDNSenAzYnZyUGE1UkRpTUpYL0xIbWtmWGNxOFpRMzBGY0tVem1XYk1ERHVFZENnbWhHNG52czJNYWJCcnI2TVlzamVqVUpnUTY0cDMrQzRWTzBVZlEvTzRtdFAvR1IvN1hNIiwibm9uY2UiOiJIcXpFMlc3QnNDYXlSWmFGIiwidGFnIjoiWDI5MTdMcXUzOUtNSEJWMWVqdnBydz09Iiwia2V5VmVyc2lvbiI6InYxIn0",
+        "nodes": 0,
+        "changed": true,
+        "elapsedMs": 97,
+        "selectionScope": {
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "qualifiedVariants": 1,
+          "offeredVariants": 1,
+          "complete": true,
+          "methodTextComplete": true
+        },
+        "researchGuidance": {
+          "mode": "local_research",
+          "knowledgeVersion": "health-kb-2026-10-28-v2+goal-guidance-2026-11-04-v1+food-guidance-mappings-v2",
+          "fingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+          "coverage": "matched",
+          "uncoveredTopics": [],
+          "missingConditions": [],
+          "clinicalRelease": null
+        },
+        "healthAssessment": {
+          "state": "model_selected",
+          "message": "已结合有来源的食材/做法建议和本餐条件选择；不代表整菜营养达标。"
+        }
+      },
+      "providerPackets": [
+        {
+          "task": "recipe_selection",
+          "evidenceGuidance": {
+            "guidance": [
+              {
+                "id": "guide:goal:fat-loss-steam-boil",
+                "factId": "goal:fat-loss-steam-boil",
+                "topic": {
+                  "id": "goal:fat-loss",
+                  "kind": "goal",
+                  "name": "减脂",
+                  "inputName": "减脂"
+                },
+                "objectId": "p:steam-boil",
+                "objectName": "蒸煮汆制",
+                "objectKind": "process",
+                "direction": "prefer",
+                "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "goal-ev:weight-food-method"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [],
+                  "processRule": "steam-boil-primary",
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "goal-ev:weight-food-method",
+                "sourceId": "nhc-weight-management-2024",
+                "title": "体重管理指导原则（2024年版）",
+                "version": "2024",
+                "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+                "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+                "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 10,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "section": "四、体重管理策略/合理膳食",
+                  "start": 101,
+                  "end": 137
+                },
+                "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+              }
+            ],
+            "uncoveredTopics": [],
+            "missingConditions": [],
+            "clinicalRelease": null
+          },
+          "scope": {
+            "qualifiedParents": 1,
+            "offeredParents": 1,
+            "qualifiedVariants": 1,
+            "offeredVariants": 1,
+            "complete": true,
+            "methodTextComplete": true
+          },
+          "mode": "meal",
+          "min": 1,
+          "max": 1,
+          "count": 1,
+          "categories": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "requestedCounts": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "user": {
+            "healthProfile": {
+              "conditions": [],
+              "goals": [
+                "减脂"
+              ],
+              "notes": "我是成年人",
+              "suggestions": [],
+              "updatedAt": "2026-11-04"
+            },
+            "accepted": {
+              "preferred": [],
+              "limited": [],
+              "excluded": []
+            },
+            "ingredients": [
+              {
+                "name": "白菜",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              },
+              {
+                "name": "豆腐",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              }
+            ],
+            "seasonings": [
+              "食用油",
+              "盐",
+              "生抽",
+              "大蒜"
+            ],
+            "checkSeasonings": false,
+            "allowBuy": false,
+            "servings": 1,
+            "flavor": "不限",
+            "restrictions": []
+          },
+          "locked": [],
+          "previous": [],
+          "catalog": [
+            {
+              "id": "c1",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "flavor": "清鲜",
+              "guidanceIds": [
+                "guide:goal:fat-loss-steam-boil"
+              ],
+              "ingredients": [
+                {
+                  "name": "白菜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "豆腐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "生姜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "盐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "鸡精",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "白胡椒",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "香油",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "开水",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                }
+              ],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ],
+              "reused": [
+                "白菜",
+                "豆腐"
+              ],
+              "shopping": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "real-recipe-fat-loss-and-lipid",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "syntheticSupplierCalls": 1,
+      "result": {
+        "operationId": "2819ce86-6964-4722-8067-5769f53530ae",
+        "mealVersion": 0,
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "status": "completed",
+        "search": "complete",
+        "target": 1,
+        "targetMet": true,
+        "dishes": [
+          {
+            "recipe": {
+              "id": "gallery-f3dc92744e6a6c37",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "homeStyle": true,
+              "minutes": null,
+              "servings": 1,
+              "image": "veg",
+              "version": "local-business-gallery-v1",
+              "state": "published",
+              "source": {
+                "kind": "local-candidate",
+                "author": "央视网《天天饮食》",
+                "license": "公开配方资料；保留原始出处",
+                "reviewed": true,
+                "uri": "https://tv.cctv.com/2015/12/10/VIDE1449724801125709.shtml",
+                "recordId": "R039",
+                "reviewBasis": "source-and-structure"
+              },
+              "variants": [
+                {
+                  "id": "gallery-f3dc92744e6a6c37-r039",
+                  "flavor": "清鲜",
+                  "lines": [
+                    {
+                      "foodId": "cabbage",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "tofu",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "ginger",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "姜适量"
+                    },
+                    {
+                      "foodId": "salt",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "chicken-powder",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "white-pepper",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "sesame-oil",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "gallery-food-900b6de53f9a9c3e",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    }
+                  ],
+                  "ingredientNotes": [
+                    "白菜、豆腐各适量",
+                    "姜适量",
+                    "盐、鸡精、白胡椒粉、香油、开水适量"
+                  ],
+                  "reviewNotes": [],
+                  "steps": [
+                    "姜切丝，豆腐和白菜切成小块。",
+                    "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                    "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+                  ]
+                }
+              ]
+            },
+            "variant": {
+              "id": "gallery-f3dc92744e6a6c37-r039",
+              "flavor": "清鲜",
+              "lines": [
+                {
+                  "foodId": "cabbage",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "tofu",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "ginger",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "姜适量"
+                },
+                {
+                  "foodId": "salt",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "chicken-powder",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "white-pepper",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "sesame-oil",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "gallery-food-900b6de53f9a9c3e",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                }
+              ],
+              "ingredientNotes": [
+                "白菜、豆腐各适量",
+                "姜适量",
+                "盐、鸡精、白胡椒粉、香油、开水适量"
+              ],
+              "reviewNotes": [],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ]
+            },
+            "checks": [
+              {
+                "foodId": "cabbage",
+                "name": "白菜",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              },
+              {
+                "foodId": "tofu",
+                "name": "豆腐",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              }
+            ],
+            "reused": [
+              "cabbage",
+              "tofu"
+            ],
+            "omitted": [],
+            "nutrition": {
+              "kcal": null,
+              "protein": null,
+              "sodium": null
+            },
+            "aiReason": "高脂血症：可优先选择新鲜蔬菜（定性依据，不代表整菜达标）。高脂血症：可优先选择蒸煮汆制（定性依据，不代表整菜达标）。减脂：可优先选择蒸煮汆制（定性依据，不代表整菜达标）。",
+            "aiGrounding": {
+              "contentVersion": "gallery-listed-foods-20261026-v28",
+              "recipeId": "gallery-f3dc92744e6a6c37",
+              "recipeVersion": "local-business-gallery-v1",
+              "variantId": "gallery-f3dc92744e6a6c37-r039",
+              "methodId": "primary",
+              "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+              "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+              "guidanceFingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+              "matches": [
+                {
+                  "guidanceId": "guide:fact:lipid-prefer-fresh-vegetables",
+                  "direction": "prefer",
+                  "foodIds": [
+                    "cabbage"
+                  ],
+                  "lineIndexes": [
+                    0
+                  ]
+                },
+                {
+                  "guidanceId": "guide:fact:lipid-steam",
+                  "direction": "prefer",
+                  "foodIds": [],
+                  "lineIndexes": [],
+                  "processRule": "steam-boil-primary"
+                },
+                {
+                  "guidanceId": "guide:goal:fat-loss-steam-boil",
+                  "direction": "prefer",
+                  "foodIds": [],
+                  "lineIndexes": [],
+                  "processRule": "steam-boil-primary"
+                }
+              ]
+            },
+            "aiBasis": [
+              "复用本餐食材：白菜、豆腐",
+              "已核对明列配料、过敏忌口与本餐补买条件；做法采用“清鲜”版本。"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "foodId": "cabbage",
+            "name": "白菜",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          },
+          {
+            "foodId": "tofu",
+            "name": "豆腐",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          }
+        ],
+        "reasons": [],
+        "total": 1,
+        "page": 0,
+        "cursor": "ai1.eyJjaXBoZXJ0ZXh0IjoiU2VSY1FVM3JjSDNQaHVybXJleTB0bGsvbDkrNHpGclFYZ0ZVQnA3c1F1SlNpZjBTMjNxLzBDejJUcXFSeFMvQnNETk5nekprOUw3YXdKM1cxSEdsdllpYTFCMHp2SThObUlCT1UwY2VmRkoxSVpYUzlGa2NUNHg5Q2N6ZHZReHgzU2VPNnFWajluU0xCZXh1MkFYMFVnRmVsS1VMOERMczJJZlRBYkl1L3BJMVVTb2hXYStzYVdOOEdMbzNRRDNzZUlZL2pEeGJ1TmpwT2N4SWxWSU1jSUgvc3VZakFLS3BuUEhlMlM3eUhLNjE2TkFEd0pwUFNDQTROeDdHc0EwVGZrVDBSc3R1QUprd2t0WVRFNElYOE5OQ1lMOGU2RDJ0NGJPK1BLQnZXU2xPdW1VZU5lbnVJaWF6cnlkTEdUYXkyS2J4THA2N3VqWXJvbnQvS3Z2TThRbHZjY3VNbmQzUjdUSmJCMFdjSzJsZllNUGJkbHdxbUZ2SzFPenV0WEYzV3p4bDhKRFVMblp5TzNEN3p2SVBNcnY1WkpPenFxSWZaMTZZQ1c4UG9oY05BY3l5YXdVUytEeFN1TDI4dXhCT3pOY3JFcjBNRXJlVXQ3NGp5K0xMNEQ2ekw0UzFBeGY0a1dGNTBQR0RyZm5OdGFCdjBBWXJESkdNKzZFeEVvRE1RdVF5cUdSQlJqSk5nK0dHaU94em5zUU5jd1R4Q3ppaTFKY2VtVG5HK0RuYWVrd0Exekc5MlJmZU1SQitkMXJuM1dITGRjVVN1c2xnVzFOUjBzbmJYRVNsZDRJdSt5ZUx5RnRWL3hLbVFDSFhrcmtYMG9HWG1SZFFFR1RJK3RpV1Zya1REcjlqZFBBUzdzNmNlejhrNFdVZFE3ODZJdjg1SUJuMlNRdGM5MzNjekRxcFh6bzI5OEpsZzBRdDFsaHQxWHJ0d0FXUVVYQys4Y3dUQ0ZDVmRCN2FrbW56OWNqS1BXeXJLTHVRUFFuV1I4L2V4R3U0R1VvSXlkbVM3SitycnpFaTZOdzZQMHZkZHBHUDlpRT0iLCJub25jZSI6Ikt1Y3lBUHhUYjFtWGtmUmEiLCJ0YWciOiJESW1rcmg2bzBDc094ZVhhNlVKL2p3PT0iLCJrZXlWZXJzaW9uIjoidjEifQ",
+        "nodes": 0,
+        "changed": true,
+        "elapsedMs": 74,
+        "selectionScope": {
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "qualifiedVariants": 1,
+          "offeredVariants": 1,
+          "complete": true,
+          "methodTextComplete": true
+        },
+        "researchGuidance": {
+          "mode": "local_research",
+          "knowledgeVersion": "health-kb-2026-10-28-v2+goal-guidance-2026-11-04-v1+food-guidance-mappings-v2",
+          "fingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+          "coverage": "matched",
+          "uncoveredTopics": [],
+          "missingConditions": [
+            "lipidPattern"
+          ],
+          "clinicalRelease": null
+        },
+        "healthAssessment": {
+          "state": "model_selected",
+          "message": "已结合有来源的食材/做法建议和本餐条件选择；不代表整菜营养达标。部分指导仍需确认适用条件。"
+        }
+      },
+      "providerPackets": [
+        {
+          "task": "recipe_selection",
+          "evidenceGuidance": {
+            "guidance": [
+              {
+                "id": "guide:fact:lipid-prefer-fresh-vegetables",
+                "factId": "fact:lipid-prefer-fresh-vegetables",
+                "topic": {
+                  "id": "d:dyslipidemia",
+                  "kind": "condition",
+                  "name": "成人高脂血症",
+                  "inputName": "高脂血症"
+                },
+                "objectId": "f:fresh-vegetables",
+                "objectName": "新鲜蔬菜",
+                "objectKind": "food_group",
+                "direction": "prefer",
+                "statement": "指南有直接食品选择支持，仍需整体膳食和个体条件核对。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [
+                    "broccoli",
+                    "cabbage",
+                    "carrot",
+                    "cucumber",
+                    "pepper",
+                    "spinach",
+                    "tomato",
+                    "winter-melon",
+                    "gallery-food-53f356a4dfae8657",
+                    "gallery-food-1354bbffdcdce7c5",
+                    "gallery-food-9cf831318b256277",
+                    "gallery-food-e0468aa0c2c927b2",
+                    "gallery-food-e2adfbdf8ad05988",
+                    "gallery-food-844bb771219ba31c",
+                    "gallery-food-1d740e0aaa9de330",
+                    "gallery-food-437d9112a26dbe2e",
+                    "gallery-food-36977dd6259e593e",
+                    "gallery-food-4afe991ead408694",
+                    "gallery-food-5d0a727235792b93",
+                    "gallery-food-78e2582d80b5b855",
+                    "gallery-food-cbe62979975930dd",
+                    "gallery-food-c35f1a0c32046f11",
+                    "gallery-food-d273b4076f1d7226"
+                  ],
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              },
+              {
+                "id": "guide:fact:lipid-steam",
+                "factId": "fact:lipid-steam",
+                "topic": {
+                  "id": "d:dyslipidemia",
+                  "kind": "condition",
+                  "name": "成人高脂血症",
+                  "inputName": "高脂血症"
+                },
+                "objectId": "p:steam-boil",
+                "objectName": "蒸煮汆制",
+                "objectKind": "process",
+                "direction": "prefer",
+                "statement": "优先少油蒸煮方式。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [],
+                  "processRule": "steam-boil-primary",
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              },
+              {
+                "id": "guide:goal:fat-loss-steam-boil",
+                "factId": "goal:fat-loss-steam-boil",
+                "topic": {
+                  "id": "goal:fat-loss",
+                  "kind": "goal",
+                  "name": "减脂",
+                  "inputName": "减脂"
+                },
+                "objectId": "p:steam-boil",
+                "objectName": "蒸煮汆制",
+                "objectKind": "process",
+                "direction": "prefer",
+                "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+                "conditions": [
+                  {
+                    "key": "adult",
+                    "values": [
+                      "yes"
+                    ]
+                  }
+                ],
+                "applicability": "applicable",
+                "missingConditions": [],
+                "evidenceIds": [
+                  "goal-ev:weight-food-method"
+                ],
+                "qualifyingEvidenceIds": [],
+                "mapping": {
+                  "foodIds": [],
+                  "processRule": "steam-boil-primary",
+                  "status": "mapped"
+                },
+                "basis": "source_statement",
+                "clinicalReview": "pending"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "version": "2023",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "originalSpan": "在主食中适当控制精白米面摄入，适量多吃富含膳食纤维丰富的食物，如全谷物、杂豆类、蔬菜等。膳食纤维能与胆酸结合，减少胆酸的吸收，从而降低血胆固醇水平。",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 6,
+                  "section": "三（三）膳食纤维",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    5500,
+                    700,
+                    6300
+                  ]
+                },
+                "spanHash": "318982b6dec2e3c5468a7d6af66effc5926311fd2b483555ee05b1056a9d5843"
+              },
+              {
+                "id": "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578",
+                "sourceId": "cdc-dyslipidemia-2023",
+                "title": "成人高脂血症食养指南（2023年版）",
+                "version": "2023",
+                "url": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/t20250407_305765.html",
+                "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+                "originalSpan": "高脂血症人群食物制作应选择少油蒸煮方式，减少食品过度加工，少用油炸、油煎等多油烹饪方法，多选择蒸、煮等方式。",
+                "locator": {
+                  "kind": "html_visual",
+                  "pdfPage": null,
+                  "printedPage": 6,
+                  "section": "三（二）烹调",
+                  "start": null,
+                  "end": null,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "verifiedPageImageHash": "b0b77a94b9a86674e0b989882baa02fa24ee95f47996ffee963a7705612f4b2c",
+                  "assetUrl": "https://www.chinacdc.cn/jkyj/yyyjk2/jswj13949/202504/W020250407390269623567.jpg",
+                  "imageRegion": [
+                    0,
+                    5300,
+                    700,
+                    5800
+                  ]
+                },
+                "spanHash": "885d69aed05d651b6f7327e4869652b645ae0e0277fedab07cd3f0013613676f"
+              },
+              {
+                "id": "goal-ev:weight-food-method",
+                "sourceId": "nhc-weight-management-2024",
+                "title": "体重管理指导原则（2024年版）",
+                "version": "2024",
+                "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+                "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+                "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+                "locator": {
+                  "kind": "pdf_normalized_text",
+                  "pdfPage": 10,
+                  "normalization": "remove_unicode_whitespace_v1",
+                  "section": "四、体重管理策略/合理膳食",
+                  "start": 101,
+                  "end": 137
+                },
+                "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+              }
+            ],
+            "uncoveredTopics": [],
+            "missingConditions": [
+              "lipidPattern"
+            ],
+            "clinicalRelease": null
+          },
+          "scope": {
+            "qualifiedParents": 1,
+            "offeredParents": 1,
+            "qualifiedVariants": 1,
+            "offeredVariants": 1,
+            "complete": true,
+            "methodTextComplete": true
+          },
+          "mode": "meal",
+          "min": 1,
+          "max": 1,
+          "count": 1,
+          "categories": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "requestedCounts": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "user": {
+            "healthProfile": {
+              "conditions": [
+                "高脂血症"
+              ],
+              "goals": [
+                "减脂"
+              ],
+              "notes": "我是成年人",
+              "suggestions": [],
+              "updatedAt": "2026-11-04"
+            },
+            "accepted": {
+              "preferred": [],
+              "limited": [],
+              "excluded": []
+            },
+            "ingredients": [
+              {
+                "name": "白菜",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              },
+              {
+                "name": "豆腐",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              }
+            ],
+            "seasonings": [
+              "食用油",
+              "盐",
+              "生抽",
+              "大蒜"
+            ],
+            "checkSeasonings": false,
+            "allowBuy": false,
+            "servings": 1,
+            "flavor": "不限",
+            "restrictions": []
+          },
+          "locked": [],
+          "previous": [],
+          "catalog": [
+            {
+              "id": "c1",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "flavor": "清鲜",
+              "guidanceIds": [
+                "guide:fact:lipid-prefer-fresh-vegetables",
+                "guide:fact:lipid-steam",
+                "guide:goal:fat-loss-steam-boil"
+              ],
+              "ingredients": [
+                {
+                  "name": "白菜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "豆腐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "生姜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "盐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "鸡精",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "白胡椒",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "香油",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "开水",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                }
+              ],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ],
+              "reused": [
+                "白菜",
+                "豆腐"
+              ],
+              "shopping": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "real-recipe-missing-no-buy",
+      "expected": "no_results",
+      "actual": "no_results",
+      "passed": true,
+      "syntheticSupplierCalls": 0,
+      "result": {
+        "operationId": "9d8fbbe8-0d80-44ee-bfcd-40926e068a58",
+        "mealVersion": 0,
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "status": "no_results",
+        "search": "complete",
+        "target": 1,
+        "targetMet": false,
+        "dishes": [],
+        "checks": [],
+        "reasons": [
+          "暂时没有找到合适的搭配，可以调整食材、口味或搭配数量后再试。",
+          "你指定了 1 道，目前可搭配 0 道。可以允许补买，或调整荤素汤数量。"
+        ],
+        "total": 0,
+        "page": 0,
+        "cursor": "757e61e29bb81300.71a1027294c88304d723cd99da6a4c66796894a808b29199be807af4f88b01d5",
+        "nodes": 1,
+        "changed": true,
+        "elapsedMs": 0.2
+      },
+      "providerPackets": []
+    },
+    {
+      "id": "real-recipe-tofu-allergy",
+      "expected": "no_results",
+      "actual": "no_results",
+      "passed": true,
+      "syntheticSupplierCalls": 0,
+      "result": {
+        "operationId": "4463828c-2a40-4759-8600-a7a88cd71b0e",
+        "mealVersion": 0,
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "status": "no_results",
+        "search": "complete",
+        "target": 1,
+        "targetMet": false,
+        "dishes": [],
+        "checks": [],
+        "reasons": [
+          "暂时没有找到合适的搭配，可以调整食材、口味或搭配数量后再试。",
+          "你指定了 1 道，目前可搭配 0 道。可以允许补买，或调整荤素汤数量。"
+        ],
+        "total": 0,
+        "page": 0,
+        "cursor": "eb39cd2cb101aff8.6af0f11f34f6bcc49b8fe09b93dcd12b3d7bcd2c700cc9523ed0d33dfd3e808f",
+        "nodes": 1,
+        "changed": true,
+        "elapsedMs": 0.51
+      },
+      "providerPackets": []
+    },
+    {
+      "id": "real-recipe-muscle-unknown-training",
+      "expected": "completed",
+      "actual": "completed",
+      "passed": true,
+      "syntheticSupplierCalls": 1,
+      "result": {
+        "operationId": "18c91653-2148-4ea2-9265-ca132c7c291b",
+        "mealVersion": 0,
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "status": "completed",
+        "search": "complete",
+        "target": 1,
+        "targetMet": true,
+        "dishes": [
+          {
+            "recipe": {
+              "id": "gallery-f3dc92744e6a6c37",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "homeStyle": true,
+              "minutes": null,
+              "servings": 1,
+              "image": "veg",
+              "version": "local-business-gallery-v1",
+              "state": "published",
+              "source": {
+                "kind": "local-candidate",
+                "author": "央视网《天天饮食》",
+                "license": "公开配方资料；保留原始出处",
+                "reviewed": true,
+                "uri": "https://tv.cctv.com/2015/12/10/VIDE1449724801125709.shtml",
+                "recordId": "R039",
+                "reviewBasis": "source-and-structure"
+              },
+              "variants": [
+                {
+                  "id": "gallery-f3dc92744e6a6c37-r039",
+                  "flavor": "清鲜",
+                  "lines": [
+                    {
+                      "foodId": "cabbage",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "tofu",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "main",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "白菜、豆腐各适量"
+                    },
+                    {
+                      "foodId": "ginger",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "姜适量"
+                    },
+                    {
+                      "foodId": "salt",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "chicken-powder",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "white-pepper",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "sesame-oil",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    },
+                    {
+                      "foodId": "gallery-food-900b6de53f9a9c3e",
+                      "amount": null,
+                      "unit": "g",
+                      "role": "seasoning",
+                      "basis": "unknown",
+                      "form": "raw",
+                      "optional": false,
+                      "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                    }
+                  ],
+                  "ingredientNotes": [
+                    "白菜、豆腐各适量",
+                    "姜适量",
+                    "盐、鸡精、白胡椒粉、香油、开水适量"
+                  ],
+                  "reviewNotes": [],
+                  "steps": [
+                    "姜切丝，豆腐和白菜切成小块。",
+                    "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                    "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+                  ]
+                }
+              ]
+            },
+            "variant": {
+              "id": "gallery-f3dc92744e6a6c37-r039",
+              "flavor": "清鲜",
+              "lines": [
+                {
+                  "foodId": "cabbage",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "tofu",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "白菜、豆腐各适量"
+                },
+                {
+                  "foodId": "ginger",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "姜适量"
+                },
+                {
+                  "foodId": "salt",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "chicken-powder",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "white-pepper",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "sesame-oil",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                },
+                {
+                  "foodId": "gallery-food-900b6de53f9a9c3e",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "basis": "unknown",
+                  "form": "raw",
+                  "optional": false,
+                  "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+                }
+              ],
+              "ingredientNotes": [
+                "白菜、豆腐各适量",
+                "姜适量",
+                "盐、鸡精、白胡椒粉、香油、开水适量"
+              ],
+              "reviewNotes": [],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ]
+            },
+            "checks": [
+              {
+                "foodId": "cabbage",
+                "name": "白菜",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              },
+              {
+                "foodId": "tofu",
+                "name": "豆腐",
+                "needed": null,
+                "unit": "有无",
+                "basis": "unknown",
+                "state": "unverified",
+                "available": null,
+                "shortage": null,
+                "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+              }
+            ],
+            "reused": [
+              "cabbage",
+              "tofu"
+            ],
+            "omitted": [],
+            "nutrition": {
+              "kcal": null,
+              "protein": null,
+              "sodium": null
+            },
+            "aiReason": "已核对本餐条件；当前资料未形成这道菜的健康适宜性结论。",
+            "aiGrounding": {
+              "contentVersion": "gallery-listed-foods-20261026-v28",
+              "recipeId": "gallery-f3dc92744e6a6c37",
+              "recipeVersion": "local-business-gallery-v1",
+              "variantId": "gallery-f3dc92744e6a6c37-r039",
+              "methodId": "primary",
+              "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+              "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+              "guidanceFingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+              "matches": []
+            },
+            "aiBasis": [
+              "复用本餐食材：白菜、豆腐",
+              "已核对明列配料、过敏忌口与本餐补买条件；做法采用“清鲜”版本。"
+            ]
+          }
+        ],
+        "checks": [
+          {
+            "foodId": "cabbage",
+            "name": "白菜",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          },
+          {
+            "foodId": "tofu",
+            "name": "豆腐",
+            "needed": null,
+            "unit": "有无",
+            "basis": "unknown",
+            "state": "unverified",
+            "available": null,
+            "shortage": null,
+            "reason": "已匹配本餐食材；填写用量仅供参考，不参与选菜"
+          }
+        ],
+        "reasons": [],
+        "total": 1,
+        "page": 0,
+        "cursor": "ai1.eyJjaXBoZXJ0ZXh0IjoieEp4TDMzMUE1Mi8vYVpBV0NTVWl2UktFbHZzdStaY0orMlJjSytUd25WQnhmVHFuVnZmYWtnN2J0SlhMTGtIY0VsNWJPUTZjOVk3YUFzc3pWVFo0WTcrZUZObGRMdDY1UjNFWVhDK1d6NzhIaUsxbGx3cmVHclpwbDAwLzk0U3Erb3o5TWZreWFVQlJzVzhsTnlFOHBrcmV3cGw4NGNvT2V0R2thVmc5WnpIblE5RGZBMGtTWHdCL0x1bE9jb1NVY1dtM0FOelh4dDQ3K2NTR3MwN2djUGd5TXZWQzZqZ0lGTld2c1JILzhCanhZdnQ5RGtNZmsyUDlvbkFmKzNyd0pVQ2w0TFhQUkVCaXlEVGZBMzNybjVRSXpJRTFlQzZFQTdKQk5NbnJXYnFJSmVXUlNsbk9xUkYvc1RkOENjZjZwdG03WWtaZDRNdEZsNU9rTWpITlZlTEtLR1daMXUvenZleEtkR056dlVZNWR6OE82TVdnNDNYNCsvc1IwVzlBZndDamF1bFRFSGNDUTdwNzRsTUJVSlhTRnZWSm1JeU9lRWZUMmsvMEdyeEN5dlBsWnI1OVJhYUFwY3B4MytxT0FVR1FkdXlVdmovMFpPbUt6V0hGKzNRYW81aXlhWHFKY2kxMGhmWVc4aDMvNE5pRUFpZDdjQ1B0Z05KRktESHFkell6d283ZFVuVm50a3JVeE1MZmx5WVNpWS9laUhDV2orN3NBTkpsQ2pYRXNqdmx6SkljNGY2ZWFuSVdNREp4cVFNVEJnNFdZRGhhaTVBZmtaL05vb2pBM2ZWdHJiWmM2UGVCbzBGMFdxU2FuSHh6amJieU5BcTZ1L0lWVlozc2VRaE00czNJWFh4VVlnPT0iLCJub25jZSI6IlY0cnpCcWZMZmV2Z3FDOTUiLCJ0YWciOiJWT3FwLzByWCtlQnUxM1JYL3ZnQW9BPT0iLCJrZXlWZXJzaW9uIjoidjEifQ",
+        "nodes": 0,
+        "changed": true,
+        "elapsedMs": 69,
+        "selectionScope": {
+          "qualifiedParents": 1,
+          "offeredParents": 1,
+          "qualifiedVariants": 1,
+          "offeredVariants": 1,
+          "complete": true,
+          "methodTextComplete": true
+        },
+        "researchGuidance": {
+          "mode": "local_research",
+          "knowledgeVersion": "health-kb-2026-10-28-v2+goal-guidance-2026-11-04-v1+food-guidance-mappings-v2",
+          "fingerprint": "c6563a1510c02771f94ecdf6ae6a60b79e123b9b08ea0a006c182302b41e16f6",
+          "coverage": "unmatched",
+          "uncoveredTopics": [
+            "goal:增肌"
+          ],
+          "missingConditions": [
+            "healthyExerciser",
+            "resistanceTraining"
+          ],
+          "clinicalRelease": null
+        },
+        "healthAssessment": {
+          "state": "model_selected",
+          "message": "已按本餐条件选择菜品；当前没有可对应配方的健康依据，未作疾病或目标适宜性结论。仍待确认或未覆盖：增肌。部分指导仍需确认适用条件。"
+        }
+      },
+      "providerPackets": [
+        {
+          "task": "recipe_selection",
+          "evidenceGuidance": {
+            "guidance": [],
+            "evidence": [],
+            "uncoveredTopics": [
+              "goal:增肌"
+            ],
+            "missingConditions": [
+              "healthyExerciser",
+              "resistanceTraining"
+            ],
+            "clinicalRelease": null
+          },
+          "scope": {
+            "qualifiedParents": 1,
+            "offeredParents": 1,
+            "qualifiedVariants": 1,
+            "offeredVariants": 1,
+            "complete": true,
+            "methodTextComplete": true
+          },
+          "mode": "meal",
+          "min": 1,
+          "max": 1,
+          "count": 1,
+          "categories": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "requestedCounts": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "user": {
+            "healthProfile": {
+              "conditions": [],
+              "goals": [
+                "增肌"
+              ],
+              "notes": "我是成年人",
+              "suggestions": [],
+              "updatedAt": "2026-11-04"
+            },
+            "accepted": {
+              "preferred": [],
+              "limited": [],
+              "excluded": []
+            },
+            "ingredients": [
+              {
+                "name": "白菜",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              },
+              {
+                "name": "豆腐",
+                "amount": "",
+                "form": "raw",
+                "status": "confirmed"
+              }
+            ],
+            "seasonings": [
+              "食用油",
+              "盐",
+              "生抽",
+              "大蒜"
+            ],
+            "checkSeasonings": false,
+            "allowBuy": false,
+            "servings": 1,
+            "flavor": "不限",
+            "restrictions": []
+          },
+          "locked": [],
+          "previous": [],
+          "catalog": [
+            {
+              "id": "c1",
+              "name": "白菜豆腐汤",
+              "category": "soup",
+              "flavor": "清鲜",
+              "guidanceIds": [],
+              "ingredients": [
+                {
+                  "name": "白菜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "豆腐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "main",
+                  "optional": false
+                },
+                {
+                  "name": "生姜",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "盐",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "鸡精",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "白胡椒",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "香油",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                },
+                {
+                  "name": "开水",
+                  "amount": null,
+                  "unit": "g",
+                  "role": "seasoning",
+                  "optional": false
+                }
+              ],
+              "steps": [
+                "姜切丝，豆腐和白菜切成小块。",
+                "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+                "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+              ],
+              "reused": [
+                "白菜",
+                "豆腐"
+              ],
+              "shopping": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "humanQualityReview": "pending; program grounding and project source extraction are not independent clinical review",
+  "limitations": [
+    "Goal knowledge is a narrow qualitative research slice, not complete sports nutrition or personalized intake planning.",
+    "Business path retrieves explicit food guidance; existing vector Q&A remains separate and is not credited for these decisions.",
+    "Canonical mappings leave uncertain category, food form and composition cases unmapped."
+  ],
+  "sourceFingerprint": "c1bb73b1d74cbbe9b69162627ba40c8e2783820145fa6b30063a2cbfbe4d332f",
+  "sourceFileCount": 550
+}
