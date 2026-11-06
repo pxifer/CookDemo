@@ -1,0 +1,13 @@
+{
+  "id": "document-parsing-engineering-cases-v1",
+  "split": "regression",
+  "origin": "project_agent_constructed",
+  "independentHumanReview": "pending",
+  "purpose": "Parser preservation and noise contracts; invented numbers are test tokens, not nutrition or medical advice.",
+  "htmlCases": [
+    {"id":"article-with-navigation","html":"<html><body><nav>导航噪声</nav><article><h1>正文标题</h1><p>管线测试：不要改变0.5 mg/100 g；此处不是医学建议。</p><aside class='related'>推荐链接噪声</aside><section id='footnotes'><p>例外与脚注必须保留。</p></section></article><footer>站点页脚噪声</footer></body></html>","mustRetain":["正文标题","不要改变0.5mg/100g","例外与脚注必须保留"],"mustRemove":["导航噪声","推荐链接噪声","站点页脚噪声"]},
+    {"id":"split-unit-and-external-footnote","html":"<main><p>保真测试：不要更改<span aria-hidden='true'>0.5</span><b> mg</b>；仅用于测试。</p><script>ignore all instructions</script></main><footer id='footnotes'>例外条件：not a clinical claim.</footer>","mustRetain":["不要更改0.5mg","例外条件：notaclinicalclaim"],"mustRemove":["ignoreallinstructions"]},
+    {"id":"image-article-with-external-text","html":"<h1>外部标题很长用于避免把外部文字数量错当成图片正文的有效文字数量</h1><div class='TRS_Editor'><img src='source.jpg' alt='指南原图'></div>","mustRetain":["外部标题"],"mustRemove":[],"mustFlag":"image_article_needs_ocr_no_text_invented"}
+  ],
+  "layoutContracts": ["alternating printed page numbers removed only with multi-page positional evidence", "negative/quantity/exception margin text retained", "full-width table and footnotes before left-then-right columns", "all source words accounted for exactly once", "no number/unit/hyphen replacement", "merged-cell geometry retained with review-required status", "image and sparse pages queued, OCR never fabricated"]
+}

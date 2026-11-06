@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "policy": "document-parsing-v2",
+  "toolchain": {
+    "codeHash": "47ff538d9a4e58fc5c16c6eb559d075597c5c2bdc78ae7809d96f60d3ba2d1ed",
+    "dependencies": {
+      "Pillow": "13.0.0",
+      "cffi": "2.1.1",
+      "charset-normalizer": "3.5.2",
+      "cryptography": "50.0.2",
+      "lxml": "6.1.1",
+      "pdfminer.six": "20251230",
+      "pdfplumber": "0.11.9",
+      "pycparser": "3.12",
+      "pypdfium2": "5.14.0"
+    },
+    "python": "3.12.14"
+  },
+  "registryHash": "d76f2232f64b51bf4d87af97fb8096179872ba66b6aabafaf58e81a1a01e4852",
+  "verifierHash": "566184869ba3556bcd8254bc1ae39a1e421ad31307f5d1c7bb34604264335c10",
+  "sourceCount": 13,
+  "parsedUnits": 479,
+  "allOutputBytesIdenticalAcrossRuns": true,
+  "allSourceAtomsOrWordsAccountedExactlyOnce": true,
+  "allEnhancementRangesVerified": true,
+  "totals": {
+    "originalAtomsOrWords": 41318,
+    "removedWithReason": 1215,
+    "removedNoiseBlocks": 1190,
+    "tableCandidates": 322,
+    "ocrQueueItems": 25
+  },
+  "sources": [
+    {
+      "id": "nhc-hypertension-2023",
+      "sourceHash": "e6c5227d95d289a810c953d895afc740ae922fc80ed4a8f1d5f4e39a9cd6c000",
+      "manifestHash": "2365e93f29df40a321a514686a547942358b39fc501070b0380c684e2fd7584a",
+      "counts": {
+        "originalAtomsOrWords": 4011,
+        "removedWithReason": 54,
+        "parsedUnits": 56
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:6ad913daf9ea5ec62506a2042e968ae411b81926284753181fdca622ae8178c3",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:2c858301b8b302d429df2e127323b8aa3eb78fdddb356d8c4d7b66e9917eb7cb",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:1926600d1dbde1b77e1306beabf407f66d4c878d2b5b5767ec30bfee225ecb5b",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:1ac9d1dac134ed647a1d5f7d8728894b77256f2d17a8b91c309a39b481eef7b5",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:04a9e60536f61e7e12909b32761e0f5357ddea0f440ded075580baa4719f79d6",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:55fa21d53555928bc7b83a7930ed48d377d09e0c489dd0694a975f5e6264fd1c",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:353c3398a0f13e8afe743659d248797d930f0cc549ed0d6168f5c418f594cd06",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:69a0fc82ff0bae979b3b2951adec1fbcaaa3fc46b801d17f6814165c5946208f",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:ae5439fcf88cf4bf2cd2c30ba2860dc9f8c6bb48d82eed137e68b828f2d66b13",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:b72d441dc713ab701836fa0226a7ae8b0ecddd33005d87cb3745e22b3c09a8d8",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:e13e90de4a32610a8127a5679cb89d47732d63e443b591da5e616dc94b314e08",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:f10f3b415730a009ce62ab915d86eb035af45424a86954b41ba67a64254b1deb",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:e87628fb49c79bd5f144a56cbfe284b770b073ea6f8900f5764589cc43115d35",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:f596a152d93855204e204cc41c9f49c295a145512fbefbef263358f4549300a9",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:f13e733d6ff73c4e4a751467f5520cba98d87e109f27a423d0a6934186e58d13",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 1,
+        "parsedUnits": 56,
+        "removedNoiseBlocks": 54,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review"
+        ],
+        "tableCandidates": 44,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-diabetes-2023",
+      "sourceHash": "2e03cd9e06b1a1faf67298647a01c5e5d2be9cd99aacb527732c51f1ee378d87",
+      "manifestHash": "718b5a85f6e29af32cd87ccf71f951c22a0f60652fcdaf51294aff34399e2c29",
+      "counts": {
+        "originalAtomsOrWords": 4306,
+        "removedWithReason": 62,
+        "parsedUnits": 64
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:fb714e9f26c86a9bf10842373babef435bc5063a095c9bfe6f8b2d06ccd7bb23",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:628eab37c5d8ad21f9109fa3c6d24c9f53aab286d7c7dd36a13499492e24f7cc",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:681c8232e9a96f70a0a06750f11c8c9ca7a3229ef15a3b4744598ba8620d4304",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:24dd91339b1ac848a987c063a1ee9de6d290c592e59b3bf33f05d22b0f389b98",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:8a6b3f4a283f9ecc0af3cf1fbb18177a094660088e6d6a3ddadf14bbbe7ebc62",
+            "state": "not_locatable_in_geometry_parse_requires_review"
+          },
+          {
+            "evidenceId": "ev:04e0f367f4296cf6cf50c66b9b97a6c7b491878b885d3c0682aa1fae8698df85",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:1ece3a94c596d9c6a6a0e33bde84a403378ff7ebb789e91eceb815bdfbfd7653",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:1962e7fb78075035a9f418c386ebfeca8226bb883f36b62d3583cde397aec7aa",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:d1e851469a4c504a9088d3f01704ffd977f8ec01be14b890822722165f38ec83",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:7fd4719d3d79afa96c101f4c5247eed258ae2e8be7739b3dc3fc22dc2271b5d6",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:d71b674edd0e26b483b483cd4ea5113bccfc7662a218d046b759f6ee4c104dc8",
+            "state": "not_locatable_in_geometry_parse_requires_review"
+          }
+        ],
+        "ocrQueueItems": 2,
+        "parsedUnits": 64,
+        "removedNoiseBlocks": 62,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review"
+        ],
+        "tableCandidates": 48,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-gout-2024",
+      "sourceHash": "1557d1f7ebef8ab7185cbf67bfbd6b1890cbb5d148f56d0728d07647d18e377f",
+      "manifestHash": "1f9778f3644ed357952c9601490cfa93eb2c291361b1f59362810e467e368762",
+      "counts": {
+        "originalAtomsOrWords": 4174,
+        "removedWithReason": 72,
+        "parsedUnits": 74
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:d932c983c74f75353f484ab78a9f1d41b0c860f77bfdb4ad6ad23c203d20140f",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:8aa4f285a5f620469407590b4fea283a4191f972ded801709e1e1caf5aceb1ae",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:51b5772e6d9f7c74700ade2c7f2237d1d13bdc1b0561f3c0559897feb0109ac6",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:8c32186d3300f8ff19b43022e72c19abd12a4323063069f3e60d1559fc0c3de6",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:8ea406ed62c301405a7be9716161acbd7888c6112721898dcf9657697c878ed4",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:aeb6550f1008ab9af38824ce8419faf94e9fc4a77663faad130b63ed129ee79b",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:ea30e75fd5cbb740b3cb0717d88e20755540b86fa46dc9ce459025b18c3c785c",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:fe963bdc951d4f6abc6bad4fab952345e0bb9affe402cb0e67d80558f8a47ef9",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:522e1e8ea34dde829b69a1cdd8335d5bec222fdcba994a06e7642ba7f7523761",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:f011399a2b6ef13bac5c7fed714fe62925d46bd8fd389df9615b506fc68d2755",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:6181c88afc082b5ecb6576d9eb93ba99af229a6d48b6b19583be2fc15c773729",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:81b157f8456f2b8932640333bcdfeb27c40b4e089e37c3f23a8558cbfcb7d64c",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:fa0fed61b955bc0ba0b430976357c190813a965e8752105b2e69753d85ceed02",
+            "state": "not_locatable_in_geometry_parse_requires_review"
+          }
+        ],
+        "ocrQueueItems": 1,
+        "parsedUnits": 74,
+        "removedNoiseBlocks": 72,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review"
+        ],
+        "tableCandidates": 55,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-hypertension-principles-2024",
+      "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+      "manifestHash": "e6855b3f203f876238e520aa28015db88986d9eaac368a06f11464cec7d2e4e5",
+      "counts": {
+        "originalAtomsOrWords": 65,
+        "removedWithReason": 0,
+        "parsedUnits": 14
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:b3b27e9ab7431b583b52b0021f8a54585cfcc99491a2e627e31717478061c2c4",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:1becd045858d570ca466b5cc79741ec1e94e9ddfa7b02c3216f73d831af38bff",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:e2a46720bde050215b708741fcd2b4c218aa60550b842a6b2c08c7fbd9d44827",
+            "state": "visual_evidence_requires_image_review"
+          }
+        ],
+        "ocrQueueItems": 13,
+        "parsedUnits": 14,
+        "removedNoiseBlocks": 0,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review"
+        ],
+        "tableCandidates": 0,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "kaneko-purines-2014",
+      "sourceHash": "8761dd2142a6313234451b26e0fbcf2ac4136dfc3a7aca94f3b009f9a8031e34",
+      "manifestHash": "e3cbaada3618b20ca650231e2d55e008e8e6afd44645bcc254d629bb11a4c779",
+      "counts": {
+        "originalAtomsOrWords": 8398,
+        "removedWithReason": 51,
+        "parsedUnits": 13
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:751fbf8deb8683525f2f2f9f9a6b8dc3c620d9ce4a4607454e1e76cc3ce6374c",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:7eb3e96f1c95f619080cd729e54c7d005fa192034ab120778bb5e6822f23d5b0",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:8f00b5df00c98ffee2c3b754cab67c73dfbd3106e39b47959fd162b05780ba9a",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:1cb8ee1b6d07a90c363975d8a200bbd2e5b6bb478ef1977b60887a40bad314d1",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:7fdadc6b9c2d2633748f82a1d3e5bd1a9ca29da8a68344815f81d3adef81b626",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 0,
+        "parsedUnits": 13,
+        "removedNoiseBlocks": 26,
+        "reviewFlags": [
+          "table_structure_requires_review",
+          "two_column_order_candidate"
+        ],
+        "tableCandidates": 8,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "shinoda-cooking-1982",
+      "sourceHash": "b3a9f81e4f7497ea59fcc6bc4baa8be0ee9f780b82d8b672753c69a095012813",
+      "manifestHash": "2fa13f95730802bb1a2301918811876b1b9485effc1af39215e85f58acadde34",
+      "counts": {
+        "originalAtomsOrWords": 170,
+        "removedWithReason": 165,
+        "parsedUnits": 1
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:06148f434d56144eddc1e689cd91c742e86c5236be323d2b00a1827b57cd903a",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:bdb8b736a346eef54c132aad002a28b7beaa983fa3e61a0a6377ebd0c825883c",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 0,
+        "parsedUnits": 1,
+        "removedNoiseBlocks": 165,
+        "reviewFlags": [
+          "protected_or_heading_text_retained_outside_body"
+        ],
+        "tableCandidates": 0,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nci-cooked-meats-2017",
+      "sourceHash": "0c3ddbad4d9ba5587f0cce17a1c1b2f7465c44a78b791666a9479d5d5a2bf19e",
+      "manifestHash": "9fe9f9b13c18381169978572d44c8960fa6b770a12a00cfa7a579e90142b7ea3",
+      "counts": {
+        "originalAtomsOrWords": 326,
+        "removedWithReason": 226,
+        "parsedUnits": 1
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:5e1d26b211264fe779b255df7fcd38a7c012085ed71a8e39e5107f23b6d57633",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 0,
+        "parsedUnits": 1,
+        "removedNoiseBlocks": 226,
+        "reviewFlags": [
+          "protected_or_heading_text_retained_outside_body"
+        ],
+        "tableCandidates": 0,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-obesity-2024",
+      "sourceHash": "c0c70502e1c03f2612b322e2dfa8f4a8308c262d41bb4af397dac6c64f5162c7",
+      "manifestHash": "24230547bd7e8433acdc991c533ce00c2952f3f065df234a89ca55e599759c0a",
+      "counts": {
+        "originalAtomsOrWords": 4262,
+        "removedWithReason": 50,
+        "parsedUnits": 70
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:3e5f3d2224f0b9e02fedeb2ed525736b7071b27a7432036f446f6257da036d0c",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:37e4868586e6183122f0f23c329f33eab8a83d0ed6e0b9f76b8eb7fc34ed1439",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:5cc2dd3ca3ba40d66de83ec9541d20a8e1c9ff34a62d55af3f57eba31e28f924",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:ed9b38080461c4f7325992f74d77310e5bae0e4cbf48a5ec06e34a7bffcde5bf",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:a1716ee22fbac9a7111baf2934d75cf33544de77150f1018016ea5955c55aa36",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:d3b41c931a7c7d6e90e2d82991589a644da3eca42eea955febfe8063dc26034a",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:6356639494f4b8de004029e52e042d639ba3942634d81b3308ceef48923272b6",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:bdd07df97a1210f0edf13666b2a5a7e7b4017c8eec65d6d1270a200e12c669b3",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:75ca0dffe59a825911d85f4b710c3578c0cbd4777213bef422eea274b2a70e34",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 1,
+        "parsedUnits": 70,
+        "removedNoiseBlocks": 50,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review"
+        ],
+        "tableCandidates": 51,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-ckd-2024",
+      "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+      "manifestHash": "60fb0936304e50a8f45b04caae5b411b70b607b9deaba199ad78e8aa9bbadc62",
+      "counts": {
+        "originalAtomsOrWords": 5530,
+        "removedWithReason": 67,
+        "parsedUnits": 69
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:031fc63ec36d12caa34884eefeed16fd736727e6c8a86a912c5bcaec09257f3d",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:2c5c36dec996ad8d0e964968235d0541ada262bd2ce8a4adeb340631d3d178c5",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:748f143b1ec4aa90aa1b87dc41ca69f036f500b3f61f10ac08686522219b9e71",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:5bd9e8354eb8e221bff148b42db4c4695dfef7dbba18daabd31a8a51afe6276b",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:2e6a345f6c5b9a0817dfd4501beef1704d00525caef5918c0cd24417891f8711",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:b68b09e759b0816323d0c9d8f0db271bdb53c62758a002f7311733650e44b792",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:d104418e66e822f56df293a503bff81e15905ff4c46884fffbabf05baf5df654",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:e3152e3198d9c4d35133b2c1b3ad1e300247d218e0487cc877819fd61ebb9e2b",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:8cbf9cf0e7cfb98a405d06c784a021305e1bfcf3390e986085fb641265b49f24",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 1,
+        "parsedUnits": 69,
+        "removedNoiseBlocks": 67,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review"
+        ],
+        "tableCandidates": 49,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-osteoporosis-2026",
+      "sourceHash": "0b521828ccc48cad61a05d1c9dfe9a8051e4c1d14883b94c4a320c8bb56efb4f",
+      "manifestHash": "a69048b9fba57d55eb16dc80b5a9c8b04532407f5d38e32a9879bc90d7170a97",
+      "counts": {
+        "originalAtomsOrWords": 4402,
+        "removedWithReason": 76,
+        "parsedUnits": 85
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:9b36d3a7aa961327c2acc298609fdec8cf052350a9049c7ac6c91357f8d81ab4",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:bd5a1ffe7563bd5fbc82435f79b17ec74484f894e7e8af6351f796fdb75ea884",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:212c09e91f64b43cb3e474226e785d0b5c159b047bb66606e7a436a4d6a1c599",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:6af0f1d45d4373f8ff6e2971cd67b3311968b9750297cb6598bbc8b23b82ff74",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:b36335d7031e1cf3d3095f35d89cc119b60943fb7f5d20e0238ad916008bb99e",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:b67cdb8f074f072dec3b20f0658b1f1bd7434e59ff5dcdc8d216e4c2bef5c6be",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:71657a14602d1c2a996315dd9f4ffcafd75d5dd04720e243e7becf77ce544a07",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:ca714c4f2c46662c7d6d5841aa5a6658d48a6adbf0cbc6140e74179df1954c5f",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:981dd4a625ff45dd327d4111876f3973f13c823354d8fe926e9e66d32022e729",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:f5ebb45c61339b57edaf7493259f0747c8a3aa9988b8b1a16af6dc13f44ccd4a",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:6599f82853eb38b5edc127559e8dd4569c1fdd194d6b96d392d0dc28c7f053bb",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:ac3ac9f8a9c092e3bc3667aa95fc941cff3cba63ddf440cb29b4c7cadea8bc87",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "ev:d47ceb4ddd0e193de011b68d8c2ecb84b9553b1d5b972f61962c0b64ab41cbab",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 4,
+        "parsedUnits": 85,
+        "removedNoiseBlocks": 76,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review"
+        ],
+        "tableCandidates": 64,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "cdc-dyslipidemia-2023",
+      "sourceHash": "5753f33d11ab84c4721a779b53637b36e8cb047752b51a69b7b3b71a11c30878",
+      "manifestHash": "f5f3cc70b5cd2fcab83698c7caa1915cb8d99ea0d1891e821208411b9b8c4f7d",
+      "counts": {
+        "originalAtomsOrWords": 126,
+        "removedWithReason": 113,
+        "parsedUnits": 1
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "ev:d60a59038017eefc5d4ff7e35e72fcd864c719a14745e3de15d0abfcfd16fb85",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:b9405f67529acef9e6423945f51f368ed71a330a4eddea1df4781661a0a0cd72",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:0cba708a8f28354f90ee90b7b86d2a5dc2b06635ccb5dfc42bf299a130a59784",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:1809dd48c794c910323088052eec202c97bbac57f591f3e11a05448613fd7266",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:10eda2fbf37d6fae1e53698874ed3e488ee027db4e1880cef6f4b50348e1212b",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:91d34788e706c7b56e9b671c9fbb4c82c61fb48989d5fc70cf271ffd1484a578",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:ec713c499144b148228d26ebe2e8bd7b7f40f72a6e0a17b259a447b886fcb6e1",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:5b129a290488b4a0f1828299e35be29d6681267758ba2b6e69642435c9cc5b17",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:e9251fe4eb226f6bf9945c93ea21e454f4049150962c95cd7135f5cc2a6c0fe3",
+            "state": "visual_evidence_requires_image_review"
+          },
+          {
+            "evidenceId": "ev:caa13a40a565306ce5da7777306517f4d28f78f9d73178f47024de516348bd1a",
+            "state": "visual_evidence_requires_image_review"
+          }
+        ],
+        "ocrQueueItems": 1,
+        "parsedUnits": 1,
+        "removedNoiseBlocks": 113,
+        "reviewFlags": [
+          "image_article_needs_ocr_no_text_invented",
+          "protected_or_heading_text_retained_outside_body"
+        ],
+        "tableCandidates": 0,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "nhc-weight-management-2024",
+      "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+      "manifestHash": "59d5058071a784434ef7e26f5ffc22edd24072bceaa47e67dcaefeb359d3c43b",
+      "counts": {
+        "originalAtomsOrWords": 2339,
+        "removedWithReason": 24,
+        "parsedUnits": 30
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "goal-ev:weight-food-method",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 1,
+        "parsedUnits": 30,
+        "removedNoiseBlocks": 24,
+        "reviewFlags": [
+          "sparse_page_needs_ocr_or_blank_page_review",
+          "table_structure_requires_review",
+          "two_column_order_candidate"
+        ],
+        "tableCandidates": 3,
+        "wordAccountingFailed": false
+      }
+    },
+    {
+      "id": "issn-protein-exercise-2017",
+      "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+      "manifestHash": "3e060c91e816e11ea1a2f61166260e72b3be5f0444997a1f9bfa3572238999aa",
+      "counts": {
+        "originalAtomsOrWords": 3209,
+        "removedWithReason": 255,
+        "parsedUnits": 1
+      },
+      "quality": {
+        "existingEvidenceAnchors": [
+          {
+            "evidenceId": "goal-ev:exercise-scope",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "goal-ev:exercise-egg",
+            "state": "retained"
+          },
+          {
+            "evidenceId": "goal-ev:exercise-beef",
+            "state": "retained"
+          }
+        ],
+        "ocrQueueItems": 0,
+        "parsedUnits": 1,
+        "removedNoiseBlocks": 255,
+        "reviewFlags": [
+          "protected_or_heading_text_retained_outside_body"
+        ],
+        "tableCandidates": 0,
+        "wordAccountingFailed": false
+      }
+    }
+  ],
+  "existingEvidenceStates": {
+    "retained": 88,
+    "not_locatable_in_geometry_parse_requires_review": 3,
+    "visual_evidence_requires_image_review": 11
+  },
+  "engineeringMarkers": {
+    "dataset": "document-parsing-engineering-cases-v1",
+    "datasetHash": "9815b55d68656d773121742da8bb1eca89d43f04d044d1ffe7f21b635330a5ef",
+    "split": "regression",
+    "origin": "project_agent_constructed",
+    "cases": [
+      {
+        "id": "article-with-navigation",
+        "positiveMarkers": 3,
+        "noiseMarkersRemoved": 3,
+        "state": "passed"
+      },
+      {
+        "id": "split-unit-and-external-footnote",
+        "positiveMarkers": 2,
+        "noiseMarkersRemoved": 1,
+        "state": "passed"
+      },
+      {
+        "id": "image-article-with-external-text",
+        "positiveMarkers": 1,
+        "noiseMarkersRemoved": 0,
+        "state": "passed"
+      }
+    ],
+    "independentHumanReview": "pending"
+  },
+  "state": "engineering_candidates_verified_not_semantically_approved",
+  "factsPublished": 0,
+  "indexesChanged": 0,
+  "modelCalls": 0,
+  "ocrCalls": 0,
+  "limits": [
+    "All 13 real sources exposed during development; no blind acceptance or independent body/table gold.",
+    "Unlocated existing spans and visual evidence remain review-required; frozen locators not overwritten.",
+    "Table geometry/units/headers/continuation are candidates only; OCR queue is not recognition.",
+    "Marker scores are constructed regression only, not corpus-wide retention/noise/clinical accuracy."
+  ]
+}
