@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="480" viewBox="0 0 1080 480" role="img" aria-label="拾味业务与研究两条真实链路，以及未接入的资料治理候选层">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#52667b"/></marker></defs>
+<rect width="1080" height="480" rx="16" fill="#f5f8fc"/><g font-family="Microsoft YaHei, sans-serif" font-size="17" fill="#16324f">
+<text x="24" y="35" font-size="22" font-weight="bold">同一项目，两条不同的真实链路</text>
+<text x="24" y="72" fill="#116858">本地研究业务：主题指导与真实菜谱；没有调用向量 / RRF</text>
+<g fill="#e2f3ee" stroke="#8ac7b4"><rect x="24" y="90" width="180" height="75" rx="8"/><rect x="240" y="90" width="210" height="75" rx="8"/><rect x="486" y="90" width="210" height="75" rx="8"/><rect x="732" y="90" width="320" height="75" rx="8"/></g>
+<text x="40" y="120">疾病 / 目标 / 本餐</text><text x="40" y="147">过敏忌口 / 食材有无</text><text x="256" y="120">条件化直接指导与映射</text><text x="256" y="147">实际配方资格、可行基线</text><text x="502" y="120">完整候选与依据增强</text><text x="502" y="147">DeepSeek只选择目录ID</text><text x="748" y="120">程序复核整餐、版本与证据归属</text><text x="748" y="147">展示菜品 / 有据理由 / 未知</text>
+<text x="24" y="215" fill="#314da3">研究证据问答：A1与dense对比；不等于当前选菜检索</text>
+<g fill="#e8edff" stroke="#a2afe1"><rect x="24" y="235" width="180" height="75" rx="8"/><rect x="240" y="235" width="210" height="75" rx="8"/><rect x="486" y="235" width="210" height="75" rx="8"/><rect x="732" y="235" width="320" height="75" rx="8"/></g>
+<text x="40" y="265">实体 / 条件 / 撤回</text><text x="40" y="292">不明确则补问或停止</text><text x="256" y="265">A1≤50事实、dense≤30</text><text x="256" y="292">证据映射事实、加权RRF</text><text x="502" y="265">≤8事实、完整证据闭包</text><text x="502" y="292">估算context 6000 token</text><text x="748" y="265">生成claim、校验ID / 限定 / 终态</text><text x="748" y="292">语义支持仍需独立质量评测</text>
+<g stroke="#52667b" stroke-width="2" marker-end="url(#a)"><path d="M207 127H232"/><path d="M453 127H478"/><path d="M699 127H724"/><path d="M207 272H232"/><path d="M453 272H478"/><path d="M699 272H724"/></g>
+<rect x="24" y="350" width="1028" height="100" rx="8" fill="#fff5df" stroke="#dfb86a" stroke-dasharray="7 5"/><text x="40" y="380" font-weight="bold">资料治理候选：原件 → HTML / PDF版面 → 表格 / OCR → 可回查结构块、候选与复核队列</text><text x="40" y="409">3717结构块不是3717已入库向量；新资料需重整支持与限定、审核、发布新知识 / 索引版本。</text><text x="40" y="435">不自动连接到上方旧98证据索引；本图说明范围，不表示疾病RAG已上线或具备临床签认。</text></g></svg>

@@ -1,0 +1,232 @@
+{
+  "scope": "documentation_only_no_new_model_or_database_verification",
+  "static": {
+    "date": "2026-11-12",
+    "base": "bfa1567ccb43ca02e2a42f75c57e521a250d105d",
+    "markdownFiles": 14,
+    "localLinksChecked": 942,
+    "fragmentLinksChecked": 746,
+    "brokenLinks": [],
+    "externalOriginalHashChanges": [],
+    "projectEvidenceHashChanges": [],
+    "questionIdsExact": true,
+    "htmlQuestionCount": 112,
+    "htmlMissingTargets": [],
+    "htmlDuplicateIds": 0,
+    "agentsLines": 102,
+    "externalOriginalsUnchanged": true,
+    "htmlSHA256": "933fc5af392a5e8720433c61519dec4164a7c00eb8c6d751f6fe9e34d1cf6daa",
+    "readerDeterministicRebuild": true,
+    "offlineTeachingExercise": {
+      "scope": "toy_only_no_project_quality_claim",
+      "rrf_example": [
+        [
+          "A",
+          0.04865990111891751
+        ],
+        [
+          "B",
+          0.04838709677419355
+        ],
+        [
+          "C",
+          0.01639344262295082
+        ]
+      ],
+      "mode_comparison": {
+        "a1": {
+          "recall_at_2": 1.0,
+          "mrr": 0.75,
+          "per_question": [
+            {
+              "ranking": [
+                "A",
+                "X"
+              ],
+              "recall_at_2": 1.0,
+              "rr": 1.0
+            },
+            {
+              "ranking": [
+                "X",
+                "B"
+              ],
+              "recall_at_2": 1.0,
+              "rr": 0.5
+            }
+          ]
+        },
+        "dense": {
+          "recall_at_2": 1.0,
+          "mrr": 0.75,
+          "per_question": [
+            {
+              "ranking": [
+                "X",
+                "A"
+              ],
+              "recall_at_2": 1.0,
+              "rr": 0.5
+            },
+            {
+              "ranking": [
+                "B",
+                "X"
+              ],
+              "recall_at_2": 1.0,
+              "rr": 1.0
+            }
+          ]
+        },
+        "hybrid": {
+          "recall_at_2": 1.0,
+          "mrr": 0.75,
+          "per_question": [
+            {
+              "ranking": [
+                "A",
+                "X"
+              ],
+              "recall_at_2": 1.0,
+              "rr": 1.0
+            },
+            {
+              "ranking": [
+                "X",
+                "B"
+              ],
+              "recall_at_2": 1.0,
+              "rr": 0.5
+            }
+          ]
+        }
+      },
+      "json_cases": {
+        "valid": "accepted",
+        "fenced": "rejected",
+        "truncated": "rejected",
+        "duplicate_key": "rejected",
+        "outside_catalog": "rejected"
+      }
+    },
+    "coverage": {
+      "userQuestions": 57,
+      "localAgentQuestions": 90,
+      "localAgentFollowupExercises": 1,
+      "localAIPracticeQuestions": 18,
+      "localProjectTopics": 45,
+      "douyinProfileWorksDisplayed": 18,
+      "douyinPublicNotesCollected": 17,
+      "douyinImagesOCR": 196,
+      "douyinWorksUnverified": 1
+    }
+  },
+  "browser": {
+    "questionCount": 112,
+    "chapterCount": 12,
+    "missingInternalTargets": 0,
+    "duplicateIds": 0,
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "scriptLoaded": true,
+    "rawPlaceholderCount": 0,
+    "checkedDate": "2026-11-12",
+    "desktop": {
+      "width": 1440,
+      "height": 1000,
+      "visualChecked": true
+    },
+    "mobileVisualChecked": true,
+    "interactions": {
+      "rrfSearchQuestionMatches": 11,
+      "multipleTermsRrf60Matches": 6,
+      "q112SearchMatches": 1,
+      "q112AutoExpanded": true,
+      "e02LinkSelectsSources": true,
+      "parameterTables": 9,
+      "parameterModelRevisionAndChunkTextPresent": true,
+      "noResultsShown": true,
+      "clearingEmptyInputHidesNoResults": true,
+      "mobileMenuNavigatesAndCloses": true,
+      "q012Opens": true,
+      "consoleErrors": 0,
+      "expandButtonBusinessCards": 15,
+      "collapseButtonOpenCards": 0,
+      "diagramLoaded": true,
+      "diagramIntrinsicSize": [
+        1080,
+        480
+      ]
+    }
+  },
+  "deliveredFileHashes": [
+    {
+      "path": "agent-design/docs/interview/architecture.svg",
+      "sha256": "958693cf5cd8561b30e773c9cfa2fd91acfc8d7b8704e946ade492bfc7a6a67c"
+    },
+    {
+      "path": "agent-design/docs/interview/exercises.py",
+      "sha256": "97a53ce5c1a06d35cb9700920cce31d547ac3ef8cc557c3d8b03b13c2cdc4298"
+    },
+    {
+      "path": "agent-design/docs/interview/experiments-and-decisions.md",
+      "sha256": "0b10fecba64eca5a0895b36442871cab2c25cd2be8f4391cd397684f5c748ac6"
+    },
+    {
+      "path": "agent-design/docs/interview/failures-and-highlights.md",
+      "sha256": "9b6e7486ab661544df291a8be60ff40c12389b0107b841825f2e8bb827dc610f"
+    },
+    {
+      "path": "agent-design/docs/interview/foundations-and-exercises.md",
+      "sha256": "53cf14ce338782d438bbcb5a90ed9894411596049855671df261b042cb2fe8dc"
+    },
+    {
+      "path": "agent-design/docs/interview/project-story.md",
+      "sha256": "f3fd760fd131fb7f2b593979fbbc5c0745a23948e0428f591fcd55ac834cb76f"
+    },
+    {
+      "path": "agent-design/docs/interview/qa-01-business-data.md",
+      "sha256": "f08548db0f0e7f5e817f5a1b05477da576129be4f3c3cf9e27c1e55bf3133e98"
+    },
+    {
+      "path": "agent-design/docs/interview/qa-02-retrieval-generation.md",
+      "sha256": "45ef955820bcccaef6685972e485a363b7507674a527af93a27d1c80d9eeb8fc"
+    },
+    {
+      "path": "agent-design/docs/interview/qa-03-agent-evaluation.md",
+      "sha256": "321bee420b82feb59a7c4dda5d27ca6953fc926a1749cf93a61c53ff5733b3dd"
+    },
+    {
+      "path": "agent-design/docs/interview/qa-04-engineering-extensions.md",
+      "sha256": "32de0297bacc0a4377037ab906a7267dd8921364a49466414bcf3b0e6951a4ce"
+    },
+    {
+      "path": "agent-design/docs/interview/qa-05-foundations-scenarios.md",
+      "sha256": "70c5b0a6dab5c2a9fabdcdf4cc7661de52bddd258edd3f1d0ff10e46f0af9bc0"
+    },
+    {
+      "path": "agent-design/docs/interview/reader.html",
+      "sha256": "933fc5af392a5e8720433c61519dec4164a7c00eb8c6d751f6fe9e34d1cf6daa"
+    },
+    {
+      "path": "agent-design/docs/interview/README.md",
+      "sha256": "08cf2687ec4cbd78a5897ddbe1d281619da5282e72fd2b2bdf3c79b80d5715f6"
+    },
+    {
+      "path": "agent-design/docs/interview/render.py",
+      "sha256": "ab5fe06bb7067bd043241b7a826163b78cf05519effcef6874188677f42327ef"
+    },
+    {
+      "path": "agent-design/docs/interview/source-manifest.json",
+      "sha256": "ffcf497cfa4ccf52f91346db6d51012682ae0e49432e8c405d2fa7d4990f4984"
+    },
+    {
+      "path": "agent-design/docs/interview/sources-and-coverage.md",
+      "sha256": "fb40dcbc7e008f05b0d6bdf91b5511d5b2e9145bc95bd3c5d4a780c51280350e"
+    }
+  ]
+}
