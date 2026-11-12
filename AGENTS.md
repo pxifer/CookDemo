@@ -38,6 +38,7 @@
 - 修改HTML正文、PDF页边噪声/双栏/断行、表格结构或OCR检测时，先读[正文解析说明](agent-design/docs/document-parsing-runbook.md)及[本批实测](agent-design/docs/document-parsing-execution-2026-11-06.md)；全文留本地，转换可回查，候选/复核队列不冒充事实或OCR完成，接入须新版本。
 - 继续表格逐格关系、真实OCR/长图分片、工程修订、新证据定位或入库门禁时，读[表格与OCR运行说明](agent-design/docs/table-ocr-runbook.md)及[实测](agent-design/docs/table-ocr-execution-2026-11-06.md)；原始OCR不覆盖，不伪造置信度/人审，多重匹配不默认取首条，未核候选不替换事实/向量。
 - 涉及无竖线表、上下标、表格阅读顺序或旧定位恢复时，读[v3定位治理](agent-design/docs/evidence-resolution-2026-11-06.md)；唯一同名正文不能洗白导航引用。解释算法先查[技术原理](agent-design/docs/rag-technology-explained.md)；核对切块/token、阈值、模型/召回/预算/生成参数及对比时查[参数实测](agent-design/docs/rag-parameters-and-chunking.md)，不得把工程初值当最优。
+- 需求涉及AI/Agent/RAG面试准备、项目讲述、逐步技术与参数原因、实验/故障复盘或本地/外部题库覆盖时，先查[工程与面试手册](agent-design/docs/interview/README.md)及[离线阅读器](agent-design/docs/interview/reader.html)；按实现/研究/方案区分，代码变化同步参数和答案，不编造RRF增益、重排上线或独立准确率。
 - 食材指导接入本地聊天/选菜的当前契约及实测见[业务RAG记录](agent-design/docs/business-rag-execution-2026-11-04.md)：显式local/loopback研究开关、直接指导及动态配方绑定；新增目标未向量化，真实生成质量与专业审核仍待完成。
 - 当前真实界面链路及5次样例见[2026-11-05例子](agent-design/docs/business-rag-example-2026-11-05.md)：无健康依据不全局拦截合格菜，保留健康判断；模型只选目录ID，程序按真实配方绑定证据，不采信模型自由填写引用。独立/专业质量评测仍未完成。
 - `backend/src/rag/` 为研究 RAG 实现，`backend/rag-runtime/` 为本机 Embedding 推理；`rag:prepare/index/query/evaluate/smoke` 从根目录运行，研究凭证、权重和账本仅在 `.local-data/rag/`。
