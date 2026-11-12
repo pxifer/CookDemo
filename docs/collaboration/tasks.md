@@ -6,7 +6,7 @@
 
 | 编号 | 负责人 | 目标与范围 | 分支 / PR | 验收标准 | 状态 / 依赖 |
 | --- | --- | --- | --- | --- | --- |
-| MAN-001 | 管理 chat | 协作规则、模板、SHA绑定工具及自主检查任务 | `chore/managed-baseline-review` | 类型、工具单元、本地基线及主分支复验 | 完成；自主检查按北京时间13/15/17/19/21点执行，不再等待通知 |
+| MAN-001 | 管理 chat | 协作规则、模板、SHA绑定工具及自主检查任务 | `chore/managed-baseline-review` | 类型、工具单元、本地基线及主分支复验 | 完成；2026-11-12按用户要求删除定时任务，改为用户发起审核 |
 | BASE-001 | 管理 chat | 验收当前本地项目为共同 main 基线，保留既有材料 | RAG-001 + `chore/managed-baseline-review` | 敏感文件/附件核对、构建与回归、安全保存原目录并正常合并复验 | 完成；业务合并 `6fa893b`，合并后复验通过；[管理审核](reviews/BASE-001-2026-11-05.md)，精确结果在 `.local-data/management/baseline-acceptance.json` |
 | RAG-001 | 当前开发 chat（重构 AGENTS.md） | 完成既有目录重整、基础/业务RAG及用户参考量策略，提供兼容旧 main 的完整本地候选；含现有协作工具依赖，详见交接 | `agent/rag/RAG-001-reorg-business-rag`，本地提交，不推送 | 保留原件/面试材料；排除密钥/本地配置/缓存；构建、主/验收类型、单元、相关桌面/手机与离线RAG；按确切SHA审核 | 完成；`ae41df2` 已通过BASE-001审核并合入本地main；[交接](submissions/RAG-001-2026-11-05.md) |
 | RAG-002 | 当前开发 chat | TODO C1标注/数据划分与B1离线原件重建；补建议均衡、明确补问、映射版本缺口；涉及研究后端、scripts、datasets、Agent文档与专项测试 | `agent/rag/RAG-002-quality-governance` | 冻结资料不变、杜绝评测泄漏与伪造人审、缓存可重复重建、真实目录回归、无新增付费或部署 | 完成；合并 `d61cf63` 并复验通过；[管理审核](reviews/RAG-002-2026-11-06.md) |
@@ -14,7 +14,7 @@
 | RAG-003 | RAG开发agent | 正文与版面离线解析候选 | `agent/rag/RAG-003-document-parsing`，`dedb500` | 可回溯、重复重建及冻结资料保留 | 工程范围完成；随RAG-004合并 `9a6dee5` 并复验；[集成审核](reviews/INTEGRATION-2026-11-06.md)；独立质量审核待办 |
 | RAG-004 | RAG开发agent | 表格逐格、真实离线OCR、定位候选与机械门禁 | `agent/rag/RAG-004-tables-ocr`，审核 `fa99864` | 原字符/坐标/血缘保真、待核隔离及不发布事实 | 工程范围完成；合并 `9a6dee5` 并复验；[集成审核](reviews/INTEGRATION-2026-11-06.md)；独立/专业审核及事实发布未完成 |
 | RAG-005 | RAG开发agent | v3无竖线表格、下标/单元格顺序与旧证据定位治理 | `agent/rag/RAG-005-evidence-resolution`，审核 `187ba82` | 原字符保真、旧来源/偏移与导航误引隔离、回归 | 工程范围完成；原P2关闭，合并 `bba9659` 并复验，345单元通过/2跳过、13来源独立重建核对通过；[管理审核](reviews/RAG-005-2026-11-06.md)；新事实/索引未发布 |
-| RAG-006 | RAG开发agent | 全链路参数/切块规格；AGENTS与Agent文档导航；离线长度测量证据，不改运行代码或知识/索引 | `agent/rag/RAG-006-parameter-specification` | 绑定实际代码/数据hash；98条证据与3717结构块两tokenizer长度；逐项区分现值/初值/实测/未对比；链接/行数/原件保持核验 | 文档待审；基于已集成RAG-005，见[参数规格](../../agent-design/docs/rag-parameters-and-chunking.md)；本批0模型推理/生成/部署，未重跑运行时测试；精确SHA与文档核验交接另存 |
+| RAG-006 | RAG开发agent | 全链路参数/切块规格；AGENTS与Agent文档导航；离线长度测量证据，不改运行代码或知识/索引 | `agent/rag/RAG-006-parameter-specification` | 绑定实际代码/数据hash；98条证据与3717结构块两tokenizer长度；逐项区分现值/初值/实测/未对比；链接/行数/原件保持核验 | 完成；审核55e2527，合并df5aeab并复验；98证据/3717块两tokenizer独立复算一致；[管理审核](reviews/RAG-006-2026-11-12.md)；无运行代码变化、无模型推理/部署 |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
