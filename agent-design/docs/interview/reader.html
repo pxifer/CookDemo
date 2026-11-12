@@ -1,0 +1,1696 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'; script-src 'sha256-YXDpkYnvBFe7qptjGpGc1vaGJb72XRE+z4UKX8BsDMc='; base-uri 'none'; form-action 'none'"><title>拾味 · AI / Agent / RAG 工程与面试手册</title><style>
+:root{--ink:#1e3448;--muted:#506779;--paper:#fff;--bg:#eef3f6;--line:#d6e1e8;--accent:#0d6c59;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;font:16px/1.8 "Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:#066b8d;text-underline-offset:3px;overflow-wrap:anywhere}a:hover{color:#0b4b3e}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e8b43d;outline-offset:3px}
+.sidebar{position:fixed;inset:0 auto 0 0;width:280px;padding:25px 18px;background:#142f3f;color:#f4f8fb;overflow-y:auto}.brand{font-size:22px;font-weight:700;margin:0}.sub{font-size:13px;color:#b5cbd8;margin:5px 0 22px}.sidebar nav{display:grid;gap:4px}.sidebar a{color:#dbe8ee;padding:9px 12px;border-radius:7px;text-decoration:none;font-size:14px}.sidebar a[aria-current=page],.sidebar a:hover{background:#244c5c;color:#fff}.scope{font-size:12px;line-height:1.8;color:#b5cbd8;padding:18px 12px}.main{margin-left:280px;padding:32px clamp(20px,4vw,70px) 70px;min-width:0}.wrap{max-width:1120px;margin:auto}
+header{margin-bottom:24px}.eyebrow{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:1px}h1{font-size:clamp(25px,3vw,38px);line-height:1.4;margin:9px 0 10px}header p{margin:6px 0;color:var(--muted);font-size:14px}.pills{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.pill{background:#dcece6;color:#145848;border-radius:30px;padding:4px 12px;font-size:13px}
+.tools{position:sticky;top:0;z-index:2;padding:12px 0;background:var(--bg);display:flex;gap:8px;flex-wrap:wrap}.search-box{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #bcced8;border-radius:8px;flex:1;min-width:180px;padding:7px 12px}.search-box input{border:0;outline:0;width:100%;min-width:0;font-size:15px;background:transparent;color:var(--ink)}.tools button{background:#fff;color:var(--ink);border:1px solid #bcced8;border-radius:8px;padding:6px 12px;font-size:14px}.tools button:hover{background:#dcece6}.result{font-size:13px;color:var(--muted);margin:8px 0 16px;min-height:24px}
+.chapter{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,3vw,38px);margin-bottom:22px;min-width:0}.chapter[hidden],details[hidden]{display:none!important}h2{font-size:25px;line-height:1.5;margin:0 0 18px}h3{font-size:21px;margin:30px 0 12px;line-height:1.5}h4{font-size:18px;margin:24px 0 9px;line-height:1.6}p{margin:12px 0}li{margin:9px 0}ul,ol{padding-left:24px}code{font:0.9em/1.6 Consolas,monospace;background:#eef3f6;padding:1px 4px;border-radius:3px;overflow-wrap:anywhere}pre{padding:18px;background:#172f40;color:#e6f1f6;border-radius:8px;overflow:auto;font-size:13px;line-height:1.65}pre code{background:none;padding:0;color:inherit;overflow-wrap:normal}.table-wrap{overflow-x:auto;max-width:100%;margin:20px 0;border:1px solid var(--line);border-radius:7px}table{border-collapse:collapse;min-width:650px;width:100%;font-size:14px;line-height:1.7}th,td{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:11px 13px;overflow-wrap:anywhere}th{background:#eaf2ef;color:#214c41}tr:last-child td{border-bottom:0}td:first-child{min-width:85px}img.architecture{width:100%;height:auto;display:block;margin:20px 0}
+details.card{border:1px solid var(--line);border-radius:8px;margin:15px 0;background:#fff;scroll-margin-top:110px}details.card[open]{border-left:4px solid var(--accent)}summary{padding:15px 18px;font-weight:650;cursor:pointer;font-size:17px;line-height:1.6}summary:hover{background:#f1f7f4;border-radius:8px}.card-body{padding:0 20px 17px}.card-body p{font-size:14px;color:var(--muted)}.card-body li{font-size:15px;margin:13px 0}.anchor{scroll-margin-top:100px}footer{font-size:12px;color:var(--muted);margin-top:25px}.empty{padding:30px;background:#fff;border:1px dashed #94aebc;border-radius:10px}.menu{display:none}.chapter:target{outline:2px solid #94b9aa}
+@media(max-width:950px){.sidebar{width:235px}.main{margin-left:235px;padding:24px 20px 50px}.sidebar a{font-size:13px;padding:8px}h2{font-size:23px}}
+@media(max-width:700px){.sidebar{position:static;width:100%;padding:14px 18px}.sidebar nav{display:none;margin-top:12px}.sidebar.open nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.brand{font-size:20px}.sub{margin:2px 0 0}.scope{display:none}.menu{display:block;position:absolute;right:16px;top:17px;border:1px solid #6c91a4;background:#244c5c;color:#fff;border-radius:6px;padding:3px 10px}.main{margin:0;padding:20px 12px 45px}.chapter{padding:18px 15px}header p{font-size:13px}.tools{padding:8px 0}.tools button{padding:6px 9px;font-size:13px}h2{font-size:22px}h3{font-size:20px}h4{font-size:17px}.card-body{padding:0 13px 12px}summary{padding:13px;font-size:16px}table{min-width:640px}.pills{gap:6px}.pill{font-size:12px;padding:3px 9px}}
+@media print{.sidebar,.tools,.result,.menu,header,.source-return{display:none!important}.main{margin:0;padding:0}.chapter{border:0;padding:0;break-before:page}.chapter[hidden]{display:block!important}details[hidden]{display:block!important}details{break-inside:avoid}.card-body{display:block!important}.table-wrap{overflow:visible}table{min-width:0;font-size:10px}a{color:#000}pre{white-space:pre-wrap;color:#000;background:#eee}}
+</style></head><body><aside class="sidebar"><p class="brand">拾味 · AI工程手册</p><p class="sub">从真实代码讲到面试追问</p><button class="menu" aria-expanded="false" aria-label="展开章节目录">目录</button><nav aria-label="章节"><a href="#intro">开始阅读</a><a href="#story">项目与真实链路</a><a href="#business">001–015 业务 / 数据 / 切块</a><a href="#retrieval">016–035 检索 / 增强 / 生成</a><a href="#agent">036–057 Agent / 评测</a><a href="#engineering">058–084 模型 / 协议 / 工程</a><a href="#scenarios">085–112 上下文 / 异常</a><a href="#experiments">实验与选型账本</a><a href="#failures">真实问题与亮点</a><a href="#foundations">理论与亲手练习</a><a href="#sources">来源与逐题覆盖</a><a href="#parameters">附录：全部参数实测</a></nav><p class="scope">基线 bfa1567 · 2026-11-12<br>已实现 / 本地研究 / 候选 / 方案<br>独立评测与重排仍有缺口<br>无需联网，不调用模型</p></aside><main class="main"><div class="wrap"><header><div class="eyebrow">项目事实 · 选择理由 · 参数 · 实验 · 失败复盘</div><h1>把每一步讲明白，也讲清依据</h1><p>围绕菜谱推荐：从资料与向量存储，到检索增强、生成、约束、评测及工程边界。</p><div class="pills"><span class="pill">112张问答卡</span><span class="pill">全部参数实测附录</span><span class="pill">真实链路与失败记录</span><span class="pill">逐题来源覆盖</span></div></header><div class="tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="搜索全部手册" placeholder="搜索 RRF / 切块 / 512 / Q112 …（按 / 聚焦）"></label><button id="clear">清空</button><button id="expand">展开本页问答</button><button id="collapse">折叠问答</button></div><p class="result" id="result" role="status" aria-live="polite"></p><div class="empty" id="empty" hidden>没有匹配内容。可尝试简称或题号。</div><section class="chapter" id="intro" data-label="开始阅读" hidden><h2 id="intro-h1">拾味 AI / Agent / RAG 工程与面试手册</h2>
+<p>核对日：2026-11-12；代码事实基线：<code>bfa1567ccb43ca02e2a42f75c57e521a250d105d</code>。这是学习与讲解材料，不改变产品行为、知识包、索引或部署。</p>
+<p><strong>先从<a href="#intro">离线阅读器</a>打开</strong>：可搜索、按章节阅读、折叠112张问答卡；无需联网、账号或API。Markdown是正文来源，阅读器由同目录 <code>render.py</code> 生成。</p>
+<h3 id="intro-h2">怎样读</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>需要解决的问题</th><th>入口</th></tr></thead><tbody>
+<tr><td>先知道项目做什么、真实输入怎么变成菜</td><td><a href="#story">项目讲述与全链路</a></td></tr>
+<tr><td>业务、数据、清洗、切块（Q001～015）</td><td><a href="#business">第一组</a></td></tr>
+<tr><td>检索、RRF、重排、增强与生成（Q016～035）</td><td><a href="#retrieval">第二组</a></td></tr>
+<tr><td>Agent、评测、局限和扩展（Q036～057）</td><td><a href="#agent">第三组</a></td></tr>
+<tr><td>模型基础、工具协议、并发及工程（Q058～084）</td><td><a href="#engineering">第四组</a></td></tr>
+<tr><td>上下文、安全、评审及异常场景（Q085～112）</td><td><a href="#scenarios">第五组</a></td></tr>
+<tr><td>切多大、每个阈值多少、代码在哪里</td><td><a href="#parameters">现有参数实测总表</a>，阅读器附录也收录</td></tr>
+<tr><td>比较过什么、还应该怎样比较</td><td><a href="#experiments">实验与选型账本</a></td></tr>
+<tr><td>有哪些真实失败、如何修、亮点怎么讲</td><td><a href="#failures">问题与亮点</a></td></tr>
+<tr><td>公式、基础理论、亲手练习和追问路径</td><td><a href="#foundations">理论与练习</a></td></tr>
+<tr><td>原题是否漏掉、外部内容是否核验</td><td><a href="#sources">来源与覆盖映射</a>、<a href="source-manifest.json">来源清单JSON</a></td></tr>
+</tbody></table></div>
+<h3 id="intro-h3">读每张卡时守住这条边界</h3>
+<ul>
+<li><strong>业务实现</strong>：在本地研究接入/既有产品的相应范围真实存在；不代表疾病RAG已云端开放。</li>
+<li><strong>研究实现</strong>：证据问答、双Embedding、PG向量及混合召回已本地跑通；不等于当前食谱选择走了同一条检索链。</li>
+<li><strong>候选治理</strong>：正文、表格、OCR有派生产物与工程检查，尚未整体换入旧事实/向量索引。</li>
+<li><strong>理论/方案</strong>：帮助回答追问，未实现就明确说未实现；没有对比就明确说工程初值。</li>
+</ul>
+<p>用户57题逐题映射；本地90道Agent题、18道AI实操题、45个项目专题全部登记去向。博主17条可公开访问图文的196张图片完成OCR和主题筛选；主页另显示1项但没有公开链接，未核对。具体限制与不适用内容见来源页，<strong>不宣称覆盖该作者全部作品或已逐题人工校对OCR</strong>。</p>
+<p>外部面经只用于发现追问，不证明某公司实际问过或问题频率。技术解释以项目代码、论文及官方文档为依据；不搬运外部完整答案。外部本地原资料只读保留。</p>
+<h3 id="intro-h4">面试前的最短准备路径</h3>
+<ol>
+<li>用自己的话讲项目故事，能区分“真实菜谱业务”与“研究证据问答”。</li>
+<li>看参数实测，记住实际值和适用入口，而不是背行业默认值。</li>
+<li>讲清2个真实失败：普通菜无依据拒选、模型错挂引用；再补导航旧引用P2。</li>
+<li>手算RRF/Recall，亲手跑本手册离线练习；没亲自完成前不宣称已完成。</li>
+<li>用实验账本回答“对比过吗”。当前没有证据支持混合优于A1，也没有启用专用reranker。</li>
+</ol>
+<p>后续代码或数据变化时先更新权威实现/参数文档，再修本手册与阅读器；不得用本手册覆盖PRD、最新用户决定或运行约束。独立评测按用户决定留待上线后结合输出完善；本次没有新增模型调用、Embedding推理、临床审核或部署。</p></section><section class="chapter" id="story" data-label="项目与真实链路" hidden><h2 id="story-h1">项目讲述：一顿可做的饭，怎样连接公共知识与模型</h2>
+<p>事实基线与状态见<a href="#intro">入口</a>。学习时先分清两条真实链，不要拼成一条并不存在的“全自动医疗Agent”。</p>
+<h3 id="story-h2">1. 30秒和3分钟怎样讲</h3>
+<p><strong>30秒</strong>：拾味是菜谱推荐应用。用户给疾病或减脂/增肌目标、本餐食材及过敏忌口，系统从已发布的实际菜谱中选出可做的菜，并说明当前能对应的食材/做法依据。程序管资格、限制和证据归属，模型在受控候选中做语言与选择。疾病RAG目前是本地研究接入，未完成专业签认或正式疾病发布。</p>
+<p><strong>3分钟</strong>：最初证据问答回答的是“某指南怎么说”，与用户要的“今晚做哪几道菜”有距离。改进不是继续堆向量，而是补齐疾病/目标→条件化食物指导→明确目录食材/主做法→真实配方的关系。疾病与训练/体重目标分开；定性选菜不普遍要求身高体重，也不能凭成分机制推导新的食物疗效。先筛硬条件和有效避免，再选菜，再复核整餐和最新资料。没健康映射的合格普通菜可以推荐，但保留健康判断。真实模型曾无依据拒绝普通菜、又给别的菜挂错引用，促成了提示词收缩和程序绑定依据。研究链另保留A1/向量/RRF用于技术比较，效果和未完成项分别报告。</p>
+<h3 id="story-h3">2. 两条链及一个未接入的候选层</h3>
+<p><img class="architecture" alt="两条已实现链与候选治理层" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjQ4MCIgdmlld0JveD0iMCAwIDEwODAgNDgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IuaLvuWRs+S4muWKoeS4jueglOeptuS4pOadoeecn+WunumTvui3r++8jOS7peWPiuacquaOpeWFpeeahOi1hOaWmeayu+eQhuWAmemAieWxgiI+CjxkZWZzPjxtYXJrZXIgaWQ9ImEiIG1hcmtlcldpZHRoPSI5IiBtYXJrZXJIZWlnaHQ9IjkiIHJlZlg9IjciIHJlZlk9IjQiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTTAgMEw4IDRMMCA4IiBmaWxsPSJub25lIiBzdHJva2U9IiM1MjY2N2IiLz48L21hcmtlcj48L2RlZnM+CjxyZWN0IHdpZHRoPSIxMDgwIiBoZWlnaHQ9IjQ4MCIgcng9IjE2IiBmaWxsPSIjZjVmOGZjIi8+PGcgZm9udC1mYW1pbHk9Ik1pY3Jvc29mdCBZYUhlaSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZmlsbD0iIzE2MzI0ZiI+Cjx0ZXh0IHg9IjI0IiB5PSIzNSIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9ImJvbGQiPuWQjOS4gOmhueebru+8jOS4pOadoeS4jeWQjOeahOecn+WunumTvui3rzwvdGV4dD4KPHRleHQgeD0iMjQiIHk9IjcyIiBmaWxsPSIjMTE2ODU4Ij7mnKzlnLDnoJTnqbbkuJrliqHvvJrkuLvpopjmjIflr7zkuI7nnJ/lrp7oj5zosLHvvJvmsqHmnInosIPnlKjlkJHph48gLyBSUkY8L3RleHQ+CjxnIGZpbGw9IiNlMmYzZWUiIHN0cm9rZT0iIzhhYzdiNCI+PHJlY3QgeD0iMjQiIHk9IjkwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9Ijc1IiByeD0iOCIvPjxyZWN0IHg9IjI0MCIgeT0iOTAiIHdpZHRoPSIyMTAiIGhlaWdodD0iNzUiIHJ4PSI4Ii8+PHJlY3QgeD0iNDg2IiB5PSI5MCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI3NSIgcng9IjgiLz48cmVjdCB4PSI3MzIiIHk9IjkwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9Ijc1IiByeD0iOCIvPjwvZz4KPHRleHQgeD0iNDAiIHk9IjEyMCI+55a+55eFIC8g55uu5qCHIC8g5pys6aSQPC90ZXh0Pjx0ZXh0IHg9IjQwIiB5PSIxNDciPui/h+aVj+W/jOWPoyAvIOmjn+adkOacieaXoDwvdGV4dD48dGV4dCB4PSIyNTYiIHk9IjEyMCI+5p2h5Lu25YyW55u05o6l5oyH5a+85LiO5pig5bCEPC90ZXh0Pjx0ZXh0IHg9IjI1NiIgeT0iMTQ3Ij7lrp7pmYXphY3mlrnotYTmoLzjgIHlj6/ooYzln7rnur88L3RleHQ+PHRleHQgeD0iNTAyIiB5PSIxMjAiPuWujOaVtOWAmemAieS4juS+neaNruWinuW8ujwvdGV4dD48dGV4dCB4PSI1MDIiIHk9IjE0NyI+RGVlcFNlZWvlj6rpgInmi6nnm67lvZVJRDwvdGV4dD48dGV4dCB4PSI3NDgiIHk9IjEyMCI+56iL5bqP5aSN5qC45pW06aSQ44CB54mI5pys5LiO6K+B5o2u5b2S5bGePC90ZXh0Pjx0ZXh0IHg9Ijc0OCIgeT0iMTQ3Ij7lsZXnpLroj5zlk4EgLyDmnInmja7nkIbnlLEgLyDmnKrnn6U8L3RleHQ+Cjx0ZXh0IHg9IjI0IiB5PSIyMTUiIGZpbGw9IiMzMTRkYTMiPueglOeptuivgeaNrumXruetlO+8mkEx5LiOZGVuc2Xlr7nmr5TvvJvkuI3nrYnkuo7lvZPliY3pgInoj5zmo4DntKI8L3RleHQ+CjxnIGZpbGw9IiNlOGVkZmYiIHN0cm9rZT0iI2EyYWZlMSI+PHJlY3QgeD0iMjQiIHk9IjIzNSIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI3NSIgcng9IjgiLz48cmVjdCB4PSIyNDAiIHk9IjIzNSIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI3NSIgcng9IjgiLz48cmVjdCB4PSI0ODYiIHk9IjIzNSIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI3NSIgcng9IjgiLz48cmVjdCB4PSI3MzIiIHk9IjIzNSIgd2lkdGg9IjMyMCIgaGVpZ2h0PSI3NSIgcng9IjgiLz48L2c+Cjx0ZXh0IHg9IjQwIiB5PSIyNjUiPuWunuS9kyAvIOadoeS7tiAvIOaSpOWbnjwvdGV4dD48dGV4dCB4PSI0MCIgeT0iMjkyIj7kuI3mmI7noa7liJnooaXpl67miJblgZzmraI8L3RleHQ+PHRleHQgeD0iMjU2IiB5PSIyNjUiPkEx4omkNTDkuovlrp7jgIFkZW5zZeKJpDMwPC90ZXh0Pjx0ZXh0IHg9IjI1NiIgeT0iMjkyIj7or4Hmja7mmKDlsITkuovlrp7jgIHliqDmnYNSUkY8L3RleHQ+PHRleHQgeD0iNTAyIiB5PSIyNjUiPuKJpDjkuovlrp7jgIHlrozmlbTor4Hmja7pl63ljIU8L3RleHQ+PHRleHQgeD0iNTAyIiB5PSIyOTIiPuS8sOeul2NvbnRleHQgNjAwMCB0b2tlbjwvdGV4dD48dGV4dCB4PSI3NDgiIHk9IjI2NSI+55Sf5oiQY2xhaW3jgIHmoKHpqoxJRCAvIOmZkOWumiAvIOe7iOaAgTwvdGV4dD48dGV4dCB4PSI3NDgiIHk9IjI5MiI+6K+t5LmJ5pSv5oyB5LuN6ZyA54us56uL6LSo6YeP6K+E5rWLPC90ZXh0Pgo8ZyBzdHJva2U9IiM1MjY2N2IiIHN0cm9rZS13aWR0aD0iMiIgbWFya2VyLWVuZD0idXJsKCNhKSI+PHBhdGggZD0iTTIwNyAxMjdIMjMyIi8+PHBhdGggZD0iTTQ1MyAxMjdINDc4Ii8+PHBhdGggZD0iTTY5OSAxMjdINzI0Ii8+PHBhdGggZD0iTTIwNyAyNzJIMjMyIi8+PHBhdGggZD0iTTQ1MyAyNzJINDc4Ii8+PHBhdGggZD0iTTY5OSAyNzJINzI0Ii8+PC9nPgo8cmVjdCB4PSIyNCIgeT0iMzUwIiB3aWR0aD0iMTAyOCIgaGVpZ2h0PSIxMDAiIHJ4PSI4IiBmaWxsPSIjZmZmNWRmIiBzdHJva2U9IiNkZmI4NmEiIHN0cm9rZS1kYXNoYXJyYXk9IjcgNSIvPjx0ZXh0IHg9IjQwIiB5PSIzODAiIGZvbnQtd2VpZ2h0PSJib2xkIj7otYTmlpnmsrvnkIblgJnpgInvvJrljp/ku7Yg4oaSIEhUTUwgLyBQREbniYjpnaIg4oaSIOihqOagvCAvIE9DUiDihpIg5Y+v5Zue5p+l57uT5p6E5Z2X44CB5YCZ6YCJ5LiO5aSN5qC46Zif5YiXPC90ZXh0Pjx0ZXh0IHg9IjQwIiB5PSI0MDkiPjM3MTfnu5PmnoTlnZfkuI3mmK8zNzE35bey5YWl5bqT5ZCR6YeP77yb5paw6LWE5paZ6ZyA6YeN5pW05pSv5oyB5LiO6ZmQ5a6a44CB5a6h5qC444CB5Y+R5biD5paw55+l6K+GIC8g57Si5byV54mI5pys44CCPC90ZXh0Pjx0ZXh0IHg9IjQwIiB5PSI0MzUiPuS4jeiHquWKqOi/nuaOpeWIsOS4iuaWueaXpzk46K+B5o2u57Si5byV77yb5pys5Zu+6K+05piO6IyD5Zu077yM5LiN6KGo56S655a+55eFUkFH5bey5LiK57q/5oiW5YW35aSH5Li05bqK562+6K6k44CCPC90ZXh0PjwvZz48L3N2Zz4K"></p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>层</th><th>真实流程</th><th>输出与边界</th></tr></thead><tbody>
+<tr><td>本地研究业务</td><td>明确主题/条件→直接指导→受控食材/工艺映射→实际配方资格→候选与依据packet→DeepSeek选ID→程序整餐复核/理由绑定</td><td>推荐/少选/避免和未知；不经过dense/RRF，不把整菜宣布营养达标</td></tr>
+<tr><td>研究证据问答</td><td>实体/条件门禁→A1与证据向量→映射fact→加权RRF→适用性/撤回→事实及支持/限定闭包→生成→ID/终态/引用校验</td><td>有据陈述/待补问/无证据/技术失败；自由claim尚无通用医学蕴含验证</td></tr>
+<tr><td>资料治理候选</td><td>原件hash→HTML/PDF版面→表格/OCR→可回查结构块/引用候选→工程检查和复核队列</td><td>没有自动全部变成新事实或替换旧向量，不能混报新解析质量与旧检索质量</td></tr>
+</tbody></table></div>
+<p>代码导航：<a href="../../../backend/src/health-recipe-selection.ts">业务选菜</a>、<a href="../../../backend/src/rag/food-guidance.ts">业务指导</a>、<a href="../../../backend/src/rag/retrieval.ts">研究召回</a>、<a href="../../../backend/src/rag/generation.ts">研究生成</a>。</p>
+<h3 id="story-h4">3. 库里是什么，不是什么</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>层</th><th>存储内容</th><th>解决的问题</th></tr></thead><tbody>
+<tr><td>Source</td><td>来源URL、版本、原件hash、定位方式</td><td>知道谁说的、哪一版，不拿搜索摘要替原文</td></tr>
+<tr><td>Evidence</td><td>原文摘录、页/章节/区域/偏移、span hash、检索文本</td><td>回查支持与限定；hash只证明身份，不证明医学正确</td></tr>
+<tr><td>Fact</td><td>稳定实体ID、关系、方向、人群/条件、support与qualify证据ID</td><td>将可执行语义与长原文分开；不让模型临时造规则</td></tr>
+<tr><td>Mapping</td><td>知识对象到明确目录食材成员/受控做法</td><td>不将低脂奶扩大成所有奶、不从菜名猜配方</td></tr>
+<tr><td>Vector</td><td>evidence ID、文本hash、1024维float32、模型/索引manifest</td><td>相似候选搜索；不是新的事实表或安全评分</td></tr>
+<tr><td>Personal state</td><td>UID档案、过敏忌口、按主题接受/撤销的建议、加密Key</td><td>私人条件与公共知识隔离；不写公共向量库</td></tr>
+</tbody></table></div>
+<p>冻结v2：11来源、98证据、260事实，其中124条直接食物指导；目标包另2来源/4证据/5事实。研究PG复用关系表、JSONB指导资产快照和独立向量表。Qwen/BGE各98条向量；目标包、新3717个结构块尚未向量化。完整字段与实际文件见<a href="../../../datasets/health/README-v2.md">知识库</a>、<a href="../contracts.md">数据契约</a>。</p>
+<p>例如，库中“适用人群的蒸煮推荐”应保存为：主题ID＋工艺对象ID＋prefer＋条件＋支持/限定ID；原文和定位保存在证据中，菜谱主做法另与工艺映射。这里是字段解释，<strong>不是新增医学三元组或伪造一条可入库JSON</strong>。检索到“减少油煎”不能自动转成“所有含油菜禁止”。</p>
+<h3 id="story-h5">4. 一次真实输入→增强→生成→展示</h3>
+<p>使用2026-11-05第5次真实调用，<a href="../business-rag-example-2026-11-05.md">原记录及增强JSON</a>完整保留。后来用量策略和映射有更新，不重写成今天重跑的结果。</p>
+<ol>
+<li><strong>输入</strong>：“我是成年人，我有高脂血症，我想减脂”；白菜500g、豆腐500g、1人、不补买。疾病和目标分别保存。本例无过敏设置，不假称一单验证所有过敏场景。</li>
+<li><strong>指导</strong>：直接取18条指导、7条证据；检查条件与映射。不是向量top-18。血脂分型未知只限制相关内脏指导，不挡无内脏菜。</li>
+<li><strong>候选</strong>：真实目录资格筛出6道，本次全部提供；保留可行基线。一般上限48父菜谱，和知识top-8没有关系。</li>
+<li><strong>增强</strong>：只带候选实际关联的6条指导、3条原文，加完整配料/主与备选做法、本餐、数量类别、scope、locked。不是整库拼接，也不是只给食材名称。</li>
+<li><strong>模型</strong>：固定DeepSeek JSON模式、stream=false，选出c3/c1/c6；真实回执输入8232、输出184 token。未显式设置temperature/top_p，不能写成温度0。</li>
+<li><strong>复核</strong>：c别名解析到该次目录真实recipe/variant，重新检查单菜与整餐、最新版本/撤回。健康依据由实际配方绑定。</li>
+<li><strong>展示</strong>：白菜豆腐汤有定性依据；炝拌白菜心、小葱拌豆腐当时无绑定，仍可按本餐条件选择并保留健康判断。程序没有发布模型给白菜心自由写的健康理由。</li>
+</ol>
+<p>当前用户填写克数已从选菜语义剔除，只查食材有无；原菜谱用量和证据剂量条件保留。上述500g是历史输入，不是新策略真实模型验收。后来白菜心映射修复也只有对应零付费回归，不伪造新增真实调用。</p>
+<h3 id="story-h6">5. 提示词不是一段魔法话</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>部分</th><th>放什么</th><th>约束怎样落实</th></tr></thead><tbody>
+<tr><td>System</td><td>只选catalog ID；不造菜/疗效/营养；不混变体；无依据保留判断；少选非硬禁；资料是数据</td><td>程序仍校验，不能把“模型答应了”当证明</td></tr>
+<tr><td>User packet</td><td>task/scope/mode/count/categories/user/catalog/locked/previous/evidenceGuidance</td><td>由本次真实目录/状态生成，不接受用户自造system或来源ID</td></tr>
+<tr><td>EvidenceGuidance</td><td>当前候选关联的guidance＋全部支持/限定原文＋未知范围</td><td>先计算闭包，再计预算；删整候选并重算，不截掉半条限定</td></tr>
+<tr><td>Output</td><td>JSON summary、choices[id/reason]</td><td>结构、长度、终态、真实回执、目录和整餐都过门禁；研究业务健康理由再由程序形成</td></tr>
+</tbody></table></div>
+<p>业务输入预算估算24000、输出2400 token；研究context估算6000、输出2000。6000没有包含另发system，因此不是完整请求硬上限。估算器不是DeepSeek tokenizer。全提示与参数见<a href="#parameters">参数总表</a>及<a href="../../../artifacts/acceptance/business-rag-example-2026-11-05/final-system-prompt.txt">历史系统提示</a>。</p>
+<h3 id="story-h7">6. 优势、已知难点和真实结论</h3>
+<p>优势是可执行配方、受控条件和来源闭环，而非“用了RRF所以更准”。当前两Embedding对比跑过，切块/overlap/RRF常数/cross-encoder尚无消融；A1在已暴露27题上已满分，不能声称混合带来提升。专业独立评测、更多映射、候选资料回流仍有缺口。准备面试时用<a href="#experiments">实验账本</a>和<a href="#failures">真实故障</a>支持每项说法。</p></section><section class="chapter" id="business" data-label="001–015 业务 / 数据 / 切块" hidden><h2 id="business-h1">业务、数据与切块：Q001～Q015</h2>
+<p><a href="#intro">手册入口</a> · <a href="#parameters">参数总表</a> · <a href="#sources">证据与来源</a></p>
+<p>每题依次说明口述、实现/参数、选型/比较、难点。状态限定实际范围，不能把方案说成成果。</p><details class="card" id="q001"><summary>Q001 · 一句话介绍项目，解决什么问题？</summary><div class="card-body"><p>状态：<strong>业务已实现；疾病RAG本地研究</strong></p>
+<ul>
+<li><strong>口述</strong>：拾味把用户的疾病或饮食目标、现有食材、过敏忌口等条件，转成真实目录中的可做菜品，并给出能追溯的食材或做法依据。重点是把资料变成一次可执行的本餐选择。</li>
+<li><strong>实现/参数</strong>：程序负责目录资格、限制和整套复核，模型在合格候选中选ID；普通推荐、个人Key功能和本地疾病RAG的发布范围分别说明。</li>
+<li><strong>为什么/比较</strong>：价值是实际配方、用户条件和来源的一致性；尚无独立用户满意度或医学有效性对照。</li>
+<li><strong>难点/追问</strong>：追问“是不是推荐得更健康”时，只说当前验证到的条件检查与依据归属，不承诺疗效。</li>
+</ul>
+<p>依据：<a href="#e01">E01</a>、<a href="#e08">E08</a>。</p></div></details><details class="card" id="q002"><summary>Q002 · 为什么需要RAG，长上下文和微调能否替代？</summary><div class="card-body"><p>状态：<strong>架构取舍；未做三者效果横评</strong></p>
+<ul>
+<li><strong>口述</strong>：RAG适合频繁更新、必须追出处和撤回的公共知识。少量资料可先用全文作基线；微调主要改变稳定行为，不能直接替代来源版本与权限控制。</li>
+<li><strong>实现/参数</strong>：本项目事实、原文证据、版本和规则分层，研究链检索后生成，业务链读取直接指导；没有做模型微调。</li>
+<li><strong>为什么/比较</strong>：选型来自可维护、可追溯的需求，不能说已经实验击败“全文＋大模型”或微调。</li>
+<li><strong>难点/追问</strong>：若全文基线已满足要求，保留简单方案；资料少不代表需要复杂向量平台。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e06">E06</a>、<a href="#s01">S01</a>。</p></div></details><details class="card" id="q003"><summary>Q003 · 大模型负责什么，哪些事交给程序？</summary><div class="card-body"><p>状态：<strong>业务已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：模型读本餐条件、真实配料和做法，在提供的catalog里选择菜品并写本餐说明。身份、过敏忌口、可行性、引用归属和是否能返回结果由代码判断。</li>
+<li><strong>实现/参数</strong>：模型不能改用户档案、忽略限制、执行SQL、编造菜谱ID或发布健康规则；健康依据按真实配方由程序绑定。</li>
+<li><strong>为什么/比较</strong>：模型擅长语言与偏好组合，确定性规则更适合硬限制；没有“模型一定比规则差”的全任务比较。</li>
+<li><strong>难点/追问</strong>：模型说“已经校验”不构成证明；代码还须重新核对当前输入和版本。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e09">E09</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q004"><summary>Q004 · 为什么没有使用LangChain或LlamaIndex？</summary><div class="card-body"><p>状态：<strong>当前编排已实现；框架未横评</strong></p>
+<ul>
+<li><strong>口述</strong>：当前链路有限、业务约束较多，使用TypeScript普通函数与清晰适配接口，便于定位失败、控制调用和测试。没有把框架状态当成健康事实。</li>
+<li><strong>实现/参数</strong>：EmbeddingProvider、向量存储和Generator可替换；Python运行本地Embedding，PG存储知识。仍复用了模型库、数据库和Schema工具。</li>
+<li><strong>为什么/比较</strong>：取舍是当前复杂度与可控性，不是从零造所有底层，也没有证明手写性能更优。</li>
+<li><strong>难点/追问</strong>：连接器、恢复或图流程复杂后可以再评估框架；能解释状态和边界比框架名更重要。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e06">E06</a>、<a href="#e18">E18</a>、<a href="#s06">S06</a>。</p></div></details><details class="card" id="q005"><summary>Q005 · RAG怎样和推荐系统打通，白板怎么画？</summary><div class="card-body"><p>状态：<strong>业务与研究两条链分开</strong></p>
+<ul>
+<li><strong>口述</strong>：画“疾病/目标→适用指导→明确食材/工艺映射→真实配方硬筛→增强模型选ID→程序整餐复核→依据与未知说明”。另画独立问答的A1/向量/RRF支路。</li>
+<li><strong>实现/参数</strong>：当前业务选菜不调用dense/hybrid；新清洗结构块也未替换旧知识与索引。两条支路不能画成全部已经串联。</li>
+<li><strong>为什么/比较</strong>：直接食物指导能落到系统配方，研究问答跑通本身不能代表推荐闭环完成。</li>
+<li><strong>难点/追问</strong>：追问向量在哪生效时，明确回答在研究证据问答支路；不要用规划架构冒充运行架构。</li>
+</ul>
+<p>依据：<a href="#e01">E01</a>、<a href="#e06">E06</a>、<a href="#e08">E08</a>。</p></div></details><details class="card" id="q006"><summary>Q006 · 怎样证明比直接聊天更有价值？</summary><div class="card-body"><p>状态：<strong>有工程与少量真实样例；缺独立业务对照</strong></p>
+<ul>
+<li><strong>口述</strong>：可以展示同一输入下，系统只返回真实菜谱、保留过敏和补买条件，并能回查实际配料与出处。直接聊天通常没有当前目录和账户状态。</li>
+<li><strong>实现/参数</strong>：真实例子中模型选择3道菜，程序区分1道有当前依据、2道保留健康判断；没有说三道都经疾病适宜性验证。</li>
+<li><strong>为什么/比较</strong>：这证明可执行性与可追溯性的一次样例，不证明总体回答准确率更高；公平A/B仍需同题同资料同预算。</li>
+<li><strong>难点/追问</strong>：演示失败样例和“不知道”，比宣称比通用模型全面更强更可信。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e13">E13</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q007"><summary>Q007 · 最大的局限是什么，预算增加先做什么？</summary><div class="card-body"><p>状态：<strong>已知缺口与后续设计</strong></p>
+<ul>
+<li><strong>口述</strong>：当前瓶颈是直接指导和目录映射覆盖、原文支持关系、清洗候选接入，以及独立质量评测。向量或重排模型再大，也无法替代不存在或错误的证据。</li>
+<li><strong>实现/参数</strong>：先重整已发现误引与必要限定，建立新知识/索引版本，再按失败分布补目标和食材覆盖。</li>
+<li><strong>为什么/比较</strong>：新增预算优先投可核验数据、适用性复核与真实任务反馈；暂不承诺购买某GPU或训练平台的收益。</li>
+<li><strong>难点/追问</strong>：若问给十万具体怎么花，讲阶段验收与止损点，不编造报价和未经测试的提升百分比。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e14">E14</a>、<a href="#e15">E15</a>。</p></div></details><details class="card" id="q008"><summary>Q008 · 资料如何收集、清洗，表格和跨页怎么办？</summary><div class="card-body"><p>状态：<strong>离线治理工程已实现；语义审核未完成</strong></p>
+<ul>
+<li><strong>口述</strong>：登记来源、版本和hash，再分HTML、电子PDF、扫描页处理。DOM识别正文，PDF保留词框/字号；表格按格而非一串文字保存，脚注、单位和否定要保护。</li>
+<li><strong>实现/参数</strong>：有13来源/479单元的治理记录；续表需相邻页、同表号及列界匹配，当前不自动批准继承表头；OCR保留原图坐标和待核状态。</li>
+<li><strong>为什么/比较</strong>：有具体失败修复和重复构建，没有独立全库解析准确率，也没横评所有OCR引擎。</li>
+<li><strong>难点/追问</strong>：“抽到了数字”不等于对象—值—单位对应正确；不能用模型常识补缺失字段。</li>
+</ul>
+<p>依据：<a href="#e03">E03</a>、<a href="#e04">E04</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q009"><summary>Q009 · 为什么把Fact和Evidence分开？</summary><div class="card-body"><p>状态：<strong>研究库已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：Evidence说明原文说了什么、在哪里；Fact是整理后的对象、关系、方向及条件。一个事实可以依赖多个支持与限定证据，一段证据也可能支撑不同事实。</li>
+<li><strong>实现/参数</strong>：原文、摘要、检索文本、来源hash分别保留；引用通过稳定ID关联，事实不覆盖原件。</li>
+<li><strong>为什么/比较</strong>：分层利于更新、撤回和审计，不表示事实天然正确，也不是实现了GraphRAG。</li>
+<li><strong>难点/追问</strong>：同一短摘出现不能证明蕴含整条事实；已发现导航问句误作支持，必须重整依赖关系。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e15">E15</a>。</p></div></details><details class="card" id="q010"><summary>Q010 · 事实怎样提取，如何防止事实幻觉？</summary><div class="card-body"><p>状态：<strong>当前脚本整理；无通用LLM自动入库</strong></p>
+<ul>
+<li><strong>口述</strong>：现有事实主要由脚本显式整理，配合源文定位和条件，不是让大模型自由读全文后直接入库。新清洗产物首先是候选，尚未自动产生正式新事实。</li>
+<li><strong>实现/参数</strong>：Schema和代码检查实体类型、方向、证据/版本关联；<code>source_checked</code>是项目核对，不能冒充独立专业审核。</li>
+<li><strong>为什么/比较</strong>：若以后用LLM抽取，先生成带原文span的候选，再核验限定、冲突与支持关系；模型不得自批。</li>
+<li><strong>难点/追问</strong>：结构校验能发现缺字段或错引用，不能完全发现“原文其实没说这个结论”。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e03">E03</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q011"><summary>Q011 · 原文更新或撤回，如何避免继续答旧知识？</summary><div class="card-body"><p>状态：<strong>版本/撤回机制已实现；新内容接入仍需新版本</strong></p>
+<ul>
+<li><strong>口述</strong>：原件hash、来源版本、知识包和索引身份绑定。更新生成新版本，重新核对受影响事实与向量；撤回则先阻止继续使用，不等待模型重新训练。</li>
+<li><strong>实现/参数</strong>：检索、生成前后和返回前检查撤回；个人结果游标也绑定知识/输入版本。当前不是任意网页变化后自动热更新整库。</li>
+<li><strong>为什么/比较</strong>：不变版本和事务可防静默混库；效果与并发撤回测试、恢复测试的范围分开报告。</li>
+<li><strong>难点/追问</strong>：光改显示日期或缓存TTL不能证明旧事实已失效；发布与回退须切换一致版本集合。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e06">E06</a>、<a href="#e10">E10</a>。</p></div></details><details class="card" id="q012"><summary>Q012 · 块怎样切、多大、Overlap多少，为什么？</summary><div class="card-body"><p>状态：<strong>旧短摘已实现；自动切块选型未完成</strong></p>
+<ul>
+<li><strong>口述</strong>：当前98条采用脚本指定页/起止原文摘取，没有统一chunk_size和滑窗overlap；不是固定512 token。原文中位64字符，最长357；Qwen实际索引文本中位68、最长339 token。</li>
+<li><strong>实现/参数</strong>：53条检索表示带章节/摘要/原文，45条带摘要/原文；8192是编码上限。可比较的旧原文引用有1对重叠，不能说全部overlap=0。</li>
+<li><strong>为什么/比较</strong>：设计意图是保留命题和条件，但长度是摘录结果；没有128/256/512块长或0/32/64重叠的效果对比。</li>
+<li><strong>难点/追问</strong>：部分短摘只有表号或导航级锚点，证明“命题级”标签不够；新清洗3717结构块未接入旧索引。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e05">E05</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q013"><summary>Q013 · 怎么防止切断“除外、仅限、肾功能”等限定？</summary><div class="card-body"><p>状态：<strong>关系闭包已实现；自动边界识别仍局部</strong></p>
+<ul>
+<li><strong>口述</strong>：不能只靠Overlap碰巧覆盖。将必要人群、否定、剂量或工艺条件显式保存在事实与限定证据关系中，选中事实时补齐其依赖。</li>
+<li><strong>实现/参数</strong>：预算不够回退整条事实；必要条件未知则保留相关判断或补问，不能在模型里补成正常。</li>
+<li><strong>为什么/比较</strong>：现有原词守恒和闭包回归防丢失，但不能证明所有旧短摘语义完整；跨页和表格限定仍待重整。</li>
+<li><strong>难点/追问</strong>：给出“前段是建议、后段是例外”的构造例，检查两者是否共同进入最终上下文。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e06">E06</a>、<a href="#e07">E07</a>。</p></div></details><details class="card" id="q014"><summary>Q014 · 知道哪些切块策略，项目适合哪种？</summary><div class="card-body"><p>状态：<strong>理论与候选方案，未完成公平横评</strong></p>
+<ul>
+<li><strong>口述</strong>：固定字符/Token窗口便宜，递归切分兼顾段落标点，结构切分利用标题与表格；语义切分按内容变化；父子块用小块召回、带回较大上下文。</li>
+<li><strong>实现/参数</strong>：现有是锚点短摘与结构候选；候选方向是结构优先、受token上限约束并关联表题/限定，不直接照搬产品默认。</li>
+<li><strong>为什么/比较</strong>：应固定语料和任务比较边界完整性、召回、偏题、成本；没有哪种方法在所有文档都最优。</li>
+<li><strong>难点/追问</strong>：小块相关不代表父块全部有用；父块扩展也必须受条件、权限和预算限制。</li>
+</ul>
+<p>依据：<a href="#e03">E03</a>、<a href="#e05">E05</a>、<a href="#e18">E18</a>、<a href="#s17">S17</a>。</p></div></details><details class="card" id="q015"><summary>Q015 · 6000 token上下文预算怎样来的？</summary><div class="card-body"><p>状态：<strong>研究工程初值，未做预算消融</strong></p>
+<ul>
+<li><strong>口述</strong>：6000是研究上下文JSON的应用估算预算，不是Embedding块长，也不是模型上下文最大值。汉字按2、ASCII按0.4、其他按2估算并向上取整。</li>
+<li><strong>实现/参数</strong>：最多8事实，逐条加入全部支持/限定；超限回退整条。该处未单独累加系统消息，真实生成usage另看供应商回执。</li>
+<li><strong>为什么/比较</strong>：用于控制输入成本与噪声，没有3000/6000/9000对照证明6000最优。业务输入预算另为24000。</li>
+<li><strong>难点/追问</strong>：工程估算不等于精确tokenizer；要区分输入、输出预留和完整请求的预算范围。</li>
+</ul>
+<p>依据：<a href="#e07">E07</a>、<a href="#e12">E12</a>。</p></div></details></section><section class="chapter" id="retrieval" data-label="016–035 检索 / 增强 / 生成" hidden><h2 id="retrieval-h1">检索、增强与生成：Q016～Q035</h2>
+<p><a href="#intro">手册入口</a> · <a href="#parameters">参数总表</a> · <a href="#sources">证据与来源</a></p>
+<p>每题依次说明口述、实现/参数、选型/比较、难点。状态限定实际范围，不能把方案说成成果。</p><details class="card" id="q016"><summary>Q016 · 为什么不只用向量，暴露了什么问题？</summary><div class="card-body"><p>状态：<strong>研究有实测；业务未用dense</strong></p>
+<ul>
+<li><strong>口述</strong>：向量接近可能只是同一疾病、相似措辞，未必支持当前对象或动作。早期少盐问题混入无关脂肪事实，说明语义相关不等于任务适用。</li>
+<li><strong>实现/参数</strong>：目前加疾病/对象/关系类型与条件过滤，再比较研究A1、dense、hybrid；实际食谱指导按主题和显式映射取。</li>
+<li><strong>为什么/比较</strong>：同27道调试题A1已很强，没有证明加向量更准；不能把纯向量描述成永远不可用。</li>
+<li><strong>难点/追问</strong>：高相似的错误证据不能靠再加一句提示解决，应先定位表示、过滤和证据支持。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e12">E12</a>。</p></div></details><details class="card" id="q017"><summary>Q017 · Embedding用什么、维度多少，怎样选？</summary><div class="card-body"><p>状态：<strong>两模型真实研究对照</strong></p>
+<ul>
+<li><strong>口述</strong>：比较了Qwen3-Embedding-0.6B和BGE-M3，均固定1024维、独立索引，各98条真实证据向量。本轮保留Qwen，BGE作更低CPU编码延迟的备选。</li>
+<li><strong>实现/参数</strong>：同27题hybrid Recall@10均1；MRR约0.9375/0.90625，同16查询编码P95为1706/656.1ms。两模型revision、pooling和tokenizer锁定。</li>
+<li><strong>为什么/比较</strong>：Qwen本轮排序略高、BGE更快；题已曝光用于调试，没有统计显著或全领域优越性结论，也没做维度消融。</li>
+<li><strong>难点/追问</strong>：不能只凭模型榜单选，也不能把两种模型的同维向量放一张索引混查。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e12">E12</a>、<a href="#s02">S02</a>。</p></div></details><details class="card" id="q018"><summary>Q018 · A1到底怎么做，是BM25或倒排索引吗？</summary><div class="card-body"><p>状态：<strong>研究基线已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：A1用NFKC、受控别名最长匹配、实体歧义/否定检查，再取中文二元组及英文数字词。对象命中加8、疾病主体加4，词面命中按长度封顶4累加。</li>
+<li><strong>实现/参数</strong>：实体和词面分别排名后做等权RRF，c=60；外层请求最多50事实。当前没有BM25的IDF和长度归一化，也不是成熟倒排搜索服务。</li>
+<li><strong>为什么/比较</strong>：优势是小库下对象/条件可解释；没有与真正BM25公平横评，手工权重未扫参。</li>
+<li><strong>难点/追问</strong>：数据库预备GIN或全文字段不意味着当前应用路径就是中文BM25。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e12">E12</a>。</p></div></details><details class="card" id="q019"><summary>Q019 · 混合检索怎样互补，有没有实际收益？</summary><div class="card-body"><p>状态：<strong>研究已接通；收益未被证明</strong></p>
+<ul>
+<li><strong>口述</strong>：词面/实体对明确术语和身份约束更直接，向量可补不同措辞下的证据。两者可能互补，但也可能一起偏题或向量引入噪声。</li>
+<li><strong>实现/参数</strong>：A1最多50事实，dense最多30证据，后者先映射到事实ID再融合。来源有效性与适用条件不由融合分数决定。</li>
+<li><strong>为什么/比较</strong>：已有三模式工程比较，但同题A1 Recall/MRR已为1；目前只能说向量链跑通，不能说混合胜出。</li>
+<li><strong>难点/追问</strong>：应在口语化、歧义、无答案和偏题高相似样本上看配对变化，而不只看成功示例。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e12">E12</a>。</p></div></details><details class="card" id="q020"><summary>Q020 · RRF原理及公式中的60是什么？</summary><div class="card-body"><p>状态：<strong>研究两层RRF已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：RRF把不同通道的名次转成倒数分再求和，避开原始分数量纲不一致。一般为Σw/(c+rank)，缺席通道贡献0；c越大，头部相邻名次差距越缓。</li>
+<li><strong>实现/参数</strong>：A1内部实体/词面等权；外层为2/(60+r_A1)+1/(60+r_dense)。60是平滑常数，不是召回数量或top-k。</li>
+<li><strong>为什么/比较</strong>：方法有论文依据，当前2:1偏重可控A1是工程初值；没有证明本项目最优。</li>
+<li><strong>难点/追问</strong>：融合不判断事实是否真实或条件是否适用；两路都偏题时仍会把偏题事实排高。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#s01">S01</a>。</p></div></details><details class="card" id="q021"><summary>Q021 · 为什么RRF取60，做过10/60/100对比吗？</summary><div class="card-body"><p>状态：<strong>当前初值；该消融未做</strong></p>
+<ul>
+<li><strong>口述</strong>：60沿用RRF常见平滑设置，本项目还没有10/60/100的公平对照，所以不能讲“实验证明60最好”。外层2:1也尚未调优。</li>
+<li><strong>实现/参数</strong>：后续固定数据、知识、索引、模型、候选池和输出预算，单独改变c，再报告相关性、偏题和成本；测试集不反复挑参数。</li>
+<li><strong>为什么/比较</strong>：实验目标是选择有证据的方案，不是预先要求60获胜；若差异小应如实保留简单配置。</li>
+<li><strong>难点/追问</strong>：如果10更好就接受结果；不能拿不同候选数或不同题集包装K值收益。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e12">E12</a>、<a href="#e14">E14</a>、<a href="#s01">S01</a>。</p></div></details><details class="card" id="q022"><summary>Q022 · 为何不把向量距离和词法分数直接相加？</summary><div class="card-body"><p>状态：<strong>方法取舍，未做融合算法横评</strong></p>
+<ul>
+<li><strong>口述</strong>：两套分数的方向、范围和分布不同，距离越小越好，手工匹配分越大越好。直接相加会让量纲主导结果，先变成排名更容易审计。</li>
+<li><strong>实现/参数</strong>：也可做同向化、归一化和权重校准，或训练排序；RRF省去当前分数校准，但丢失原始分差。</li>
+<li><strong>为什么/比较</strong>：这是工程理由，不是RRF击败分数加权的实测结论；比较时需固定同一候选集合。</li>
+<li><strong>难点/追问</strong>：即使归一化到0～1，也不代表两路分数变成可比较的正确概率。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#s01">S01</a>。</p></div></details><details class="card" id="q023"><summary>Q023 · A1第一、向量第十的事实怎样算分？</summary><div class="card-body"><p>状态：<strong>数学示例，非效果实验</strong></p>
+<ul>
+<li><strong>口述</strong>：按本项目外层权重，得分为2/61+1/70≈0.04707；若用等权RRF则1/61+1/70≈0.03068。必须先讲清采用哪套权重。</li>
+<li><strong>实现/参数</strong>：若同事实关联多条dense证据，当前取最早命中的证据名次，不重复加票；统一fact ID后再融合。</li>
+<li><strong>为什么/比较</strong>：较高分仅表示两路排名意见，不是47%概率；示例计算没有证明排序改善。</li>
+<li><strong>难点/追问</strong>：追问同名ID、重复候选和同分时，说明稳定ID去重、按ID破同分及0贡献规则。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#s01">S01</a>。</p></div></details><details class="card" id="q024"><summary>Q024 · Top-10里出现互斥或相反结论怎么办？</summary><div class="card-body"><p>状态：<strong>冲突/限定保留，自动裁定不完整</strong></p>
+<ul>
+<li><strong>口述</strong>：先确认是否真矛盾，还是人群、剂量、形态或工艺不同。明确不适用项排除，适用但相反的支持与限定保留，未知条件不能补齐。</li>
+<li><strong>实现/参数</strong>：研究上下文携带冲突；业务按同对象的方向记录冲突，避开不被推荐益处抵消。证据过期或误引先隔离。</li>
+<li><strong>为什么/比较</strong>：没有“来源名更权威就无条件覆盖全部”的自动裁决算法；专业争议仍待复核。</li>
+<li><strong>难点/追问</strong>：不要让模型挑一个更顺口的结论；无法确定时限制对应判断，不无故阻断无关可行菜。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e06">E06</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q025"><summary>Q025 · 粗筛多少、最终多少，为什么？</summary><div class="card-body"><p>状态：<strong>研究默认值，未扫参</strong></p>
+<ul>
+<li><strong>口述</strong>：研究A1最多50事实、dense默认30证据；统一事实后RRF排序，最终最多8个适用事实并受估算6000 token约束，证据闭包可能多于8条。</li>
+<li><strong>实现/参数</strong>：数字分别是发现候选、最终事实和上下文预算，不可混称top-k。业务另有最多48父菜谱与24000输入预算。</li>
+<li><strong>为什么/比较</strong>：都是当前工程初值，尚无召回10/20/30/50、事实4/8/12的参数消融。</li>
+<li><strong>难点/追问</strong>：8不是必须凑满；有条件未知、撤回或预算不够时会减少或返回待确认/证据不足。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e07">E07</a>。</p></div></details><details class="card" id="q026"><summary>Q026 · 怎样检测和量化“偏题”？</summary><div class="card-body"><p>状态：<strong>已有规则回归；独立分级标签待补</strong></p>
+<ul>
+<li><strong>口述</strong>：不能只看同疾病或向量高分。看该片段能否支持本次对象、动作、条件和任务；人工标签可分无关、同主题、部分支持、直接完整支持。</li>
+<li><strong>实现/参数</strong>：偏题率可定义为实际注入上下文中无关/仅同主题项占比，需声明分母与标注规则；候选top-10另报，不混用。</li>
+<li><strong>为什么/比较</strong>：当前修复过具体偏题，有标签规范和工程回归，但独立gold尚缺，不能报全库偏题率。</li>
+<li><strong>难点/追问</strong>：检索相关性、条件适用性和证据对陈述的支持必须分别评分。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q027"><summary>Q027 · Rerank解决什么，和Embedding有何不同？</summary><div class="card-body"><p>状态：<strong>方案，当前未接入</strong></p>
+<ul>
+<li><strong>口述</strong>：Embedding分别编码问题和文档，距离匹配便于提前建库；Cross-Encoder把两者一起输入，直接打相关性分，更适合对小候选池精排。</li>
+<li><strong>实现/参数</strong>：可放在融合/去重与资格过滤之后，取足够候选再重排；之后仍补支持/限定并做预算选择。项目尚未安装专用reranker。</li>
+<li><strong>为什么/比较</strong>：可能改善细粒度相关性，但无法召回根本没找到的事实，也不能保证医学适用性或原文真实性。</li>
+<li><strong>难点/追问</strong>：BGE-Reranker的分数不是向量，更不是安全概率；效果须用本项目误选/漏选对照。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e18">E18</a>、<a href="#s04">S04</a>。</p></div></details><details class="card" id="q028"><summary>Q028 · 如何权衡Reranker延迟和收益？</summary><div class="card-body"><p>状态：<strong>实验方案，未实施</strong></p>
+<ul>
+<li><strong>口述</strong>：分开测检索、重排、上下文和生成时间，固定候选池和模型比较有无重排。看最终相关证据、偏题、理由支持，而不只看重排器自己分数。</li>
+<li><strong>实现/参数</strong>：可候选20/30/50并记录CPU冷/热P50/P95、内存、端到端成本；这些不是当前已选参数。</li>
+<li><strong>为什么/比较</strong>：如果质量收益不足或17秒业务预算无法容纳，保留简单基线；不引用厂商通用榜单当本项目收益。</li>
+<li><strong>难点/追问</strong>：失败时是明确不可用、维持原排序还是其他策略，需要先定义；当前没有reranker可静默降级。</li>
+</ul>
+<p>依据：<a href="#e12">E12</a>、<a href="#e14">E14</a>、<a href="#e18">E18</a>、<a href="#s04">S04</a>。</p></div></details><details class="card" id="q029"><summary>Q029 · 超预算为何回退完整事实，不截断半段证据？</summary><div class="card-body"><p>状态：<strong>研究上下文选择已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：截断可能留下“推荐”却删掉“仅适用于/除外/未证实”，改变含义。上下文以事实和它的必需支持/限定为一组，超预算整组回退。</li>
+<li><strong>实现/参数</strong>：研究最多8事实/估算6000 token；业务减少候选尾部并重算关联指导，不能截配方或丢必要限定来保住结论。</li>
+<li><strong>为什么/比较</strong>：这是语义完整性原则，不是已证明6000最优；如果一组都放不下，返回不足而不伪造摘要。</li>
+<li><strong>难点/追问</strong>：更大的块未必更好，父块也必须完整且受预算约束。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e07">E07</a>、<a href="#e08">E08</a>。</p></div></details><details class="card" id="q030"><summary>Q030 · 怎样防模型编造医学常识？</summary><div class="card-body"><p>状态：<strong>职责约束已实现；不能保证零幻觉</strong></p>
+<ul>
+<li><strong>口述</strong>：先收窄任务，只提供可用事实和真实配方，明确禁止新疗效、营养阈值和诊断。程序输出依据绑定与未知范围，不让自由文字发布成新规则。</li>
+<li><strong>实现/参数</strong>：研究核验本次fact/evidence集合及限定引用；业务模型只选目录ID，健康理由由代码形成。</li>
+<li><strong>为什么/比较</strong>：RAG、JSON和提示都不是零幻觉证明；实际语义质量仍要抽检/评测，结构通过不代表陈述被支持。</li>
+<li><strong>难点/追问</strong>：“原文说含某成分”不能跳成“吃这道菜可治疗某病”；少选也不能偷换成禁止。</li>
+</ul>
+<p>依据：<a href="#e07">E07</a>、<a href="#e08">E08</a>、<a href="#e09">E09</a>。</p></div></details><details class="card" id="q031"><summary>Q031 · 残缺JSON或带Markdown围栏怎么办？</summary><div class="card-body"><p>状态：<strong>当前严格拒收，无自动修复重试</strong></p>
+<ul>
+<li><strong>口述</strong>：要求JSON模式，检查完整终态，再JSON.parse和运行时验证。空白、截断、额外非JSON导致解析失败就返回明确错误，不擅自补ID或再花一次模型调用修复。</li>
+<li><strong>实现/参数</strong>：当前不靠贪婪正则抓第一个到最后一个大括号，也不剥掉任意文字假装正确；64KiB响应和内容长度有限制。</li>
+<li><strong>为什么/比较</strong>：未来若允许受控清理，要独立定义仅外围包装的无损规则并保留原文；这不是现有实现。</li>
+<li><strong>难点/追问</strong>：先区分超max_tokens、供应商协议失败与JSON语法失败，修parse报错不等于修内容事实。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>。</p></div></details><details class="card" id="q032"><summary>Q032 · 如何校验evidenceId真实，存在就够了吗？</summary><div class="card-body"><p>状态：<strong>研究引用校验与业务绑定分开</strong></p>
+<ul>
+<li><strong>口述</strong>：研究要求ID属于本请求上下文，事实至少有支持引用且限定引用齐全；还核对来源状态。业务不接受模型自由填写证据ID，由程序按实际配方绑定。</li>
+<li><strong>实现/参数</strong>：合法ID只能证明引用对象存在及关系合约成立，不能证明任何自由陈述都被原文蕴含。</li>
+<li><strong>为什么/比较</strong>：第4次真实调用中模型误填引用被拒，第5次改为程序绑定；不能把失败改写为通过。</li>
+<li><strong>难点/追问</strong>：其他菜的有效证据也不能借用；配方变化、撤回后旧理由应失效。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e13">E13</a>。</p></div></details><details class="card" id="q033"><summary>Q033 · “迷失在中间”是什么，项目怎样处理？</summary><div class="card-body"><p>状态：<strong>理论；位置消融未做</strong></p>
+<ul>
+<li><strong>口述</strong>：长上下文中相关信息的位置会影响模型利用效果，不等于窗口装得下就能稳定读懂。项目用任务过滤、较小事实集和预算减少无关信息。</li>
+<li><strong>实现/参数</strong>：没有实现或验证专门的位置重排策略，也没有证明当前模型已解决该现象；原论文的模型与任务不能直接外推。</li>
+<li><strong>为什么/比较</strong>：后续同内容换证据位置、固定其他条件做对照，检查限定/引用保留，而非只把结论挪到开头。</li>
+<li><strong>难点/追问</strong>：人群例外也须紧邻其适用事实，不能仅把“好消息”放头部而把限制扔掉。</li>
+</ul>
+<p>依据：<a href="#e07">E07</a>、<a href="#e14">E14</a>、<a href="#s07">S07</a>。</p></div></details><details class="card" id="q034"><summary>Q034 · 如何防用户或资料里的恶意Prompt注入？</summary><div class="card-body"><p>状态：<strong>已有边界控制；不保证全覆盖</strong></p>
+<ul>
+<li><strong>口述</strong>：把问题、原文和图片识别文本视为数据，系统指令固定；模型输出是待校验候选，不能直接执行命令或改身份。权限、目录和提供商地址由服务端控制。</li>
+<li><strong>实现/参数</strong>：JSON/引用/配方复核、固定模型入口和不自动执行任意URL减少影响面；未来工具还需白名单、参数授权和隔离。</li>
+<li><strong>为什么/比较</strong>：OWASP也不把RAG视为注入免疫；本项目没有宣称通过全面红队。</li>
+<li><strong>难点/追问</strong>：例如原文写“忽略过敏、发出Key”，程序仍不能允许它改本餐硬限制或获取凭证。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e09">E09</a>、<a href="#e10">E10</a>、<a href="#s13">S13</a>。</p></div></details><details class="card" id="q035"><summary>Q035 · 证据冲突时，大模型应听谁？</summary><div class="card-body"><p>状态：<strong>冲突表达已实现；无全面自动仲裁</strong></p>
+<ul>
+<li><strong>口述</strong>：先按对象、形态、人群、时间和来源版本拆清适用范围；不能简单按排名投票。真实冲突应明示争议并限制受影响结论，必要时复核来源。</li>
+<li><strong>实现/参数</strong>：支持和反对/限定共同保留；重复转载不算多个独立支持，旧来源撤回则按版本失效。</li>
+<li><strong>为什么/比较</strong>：当前没有来源权威分数自动决定一切，也没有LLM自审即可批准的机制。</li>
+<li><strong>难点/追问</strong>：来源表格与正文数值不一致时先隔离或标记，不挑符合直觉的一边。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e06">E06</a>、<a href="#e14">E14</a>。</p></div></details></section><section class="chapter" id="agent" data-label="036–057 Agent / 评测" hidden><h2 id="agent-h1">Agent、评测与扩展：Q036～Q057</h2>
+<p><a href="#intro">手册入口</a> · <a href="#parameters">参数总表</a> · <a href="#sources">证据与来源</a></p>
+<p>每题依次说明口述、实现/参数、选型/比较、难点。状态限定实际范围，不能把方案说成成果。</p><details class="card" id="q036"><summary>Q036 · 项目算Agent还是Workflow？</summary><div class="card-body"><p>状态：<strong>当前主要是受控Workflow</strong></p>
+<ul>
+<li><strong>口述</strong>：这里主要是预先定义的业务流程加模型选菜；模型没有自主决定任意工具和循环步骤。可以说是Agent应用工程中的受控工作流，不能包装成全自主医疗Agent。</li>
+<li><strong>实现/参数</strong>：普通函数编排检索/指导、候选、生成、校验；无ReAct循环、Planner或多Agent通信运行时。</li>
+<li><strong>为什么/比较</strong>：可验证、风险可控比名词高级更重要；尚无单Agent/多Agent或自由规划对照。</li>
+<li><strong>难点/追问</strong>：未来若任务确需动态工具选择，只在小范围开放，并设置授权、步数与预算。</li>
+</ul>
+<p>依据：<a href="#e01">E01</a>、<a href="#e08">E08</a>、<a href="#e18">E18</a>、<a href="#s06">S06</a>。</p></div></details><details class="card" id="q037"><summary>Q037 · 库存、过敏、忌口怎样和模型交互？</summary><div class="card-body"><p>状态：<strong>业务已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：服务端读取当前账户档案和本餐，程序先筛目录；模型看到的是通过初筛的真实候选和食材有无，返回后再检查单菜与整套。</li>
+<li><strong>实现/参数</strong>：用户填写用量不参与选菜或发送为库存数量约束；补买须主动开启。过敏、忌口、口味和健康少选分开。</li>
+<li><strong>为什么/比较</strong>：双层检查防候选不完整或模型忽略条件；不把用户限制只写在system prompt里。</li>
+<li><strong>难点/追问</strong>：复合调料和未知成分只能按当前可验证范围表达；不能把未知解释成已证明安全。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q038"><summary>Q038 · 为什么硬过滤交给代码？</summary><div class="card-body"><p>状态：<strong>业务已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：过敏和有效避免项是必须满足的约束，不能用模型给出的健康收益平均抵消。程序能检查实际食材ID、可选项、做法和补买状态，结果可重复。</li>
+<li><strong>实现/参数</strong>：模型只能从提供的目录ID选择；修改口味、换菜和翻页也复核输入和配方版本。</li>
+<li><strong>为什么/比较</strong>：这是把约束问题与语言偏好分开，不是让规则解决所有语义质量；有硬限制回归，无总体安全率结论。</li>
+<li><strong>难点/追问</strong>：任一必要限制未知或冲突，按对应业务规则暂停相关判断，不能让模型猜一个最可能值继续。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q039"><summary>Q039 · 高血压用户只有培根，怎样反馈？</summary><div class="card-body"><p>状态：<strong>场景分析；不作个体医学判断</strong></p>
+<ul>
+<li><strong>口述</strong>：先查真实菜谱及必要配料、过敏/有效避开和补买；再读该用户适用指导。若只是少选信号，不能自动变成禁食；若没有可行配方或存在硬冲突，明确说明对应缺口。</li>
+<li><strong>实现/参数</strong>：不得凭一个食材编造新菜，也不能说某菜能降压；可由用户选择补买或补充条件，不能偷偷改变库存。</li>
+<li><strong>为什么/比较</strong>：场景的答案来自具体规则/指导与配方，不是背“有病就禁止某食物”的统一模板。</li>
+<li><strong>难点/追问</strong>：库存不够是食材缺失还是填写克数少要分清：后者当前不作为拒选理由。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e11">E11</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q040"><summary>Q040 · 模型写“吃某道菜降血压”，程序怎么拦？</summary><div class="card-body"><p>状态：<strong>本地研究业务采用受控理由</strong></p>
+<ul>
+<li><strong>口述</strong>：当前本地研究选菜不发布模型自由健康summary/reason，而是按所选真实配方的指导绑定生成aiReason和覆盖说明；没有匹配就用保留健康判断的文本。</li>
+<li><strong>实现/参数</strong>：这条程序路径比要求模型“别乱说”更可控；独立研究问答仍有自由claim，ID合法不能自动证明其语义正确。</li>
+<li><strong>为什么/比较</strong>：真实错引用促成职责收缩；不能据此声称所有一般聊天或非研究模式都已自动做完整医学蕴含检测。</li>
+<li><strong>难点/追问</strong>：追问代码时指出publish中的proof/guidanceReason分支；不要只说“正则检测降压词”就保证无幻觉。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e09">E09</a>、<a href="#e13">E13</a>。</p></div></details><details class="card" id="q041"><summary>Q041 · 疾病分型不明确，多轮怎么补？</summary><div class="card-body"><p>状态：<strong>局部规则补问已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：只有对应指导需要某个条件时才问，保存明确回答，不把“糖尿病”自动当2型，也不把“不清楚”改成正常。非关键缺项不全局阻断本餐。</li>
+<li><strong>实现/参数</strong>：已有成人、血脂分型、肾功能、训练等条件标签；短回答结合上一轮明确提问键解释，取消/删病会撤销所属建议。</li>
+<li><strong>为什么/比较</strong>：有明确跟进标签回归，尚非任意自然语言临床问诊，更没有自动诊断。</li>
+<li><strong>难点/追问</strong>：检查用户已填信息、否定和迟到响应，避免反复追问或旧疾病结果复活。</li>
+</ul>
+<p>依据：<a href="#e11">E11</a>、<a href="#e08">E08</a>。</p></div></details><details class="card" id="q042"><summary>Q042 · 模型调用同步还是异步，高并发怎样处理？</summary><div class="card-body"><p>状态：<strong>当前异步I/O；非后台任务队列</strong></p>
+<ul>
+<li><strong>口述</strong>：HTTP里使用async/await等待供应商返回，业务仍是一轮请求，不等于后台异步任务系统。应用可用NDJSON发进度，模型本身stream=false。</li>
+<li><strong>实现/参数</strong>：进程内聊天/选菜占位上限4；真实账户通过PG认领/限额，防多实例重复请求；本地Embedding互斥CPU编码。</li>
+<li><strong>为什么/比较</strong>：能解释当前控制机制，不能把构造回归说成日活十万并发压测；排队、工作池与分布式任务恢复属于扩展。</li>
+<li><strong>难点/追问</strong>：异步不让CPU密集编码自动变快，Node事件循环与Python推理职责分离。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e08">E08</a>、<a href="#e10">E10</a>。</p></div></details><details class="card" id="q043"><summary>Q043 · 模型超时或429怎么办？</summary><div class="card-body"><p>状态：<strong>当前明确失败，自动重试0</strong></p>
+<ul>
+<li><strong>口述</strong>：区分认证、余额、限流、供应商异常、取消和超时，返回可理解状态；当前禁止自动重发或跨模型兜底，防隐性费用与行为改变。</li>
+<li><strong>实现/参数</strong>：业务路由总预算17秒、研究生成60秒、Embedding适配180秒，范围不同；取消尽力传播，不能承诺供应商零消耗。</li>
+<li><strong>为什么/比较</strong>：退避/抖动/熔断是可设计机制，不是本项目已经采用；付费/有副作用请求不能照抄通用重试模板。</li>
+<li><strong>难点/追问</strong>：超时后结果未知不等于没执行；账本保留已认领/已预留，后续用户主动新操作须按契约处理。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e10">E10</a>。</p></div></details><details class="card" id="q044"><summary>Q044 · 一次推荐多少Token，怎样降本？</summary><div class="card-body"><p>状态：<strong>有单例回执，无总体均值</strong></p>
+<ul>
+<li><strong>口述</strong>：2026-11-05第5次真实样例为8232输入、184输出、合计8416 token；这只是该输入和目录下的一次调用，不能当所有推荐的固定开销。</li>
+<li><strong>实现/参数</strong>：业务输入估算上限24000、输出2400；只带实际候选关联指导，分页复用15分钟结果，用户主动搭配/重推/换菜才调用。</li>
+<li><strong>为什么/比较</strong>：5次调用费用估算上界0.070274元是当时价格与usage计算，不是当前报价或账单；未做普遍降本百分比A/B。</li>
+<li><strong>难点/追问</strong>：缩短上下文不能删除过敏、人群限定或真实做法；缓存省时要说明命中条件及版本。</li>
+</ul>
+<p>依据：<a href="#e07">E07</a>、<a href="#e13">E13</a>。</p></div></details><details class="card" id="q045"><summary>Q045 · Memory怎么做，多轮怎样记忌口？</summary><div class="card-body"><p>状态：<strong>档案/接受记录已实现；无长期向量记忆</strong></p>
+<ul>
+<li><strong>口述</strong>：过敏、忌口和按疾病/目标接受的建议属于结构化账户状态，不仅放在聊天历史中。完整聊天页内内存；删病撤销对应建议与接受记录。</li>
+<li><strong>实现/参数</strong>：保存建议与本餐使用指导分开，服务端以当前档案为准；公共知识库不存个人查询向量或推荐正文。</li>
+<li><strong>为什么/比较</strong>：这不是自动总结画像的Memory Agent，也没有长期记忆向量召回实验。</li>
+<li><strong>难点/追问</strong>：摘要可以辅助语言连续性，但不能覆盖原始限制、用户取消或账户归属。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q046"><summary>Q046 · 怎样证明效果，用哪些指标？</summary><div class="card-body"><p>状态：<strong>已有研究指标与少量业务样例</strong></p>
+<ul>
+<li><strong>口述</strong>：分层报告解析保真、检索覆盖/排序、上下文偏题与限定、菜谱可行性/理由、延迟/成本。硬限制违规、伪造ID、撤回复活单独判失败，不能由均分抵消。</li>
+<li><strong>实现/参数</strong>：工具已有Recall@10、MRR、二值nDCG及闭包/状态检查；业务要看实际注入和最终整餐，不只看前10候选。</li>
+<li><strong>为什么/比较</strong>：当前有调试回归、真实PG及少量真实生成；独立gold、专业审核、用户效果尚未完成。</li>
+<li><strong>难点/追问</strong>：回答“准确率多少”先问清分母和任务；用期望事实覆盖率不能代替临床正确率。</li>
+</ul>
+<p>依据：<a href="#e12">E12</a>、<a href="#e13">E13</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q047"><summary>Q047 · 27题怎么选，怎样防自己考自己？</summary><div class="card-body"><p>状态：<strong>旧题已曝光；独立验收待补</strong></p>
+<ul>
+<li><strong>口述</strong>：27题用于开发调试后保留为回归，不能再命名成盲测。后续按问题族、来源/转载族和曝光记录隔离，并保留无答案、歧义、冲突和撤回场景。</li>
+<li><strong>实现/参数</strong>：固定库问题可共享索引来源，但题族不泄漏；新来源解析泛化另按source-disjoint划分。gold不进入检索/生成。</li>
+<li><strong>为什么/比较</strong>：已有划分工具和规范，不等于已经有独立人工gold；按用户安排上线后结合输出与预期完善。</li>
+<li><strong>难点/追问</strong>：不能用换ID、AI改写或扩成200题洗掉曝光；模型合成题需核对答案和必要条件。</li>
+</ul>
+<p>依据：<a href="#e14">E14</a>。</p></div></details><details class="card" id="q048"><summary>Q048 · 了解Ragas吗，为什么没直接用它？</summary><div class="card-body"><p>状态：<strong>了解框架；当前未集成</strong></p>
+<ul>
+<li><strong>口述</strong>：Ragas可辅助做context相关性、faithfulness等评估，但指标定义和评委模型仍需验证。项目最先已有确定性的ID、条件、撤回和整餐规则检查。</li>
+<li><strong>实现/参数</strong>：没有调用Ragas评委，也不把LLM打分当专业签认；接入时还需明确数据权限、模型预算和中文业务标签。</li>
+<li><strong>为什么/比较</strong>：未用不代表它差；先防无效gold和任务错配，再用工具提高效率。</li>
+<li><strong>难点/追问</strong>：评委与生成模型可能相关犯错；需要人工抽检、争议记录和规则交叉检查。</li>
+</ul>
+<p>依据：<a href="#e14">E14</a>、<a href="#e18">E18</a>、<a href="#s12">S12</a>。</p></div></details><details class="card" id="q049"><summary>Q049 · 重新设计时，Rerank放哪里？</summary><div class="card-body"><p>状态：<strong>候选方案，尚未接入</strong></p>
+<ul>
+<li><strong>口述</strong>：先认证/路由与必要适用性检查，再多路召回、统一fact、去重/融合，对小池做query—fact/evidence精排，最后补完整支持/限定并选择预算内上下文。</li>
+<li><strong>实现/参数</strong>：明确不适用或无权限的项不能靠精排高分复活；不能把例外证据当普通候选挤掉。</li>
+<li><strong>为什么/比较</strong>：对照无rerank、有rerank但不改其他变量；记录最终上下文和菜品任务，而非只看重排分。</li>
+<li><strong>难点/追问</strong>：如果一段证据关联多事实，应给重排器足够的对象和条件上下文，不能只重排一个孤立表号。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e07">E07</a>、<a href="#e18">E18</a>、<a href="#s04">S04</a>。</p></div></details><details class="card" id="q050"><summary>Q050 · 最大踩坑怎么讲，怎么定位和修复？</summary><div class="card-body"><p>状态：<strong>真实案例可选</strong></p>
+<ul>
+<li><strong>口述</strong>：用一次可复现问题讲清触发、错误后果、日志/回执、代码分支、修复和复验。例如普通豆腐菜已合格，模型却凭缺油量与减脂判断拒选。</li>
+<li><strong>实现/参数</strong>：修复不是加更多食品黑名单，而是收窄模型职责、明确少选非硬禁、没有健康依据仍可按本餐选并保留判断。</li>
+<li><strong>为什么/比较</strong>：保留第2次真实失败、第3次普通菜返回及后续完整样例；不把修改后的回归伪称旧调用已通过。</li>
+<li><strong>难点/追问</strong>：另一个强案例是RAG-005唯一正文命中绕过导航核验，绿色测试没覆盖分支，管理端复现后补builder测试。</li>
+</ul>
+<p>依据：<a href="#e13">E13</a>、<a href="#e15">E15</a>。</p></div></details><details class="card" id="q051"><summary>Q051 · 为什么加向量后反而不如A1？</summary><div class="card-body"><p>状态：<strong>真实小样本现象</strong></p>
+<ul>
+<li><strong>口述</strong>：旧题术语直接且参与过调试，A1的实体/条件规则与题分布很贴合；dense可能召回同主题但对象不对的证据，融合还会引入噪声。</li>
+<li><strong>实现/参数</strong>：同27题A1 Recall/MRR均1；Qwen hybrid MRR约0.9375，BGE约0.90625，不能只挑向量成功样本。</li>
+<li><strong>为什么/比较</strong>：结论是当前没证明增益，不是向量天然无用。先检查题分布、表示、条件过滤、候选映射，再决定是否增加复杂度。</li>
+<li><strong>难点/追问</strong>：保留简单基线体现工程判断，不必为简历强行让复杂方案获胜。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e12">E12</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q052"><summary>Q052 · 被说成“规则引擎套模型壳”怎么回答？</summary><div class="card-body"><p>状态：<strong>项目定位与真实职责</strong></p>
+<ul>
+<li><strong>口述</strong>：直接承认硬约束由程序负责，这是设计选择。项目难点在把有条件的公开知识、真实配方、用户状态和模型候选连成可追溯、可撤销的一餐结果。</li>
+<li><strong>实现/参数</strong>：能展示配方版本绑定、模型错引用、证据角色误引、取消/迟到结果和双层复核，而不是只展示聊天UI。</li>
+<li><strong>为什么/比较</strong>：没有证据就不说自主Agent或算法创新；目前价值是业务工程闭环，向量增益也如实未证实。</li>
+<li><strong>难点/追问</strong>：若去掉模型仍能做普通推荐，说明基线存在；模型价值还需要偏好/理由任务对照来量化。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e13">E13</a>、<a href="#e15">E15</a>。</p></div></details><details class="card" id="q053"><summary>Q053 · 日活十万时架构怎么改？</summary><div class="card-body"><p>状态：<strong>容量方案，当前未压测</strong></p>
+<ul>
+<li><strong>口述</strong>：先估请求分布、AI触发比例、峰值并发、平均/尾时延与供应商额度，再测瓶颈；日活不能直接换成QPS。</li>
+<li><strong>实现/参数</strong>：可拆静态目录读取、账户/认领、CPU编码和生成工作池；增加有界队列、租户配额、共享状态、观测和背压，先用测量决定是否ANN/缓存。</li>
+<li><strong>为什么/比较</strong>：当前没有日活十万、生产压测或大规模集群经历，不能把设计图当实际业绩。</li>
+<li><strong>难点/追问</strong>：保护单次费用和授权优先于把请求无限堆积；降级不得悄悄放宽健康条件或跨供应商发个人数据。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q054"><summary>Q054 · 向量多了怎么办，HNSW和IVFFlat怎么选？</summary><div class="card-body"><p>状态：<strong>当前精确搜索；ANN属扩展</strong></p>
+<ul>
+<li><strong>口述</strong>：先保留精确kNN作为相关距离基线；数据和延迟确有压力时，比较HNSW图导航与IVFFlat聚类分桶的召回、构建时间、内存和过滤后效果。</li>
+<li><strong>实现/参数</strong>：当前每模型98向量，没有创建ANN索引，也没有本项目M、ef_search、lists、probes选值。</li>
+<li><strong>为什么/比较</strong>：不是向量库越大就无条件切某算法；metadata筛选很强时精确搜索也可能合适。</li>
+<li><strong>难点/追问</strong>：过滤和近似检索会改变候选覆盖，要同精确结果比较，不能只报告ANN查询更快。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e18">E18</a>、<a href="#s03">S03</a>。</p></div></details><details class="card" id="q055"><summary>Q055 · 冰箱照片如何接入，CV与RAG什么关系？</summary><div class="card-body"><p>状态：<strong>食材图片识别入口已有；非完整视觉RAG</strong></p>
+<ul>
+<li><strong>口述</strong>：先认证与费用认领、限制图片格式/大小和固定提供商，识别只生成食材候选；用户确认并做受控实体匹配后，仍走原配方资格与RAG指导。</li>
+<li><strong>实现/参数</strong>：当前已有照片识别/取消相关工程，照片不进入公共知识库；不能从照片确定过敏、隐藏调料或个人摄入克数。</li>
+<li><strong>为什么/比较</strong>：没有“识别对了就营养计算对了”的证据；多模态质量要分别看食材命名、形态和下游菜品影响。</li>
+<li><strong>难点/追问</strong>：清Key、换会话、取消与迟到识别结果不能重新上传或覆盖新草稿。</li>
+</ul>
+<p>依据：<a href="#e16">E16</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q056"><summary>Q056 · 加入视频或音频指南，需要改变什么？</summary><div class="card-body"><p>状态：<strong>设计，未接入</strong></p>
+<ul>
+<li><strong>口述</strong>：把音频ASR时间段、视频帧/字幕、文档页统一成带媒体hash和时间/空间定位的证据候选，保留说话人、人群、否定及单位，再审查抽取质量。</li>
+<li><strong>实现/参数</strong>：分块可按时间与主题关联，图片/字幕来源不能混成无定位文本；新Embedding或多模态模型须新身份与索引。</li>
+<li><strong>为什么/比较</strong>：这是未来接入方案，当前没有ASR、视频指南知识库或多模态检索对比。</li>
+<li><strong>难点/追问</strong>：一句字幕脱离上下文可能反转结论；不要靠模型补听不清的数字并直接发布事实。</li>
+</ul>
+<p>依据：<a href="#e03">E03</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q057"><summary>Q057 · GraphRAG能解决什么，项目需要吗？</summary><div class="card-body"><p>状态：<strong>有关系建模；未做GraphRAG</strong></p>
+<ul>
+<li><strong>口述</strong>：图有利于关系路径和跨资料综合，GraphRAG还可能建立社区摘要服务全局问题。项目现有疾病/成分/食材关系不等于已实现GraphRAG。</li>
+<li><strong>实现/参数</strong>：当前用PG条件化关系和直接指导；没有Neo4j、多跳图检索或LLM社区摘要。不能沿“含成分”路径无条件推出食物疗效。</li>
+<li><strong>为什么/比较</strong>：先验证多跳任务是否被当前结构化查询限制，再和简单关系查询/普通RAG对照；不为展示图谱而增加服务。</li>
+<li><strong>难点/追问</strong>：图边同样有来源、条件和冲突，路径连通不是因果成立。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e18">E18</a>、<a href="#s10">S10</a>。</p></div></details></section><section class="chapter" id="engineering" data-label="058–084 模型 / 协议 / 工程" hidden><h2 id="engineering-h1">模型基础、协议与工程：Q058～Q084</h2>
+<p><a href="#intro">手册入口</a> · <a href="#parameters">参数总表</a> · <a href="#sources">证据与来源</a></p>
+<p>每题依次说明口述、实现/参数、选型/比较、难点。状态限定实际范围，不能把方案说成成果。</p><details class="card" id="q058"><summary>Q058 · Token、字符、分词和自回归是什么？</summary><div class="card-body"><p>状态：<strong>基础认知；有本地长度测量</strong></p>
+<ul>
+<li><strong>口述</strong>：Token是模型词表中的编码单位，可能是一段字词或符号；字符数不等于token数。自回归按已有上下文预测下一个token，逐步形成输出。</li>
+<li><strong>实现/参数</strong>：同98条检索文本，Qwen最大339、BGE最大306 token，证明同文本不同tokenizer长度不同；JS字符串长度还可能按UTF-16单位计。</li>
+<li><strong>为什么/比较</strong>：当前用固定tokenizer测Embedding长度，DeepSeek输入预算用工程估算，真实费用按回执。</li>
+<li><strong>难点/追问</strong>：不要把6000字符、6000token、模型窗口和输出上限混为一个数。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e07">E07</a>。</p></div></details><details class="card" id="q059"><summary>Q059 · Attention和Transformer至少讲到哪？</summary><div class="card-body"><p>状态：<strong>基础理论；未训练模型</strong></p>
+<ul>
+<li><strong>口述</strong>：Token先映射为向量，再由注意力让每个位置结合其他相关位置的信息。单头形式是softmax(QK转置/√d_k)V，多头从不同子空间组合，之后有残差、归一化和前馈层。</li>
+<li><strong>实现/参数</strong>：Q/K用于算匹配，V参与加权内容；decoder生成时有因果mask。项目使用预训练Embedding和API，不是自研Transformer。</li>
+<li><strong>为什么/比较</strong>：除以√d_k控制点积随维度放大的尺度；这些原理解释上下文计算成本，不证明某块大小更优。</li>
+<li><strong>难点/追问</strong>：追问时讲清表示与注意力权重不等于事实依据；不编造供应商内部架构或推理链。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e18">E18</a>、<a href="#s08">S08</a>。</p></div></details><details class="card" id="q060"><summary>Q060 · Prefill、Decode、KV Cache和Prompt Cache是什么？</summary><div class="card-body"><p>状态：<strong>基础与边界；项目未自管KV</strong></p>
+<ul>
+<li><strong>口述</strong>：Prefill处理已有输入，Decode逐步生成；KV Cache复用先前token的注意力K/V，减少生成时重复计算。供应商Prompt Cache可能复用相同前缀计算，行为与费用取决于接口。</li>
+<li><strong>实现/参数</strong>：项目不控制DeepSeek服务端KV；自己的query向量缓存、加密结果游标和个人档案是不同机制，不叫KV Cache。</li>
+<li><strong>为什么/比较</strong>：当前无自建推理服务的KV策略对照，也不能把缓存命中耗时混作冷启动速度。</li>
+<li><strong>难点/追问</strong>：首token慢、整体输出慢和网络慢要分别测；分页复用结果与重新生成不是同类耗时。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e07">E07</a>、<a href="#e13">E13</a>。</p></div></details><details class="card" id="q061"><summary>Q061 · temperature、top_p、seed怎样选？</summary><div class="card-body"><p>状态：<strong>基础；当前请求未显式设置这些值</strong></p>
+<ul>
+<li><strong>口述</strong>：温度改变采样分布尖锐程度，top_p限制累计概率候选范围；max_tokens限制输出长度，seed是否有效还依赖提供商实现。低温度不是正确性校验。</li>
+<li><strong>实现/参数</strong>：当前DeepSeek请求未传temperature/top_p/seed，不能说“设0保证确定”；只固定模型入口、JSON模式、thinking关闭及输出上限。</li>
+<li><strong>为什么/比较</strong>：没有采样参数A/B；若优化，应固定任务和预算，检查重复运行的正确性、拒答、格式与费用。</li>
+<li><strong>难点/追问</strong>：温度0也不构成跨版本/硬件完全可复现保证，幻觉不能靠一个采样参数消除。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q062"><summary>Q062 · SFT、LoRA、DPO与RAG分别解决什么？</summary><div class="card-body"><p>状态：<strong>理论扩展；项目均未微调</strong></p>
+<ul>
+<li><strong>口述</strong>：SFT用示例监督输出，LoRA用低秩增量减少可训练参数，DPO用偏好对调整输出倾向；RAG把外部检索资料放入当前输入，不直接更新权重。</li>
+<li><strong>实现/参数</strong>：项目现阶段是资料治理、结构化业务与RAG，没有训练数据流水线、LoRA权重或偏好训练实验。</li>
+<li><strong>为什么/比较</strong>：先定位知识缺失、检索错还是稳定行为问题；微调不能替代来源撤回、权限与证据定位。</li>
+<li><strong>难点/追问</strong>：知道方法不等于做过训练；GRPO/PPO属于更远的优化讨论，不能伪装为项目亮点。</li>
+</ul>
+<p>依据：<a href="#e18">E18</a>、<a href="#s09">S09</a>。</p></div></details><details class="card" id="q063"><summary>Q063 · ReAct、Plan-Execute和Harness怎样区分？</summary><div class="card-body"><p>状态：<strong>理论；当前未运行自主Loop</strong></p>
+<ul>
+<li><strong>口述</strong>：ReAct交替选择动作并读取观察；Plan-Execute先分解计划再执行，必要时重规划。Harness是运行约束与工具/状态/权限/观测等外围支撑，不是某个推理模型本身。</li>
+<li><strong>实现/参数</strong>：本项目是固定编排，暂无Planner、任意工具选择或循环反思；未来先开放只读检索工具，受步数/时间/费用限制。</li>
+<li><strong>为什么/比较</strong>：CoT指分步推理，ToT扩展多个候选推理分支；不等于已经有工具执行器。这些模式没有项目对照，不是层级越多越强。</li>
+<li><strong>难点/追问</strong>：不要把必须输出隐藏思维链当接口契约；保留结构化动作和检查结果即可审计。</li>
+</ul>
+<p>依据：<a href="#e18">E18</a>、<a href="#s06">S06</a>、<a href="#s18">S18</a>。</p></div></details><details class="card" id="q064"><summary>Q064 · Function Calling怎么工作？</summary><div class="card-body"><p>状态：<strong>协议/设计认知；当前无通用工具执行器</strong></p>
+<ul>
+<li><strong>口述</strong>：应用向模型声明工具名与参数Schema，模型生成调用请求；应用验证、授权并执行，再把观察结果交回模型。真正执行者是应用，不是模型输出字符串就已执行。</li>
+<li><strong>实现/参数</strong>：未来可提供retrieveGuidance/listEligibleRecipes等窄接口；身份与权限由服务端注入，不接受模型自由传UID、SQL或URL。</li>
+<li><strong>为什么/比较</strong>：当前模型只选catalog ID，没有采用通用Function Calling loop；JSON输出与工具调用不能混称。</li>
+<li><strong>难点/追问</strong>：错误参数、重复调用、超时未知状态和越权要由执行器处理，不能让模型自己批准。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e18">E18</a>、<a href="#s05">S05</a>。</p></div></details><details class="card" id="q065"><summary>Q065 · 工具怎么划分、路由和防误调用？</summary><div class="card-body"><p>状态：<strong>未来接口设计；当前函数已有边界</strong></p>
+<ul>
+<li><strong>口述</strong>：工具应单一职责，描述何时用/不用、参数范围、返回状态及副作用。先暴露只读查询和候选检查，再考虑需要用户确认的写操作。</li>
+<li><strong>实现/参数</strong>：输入用受控主题/配方ID，输出结构化依据及未知；返回量、时间和费用有上限。禁止通用execute_sql/shell作为菜谱用户工具。</li>
+<li><strong>为什么/比较</strong>：工具粒度需要用调用准确率、缺参、越权和任务完成率比较；当前没有自主工具路由准确率。</li>
+<li><strong>难点/追问</strong>：检索结果为空、权限不足、资料缺条件、执行失败要有不同状态，避免模型把错误当事实。</li>
+</ul>
+<p>依据：<a href="#e18">E18</a>、<a href="#e09">E09</a>。</p></div></details><details class="card" id="q066"><summary>Q066 · MCP、HTTP、Function Calling、A2A有何区别？</summary><div class="card-body"><p>状态：<strong>理论扩展；项目未集成MCP/A2A</strong></p>
+<ul>
+<li><strong>口述</strong>：HTTP是传输/应用接口基础；Function Calling是模型提出结构化工具请求；MCP标准化客户端与工具/资源服务的连接；A2A面向Agent间协作。它们不是互相替代的一个层次。</li>
+<li><strong>实现/参数</strong>：当前内部普通函数加固定API，没有MCP Server、A2A或远端工具目录；未来接入也要保留应用认证、参数与副作用控制。</li>
+<li><strong>为什么/比较</strong>：选MCP应为多客户端工具复用，不是为了证明项目“像Agent”；未做协议性能对照。</li>
+<li><strong>难点/追问</strong>：接入新服务先审信任域/权限、握手发现、Schema和超时，不能把发现到的工具全开放。</li>
+</ul>
+<p>依据：<a href="#e18">E18</a>、<a href="#s05">S05</a>。</p></div></details><details class="card" id="q067"><summary>Q067 · Skill、子Agent、RAG、Memory怎么区分？</summary><div class="card-body"><p>状态：<strong>基础与范围说明</strong></p>
+<ul>
+<li><strong>口述</strong>：Skill偏可复用任务说明/资源；子Agent是独立执行上下文和职责；RAG提供资料；Memory维护跨轮或跨会话状态。Skill不是自动赋予权限的可执行承诺。</li>
+<li><strong>实现/参数</strong>：仓库AGENTS文档指导研发，不等于面向用户运行了Skill平台；个人档案与公共资料也分开。</li>
+<li><strong>为什么/比较</strong>：当前未集成通用Skill安装/发现、多Agent或长期向量记忆；可按工程需要再评估。</li>
+<li><strong>难点/追问</strong>：外部Skill/原文都是不可信输入，不能因为文件名或模型建议就允许它读取Key或写库。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e18">E18</a>、<a href="#s06">S06</a>。</p></div></details><details class="card" id="q068"><summary>Q068 · 怎么防无限Loop和无效反思？</summary><div class="card-body"><p>状态：<strong>设计；当前固定Workflow无自主Loop</strong></p>
+<ul>
+<li><strong>口述</strong>：由应用限制最大步数、累计token、工具/生成调用数和总时限，检测重复动作与无新信息，区分完成、缺信息、不可用、取消及超预算终态。</li>
+<li><strong>实现/参数</strong>：这些是未来Loop约束，不要编成当前max_steps=10；现有链路已有总超时、无自动重试和主动操作触发。</li>
+<li><strong>为什么/比较</strong>：不能只在prompt写“不要死循环”；试验要包括相同查询反复为空、相互调用和恶意资料。</li>
+<li><strong>难点/追问</strong>：重试次数与反思轮次不是同一参数，两者都可能花钱但不带来新证据。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q069"><summary>Q069 · Checkpoint和长任务崩溃恢复怎样做？</summary><div class="card-body"><p>状态：<strong>通用设计；当前非持久Agent任务系统</strong></p>
+<ul>
+<li><strong>口述</strong>：Checkpoint保存可恢复状态，不保证外部动作只执行一次。恢复前应核对输入版本、授权、已提交操作和资料撤回，再从安全边界继续。</li>
+<li><strong>实现/参数</strong>：未来可用job表保存owner/input_hash/state/lease/version/result引用；租约和fencing防旧worker迟到提交，写操作另用幂等账本。</li>
+<li><strong>为什么/比较</strong>：当前HTTP＋结果游标不能冒充完整任务断点恢复；无已上线后台队列。</li>
+<li><strong>难点/追问</strong>：LangGraph等框架可保存状态，但节点重放前的外部副作用仍由业务保证，不得盲目重发模型请求。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e18">E18</a>、<a href="#s11">S11</a>。</p></div></details><details class="card" id="q070"><summary>Q070 · 两个实例如何防重复执行，CAS和事务怎么用？</summary><div class="card-body"><p>状态：<strong>真实账户PG认领已实现</strong></p>
+<ul>
+<li><strong>口述</strong>：以operation ID、UID和请求指纹原子认领，重复操作拒绝；状态更新带版本或条件，避免检查后再写的竞态。进程内Map无法协调不同实例。</li>
+<li><strong>实现/参数</strong>：账户保存采用版本冲突控制，调用认领在共享PG；本地测试身份Map只用于显式测试，不能外推。</li>
+<li><strong>为什么/比较</strong>：此机制约束本系统是否发起调用，不保证供应商超时情况下全球exactly-once；需保留未知回执状态。</li>
+<li><strong>难点/追问</strong>：事务不要跨网络等待模型；CAS失败说明状态变了，应重新核对而非覆盖用户新选择。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e11">E11</a>。</p></div></details><details class="card" id="q071"><summary>Q071 · Human-in-the-loop应该放哪里？</summary><div class="card-body"><p>状态：<strong>已有用户接受行为；其他审批属设计</strong></p>
+<ul>
+<li><strong>口述</strong>：按风险区分：用户接受/取消食材建议、确认图片识别候选；资料发布和新规则审核是另一类。模型提出建议不等于用户已经同意改变忌口或档案。</li>
+<li><strong>实现/参数</strong>：本餐是否使用指导与保存接受记录分开；专业证据适用性签认不能用用户点击替代。</li>
+<li><strong>为什么/比较</strong>：不是每次只读查询都弹确认，也不是所有写操作都让模型自批；权限范围按当次授权。</li>
+<li><strong>难点/追问</strong>：异步确认返回时还要核对proposal/input/version，避免用户批准旧提案后执行新内容。</li>
+</ul>
+<p>依据：<a href="#e11">E11</a>、<a href="#e16">E16</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q072"><summary>Q072 · 多Agent怎样拆任务、传上下文和合并结果？</summary><div class="card-body"><p>状态：<strong>设计与研发协作；无用户运行时多Agent</strong></p>
+<ul>
+<li><strong>口述</strong>：只有任务确能独立、职责和输入输出可验证时再拆。传最小结构化任务、证据ID和必要条件，结果先校验再合并，冲突不能简单投票。</li>
+<li><strong>实现/参数</strong>：当前用户选菜链没有多Agent通信；研发分支协作是开发方式，不能算产品多Agent能力。</li>
+<li><strong>为什么/比较</strong>：需比较单工作流与多Agent的成功率、总调用/延迟、冲突和上下文泄漏，当前未做。</li>
+<li><strong>难点/追问</strong>：共享可变全局对象、复制所有健康档案给每个Agent会造成串号和隐私扩散。</li>
+</ul>
+<p>依据：<a href="#e17">E17</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q073"><summary>Q073 · Query改写、指代消解和HyDE适合吗？</summary><div class="card-body"><p>状态：<strong>局部规范化已有；HyDE未用</strong></p>
+<ul>
+<li><strong>口述</strong>：把简称、口语和上一轮明确补问关联到受控主题可减少漏检，但改写不能把否定/不清楚变成肯定。HyDE生成假设文档作检索表示，不是新增证据。</li>
+<li><strong>实现/参数</strong>：当前有少量简称规则和显式短回答解释，没有在线多query扩写、HyDE或循环搜索。</li>
+<li><strong>为什么/比较</strong>：若引入，保存原问题与改写，固定下游比较召回/偏题与新增成本；避免无依据引入疾病或食材。</li>
+<li><strong>难点/追问</strong>：假设文本不能写回事实库，也不能成为自己回答的引用。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e11">E11</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q074"><summary>Q074 · BM25的公式、k1和b有什么作用？与A1、PG全文检索相同吗？</summary><div class="card-body"><p>状态：<strong>理论储备；项目A1不是BM25</strong></p>
+<ul>
+<li><strong>口述</strong>：BM25用词频饱和、逆文档频率和文档长度归一化排序；k1控制词频增加的收益，b控制长度校正。不能把命中次数或PG的ts_rank直接叫BM25。</li>
+<li><strong>实现/参数</strong>：常见写法为Σ IDF(t)×tf(t)×(k1+1)/(tf(t)+k1×(1-b+b×|d|/avgdl))。具体IDF和默认参数随实现；本项目没有k1/b配置。</li>
+<li><strong>为什么/比较</strong>：A1用受控实体、二字词面及手工权重，容易解释但泛化有限；BM25适合作为后续词法基线，中文分词及短证据库的IDF需实测。</li>
+<li><strong>难点/追问</strong>：比较时统一语料、实体过滤、候选数与gold；不能引入BM25同时换分词、切块、索引后把全部提升归给一个公式。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#s14">S14</a>。</p></div></details><details class="card" id="q075"><summary>Q075 · HNSW的M、ef_construction、ef_search和IVFFlat的probes怎么选？</summary><div class="card-body"><p>状态：<strong>理论储备；当前未建ANN索引</strong></p>
+<ul>
+<li><strong>口述</strong>：HNSW以近邻图换取搜索速度；M影响连边与内存，ef_construction影响建图质量/成本，ef_search影响查询探索量。IVFFlat先分簇，lists和probes控制划分与访问簇数。</li>
+<li><strong>实现/参数</strong>：当前每模型98条证据向量，PG精确余弦排序，没有项目M、ef_search、lists或probes选值。</li>
+<li><strong>为什么/比较</strong>：未来用精确搜索作gold，对固定查询测ANN Recall@k、P95、内存、建索引时间，再随规模与并发扫参。文档默认值不是本项目最优值。</li>
+<li><strong>难点/追问</strong>：严格业务过滤后候选可能不足；ANN漏召回与证据本来不适用是两件事，不能放宽过敏条件补足k。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#s03">S03</a>。</p></div></details><details class="card" id="q076"><summary>Q076 · 余弦、点积和L2有什么区别？相似度是可信度吗？</summary><div class="card-body"><p>状态：<strong>研究链已用归一化余弦</strong></p>
+<ul>
+<li><strong>口述</strong>：余弦比较方向，点积也受长度影响；对L2归一化向量，点积等于余弦，平方L2距离等于2-2×点积，精确排序可对应。</li>
+<li><strong>实现/参数</strong>：当前1024维、L2归一化、PG float32，按余弦距离升序并用证据ID打破同分。浮点容差只检查数值一致。</li>
+<li><strong>为什么/比较</strong>：没有做不同距离对业务质量的横评；相同维度但不同模型空间不能直接比较距离。0.8相似度不表示80%正确。</li>
+<li><strong>难点/追问</strong>：“不建议高钾”与“建议高钾”词义接近，向量可能很近；否定、条件与支持关系仍必须单独核对。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e06">E06</a>、<a href="#s03">S03</a>。</p></div></details><details class="card" id="q077"><summary>Q077 · 替换Embedding或知识版本时怎样迁移、切换和回退？</summary><div class="card-body"><p>状态：<strong>研究索引身份与事务发布已有；在线蓝绿属方案</strong></p>
+<ul>
+<li><strong>口述</strong>：模型revision、维度、pooling、归一化、指令、检索文本和知识hash共同标识索引。相同1024维不意味着可复用旧向量或混排距离。</li>
+<li><strong>实现/参数</strong>：新版本用新index ID重建并检查数量/身份，发布在事务内完成；当前查询验证bundle与manifest匹配。不能原地只改模型名。</li>
+<li><strong>为什么/比较</strong>：未来蓝绿切换应先跑固定回归，再原子更新活动版本；旧版仅在未撤回且仍适用时可回退，撤回不能随回退复活。</li>
+<li><strong>难点/追问</strong>：数据版本、缓存键、游标和生成前后校验要一起变；只有索引建完不等于业务完成升级。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e05">E05</a>、<a href="#e07">E07</a>。</p></div></details><details class="card" id="q078"><summary>Q078 · 资料更新、重复转载和近重复怎么处理？</summary><div class="card-body"><p>状态：<strong>hash及ID去重已实现；语义近重复治理未完成</strong></p>
+<ul>
+<li><strong>口述</strong>：原件保存hash和来源版本，事实、证据与索引绑定；相同fact/evidence在上下文去重。转载不是新的独立医学支持。</li>
+<li><strong>实现/参数</strong>：当前没有通用MinHash、SimHash或语义聚类去重；同一材料重复向量可能挤占候选，不能把ID去重说成内容完全去重。</li>
+<li><strong>为什么/比较</strong>：后续按原件hash→规范化文本hash→近重复候选逐层处理，保留来源链和撤回关系；切忌只因相似就合并相反限定。</li>
+<li><strong>难点/追问</strong>：更新不仅重新抓网页，还要比较结论/人群/剂量变化并审核新事实；原文变了不能默默覆盖旧证据。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e03">E03</a>、<a href="#e05">E05</a>。</p></div></details><details class="card" id="q079"><summary>Q079 · 多租户权限、个人健康资料和公共向量库怎么隔离？</summary><div class="card-body"><p>状态：<strong>已有UID隔离与公共库边界；多私有知识库未实现</strong></p>
+<ul>
+<li><strong>口述</strong>：公共库只保存公开知识。个人健康、过敏、Key按UID与当前档案处理，不把用户问题、照片或推荐历史写成公共知识向量。</li>
+<li><strong>实现/参数</strong>：检索权限若将来扩展到私有资料，应在查询范围前置授权，取回和返回再复核；单靠Prompt写“不要泄露”无效。</li>
+<li><strong>为什么/比较</strong>：当前公共研究库不是完整企业多租户RAG产品，不能拿账户登录等同于文档级ACL已完成。</li>
+<li><strong>难点/追问</strong>：权限缓存必须绑定版本；先全库检索再把无权片段发模型，最后删答案，已经泄漏。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e10">E10</a>、<a href="#e11">E11</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q080"><summary>Q080 · 哪些内容可以缓存？怎样避免撤回后继续回答旧知识？</summary><div class="card-body"><p>状态：<strong>已有评测缓存与业务游标；无长期语义答案缓存</strong></p>
+<ul>
+<li><strong>口述</strong>：区分模型权重常驻、公共索引、评测query向量、用户本轮结果。缓存键至少包含用途、相关输入/身份和知识/模型版本。</li>
+<li><strong>实现/参数</strong>：评测MemoProvider只在进程内复用相同query编码；业务15分钟加密游标绑定UID、Key、档案、本餐和目录，翻页不再调用。</li>
+<li><strong>为什么/比较</strong>：不能把评测缓存P95当独立冷启动；未来语义缓存需要权限/撤回失效和命中质量测量，当前没有此收益数据。</li>
+<li><strong>难点/追问</strong>：用户删病、换Key或资料撤回时不能复活旧摘要；高命中率不抵消错用户或旧条件。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e10">E10</a>、<a href="#e11">E11</a>、<a href="#e12">E12</a>。</p></div></details><details class="card" id="q081"><summary>Q081 · 高并发怎样限流和背压？进程内锁够吗？</summary><div class="card-body"><p>状态：<strong>业务保护已实现；未做真实并发压测</strong></p>
+<ul>
+<li><strong>口述</strong>：本进程聊天/选菜占位上限4；真实账户另外通过PG原子认领与共享账户限额约束，避免多实例都认为自己没超限。</li>
+<li><strong>实现/参数</strong>：当前SQL按账户串行短事务检查，近1分钟6次、近1天120次；operation ID防同操作重复。不同用途仍须按调用入口的实际认领接线核对。</li>
+<li><strong>为什么/比较</strong>：并发上限、账户限额与供应商QPS是不同层；值是资源/产品约束，没有吞吐最优实验。未来可排队，但需最大队长与过期取消。</li>
+<li><strong>难点/追问</strong>：不能事务锁住数据库后等17秒模型；拒绝/繁忙要明确，不能自动重发扩大费用和拥塞。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e10">E10</a>。</p></div></details><details class="card" id="q082"><summary>Q082 · 取消、超时、429和未知供应商状态怎么处理？</summary><div class="card-body"><p>状态：<strong>已有超时与零自动重试</strong></p>
+<ul>
+<li><strong>口述</strong>：请求断开/用户取消尽力传递AbortSignal，17秒业务总预算到期停止等待；已发出的供应商请求可能仍消耗。429、网络错误与确无菜品分开反馈。</li>
+<li><strong>实现/参数</strong>：项目自动重试为0，不自动换供应商、不静默回退普通推荐；研究生成60秒、Embedding180秒另算。</li>
+<li><strong>为什么/比较</strong>：未来重试必须同时满足幂等、预算授权、退避/抖动和可恢复状态；“指数退避”不是当前已用功能。</li>
+<li><strong>难点/追问</strong>：超时没有回执不能伪造成未调用，也不能重置operation ID盲发；账本需要保留失败或未知状态。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e10">E10</a>。</p></div></details><details class="card" id="q083"><summary>Q083 · 词法和向量两路是并行的吗？怎样优化延迟才安全？</summary><div class="card-body"><p>状态：<strong>当前研究链先词法核验再向量</strong></p>
+<ul>
+<li><strong>口述</strong>：先A1检查实体、组合、必要条件和required evidence，能拒绝/补问时不编码；通过后再查询向量。当前不是Promise.all两路并发。</li>
+<li><strong>实现/参数</strong>：A1为同步轻量规则，向量含HTTP编码及PG查询；先做合法性门禁能省掉不应发生的推理。业务指导链本身不走向量。</li>
+<li><strong>为什么/比较</strong>：若将来并行，先完成公共的权限/版本/条件检查，再并发独立召回，统一取消/时限和失败策略；需测关键路径而非简单相加。</li>
+<li><strong>难点/追问</strong>：不要为了毫秒收益绕过条件检查；某路失败是否退化必须明确标状态，不能悄悄声称混合检索完成。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e08">E08</a>。</p></div></details><details class="card" id="q084"><summary>Q084 · CPU、内存、慢SQL与P95怎样定位？</summary><div class="card-body"><p>状态：<strong>工程定位方法；未报告线上容量</strong></p>
+<ul>
+<li><strong>口述</strong>：把总时长拆为入口校验、资料读取、编码、向量查询、融合/打包、供应商等待、校验与返回。分别记冷启动、热编码、缓存命中和失败数。</li>
+<li><strong>实现/参数</strong>：当前已测16个相同query的真实编码P95：Qwen1706ms、BGE656.1ms；27题检索计时有缓存共享，不代表线上端到端延迟。</li>
+<li><strong>为什么/比较</strong>：CPU高查token长度、批量、线程争用；内存查双模型常驻和张量；SQL先EXPLAIN分析扫描/过滤/索引，必须在隔离环境。</li>
+<li><strong>难点/追问</strong>：不能把所有慢归给向量库，也不能把平均耗时说成P95。当前无10万DAU或GPU吞吐证据。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e12">E12</a>。</p></div></details></section><section class="chapter" id="scenarios" data-label="085–112 上下文 / 异常" hidden><h2 id="scenarios-h1">上下文、安全与异常场景：Q085～Q112</h2>
+<p><a href="#intro">手册入口</a> · <a href="#parameters">参数总表</a> · <a href="#sources">证据与来源</a></p>
+<p>每题依次说明口述、实现/参数、选型/比较、难点。状态限定实际范围，不能把方案说成成果。</p><details class="card" id="q085"><summary>Q085 · 上下文满了再压缩吗？哪些信息不能压？</summary><div class="card-body"><p>状态：<strong>当前结构打包；无LLM自动摘要压缩</strong></p>
+<ul>
+<li><strong>口述</strong>：应预留系统、工具/资料、回答和安全余量；在溢出前按结构裁减。健康条件、否定、单位、来源与撤回水位不能仅靠一段模型摘要保留。</li>
+<li><strong>实现/参数</strong>：研究context估算6000；业务系统prompt＋packet估算24000。当前减完整fact或候选并重算闭包，不用LLM压缩原文。</li>
+<li><strong>为什么/比较</strong>：后续可对普通对话摘要做实验，与原始约束表并存；比较遗忘/错归属、实际token和成本，而不是只看压缩率。</li>
+<li><strong>难点/追问</strong>：token估算与模型真实usage不同；压缩后更短但漏掉“肾功能异常除外”就是失败。</li>
+</ul>
+<p>依据：<a href="#e07">E07</a>、<a href="#e11">E11</a>、<a href="#s07">S07</a>。</p></div></details><details class="card" id="q086"><summary>Q086 · 反复摘要、换模型和跨轮记忆会漂移吗？</summary><div class="card-body"><p>状态：<strong>风险设计；当前无摘要型长期记忆</strong></p>
+<ul>
+<li><strong>口述</strong>：每次摘要可能累积遗漏或把推测变事实，换模型还改变token数和解释。稳定健康约束应来自带来源/版本的结构化档案，不以摘要覆盖。</li>
+<li><strong>实现/参数</strong>：当前完整聊天只保留页内内存，健康接受记录按主题保存/撤销；删病后相关历史不得继续送模型。</li>
+<li><strong>为什么/比较</strong>：后续比较连续N轮、重复压缩、删除与反转条件，检查约束保留率；不照搬其他产品的私有压缩阈值。</li>
+<li><strong>难点/追问</strong>：用户说“之前不是我过敏，是家人”需要纠正归属；不能将旧摘要认定为最高优先级记忆。</li>
+</ul>
+<p>依据：<a href="#e11">E11</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q087"><summary>Q087 · Recall、MRR和nDCG能手算吗？它们测的是什么？</summary><div class="card-body"><p>状态：<strong>现有工具计算；独立分级gold待补</strong></p>
+<ul>
+<li><strong>口述</strong>：某题相关集合为A/B，排名为X/A/Y/B：Recall@3=1/2，首个相关在第2位所以RR=1/2；MRR是多题RR均值。Recall@k需完整相关标注。</li>
+<li><strong>实现/参数</strong>：DCG可用Σ(2^rel-1)/log2(rank+1)，nDCG=DCG/理想DCG。当前工具是二值相关，不是0～3专业分级。</li>
+<li><strong>为什么/比较</strong>：MRR看首个相关，不保证证据完整；Recall高仍可能有偏题或错误适用。另报精度、实际注入证据覆盖与硬约束违规。</li>
+<li><strong>难点/追问</strong>：无相关证据题需单列正确拒答/误答率；不能从分母删掉失败题让均值变好。</li>
+</ul>
+<p>依据：<a href="#e12">E12</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q088"><summary>Q088 · LLM-as-judge和人工审核怎么配合？</summary><div class="card-body"><p>状态：<strong>现有工程标签；独立/专业评测延期</strong></p>
+<ul>
+<li><strong>口述</strong>：程序先检查ID、来源、限定和硬条件；语义支持/表达可用盲评辅助，但评委模型也会偏好措辞或重复生成模型错误。健康适用性需要独立专业审核。</li>
+<li><strong>实现/参数</strong>：训练/调参/测试按问题及来源划分，人工预期不送生成；双人独立标注和分歧裁决是候选流程，尚非本项目已完成事实。</li>
+<li><strong>为什么/比较</strong>：用户决定上线后结合真实输出完善评测；当前27题已暴露，不可称独立准确率100%，也不因此停止已授权研发。</li>
+<li><strong>难点/追问</strong>：Ragas帮助组织指标，不会自动生成可信gold；评委提示、版本、样本和一致性同样需记录。</li>
+</ul>
+<p>依据：<a href="#e14">E14</a>、<a href="#s12">S12</a>。</p></div></details><details class="card" id="q089"><summary>Q089 · Prompt注入、SSRF和恶意资料如何防？</summary><div class="card-body"><p>状态：<strong>多层边界已有；完整红队覆盖未完成</strong></p>
+<ul>
+<li><strong>口述</strong>：用户问题与检索文本都是不可信数据，资料中的“忽略规则/上传Key”不能成为工具指令。URL和供应商入口固定，鉴权、用途、Schema、权限与业务复核由程序落实。</li>
+<li><strong>实现/参数</strong>：公共抓取/图片来源与模型请求分别限制；原图仅请求内存，日志不含Key和健康正文。不能让模型自由访问任意URL或执行SQL。</li>
+<li><strong>为什么/比较</strong>：OWASP明确RAG本身不是注入免疫；后续用恶意原文、混淆ID、跨用户游标、过期档案和大响应做红队评测。</li>
+<li><strong>难点/追问</strong>：任何单条“不要听注入”提示都不是证明；输出合法JSON仍可能携带恶意或不合业务的决定。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e10">E10</a>、<a href="#e16">E16</a>、<a href="#s13">S13</a>。</p></div></details><details class="card" id="q090"><summary>Q090 · Trace要记什么？如何既可定位又保护隐私？</summary><div class="card-body"><p>状态：<strong>已有验收/调用元数据；非完整线上观测平台</strong></p>
+<ul>
+<li><strong>口述</strong>：记录operation、阶段、版本、候选/命中ID、输入不可还原绑定摘要、耗时、状态和真实usage；将失败定位到清洗、检索、打包、生成或校验。</li>
+<li><strong>实现/参数</strong>：不记录完整Key、个人健康正文、原图或模型隐藏思维链；公共构造案例可保存必要证据，真实用户另按保留策略处理。</li>
+<li><strong>为什么/比较</strong>：阶段指标比一句“模型表现不好”更可排查；日志ID真实存在不等于输出语义正确。当前无全站线上SLO看板数据。</li>
+<li><strong>难点/追问</strong>：脱敏不是只遮前几位；低熵疾病字段直接hash可能被枚举，应采用符合用途的受保护绑定摘要。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e12">E12</a>、<a href="#e14">E14</a>。</p></div></details><details class="card" id="q091"><summary>Q091 · 工具/SQL沙箱、最小权限和只读Agent怎样设计？</summary><div class="card-body"><p>状态：<strong>当前模型无SQL工具；只读Agent属扩展</strong></p>
+<ul>
+<li><strong>口述</strong>：把工具限定为明确输入输出的少量能力，服务端重新鉴权；查询用参数化SQL、固定范围和资源限额。提示词不能限制任意数据库账号实际权限。</li>
+<li><strong>实现/参数</strong>：当前选菜模型只交目录ID，不执行SQL或发布知识。外部题库的只读教学Agent不能写成产品已实现工具循环。</li>
+<li><strong>为什么/比较</strong>：将来可先接只读目录查询；写入、资料发布、部署与付款按授权和确认边界单独设计，不使用万能shell工具。</li>
+<li><strong>难点/追问</strong>：工具名叫readOnly并不足够；要核对数据库角色、事务、连接可访问范围和返回字段。</li>
+</ul>
+<p>依据：<a href="#e08">E08</a>、<a href="#e10">E10</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q092"><summary>Q092 · 不引入MQ也能做异步Agent任务吗？</summary><div class="card-body"><p>状态：<strong>架构储备；当前在线链非持久任务队列</strong></p>
+<ul>
+<li><strong>口述</strong>：可用PG job表保存任务、状态、重试预算、lease到期、版本和结果引用；工作者原子认领，长任务续租，fencing token防旧工作者迟到覆盖。</li>
+<li><strong>实现/参数</strong>：当前没有该持久任务系统，页面NDJSON进度不等于后台可恢复任务；进程崩溃后恢复不能凭聊天记录猜执行状态。</li>
+<li><strong>为什么/比较</strong>：是否引入MQ取决于吞吐、路由、运维和重放需求；数据库队列也要测锁争用与表膨胀，不是免费替代。</li>
+<li><strong>难点/追问</strong>：按至少一次执行设计幂等外部动作；网络超时下不能仅靠队列宣称端到端exactly-once。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q093"><summary>Q093 · 灰度、版本回退和上线门禁怎样安排？</summary><div class="card-body"><p>状态：<strong>本地版本/审核已有；疾病RAG未发布</strong></p>
+<ul>
+<li><strong>口述</strong>：代码、知识、映射、索引和评测证据分别锁定，先离线回归，再按获准范围验证；撤回和硬限制错误单独阻断，不用平均质量分覆盖。</li>
+<li><strong>实现/参数</strong>：当前Git分支提交本地审核；定时PR管理已于2026-11-12取消，本手册不恢复自动审核、部署或模型测试。</li>
+<li><strong>为什么/比较</strong>：未来灰度比较业务可行性、证据支持、失败率、延迟和成本；回退代码不能复活被撤回知识或用户已删除条件。</li>
+<li><strong>难点/追问</strong>：本地通过不等于线上已验收；方案中写“自动回滚”不能当作已经具备灾备能力。</li>
+</ul>
+<p>依据：<a href="#e17">E17</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q094"><summary>Q094 · AI写代码后你怎样审，真实修过什么？</summary><div class="card-body"><p>状态：<strong>有真实缺陷与修复证据</strong></p>
+<ul>
+<li><strong>口述</strong>：沿数据流核对外部类型、条件、ID和失败路径，再用最小反例复现；不只看编译与漂亮结果。例：模型把白菜心理由挂到豆腐证据上，程序拒绝后改由真实配方绑定。</li>
+<li><strong>实现/参数</strong>：另一例是旧导航引用因正文唯一同名而绕过隔离：管理审核端到端复现，修复先审旧来源角色，再允许迁移定位，加入builder级回归。</li>
+<li><strong>为什么/比较</strong>：有真实失败、修复提交和回归范围才可讲个人参与；不能把AI生成代码或团队审核全部说成自己手写。</li>
+<li><strong>难点/追问</strong>：面试可现场画字段流、手写RRF与JSON边界校验；强调能发现什么、凭什么验收，而不是声称不用读代码。</li>
+</ul>
+<p>依据：<a href="#e13">E13</a>、<a href="#e15">E15</a>、<a href="#e17">E17</a>。</p></div></details><details class="card" id="q095"><summary>Q095 · PRD、技术设计、ADR与个人贡献怎么区分？</summary><div class="card-body"><p>状态：<strong>项目文档/协作实践</strong></p>
+<ul>
+<li><strong>口述</strong>：PRD写用户行为和验收，技术设计写边界、数据流与失败状态，ADR记录取舍及证据。面试必须用自己的真实承担范围解释，而不是照读全部仓库。</li>
+<li><strong>实现/参数</strong>：产品决定如忽略用户食材用量，与算法参数如RRF常数是不同依据；实际命令/测试、AI辅助和他人审核应如实归属。</li>
+<li><strong>为什么/比较</strong>：成熟产品作为对标，不能复制其参数当本项目实验结果；记录不适用原因与未来验证方法即可。</li>
+<li><strong>难点/追问</strong>：准备“我提出/我审核/我验证”的证据，未亲自完成手写练习前不能说已经做过。</li>
+</ul>
+<p>依据：<a href="#e01">E01</a>、<a href="#e17">E17</a>、<a href="#s16">S16</a>、<a href="#s17">S17</a>。</p></div></details><details class="card" id="q096"><summary>Q096 · Agentic RAG、CRAG、Self-RAG和普通检索有什么区别？</summary><div class="card-body"><p>状态：<strong>概念储备；项目未实现</strong></p>
+<ul>
+<li><strong>口述</strong>：Agentic RAG允许规划选择检索/工具；CRAG围绕检索质量评估与纠正；Self-RAG原论文包含训练出的反思标记机制，不等于Prompt里多写一句自检。</li>
+<li><strong>实现/参数</strong>：当前是受控流程，没有模型自发循环、联网补证或反思token训练。低置信不自动跑外网以免把未审核资料当医学证据。</li>
+<li><strong>为什么/比较</strong>：只有固定链路暴露可测瓶颈后才加纠正步骤；比较成功率、错误传播、调用数和时延，不能只比回答更长。</li>
+<li><strong>难点/追问</strong>：评估器也可能错；允许最多几轮、何时停止、失败如何解释必须可执行。</li>
+</ul>
+<p>依据：<a href="#e18">E18</a>、<a href="#s18">S18</a>、<a href="#s19">S19</a>。</p></div></details><details class="card" id="q097"><summary>Q097 · MMR、多样性和去重能解决什么？项目用了吗？</summary><div class="card-body"><p>状态：<strong>父菜谱去重/轮转已有；未用MMR</strong></p>
+<ul>
+<li><strong>口述</strong>：MMR在查询相关和已选结果相似之间折中，常见形式λ×相关性-(1-λ)×最大重复度。它改善多样性，不证明证据适用或医学正确。</li>
+<li><strong>实现/参数</strong>：当前按fact/evidence ID去重、建议按方向和主题轮转、父菜谱不重复；没有MMR相似度矩阵或λ选值。</li>
+<li><strong>为什么/比较</strong>：后续先测重复候选挤占率，再对比简单去重与MMR；不能为了菜品多样把不满足过敏/库存的菜补进来。</li>
+<li><strong>难点/追问</strong>：多个近似段落未必都是冗余：一条可能是另一条必需的例外限定，应整体保留。</li>
+</ul>
+<p>依据：<a href="#e06">E06</a>、<a href="#e08">E08</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q098"><summary>Q098 · 多个知识库如何路由？不同Embedding能一起查吗？</summary><div class="card-body"><p>状态：<strong>扩展方案；当前非多私有库平台</strong></p>
+<ul>
+<li><strong>口述</strong>：按任务、来源与权限先确定可查集合，query改写保留原意，再在各自匹配的向量空间检索；返回统一事实/证据ID后才谈名次融合。</li>
+<li><strong>实现/参数</strong>：同为1024维的Qwen与BGE距离不能直接横向比较；不能把一个模型query去查另一个模型文档。当前双模型研究分别建立/评测索引。</li>
+<li><strong>为什么/比较</strong>：多库路由可对比显式主题规则与模型分类的漏路由/多查成本；没有必要先部署多个向量数据库。</li>
+<li><strong>难点/追问</strong>：权限前置、版本与撤回贯穿；路由错误的库即使第一名很像也应拒绝。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e06">E06</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q099"><summary>Q099 · 用户让Agent删除知识、忌口或疾病怎么办？</summary><div class="card-body"><p>状态：<strong>个人主题撤销已有；公共知识维护无模型工具</strong></p>
+<ul>
+<li><strong>口述</strong>：个人档案变更与公共资料删除是不同权限。用户删除自己的疾病主题，撤销该主题接受记录与无来源摘要；不能替用户修改过敏或删公共指南。</li>
+<li><strong>实现/参数</strong>：服务端核对最新账户/版本，迟到返回不能把已删除主题写回；公共知识撤回走受控维护与版本流程。</li>
+<li><strong>为什么/比较</strong>：记忆删除不只是前端隐藏一句聊天，还要检查后续模型上下文、缓存、建议与游标失效。</li>
+<li><strong>难点/追问</strong>：模型回复“已经删除”不构成事实；要有真实授权操作结果，当前模型不直接执行公共库删除。</li>
+</ul>
+<p>依据：<a href="#e11">E11</a>、<a href="#e10">E10</a>。</p></div></details><details class="card" id="q100"><summary>Q100 · 项目亮点怎么写，哪些简历数字不能写？</summary><div class="card-body"><p>状态：<strong>可用已有证据；无业务提升百分比</strong></p>
+<ul>
+<li><strong>口述</strong>：可讲：业务事实与证据分层；真实目录先筛后选再复核；配方动态绑定依据；条件完整的预算裁减；原文可回查的解析治理与版本边界。</li>
+<li><strong>实现/参数</strong>：可引用98证据/260事实、27题工程对比、5次界面调用，但注明版本/范围；这些不是临床准确率、转化率或生产容量。</li>
+<li><strong>为什么/比较</strong>：不能写“RRF提升召回XX%”“重排降低幻觉”“100%医学准确”，因为没有对应独立实验，重排也未接入。</li>
+<li><strong>难点/追问</strong>：面试优势在能解释失败与取舍，不在堆技术名。描述个人贡献须根据本人实际参与调整。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e07">E07</a>、<a href="#e08">E08</a>、<a href="#e12">E12</a>、<a href="#e13">E13</a>、<a href="#e15">E15</a>。</p></div></details><details class="card" id="q101"><summary>Q101 · Markdown没有标题，或者资料格式特别乱，怎样切？</summary><div class="card-body"><p>状态：<strong>未来接入方案；当前主要治理HTML/PDF</strong></p>
+<ul>
+<li><strong>口述</strong>：先保留原件和行号，识别段落、列表、代码、表格与可能的标题；没有标题不等于必须按固定字数盲切。再按语义边界和token上限产生候选。</li>
+<li><strong>实现/参数</strong>：表格须带表头/单位/脚注，正文条件跨段关联；不能因为短行就当标题，也不能把代码/数字里的符号当自然语言分隔。</li>
+<li><strong>为什么/比较</strong>：比较结构块、固定窗口和父子块，观察限定保留/召回/预算；当前没有完成通用Markdown清洗器及横评。</li>
+<li><strong>难点/追问</strong>：来源排版变化要版本化；格式恢复失败进复核队列，不让摘要掩盖损坏。</li>
+</ul>
+<p>依据：<a href="#e03">E03</a>、<a href="#e05">E05</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q102"><summary>Q102 · 脏数据、Unicode、类型和重复数组怎样处理？</summary><div class="card-body"><p>状态：<strong>已有规范化/Schema/ID校验</strong></p>
+<ul>
+<li><strong>口述</strong>：先用Schema检查对象/数组/类型/长度与允许字段，再核对实体ID和业务含义。检索用NFKC、小写和受控别名；归一化后仍保存原文与可回查定位。</li>
+<li><strong>实现/参数</strong>：中文字符、JS UTF-16长度与token不是同一单位；当前接口字符保护存在Node/Python计数差异，不能称跨语言完全等价。</li>
+<li><strong>为什么/比较</strong>：重复ID、未知变体、空内容、NaN向量或归一化异常都需显式处理，不靠TypeScript断言把未知JSON变可信。</li>
+<li><strong>难点/追问</strong>：不能全局正则删除Markdown/标点来修证据；数字单位、负号和“不”被删会改变事实。</li>
+</ul>
+<p>依据：<a href="#e03">E03</a>、<a href="#e05">E05</a>、<a href="#e09">E09</a>。</p></div></details><details class="card" id="q103"><summary>Q103 · 过滤后检索不到怎么办？怎样区分索引漏召回与没有依据？</summary><div class="card-body"><p>状态：<strong>当前精确检索；ANN问题为储备</strong></p>
+<ul>
+<li><strong>口述</strong>：先验证知识覆盖和适用条件，再查query解析、索引版本及候选数；有精确相关结果但ANN没取到才是近似检索漏召回。</li>
+<li><strong>实现/参数</strong>：当前PG精确余弦，无ANN误差；研究入口还可能因实体未知或必要条件不明在编码前停止。业务无健康依据可保留合格普通菜的健康未知。</li>
+<li><strong>为什么/比较</strong>：未来ANN过滤需比较前置过滤、迭代扫描/候选扩张的授权可行性和Recall；不能调低医学或权限约束来凑k。</li>
+<li><strong>难点/追问</strong>：“返回0条”至少区分无覆盖、不适用、待补问、撤回、技术失败；产品反馈与监控分别统计。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e06">E06</a>、<a href="#e08">E08</a>、<a href="#s03">S03</a>。</p></div></details><details class="card" id="q104"><summary>Q104 · 用户在调用中改食材、删病或清空Key怎么办？</summary><div class="card-body"><p>状态：<strong>版本绑定与迟到保护已有</strong></p>
+<ul>
+<li><strong>口述</strong>：这是检查与使用之间的竞态：调用前验证通过不代表返回时仍有效。发送前同步设置，发布前核对当前用户、输入、Key、档案及目录身份。</li>
+<li><strong>实现/参数</strong>：加密游标绑定相同范围；数量编辑按用户新策略不改变食材存在语义，不能误判为需要重调模型。图片上传前也检查Key/会话是否已撤销。</li>
+<li><strong>为什么/比较</strong>：回归使用可控制的延迟供应商复现中途改变；这证明程序保护，不等于真实模型取消后必然零计费。</li>
+<li><strong>难点/追问</strong>：不要用“最后返回的结果获胜”；应使用当前operation/version获胜，旧请求只能过期。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e11">E11</a>、<a href="#e16">E16</a>。</p></div></details><details class="card" id="q105"><summary>Q105 · 本地大模型显存怎么估？为什么现在用API？</summary><div class="card-body"><p>状态：<strong>生成复用API；本地仅Embedding实测</strong></p>
+<ul>
+<li><strong>口述</strong>：权重内存约参数数×每参数字节，还需运行框架、激活与KV缓存；KV随层数、KV头、维度、序列长度、批量和精度变化，GQA会改变规模。</li>
+<li><strong>实现/参数</strong>：项目测的是CPU Qwen0.6B/BGE Embedding，不是本地生成LLM或GPU服务；DeepSeek API是既有入口复用，无本地生成/API公平效果成本横评。</li>
+<li><strong>为什么/比较</strong>：量化可减少权重，但质量、算子支持和吞吐需测；不能用模型文件大小估计峰值显存或承诺某显卡并发。</li>
+<li><strong>难点/追问</strong>：Prefill/Decode瓶颈不同；应用长期记忆不是KV cache，缓存前缀也不会自动记住用户过敏。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e09">E09</a>、<a href="#s08">S08</a>。</p></div></details><details class="card" id="q106"><summary>Q106 · 慢SQL、索引、深分页和Redis/MQ八股如何与项目关联？</summary><div class="card-body"><p>状态：<strong>PG实际使用；Redis/MQ未引入</strong></p>
+<ul>
+<li><strong>口述</strong>：先定位具体查询和规模，用EXPLAIN/隔离环境ANALYZE看扫描、过滤、排序、锁与IO；B-tree业务索引与向量索引解决不同问题。</li>
+<li><strong>实现/参数</strong>：推荐翻页用本轮结果的加密游标，不能宣称已经实现数据库海量keyset分页；当前无Redis Lua缓存或MQ消费者代码。</li>
+<li><strong>为什么/比较</strong>：外部题库这些题只作后端储备：根据热点、共享状态与任务恢复需求再选，不为面试把架构堆复杂。</li>
+<li><strong>难点/追问</strong>：性能优化要提供相同数据/负载的前后记录；没有证据时回答排查方法，不能编P95提升。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q107"><summary>Q107 · 有哪些面试说法听起来对，其实容易说错？</summary><div class="card-body"><p>状态：<strong>事实核对清单</strong></p>
+<ul>
+<li><strong>口述</strong>：RRF常数大让头部差异更平缓，不是召回数；reranker分数不是医学可信度；合法JSON不等于合法推荐；RAG不是自动防注入；相似不是支持。</li>
+<li><strong>实现/参数</strong>：项目A1不是BM25，RRF不是cross-encoder，8192不是chunk大小，6000不是完整模型输入，NDJSON进度不是逐token流。</li>
+<li><strong>为什么/比较</strong>：不要设计实验“证明60最好”；应允许10/60/100任何一个甚至A1基线胜出。成熟产品默认值也不能证明本项目最优。</li>
+<li><strong>难点/追问</strong>：若面试官前提不符，先用代码事实澄清再解释候选方案，避免顺着问题捏造功能。</li>
+</ul>
+<p>依据：<a href="#e05">E05</a>、<a href="#e06">E06</a>、<a href="#e07">E07</a>、<a href="#e09">E09</a>、<a href="#e12">E12</a>。</p></div></details><details class="card" id="q108"><summary>Q108 · 没做过框架、Claude Code压缩或Agent harness，怎么回答？</summary><div class="card-body"><p>状态：<strong>工程储备；不推测专有实现</strong></p>
+<ul>
+<li><strong>口述</strong>：可解释通用harness职责：状态、权限、上下文、工具契约、预算、停止、验证与审计。不能从使用体验推断某产品内部压缩阈值或私有机制。</li>
+<li><strong>实现/参数</strong>：当前是受控选菜工作流，没有完整Agent执行循环、检查点恢复或长期摘要；LangGraph的checkpoint/interrupt仅为可参考实现。</li>
+<li><strong>为什么/比较</strong>：面试用“概念—本项目边界—若引入怎样验证”回答，明确未使用；这比把教学代码或开发工具能力当产品能力更可信。</li>
+<li><strong>难点/追问</strong>：供应商/版本相关内容查官方文档，面试储备不等于新增项目需求。</li>
+</ul>
+<p>依据：<a href="#e18">E18</a>、<a href="#s11">S11</a>。</p></div></details><details class="card" id="q109"><summary>Q109 · 用户配置错数据库连接，系统怎样兜底？</summary><div class="card-body"><p>状态：<strong>场景题；当前用户不配置数据库</strong></p>
+<ul>
+<li><strong>口述</strong>：数据库属于服务端运维配置，不让普通用户给任意连接串，更不能把密码发给LLM诊断。错误配置应在启动/就绪检查发现，日志脱敏并给可操作状态。</li>
+<li><strong>实现/参数</strong>：当前用户配置个人模型Key，非数据库账号；模型技术失败不静默降级普通推荐，不能混用两种配置错误。</li>
+<li><strong>为什么/比较</strong>：未来多数据源可先独立连接探测、最小权限、超时和白名单；回退只能到已授权且语义一致的数据源。</li>
+<li><strong>难点/追问</strong>：显示“系统繁忙”可保护秘密，但运维仍需错误分类；不能靠Agent试遍内网地址修连接。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e10">E10</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q110"><summary>Q110 · 数据库配置热更新必须交给Agent吗？</summary><div class="card-body"><p>状态：<strong>场景方案；当前未实现热更新</strong></p>
+<ul>
+<li><strong>口述</strong>：不需要模型。确定性配置管理可构造新连接池→探测→按版本原子切换→旧请求排空→关闭旧池，失败保留旧有效配置并报警。</li>
+<li><strong>实现/参数</strong>：密钥轮换、事务生命周期、最大双池资源与回退需要设计；当前不能说产品已经支持此流程。</li>
+<li><strong>为什么/比较</strong>：Agent可辅助解释故障或生成维护建议，但权限、测试和切换仍由受控系统执行；不把“动态”都叫Agent。</li>
+<li><strong>难点/追问</strong>：切换期间跨库写入、一半成功的事务与旧连接泄漏必须用故障注入验证，不能仅测试正常连接。</li>
+</ul>
+<p>依据：<a href="#e10">E10</a>、<a href="#e18">E18</a>。</p></div></details><details class="card" id="q111"><summary>Q111 · 回调、Webhook、MCP通知与页面进度是同一回事吗？</summary><div class="card-body"><p>状态：<strong>当前应用NDJSON进度；其他为储备</strong></p>
+<ul>
+<li><strong>口述</strong>：回调描述交互方式，Webhook是服务间HTTP通知，MCP通知属于协议语义。SSE适合服务端单向事件推送，WebSocket适合双向持续通信；持久、重放与鉴权另设计。</li>
+<li><strong>实现/参数</strong>：当前供应商stream=false，应用NDJSON报告阶段/最终结果；没有已实现的MCP服务器、Webhook任务回调或SSE逐token生成。</li>
+<li><strong>为什么/比较</strong>：若引入外部回调，核对签名、时间戳、防重放、任务归属、幂等键和版本；先写状态再安全通知，允许重复而不重复执行。</li>
+<li><strong>难点/追问</strong>：断线重连不能靠重新调用付费模型解决；旧回调不得覆盖已取消或更新后的任务。</li>
+</ul>
+<p>依据：<a href="#e09">E09</a>、<a href="#e10">E10</a>、<a href="#e18">E18</a>、<a href="#s05">S05</a>、<a href="#s21">S21</a>。</p></div></details><details class="card" id="q112"><summary>Q112 · Schema通过了为什么仍会出错？怎样做语义约束？</summary><div class="card-body"><p>状态：<strong>结构与业务复核已实现；通用蕴含验证未完成</strong></p>
+<ul>
+<li><strong>口述</strong>：JSON Schema/Ajv验证形状和类型，之后还要检查catalog ID、变体、父菜去重、库存/过敏、本餐完整性及来源版本。ID真实存在仍不证明这句话受证据支持。</li>
+<li><strong>实现/参数</strong>：当前知识包Schema＋引用/类型/版本校验；选菜程序按真实配方绑定健康指导及展示理由，避免模型自由挂引用。研究自由claim仍未通用验证蕴含。</li>
+<li><strong>为什么/比较</strong>：分层校验比只看JSON.parse严格，但不能称零幻觉。确定性业务约束与专业语义审核分别计分。</li>
+<li><strong>难点/追问</strong>：模型输出一个存在的菜谱ID，却把另一变体食材拿来说明，同样要拒绝或重绑，不能因Schema通过直接发布。</li>
+</ul>
+<p>依据：<a href="#e02">E02</a>、<a href="#e08">E08</a>、<a href="#e09">E09</a>。</p></div></details></section><section class="chapter" id="experiments" data-label="实验与选型账本" hidden><h2 id="experiments-h1">实验与选型账本：为什么选、比过吗、还能怎样比</h2>
+<p>代码快照见<a href="#intro">入口</a>。本页记录证据等级，不执行新实验。独立质量集按用户决定放上线后结合输出与预期完善；下列候选实验不是本次新增完成项。</p>
+<h3 id="experiments-h2">1. 已经比较或检查到哪一层</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>问题</th><th>已有记录</th><th>可以讲的结论</th><th>不能讲的结论</th></tr></thead><tbody>
+<tr><td>Qwen与BGE</td><td>同27题、各98证据；hybrid Recall@10均1；MRR分别0.93750 / 0.90625</td><td>这批研究题上Qwen融合首相关排序较好</td><td>Qwen普遍更准、线上已验证或临床更安全</td></tr>
+<tr><td>编码速度</td><td>同16查询真实编码P95：1706.0 / 656.1ms</td><td>该本机CPU与锁定版本下BGE编码P95较低</td><td>任何硬件/批量都更快；检索总时延全由Embedding决定</td></tr>
+<tr><td>A1/dense/hybrid</td><td>三模式真实工程评测；该题集A1 Recall@10/MRR已经1</td><td>语义检索通路跑通，但未证明增益</td><td>RRF显著提升召回；混合必然优于简单基线</td></tr>
+<tr><td>切块长度</td><td>冻结98证据与3717结构块逐条计字符/token</td><td>知道实际长度与可能超窗范围</td><td>选择64字符/512 token是实验最优</td></tr>
+<tr><td>资料解析</td><td>v2/v3真实失败、原词守恒、builder级回归、两套离线重建</td><td>工程保真和已知缺陷修复有记录</td><td>独立正文/表格/OCR准确率100%</td></tr>
+<tr><td>生成与业务</td><td>5次真实界面调用保留2次关键失败，最终3菜有真实回执</td><td>少量真实闭环成功、错误推动职责调整</td><td>生成模型总体胜率/用户满意度/安全性已评估</td></tr>
+<tr><td>pgvector及框架</td><td>复用既有PG的需求/运维方案对照</td><td>当前小规模、版本一致性和部署简单是选择理由</td><td>已压测击败Milvus/Qdrant、手写比LangChain快</td></tr>
+</tbody></table></div>
+<p>证据：<a href="../execution-2026-11-04.md">研究执行</a>、<a href="#parameters">参数实测</a>、<a href="../business-rag-example-2026-11-05.md">真实界面例子</a>。27题已参与调试；dense/hybrid在一个进程可共享query编码缓存，模式耗时不是公平的独立冷启动对照。旧延迟分位数实现与后来长度统计的nearest-rank不同，应随记录说明。</p>
+<h3 id="experiments-h3">2. 所有关键参数是什么性质</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>阶段</th><th>当前做法/数值</th><th>原因与代价</th><th>比较状态</th></tr></thead><tbody>
+<tr><td>HTML/PDF清洗</td><td>DOM正文优先、坐标版面/重复页边检测；阈值详见参数表</td><td>保留原词与定位，避免全文导航污染；启发式也会误保留/漏识别</td><td>真实反例回归；无解析器/阈值系统横评</td></tr>
+<tr><td>表格/OCR</td><td>结构格/表头脚注候选；Windows OCR，PDF144/216dpi、长图3000px/180重叠</td><td>恢复结构而非把数字按行拼；两分辨率一致仍可能同错</td><td>有两组输出与工程核验；无引擎质量横评</td></tr>
+<tr><td>证据切块</td><td>脚本给定起止锚点；无固定chunk_size/overlap</td><td>小库可追溯；部分摘录短到只有表号，跨页条件仍需重整</td><td>无128/256/512或父子块消融</td></tr>
+<tr><td>表示与向量</td><td>两模型1024维、L2；Qwen lasttoken/BGE CLS；原文＋摘要，部分加章节</td><td>遵循锁定模型配置；摘要可能改善检索，也可能掩盖弱证据</td><td>两模型整体比较；无维度/pooling/模板单变量比较</td></tr>
+<tr><td>查询</td><td>NFKC、受控别名、实体及否定检查；中文二字词</td><td>明确领域对象与限定；不是完整自然语言理解或BM25</td><td>有歧义/偏题回归；无分词器横评</td></tr>
+<tr><td>A1</td><td>对象+8、疾病+4、词面min(4,len)；内部等权RRF</td><td>轻量、可解释；手工权重泛化有限</td><td>数值初值；A1为现有强基线</td></tr>
+<tr><td>外层召回/融合</td><td>A1≤50事实，dense≤30证据，映射fact后2:1、c=60</td><td>统一fact空间、避免不同量纲直加；会带入偏题项</td><td>有模式对比，无候选量/权重/c的消融</td></tr>
+<tr><td>上下文</td><td>≤8事实＋全部支持/限定；估算6000 context token</td><td>控制噪声和费用；闭包大时可能更少事实</td><td>工程初值，无4/8/12或预算消融</td></tr>
+<tr><td>业务候选</td><td>可行基线500ms/6000节点；≤48父菜谱；24000估算输入</td><td>不让模型拿到无法组成一餐的候选；候选不全会影响选择</td><td>有功能回归，无24/48/96用户质量A/B</td></tr>
+<tr><td>生成</td><td>DeepSeek flash、JSON object、非流式、研究2000/业务2400输出</td><td>复用现有入口，易做严格校验；截断即拒收</td><td>无生成模型/温度/输出上限横评；温度未显式设置</td></tr>
+<tr><td>引用与发布</td><td>ID/版本/限定核验，研究业务按配方形成健康理由</td><td>真实错挂引用后的职责收缩；映射仍有限</td><td>有前后缺陷回归及少量真实样例，不是全局零幻觉证明</td></tr>
+</tbody></table></div>
+<p>完整模型revision、运行库、批量三层区别、单位、所有版面阈值及源码在<a href="#parameters">参数总表</a>。这里不另维护第二套权威参数。</p>
+<h3 id="experiments-h4">3. 成熟产品怎么参考</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>对标</th><th>调研所得</th><th>本项目可借鉴</th><th>不照抄什么</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener noreferrer">WeKnora官方仓库</a></td><td>多阶段知识检索、解析/引用等模块；官方API区分knowledge-search与较底层hybrid-search，后者默认不做rerank</td><td>职责分离、版本和可回查结果</td><td>不说所有接口都默认重排，不复制其阈值/失败降级；本项目不自动重试/换模型</td></tr>
+<tr><td><a href="https://github.com/infiniflow/ragflow/blob/main/docs/guides/agent/ingestion_pipeline/configure_chunker_component.md" target="_blank" rel="noopener noreferrer">RAGFlow切块组件</a></td><td>所查组件文档有512-token默认、0% overlap和可选子块等配置</td><td>把结构、长度与父子关系变成显式选项</td><td>默认值随组件/版本变化；不是“行业已经证明512最佳”或医学资料可盲切</td></tr>
+<tr><td><a href="https://huggingface.co/BAAI/bge-reranker-v2-m3" target="_blank" rel="noopener noreferrer">BGE reranker模型卡</a></td><td>query与document成对输入，直接给相关分</td><td>对粗召回偏题再做精排的候选</td><td>它判相关性，不批准医学适用；当前没有接入、也没有性能收益数据</td></tr>
+</tbody></table></div>
+<p>查阅日2026-11-12，以上链接指向会变化的上游文档；不是锁定其产品行为长期不变。面试话术：<strong>“我参考了它解决的具体问题，但项目先保留简单基线；需要的调整和收益要由自己的实验决定。”</strong> 不要把未做的A/B说成已经验证。</p>
+<h3 id="experiments-h5">4. 后续实验怎样做到可执行且公平</h3>
+<p>先冻结语料/模型/问题族、版本和评分脚本，记录曝光。开发集调参，独立测试集只在选择后用；变化只针对一类变量。报告每题结果、失败和代价，样本小则说明不确定性。不能先决定结论再找数据。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>实验</th><th>候选与控制</th><th>看哪些结果</th><th>允许得到的结果</th></tr></thead><tbody>
+<tr><td>切块</td><td>同原文/解析版本/固定tokenizer：旧锚点、结构段落、128/256/512 token</td><td>限定/否定/单位保留，Recall、上下文覆盖、偏题、token</td><td>大块或小块均可能输；不因长度均匀就认为更好</td></tr>
+<tr><td>Overlap</td><td>对被长度拆分的连续正文比较0/32/64 token</td><td>边界漏检、重复候选挤占、索引量和代价</td><td>表格/脚注不机械滑窗；重复率上升可能抵消收益</td></tr>
+<tr><td>父子块</td><td>同子块召回，只送子块 vs 加回父段/表头脚注</td><td>限定完整率、证据支持、上下文预算</td><td>父块可能过大；必须保存parent ID/范围/版本，不能动态猜父文</td></tr>
+<tr><td>表示模板</td><td>原文 / 章节＋原文 / 审核摘要＋原文</td><td>相关/偏题，原文实际支持程度</td><td>摘要可能让弱证据更靠前，需联合支持检查</td></tr>
+<tr><td>模式消融</td><td>A1 / dense / hybrid，其他过滤与预算相同</td><td>Recall@10、MRR、nDCG、实际top-8覆盖、偏题率</td><td>A1可能最好，允许不启用混合</td></tr>
+<tr><td>RRF常数</td><td>先固定权重与候选量，c=10/60/100；若延续旧计划另加20并预登记</td><td>排序与偏题、每题变化；再单独测1:1/2:1</td><td>60不预设为赢家；缺席通道贡献0，名次从1开始</td></tr>
+<tr><td>粗召回</td><td>dense 10/20/30/50，A1固定；再单测最终4/8/12</td><td>候选覆盖、打包后覆盖、时延、token</td><td>候选更多不保证最终更好</td></tr>
+<tr><td>Rerank</td><td>固定召回候选与适用性门禁，无重排 vs paired模型，候选20/30/50</td><td>实际注入偏题率、生成支持率、额外P50/P95/内存</td><td>无收益或过慢则不用；不能只挑成功案例</td></tr>
+<tr><td>上下文/提示</td><td>固定候选，3000/6000/9000；最小prompt vs 当前约束</td><td>漏限定、完整JSON、无依据拒选、理由与配方一致</td><td>预算不够丢整事实；合法输出仍须业务审核</td></tr>
+<tr><td>端到端</td><td>固定库存/过敏/目标场景，先测构造模型边界，再获新授权测真实生成</td><td>可行菜覆盖、硬限制违规、正确未知、支持理由、真实usage/延迟</td><td>硬违规单判失败；问答Recall满分不抵消违规</td></tr>
+</tbody></table></div>
+<p>当前c与候选量部分为代码常量；<strong>现有CLI没有通用 <code>--rrf-k</code> 扫参开关</strong>。届时须先增加仅离线的参数入口和身份记录，不能写一条不存在的命令假装跑过。</p>
+<h3 id="experiments-h6">5. 评分与人工是什么关系</h3>
+<p>程序精确检查：原词/ID/hash、来源/撤回、支持限定闭包、输入版本、过敏库存及整餐可行性。语义相关可做0～3分级：无关/仅背景/部分支持但缺关键条件/直接支持且条件完整；<strong>这是建议标注尺度，未伪装成人审完成</strong>。最终医学适用交独立专业复核。</p>
+<p>偏题率需先写清分母，例如“实际注入的去重事实中，不支持问题或不适用的占比”；不同论文/工具口径不能混用。无答案、误拒、未覆盖、冲突和技术失败分别统计。LLM评委只能辅助，不让同一个模型给自己出题、答题、判满分。</p></section><section class="chapter" id="failures" data-label="真实问题与亮点" hidden><h2 id="failures-h1">真实问题、解决过程与可讲的亮点</h2>
+<p>以下是项目记录中的事件，不是为了面试编出的“踩坑故事”。本人参与程度、提交和验证应据实说明；历史检查数量不当作本手册新跑的测试。</p>
+<h3 id="failures-h2">1. 证据问答偏离“今晚吃什么”</h3>
+<p><strong>触发</strong>：用户想按疾病/减脂和现有食材选菜，而证据问答只会复述指南。<strong>原因</strong>：知识终点停在营养成分和问答，缺少食物对象、适用条件和实际配方桥梁。<strong>改进</strong>：增加直接食物/工艺指导，疾病与目标分开，用受控成员和真实主做法绑定目录，再复用资格程序。成分机制保留作解释，不自动变成食物获益。<strong>证据</strong>：<a href="../business-rag-plan.md">业务计划与实施</a>、<a href="../business-rag-example-2026-11-05.md">真实例子</a>。<strong>局限</strong>：映射不是全目录覆盖，尚不能输出全天营养处方。</p>
+<p>口述：“最大的调整是把技术闭环改成用户闭环：检索出一段话还不够，还要能说明它关联哪项食材、哪道实际配方，以及哪些地方仍未知。”</p>
+<h3 id="failures-h3">2. 合格的小葱拌豆腐被模型拒选</h3>
+<p><strong>触发</strong>：第2次真实调用，程序有合格普通菜，模型因油量未知、推测与减脂冲突而返回空选择。<strong>原因</strong>：把缺依据、少选和硬避免混在一起；提示词给模型过大的医学否决权。<strong>修复</strong>：无映射不全局禁普通菜；少选只排序/提醒；目录已硬筛，不能凭未提供的营养判断拒绝唯一合格候选。<strong>验证</strong>：第3次该普通菜真实返回，健康判断保留。<strong>局限</strong>：单例证明缺陷修复，不是全部模型拒选率对照。</p>
+<p>口述：“不是让模型更敢推荐，而是把无依据的地方缩成未知，让代码负责可验证的条件，避免AI自己新增禁忌。”</p>
+<h3 id="failures-h4">3. 模型拿真实证据ID挂给不匹配的菜</h3>
+<p><strong>触发</strong>：第4次调用给白菜心挂错引用，程序拒绝；ID存在但该配方没有映射。<strong>原因</strong>：让模型同时选菜、解释和声明来源归属，结构合法仍可能语义错配。<strong>修复</strong>：模型只交目录ID和本餐理由；程序按真实配料、主做法和支持/限定绑定。研究业务不发布自由健康summary/reason。<strong>验证</strong>：第5次3菜有真实回执，输出1道有据、2道保留健康判断。<strong>局限</strong>：研究问答自由claim仍需独立蕴含/专业评测。</p>
+<p>口述：“我们没有靠第二个Prompt让模型自己证明，而是收回引用权限，把它变成程序可检查的配方关系。”</p>
+<h3 id="failures-h5">4. 旧导航引用被唯一同名正文“洗白”（RAG-005 P2）</h3>
+<p><strong>触发</strong>：资料重建时，旧引文来自导航；新正文恰有唯一同名内容，定位恢复提前成功，绕过旧来源角色核验。<strong>发现</strong>：管理审核端到端调用builder复现，不只测帮助函数。<strong>修复</strong>：任何迁移/重定位前先审旧定位来源，导航仍隔离；唯一正文也不自动批准。<strong>验证</strong>：修复已复审并合入main，见<a href="../../../docs/collaboration/reviews/RAG-005-2026-11-06.md">管理审核</a>及<a href="../evidence-resolution-2026-11-06.md">定位治理</a>。<strong>局限</strong>：旧冻结知识/向量没有因此被自动重整替换。</p>
+<p>口述：“hash和字面唯一只能说明定位候选，不能证明原先引用正确。这里暴露的是校验顺序问题，我们把来源核验提到了所有快捷路径之前。”</p>
+<h3 id="failures-h6">5. 表格看似抽出来，实际对象—值可能错位</h3>
+<p><strong>现象</strong>：无竖线表宽列漏分、上下标数字错序、跨列串文；旧短摘有的只剩表号。<strong>方法</strong>：保留词框/字号，修订上下标与列界、按物理格输出；表题、表头路径、单位、脚注单独关联候选；原词守恒和回查检查。<strong>证据</strong>：<a href="../table-ocr-execution-2026-11-06.md">表格/OCR记录</a>、<a href="../evidence-resolution-2026-11-06.md">v3治理</a>。<strong>局限</strong>：322表/14214格/7510关系候选不是审核通过的营养事实，OCR一致不是准确率。</p>
+<p>口述：“PDF转出文字不是结束。营养表必须知道哪个数属于哪个对象、单位和限定，否则整齐的JSON也会保存错误。”</p>
+<h3 id="failures-h7">6. 建了向量，指标却不如A1</h3>
+<p><strong>事实</strong>：研究27题的A1已达Recall@10/MRR=1；两模型hybrid Recall相同、MRR未优于A1。<strong>解释</strong>：小而受控的库、明确实体和已曝光调试题有利于A1；向量相近不一定对象/限定一致。<strong>处理</strong>：保留基线，报告无增益；业务直接指导不强行使用向量。<strong>待做</strong>：独立难题、否定/别名、无答案和跨来源条件，固定其他变量消融。不能为了漂亮结论修改gold或删除失败题。</p>
+<p>口述：“我验证了向量通路，但没有把‘用上向量’等同于收益。真实业务仍用更可控的直接指导，等独立数据证明需要再接。”</p>
+<h3 id="failures-h8">7. 建议列表被大类别占满、补问过泛</h3>
+<p><strong>原因</strong>：同一蔬菜类有多个成员，按固定遍历取前20挤掉其他方向；不相关条件也问用户。<strong>修复</strong>：avoid/limit/prefer方向轮转，再按主题/对象分配；仅对相关且可映射指导问明确条件，允许不清楚。<strong>证据</strong>：<a href="../quality-governance-execution-2026-11-05.md">质量治理记录</a>。<strong>局限</strong>：轮转是覆盖策略，没有证明用户满意度提升或已学到最优排序。</p>
+<h3 id="failures-h9">8. 迟到请求把旧Key或疾病状态带回来</h3>
+<p><strong>风险</strong>：发起时合法，返回时用户已清空Key、删病或改食材。<strong>方法</strong>：当前档案为准、operation/输入/版本绑定、返回前再核验；图片读取/上传也检查最新会话和Key，不能换供应商偷偷续跑。<strong>证据</strong>：<a href="../../../AGENTS.md">账户及限制规则</a>、<a href="../../../docs/development/ingredient-photo-recognition.md">照片入口专项</a>。<strong>局限</strong>：本地延迟供应商回归不等于真实供应商收到取消就不计费。</p>
+<h3 id="failures-h10">可以用的五项亮点</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>亮点</th><th>能展示的工程证据</th><th>不夸大的边界</th></tr></thead><tbody>
+<tr><td>业务纠偏</td><td>指导—映射—配方—本餐链与真实例子</td><td>不说已完成临床个体营养推荐</td></tr>
+<tr><td>职责收缩</td><td>先硬筛、模型选ID、后复核；程序绑定理由</td><td>不说纯Prompt就能零幻觉</td></tr>
+<tr><td>资料可回查</td><td>原件/位置/派生/修订分层及来源角色门禁</td><td>不说OCR/表格候选全自动审核</td></tr>
+<tr><td>有对照的研究</td><td>两Embedding、三模式及不占优结果均保留</td><td>不编RRF增益或独立100%</td></tr>
+<tr><td>状态与费用边界</td><td>PG认领、版本绑定、零自动重试、游标复用</td><td>不说供应商exactly-once或已生产压测</td></tr>
+</tbody></table></div>
+<p>面试反问可围绕团队知识更新、gold标注、线上错误归因、工具授权与费用SLO；HR内容不虚构成技术实现。把“如果有10万预算先做什么”回答为数据/覆盖与独立质量闭环优先，再根据瓶颈决定rerank或服务扩容，而不是先花完预算。</p></section><section class="chapter" id="foundations" data-label="理论与亲手练习" hidden><h2 id="foundations-h1">理论、公式、代码练习与追问路线</h2>
+<p>本页是理解和练习，不表示项目已经实现所有算法，也不表示读者已经亲手完成练习。问答卡负责口述，<a href="#parameters">参数总表</a>负责当前实现值。</p>
+<h3 id="foundations-h2">1. 从模型基础讲到项目参数</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>概念</th><th>简明解释</th><th>与项目的关系/常见误解</th></tr></thead><tbody>
+<tr><td>Token与自回归</td><td>tokenizer把文本转ID；生成模型逐步预测后续token</td><td>中文字符不等于token。Embedding tokenizer计数、应用估算与DeepSeek usage分开</td></tr>
+<tr><td>Attention</td><td>softmax(QKᵀ/√d)对V加权；mask约束可见位置</td><td>长上下文可表达关联，但模型未必利用好每条限定；检索与完整证据仍有价值</td></tr>
+<tr><td>Embedding</td><td>文本映射固定维数表示，bi-encoder可预先计算文档</td><td>检索快且可缓存；不直接证明否定、人群或证据支持</td></tr>
+<tr><td>Cross-Encoder</td><td>问题与每条候选一起编码打相关分</td><td>比独立向量更能交互，代价随候选数增加；本项目未接入</td></tr>
+<tr><td>Prefill/Decode</td><td>先处理输入，再逐token生成；TTFT与总输出时长不同</td><td>当前不展示模型逐token流，应用NDJSON进度另算</td></tr>
+<tr><td>KV Cache</td><td>为解码复用attention的key/value</td><td>不是个人健康长期记忆；Prompt Cache是前缀计算复用，命中条件看供应商，不等于业务结果缓存</td></tr>
+<tr><td>temperature/top_p</td><td>前者改变logit分布尖锐程度，后者保留累计概率候选</td><td>低温不保证事实正确或完全确定；当前请求未显式设置二者</td></tr>
+<tr><td>SFT/LoRA/DPO</td><td>SFT学示范，LoRA低秩适配参数，DPO学偏好</td><td>与检索更新知识是不同维度；项目未微调，不能拿这些名词解释来源撤回</td></tr>
+</tbody></table></div>
+<p>理论来源：<a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">Attention原论文</a>、<a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener noreferrer">LoRA</a>、<a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener noreferrer">DPO</a>、<a href="https://huggingface.co/BAAI/bge-reranker-v2-m3" target="_blank" rel="noopener noreferrer">BGE reranker模型卡</a>。以上是概念解释，不是本项目训练或质量实验。</p>
+<h4 id="foundations-h3">与AI服务有关的后端基础</h4>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>追问</th><th>作用与项目对照</th></tr></thead><tbody>
+<tr><td>URL到响应</td><td>一般包括URL解析、DNS、TCP/TLS、HTTP、服务路由、认证、数据读取与响应渲染；127.0.0.1本地HTTP没有公网DNS/TLS阶段。本站先过Fastify身份/同源与输入门禁，再进入业务，不能一上来就调用模型</td></tr>
+<tr><td>进程、线程、协程</td><td>进程有隔离地址空间，线程共享进程资源，协程/异步用于协作等待；共享对象要防跨请求串号。Node异步网络等待不等于CPU任务并行，Python模型运行时是独立进程</td></tr>
+<tr><td>Python GIL</td><td>当前Python3.11中同进程Python字节码执行受GIL限制；原生扩展可能释放GIL并使用自己的线程。Torch CPU线程数与Web请求并发不是同一个设置，不能简单说“Python多线程完全无用”</td></tr>
+<tr><td>事务与CAS</td><td>短事务/行锁约束共享认领；CAS检查版本防覆盖新档案。数据库事务不跨供应商等待；死锁/超时和业务版本冲突分别处理</td></tr>
+<tr><td>Cookie/Session/Key</td><td>Cookie是浏览器携带数据的机制，Session是服务端身份状态，个人模型Key是外部凭证；三者不能互当。模型不从用户文字获取UID/权限，日志不能记录凭证</td></tr>
+<tr><td>工具目录与内容索引</td><td>索引保存ID/位置/版本等定位关系，按需取内容可减少上下文膨胀；不是把整个库复制进会话缓存。当前facts/evidence及候选关联已分层，动态工具索引未实现</td></tr>
+</tbody></table></div>
+<p>GIL解释依据<a href="https://docs.python.org/3.11/library/threading.html" target="_blank" rel="noopener noreferrer">Python3.11 threading文档</a>；不外推到未来或free-threaded构建。</p>
+<h3 id="foundations-h4">2. 把RRF和分数标定讲明白</h3>
+<pre aria-label="text"><code>RRF(f) = Σ通道 w通道 / (c + rank通道(f))
+rank从1开始；缺席贡献0；当前研究外层w_A1=2、w_dense=1、c=60。
+A1内部还把实体路、词面路等权融合；两层不要混为一次。</code></pre>
+<p>RRF解决<strong>不同检索分数不在同一量纲</strong>的问题，使用名次较容易组合。它损失绝对分差信息，不能识别事实真假或自动消除偏题。c大时相邻头部差距更平；不是“c大就更重视第一名”。对A1第1、dense第10的同一事实，当前外层是 <code>2/61+1/70≈0.047073</code>；等权才是 <code>1/61+1/70≈0.030679</code>。</p>
+<p>替代方案是将分数归一化/校准后加权、学习排序或cross-encoder；需要足够标注和跨版本稳定性。min-max受候选极值影响，z-score依赖分布；不能仅因为麻烦就断言都比RRF差。<a href="https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf" target="_blank" rel="noopener noreferrer">RRF原论文</a>是方法依据，其数据集不替本项目证明60最优。</p>
+<h3 id="foundations-h5">3. 切块追问必须落到数据</h3>
+<ol>
+<li><strong>先答真实算法</strong>：冻结证据是脚本指定起止原文锚点，没有固定512/overlap；新增结构块未接入索引。</li>
+<li><strong>再给实测长度</strong>：98条retrievalText Qwen token为最小24/P50 68/P95 130/最大339，BGE为27/73/137/306。原文最短7字符只是表号级锚点，长度短不表示精确。</li>
+<li><strong>解释语义单元</strong>：声明＋对象＋人群/否定/例外/单位，表格需表头和脚注。长度约束不能优先切断限定。</li>
+<li><strong>解释未来候选</strong>：结构段落＋128/256/512 token上限，overlap 0/32/64，父子块；这是对照范围，尚无胜者。</li>
+<li><strong>闭环检查</strong>：比较召回只是中间指标；还看实际注入支持、条件完整、理由及本餐硬限制。</li>
+</ol>
+<h3 id="foundations-h6">4. 三个离线练习</h3>
+<p>执行 <code>python agent-design/docs/interview/exercises.py</code>，只用标准库、构造ID和内存数据，不读取Key、数据库或个人资料，不发网络请求。输出是<strong>教学微型数据结果，不是项目27题新评测</strong>。可让读者先遮住实现亲手写，再对照。</p>
+<h4 id="foundations-h7">练习A：手写RRF</h4>
+<p>输入两路排名：A1=<code>A,B</code>，dense=<code>C,B,A</code>。实现：每通道去重→按1起始排名累加→缺席0→按分降序、ID稳定破同分。支持权重与c；先验证参数有限且正值。不要对同一通道的重复ID多次投票。</p>
+<h4 id="foundations-h8">练习B：亲手跑最小对照并手算</h4>
+<p>构造两个问题，完整相关集分别为<code>{A}</code>、<code>{B}</code>。给定各模式的排名，计算Recall@2、MRR；本例三个模式均值相同，但逐题排序不同，可修改排名观察变化。<strong>不能拿教学结果证明项目混合有效</strong>。真实对照要读冻结数据、禁止gold泄漏、保存版本与每题结果。</p>
+<h4 id="foundations-h9">练习C：修JSON边界</h4>
+<p>测试正常JSON、围栏JSON、截断JSON、重复键和“结构正确但目录外ID”。演示解析层拒绝非JSON和重复键；之后验证结构、ID及去重。不要用 <code>\{.*\}</code> 抽取任意第一/最后大括号，也不要修补半条付费响应后假装完整成功。</p>
+<p>当前项目采用严格JSON与完整终态门禁，并非用本练习Python代码处理线上输出。若未来允许外层代码围栏，必须显式限定完整唯一围栏、保留原文和解析状态，业务复核仍不能省略。</p>
+<h4 id="foundations-h10">额外场景：小模型压缩与大量工具</h4>
+<p>小模型做摘要可能便宜、快，但并非天然不会丢健康条件；先用结构化限制表保存不可变约束，再比较不同模型的保留率、纠错和成本。当前没有小模型摘要服务。工具过多可先按任务与权限检索工具目录，再注入少量相关Schema；返回数据用字段选择、分页或受控引用读取，不能靠模型自行丢掉单位/限定。当前也没有动态工具检索平台。</p>
+<p>同一个资料的排名不是永久固定：相同索引、同一query向量和排序规则下精确距离可复算；问题、规范化、条件、知识/模型版本变化会改变距离或资格。不能为让某条“权威资料”每次第一而固定加分，先确定它是否真的支持当前任务。</p>
+<h3 id="foundations-h11">5. 一条完整追问路线</h3>
+<p>“为什么RAG？”→“为什么不是全文？”→“资料怎么提取？”→“块多大、为什么？”→“向量模型和版本？”→“A1是不是BM25？”→“RRF的60怎么定？”→“重排启用了吗？”→“最终k和预算？”→“证据真能支持这道菜吗？”→“错引用怎么拦？”→“实验有泄漏吗？”→“线上边界和个人贡献？”</p>
+<p>回答时始终回到三件事：<strong>实际数据如何流动、哪个约束由哪段程序执行、结论由什么证据支持</strong>。框架、协议、GraphRAG或多Agent只在追问到扩展时解释，不装成项目已经部署。</p></section><section class="chapter" id="sources" data-label="来源与逐题覆盖" hidden><h2 id="sources-h1">来源、覆盖与状态核对</h2>
+<p>核对日2026-11-12；项目事实基线 <code>bfa1567ccb43ca02e2a42f75c57e521a250d105d</code>。题库用于提出问题，代码与实际验收用于回答；两者不混用。</p>
+<h3 id="sources-h2">1. 项目证据索引</h3>
+<span id="e01" class="anchor"></span>
+<ul>
+<li><strong>E01 业务定位与边界</strong>：<a href="../../../AGENTS.md">AGENTS.md</a>；<a href="../../../docs/architecture/overview.md">overview.md</a>；<a href="../business-rag-plan.md">business-rag-plan.md</a>。</li>
+</ul>
+<span id="e02" class="anchor"></span>
+<ul>
+<li><strong>E02 知识、事实与证据</strong>：<a href="../../../datasets/health/README-v2.md">README-v2.md</a>；<a href="../../../shared/health-knowledge.ts">health-knowledge.ts</a>；<a href="../../../datasets/health/knowledge-bundle.schema.json">knowledge-bundle.schema.json</a>。</li>
+</ul>
+<span id="e03" class="anchor"></span>
+<ul>
+<li><strong>E03 正文解析与离线重建</strong>：<a href="../document-parsing-runbook.md">document-parsing-runbook.md</a>；<a href="../../../scripts/lib/document-parser.py">document-parser.py</a>；<a href="../source-rebuild-runbook.md">source-rebuild-runbook.md</a>。</li>
+</ul>
+<span id="e04" class="anchor"></span>
+<ul>
+<li><strong>E04 表格与OCR候选</strong>：<a href="../table-ocr-runbook.md">table-ocr-runbook.md</a>；<a href="../table-ocr-execution-2026-11-06.md">table-ocr-execution-2026-11-06.md</a>；<a href="../evidence-resolution-2026-11-06.md">evidence-resolution-2026-11-06.md</a>。</li>
+</ul>
+<span id="e05" class="anchor"></span>
+<ul>
+<li><strong>E05 向量、模型及参数实测</strong>：<a href="#parameters">rag-parameters-and-chunking.md</a>；<a href="../../../backend/rag-runtime/runtime.py">runtime.py</a>；<a href="../../../backend/src/rag/embedding.ts">embedding.ts</a>；<a href="../../../backend/src/rag/storage.ts">storage.ts</a>；<a href="../../../artifacts/acceptance/rag-parameter-audit-2026-11-06/chunk-statistics.json">chunk-statistics.json</a>。</li>
+</ul>
+<span id="e06" class="anchor"></span>
+<ul>
+<li><strong>E06 A1与研究混合检索</strong>：<a href="../../../backend/src/health-knowledge-retrieval.ts">health-knowledge-retrieval.ts</a>；<a href="../../../backend/src/rag/retrieval.ts">retrieval.ts</a>；<a href="../rag-technology-explained.md">rag-technology-explained.md</a>。</li>
+</ul>
+<span id="e07" class="anchor"></span>
+<ul>
+<li><strong>E07 预算、增强与证据闭包</strong>：<a href="../../../shared/context-budget.ts">context-budget.ts</a>；<a href="../../../backend/src/rag/retrieval.ts">retrieval.ts</a>；<a href="../../../backend/src/rag/generation.ts">generation.ts</a>。</li>
+</ul>
+<span id="e08" class="anchor"></span>
+<ul>
+<li><strong>E08 业务资格、配方绑定与提示</strong>：<a href="../../../backend/src/health-recipe-selection.ts">health-recipe-selection.ts</a>；<a href="../../../backend/src/rag/food-guidance.ts">food-guidance.ts</a>；<a href="../../../backend/src/recommendation.ts">recommendation.ts</a>；<a href="../../../shared/recommendation-input.ts">recommendation-input.ts</a>。</li>
+</ul>
+<span id="e09" class="anchor"></span>
+<ul>
+<li><strong>E09 生成请求及输出门禁</strong>：<a href="../../../backend/src/deepseek-json.ts">deepseek-json.ts</a>；<a href="../../../backend/src/rag/generation.ts">generation.ts</a>；<a href="../../../backend/src/rag/pipeline.ts">pipeline.ts</a>；<a href="../../../backend/src/app.ts">app.ts</a>。</li>
+</ul>
+<span id="e10" class="anchor"></span>
+<ul>
+<li><strong>E10 身份、原子认领与加密</strong>：<a href="../../../backend/src/cloudbase-accounts.ts">cloudbase-accounts.ts</a>；<a href="../../../deployment/db/health-chat.sql">health-chat.sql</a>；<a href="../../../backend/src/crypto.ts">crypto.ts</a>；<a href="../../../backend/src/health-recipe-selection.ts">health-recipe-selection.ts</a>。</li>
+</ul>
+<span id="e11" class="anchor"></span>
+<ul>
+<li><strong>E11 个人建议、限制与撤销</strong>：<a href="../../../shared/ai-food-choices.ts">ai-food-choices.ts</a>；<a href="../../../backend/src/health-chat.ts">health-chat.ts</a>；<a href="../../../backend/src/rag/food-guidance-chat.ts">food-guidance-chat.ts</a>；<a href="../../../AGENTS.md">AGENTS.md</a>。</li>
+</ul>
+<span id="e12" class="anchor"></span>
+<ul>
+<li><strong>E12 研究对照原记录</strong>：<a href="../execution-2026-11-04.md">execution-2026-11-04.md</a>；<a href="../../../scripts/rag.ts">rag.ts</a>。</li>
+</ul>
+<span id="e13" class="anchor"></span>
+<ul>
+<li><strong>E13 五次真实界面样例</strong>：<a href="../business-rag-example-2026-11-05.md">business-rag-example-2026-11-05.md</a>；<a href="../../../artifacts/acceptance/business-rag-example-2026-11-05/final-system-prompt.txt">final-system-prompt.txt</a>；<a href="../../../artifacts/acceptance/business-rag-example-2026-11-05/call-5-model-response.json">call-5-model-response.json</a>。</li>
+</ul>
+<span id="e14" class="anchor"></span>
+<ul>
+<li><strong>E14 质量标签、曝光和待完成项</strong>：<a href="../quality-annotation-protocol.md">quality-annotation-protocol.md</a>；<a href="../todo.md">todo.md</a>；<a href="../quality-governance-execution-2026-11-05.md">quality-governance-execution-2026-11-05.md</a>。</li>
+</ul>
+<span id="e15" class="anchor"></span>
+<ul>
+<li><strong>E15 RAG-005 P2与实际修复</strong>：<a href="../../../docs/collaboration/reviews/RAG-005-2026-11-06.md">RAG-005-2026-11-06.md</a>；<a href="../evidence-resolution-2026-11-06.md">evidence-resolution-2026-11-06.md</a>。</li>
+</ul>
+<span id="e16" class="anchor"></span>
+<ul>
+<li><strong>E16 图片食材识别入口边界</strong>：<a href="../../../docs/development/ingredient-photo-recognition.md">ingredient-photo-recognition.md</a>。</li>
+</ul>
+<span id="e17" class="anchor"></span>
+<ul>
+<li><strong>E17 开发协作与真实贡献归属</strong>：<a href="../../../docs/collaboration/README.md">README.md</a>；<a href="../../../docs/collaboration/tasks.md">tasks.md</a>。</li>
+</ul>
+<span id="e18" class="anchor"></span>
+<ul>
+<li><strong>E18 设计储备，不代表已经实现</strong>：<a href="../todo.md">todo.md</a>；<a href="../technology-decisions.md">technology-decisions.md</a>；<a href="../contracts.md">contracts.md</a>。</li>
+</ul>
+<h3 id="sources-h3">2. 论文、官方文档与成熟产品</h3>
+<p>用于方法解释，不以外部产品结果冒充本项目对比。上游默认值有版本范围；查阅日期不是复现其全部代码。</p>
+<span id="s01" class="anchor"></span>
+<ul>
+<li><strong>S01 RRF原论文</strong>：<a href="https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s02" class="anchor"></span>
+<ul>
+<li><strong>S02 锁定Embedding模型的上游说明</strong>：<a href="https://huggingface.co/Qwen/Qwen3-Embedding-0.6B" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://huggingface.co/BAAI/bge-m3" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s03" class="anchor"></span>
+<ul>
+<li><strong>S03 pgvector官方文档</strong>：<a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s04" class="anchor"></span>
+<ul>
+<li><strong>S04 BGE reranker模型卡</strong>：<a href="https://huggingface.co/BAAI/bge-reranker-v2-m3" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s05" class="anchor"></span>
+<ul>
+<li><strong>S05 MCP与A2A官方概念</strong>：<a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://a2a-protocol.org/latest/" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s06" class="anchor"></span>
+<ul>
+<li><strong>S06 Workflow与Agent边界</strong>：<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s07" class="anchor"></span>
+<ul>
+<li><strong>S07 Lost in the Middle研究</strong>：<a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s08" class="anchor"></span>
+<ul>
+<li><strong>S08 Transformer/Attention原论文</strong>：<a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s09" class="anchor"></span>
+<ul>
+<li><strong>S09 LoRA与DPO原论文</strong>：<a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s10" class="anchor"></span>
+<ul>
+<li><strong>S10 GraphRAG原论文</strong>：<a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s11" class="anchor"></span>
+<ul>
+<li><strong>S11 LangGraph状态持久化/中断</strong>：<a href="https://docs.langchain.com/oss/python/langgraph/persistence" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://docs.langchain.com/oss/python/langgraph/interrupts" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s12" class="anchor"></span>
+<ul>
+<li><strong>S12 Ragas指标说明</strong>：<a href="https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s13" class="anchor"></span>
+<ul>
+<li><strong>S13 OWASP Prompt Injection</strong>：<a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s14" class="anchor"></span>
+<ul>
+<li><strong>S14 BM25原理及实现差异</strong>：<a href="https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://www.elastic.co/docs/reference/elasticsearch/index-settings/similarity" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s15" class="anchor"></span>
+<ul>
+<li><strong>S15 JSON Schema及Ajv</strong>：<a href="https://json-schema.org/understanding-json-schema/reference/object" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://ajv.js.org/guide/getting-started.html" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s16" class="anchor"></span>
+<ul>
+<li><strong>S16 WeKnora官方仓库/API</strong>：<a href="https://github.com/Tencent/WeKnora" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://github.com/Tencent/WeKnora/blob/main/website-docs/04-api/01-api-overview.md" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s17" class="anchor"></span>
+<ul>
+<li><strong>S17 RAGFlow切块组件文档</strong>：<a href="https://github.com/infiniflow/ragflow/blob/main/docs/guides/agent/ingestion_pipeline/configure_chunker_component.md" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s18" class="anchor"></span>
+<ul>
+<li><strong>S18 ReAct原论文</strong>：<a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s19" class="anchor"></span>
+<ul>
+<li><strong>S19 CRAG与Self-RAG原论文</strong>：<a href="https://arxiv.org/abs/2401.15884" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://arxiv.org/abs/2310.11511" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s20" class="anchor"></span>
+<ul>
+<li><strong>S20 DeepSeek JSON模式</strong>：<a href="https://api-docs.deepseek.com/guides/json_mode/" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<span id="s21" class="anchor"></span>
+<ul>
+<li><strong>S21 SSE与WebSocket</strong>：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events" target="_blank" rel="noopener noreferrer">原始来源1</a>；<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket" target="_blank" rel="noopener noreferrer">原始来源2</a>。</li>
+</ul>
+<span id="s22" class="anchor"></span>
+<ul>
+<li><strong>S22 Python3.11线程/GIL</strong>：<a href="https://docs.python.org/3.11/library/threading.html" target="_blank" rel="noopener noreferrer">原始来源1</a>。</li>
+</ul>
+<h3 id="sources-h4">3. 用户提供的57题：逐题去向</h3>
+<p>编号与用户列表一一对应，扩展题从Q058起。原有前提若与实现不符，在答案直接澄清，不照单背诵。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>用户题号</th><th>筛选后题目</th><th>回答</th></tr></thead><tbody>
+<tr><td>1</td><td>一句话介绍项目，解决什么问题？</td><td><a href="#q001">Q001</a></td></tr>
+<tr><td>2</td><td>为什么需要RAG，长上下文和微调能否替代？</td><td><a href="#q002">Q002</a></td></tr>
+<tr><td>3</td><td>大模型负责什么，哪些事交给程序？</td><td><a href="#q003">Q003</a></td></tr>
+<tr><td>4</td><td>为什么没有使用LangChain或LlamaIndex？</td><td><a href="#q004">Q004</a></td></tr>
+<tr><td>5</td><td>RAG怎样和推荐系统打通，白板怎么画？</td><td><a href="#q005">Q005</a></td></tr>
+<tr><td>6</td><td>怎样证明比直接聊天更有价值？</td><td><a href="#q006">Q006</a></td></tr>
+<tr><td>7</td><td>最大的局限是什么，预算增加先做什么？</td><td><a href="#q007">Q007</a></td></tr>
+<tr><td>8</td><td>资料如何收集、清洗，表格和跨页怎么办？</td><td><a href="#q008">Q008</a></td></tr>
+<tr><td>9</td><td>为什么把Fact和Evidence分开？</td><td><a href="#q009">Q009</a></td></tr>
+<tr><td>10</td><td>事实怎样提取，如何防止事实幻觉？</td><td><a href="#q010">Q010</a></td></tr>
+<tr><td>11</td><td>原文更新或撤回，如何避免继续答旧知识？</td><td><a href="#q011">Q011</a></td></tr>
+<tr><td>12</td><td>块怎样切、多大、Overlap多少，为什么？</td><td><a href="#q012">Q012</a></td></tr>
+<tr><td>13</td><td>怎么防止切断“除外、仅限、肾功能”等限定？</td><td><a href="#q013">Q013</a></td></tr>
+<tr><td>14</td><td>知道哪些切块策略，项目适合哪种？</td><td><a href="#q014">Q014</a></td></tr>
+<tr><td>15</td><td>6000 token上下文预算怎样来的？</td><td><a href="#q015">Q015</a></td></tr>
+<tr><td>16</td><td>为什么不只用向量，暴露了什么问题？</td><td><a href="#q016">Q016</a></td></tr>
+<tr><td>17</td><td>Embedding用什么、维度多少，怎样选？</td><td><a href="#q017">Q017</a></td></tr>
+<tr><td>18</td><td>A1到底怎么做，是BM25或倒排索引吗？</td><td><a href="#q018">Q018</a></td></tr>
+<tr><td>19</td><td>混合检索怎样互补，有没有实际收益？</td><td><a href="#q019">Q019</a></td></tr>
+<tr><td>20</td><td>RRF原理及公式中的60是什么？</td><td><a href="#q020">Q020</a></td></tr>
+<tr><td>21</td><td>为什么RRF取60，做过10/60/100对比吗？</td><td><a href="#q021">Q021</a></td></tr>
+<tr><td>22</td><td>为何不把向量距离和词法分数直接相加？</td><td><a href="#q022">Q022</a></td></tr>
+<tr><td>23</td><td>A1第一、向量第十的事实怎样算分？</td><td><a href="#q023">Q023</a></td></tr>
+<tr><td>24</td><td>Top-10里出现互斥或相反结论怎么办？</td><td><a href="#q024">Q024</a></td></tr>
+<tr><td>25</td><td>粗筛多少、最终多少，为什么？</td><td><a href="#q025">Q025</a></td></tr>
+<tr><td>26</td><td>怎样检测和量化“偏题”？</td><td><a href="#q026">Q026</a></td></tr>
+<tr><td>27</td><td>Rerank解决什么，和Embedding有何不同？</td><td><a href="#q027">Q027</a></td></tr>
+<tr><td>28</td><td>如何权衡Reranker延迟和收益？</td><td><a href="#q028">Q028</a></td></tr>
+<tr><td>29</td><td>超预算为何回退完整事实，不截断半段证据？</td><td><a href="#q029">Q029</a></td></tr>
+<tr><td>30</td><td>怎样防模型编造医学常识？</td><td><a href="#q030">Q030</a></td></tr>
+<tr><td>31</td><td>残缺JSON或带Markdown围栏怎么办？</td><td><a href="#q031">Q031</a></td></tr>
+<tr><td>32</td><td>如何校验evidenceId真实，存在就够了吗？</td><td><a href="#q032">Q032</a></td></tr>
+<tr><td>33</td><td>“迷失在中间”是什么，项目怎样处理？</td><td><a href="#q033">Q033</a></td></tr>
+<tr><td>34</td><td>如何防用户或资料里的恶意Prompt注入？</td><td><a href="#q034">Q034</a></td></tr>
+<tr><td>35</td><td>证据冲突时，大模型应听谁？</td><td><a href="#q035">Q035</a></td></tr>
+<tr><td>36</td><td>项目算Agent还是Workflow？</td><td><a href="#q036">Q036</a></td></tr>
+<tr><td>37</td><td>库存、过敏、忌口怎样和模型交互？</td><td><a href="#q037">Q037</a></td></tr>
+<tr><td>38</td><td>为什么硬过滤交给代码？</td><td><a href="#q038">Q038</a></td></tr>
+<tr><td>39</td><td>高血压用户只有培根，怎样反馈？</td><td><a href="#q039">Q039</a></td></tr>
+<tr><td>40</td><td>模型写“吃某道菜降血压”，程序怎么拦？</td><td><a href="#q040">Q040</a></td></tr>
+<tr><td>41</td><td>疾病分型不明确，多轮怎么补？</td><td><a href="#q041">Q041</a></td></tr>
+<tr><td>42</td><td>模型调用同步还是异步，高并发怎样处理？</td><td><a href="#q042">Q042</a></td></tr>
+<tr><td>43</td><td>模型超时或429怎么办？</td><td><a href="#q043">Q043</a></td></tr>
+<tr><td>44</td><td>一次推荐多少Token，怎样降本？</td><td><a href="#q044">Q044</a></td></tr>
+<tr><td>45</td><td>Memory怎么做，多轮怎样记忌口？</td><td><a href="#q045">Q045</a></td></tr>
+<tr><td>46</td><td>怎样证明效果，用哪些指标？</td><td><a href="#q046">Q046</a></td></tr>
+<tr><td>47</td><td>27题怎么选，怎样防自己考自己？</td><td><a href="#q047">Q047</a></td></tr>
+<tr><td>48</td><td>了解Ragas吗，为什么没直接用它？</td><td><a href="#q048">Q048</a></td></tr>
+<tr><td>49</td><td>重新设计时，Rerank放哪里？</td><td><a href="#q049">Q049</a></td></tr>
+<tr><td>50</td><td>最大踩坑怎么讲，怎么定位和修复？</td><td><a href="#q050">Q050</a></td></tr>
+<tr><td>51</td><td>为什么加向量后反而不如A1？</td><td><a href="#q051">Q051</a></td></tr>
+<tr><td>52</td><td>被说成“规则引擎套模型壳”怎么回答？</td><td><a href="#q052">Q052</a></td></tr>
+<tr><td>53</td><td>日活十万时架构怎么改？</td><td><a href="#q053">Q053</a></td></tr>
+<tr><td>54</td><td>向量多了怎么办，HNSW和IVFFlat怎么选？</td><td><a href="#q054">Q054</a></td></tr>
+<tr><td>55</td><td>冰箱照片如何接入，CV与RAG什么关系？</td><td><a href="#q055">Q055</a></td></tr>
+<tr><td>56</td><td>加入视频或音频指南，需要改变什么？</td><td><a href="#q056">Q056</a></td></tr>
+<tr><td>57</td><td>GraphRAG能解决什么，项目需要吗？</td><td><a href="#q057">Q057</a></td></tr>
+</tbody></table></div>
+<h3 id="sources-h5">4. 本地HTML及三份对应AI资料</h3>
+<p>外部原件位于 <code>D:/codex_AI/后端8股/春招优化版/Markdown版/</code>，只读、未改正文。HTML中核对到三个章节：AI与Agent开发面试（section-476）、AI模型与Agent工程实操（section-578）、拾味项目RAG与Agent案例（section-601）。下表校对其标题与相应Markdown；完整文件hash在JSON清单。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>原资料</th><th>范围</th><th>HTML标题匹配</th><th>SHA256</th></tr></thead><tbody>
+<tr><td>Agent开发面试.md</td><td>90题＋1条追问链</td><td>91</td><td><code>1beed7d693bb1594cbaf48d90efb5860a70c7bb9c3111e20f35271e20080d993</code></td></tr>
+<tr><td>AI模型与Agent工程实操.md</td><td>18专题/题</td><td>18</td><td><code>b166de84c17bb4d798469f839700a8ac7bc769f0d4465e9771a069244d81ed0d</code></td></tr>
+<tr><td>拾味项目RAG与Agent案例.md</td><td>45专题/题</td><td>45</td><td><code>82c70a1400f35458c1415a8131029b1d7684beee4c1b6ec99d3703aa4325dde2</code></td></tr>
+<tr><td>面试资料阅读器.html</td><td>HTML阅读入口</td><td>—</td><td><code>df9be19dc553cdb8f580e539410156ec687363e409fae86ceff2c49137c69405</code></td></tr>
+</tbody></table></div>
+<h4 id="sources-h6">4.1 本地90题映射</h4>
+<p>全部登记：当前实现直接答，未实现概念作储备，Java/Redis/MQ细节只保留可迁移的工程含义，不虚构项目用了Spring或Redis。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>原题</th><th>原标题</th><th>本手册</th></tr></thead><tbody>
+<tr><td>L01</td><td>[P0] Q01 · 请介绍一个你深度参与的Agent项目</td><td><a href="#q001">Q001</a>、<a href="#q005">Q005</a></td></tr>
+<tr><td>L02</td><td>[P0] Q02 · 你的项目效果怎么样</td><td><a href="#q006">Q006</a>、<a href="#q046">Q046</a></td></tr>
+<tr><td>L03</td><td>[P0] Q03 · 你个人负责什么 团队如何分工</td><td><a href="#q094">Q094</a>、<a href="#q095">Q095</a></td></tr>
+<tr><td>L04</td><td>[P0] Q04 · 为什么需要RAG 直接用长上下文或微调行不行</td><td><a href="#q002">Q002</a></td></tr>
+<tr><td>L05</td><td>[P0] Q05 · Agent Workflow和普通聊天有什么区别</td><td><a href="#q036">Q036</a></td></tr>
+<tr><td>L06</td><td>[P1] Q06 · 项目中最大的技术难点怎么讲</td><td><a href="#q050">Q050</a>、<a href="#q094">Q094</a></td></tr>
+<tr><td>L07</td><td>[P0] Q07 · 从零搭建RAG的完整流程是什么</td><td><a href="#q005">Q005</a>、<a href="#q008">Q008</a></td></tr>
+<tr><td>L08</td><td>[P1] Q08 · PDF Word HTML等不同来源怎么处理</td><td><a href="#q008">Q008</a>、<a href="#q056">Q056</a></td></tr>
+<tr><td>L09</td><td>[P0] Q09 · Chunk长度怎么确定 为什么不是固定512</td><td><a href="#q012">Q012</a></td></tr>
+<tr><td>L10</td><td>[P1] Q10 · Markdown没有标题怎么切</td><td><a href="#q101">Q101</a></td></tr>
+<tr><td>L11</td><td>[P1] Q11 · 表格怎么切 条件和例外怎么保留</td><td><a href="#q013">Q013</a></td></tr>
+<tr><td>L12</td><td>[P1] Q12 · Overlap多大合适</td><td><a href="#q012">Q012</a>、<a href="#q014">Q014</a></td></tr>
+<tr><td>L13</td><td>[P1] Q13 · 父子块为什么有用</td><td><a href="#q014">Q014</a></td></tr>
+<tr><td>L14</td><td>[P0] Q14 · Embedding模型怎么选</td><td><a href="#q017">Q017</a></td></tr>
+<tr><td>L15</td><td>[P1] Q15 · 向量化时有哪些容易忽略的细节</td><td><a href="#q017">Q017</a>、<a href="#q076">Q076</a>、<a href="#q077">Q077</a></td></tr>
+<tr><td>L16</td><td>[P0] Q16 · 关键词和向量为什么要混合</td><td><a href="#q019">Q019</a></td></tr>
+<tr><td>L17</td><td>[P1] Q17 · BM25是什么 PostgreSQL全文检索就是BM25吗</td><td><a href="#q018">Q018</a>、<a href="#q074">Q074</a></td></tr>
+<tr><td>L18</td><td>[P0] Q18 · 多路召回怎么融合</td><td><a href="#q020">Q020</a>、<a href="#q022">Q022</a>、<a href="#q023">Q023</a></td></tr>
+<tr><td>L19</td><td>[P0] Q19 · Reranker和Embedding有什么区别</td><td><a href="#q027">Q027</a>、<a href="#q028">Q028</a></td></tr>
+<tr><td>L20</td><td>[P1] Q20 · Query改写 多轮指代和HyDE怎么用</td><td><a href="#q073">Q073</a></td></tr>
+<tr><td>L21</td><td>[P1] Q21 · 召回很多无关内容怎么办</td><td><a href="#q026">Q026</a>、<a href="#q103">Q103</a></td></tr>
+<tr><td>L22</td><td>[P0] Q22 · 检索不到怎么办 怎样拒答</td><td><a href="#q039">Q039</a>、<a href="#q103">Q103</a></td></tr>
+<tr><td>L23</td><td>[P0] Q23 · RAG回答错了怎么定位</td><td><a href="#q050">Q050</a>、<a href="#q084">Q084</a></td></tr>
+<tr><td>L24</td><td>[P0] Q24 · 如何减少幻觉和伪造引用</td><td><a href="#q030">Q030</a>、<a href="#q032">Q032</a>、<a href="#q040">Q040</a></td></tr>
+<tr><td>L25</td><td>[P0] Q25 · ReAct与Plan Execute Replan如何选</td><td><a href="#q063">Q063</a></td></tr>
+<tr><td>L26</td><td>[P0] Q26 · Agent Loop和Harness分别负责什么</td><td><a href="#q063">Q063</a>、<a href="#q068">Q068</a>、<a href="#q108">Q108</a></td></tr>
+<tr><td>L27</td><td>[P0] Q27 · Function Calling原理是什么</td><td><a href="#q064">Q064</a></td></tr>
+<tr><td>L28</td><td>[P0] Q28 · 工具如何设计才不容易误调用</td><td><a href="#q065">Q065</a>、<a href="#q091">Q091</a></td></tr>
+<tr><td>L29</td><td>[P0] Q29 · 模型输出JSON就够安全吗</td><td><a href="#q031">Q031</a>、<a href="#q112">Q112</a></td></tr>
+<tr><td>L30</td><td>[P1] Q30 · 如何保证路由准确和流程不跑偏</td><td><a href="#q065">Q065</a>、<a href="#q098">Q098</a></td></tr>
+<tr><td>L31</td><td>[P0] Q31 · 如何防止无限循环或无效反思</td><td><a href="#q068">Q068</a></td></tr>
+<tr><td>L32</td><td>[P0] Q32 · 工具超时 失败 重试如何设计</td><td><a href="#q043">Q043</a>、<a href="#q082">Q082</a></td></tr>
+<tr><td>L33</td><td>[P0] Q33 · 如何实现幂等 防止两个实例重复执行</td><td><a href="#q070">Q070</a></td></tr>
+<tr><td>L34</td><td>[P0] Q34 · 人工确认如何落实</td><td><a href="#q071">Q071</a></td></tr>
+<tr><td>L35</td><td>[P0] Q35 · 如何防提示词注入</td><td><a href="#q034">Q034</a>、<a href="#q089">Q089</a></td></tr>
+<tr><td>L36</td><td>[P0] Q36 · Agent状态保存在哪里</td><td><a href="#q045">Q045</a>、<a href="#q069">Q069</a></td></tr>
+<tr><td>L37</td><td>[P0] Q37 · 短期记忆 长期记忆 RAG和Skill怎么区分</td><td><a href="#q045">Q045</a>、<a href="#q067">Q067</a></td></tr>
+<tr><td>L38</td><td>[P1] Q38 · 为什么上下文没满也要压缩</td><td><a href="#q085">Q085</a></td></tr>
+<tr><td>L39</td><td>[P0] Q39 · 上下文预算怎么算 何时触发压缩</td><td><a href="#q015">Q015</a>、<a href="#q085">Q085</a></td></tr>
+<tr><td>L40</td><td>[P0] Q40 · 怎样保证压缩不丢关键事实</td><td><a href="#q013">Q013</a>、<a href="#q085">Q085</a></td></tr>
+<tr><td>L41</td><td>[P1] Q41 · 多次压缩和切模型会有什么问题</td><td><a href="#q086">Q086</a></td></tr>
+<tr><td>L42</td><td>[P1] Q42 · 如何证明压缩节省token且质量不下降</td><td><a href="#q085">Q085</a>、<a href="#q088">Q088</a></td></tr>
+<tr><td>L43</td><td>[P2] Q43 · Claude Code上下文压缩机制了解多少</td><td><a href="#q108">Q108</a></td></tr>
+<tr><td>L44</td><td>[P0] Q44 · RAG检索有哪些指标</td><td><a href="#q046">Q046</a></td></tr>
+<tr><td>L45</td><td>[P1] Q45 · 这些指标怎么计算</td><td><a href="#q087">Q087</a></td></tr>
+<tr><td>L46</td><td>[P0] Q46 · 生成质量怎么评估</td><td><a href="#q040">Q040</a>、<a href="#q046">Q046</a></td></tr>
+<tr><td>L47</td><td>[P0] Q47 · 评测集谁标 如何避免泄漏</td><td><a href="#q047">Q047</a>、<a href="#q088">Q088</a></td></tr>
+<tr><td>L48</td><td>[P0] Q48 · Agent怎么评测</td><td><a href="#q046">Q046</a>、<a href="#q068">Q068</a></td></tr>
+<tr><td>L49</td><td>[P0] Q49 · 怎样设计消融实验</td><td><a href="#q021">Q021</a>、<a href="#q049">Q049</a></td></tr>
+<tr><td>L50</td><td>[P1] Q50 · 生产准入看什么</td><td><a href="#q093">Q093</a></td></tr>
+<tr><td>L51</td><td>[P1] Q51 · 为什么选pgvector 不选Milvus或Qdrant</td><td><a href="#q054">Q054</a></td></tr>
+<tr><td>L52</td><td>[P1] Q52 · 精确检索 HNSW IVFFlat有什么区别</td><td><a href="#q054">Q054</a>、<a href="#q075">Q075</a></td></tr>
+<tr><td>L53</td><td>[P1] Q53 · HNSW参数如何调</td><td><a href="#q075">Q075</a></td></tr>
+<tr><td>L54</td><td>[P1] Q54 · 余弦 内积 L2如何选</td><td><a href="#q076">Q076</a></td></tr>
+<tr><td>L55</td><td>[P1] Q55 · 中文检索有哪些坑</td><td><a href="#q018">Q018</a>、<a href="#q073">Q073</a>、<a href="#q102">Q102</a></td></tr>
+<tr><td>L56</td><td>[P1] Q56 · 增量更新和Embedding迁移怎么做</td><td><a href="#q077">Q077</a>、<a href="#q078">Q078</a></td></tr>
+<tr><td>L57</td><td>[P1] Q57 · 多租户权限和删除怎样保证</td><td><a href="#q079">Q079</a>、<a href="#q099">Q099</a></td></tr>
+<tr><td>L58</td><td>[P1] Q58 · 数据为什么不能全放JSON或全放向量库</td><td><a href="#q009">Q009</a>、<a href="#q077">Q077</a></td></tr>
+<tr><td>L59</td><td>[P1] Q59 · 慢SQL怎么查 索引为什么没用</td><td><a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td>L60</td><td>[P1] Q60 · 为什么不一开始就用Redis MQ和图数据库</td><td><a href="#q053">Q053</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td>L61</td><td>[P1] Q61 · 多Agent比单Agent好在哪里</td><td><a href="#q072">Q072</a></td></tr>
+<tr><td>L62</td><td>[P1] Q62 · 中心调度如何拆任务与合并</td><td><a href="#q072">Q072</a></td></tr>
+<tr><td>L63</td><td>[P0] Q63 · MCP是什么 与Function Calling和HTTP有什么关系</td><td><a href="#q066">Q066</a></td></tr>
+<tr><td>L64</td><td>[P0] Q64 · SSE与WebSocket如何选</td><td><a href="#q042">Q042</a>、<a href="#q111">Q111</a></td></tr>
+<tr><td>L65</td><td>[P0] Q65 · 长任务崩溃后怎么恢复</td><td><a href="#q069">Q069</a>、<a href="#q092">Q092</a></td></tr>
+<tr><td>L66</td><td>[P1] Q66 · 共享对象和异步上下文污染怎么发生</td><td><a href="#q070">Q070</a>、<a href="#q104">Q104</a></td></tr>
+<tr><td>L67</td><td>[P1] Q67 · 缓存怎么设计 如何避免旧知识复活</td><td><a href="#q080">Q080</a></td></tr>
+<tr><td>L68</td><td>[P0] Q68 · 限流与背压如何实现</td><td><a href="#q081">Q081</a></td></tr>
+<tr><td>L69</td><td>[P1] Q69 · 如何记录监控而不泄露健康资料</td><td><a href="#q090">Q090</a></td></tr>
+<tr><td>L70</td><td>[P0] Q70 · P95延迟如何拆解和优化</td><td><a href="#q084">Q084</a></td></tr>
+<tr><td>L71</td><td>[P0] Q71 · 如何估算成本和容量</td><td><a href="#q044">Q044</a>、<a href="#q053">Q053</a></td></tr>
+<tr><td>L72</td><td>[P1] Q72 · 服务突然CPU或内存升高怎么查</td><td><a href="#q084">Q084</a>、<a href="#q105">Q105</a></td></tr>
+<tr><td>L73</td><td>[P1] Q73 · 从输入URL到响应发生什么</td><td><a href="#q042">Q042</a>、<a href="#q084">Q084</a></td></tr>
+<tr><td>L74</td><td>[P1] Q74 · 线程 进程 协程及Python GIL如何回答</td><td><a href="#q042">Q042</a>、<a href="#q083">Q083</a>、<a href="#q105">Q105</a></td></tr>
+<tr><td>L75</td><td>[P1] Q75 · 数据库事务 CAS和锁怎么选</td><td><a href="#q070">Q070</a></td></tr>
+<tr><td>L76</td><td>[P1] Q76 · Redis Lua为什么不宜执行长脚本</td><td><a href="#q106">Q106</a></td></tr>
+<tr><td>L77</td><td>[P1] Q77 · 索引 回表 深分页和消息队列还会问吗</td><td><a href="#q106">Q106</a></td></tr>
+<tr><td>L78</td><td>[P1] Q78 · AI Coding全流程怎么控制质量</td><td><a href="#q094">Q094</a></td></tr>
+<tr><td>L79</td><td>[P1] Q79 · PRD和技术方案各写什么</td><td><a href="#q095">Q095</a></td></tr>
+<tr><td>L80</td><td>[P2] Q80 · 如何证明开源项目研究深度</td><td><a href="#q095">Q095</a>、<a href="#q100">Q100</a></td></tr>
+<tr><td>L81</td><td>[P0] Q81 · Transformer和Attention与应用开发的关系</td><td><a href="#q059">Q059</a></td></tr>
+<tr><td>L82</td><td>[P0] Q82 · KV Cache Prompt Cache和记忆有什么区别</td><td><a href="#q060">Q060</a>、<a href="#q105">Q105</a></td></tr>
+<tr><td>L83</td><td>[P0] Q83 · 温度 top_p max_tokens怎么选</td><td><a href="#q061">Q061</a></td></tr>
+<tr><td>L84</td><td>[P1] Q84 · 本地模型如何估显存 何时选API</td><td><a href="#q105">Q105</a></td></tr>
+<tr><td>L85</td><td>[P1] Q85 · 什么情况下需要微调</td><td><a href="#q062">Q062</a></td></tr>
+<tr><td>L86</td><td>[P2] Q86 · GraphRAG何时有价值</td><td><a href="#q057">Q057</a></td></tr>
+<tr><td>L87</td><td>[P2] Q87 · Agentic RAG CRAG Self RAG怎么理解</td><td><a href="#q096">Q096</a></td></tr>
+<tr><td>L88</td><td>[P1] Q88 · 对抗测试和红队怎么设计</td><td><a href="#q089">Q089</a></td></tr>
+<tr><td>L89</td><td>[P1] Q89 · 手撕会考什么 怎么准备</td><td><a href="#q087">Q087</a>、<a href="#q094">Q094</a></td></tr>
+<tr><td>L90</td><td>[P2] Q90 · HR与反问怎么准备</td><td><a href="#q100">Q100</a></td></tr>
+</tbody></table></div>
+<p>原件最后的追问链练习迁到<a href="#foundations">本手册追问路线</a>，不另算第91道题。</p>
+<h4 id="sources-h7">4.2 AI实操18题映射</h4>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>原题</th><th>原标题</th><th>本手册</th></tr></thead><tbody>
+<tr><td>A01</td><td>[P0] 01 · Token、分词和自回归生成是什么？</td><td><a href="#q058">Q058</a></td></tr>
+<tr><td>A02</td><td>[P0] 02 · Attention 至少要解释到什么程度？</td><td><a href="#q059">Q059</a></td></tr>
+<tr><td>A03</td><td>[P0] 03 · Prefill、Decode、TTFT 和 KV Cache 有什么关系？</td><td><a href="#q060">Q060</a>、<a href="#q105">Q105</a></td></tr>
+<tr><td>A04</td><td>[P0] 04 · Temperature、top_p、输出上限和停止原因如何理解？</td><td><a href="#q031">Q031</a>、<a href="#q061">Q061</a></td></tr>
+<tr><td>A05</td><td>[P0] 05 · 如何选择普通模型、推理模型和本地模型？</td><td><a href="#q017">Q017</a>、<a href="#q105">Q105</a></td></tr>
+<tr><td>A06</td><td>[P1] 06 · SFT、LoRA、DPO 和 RAG 分别解决什么问题？</td><td><a href="#q002">Q002</a>、<a href="#q062">Q062</a></td></tr>
+<tr><td>A07</td><td>[P0] 07 · 怎样写一个可以测试的提示词？</td><td><a href="#q030">Q030</a>、<a href="#q112">Q112</a></td></tr>
+<tr><td>A08</td><td>[P0] 08 · 一次模型调用从请求到返回应有哪些环节？</td><td><a href="#q042">Q042</a>、<a href="#q082">Q082</a>、<a href="#q104">Q104</a></td></tr>
+<tr><td>A09</td><td>[P0] 09 · 429、超时、断流和无效 JSON 分别如何处理？</td><td><a href="#q031">Q031</a>、<a href="#q043">Q043</a></td></tr>
+<tr><td>A10</td><td>[P1] 10 · 模型路由、降级和缓存怎样避免改变业务含义？</td><td><a href="#q080">Q080</a>、<a href="#q098">Q098</a></td></tr>
+<tr><td>A11</td><td>[P0] 11 · 结构化输出为什么仍需要业务校验？</td><td><a href="#q032">Q032</a>、<a href="#q112">Q112</a></td></tr>
+<tr><td>A12</td><td>[P0] 12 · LangGraph 的状态、节点、边和 reducer 怎样配合？</td><td><a href="#q063">Q063</a>、<a href="#q069">Q069</a></td></tr>
+<tr><td>A13</td><td>[P1] 13 · Checkpoint、interrupt 和恢复时容易犯什么错？</td><td><a href="#q069">Q069</a>、<a href="#q092">Q092</a></td></tr>
+<tr><td>A14</td><td>[P0] 14 · 一个受控只读 Agent 的最小实现包含什么？</td><td><a href="#q065">Q065</a>、<a href="#q091">Q091</a></td></tr>
+<tr><td>A15</td><td>[P0] 15 · Agent 怎样判断完成，而不只相信模型说完成？</td><td><a href="#q038">Q038</a>、<a href="#q068">Q068</a></td></tr>
+<tr><td>A16</td><td>[P0] 16 · 一份可以运行的评测集需要哪些字段？</td><td><a href="#q046">Q046</a>、<a href="#q047">Q047</a></td></tr>
+<tr><td>A17</td><td>[P0] 17 · 怎样运行一个最小检索评测脚本？</td><td><a href="#q087">Q087</a></td></tr>
+<tr><td>A18</td><td>[P0] 18 · 怎样把评测、Trace 和优化形成闭环？</td><td><a href="#q046">Q046</a>、<a href="#q084">Q084</a>、<a href="#q090">Q090</a></td></tr>
+</tbody></table></div>
+<p>教学只读Agent、LangGraph等仅说明设计，不写成产品代码。</p>
+<h4 id="sources-h8">4.3 旧项目案例45专题映射与更正</h4>
+<p>该原件明确为2026-10-28快照。保留原文，使用时按当前事实修正。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>旧快照说法</th><th>当前核对</th></tr></thead><tbody>
+<tr><td>v1：7来源/53证据/155事实</td><td>v2：11/98/260；目标包另计，不抹去旧版身份</td></tr>
+<tr><td>Embedding尚未接入/没有真实调用</td><td>研究双Embedding和PG索引已有；业务有5次界面调用，未证明线上效果</td></tr>
+<tr><td>20题回归</td><td>后续27题工程调试集已曝光；仍无独立临床gold</td></tr>
+<tr><td>server/、data/等旧目录</td><td>当前backend/src、datasets；历史记录不批量改写成新验收</td></tr>
+<tr><td>目标链/规划能力</td><td>以本手册业务/研究/候选三层区分，不把规划目录当完成</td></tr>
+</tbody></table></div>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>专题</th><th>原标题</th><th>当前回答</th></tr></thead><tbody>
+<tr><td>P01</td><td>[P1] 检索基线与结果口径</td><td><a href="#q001">Q001</a></td></tr>
+<tr><td>P02</td><td>[P0] 当前链路</td><td><a href="#q005">Q005</a></td></tr>
+<tr><td>P03</td><td>[P0] 目标链路</td><td><a href="#q005">Q005</a>、<a href="#q007">Q007</a></td></tr>
+<tr><td>P04</td><td>[P0] 定义最小业务闭环</td><td><a href="#q005">Q005</a>、<a href="#q037">Q037</a></td></tr>
+<tr><td>P05</td><td>[P1] 先准备评测规范 再扩数据</td><td><a href="#q102">Q102</a></td></tr>
+<tr><td>P06</td><td>[P1] 来源登记和资料解析</td><td><a href="#q008">Q008</a>、<a href="#q011">Q011</a></td></tr>
+<tr><td>P07</td><td>[P1] 设计实体与事实模型</td><td><a href="#q009">Q009</a>、<a href="#q010">Q010</a></td></tr>
+<tr><td>P08</td><td>[P1] 构建可复用切块器</td><td><a href="#q012">Q012</a>、<a href="#q013">Q013</a>、<a href="#q014">Q014</a></td></tr>
+<tr><td>P09</td><td>[P1] 建中文词法基线</td><td><a href="#q018">Q018</a>、<a href="#q074">Q074</a></td></tr>
+<tr><td>P10</td><td>[P1] 对照Embedding并解决在线编码</td><td><a href="#q017">Q017</a>、<a href="#q077">Q077</a></td></tr>
+<tr><td>P11</td><td>[P1] 召回 融合 重排与上下文</td><td><a href="#q019">Q019</a>、<a href="#q025">Q025</a>、<a href="#q027">Q027</a></td></tr>
+<tr><td>P12</td><td>[P0] 条件判断与真实菜谱绑定</td><td><a href="#q015">Q015</a>、<a href="#q029">Q029</a></td></tr>
+<tr><td>P13</td><td>[P1] 建受控Agent和工具契约</td><td><a href="#q036">Q036</a>、<a href="#q065">Q065</a></td></tr>
+<tr><td>P14</td><td>[P1] 上下文管理与个人记忆</td><td><a href="#q034">Q034</a>、<a href="#q085">Q085</a></td></tr>
+<tr><td>P15</td><td>[P1] 验收 灰度与持续维护</td><td><a href="#q046">Q046</a>、<a href="#q093">Q093</a></td></tr>
+<tr><td>P16</td><td>[P1] 一个可以在白板上讲的切块例子</td><td><a href="#q005">Q005</a></td></tr>
+<tr><td>P17</td><td>[P1] 中文查询处理流程</td><td><a href="#q023">Q023</a></td></tr>
+<tr><td>P18</td><td>[P1] 为什么不直接让模型判食材安全</td><td><a href="#q006">Q006</a>、<a href="#q030">Q030</a></td></tr>
+<tr><td>P19</td><td>[P1] 当前结构可以复用什么</td><td><a href="#q009">Q009</a></td></tr>
+<tr><td>P20</td><td>[P1] 版本如何同时生效</td><td><a href="#q011">Q011</a>、<a href="#q077">Q077</a></td></tr>
+<tr><td>P21</td><td>[P1] 个人数据怎样隔离</td><td><a href="#q024">Q024</a>、<a href="#q035">Q035</a></td></tr>
+<tr><td>P22</td><td>[P1] 案例一 食材同名与形态导致证据混用</td><td><a href="#q013">Q013</a>、<a href="#q076">Q076</a></td></tr>
+<tr><td>P23</td><td>[P1] 案例二 来源正文和表格不一致</td><td><a href="#q008">Q008</a>、<a href="#q012">Q012</a></td></tr>
+<tr><td>P24</td><td>[P1] 案例三 烹调减少不等于整餐减少</td><td><a href="#q084">Q084</a></td></tr>
+<tr><td>P25</td><td>[P1] 案例四 模型建议不能越过用户意图</td><td><a href="#q003">Q003</a>、<a href="#q071">Q071</a></td></tr>
+<tr><td>P26</td><td>[P1] 案例五 重复请求可能重复消费</td><td><a href="#q070">Q070</a>、<a href="#q081">Q081</a></td></tr>
+<tr><td>P27</td><td>[P1] 案例六 有知识库不代表已经有RAG产品</td><td><a href="#q036">Q036</a>、<a href="#q093">Q093</a></td></tr>
+<tr><td>P28</td><td>[P0] 三个适合后续真正做出成果的实验</td><td><a href="#q050">Q050</a></td></tr>
+<tr><td>P29</td><td>[P1] 为什么不用纯向量检索</td><td><a href="#q004">Q004</a></td></tr>
+<tr><td>P30</td><td>[P1] 为什么先用PG而不选图数据库</td><td><a href="#q054">Q054</a>、<a href="#q057">Q057</a></td></tr>
+<tr><td>P31</td><td>[P1] 当前chunk怎么做的 与自动切块有什么区别</td><td><a href="#q012">Q012</a></td></tr>
+<tr><td>P32</td><td>[P1] 为什么Embedding还没定 能不能说用了BGE</td><td><a href="#q017">Q017</a></td></tr>
+<tr><td>P33</td><td>[P1] 召回不到证据怎么办</td><td><a href="#q019">Q019</a></td></tr>
+<tr><td>P34</td><td>[P0] 为什么现有20题不够</td><td><a href="#q047">Q047</a></td></tr>
+<tr><td>P35</td><td>[P1] 怎样计算上下文压缩的收益</td><td><a href="#q029">Q029</a>、<a href="#q085">Q085</a></td></tr>
+<tr><td>P36</td><td>[P1] 健康建议冲突如何解决</td><td><a href="#q035">Q035</a></td></tr>
+<tr><td>P37</td><td>[P1] 为什么不让模型生成新菜谱</td><td><a href="#q003">Q003</a>、<a href="#q038">Q038</a></td></tr>
+<tr><td>P38</td><td>[P1] 如果用户说删除知识库怎么办</td><td><a href="#q099">Q099</a></td></tr>
+<tr><td>P39</td><td>[P0] 云函数如何保证一次调用</td><td><a href="#q070">Q070</a></td></tr>
+<tr><td>P40</td><td>[P1] 为什么有AI偏好还需要RAG</td><td><a href="#q005">Q005</a>、<a href="#q045">Q045</a></td></tr>
+<tr><td>P41</td><td>[P1] 换模型怎样避免旧摘要污染</td><td><a href="#q086">Q086</a>、<a href="#q099">Q099</a></td></tr>
+<tr><td>P42</td><td>[P1] 你还缺什么 为什么值得继续做</td><td><a href="#q007">Q007</a></td></tr>
+<tr><td>P43</td><td>[P1] 当前可以使用的简历表达</td><td><a href="#q107">Q107</a></td></tr>
+<tr><td>P44</td><td>[P1] 实现后才能写的表达</td><td><a href="#q100">Q100</a></td></tr>
+<tr><td>P45</td><td>[P1] 五分钟演示脚本</td><td><a href="#q005">Q005</a>、<a href="#q094">Q094</a></td></tr>
+</tbody></table></div>
+<h3 id="sources-h9">5. 用户指定博主：公开图文逐项筛选</h3>
+<p>分享链接解析到<a href="https://www.douyin.com/note/7692045240148158329" target="_blank" rel="noopener noreferrer">字节Agent图文</a>，作者小流浪_coding。主页显示18作品，但只提供17个公开note链接；已取得这17条全部196张图片并做本地Windows OCR和主题筛选，无需登录。<strong>剩余1项未核对，不宣称读完所有视频或所有作品。</strong> OCR仍为recognized_requires_review，未完成196页逐字人工校对；已目视核对指定帖与RAG帖的首图。原图/全文OCR仅在Git忽略的本地资料区，不在本手册转发。来源清单只含页面链接、数量和图片hash。</p>
+<p>内容是作者自述/整理，未核实为招聘方原题。技术答案须再按官方来源校验；例如“数据库热更新必须由Agent完成”“失败自动重试/降级”均不照抄。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>页面</th><th>图片数</th><th>筛选处置</th><th>对应回答</th></tr></thead><tbody>
+<tr><td><a href="https://www.douyin.com/note/7692045240148158329" target="_blank" rel="noopener noreferrer">用户指定字节Agent</a></td><td>22</td><td>Schema、DB错误/热更新、MCP、回调、上下文、检索/质量/耗时/并发；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q012">Q012</a>、<a href="#q046">Q046</a>、<a href="#q066">Q066</a>、<a href="#q081">Q081</a>、<a href="#q084">Q084</a>、<a href="#q085">Q085</a>、<a href="#q109">Q109</a>、<a href="#q110">Q110</a>、<a href="#q111">Q111</a>、<a href="#q112">Q112</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7679008460893275577" target="_blank" rel="noopener noreferrer">录用/鼓励</a></td><td>1</td><td>排除：不是技术问答</td><td>不纳入</td></tr>
+<tr><td><a href="https://www.douyin.com/note/7682726464899133425" target="_blank" rel="noopener noreferrer">Java高频</a></td><td>10</td><td>仅保留性能/并发排查含义；纯Java排除</td><td><a href="#q081">Q081</a>、<a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7679325816744801915" target="_blank" rel="noopener noreferrer">Java+Agent学习路线</a></td><td>5</td><td>保留AI学习主题；路线/求职建议非实现</td><td><a href="#q058">Q058</a>、<a href="#q063">Q063</a>、<a href="#q095">Q095</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7703481881736318331" target="_blank" rel="noopener noreferrer">美团后端</a></td><td>6</td><td>保留事务、幂等、定位思路；Spring细节排除；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q070">Q070</a>、<a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7701625628290813433" target="_blank" rel="noopener noreferrer">腾讯Agent</a></td><td>6</td><td>保留多库路由、权限、改写、Embedding空间；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q073">Q073</a>、<a href="#q079">Q079</a>、<a href="#q085">Q085</a>、<a href="#q098">Q098</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7700197951720897787" target="_blank" rel="noopener noreferrer">火山引擎Agent</a></td><td>24</td><td>保留RAG、429/幂等、无MQ任务及上下文；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q043">Q043</a>、<a href="#q070">Q070</a>、<a href="#q085">Q085</a>、<a href="#q092">Q092</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7698282660913214385" target="_blank" rel="noopener noreferrer">滴滴后端</a></td><td>6</td><td>只保留可迁移后端问题；Java类库排除；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q081">Q081</a>、<a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7696802320793072113" target="_blank" rel="noopener noreferrer">小红书Agent</a></td><td>18</td><td>保留Agent/RAG、状态/工具、质量与工程主题；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q036">Q036</a>、<a href="#q063">Q063</a>、<a href="#q065">Q065</a>、<a href="#q069">Q069</a>、<a href="#q090">Q090</a>、<a href="#q112">Q112</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7690881786724885178" target="_blank" rel="noopener noreferrer">得物中间件AI</a></td><td>14</td><td>保留工程与AI边界，未使用中间件不写成果；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q066">Q066</a>、<a href="#q070">Q070</a>、<a href="#q081">Q081</a>、<a href="#q092">Q092</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7688335719730975162" target="_blank" rel="noopener noreferrer">SHEIN Java</a></td><td>17</td><td>纯Java排除；索引/并发问题归后端储备；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q070">Q070</a>、<a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7687172008442180465" target="_blank" rel="noopener noreferrer">八股/实习建议</a></td><td>2</td><td>排除：求职建议，不作为技术事实</td><td>不纳入</td></tr>
+<tr><td><a href="https://www.douyin.com/note/7686779935658378469" target="_blank" rel="noopener noreferrer">字节日常实习</a></td><td>17</td><td>保留异常/并发/工程含义；纯Java题排除；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q070">Q070</a>、<a href="#q081">Q081</a>、<a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7685610042947250097" target="_blank" rel="noopener noreferrer">大三实习建议</a></td><td>2</td><td>排除：与RAG技术链无直接关系</td><td>不纳入</td></tr>
+<tr><td><a href="https://www.douyin.com/note/7684107453315805627" target="_blank" rel="noopener noreferrer">高德后端</a></td><td>17</td><td>保留数据库/性能/并发储备；Java细节排除；末尾重复AI题库合并到下表，不重复计题</td><td><a href="#q070">Q070</a>、<a href="#q084">Q084</a>、<a href="#q106">Q106</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7682997575276292273" target="_blank" rel="noopener noreferrer">RAG笔记</a></td><td>11</td><td>保留构建、切块、检索、评测主题</td><td><a href="#q008">Q008</a>、<a href="#q012">Q012</a>、<a href="#q017">Q017</a>、<a href="#q019">Q019</a>、<a href="#q027">Q027</a>、<a href="#q046">Q046</a>、<a href="#q054">Q054</a></td></tr>
+<tr><td><a href="https://www.douyin.com/note/7682335211371931825" target="_blank" rel="noopener noreferrer">Agent笔记</a></td><td>18</td><td>保留工作流/循环、工具、记忆、成本与观测</td><td><a href="#q036">Q036</a>、<a href="#q045">Q045</a>、<a href="#q063">Q063</a>、<a href="#q064">Q064</a>、<a href="#q068">Q068</a>、<a href="#q090">Q090</a></td></tr>
+</tbody></table></div>
+<h4 id="sources-h10">多帖末尾重复的AI题库：合并后的主题映射</h4>
+<p>部分Java面经末尾也附Agent/RAG/协议题库，不能因帖子标题是Java而一并漏掉。下列问题主题来自这些重复页及RAG/Agent笔记，均按本项目状态回答。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>合并主题</th><th>回答</th></tr></thead><tbody>
+<tr><td>RAG定义、完整离线/在线链及模型边界</td><td><a href="#q002">Q002</a>、<a href="#q003">Q003</a>、<a href="#q005">Q005</a></td></tr>
+<tr><td>文档存储、切块、单文档、表格及参数</td><td><a href="#q008">Q008</a>、<a href="#q009">Q009</a>、<a href="#q012">Q012</a>、<a href="#q013">Q013</a>、<a href="#q014">Q014</a></td></tr>
+<tr><td>Embedding、检索流程、向量库与IVF/HNSW</td><td><a href="#q017">Q017</a>、<a href="#q054">Q054</a>、<a href="#q075">Q075</a>、<a href="#q076">Q076</a></td></tr>
+<tr><td>意图定向/全局搜索、词法/向量、多路召回</td><td><a href="#q018">Q018</a>、<a href="#q019">Q019</a>、<a href="#q020">Q020</a>、<a href="#q065">Q065</a>、<a href="#q098">Q098</a></td></tr>
+<tr><td>检索优化、低召回排查、重排与偏题</td><td><a href="#q025">Q025</a>、<a href="#q026">Q026</a>、<a href="#q027">Q027</a>、<a href="#q073">Q073</a>、<a href="#q103">Q103</a></td></tr>
+<tr><td>冲突、幻觉与证据支持的评测</td><td><a href="#q024">Q024</a>、<a href="#q030">Q030</a>、<a href="#q032">Q032</a>、<a href="#q035">Q035</a>、<a href="#q046">Q046</a></td></tr>
+<tr><td>Agent框架、Workflow/Tools、LLM/RAG关系</td><td><a href="#q036">Q036</a>、<a href="#q063">Q063</a>、<a href="#q064">Q064</a>、<a href="#q067">Q067</a></td></tr>
+<tr><td>CoT/ToT/ReAct/Planning及循环控制</td><td><a href="#q063">Q063</a>、<a href="#q068">Q068</a>、<a href="#q096">Q096</a></td></tr>
+<tr><td>短期/长期记忆、抽取存储检索、上下文压缩</td><td><a href="#q045">Q045</a>、<a href="#q080">Q080</a>、<a href="#q085">Q085</a>、<a href="#q086">Q086</a></td></tr>
+<tr><td>工具选择/失败、过大返回、过多Schema</td><td><a href="#q043">Q043</a>、<a href="#q065">Q065</a>、<a href="#q085">Q085</a>、<a href="#q091">Q091</a>、<a href="#q111">Q111</a></td></tr>
+<tr><td>多用户稳定性、异步任务、追踪、可靠性</td><td><a href="#q069">Q069</a>、<a href="#q070">Q070</a>、<a href="#q081">Q081</a>、<a href="#q090">Q090</a>、<a href="#q092">Q092</a>、<a href="#q112">Q112</a></td></tr>
+<tr><td>Function Calling、MCP、Skill、CLI、SSE/WS</td><td><a href="#q064">Q064</a>、<a href="#q066">Q066</a>、<a href="#q067">Q067</a>、<a href="#q111">Q111</a></td></tr>
+</tbody></table></div>
+<p>CLI是程序命令入口，Skill偏任务说明/资源，MCP是工具/资源协议，三者不是谁替代谁。小模型摘要、大量工具Schema裁减、内容索引定位等追加场景见<a href="#foundations">理论与练习</a>，均明确当前未实现的部分。</p>
+<h4 id="sources-h11">外部面经补充：发现问题，不当权威答案</h4>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>公开自述/讨论</th><th>采用的追问主题</th><th>回答</th></tr></thead><tbody>
+<tr><td><a href="https://www.nowcoder.com/discuss/940040254214389760?sourceSSR=users" target="_blank" rel="noopener noreferrer">公开讨论1</a></td><td>项目复盘、业务、gold、混合检索与框架</td><td><a href="#q005">Q005</a>、<a href="#q019">Q019</a>、<a href="#q047">Q047</a>、<a href="#q069">Q069</a>、<a href="#q094">Q094</a></td></tr>
+<tr><td><a href="https://www.nowcoder.com/discuss/928067497637478400" target="_blank" rel="noopener noreferrer">公开讨论2</a></td><td>RRF常数、错误传播与成本证据</td><td><a href="#q021">Q021</a>、<a href="#q044">Q044</a>、<a href="#q050">Q050</a>、<a href="#q094">Q094</a></td></tr>
+<tr><td><a href="https://www.nowcoder.com/discuss/869231276035760128" target="_blank" rel="noopener noreferrer">公开讨论3</a></td><td>RAG、Memory与意图评测</td><td><a href="#q045">Q045</a>、<a href="#q046">Q046</a>、<a href="#q065">Q065</a></td></tr>
+<tr><td><a href="https://www.nowcoder.com/discuss/927526880675205120" target="_blank" rel="noopener noreferrer">公开讨论4</a></td><td>身份、幂等与故障状态</td><td><a href="#q070">Q070</a>、<a href="#q082">Q082</a>、<a href="#q104">Q104</a></td></tr>
+</tbody></table></div>
+<p>没有“全网所有面试题”的可验证边界。本手册覆盖本次给定资料和公开可访问补充，按业务相关性合并为112张卡；重复提问归同一答案，非项目技术标明储备，纯招聘/Java细节排除。后续发现新题应先定位缺的是知识解释、实现还是证据，不因多一个热词就扩建系统。</p></section><section class="chapter" id="parameters" data-label="附录：全部参数实测" hidden><h2 id="parameters-h1">RAG 全链路实现与参数核对：切块、检索、增强及生成</h2>
+<p>核对日期：2026-11-06；测量代码基线<code>187ba823ebd99869ac88cb64748ac196133919d8</code>，已随RAG-005集成；RAG-006纳入main <code>7ae73569dad8478c5b05bf63b65cf26098f3f8c5</code>管理结论，运行/数据代码保持一致。本文回答“具体怎么做、参数是多少、为什么、比较过吗”，补充<a href="../rag-technology-explained.md">技术原理说明</a>。本次只核对、离线测量和补文档，不更改推荐或知识/索引，不发起Embedding模型推理、生成API或部署。</p>
+<p>口径：<strong>业务</strong>＝本地疾病/目标指导和实际菜谱选择；<strong>研究</strong>＝独立证据问答及A1/dense/hybrid；<strong>候选</strong>＝清洗/表格/OCR派生资料。当前业务选菜没有调用dense/hybrid，新清洗块尚未接入旧索引。参数表中的“工程初值”表示解释其作用和取舍，不冒充历史上已做过选型实验；有回归不等于做过参数消融。</p>
+<h3 id="parameters-h2">1. 切块的实际实现：没有配置512-token滑窗</h3>
+<h4 id="parameters-h3">1.1 当前到底怎样切</h4>
+<ol>
+<li>冻结v2的98条证据由两代构建脚本整理，标记<code>proposition-v1</code>。脚本事先写明来源、页/章节、起始原文、可选结束原文及整理摘要，再从规范化文本中摘取相应范围。</li>
+<li>没有结束锚点时，只摘取起始字符串本身；有结束锚点时，从起点取到随后第一个结束锚点。PDF操作限定在指定物理页，不能自动跨页补齐；视觉证据是指定图像区域的目视短摘。旧构建器用<code>find</code>选锚点，并不是通用语义边界识别器，旧导航误引正是需要修正的真实缺陷。</li>
+<li>所谓“命题级”是整理意图和版本标签，<strong>不是已经实现自动命题抽取或经过比较选出的语义切块算法</strong>。内容由脚本明确整理，不是LLM自动抽取整库事实。</li>
+<li>没有统一<code>chunk_size</code>、目标token长度、最小语义长度或滑窗<code>overlap</code>。Schema仅要求<code>originalSpan</code>非空，没有切块长度上限；后续Embedding接口有输入保护限制，两者不能混称。</li>
+<li>没有滑窗重叠参数不表示原文区间绝不重叠：在可比较的同源/同页/同规范化偏移中，实测有1对重叠（<code>dm-carbs</code>与<code>dm-low-gi</code>）。视觉引用不能靠字符偏移计算重叠。</li>
+<li>实际向量化的是<code>retrievalText</code>。继承v1的53条为<code>章节 + 空格 + 摘要 + 空格 + 原文</code>，v2新增45条为<code>摘要 + 空格 + 原文</code>。没有把这两种格式重新统一，也没有验证加章节/摘要一定更好。</li>
+<li>新目标包有4条原文短摘，31～53字符，没有<code>retrievalText</code>，未建立目标向量。业务通过主题/条件直接读取这些指导，不靠向量找出它们。</li>
+</ol>
+<p>代码：<code>scripts/build-health-knowledge.py:ev</code>、<code>scripts/build-health-knowledge-v2.py:ev/evidence_row/visual</code>、<code>scripts/build-goal-guidance.py:ev</code>；长度合约见<code>datasets/health/knowledge-bundle.schema.json</code>。</p>
+<h4 id="parameters-h4">1.2 真实长度测量</h4>
+<p>本次读取冻结原件字段和已存在的本地tokenizer；不加载Embedding模型权重、不计算新向量、不调用API。字符按Unicode码点计；分位数使用nearest-rank，即排序后<code>ceil(p×n)-1</code>。token使用相应固定revision的tokenizer、<code>add_special_tokens=True</code>、<code>truncation=False</code>，document不加query前缀。不同tokenizer的token数不能互换。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>当前98条证据</th><th>最小</th><th>P50</th><th>P95</th><th>最大</th><th>总计</th></tr></thead><tbody>
+<tr><td>原文字符</td><td>7</td><td>64</td><td>168</td><td>357</td><td>7,797</td></tr>
+<tr><td>实际检索文本字符</td><td>33</td><td>95</td><td>190</td><td>397</td><td>10,481</td></tr>
+<tr><td>原文Qwen token（单独测量，非单独建索引）</td><td>4</td><td>44</td><td>106</td><td>310</td><td>5,476</td></tr>
+<tr><td>实际检索文本Qwen token</td><td>24</td><td>68</td><td>130</td><td>339</td><td>7,515</td></tr>
+<tr><td>原文BGE token（单独测量）</td><td>4</td><td>52</td><td>118</td><td>282</td><td>5,978</td></tr>
+<tr><td>实际检索文本BGE token</td><td>27</td><td>73</td><td>137</td><td>306</td><td>7,936</td></tr>
+</tbody></table></div>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>实际证据key</th><th>原文字符</th><th>检索文本字符</th><th>Qwen检索token</th><th>BGE检索token</th><th>边界说明</th></tr></thead><tbody>
+<tr><td><code>ht-potassium</code></td><td>93</td><td>131</td><td>105</td><td>107</td><td>按指定起止原文保留富钾指导及肾功能限定；不是到93字主动截断</td></tr>
+<tr><td><code>go-purine-table</code></td><td>357</td><td>397</td><td>339</td><td>306</td><td>目前最长原文；长度是所选原文范围的结果，不是357字符的目标参数</td></tr>
+<tr><td><code>paper-table1</code></td><td>7</td><td>63</td><td>34</td><td>33</td><td>原文只有表号级锚点；摘要更长不能证明原始支持充分，需关联具体格/行列/单位及脚注重整</td></tr>
+<tr><td><code>nci-reduce</code></td><td>24</td><td>85</td><td>44</td><td>47</td><td>已查出旧定位来自导航；短摘存在不等于支持事实，旧冻结库及向量本次没有替换</td></tr>
+</tbody></table></div>
+<p>数据、每条token数、模型身份及代码hash见<a href="../../../artifacts/acceptance/rag-parameter-audit-2026-11-06/chunk-statistics.json">测量JSON</a>。长度统计覆盖旧冻结数据，也包含已发现需重整的引用，不能把统计成功当成语义准入。</p>
+<h4 id="parameters-h5">1.3 清洗块为什么另算</h4>
+<p>v3候选按HTML的段落/列表项/表格单元格等DOM块归并，PDF按布局恢复后的正文块与独立表格块组织；块间以换行分隔，并回指原词/节点。它们没有token上限，也不是现有98条向量的重切版本。</p>
+<p>实测13来源/479单元得到<strong>3717个结构块</strong>，长度为最小1、P50为26、P95为798、最大4036字符，总计517,990字符。单元格/标题可能很短，整表可能较长；不能把3717块直接全部向量化并声称“切块设计完成”。尚未实现从清洗块自动生成新证据/事实、父子块检索或按需取父段落的完整接入。</p>
+<p>本次另对这些结构块离线计token（仍不建向量），得到：</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>tokenizer</th><th>最小/P50/P95/最大token</th><th>&gt;128 token块数</th><th>&gt;256块数</th><th>&gt;512块数</th></tr></thead><tbody>
+<tr><td>Qwen</td><td>2 / 16 / 606 / 1934</td><td>449</td><td>321</td><td>223</td></tr>
+<tr><td>BGE</td><td>3 / 17 / 565 / 935</td><td>459</td><td>319</td><td>204</td></tr>
+</tbody></table></div>
+<p>这些计数只能估计若加长度上限会涉及多少原块，<strong>不是已经执行切分或比较检索质量</strong>。大量短块不宜因为“没超限”就单独索引；较长表格也不应只按token位置硬切而丢掉表头/对象关系。</p>
+<h4 id="parameters-h6">1.4 为什么这样做、是否比较过</h4>
+<ul>
+<li>已记录的目标是保留一个声明及其适用人群、否定、例外和单位，方便逐条溯源。脚本指定锚点是小库可落地的整理方式；这解释边界选择，<strong>不能解释成经实验确定64字符或339 token最合适</strong>，它们只是测量结果。</li>
+<li>没有比较过固定128/256/512 token、语义切块、滑窗重叠0/32/64、命题块/段落块/父子块，也没有测统一加入章节/摘要的消融收益。</li>
+<li>当前真实缺口包括：部分短摘过短，摘要可能掩盖原文支持不足；表格需具体行列及脚注；跨页和共用人群限定不能靠一次字符串摘取解决。新资料的切块策略仍需要设计和版本接入，不能从模型8192输入上限推导“块应该8192”。</li>
+</ul>
+<h3 id="parameters-h7">2. 清洗、版面及OCR的具体参数</h3>
+<p>PDF几何值使用原页坐标（通常为point），OCR/扫描网格使用像素；不要把两套数值混用。本组多数为针对现有开发来源的启发式初值，有样例回归和原词守恒核验，<strong>没有系统扫参或独立准确率对照</strong>。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>参数/方法</th><th>代码实际值/行为</th><th>作用及选取依据/对比</th></tr></thead><tbody>
+<tr><td>HTML正文优先级</td><td><code>article=4</code>、<code>main/role=main=3</code>、已知正文/摘要class/id=2；同级选文字更多者；无候选保留根并标待核</td><td>利用网页结构避免全页混入；手工规则，不是经过训练的正文分类分数</td></tr>
+<tr><td>HTML保护与删除</td><td>脚本/样式/template/noscript删除；导航/隐藏区域按角色处理；关键条件/否定、脚注和标题有保护例外</td><td>减少删掉重要限定；也可能保留噪声。无正文提取器横评</td></tr>
+<tr><td>PDF原词提取</td><td><code>extract_words(extra_attrs=[&#x27;size&#x27;], use_text_flow=False)</code>；其余参数沿用锁定pdfplumber版本</td><td>保留字号/框，用自有几何重排；未对照库内部不同容差</td></tr>
+<tr><td>同行归并</td><td>y差容差<code>max(3,min(4,字号×0.22))</code>，只看最近4个候选行</td><td>容忍混合字体基线差异；工程初值</td></tr>
+<tr><td>同行横向分段</td><td>词间距大于<code>max(10,页宽×0.035)</code>才拆段</td><td>避免远处两列串成一行；未扫间距阈值</td></tr>
+<tr><td>数字上下标</td><td>数字字号小于基字母0.8倍，水平邻接小于<code>max(3,基字号×0.4)</code>，垂直重叠至少较小高度20%</td><td>修复维生素字母/数字错序；实际失败前后回归，不扩展成所有上下标已解决</td></tr>
+<tr><td>页边范围</td><td>顶部9%、底部9%</td><td>将重复检测限制在页边，减少误删正文；初值而非最优区间</td></tr>
+<tr><td>重复页边阈值</td><td>支持页数≥<code>max(3,总页数×0.55)</code>；或同奇偶页支持≥<code>max(3,同奇偶页数×0.8)</code>；重复文字须&lt;120非空白字符</td><td>兼容奇偶页页眉和页码；表题/脚注/关键语义继续保护；未比较0.4/0.55/0.7等阈值</td></tr>
+<tr><td>双栏探测</td><td>至少20词；分界遍历页宽42%～58%；行按y/4归组，左右间隙≥页宽2%</td><td>只检测相对居中的双栏；并非通用任意多栏</td></tr>
+<tr><td>双栏成立条件</td><td>支持行≥5且≥35%，穿越分界的行&lt;20%；按<code>支持−2×穿越</code>选候选</td><td>排除孤立空隙；现有开发样例支持，未做参数横评</td></tr>
+<tr><td>正文断行连接</td><td>同栏/同body角色；中文缩进差&lt;45，否则&lt;25；行距&lt;<code>max(14,min(24,字号×1.05))</code>；遇句末或新条目不并</td><td>保守连接，不替换数字/单位/连字符；不是语义段落模型</td></tr>
+<tr><td>有线表</td><td>pdfplumber找到至少2行、首行至少2格</td><td>先保持物理结构，不批准语义表头；沿用库默认表探测设置</td></tr>
+<tr><td>横线表候选</td><td>横线长&gt;页宽70%，区域高≥40、含数字词≥15、与已知表重叠≤50%</td><td>排除部分普通下划线/正文；不证明区域一定是营养表</td></tr>
+<tr><td>无竖线列界</td><td>间隙≥<code>max(12,表宽×0.025)</code>；支持≥<code>max(2,文本行数×0.18)</code>；空隙带宽≥4，避开表两端各5%</td><td>用重复对齐推列界；列界候选数1～12，已有3表回归，无其他表提取器横评</td></tr>
+<tr><td>无竖线宽列补查</td><td>宽列&gt;表宽45%才检查零词框穿越带；连续空白≥6，两侧均至少2行</td><td>修复居中换行标签的漏列；本轮缺陷回归，不是完整列界准确率</td></tr>
+<tr><td>表格序列化</td><td>每个物理格输出一次，按行列排序，保留跨行/列跨度和词ID</td><td>不使用固定字符切表；不能因格完整就生成数值事实</td></tr>
+<tr><td>表题/单位/脚注范围</td><td>表上方45、下方35坐标单位取邻近候选</td><td>避免无限带入附近段落；未做上下文窗口消融</td></tr>
+<tr><td>跨页表候选</td><td>相邻页、明确续表标记、同表号，归一化列界差&lt;0.01；<code>headerInherited=false</code></td><td>不凭位置自动继承表头，仍需语义审核</td></tr>
+<tr><td>表头边界启发式</td><td>含数字格数≥<code>max(2,列数/3)</code>作为首数据行候选；首数据行上限索引4；对象列按标签词，否则回退首列</td><td>仅产生表头路径/对象—值—单位候选，不能当已核营养关系</td></tr>
+<tr><td>OCR触发</td><td>非空白文字&lt;40；或文字&lt;250且图片框面积和&gt;页面45%；乱码另标</td><td>进入待识别/待核队列，不把少字页默认识别成功</td></tr>
+<tr><td>OCR引擎/语言</td><td>Windows.Media.Ocr；固定引擎/语言资源hash；英文来源用<code>en-US</code>，其他用<code>zh-Hans-CN</code></td><td>复用现有离线资源；没有与其他引擎比较，也不自动检测所有混排语言</td></tr>
+<tr><td>PDF渲染</td><td>144与216dpi两组；长图原尺寸与1.5倍</td><td>观察分辨率差异，成本低且可复现；未对照更多dpi；一致不等于正确</td></tr>
+<tr><td>长图分片</td><td>边长≤3000px、重叠180px，步长2820px；覆盖末端；引擎最大边长10000px</td><td>避免超限及截断；180px是保留边界上下文的工程初值，没有重叠量消融</td></tr>
+<tr><td>OCR旋转/置信度</td><td>非零角度不猜回原坐标，扫描网格跳过；词confidence为null</td><td>API没提供置信度，不伪造0.9；没有自动旋转纠正已通过的结论</td></tr>
+<tr><td>扫描网格暗像素</td><td>灰度&lt;145；扩散半径<code>clamp(round(宽×0.0035),2,8)</code>；邻近线位置差≤4px归组</td><td>容忍扫描直线漂移；不是深度表格识别模型，阈值未横评</td></tr>
+<tr><td>扫描网格成立</td><td>横向覆盖≥60%、纵向≥65%；至少3横线、跨度≥50px；纵线数3～24、横线≤100、横跨度≥图宽35%</td><td>限定有线表候选，保留复杂表漏检；表上80px/下60px取标题和脚注候选</td></tr>
+<tr><td>原词/节点守恒</td><td>缺失、重复、未知引用均为0；原字符只能保留或带原因删除</td><td>结构保真门禁是严格约定，不是可放宽的质量平均分</td></tr>
+<tr><td>重复资料/块</td><td>原件/产物hash及ID核验；检索/上下文按fact/evidence ID去重；没有通用MinHash、SimHash或语义近重复聚类</td><td>不把多次转载当独立支持；一般重复块治理仍不能称完整完成</td></tr>
+<tr><td>旧引用消歧</td><td>原件hash、旧规范化/偏移逐字核对；多命中用前后各48个旧文本字符再去空白唯一匹配；导航来源先核验</td><td>48是局部上下文初值，未扫窗口；唯一正文也不能绕过旧导航隔离；RAG-005修复已复审通过，见任务登记</td></tr>
+</tbody></table></div>
+<p>实现见<a href="../../../scripts/lib/document-parser.py">正文解析器</a>、<a href="../../../scripts/lib/table-review.py">表格候选</a>、<a href="../../../scripts/ocr-health-documents.py">OCR入口</a>与<a href="../../../scripts/build-ocr-table-review.py">扫描网格</a>。</p>
+<h3 id="parameters-h8">3. 存储、Embedding及运行参数</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>参数</th><th>当前实际值</th><th>选取依据/已做对比</th></tr></thead><tbody>
+<tr><td>存储分层</td><td>PG保存事实/证据与版本；目标/映射JSONB快照核验后内存查找；pgvector独立证据向量表</td><td>复用已有系统；与专用库有部署/一致性方案对照，没有性能横评</td></tr>
+<tr><td>证据向量数量</td><td>Qwen、BGE各98条；新目标4条与3717清洗块均未向量化</td><td>是现有知识覆盖范围，不是容量上限或优选块数量</td></tr>
+<tr><td>模型及revision</td><td>Qwen3-Embedding-0.6B：<code>97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3</code>；BGE-M3：<code>5617a9f61b028005a4858fdac845db406aefb181</code></td><td>锁定已测模型身份，避免自动升级引起空间改变；实测见末节</td></tr>
+<tr><td>向量维度</td><td>两者均1024；不做降维、量化或多向量检索</td><td>保留本轮锁定表示；没有128/256/512/1024维度消融，不能称1024最优</td></tr>
+<tr><td>Pooling</td><td>Qwen=<code>lasttoken</code>，BGE=<code>cls_token</code></td><td>遵循各自锁定模型配置；未比较改pooling；不能混用</td></tr>
+<tr><td>Query指令</td><td>Qwen为<code>Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: </code>；BGE为空</td><td>任务明确且保留条件/例外；指令本身没有A/B，不能宣称这句最优</td></tr>
+<tr><td>Document指令</td><td>两模型均空</td><td>不把查询前缀同样加在文档上；没有做其他文档模板对照</td></tr>
+<tr><td>表示版本</td><td><code>health-evidence-retrieval-text-v1</code>；身份还含revision、维度、pooling、归一化、query/document指令、运行库</td><td>同维数不足以互换；本次不改旧表示/索引</td></tr>
+<tr><td>本地推理环境</td><td>Python3.11.9、torch2.7.1+cpu、transformers4.57.1、sentence-transformers5.1.2，CPU常驻进程</td><td>复用本机资源；不是GPU/ONNX量化后端速度对照</td></tr>
+<tr><td>CPU线程</td><td>启动默认6，允许1～12；互斥编码，两模型顺序加载</td><td>控制CPU/内存争用；没有线程数或并发吞吐最优实验</td></tr>
+<tr><td>输入token上限</td><td>默认8192，并与模型<code>max_seq_length</code>取较小值</td><td>是工程输入保护，不是chunk长度；未试验更长证据的检索收益</td></tr>
+<tr><td>字符保护上限</td><td>单条≤16000字符；Node按JS字符串长度、Python按Unicode字符长度检查；不同于token数</td><td>防止异常输入，非语义切块策略；当前语料远小于该上限</td></tr>
+<tr><td>批大小的三层区别</td><td>建索引CLI每次8条；HTTP允许1～16条；实际encode batch≤4</td><td>CLI分批、接口保护、模型执行批不同；三者都没有批量吞吐消融</td></tr>
+<tr><td>向量归一化</td><td>L2；推理/Node检查<code>abs(平方和−1)≤0.002</code>；PG入库先float32化，检查<code>abs(长度−1)≤0.001</code></td><td>数值一致性容差，非语义阈值；当前数据通过，但没有容差“质量调参”</td></tr>
+<tr><td>存储数值/距离</td><td>float32，余弦<code>&lt;=&gt;</code>；距离排序后按evidence ID稳定破同分</td><td>可核对的精确距离基线；未测试其他距离对业务质量的收益</td></tr>
+<tr><td>ANN参数</td><td>不创建HNSW/IVFFlat；无<code>ef_search</code>、<code>m</code>、<code>lists</code>、<code>probes</code>等项目选值</td><td>当前98条先精确搜索，没有规模实测需要ANN；不能把ANN默认值列为已用参数</td></tr>
+<tr><td>索引发布</td><td>知识/模型/文本hash绑定，向量条数必须等于证据条数，事务发布，不可变ID</td><td>防半套索引、错版本及重复证据；真实PG有专项，未做大规模压测</td></tr>
+<tr><td>研究CLI数据库资源</td><td>连接池max=2、查询超时30000ms，强制隔离本地研究/测试库</td><td>开发资源保护，不是线上连接池容量选型；没有并发负载对照</td></tr>
+<tr><td>Embedding传输</td><td>仅回环HTTP；Node超时180s、Python连接读取30s；请求≤256KiB、响应≤8MiB，禁重定向</td><td>开发模型冷/热调用及资源保护；不是用户选菜SLA，无网络/超时选型横评</td></tr>
+<tr><td>Embedding默认地址</td><td><code>http://127.0.0.1:15199</code>；适配器构造参数可传其他回环入口，但当前CLI直接使用默认构造，无<code>RAG_EMBEDDING_URL</code>环境变量接线</td><td>是启动默认值，不声称本轮当前监听或与网页预览同进程；不决定检索质量</td></tr>
+</tbody></table></div>
+<p>实现见<a href="../../../backend/rag-runtime/runtime.py">模型运行时</a>、<a href="../../../backend/src/rag/embedding.ts">Node适配</a>、<a href="../../../backend/src/rag/storage.ts">向量存储</a>和<a href="../../../scripts/rag.ts">CLI</a>。</p>
+<h3 id="parameters-h9">4. 查询、召回、融合和最终上下文选择</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>参数/方法</th><th>当前实际值/规则</th><th>选取依据/比较情况</th></tr></thead><tbody>
+<tr><td>查询边界</td><td>研究问题非空且≤1000字符；context≤30键、每值≤120字符；必需证据≤100条</td><td>输入保护，不是推荐效果调参；业务对话有自身Schema，不能把此限制套到所有入口</td></tr>
+<tr><td>查询规范化</td><td>NFKC、小写、受控别名最长重叠跨度优先；别名冲突、分型/鲜干不明需确认</td><td>减少表面写法差异；没有分词器/实体模型横评</td></tr>
+<tr><td>否定范围</td><td>研究实体前最多6字符检查明确否定短语</td><td>局部规则，不是完整否定语义模型；有针对性回归，窗口未扫参</td></tr>
+<tr><td>词面token</td><td>中文连续片段取相邻2字，去固定停用片段；英文/数字连续词保留</td><td>适配中文无空格的轻量基线；不是BM25，也没有IDF/长度归一化</td></tr>
+<tr><td>A1实体得分</td><td>命中明确对象加8、命中疾病主体加4</td><td>提高对象针对性；手工权重，有偏题修复回归，未对照4:2/8:4/其他权重</td></tr>
+<tr><td>A1词面得分</td><td>每个命中token加<code>min(4,token长度)</code></td><td>限制单个长别名贡献；不是学习排序，4没有扫参证据</td></tr>
+<tr><td>A1内部融合</td><td>实体排名与词面排名等权<code>1/(60+r)</code>相加</td><td>融合不同量纲的手工分数；没有融合算法横评</td></tr>
+<tr><td>A1条数</td><td>独立查询默认10、允许1～50；研究外层固定请求最多50条fact</td><td>10是单独查询显示口径，50是融合候选口径；不等于最终上下文数</td></tr>
+<tr><td>dense条数</td><td>研究默认最多30条evidence；存储接口允许limit1～1000</td><td>补语义候选；没有10/20/30/50的召回/延迟消融</td></tr>
+<tr><td>dense→fact</td><td>根据支持/限定关系映射；同fact取最早dense evidence名次，不因证据多重复加票</td><td>统一ID空间并控制重复片段优势；不生成新事实</td></tr>
+<tr><td>外层RRF</td><td><code>2/(60+r_A1)+1/(60+r_dense)</code>；缺席通道贡献0，同分按fact ID稳定排序</td><td>2:1偏重结构化基线是工程初值；60沿用RRF平滑方法；未与分数归一化加权/专用重排做公平对照</td></tr>
+<tr><td>RRF参数含义</td><td>60是平滑常数，越大相邻头部名次差距越缓，不是召回60或top-60</td><td>原理有依据，具体60和2:1的本项目最优性无依据；不把融合分数当概率</td></tr>
+<tr><td>相似度阈值</td><td>没有<code>cosine≥0.7</code>或“RRF≥某值即可回答”的准入线</td><td>依据有效性、实体、关系及条件判断，不猜一个未校准阈值；相关性误接纳仍待后续优化</td></tr>
+<tr><td>来源权威/时效加分</td><td>没有按年份、机构或“置信度0.9”乘排名权重；使用已绑定来源版本/状态及对应关系类型约束</td><td>来源筛选与排名加分分开，不能说最新版/权威来源一定排第一；无此类权重选型</td></tr>
+<tr><td>研究适用性筛选</td><td>排除撤回/缺证据/不适用；疾病、食品、成分、工艺按所问对象筛；所问指导必要条件未知先确认；多疾病研究组合不自动视为已评估</td><td>过滤优先于排名，不允许向量高分绕过；业务按多个主题分别组织指导，不是同一套组合评估</td></tr>
+<tr><td>研究最终top-k</td><td>最多8条可用fact；按融合排序逐条尝试，可能少于8</td><td>减少噪声并控制输入，8是工程初值；没有4/8/12/16横评</td></tr>
+<tr><td>支持/限定闭包</td><td>每个选中fact补齐全部support/qualify，evidence去重，required evidence另保留</td><td>所以8条fact不等于8条证据，也不是“先截8证据再补答案”</td></tr>
+<tr><td>研究上下文预算</td><td>估算6000 token，对组装context JSON计数；该值不是模型完整输入上限，也未单独计系统消息</td><td>每次加入fact及其证据若超限，回退整条fact；不删限定来塞结论；未扫3000/6000/9000</td></tr>
+<tr><td>token估算器</td><td>汉字2单位、ASCII0.4、其他2，合计向上取整</td><td>保守的应用估算，不是真实DeepSeek tokenizer；本次测量Embedding token与该估算分开</td></tr>
+<tr><td>查询向量缓存</td><td>工程评测的进程内MemoProvider按输入/角色缓存，dense与hybrid可复用同query；不是公共库持久存个人查询</td><td>防评测重复编码；模式耗时不能当独立冷启动速度；实际编码P95另报</td></tr>
+<tr><td>专用重排</td><td>未启用cross-encoder/bge-reranker、MMR、多样性参数λ、在线HyDE或多query扩写</td><td>没有相应模型/λ/候选数选值；RRF本身不是语义重排或来源审核</td></tr>
+</tbody></table></div>
+<p>代码见<a href="../../../backend/src/health-knowledge-retrieval.ts">A1</a>、<a href="../../../backend/src/rag/retrieval.ts">研究检索</a>、<a href="../../../shared/context-budget.ts">预算估算</a>。<a href="https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf" target="_blank" rel="noopener noreferrer">RRF原论文</a>提供方法依据，其其他数据集结果不构成本项目增益。</p>
+<h3 id="parameters-h10">5. 业务食材指导、菜谱候选、提示与生成</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>参数/方法</th><th>当前实际值/行为</th><th>选取依据/比较情况</th></tr></thead><tbody>
+<tr><td>指导查询</td><td>明确疾病/目标ID下的直接食物/做法事实，检查条件及撤回，再做受控映射；不执行dense/RRF</td><td>直接业务关系比泛化问答更可执行；知识/映射完整覆盖未完成</td></tr>
+<tr><td>食材建议上限</td><td>20条；avoid/limit/prefer方向轮转，再按主题/对象轮转；去相同食材/方向/主题重复</td><td>防大类别抢满列表；有原问题回归，未对照10/20/30的用户效果</td></tr>
+<tr><td>用户补问</td><td>只对相关且有映射的待确认条件补问，保留“不清楚”；不普遍索要身高体重</td><td>先做定性选菜，未实现个体全天能量/蛋白计算；不是把必要医学条件默认为满足</td></tr>
+<tr><td>食材库存量</td><td>用户填写量不参与资格/排序/菜数/模型输入；仍检查食材有无及主动补买</td><td>来自用户产品决定，不是RAG调参；原菜谱用量/原文剂量条件分别保留</td></tr>
+<tr><td>资格和排序</td><td>先过敏忌口/有效避开/食材有无等硬筛；再依次比较接受的少选、研究少选、接受的推荐、研究推荐、复用、家常</td><td>词典序，不能把收益平均分抵消硬限制；没有学习排序模型或权重训练</td></tr>
+<tr><td>可行基线</td><td>先由原推荐程序给出可行搭配；该次基线搜索预算<code>500ms/maxNodes6000</code></td><td>为模型保留一套可行种子，避免候选全不可组成餐；时间/节点数没有最优实验</td></tr>
+<tr><td>候选上限</td><td>最多48个父菜谱，保留基线精确变体；有绑定指导候选优先，其他候选用operation ID派生HMAC轮转补充</td><td>避免固定前48长期遮蔽目录；48非向量top-k，没有24/48/96质量/成本横评</td></tr>
+<tr><td>输出数量</td><td>完整餐按基线/用户类别数量，单换1道；候选选项模式min=<code>min(6,候选数)</code>，max=<code>min(18,候选数)</code>；完整自定义最多20道</td><td>来自既有业务契约，不等于知识top-8。选项模式每页6道</td></tr>
+<tr><td>增强内容</td><td>完整catalog配料/做法/类别、本餐条件、有效指导、全部支持/限定原文、未知/冲突范围</td><td>只有与实际候选或锁定菜品绑定的指导进入提示；不是全库拼接或LLM摘要压缩</td></tr>
+<tr><td>输入预算</td><td>系统prompt估算＋业务packet JSON估算≤24000 token</td><td>超预算从候选尾部减少并重算指导/原文，不能删除基线种子或截断配方/限定；基线仍超预算则调用前失败</td></tr>
+<tr><td>业务系统约束</td><td>只能实际catalog ID；无依据可按本餐条件选但保留健康判断；少选非硬禁；不编营养/疗效，不填自由引用</td><td>来自真实拒选/错引用失败后的修复；没有完整系统提示A/B</td></tr>
+<tr><td>证据及理由归属</td><td>模型只交<code>id/reason</code>，程序按实际配方绑定；每菜展示/选择的非avoid指导ID最多取前3条</td><td>防止错填引用；3是程序输出范围，无1/3/5证据覆盖对照，不能声称所有理由都已展示</td></tr>
+<tr><td>生成模型/地址</td><td>固定<code>deepseek-flash</code>、<code>https://api.deepseek.com/chat/completions</code>、<code>thinking.type=disabled</code>、<code>stream=false</code></td><td>复用项目已有模型入口；没有生成模型横评或思考模式对照</td></tr>
+<tr><td>JSON模式</td><td><code>response_format.type=json_object</code>；系统提示给JSON样例</td><td>便于解析，之后仍需结构/业务校验；未使用供应商JSON Schema约束解码</td></tr>
+<tr><td>temperature/top_p/seed</td><td>请求中均未设置；frequency/presence penalty、stop等也未显式设置</td><td>使用供应商默认行为，代码未锁定具体数值；不能写成temperature=0或可确定复现；未做采样参数对照</td></tr>
+<tr><td>研究生成上限</td><td>默认2000输出token；1～4条claim，每条≤500字符；limitations≤20条，每条≤500字符</td><td>小证据问答的输出保护，没做1000/2000/4000质量对照</td></tr>
+<tr><td>研究引用上限</td><td>每claim fact IDs1～20、evidence IDs1～40；ID须属于本次上下文，至少引用相关支持且限定全有</td><td>防越界/漏限定；ID合法仍不能自动证明任意生成文本的蕴含关系</td></tr>
+<tr><td>业务生成上限</td><td>2400输出token；summary≤240、每reason≤100字符；父菜谱不重复，选项≤18、完整自定义≤20</td><td>与应用合约一致，未做输出上限扫参；字符限制不是token限制</td></tr>
+<tr><td>输入/输出校验技术</td><td>知识包用JSON Schema/Ajv（allErrors=true、strict=false）＋引用/类型/版本检查；生成结果另做运行时结构及ID/单菜/整套约束检查</td><td>TypeScript静态类型不能替代外部JSON校验；程序不自动完成所有语义蕴含审核</td></tr>
+<tr><td>完整响应门禁</td><td>HTTP成功、<code>finish_reason=stop</code>、非空content；响应体≤64KiB、content≤24000字符；回执ID/model及usage加总合法</td><td>防截断/空白/假成功；没有依靠多次重试刷出成功</td></tr>
+<tr><td>超时区别</td><td>研究生成默认60s；当前业务聊天/推荐路由总预算17s，并合并断连/取消信号；Embedding适配180s另算</td><td>不把三个入口说成同一超时，均是工程资源边界，未做超时/成功率横评</td></tr>
+<tr><td>失败/重试</td><td>自动重试次数0；取消尽力传给供应商；技术错误不静默回退普通推荐</td><td>项目费用/行为约束，不代表供应商必然零消耗；旧付费授权已结束</td></tr>
+<tr><td>UI进度与模型流式</td><td>模型stream=false，应用可另用NDJSON发送进度与最终结果</td><td>两种流不要混称；没有逐token生成展示或SSE效果对照</td></tr>
+<tr><td>并发/认领</td><td>本进程聊天/选菜占位上限4；真实账户还须PG原子认领/限额及operation ID绑定</td><td>本机并发保护不能替代跨实例共享限额；预览测试身份的本地Map不外推成真实PG一致性</td></tr>
+<tr><td>结果复用/加密</td><td>结果游标有效15分钟，≤20000字符，AES-256-GCM（32字节key、12字节随机nonce）及用户/用途绑定；关联输入/档案/Key/目录版本</td><td>防旧输入/跨用户复用；翻页/看做法不新增生成调用，没有长短有效期A/B</td></tr>
+<tr><td>变更与撤回</td><td>检索/生成前后及返回前复查源/事实/档案/配方与撤回身份</td><td>处理检查与使用间状态变化；不是单次hash核对后永久有效</td></tr>
+<tr><td>记忆</td><td>当前档案和按主题保存/撤销的接受记录；聊天页内内存；公共库不存个人查询向量</td><td>未实现长期向量记忆、自动摘要记忆或Memory Agent，故无此类窗口/召回参数</td></tr>
+</tbody></table></div>
+<p>实现见<a href="../../../backend/src/rag/food-guidance.ts">业务指导</a>、<a href="../../../backend/src/rag/food-guidance-chat.ts">建议轮转</a>、<a href="../../../backend/src/health-recipe-selection.ts">选菜与提示</a>、<a href="../../../backend/src/deepseek-json.ts">模型请求</a>、<a href="../../../backend/src/rag/generation.ts">研究生成</a>、<a href="../../../backend/src/rag/pipeline.ts">研究输出核验</a>、<a href="../../../backend/src/app.ts">路由预算</a>。</p>
+<p>输出字符上限与token上限不等价：当前2000/2400输出token并没有通过最坏情况下“最大条数×最大字数”的覆盖实验，合法字段上限组合仍可能超出token预算；发生截断会拒收，不能因此宣称上限已最优。</p>
+<h3 id="parameters-h11">6. 有哪些对比，以及哪些参数还没有选型证据</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>对比/测量</th><th>实际证据</th><th>不可推出的结论</th></tr></thead><tbody>
+<tr><td>两Embedding模型</td><td>同27题、各98向量；hybrid Recall@10均1，MRR为Qwen0.93750/BGE0.90625；同16查询真实编码P95为1706.0/656.1ms</td><td>不证明所有问题Qwen更准或BGE总更快；题已用于调试，不是独立测试</td></tr>
+<tr><td>A1/dense/hybrid</td><td>三模式实现及工程比较保留；同题A1 Recall@10/MRR已为1</td><td>不能声称加向量或RRF带来质量增益</td></tr>
+<tr><td>本次切块长度</td><td>固定语料逐条字符和token测量；模型tokenizer身份锁定；没有模型推理</td><td>长度统计不是不同切块策略的召回/生成质量对照</td></tr>
+<tr><td>版面v2/v3及P2修复</td><td>真实失败样例、原词/字符守恒、两套重建一致及builder级回归</td><td>不等于独立正文/表格/OCR准确率或语义审核</td></tr>
+<tr><td>评测口径</td><td>当前工具计算top-10 Recall/MRR及二值相关性的nDCG；同时检查状态、禁用事实、证据闭包</td><td>top-10分数不能代替实际最多8条上下文质量；未做真实分级0～3人工gold；延迟评测有query缓存复用需分开</td></tr>
+<tr><td>尚未横评</td><td>chunk大小/重叠/父子块、表示模板、维度、线程/批量、召回数、RRF参数/算法、专用重排、上下文预算、采样参数、提示A/B、跨存储/OCR引擎</td><td>上述多数值是当前初始配置或产品合约，不是有消融支持的最优方案</td></tr>
+</tbody></table></div>
+<p>既有实测在<a href="../execution-2026-11-04.md">2026-11-04报告</a>，真实<a href="../business-rag-example-2026-11-05.md">业务例子</a>保留当时请求/失败；后来修复不能改写旧真实调用结果。本次长度测量使用nearest-rank，而旧CLI延迟分位数使用<code>floor(n×p)</code>索引，两者方法须随报告声明，不能无说明混算。</p>
+<h3 id="parameters-h12">7. 后续切块与参数实验的候选范围（未实施、不改当前值）</h3>
+<p>用户已决定独立评测集及流程放上线后结合输出/预期完善，本节仅登记届时应比较的变量，不把实验或人工审核冒充已经完成。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>待比较变量</th><th>可执行候选与控制条件</th><th>为什么这样比较</th></tr></thead><tbody>
+<tr><td>文本切块</td><td>保留旧短摘基线；对同一清洗资料比较结构段落、128/256/512 token有界块；支持/限定必须关联，不因长度强拆单位/否定</td><td>避免“块更大更好/更小更准”先入为主；候选长度不是当前推荐最优值</td></tr>
+<tr><td>重叠</td><td>固定同一tokenizer与结构策略，比较0/32/64 token；只对被拆分的连续正文应用，不把重复表格或整份例外无脑复制</td><td>观察边界丢失与重复召回/成本之间的实际变化</td></tr>
+<tr><td>父子块</td><td>小块召回后带回所属段落/表题/脚注，与只送小块对照；父段落超预算仍需完整限定策略</td><td>检查表号短摘和人群条件缺失能否改善；当前没有该实现</td></tr>
+<tr><td>检索表示</td><td>原文、章节＋原文、章节＋审核摘要＋原文；对应分别建新索引，不混模型身份</td><td>检查摘要补检索与误导语义的权衡，解决旧53/45种格式并存的问题</td></tr>
+<tr><td>召回/融合</td><td>A1为简单基线；dense候选10/20/30/50；RRF常数20/60/100、权重1:0/1:1/2:1/0:1分组比较</td><td>分别看单通道、融合及权重收益；不要一次全组合后在同一题集挑最好当独立结论</td></tr>
+<tr><td>最终选择/重排</td><td>事实数4/8/12，预算3000/6000/9000；有需要再比较cross-encoder与RRF，不把模型相关性当适用性</td><td>按实际注入上下文及本餐结果评分，而非只看候选top-10</td></tr>
+<tr><td>评分/代价</td><td>条件/否定/单位保留、偏题率、所需证据覆盖、食材方向、可行菜覆盖、理由支持、token/编码/生成延迟与费用；硬限制违规单判失败</td><td>使参数选择有业务依据；上线日志去个人信息，人工预期/gold不送入生成</td></tr>
+</tbody></table></div>
+<p>当前应先完成已知错误证据重整、新事实/限定及知识—索引版本接入、常用映射。参数表将“当前值”“测量结果”“实验候选”分开，后续没有对比证据就继续标初值，不编造选型结论。</p></section><footer>Markdown为正文来源；render.py离线生成。外部面经用于发现问题，不能当作官方面试证明。实际状态以当前代码与验收为准。</footer></div></main><script>
+const chapters=[...document.querySelectorAll('.chapter')];
+const cards=[...document.querySelectorAll('details.card')];
+const search=document.getElementById('search');
+const status=document.getElementById('result');
+let selected='intro';
+function select(id,move=true){
+ const target=document.getElementById(id)||document.getElementById('intro');
+ const chapter=target.closest('.chapter');if(!chapter)return;
+ selected=chapter.id;search.value='';
+ chapters.forEach(s=>s.hidden=s!==chapter);cards.forEach(c=>c.hidden=false);
+ document.querySelectorAll('.sidebar nav a').forEach(a=>a.setAttribute('aria-current',a.hash==='#'+selected?'page':'false'));
+ const card=target.closest('details');if(card)card.open=true;
+ status.textContent='当前章节 · '+chapter.dataset.label+'；问答共112题';
+ if(move)requestAnimationFrame(()=>{if(target===chapter)window.scrollTo(0,0);else target.scrollIntoView({block:'start'});});
+}
+function filter(){
+ const terms=search.value.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
+ if(!terms.length){document.getElementById('empty').hidden=true;select(selected,false);return;}
+ let count=0,sections=0;
+ for(const chapter of chapters){
+  const entries=[...chapter.querySelectorAll('details.card')];
+  if(entries.length){for(const card of entries){const text=card.textContent.toLocaleLowerCase();card.hidden=!terms.every(t=>text.includes(t));if(!card.hidden){card.open=true;count++;}}chapter.hidden=entries.every(c=>c.hidden);}
+  else{const text=chapter.textContent.toLocaleLowerCase();chapter.hidden=!terms.every(t=>text.includes(t));}
+  if(!chapter.hidden)sections++;
+ }
+ status.textContent='匹配 '+count+' 道问答、'+sections+' 个章节（正文、参数及来源同时搜索）';
+ document.getElementById('empty').hidden=sections!==0;
+}
+search.addEventListener('input',filter);
+document.getElementById('clear').addEventListener('click',()=>{search.value='';document.getElementById('empty').hidden=true;select(selected,false);search.focus();});
+document.getElementById('expand').addEventListener('click',()=>cards.filter(c=>!c.hidden&&!c.closest('.chapter').hidden).forEach(c=>c.open=true));
+document.getElementById('collapse').addEventListener('click',()=>cards.forEach(c=>c.open=false));
+document.querySelector('.menu').addEventListener('click',()=>{const panel=document.querySelector('.sidebar');panel.classList.toggle('open');document.querySelector('.menu').setAttribute('aria-expanded',panel.classList.contains('open'));});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();search.focus();}if(e.key==='Escape'){search.value='';document.getElementById('empty').hidden=true;select(selected,false);}});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=decodeURIComponent(a.hash.slice(1));if(!document.getElementById(id))return;e.preventDefault();document.getElementById('empty').hidden=true;history.replaceState(null,'','#'+id);select(id);document.querySelector('.sidebar').classList.remove('open');document.querySelector('.menu').setAttribute('aria-expanded','false');});
+window.addEventListener('hashchange',()=>select(decodeURIComponent(location.hash.slice(1))||'intro'));
+select(decodeURIComponent(location.hash.slice(1))||'intro',false);
+</script></body></html>

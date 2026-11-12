@@ -347,13 +347,30 @@ export async function createApp(options: {
         localChatClaims.set(key,Date.now());
       }
       const chatContext=repository?contentContext(await during(repository.load(options.contentRelease!),signal)):constructedContent;
+      if(identity){
+        const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
+        if(!active||active.userId!==identity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
+        const current=await during(options.accounts!.healthKey!(active),signal);
+        if(current.apiKey!==apiKey)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已更新，请重新发送');
+        if(JSON.stringify(current.restrictions)!==JSON.stringify(stored?.restrictions??[]))throw new DomainError('CHAT_RESTRICTIONS_CHANGED',409,'饮食限制已更新，请按最新设置继续');
+      }
       const currentProfile=identity?stored?.profile:req.body.profile;
       const contextValue=(profile:HealthChatRequest['profile'])=>profile?{conditions:profile.conditions,goals:profile.goals,notes:profile.notes}:{conditions:[],goals:[],notes:''};
-      const messages=identity&&JSON.stringify(contextValue(req.body.profile))!==JSON.stringify(contextValue(currentProfile))?req.body.messages.slice(-1):req.body.messages;
-      const chatBody={...req.body,messages,apiKey,diseases:identity?stored?.profile?.conditions??[]:req.body.diseases,profile:contextValue(currentProfile),mealContext:{ingredients:[],seasonings:[],restrictions:[],allowBuy:false,...req.body.mealContext,aiFoodPreferences:identity?stored?.preferences:req.body.mealContext?.aiFoodPreferences}};
+      const label=(r:import('../../shared/types').Restriction)=>`${r.kind==='allergy'?'过敏':r.kind==='avoid'?'忌口':'待确认'}：${r.name}`;
+      const currentRestrictions=identity?(stored?.restrictions??[]).filter(r=>r.scope==='self'||req.body.mealContext?.restrictions.includes(label(r))).map(label):req.body.mealContext?.restrictions??[];
+      const restrictionKey=(items:string[])=>JSON.stringify([...items].sort());
+      const staleRestrictions=identity&&restrictionKey(req.body.mealContext?.restrictions??[])!==restrictionKey(currentRestrictions);
+      const messages=identity&&(staleRestrictions||JSON.stringify(contextValue(req.body.profile))!==JSON.stringify(contextValue(currentProfile)))?req.body.messages.slice(-1):req.body.messages;
+      const chatBody={...req.body,messages,apiKey,diseases:identity?stored?.profile?.conditions??[]:req.body.diseases,profile:contextValue(currentProfile),mealContext:{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:currentRestrictions,aiFoodPreferences:identity?stored?.preferences:req.body.mealContext?.aiFoodPreferences}};
       const result=await during(options.foodGuidance?researchFoodChat(chatBody,chatContext,options.foodGuidance):requestHealthChat(chatBody,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0,healthTopics(stored?.profile,stored?.preferences)),signal);
+      if(identity){
+        const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
+        if(!active||active.userId!==identity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
+        const current=await during(options.accounts!.healthKey!(active),signal);
+        if(JSON.stringify(current.restrictions)!==JSON.stringify(stored?.restrictions??[]))throw new DomainError('CHAT_RESTRICTIONS_CHANGED',409,'饮食限制已更新，本次旧回复未采用，请按最新设置继续');
+      }
       if(result.assessment){
-        const restrictionNames=[...(stored?.restrictions??[]).map(item=>item.name),...(req.body.mealContext?.restrictions??[]).map(name=>name.replace(/^(过敏|忌口|待确认)：/,''))];
+        const restrictionNames=currentRestrictions.map(name=>name.replace(/^(过敏|忌口|待确认)：/,''));
         result.assessment.suggestions=withoutExistingRestrictions(expandFoodSuggestions(result.assessment.suggestions,chatContext),restrictionNames,chatContext);
         result.message.content=withoutRepeatedFoodText(result.message.content,restrictionNames,chatContext);
         result.assessment.recipes=healthChatRecipes(chatContext,result.assessment,{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:restrictionNames});
@@ -361,8 +378,8 @@ export async function createApp(options: {
           const previous=stored?.profile?{...stored.profile,topics:healthTopics(stored.profile,stored.preferences)}:undefined;
           const profile=mergeHealthProfile(previous,result.assessment);
           profile.suggestions=withoutExistingRestrictions(profile.suggestions,restrictionNames,chatContext);
-          try{result.accountSnapshot=await during(options.accounts.saveHealthGuidance(identity,profile,apiKey??'',stored?.profile),signal);}
-          catch(error){if(error instanceof DomainError&&['CHAT_KEY_CHANGED','CHAT_PROFILE_CHANGED'].includes(error.code))throw error;result.saveError='本次建议暂未保存到账户，可稍后查看个人设置。';}
+          try{result.accountSnapshot=await during(options.accounts.saveHealthGuidance(identity,profile,apiKey??'',stored?.profile,stored?.restrictions),signal);}
+          catch(error){if(error instanceof DomainError&&['CHAT_KEY_CHANGED','CHAT_PROFILE_CHANGED','CHAT_RESTRICTIONS_CHANGED'].includes(error.code))throw error;result.saveError='本次建议暂未保存到账户，可稍后查看个人设置。';}
         }
       }
       const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);

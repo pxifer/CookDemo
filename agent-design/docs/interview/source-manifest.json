@@ -1,0 +1,2470 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-11-12",
+  "projectBase": "bfa1567ccb43ca02e2a42f75c57e521a250d105d",
+  "questionCards": 112,
+  "coverage": {
+    "userQuestions": 57,
+    "localAgentQuestions": 90,
+    "localAgentFollowupExercises": 1,
+    "localAIPracticeQuestions": 18,
+    "localProjectTopics": 45,
+    "douyinProfileWorksDisplayed": 18,
+    "douyinPublicNotesCollected": 17,
+    "douyinImagesOCR": 196,
+    "douyinWorksUnverified": 1
+  },
+  "localReadOnlySources": [
+    {
+      "name": "Agent开发面试.md",
+      "path": "D:\\codex_AI\\后端8股\\春招优化版\\Markdown版\\Agent开发面试.md",
+      "sha256": "1beed7d693bb1594cbaf48d90efb5860a70c7bb9c3111e20f35271e20080d993",
+      "bytes": 50356,
+      "readerMatchingHeadings": 91
+    },
+    {
+      "name": "AI模型与Agent工程实操.md",
+      "path": "D:\\codex_AI\\后端8股\\春招优化版\\Markdown版\\AI模型与Agent工程实操.md",
+      "sha256": "b166de84c17bb4d798469f839700a8ac7bc769f0d4465e9771a069244d81ed0d",
+      "bytes": 20589,
+      "readerMatchingHeadings": 18
+    },
+    {
+      "name": "拾味项目RAG与Agent案例.md",
+      "path": "D:\\codex_AI\\后端8股\\春招优化版\\Markdown版\\拾味项目RAG与Agent案例.md",
+      "sha256": "82c70a1400f35458c1415a8131029b1d7684beee4c1b6ec99d3703aa4325dde2",
+      "bytes": 32693,
+      "readerMatchingHeadings": 45
+    },
+    {
+      "name": "面试资料阅读器.html",
+      "path": "D:\\codex_AI\\后端8股\\春招优化版\\Markdown版\\面试资料阅读器.html",
+      "sha256": "df9be19dc553cdb8f580e539410156ec687363e409fae86ceff2c49137c69405",
+      "bytes": 684561
+    }
+  ],
+  "projectEvidenceHashes": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "b7bf6ee2ada833f815da85aedd0f8785bd9844dd04d2501679248880fe707909"
+    },
+    {
+      "path": "agent-design/docs/business-rag-example-2026-11-05.md",
+      "sha256": "0f438266346873d3821a4562f3a07308518bf9dbc6ad8e3134ba12074b06e28f"
+    },
+    {
+      "path": "agent-design/docs/business-rag-plan.md",
+      "sha256": "69d74ef3de4d719c68e5a5855c772c0600f42e2adee8d843e8a8a2323d194425"
+    },
+    {
+      "path": "agent-design/docs/contracts.md",
+      "sha256": "e1358abe74b9ad193b0c0e58496c31c26be862149e301d56683ab3f5b8118e84"
+    },
+    {
+      "path": "agent-design/docs/document-parsing-runbook.md",
+      "sha256": "447cee6d3014a7ed05cf2ecbf8da09bec8d745b82287ea2e1126993cb200a7a0"
+    },
+    {
+      "path": "agent-design/docs/evidence-resolution-2026-11-06.md",
+      "sha256": "5f8de9b3641de286661f24c8a1ff731b24b239a39675a5e94637131b4bd22510"
+    },
+    {
+      "path": "agent-design/docs/execution-2026-11-04.md",
+      "sha256": "3b091d2a9ddd005e0f837391af7dbc3e13316f80e8c7cb095485b27b13e56244"
+    },
+    {
+      "path": "agent-design/docs/quality-annotation-protocol.md",
+      "sha256": "87bd56631bf7d1616118978470f954513a2a18e56b79ac7fb29bc8a1f8456c27"
+    },
+    {
+      "path": "agent-design/docs/quality-governance-execution-2026-11-05.md",
+      "sha256": "bf774f12e1f60f2fda7f7fe1195d08093c3b604f59ff5a6c19de4b90c5e316d3"
+    },
+    {
+      "path": "agent-design/docs/rag-parameters-and-chunking.md",
+      "sha256": "accab0b5618a56ef3bf8d2b407edf68c951a281ffa4eecd5d4dc4784822e9022"
+    },
+    {
+      "path": "agent-design/docs/rag-technology-explained.md",
+      "sha256": "51b5d2a0cb9df39e8079e0fd1b69f199b178ad8dd3a6ee9999cae607a4d267e6"
+    },
+    {
+      "path": "agent-design/docs/source-rebuild-runbook.md",
+      "sha256": "c3ace98424141269d2da4c293be69d2a1f96a67dc7858242ad8f678c7d82abfb"
+    },
+    {
+      "path": "agent-design/docs/table-ocr-execution-2026-11-06.md",
+      "sha256": "b5cd4edf04afd096efbe27053e055b1bcef3a38ca2cb9f090c635501a3847f5f"
+    },
+    {
+      "path": "agent-design/docs/table-ocr-runbook.md",
+      "sha256": "75a36d11f42d0307f8dae2d6a578e6eedf5e634cf9b2f8f815467badaf73d3ef"
+    },
+    {
+      "path": "agent-design/docs/technology-decisions.md",
+      "sha256": "f9f8de5ae72780f766c8297e15743e4443ca55c5a90da1d873b78256aa22debb"
+    },
+    {
+      "path": "agent-design/docs/todo.md",
+      "sha256": "31a028f0a8cea10ffab190d9e5d7fb4dbdd6d9cd034ab1d05a54c2ae50a0ee2e"
+    },
+    {
+      "path": "artifacts/acceptance/business-rag-example-2026-11-05/call-5-model-response.json",
+      "sha256": "772e9922384e410c8531e52876d030bbabc4b13fc4a6fc32eb7f08fd52d6f7b5"
+    },
+    {
+      "path": "artifacts/acceptance/business-rag-example-2026-11-05/final-system-prompt.txt",
+      "sha256": "59b6359deafaae163a181de13cee465c93d1aef1468725ece7ae5f2584decb3b"
+    },
+    {
+      "path": "artifacts/acceptance/rag-parameter-audit-2026-11-06/chunk-statistics.json",
+      "sha256": "b7733dd419aa8d0d0e77bd55065bf068e183d4222fcdc44de5c29beda6a54e56"
+    },
+    {
+      "path": "backend/rag-runtime/runtime.py",
+      "sha256": "aa1082a8f4c1d4efca699cd117d8209696fd3dee10e54c8c001659b9ec7620cb"
+    },
+    {
+      "path": "backend/src/app.ts",
+      "sha256": "32ecd97e3a21b35781003238271cad9512c8e72acdc8e65cd2a3456627916345"
+    },
+    {
+      "path": "backend/src/cloudbase-accounts.ts",
+      "sha256": "775e9bf08977cb9289d37e3f90b7fd15b1f5cf11d3ddc53539cd587b78d3ebd3"
+    },
+    {
+      "path": "backend/src/crypto.ts",
+      "sha256": "b9a1f476c0fa2044cc0c1a4ae9f183331db3d354f766a3f102cdb3b5bb4527b4"
+    },
+    {
+      "path": "backend/src/deepseek-json.ts",
+      "sha256": "d9e2a864141fef952ed60b9c5c623131559a00ec348b53c16a95f843023e7726"
+    },
+    {
+      "path": "backend/src/health-chat.ts",
+      "sha256": "56f6bcd09189ae583841e2202fcac9e56e2deac9ed98fd581c727dba38627023"
+    },
+    {
+      "path": "backend/src/health-knowledge-retrieval.ts",
+      "sha256": "5c0fcefaa172b069c85a61e7c04c471596f457411415ffc75c0b596498627c2c"
+    },
+    {
+      "path": "backend/src/health-recipe-selection.ts",
+      "sha256": "4fc81de5421db3f0b1daabcf2d81b270e172f39c8bfc92f2f6d16953907bbf66"
+    },
+    {
+      "path": "backend/src/rag/embedding.ts",
+      "sha256": "c205942a5ce65a0401b744e6051b6c913302f67bbdd6427dd846254bb978def4"
+    },
+    {
+      "path": "backend/src/rag/food-guidance-chat.ts",
+      "sha256": "0b9aa1129116cb7a036c622dc64dfec533722ee450c8a37e4f7352f3254f3652"
+    },
+    {
+      "path": "backend/src/rag/food-guidance.ts",
+      "sha256": "1e7f0caf70cd9b4e29e87a9773daeb88240146a1e55796337d42eb50cffc1129"
+    },
+    {
+      "path": "backend/src/rag/generation.ts",
+      "sha256": "ec5a99bd5be9e3cfefe95fe85384c5498d553515230b7e22c75185c42076debf"
+    },
+    {
+      "path": "backend/src/rag/pipeline.ts",
+      "sha256": "bc541a1a359d6be2a5829293d7435f18ce30faada2a32f026b61f9251d96a8e0"
+    },
+    {
+      "path": "backend/src/rag/retrieval.ts",
+      "sha256": "ecc945d4dab26a298964fc366de6fcc6349805cc6e8d7ed7284d3668911d21f6"
+    },
+    {
+      "path": "backend/src/rag/storage.ts",
+      "sha256": "0f5944258446b6bdcb10d2f3b8f541c10cea532b432d9c30f8d02a8dc58ab765"
+    },
+    {
+      "path": "backend/src/recommendation.ts",
+      "sha256": "d6aaf1067311104feb85b7f989b2c81c06a25e4f4a9bc452a5220d86863f11e3"
+    },
+    {
+      "path": "datasets/health/README-v2.md",
+      "sha256": "170328a6de38a7278976be27203c6295443b1f1b29af6beeaf7719492464c348"
+    },
+    {
+      "path": "datasets/health/knowledge-bundle.schema.json",
+      "sha256": "2167a84f9ec70d90a2816da2a79a8e3c713df9a2b74f78fb26addb1386561a09"
+    },
+    {
+      "path": "deployment/db/health-chat.sql",
+      "sha256": "8c78b331fa647c9770275560c21d761ca73f26e239a3e012ce2fd9f386e75c32"
+    },
+    {
+      "path": "docs/architecture/overview.md",
+      "sha256": "25a39e7faa2de04261aca104d6fa8f702979d6fcf55111635652093d96527691"
+    },
+    {
+      "path": "docs/collaboration/README.md",
+      "sha256": "06acb5e98b2edd58a2c9734d9c035d6db92d7a471443152fafb46ac6fc25f5ba"
+    },
+    {
+      "path": "docs/collaboration/reviews/RAG-005-2026-11-06.md",
+      "sha256": "713ec728bcd45769959df83d962029e67d77af4d23901626aed8f815a1350d80"
+    },
+    {
+      "path": "docs/development/ingredient-photo-recognition.md",
+      "sha256": "69c7d076939e496ad507c20e634f3bc1dc66d337988cd8d1deeed571c61a7ba1"
+    },
+    {
+      "path": "scripts/lib/document-parser.py",
+      "sha256": "af13a7b0edf8f891bea0e7e2b8914875c63a69b70b6c2515e03f57ae618f9b9a"
+    },
+    {
+      "path": "scripts/rag.ts",
+      "sha256": "19cffa756f580cd279773e32c994bd227be79d7b1a04bb0dcfcf5a18b2c035f1"
+    },
+    {
+      "path": "shared/ai-food-choices.ts",
+      "sha256": "8fc4c2b4f08107c831e809de907cdee971197450e12d5e03e9f2d8fe36fcb693"
+    },
+    {
+      "path": "shared/context-budget.ts",
+      "sha256": "10b9449a7456128502ada10eb05bfbf5433c99190dff553640f45849686e6146"
+    },
+    {
+      "path": "shared/health-knowledge.ts",
+      "sha256": "68c1b8077dbeb2a1b44654bd1afa666debe69fbf46a37157e329b2be8f2ce3fa"
+    },
+    {
+      "path": "shared/recommendation-input.ts",
+      "sha256": "36c7125ac816fbae4a020a5ee5b5aa8592e40c72f983cf0c5cb96610ab48554c"
+    }
+  ],
+  "primarySources": [
+    {
+      "id": "S01",
+      "title": "RRF原论文",
+      "urls": [
+        "https://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "锁定Embedding模型的上游说明",
+      "urls": [
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+        "https://huggingface.co/BAAI/bge-m3"
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "pgvector官方文档",
+      "urls": [
+        "https://github.com/pgvector/pgvector"
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "BGE reranker模型卡",
+      "urls": [
+        "https://huggingface.co/BAAI/bge-reranker-v2-m3"
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "MCP与A2A官方概念",
+      "urls": [
+        "https://modelcontextprotocol.io/docs/getting-started/intro",
+        "https://a2a-protocol.org/latest/"
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Workflow与Agent边界",
+      "urls": [
+        "https://www.anthropic.com/research/building-effective-agents"
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "Lost in the Middle研究",
+      "urls": [
+        "https://arxiv.org/abs/2307.03172"
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "Transformer/Attention原论文",
+      "urls": [
+        "https://arxiv.org/abs/1706.03762"
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "LoRA与DPO原论文",
+      "urls": [
+        "https://arxiv.org/abs/2106.09685",
+        "https://arxiv.org/abs/2305.18290"
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "GraphRAG原论文",
+      "urls": [
+        "https://arxiv.org/abs/2404.16130"
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "LangGraph状态持久化/中断",
+      "urls": [
+        "https://docs.langchain.com/oss/python/langgraph/persistence",
+        "https://docs.langchain.com/oss/python/langgraph/interrupts"
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Ragas指标说明",
+      "urls": [
+        "https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/"
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "OWASP Prompt Injection",
+      "urls": [
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "BM25原理及实现差异",
+      "urls": [
+        "https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html",
+        "https://www.elastic.co/docs/reference/elasticsearch/index-settings/similarity"
+      ]
+    },
+    {
+      "id": "S15",
+      "title": "JSON Schema及Ajv",
+      "urls": [
+        "https://json-schema.org/understanding-json-schema/reference/object",
+        "https://ajv.js.org/guide/getting-started.html"
+      ]
+    },
+    {
+      "id": "S16",
+      "title": "WeKnora官方仓库/API",
+      "urls": [
+        "https://github.com/Tencent/WeKnora",
+        "https://github.com/Tencent/WeKnora/blob/main/website-docs/04-api/01-api-overview.md"
+      ]
+    },
+    {
+      "id": "S17",
+      "title": "RAGFlow切块组件文档",
+      "urls": [
+        "https://github.com/infiniflow/ragflow/blob/main/docs/guides/agent/ingestion_pipeline/configure_chunker_component.md"
+      ]
+    },
+    {
+      "id": "S18",
+      "title": "ReAct原论文",
+      "urls": [
+        "https://arxiv.org/abs/2210.03629"
+      ]
+    },
+    {
+      "id": "S19",
+      "title": "CRAG与Self-RAG原论文",
+      "urls": [
+        "https://arxiv.org/abs/2401.15884",
+        "https://arxiv.org/abs/2310.11511"
+      ]
+    },
+    {
+      "id": "S20",
+      "title": "DeepSeek JSON模式",
+      "urls": [
+        "https://api-docs.deepseek.com/guides/json_mode/"
+      ]
+    },
+    {
+      "id": "S21",
+      "title": "SSE与WebSocket",
+      "urls": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+        "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket"
+      ]
+    },
+    {
+      "id": "S22",
+      "title": "Python3.11线程/GIL",
+      "urls": [
+        "https://docs.python.org/3.11/library/threading.html"
+      ]
+    }
+  ],
+  "publicInterviewThemes": [
+    {
+      "url": "https://www.nowcoder.com/discuss/940040254214389760?sourceSSR=users",
+      "theme": "项目复盘、业务、gold、混合检索与框架",
+      "questionIds": [
+        "Q005",
+        "Q019",
+        "Q047",
+        "Q069",
+        "Q094"
+      ]
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/928067497637478400",
+      "theme": "RRF常数、错误传播与成本证据",
+      "questionIds": [
+        "Q021",
+        "Q044",
+        "Q050",
+        "Q094"
+      ]
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/869231276035760128",
+      "theme": "RAG、Memory与意图评测",
+      "questionIds": [
+        "Q045",
+        "Q046",
+        "Q065"
+      ]
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/927526880675205120",
+      "theme": "身份、幂等与故障状态",
+      "questionIds": [
+        "Q070",
+        "Q082",
+        "Q104"
+      ]
+    }
+  ],
+  "douyin": {
+    "profileUrl": "https://www.douyin.com/user/MS4wLjABAAAA-b4tOhQRRkvueNDSt-wRZ5YgisYXX6WFjheATtBQtxKWzSD516bwIi8fBjYcO1oC",
+    "author": "小流浪_coding",
+    "notes": [
+      {
+        "id": "7692045240148158329",
+        "url": "https://www.douyin.com/note/7692045240148158329",
+        "label": "用户指定字节Agent",
+        "images": 22,
+        "disposition": "Schema、DB错误/热更新、MCP、回调、上下文、检索/质量/耗时/并发；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q012",
+          "Q046",
+          "Q066",
+          "Q081",
+          "Q084",
+          "Q085",
+          "Q109",
+          "Q110",
+          "Q111",
+          "Q112"
+        ]
+      },
+      {
+        "id": "7679008460893275577",
+        "url": "https://www.douyin.com/note/7679008460893275577",
+        "label": "录用/鼓励",
+        "images": 1,
+        "disposition": "排除：不是技术问答",
+        "questionIds": []
+      },
+      {
+        "id": "7682726464899133425",
+        "url": "https://www.douyin.com/note/7682726464899133425",
+        "label": "Java高频",
+        "images": 10,
+        "disposition": "仅保留性能/并发排查含义；纯Java排除",
+        "questionIds": [
+          "Q081",
+          "Q084",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7679325816744801915",
+        "url": "https://www.douyin.com/note/7679325816744801915",
+        "label": "Java+Agent学习路线",
+        "images": 5,
+        "disposition": "保留AI学习主题；路线/求职建议非实现",
+        "questionIds": [
+          "Q058",
+          "Q063",
+          "Q095"
+        ]
+      },
+      {
+        "id": "7703481881736318331",
+        "url": "https://www.douyin.com/note/7703481881736318331",
+        "label": "美团后端",
+        "images": 6,
+        "disposition": "保留事务、幂等、定位思路；Spring细节排除；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q070",
+          "Q084",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7701625628290813433",
+        "url": "https://www.douyin.com/note/7701625628290813433",
+        "label": "腾讯Agent",
+        "images": 6,
+        "disposition": "保留多库路由、权限、改写、Embedding空间；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q073",
+          "Q079",
+          "Q085",
+          "Q098"
+        ]
+      },
+      {
+        "id": "7700197951720897787",
+        "url": "https://www.douyin.com/note/7700197951720897787",
+        "label": "火山引擎Agent",
+        "images": 24,
+        "disposition": "保留RAG、429/幂等、无MQ任务及上下文；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q043",
+          "Q070",
+          "Q085",
+          "Q092"
+        ]
+      },
+      {
+        "id": "7698282660913214385",
+        "url": "https://www.douyin.com/note/7698282660913214385",
+        "label": "滴滴后端",
+        "images": 6,
+        "disposition": "只保留可迁移后端问题；Java类库排除；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q081",
+          "Q084",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7696802320793072113",
+        "url": "https://www.douyin.com/note/7696802320793072113",
+        "label": "小红书Agent",
+        "images": 18,
+        "disposition": "保留Agent/RAG、状态/工具、质量与工程主题；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q036",
+          "Q063",
+          "Q065",
+          "Q069",
+          "Q090",
+          "Q112"
+        ]
+      },
+      {
+        "id": "7690881786724885178",
+        "url": "https://www.douyin.com/note/7690881786724885178",
+        "label": "得物中间件AI",
+        "images": 14,
+        "disposition": "保留工程与AI边界，未使用中间件不写成果；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q066",
+          "Q070",
+          "Q081",
+          "Q092",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7688335719730975162",
+        "url": "https://www.douyin.com/note/7688335719730975162",
+        "label": "SHEIN Java",
+        "images": 17,
+        "disposition": "纯Java排除；索引/并发问题归后端储备；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q070",
+          "Q084",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7687172008442180465",
+        "url": "https://www.douyin.com/note/7687172008442180465",
+        "label": "八股/实习建议",
+        "images": 2,
+        "disposition": "排除：求职建议，不作为技术事实",
+        "questionIds": []
+      },
+      {
+        "id": "7686779935658378469",
+        "url": "https://www.douyin.com/note/7686779935658378469",
+        "label": "字节日常实习",
+        "images": 17,
+        "disposition": "保留异常/并发/工程含义；纯Java题排除；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q070",
+          "Q081",
+          "Q084",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7685610042947250097",
+        "url": "https://www.douyin.com/note/7685610042947250097",
+        "label": "大三实习建议",
+        "images": 2,
+        "disposition": "排除：与RAG技术链无直接关系",
+        "questionIds": []
+      },
+      {
+        "id": "7684107453315805627",
+        "url": "https://www.douyin.com/note/7684107453315805627",
+        "label": "高德后端",
+        "images": 17,
+        "disposition": "保留数据库/性能/并发储备；Java细节排除；末尾重复AI题库合并到下表，不重复计题",
+        "questionIds": [
+          "Q070",
+          "Q084",
+          "Q106"
+        ]
+      },
+      {
+        "id": "7682997575276292273",
+        "url": "https://www.douyin.com/note/7682997575276292273",
+        "label": "RAG笔记",
+        "images": 11,
+        "disposition": "保留构建、切块、检索、评测主题",
+        "questionIds": [
+          "Q008",
+          "Q012",
+          "Q017",
+          "Q019",
+          "Q027",
+          "Q046",
+          "Q054"
+        ]
+      },
+      {
+        "id": "7682335211371931825",
+        "url": "https://www.douyin.com/note/7682335211371931825",
+        "label": "Agent笔记",
+        "images": 18,
+        "disposition": "保留工作流/循环、工具、记忆、成本与观测",
+        "questionIds": [
+          "Q036",
+          "Q045",
+          "Q063",
+          "Q064",
+          "Q068",
+          "Q090"
+        ]
+      }
+    ],
+    "ocrEngineIdentity": {
+      "provider": "windows.media.ocr",
+      "osBuild": "10.0.26200.0",
+      "engineFileVersion": "10.0.26100.9278 (WinBuild.160101.0800)",
+      "engineSha256": "0db8e48e4f27055f7b7e45412761839b492f5b120b6245edadae61f3fe357ea1",
+      "languages": [
+        "en-US",
+        "zh-Hans-CN"
+      ],
+      "modelFiles": [
+        {
+          "file": "en-us/MsOcrRes.orp",
+          "sha256": "81771d772d77d541e33f3b37e94c81f8a6f87e0b75e933a2389dbcc55715b908"
+        },
+        {
+          "file": "zh-cn/MsOcrRes.orp",
+          "sha256": "9dfdfe421624cd8873e13e0746ac0b9f8345729e35b2da6991720bece6ad4db4"
+        }
+      ],
+      "maxImageDimension": 10000,
+      "confidenceAvailable": false,
+      "identityHash": "268629782c2e4611344f8ddd9e2521e271db49a0e48fc568137e967ceb611809"
+    },
+    "confidenceAvailable": false,
+    "automaticRetries": 0,
+    "reviewState": "OCR extracted and topic screened; not fully manually transcribed",
+    "visuallyCheckedImages": [
+      "n7692045240148158329-p001",
+      "n7682997575276292273-p001"
+    ],
+    "images": [
+      {
+        "id": "n7692045240148158329-p001",
+        "imageHash": "c30dcdd09348c336b723961bac190fe24211bce66caf27b06772719188a74d8a",
+        "width": 1422,
+        "height": 1708,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p002",
+        "imageHash": "a0909da704f576d469990db3289d4ed16301fb8e45ac4ba5624ec9c6b56bddde",
+        "width": 1623,
+        "height": 1290,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p003",
+        "imageHash": "60c15f664e505a730124d864f18390604e2cd8e1ab4474e806653424e726473d",
+        "width": 1604,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p004",
+        "imageHash": "1f14971c4849f0b2cfcf030637e7126b05998ed09b2b6fe0ed0571d03546a205",
+        "width": 1564,
+        "height": 1447,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p005",
+        "imageHash": "2155c61e7a6946a1975887fdbb7c9713bdff9471f338a1ccfad6df41fbd0d9b1",
+        "width": 1440,
+        "height": 1962,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p006",
+        "imageHash": "fc9a5089a4d7f4508df8966cf857a2feccdb90591d91c02c63058d7dbd179c7c",
+        "width": 1639,
+        "height": 1196,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p007",
+        "imageHash": "e41b133c733b6b7243a974c770a5a225eb59259bd913d571fbcace40d713ba10",
+        "width": 1617,
+        "height": 1447,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p008",
+        "imageHash": "3e5eff700b26d36ad1ff7a70721b766f948b1a24239d1905561388d7f8dbb3a6",
+        "width": 1562,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p009",
+        "imageHash": "e7bb8af76b2be4b7768c871ef43d1677b4c5bc1b1840a099873dfee223512a3a",
+        "width": 1588,
+        "height": 1401,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p010",
+        "imageHash": "4c87ebfb8ab597c9347e1986237275b30e8f77bf5d4a84d2a3cb1d352aa77ed8",
+        "width": 1592,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p011",
+        "imageHash": "409acfe2903f5ccf4b26acb18ea6c2bd851a1fd022138675405ecec58275098e",
+        "width": 1440,
+        "height": 1524,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p012",
+        "imageHash": "f14ee05d38e13cb28a4249da167171f19195f1492e971033c5dac90f3f85e436",
+        "width": 1623,
+        "height": 1147,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p013",
+        "imageHash": "fb48338ef8f2e79618f8dc2d42b2add1ea93caefad9d81771b5fc5e8761f5c50",
+        "width": 1622,
+        "height": 942,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p014",
+        "imageHash": "6b18cabdb74b1d9965e3c190c2c0ca5794f6455a0c7b395ce67ffdf86e3e57a2",
+        "width": 1646,
+        "height": 1382,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p015",
+        "imageHash": "c44b20d40018839e625af985ab34073ef61d96a513fb4726cb9ea968f69a61c5",
+        "width": 1440,
+        "height": 1560,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p016",
+        "imageHash": "19cce71f7680d57289f8fbe420c1976bdb27c75e292eaac8773ea95d446cccb2",
+        "width": 1632,
+        "height": 766,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p017",
+        "imageHash": "c62cd2c9e0e4044d42819934918deb33a34d5a1d3f6818e839763d92799cc94d",
+        "width": 1611,
+        "height": 1217,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p018",
+        "imageHash": "5de544ba07a2092e356920e652f7a54af642c0db439a43648715ef520c946e59",
+        "width": 1440,
+        "height": 2012,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p019",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p020",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p021",
+        "imageHash": "6760a3f8b99b11c8e4b63284fec43638472afdb32da4a1c27fd5eb35ea2db33a",
+        "width": 1236,
+        "height": 2368,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7692045240148158329-p022",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7679008460893275577-p001",
+        "imageHash": "a2f76f56689505909ef53aaa66866ae522f6f1f2a8eaaa1c14bb3f2b0978a16d",
+        "width": 1200,
+        "height": 2004,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p001",
+        "imageHash": "d0070ba43eb15f800ba12d6f08d1d9826cdce244af6e4d8ec3feabe10c49b219",
+        "width": 1638,
+        "height": 1218,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p002",
+        "imageHash": "ec3ac2c6f27bd0fa11488bc3442d93d8f81c5182a2a192b482c5b7c9cf14e9ed",
+        "width": 1522,
+        "height": 508,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p003",
+        "imageHash": "70924ab2cfcbfce9bee926335dd4a520fc18024a55375b8402b444850e319b4f",
+        "width": 1480,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p004",
+        "imageHash": "d204b491be884a7e649228fb0f74aa76ca06359e2de6ffe08ddc82b8bfd6350a",
+        "width": 1644,
+        "height": 1082,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p005",
+        "imageHash": "16ef07f2257e0b45e811b208540f8ca773ee4f912b4a8725c9e4ed8eec6b6e79",
+        "width": 1615,
+        "height": 1294,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p006",
+        "imageHash": "259691fb21ad9eb290dfc064adf6b5c71b388a62705c9cb2357a272d6544e4ef",
+        "width": 1552,
+        "height": 359,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p007",
+        "imageHash": "d1fcb9574c9c09cde5fec46c15677848f617af09a20427acfc6d4f7bf40ad20c",
+        "width": 1540,
+        "height": 297,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p008",
+        "imageHash": "5cc7366979a83942e5cbde3dd7d7ebb5ed85dd0b9498c5491cf4d8c2c40c5de0",
+        "width": 1537,
+        "height": 586,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p009",
+        "imageHash": "0bd25d2acc1be190baf22dd67cc3f72881b0363892d580485a81f39efd2d5bdd",
+        "width": 1626,
+        "height": 931,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682726464899133425-p010",
+        "imageHash": "3fa04b59ed833195cb9beec40189c4f3a2c8c06d54a70638f2cededaff6c079d",
+        "width": 1671,
+        "height": 656,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7679325816744801915-p001",
+        "imageHash": "151350e3b96c461c8e97645c39ed45051fa91fe100e97e5a58b979a2ee01f6de",
+        "width": 1440,
+        "height": 1946,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7679325816744801915-p002",
+        "imageHash": "31dfd120c436a2826e61c0a3181b6868d82cc09f71645caf413f737ed2b9630c",
+        "width": 1586,
+        "height": 881,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7679325816744801915-p003",
+        "imageHash": "7a1b991bed79567352de130dd6d5ae832d218787adb8847e254c9b14f8cf51f4",
+        "width": 1606,
+        "height": 925,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7679325816744801915-p004",
+        "imageHash": "4296d75fcfc3a4158d30e76f44df04c3ce0c3a4e05b9a96ecb5585f42471f81e",
+        "width": 1667,
+        "height": 609,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7679325816744801915-p005",
+        "imageHash": "644a903d7d6242100c15682dc66062792582d24dbbb814be9d8ea7c8122669b1",
+        "width": 1643,
+        "height": 1301,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7703481881736318331-p001",
+        "imageHash": "04cff27e40b3294c545cf044542d0371fc68e3ab925c9762232b06e9ea8e0b82",
+        "width": 1488,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7703481881736318331-p002",
+        "imageHash": "b75e059562b7797601dbec433f71187754fd5c7f0e26d85de2067ecc9704ab65",
+        "width": 1538,
+        "height": 1290,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7703481881736318331-p003",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7703481881736318331-p004",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7703481881736318331-p005",
+        "imageHash": "71bca3c8ad6901b885e043ca2243e72060f6c75c5ce6a1f879fc98dcf869eef0",
+        "width": 1236,
+        "height": 2588,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7703481881736318331-p006",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7701625628290813433-p001",
+        "imageHash": "95cb43e2093f6ff39201692a68316e31e8862a18b214fa9300da96f36ad36e52",
+        "width": 1440,
+        "height": 1484,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7701625628290813433-p002",
+        "imageHash": "3a551f03de8696f9a1e35ea8469e01488821861bf6a0ef6fe213a345a624ebf5",
+        "width": 1508,
+        "height": 1110,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7701625628290813433-p003",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7701625628290813433-p004",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7701625628290813433-p005",
+        "imageHash": "71bca3c8ad6901b885e043ca2243e72060f6c75c5ce6a1f879fc98dcf869eef0",
+        "width": 1236,
+        "height": 2588,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7701625628290813433-p006",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p001",
+        "imageHash": "ed86006b7185f15ade5c4d952262b2520092bf9740db56520c8bbb73623c4ae8",
+        "width": 1440,
+        "height": 1516,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p002",
+        "imageHash": "ca5f9feea6eac821036b0ffba9acde1e8d0af292b1c112e4e0c9ccc77ec5abe1",
+        "width": 1536,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p003",
+        "imageHash": "f3789d0daf2668eb46bd29842ec0d7d5157a72a02184c5ce6ea5bf7c1651e3b7",
+        "width": 1607,
+        "height": 1376,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p004",
+        "imageHash": "a2ccdf73bb22bed8ef60c4d8fb5bce56c84eb1c2410d099dead9903c8cc12206",
+        "width": 1601,
+        "height": 888,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p005",
+        "imageHash": "bcf4d5d7ee51ea91c0c12ee266e958c03de60f96f43ffeb46bcb9c0f85ae02d3",
+        "width": 1636,
+        "height": 718,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p006",
+        "imageHash": "8f1abff66280dbe97808d92ad4c11d27b61a0b466668df05939b74ce4d500386",
+        "width": 1642,
+        "height": 1298,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p007",
+        "imageHash": "d35b3a3a7d5fc68980130c4f3f6c643eb2c9226c9de31683ce019a4338e218b0",
+        "width": 1468,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p008",
+        "imageHash": "70c8ede36385d459b57b71b6a8b3d4b6f10a7f3f80da81731a6671781ec2ec45",
+        "width": 1633,
+        "height": 835,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p009",
+        "imageHash": "4454cbb8e84567736325264e850d2d4c01c49dbb7bc826c612d97f44afc3c7ca",
+        "width": 1643,
+        "height": 947,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p010",
+        "imageHash": "376c15dd894925d566111184aed179a4e787b73f6574bd8d7dfff7af92cb1844",
+        "width": 1595,
+        "height": 1394,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p011",
+        "imageHash": "d3b4897cc540e3db99908a3621d49971ca67d88c9d06272af963fcf17b39f62b",
+        "width": 1639,
+        "height": 1216,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p012",
+        "imageHash": "0a14fa827e36c1093325e2a1b9eb6324b234b247645a10cb724780a7d439d676",
+        "width": 1635,
+        "height": 1292,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p013",
+        "imageHash": "28f6972b429c59865ff5738ad9ed561a8192f585134c19da88b2a25c5b5c520b",
+        "width": 1644,
+        "height": 650,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p014",
+        "imageHash": "f577a7073d3dd6f7f74dbe023fa9dfbc57dfc9723bfb08aa424933d38ae85aaf",
+        "width": 1647,
+        "height": 697,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p015",
+        "imageHash": "ac81dc1dbc3fcd10da4f9b5bd769613f38830752e2e1d79ec9d8352a53f829ae",
+        "width": 1440,
+        "height": 1486,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p016",
+        "imageHash": "44bbc6adfd11a2b8e18e3f40919440aaa7044de7956caea855166dbc7c92fbf5",
+        "width": 1632,
+        "height": 1351,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p017",
+        "imageHash": "b6180979ed6caeba9edb965af5f3a46434b8fef2efc88180f02523da11d2778d",
+        "width": 1500,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p018",
+        "imageHash": "12d296a9b90343cbf962939b63f4242c0a5b03702652d08e9c245ce0b2463df0",
+        "width": 1650,
+        "height": 942,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p019",
+        "imageHash": "d32ac9eac1626161b04e15734d0859cdb0ef8998e565109a04841e29ebdf567b",
+        "width": 1664,
+        "height": 1402,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p020",
+        "imageHash": "021a45fe0aa8f689ec5d8cc6ea89e2e00dc53717b6157faa476cfccdbaf99f04",
+        "width": 1440,
+        "height": 1758,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p021",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p022",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p023",
+        "imageHash": "71bca3c8ad6901b885e043ca2243e72060f6c75c5ce6a1f879fc98dcf869eef0",
+        "width": 1236,
+        "height": 2588,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7700197951720897787-p024",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7698282660913214385-p001",
+        "imageHash": "e551eb48521d8af1e7167b7f3c1275cdf499cda91554bf1c1e98fb4c9385e5b3",
+        "width": 1440,
+        "height": 1510,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7698282660913214385-p002",
+        "imageHash": "3fa23da8f7059e6e71d634cf1cedd16d95faee13e1debe43b293299d1e44bc9b",
+        "width": 1455,
+        "height": 1300,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7698282660913214385-p003",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7698282660913214385-p004",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7698282660913214385-p005",
+        "imageHash": "71bca3c8ad6901b885e043ca2243e72060f6c75c5ce6a1f879fc98dcf869eef0",
+        "width": 1236,
+        "height": 2588,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7698282660913214385-p006",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p001",
+        "imageHash": "55fafcd0f56ba7638383bb050b9065e80da937b984162a5dccd6a91afc30669a",
+        "width": 1468,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p002",
+        "imageHash": "633d1cb6424ddb368541cab0e7a665c4117ccf5e3753acc980d0a5144829071e",
+        "width": 1602,
+        "height": 1141,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p003",
+        "imageHash": "d74a2e7191ffebd3f0d2628d57afca66d222532d38d228444bc3edfe582497ac",
+        "width": 1601,
+        "height": 1419,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p004",
+        "imageHash": "12fd933ab377f30bf17f53a34a9452886598b671cd717dda45be987e77f67cb7",
+        "width": 1440,
+        "height": 1480,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p005",
+        "imageHash": "728ce597ed3d56da43ef11d23da8931d1c76c688414bb23e265722ca54e443f1",
+        "width": 1440,
+        "height": 1640,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p006",
+        "imageHash": "ce3f2d9ec3046168c6c686c17c784170c179214ddde6390c7970eee578990098",
+        "width": 1440,
+        "height": 2062,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p007",
+        "imageHash": "6320cc4ade48b3bb6bc4ac3ff297466cd6aa81553c94d4d1e3098f270cc78b37",
+        "width": 1617,
+        "height": 1225,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p008",
+        "imageHash": "58021c457a4bcfe3f3ec639cf23197603cf6d1d8d58a60ef671ce34280aa8bf1",
+        "width": 1614,
+        "height": 1049,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p009",
+        "imageHash": "bce627beeeb9d5648d243641a1d132a4caf746d0382e6fd1ccd280b564c0d54e",
+        "width": 1615,
+        "height": 1063,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p010",
+        "imageHash": "09851c308066ea8a5290fe78fe0de93ad660777364f023e9e18a08f8eba93e20",
+        "width": 1641,
+        "height": 1014,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p011",
+        "imageHash": "2850cfbb0601ebb3c76ff5544f399b1881a2a1253efc6b82a802b3163c0161e0",
+        "width": 1675,
+        "height": 921,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p012",
+        "imageHash": "6b2dc1b49475572a0b147ff094c16234595ff298fff9a334d7cf5463f7b859c5",
+        "width": 1616,
+        "height": 1275,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p013",
+        "imageHash": "1cc34a72e1886440ae783381cc3aecb838d7a6e4c46c8a60223944db359c6e80",
+        "width": 1597,
+        "height": 1149,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p014",
+        "imageHash": "aacea397bcd599cf0d7c8815d4b5d6e89b180e75aa1db1da80009f68bb4ac18c",
+        "width": 1605,
+        "height": 948,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p015",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p016",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p017",
+        "imageHash": "71bca3c8ad6901b885e043ca2243e72060f6c75c5ce6a1f879fc98dcf869eef0",
+        "width": 1236,
+        "height": 2588,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7696802320793072113-p018",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p001",
+        "imageHash": "0dc8c90d0874ddc2c5e346b2b22a9f864ad53c70d03aa5c19b3437d1a2831d9e",
+        "width": 1569,
+        "height": 1348,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p002",
+        "imageHash": "5592964b1b147957974eb5a04bcbdc3f9328415262977882020ad8c539f60fa0",
+        "width": 1604,
+        "height": 1125,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p003",
+        "imageHash": "23080f88660a2cb50a3f813658d91e6b80320cce734c8ab28af08aee48080713",
+        "width": 1440,
+        "height": 2758,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p004",
+        "imageHash": "03f9af6a1dbcf27b4ea74cf28b1f0602a6a23152d89352a09316e053d2d3d0c8",
+        "width": 1440,
+        "height": 2330,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p005",
+        "imageHash": "02df8886fe03796d5a0f7e7beefe8f401e798ad447e1d51a281a1945c0ccb245",
+        "width": 1440,
+        "height": 1786,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p006",
+        "imageHash": "d6411b71c7371008e980c18af74d3254278ad8f72180aa6247ffb1fe47a9b26f",
+        "width": 1440,
+        "height": 1832,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p007",
+        "imageHash": "c9810a8a59cfe3172a72473f4435b13600ff441ab0a26f47fbdd16fb577644e8",
+        "width": 1623,
+        "height": 1014,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p008",
+        "imageHash": "774c560208971797afa3219c5426a8287a0973c51868939590ab3aa059cc2e79",
+        "width": 1591,
+        "height": 884,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p009",
+        "imageHash": "4b1a9761eeabcd8a8369a916471b9da438b7362720a21bf88ef87d02f555de8b",
+        "width": 1533,
+        "height": 1280,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p010",
+        "imageHash": "fa2e1780852205dfa494a118cb28df35c670ea8dcd62ec7eeb0ba165937e5671",
+        "width": 1622,
+        "height": 497,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p011",
+        "imageHash": "34c9a6075b99f782449eab9295d1e112ebbb8583f8c1a91f0c9eb5f6be14f4e8",
+        "width": 1236,
+        "height": 2310,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p012",
+        "imageHash": "adc2c8deeca3915af6ac5c221405a4f56c981cec1dc12b384440edd210c236ab",
+        "width": 1236,
+        "height": 2282,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p013",
+        "imageHash": "71bca3c8ad6901b885e043ca2243e72060f6c75c5ce6a1f879fc98dcf869eef0",
+        "width": 1236,
+        "height": 2588,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7690881786724885178-p014",
+        "imageHash": "13411734e700ee7bbbdae6da3b90bee6b18a81d1437675b9b87cf1dc945233d6",
+        "width": 1236,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p001",
+        "imageHash": "4a48ff5de2bbd96f5b0068da0735cf61aa65be2f27a51c5eed1d090cfb574452",
+        "width": 1592,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p002",
+        "imageHash": "32248b1c9939bbd15b1f3ae67c43f8ab2d47ae2233782ec75ba814168cfa7bb4",
+        "width": 1440,
+        "height": 1526,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p003",
+        "imageHash": "993c3104fe4ef92213ba9deb94e78ab13fe518893bcc5a5822532f10bdc07758",
+        "width": 1440,
+        "height": 1732,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p004",
+        "imageHash": "574ddee1accf2f0639e0a234e87f2aba539295aeadc1f6940d62104e34432516",
+        "width": 1440,
+        "height": 1612,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p005",
+        "imageHash": "49d3889ad22636ab9b5f29d1df446a5e8e2ac216dc45984f6ff6a6619f3df741",
+        "width": 1639,
+        "height": 1218,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p006",
+        "imageHash": "ec3ac2c6f27bd0fa11488bc3442d93d8f81c5182a2a192b482c5b7c9cf14e9ed",
+        "width": 1522,
+        "height": 508,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p007",
+        "imageHash": "70924ab2cfcbfce9bee926335dd4a520fc18024a55375b8402b444850e319b4f",
+        "width": 1480,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p008",
+        "imageHash": "d204b491be884a7e649228fb0f74aa76ca06359e2de6ffe08ddc82b8bfd6350a",
+        "width": 1644,
+        "height": 1082,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p009",
+        "imageHash": "16ef07f2257e0b45e811b208540f8ca773ee4f912b4a8725c9e4ed8eec6b6e79",
+        "width": 1615,
+        "height": 1294,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p010",
+        "imageHash": "259691fb21ad9eb290dfc064adf6b5c71b388a62705c9cb2357a272d6544e4ef",
+        "width": 1552,
+        "height": 359,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p011",
+        "imageHash": "d1fcb9574c9c09cde5fec46c15677848f617af09a20427acfc6d4f7bf40ad20c",
+        "width": 1540,
+        "height": 297,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p012",
+        "imageHash": "5cc7366979a83942e5cbde3dd7d7ebb5ed85dd0b9498c5491cf4d8c2c40c5de0",
+        "width": 1537,
+        "height": 586,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p013",
+        "imageHash": "0bd25d2acc1be190baf22dd67cc3f72881b0363892d580485a81f39efd2d5bdd",
+        "width": 1626,
+        "height": 931,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p014",
+        "imageHash": "3fa04b59ed833195cb9beec40189c4f3a2c8c06d54a70638f2cededaff6c079d",
+        "width": 1671,
+        "height": 656,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p015",
+        "imageHash": "e8d6ebdb0cfe3763c48a74151daf419f83c56142c569fc80ae832c5cdc9c0531",
+        "width": 1575,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p016",
+        "imageHash": "5f9f8a2e20c44a4d1dd914951ef5a9ec7e9be7f370ff11b66e08519c4455c878",
+        "width": 1586,
+        "height": 1222,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7688335719730975162-p017",
+        "imageHash": "e4579103fd36d68a250ea94c6c98638437ce423284dacd40066a8b7f8643c01e",
+        "width": 1614,
+        "height": 669,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7687172008442180465-p001",
+        "imageHash": "046c015abb22ddac85e16f60010bf468aac264c511fc00cd1ea5432266ec7463",
+        "width": 1584,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7687172008442180465-p002",
+        "imageHash": "ed6e82fba506f51bebab0695b1e63fd1dcfc790e9a9d25fe6660741f5bf4917f",
+        "width": 1440,
+        "height": 1540,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p001",
+        "imageHash": "d5d18ae03fe1fde62d9ee709ac7d3bca165a0c46051035a9b3d9c2a800aa7ea7",
+        "width": 1464,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p002",
+        "imageHash": "a9d15a4ab40b99de68bdf49a701bf21172a46e09984a6a4632f0db955f9dd3de",
+        "width": 1574,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p003",
+        "imageHash": "67b2cc97627e4d8655d955238f8eec529866acc599d8d748021558d56705112a",
+        "width": 1621,
+        "height": 1292,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p004",
+        "imageHash": "0a1616c059fcff82d58aac43eabd008c90cf517763796f535aa0eba7b5a1a821",
+        "width": 1484,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p005",
+        "imageHash": "49d3889ad22636ab9b5f29d1df446a5e8e2ac216dc45984f6ff6a6619f3df741",
+        "width": 1639,
+        "height": 1218,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p006",
+        "imageHash": "ec3ac2c6f27bd0fa11488bc3442d93d8f81c5182a2a192b482c5b7c9cf14e9ed",
+        "width": 1522,
+        "height": 508,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p007",
+        "imageHash": "70924ab2cfcbfce9bee926335dd4a520fc18024a55375b8402b444850e319b4f",
+        "width": 1480,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p008",
+        "imageHash": "d204b491be884a7e649228fb0f74aa76ca06359e2de6ffe08ddc82b8bfd6350a",
+        "width": 1644,
+        "height": 1082,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p009",
+        "imageHash": "16ef07f2257e0b45e811b208540f8ca773ee4f912b4a8725c9e4ed8eec6b6e79",
+        "width": 1615,
+        "height": 1294,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p010",
+        "imageHash": "259691fb21ad9eb290dfc064adf6b5c71b388a62705c9cb2357a272d6544e4ef",
+        "width": 1552,
+        "height": 359,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p011",
+        "imageHash": "d1fcb9574c9c09cde5fec46c15677848f617af09a20427acfc6d4f7bf40ad20c",
+        "width": 1540,
+        "height": 297,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p012",
+        "imageHash": "d1de09e5035b4e23f24d594f3f6f121ef3acc9cbc9db24e3be482f0e3d176e0e",
+        "width": 1536,
+        "height": 586,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p013",
+        "imageHash": "0bd25d2acc1be190baf22dd67cc3f72881b0363892d580485a81f39efd2d5bdd",
+        "width": 1626,
+        "height": 931,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p014",
+        "imageHash": "3fa04b59ed833195cb9beec40189c4f3a2c8c06d54a70638f2cededaff6c079d",
+        "width": 1671,
+        "height": 656,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p015",
+        "imageHash": "e8d6ebdb0cfe3763c48a74151daf419f83c56142c569fc80ae832c5cdc9c0531",
+        "width": 1575,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p016",
+        "imageHash": "5f9f8a2e20c44a4d1dd914951ef5a9ec7e9be7f370ff11b66e08519c4455c878",
+        "width": 1586,
+        "height": 1222,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7686779935658378469-p017",
+        "imageHash": "e4579103fd36d68a250ea94c6c98638437ce423284dacd40066a8b7f8643c01e",
+        "width": 1614,
+        "height": 669,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7685610042947250097-p001",
+        "imageHash": "9c482d80c983e6db5efee556545af954346486cfca6dd38688e0c588acd70ba5",
+        "width": 1586,
+        "height": 1426,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7685610042947250097-p002",
+        "imageHash": "74a5687385a430cee5a205dfefb9550f18efe4c1ba5f270f1dfab69674b537bb",
+        "width": 1548,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p001",
+        "imageHash": "3a68e40f14f1dc2cea9ce99426e301da44035d0f5d4c2ab791a47c5991e74e4f",
+        "width": 1807,
+        "height": 1187,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p002",
+        "imageHash": "af5c332cfbb5cb566c97727c87160ef6e8145df29fd4b6f28bca1b0fa8fbeafe",
+        "width": 1440,
+        "height": 2252,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p003",
+        "imageHash": "436b7cdc126361378a6874c046e51e39a6bab854fbc2e9c49ba696b214bed668",
+        "width": 1440,
+        "height": 1850,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p004",
+        "imageHash": "ebc30e24f70fa1e0fc1498f02d70f670fd54e14473b28292b1273217c52c0503",
+        "width": 1440,
+        "height": 2356,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p005",
+        "imageHash": "49d3889ad22636ab9b5f29d1df446a5e8e2ac216dc45984f6ff6a6619f3df741",
+        "width": 1639,
+        "height": 1218,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p006",
+        "imageHash": "ec3ac2c6f27bd0fa11488bc3442d93d8f81c5182a2a192b482c5b7c9cf14e9ed",
+        "width": 1522,
+        "height": 508,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p007",
+        "imageHash": "70924ab2cfcbfce9bee926335dd4a520fc18024a55375b8402b444850e319b4f",
+        "width": 1480,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p008",
+        "imageHash": "d204b491be884a7e649228fb0f74aa76ca06359e2de6ffe08ddc82b8bfd6350a",
+        "width": 1644,
+        "height": 1082,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p009",
+        "imageHash": "16ef07f2257e0b45e811b208540f8ca773ee4f912b4a8725c9e4ed8eec6b6e79",
+        "width": 1615,
+        "height": 1294,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p010",
+        "imageHash": "259691fb21ad9eb290dfc064adf6b5c71b388a62705c9cb2357a272d6544e4ef",
+        "width": 1552,
+        "height": 359,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p011",
+        "imageHash": "d1fcb9574c9c09cde5fec46c15677848f617af09a20427acfc6d4f7bf40ad20c",
+        "width": 1540,
+        "height": 297,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p012",
+        "imageHash": "5cc7366979a83942e5cbde3dd7d7ebb5ed85dd0b9498c5491cf4d8c2c40c5de0",
+        "width": 1537,
+        "height": 586,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p013",
+        "imageHash": "0bd25d2acc1be190baf22dd67cc3f72881b0363892d580485a81f39efd2d5bdd",
+        "width": 1626,
+        "height": 931,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p014",
+        "imageHash": "3fa04b59ed833195cb9beec40189c4f3a2c8c06d54a70638f2cededaff6c079d",
+        "width": 1671,
+        "height": 656,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p015",
+        "imageHash": "e8d6ebdb0cfe3763c48a74151daf419f83c56142c569fc80ae832c5cdc9c0531",
+        "width": 1575,
+        "height": 1370,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p016",
+        "imageHash": "5f9f8a2e20c44a4d1dd914951ef5a9ec7e9be7f370ff11b66e08519c4455c878",
+        "width": 1586,
+        "height": 1222,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7684107453315805627-p017",
+        "imageHash": "e4579103fd36d68a250ea94c6c98638437ce423284dacd40066a8b7f8643c01e",
+        "width": 1614,
+        "height": 669,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p001",
+        "imageHash": "f1c6fa867d25f3162fd7806918cb274f171f820544390bf14c12b954e81f382d",
+        "width": 1440,
+        "height": 1618,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p002",
+        "imageHash": "6ad47a1b78d319ef43ffbb61b21bfa016286a1dcd68458eadba3cd65fbc6f81a",
+        "width": 1440,
+        "height": 2556,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p003",
+        "imageHash": "14c439ca40f0a35f6978ae994c2f67ecc10923945ab1a1fcd0fe900055ec9764",
+        "width": 1440,
+        "height": 2362,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p004",
+        "imageHash": "daf8d2b80d8f1d0fe73a74efeba13ccac82ac431da03af72833884fa51973ec8",
+        "width": 1520,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p005",
+        "imageHash": "2d7828d40804c7887d46a604e9f3123a92ca088547f2e1202001adc82067e988",
+        "width": 1440,
+        "height": 1556,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p006",
+        "imageHash": "f58ef5151ea15307219cb2798e110440b5ef29629c9d86249acb7d065241ed09",
+        "width": 1604,
+        "height": 791,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p007",
+        "imageHash": "0dc81889c801028689982cc1c42d8cf7087e36666ead9d6d776e6ba29a417a6d",
+        "width": 1605,
+        "height": 1012,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p008",
+        "imageHash": "0c4449c3f9fbe773125110188eb0b1e28d717d6c8032a18a1ead0cc2bc2598bd",
+        "width": 1576,
+        "height": 1015,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p009",
+        "imageHash": "348b8e64555bbebbabbcd04578c063c08444d48c915da2c85b85a58de55b0691",
+        "width": 1484,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p010",
+        "imageHash": "efa4dc1b08289edbe6247b5b04b505411f8ecbfde9957b194396d2814afeb689",
+        "width": 1440,
+        "height": 1820,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682997575276292273-p011",
+        "imageHash": "6fcd6635ef9d7a5e38fddbc463df209da2bff7e2f50b21143a9c1070d68c96f4",
+        "width": 1640,
+        "height": 1248,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p001",
+        "imageHash": "fdb166d4de5ada2b679709d139851c4b371757b4bab39bdcef62ab7b686eea45",
+        "width": 1599,
+        "height": 1061,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p002",
+        "imageHash": "a67a5c3642786422273c459a93e2302797442213720cc6715dccefa8ec98f439",
+        "width": 1619,
+        "height": 1338,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p003",
+        "imageHash": "59f7a2237d472f3d1391f573278805369daa392b7ae10f57e8e83800206149a4",
+        "width": 1440,
+        "height": 2430,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p004",
+        "imageHash": "ce24c6a1f1f2a80899e85581269dc3b2cdc6be1d92a6a928f4a82c123c42bb9a",
+        "width": 1440,
+        "height": 1498,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p005",
+        "imageHash": "da9cd8d29817dd83ff7b06e161ad8d27f472f4bac45cee0adc98e8732deabb87",
+        "width": 1440,
+        "height": 1694,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p006",
+        "imageHash": "b31c7b36a6202d38665fcb73ff6e0b1930f4199d572dd625203cae7d4af726b7",
+        "width": 1440,
+        "height": 2694,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p007",
+        "imageHash": "9bed8757ab060264875fd9a8357501ee55dfb82ce380e51f0d21e52f94dd379f",
+        "width": 1440,
+        "height": 1532,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p008",
+        "imageHash": "4932a78cba1ed2c88451ed4878d93b6260c184b6c5ac2505fad522297f3f216e",
+        "width": 1440,
+        "height": 2174,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p009",
+        "imageHash": "3a57f8456dd0176d949fc9297134a028a8d91b465675095f5122d1b7d32d7ac8",
+        "width": 1440,
+        "height": 2114,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p010",
+        "imageHash": "d4141c2789ce8296498663d490195df835bded3101b95154107701f50e56d7ce",
+        "width": 1573,
+        "height": 1323,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p011",
+        "imageHash": "517337805c78509fe0c031435b2b3ffcc530c2d10946672e037cad1ef2fba8e5",
+        "width": 1575,
+        "height": 1248,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p012",
+        "imageHash": "070809e5cddc751a8d433ad2552c06c8dd04e7c07b46fc11d5885a19bb860d34",
+        "width": 1560,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p013",
+        "imageHash": "d4662622b58ca3e39775136042db4c4830f5f09e8a5ac45f6edac039f81bb463",
+        "width": 1592,
+        "height": 1327,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p014",
+        "imageHash": "a68afe784a7ae0f52513c2a32801be7a3874dcd688beb55c7d2b7e6e831e681c",
+        "width": 1440,
+        "height": 1554,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p015",
+        "imageHash": "553d4eb7fbae36d9276518a51d9bc7db3f4b3d404ebc0d71ae1b9909660ad146",
+        "width": 1528,
+        "height": 1440,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p016",
+        "imageHash": "0b72efb8604911169df9515aa987777d9e32175ed1f0d52da26ac486d337efa5",
+        "width": 1590,
+        "height": 1407,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p017",
+        "imageHash": "df070c60fe1f0831518a07ffb7c407c84200b359c24a5e1211fdca71da2ae432",
+        "width": 1440,
+        "height": 1654,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      },
+      {
+        "id": "n7682335211371931825-p018",
+        "imageHash": "8a4c9bb67444239522a38994f67974db78f9c2ae9bcb8b24a1791f04738d6b53",
+        "width": 1625,
+        "height": 1405,
+        "language": "zh-Hans-CN",
+        "state": "recognized_requires_review",
+        "confidence": null
+      }
+    ]
+  },
+  "boundaries": {
+    "newPaidCalls": 0,
+    "newEmbeddingInference": false,
+    "newKBOrIndexPublished": false,
+    "productionDeployment": false,
+    "sourceMediaRedistributed": false,
+    "externalOriginalsModified": false
+  }
+}

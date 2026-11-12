@@ -23,7 +23,7 @@ import { availableFlavors } from '../../shared/flavors';
 import { pantryGroups } from '../../shared/pantry';
 import { SiteHeader } from './site-header';
 import { PhotoInput } from './photo-input';
-import { resolvePantryFood } from '../../shared/ingredient-matching';
+import { suggestPantryFoods, resolvePantryFood } from '../../shared/ingredient-matching';
 import { recipeLineText, shoppingList } from './recipe-presentation';
 import { AccountBanner, AccountControls } from './account-controls';
 import { initializeAccount, setAccountCatalog, accountState, subscribeAccount, savePersonalSettings, flushHealthSettings } from './account-store';
@@ -139,6 +139,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
     const current = mealRef.current.ingredients.find(i => i.id === id);
     if (!current) return;
     const food = resolvePantryFood(name, catalog.foodById);
+    if(food)setNotice('已确认食材，可以继续搭配');
     const updated: Ingredient = { ...current, name, foodId: food?.id ?? null, form: food?.form ?? current.form, status: food ? 'confirmed' : 'pending', original: name };
     edit(m => ({ ...m, ingredients: mergeInput(m.ingredients.filter(i => i.id !== id), [updated]) }));
   };
@@ -163,7 +164,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
     if (parsed.length) setEntryOpen(false);
     const unrecognized = parsed.filter(i => !i.foodId).map(i => i.name);
     setNotice(data.restrictions.length ? '食材已加入。请打开过敏或忌口，确认识别到的饮食要求。'
-      : unrecognized.length ? `暂未识别：${unrecognized.join('、')}。已保留在食材清单中，不会当作忌口；可改名或删除。`
+      : unrecognized.length ? `有几项需要确认：${unrecognized.join('、')}。请在食材清单确认具体名称。`
       : data.ingredients.some(i => i.foodId && seasoningIds.includes(i.foodId)) ? '食材已加入，调料请在调料设置中管理。'
       : parsed.length ? '食材已加入，可以开始搭配了' : '没有找到食材，可以在下方手动添加');
   };
@@ -330,7 +331,8 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
           <ul className="ingredients" aria-label="我的食材">{meal.ingredients.map(i => { return <li key={i.id}><div className="ingredient-row">
             {i.foodId ? <span className="ingredient-name" title={i.name}>{i.name}</span> : <input className="ingredient-name-edit" aria-label={`更正未识别名称 ${i.name}`} list="food-names" maxLength={100} value={i.name} onChange={e => renameIngredient(i.id,e.target.value)}/>}
             <button className="icon-button" aria-label={`删除食材 ${i.name}`} onClick={() => edit(m => ({ ...m, ingredients: m.ingredients.filter(x => x.id !== i.id) }))}>×</button></div>
-            {!i.foodId && <p className="ingredient-unrecognized">未识别，不参与推荐；可改名或删除</p>}
+            {!i.foodId && <p className="ingredient-unrecognized">请确认具体食材；确认后参与推荐</p>}
+            {!i.foodId && <div className="chips" aria-label={`匹配 ${i.name}`}>{suggestPantryFoods(i.name,catalog.foodById).map(food=><button key={food.id} type="button" onClick={()=>renameIngredient(i.id,food.name)}>{food.name}</button>)}</div>}
           </li>; })}</ul>
           <FoodPicker foods={foods} add={addManual}/>
           <datalist id="food-names">{foods.filter(f => !seasoningIds.includes(f.id)).map(f => <option key={f.id} value={f.name}/>)}</datalist>

@@ -5,6 +5,7 @@
 | 遇到的需求 | 查阅文件 |
 | --- | --- |
 | 核对当前v3默认知识、NCI旧支持隔离/完整正文、新索引与常用成员、本餐回归 | [RAG-008执行记录](evidence-refresh-2026-11-12.md)、[知识v3](../../datasets/health/README-v3.md)及[映射v3](../../datasets/health/food-guidance-mappings-v3.md)；原98条测量与旧模型样例保留快照口径 |
+| 学习/讲解本项目AI、Agent、RAG全链路；准备面试、核对参数/实验/真实难点及外部题库覆盖 | [工程与面试手册](interview/README.md)、[离线阅读器](interview/reader.html)；112题按实际/研究/方案标状态，附来源映射，不编造对比收益 |
 | 继续解决食谱业务断点、目标知识、正文/表格/OCR、检索偏题、独立评测与人工审核集 | [后续行动 TODO](todo.md)，含优先级、动作、验收及依赖 |
 | 按缓存原件离线重建、锁定解析器、比较输出/定位，不覆盖冻结资料 | [资料重建运行说明](source-rebuild-runbook.md) |
 | 修改HTML正文、PDF页边噪声/双栏/断行、表格候选、OCR检测和原文回溯 | [正文解析运行说明](document-parsing-runbook.md)、[2026-11-06实测](document-parsing-execution-2026-11-06.md)；工程候选不等于语义签认 |

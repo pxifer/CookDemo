@@ -15,6 +15,9 @@
 | RAG-004 | RAG开发agent | 表格逐格、真实离线OCR、定位候选与机械门禁 | `agent/rag/RAG-004-tables-ocr`，审核 `fa99864` | 原字符/坐标/血缘保真、待核隔离及不发布事实 | 工程范围完成；合并 `9a6dee5` 并复验；[集成审核](reviews/INTEGRATION-2026-11-06.md)；独立/专业审核及事实发布未完成 |
 | RAG-005 | RAG开发agent | v3无竖线表格、下标/单元格顺序与旧证据定位治理 | `agent/rag/RAG-005-evidence-resolution`，审核 `187ba82` | 原字符保真、旧来源/偏移与导航误引隔离、回归 | 工程范围完成；原P2关闭，合并 `bba9659` 并复验，345单元通过/2跳过、13来源独立重建核对通过；[管理审核](reviews/RAG-005-2026-11-06.md)；新事实/索引未发布 |
 | RAG-006 | RAG开发agent | 全链路参数/切块规格；AGENTS与Agent文档导航；离线长度测量证据，不改运行代码或知识/索引 | `agent/rag/RAG-006-parameter-specification` | 绑定实际代码/数据hash；98条证据与3717结构块两tokenizer长度；逐项区分现值/初值/实测/未对比；链接/行数/原件保持核验 | 完成；审核55e2527，合并df5aeab并复验；98证据/3717块两tokenizer独立复算一致；[管理审核](reviews/RAG-006-2026-11-12.md)；无运行代码变化、无模型推理/部署 |
+| INPUT-002 | 当前输入开发chat | 食材同义词/候选点选；简短回答缺省档案兼容；当前限制取代旧限制、取消旧请求及CAS保存复核；shared/backend/frontend及专项测试 | `agent/codex/INPUT-002-conversation-matching` | 构建与验收类型；单元348通过2跳过；核心/识图42、健康16浏览器通过 | 完成；审核9576d72，合并c5fc6db并复验，348单元通过/2跳过、核心图片42/健康16通过；[管理审核](reviews/INTEGRATION-2026-11-12.md) |
+
+| RAG-007 | RAG开发agent | 项目AI/Agent工程与面试手册：本地题库、用户57题、公开图文/面经筛选；原理/参数/实验/难点/亮点；文档阅读入口 | `agent/rag/RAG-007-interview-handbook` | 以main bfa1567为事实基线；112题覆盖映射；942本地链接/746锚点、原件hash、离线阅读版及桌面/手机核验；AGENTS102行 | 完成；审核c2160f0，基于INPUT-002集成3697c8e；重建、链接/hash、112题与桌面手机交互核验通过；[管理审核](reviews/INTEGRATION-2026-11-12.md)；实现事实仍绑定原bfa1567快照 |
 
 | RAG-008 | RAG开发agent | 按序重整NCI原文/事实、小批新知识版本接入、常用食材映射及本餐回归；涉及研究后端、datasets、scripts、tests与Agent说明，不改线上开关/秘密/既有SQL | `agent/rag/RAG-008-evidence-refresh` | 基于main bfa1567；冻结原件/旧包hash保持；坏支持隔离、新原文条件闭包可回查、不可变入库、映射不泛化；构建/类型/本地单元及实际目录回归 | 开发中；独立clone RAG-008，RAG-007手册分支保持；本地构造供应商，不恢复付费授权/部署；完整独立评测仍上线后完善 |
 
