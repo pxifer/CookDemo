@@ -27,3 +27,9 @@ test('INPUT-001 识别迟到时移除图片，结果不能重新加入界面',as
   const sent=page.waitForRequest('**/api/v1/recognitions/image');await page.getByRole('button',{name:'识别食材',exact:true}).click();await sent;
   await page.getByRole('button',{name:'移除图片',exact:true}).click();release();await expect(page.locator('.photo-preview')).toHaveCount(0);await expect(page.locator('.photo-candidates')).toHaveCount(0);
 });
+
+test('INPUT-002 含糊食材可直接点选具体名称，无需手动改字',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'文字输入',exact:true}).click();await page.getByLabel('输入食材与本餐信息',{exact:true}).fill('生肉');await page.getByRole('button',{name:'整理信息 ↗',exact:true}).click();
+ await page.getByLabel('匹配 生肉',{exact:true}).getByRole('button',{name:'牛肉',exact:true}).click();
+ await expect(page.locator('.ingredients .ingredient-name')).toHaveText(['牛肉']);await expect(page.getByLabel('更正未识别名称 生肉',{exact:true})).toHaveCount(0);
+});
