@@ -27,7 +27,7 @@ export interface Accounts {
   save(identity:AccountIdentity,expected:number,value:AccountValue):Promise<AccountSnapshot>;
   healthKey?(identity:AccountIdentity):Promise<{apiKey:string;profile?:HealthProfile;restrictions:import('../../shared/types').Restriction[];preferences?:import('../../shared/health-chat').AiFoodChoices;exclusions?:string[]}>;
   setHealthKey?(identity:AccountIdentity,expected:number,apiKey:string|null):Promise<AccountSnapshot>;
-  saveHealthGuidance?(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile):Promise<AccountSnapshot>;
+  saveHealthGuidance?(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile,expectedRestrictions?:import('../../shared/types').Restriction[]):Promise<AccountSnapshot>;
   advanceRecommendationTask?(identity:AccountIdentity,taskId:string,version:number,operationId:string):Promise<{accepted:boolean;reason:string}>;
   recommendationTaskCurrent?(identity:AccountIdentity,taskId:string,version:number,operationId:string):Promise<boolean>;
   logout(identity:AccountIdentity):Promise<void>;
@@ -269,11 +269,12 @@ export class CloudBaseAccounts implements Accounts {
     if(current.version!==expected)throw new DomainError('SYNC_CONFLICT',409,'个人设置已变更，请刷新后重新保存Key');
     return this.writePrivate(identity,expected,{...current.value,healthApiKey:apiKey??undefined});
   }
-  async saveHealthGuidance(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile){
+  async saveHealthGuidance(identity:AccountIdentity,profile:HealthProfile,key:string,expectedProfile?:HealthProfile,expectedRestrictions?:import('../../shared/types').Restriction[]){
     for(let attempt=0;attempt<3;attempt++){
       const current=await this.privateState(identity);
       if(current.value.healthApiKey!==key)throw new DomainError('CHAT_KEY_CHANGED',409,'Key 已变更，本次回复未保存，请使用当前设置继续');
       if(JSON.stringify(current.value.defaults?.healthProfile)!==JSON.stringify(expectedProfile))throw new DomainError('CHAT_PROFILE_CHANGED',409,'健康档案已在其他操作中修改，本次建议未覆盖新设置');
+      if(expectedRestrictions&&JSON.stringify(current.value.defaults?.restrictions??[])!==JSON.stringify(expectedRestrictions))throw new DomainError('CHAT_RESTRICTIONS_CHANGED',409,'饮食限制已更新，本次旧回复未保存');
       const defaults=current.value.defaults??personalSettings(importDefaultMeal());
       try{return await this.writePrivate(identity,current.version,{...current.value,defaults:{...defaults,healthProfile:profile,...(profile.topics?{aiFoodPreferences:combinedTopicChoices(healthTopics(profile))}:{})}});}
       catch(error){if(!(error instanceof DomainError&&error.code==='SYNC_CONFLICT')||attempt===2)throw error;}

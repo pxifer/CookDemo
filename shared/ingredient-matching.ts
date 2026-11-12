@@ -61,6 +61,15 @@ function queryId(name: string): string {
   return `pantry-query-${(hash >>> 0).toString(16)}`;
 }
 
+// Only proven synonyms auto-resolve. Ambiguous visual labels require a user choice.
+const inputSynonyms = [ ['小西红柿','小番茄','樱桃番茄','圣女果'], ['番茄','西红柿'], ['马铃薯','土豆'], ['洋白菜','卷心菜','包菜'], ['青花菜','西兰花'] ];
+export function suggestPantryFoods(name:string,lookup:ReadonlyMap<string,Food>):Food[] {
+  const term=normalizeIngredientName(name);
+  const choices:Record<string,string[]>={生肉:['猪肉','牛肉','羊肉','鸡肉'],肉:['猪肉','牛肉','羊肉','鸡肉'],干果:['核桃','杏仁','腰果','葡萄干','红枣'],坚果:['核桃','杏仁','腰果'],小西红柿:['圣女果','小番茄','西红柿']};
+  const preferred=choices[term]??inputSynonyms.find(group=>group.includes(term))??[];
+  return [...new Map(preferred.filter(n=>n!==term).flatMap(n=>{const food=resolvePantryFood(n,lookup);return food?[food]:[];}).map(f=>[f.id,f])).values()].slice(0,5);
+}
+
 /** Shared input resolver. Never choose one specific variety from several hits. */
 export function resolvePantryFood(name: string, lookup: ReadonlyMap<string, Food>): Food | undefined {
   const term = normalizeIngredientName(name);
@@ -73,6 +82,8 @@ export function resolvePantryFood(name: string, lookup: ReadonlyMap<string, Food
     const canonical = foods.find(food => normalizeIngredientName(food.name) === family.name);
     return canonical ?? inputFood(`ingredient-family-${family.id}`, family.name, family.inputs.filter(n => n !== family.name));
   }
+  const synonyms=inputSynonyms.find(group=>group.includes(term));
+  if(synonyms){const hits=foods.filter(f=>[f.name,...f.aliases].some(n=>synonyms.includes(normalizeIngredientName(n))));if(hits.length===1)return hits[0];}
   if (!isQueryName(term)) return undefined;
   const matches = foods.filter(food => !isPantryQueryId(food.id) && compatibleNames([term], [food.name, ...food.aliases]));
   return matches.length ? inputFood(queryId(term), term) : undefined;

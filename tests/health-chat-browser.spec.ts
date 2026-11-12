@@ -115,3 +115,14 @@ test('AI实际读取本餐与菜谱后返回菜品理由，结果定位并支持
   await page.getByTestId('recipe-card').first().getByRole('button',{name:/看看做法/}).click();await expect(page.getByRole('dialog').locator('.steps li').first()).toBeVisible();await page.keyboard.press('Escape');
   await page.screenshot({path:`${evidence}/${info.project.name}-ai-selected-recipes.png`});
 });
+
+test('INPUT-002 修改限制保留对话与档案，下一轮只发送新上下文',async({page},info)=>{
+ await enter(page,`restriction-${info.project.name}`);
+ const sent:any[]=[];page.on('request',r=>{if(r.url().endsWith('/api/v1/health/chat'))sent.push(r.postDataJSON());});
+ const chat=await send(page,'建立一轮对话');await expect(chat.getByText('构造AI回复：已收到 1 条对话消息。')).toBeVisible();
+ await page.locator('.preference-shortcuts').getByRole('button',{name:/^过敏/}).click();
+ await page.getByLabel('过敏食物',{exact:true}).fill('花生');await page.getByRole('button',{name:'确认添加',exact:true}).click();await page.getByRole('button',{name:'完成',exact:true}).click();
+ await expect(chat).toContainText('饮食限制已更新');await expect(chat).toContainText('建立一轮对话');
+ await send(page,'按最新要求继续');await expect(page.getByLabel('给AI的消息',{exact:true})).toHaveValue('');
+ await expect.poll(()=>sent.length).toBe(2);expect(sent[1].messages).toEqual([{role:'user',content:'按最新要求继续'}]);expect(sent[1].mealContext.restrictions).toContain('过敏：花生');
+});

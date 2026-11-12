@@ -23,6 +23,16 @@ export function HealthChat({ configured, research=false, last4, profile, initial
     if(previousTopics.current.some(name=>!current.includes(name))){request.current?.abort();request.current=null;if(pending)setDraft(pending);setPending('');contextStart.current=messages.length;setError('');}
     previousTopics.current=current;
   },[profile]);
+  const restrictionKey=JSON.stringify([...(mealContext?.restrictions??[])].sort());
+  const previousRestrictions=useRef(restrictionKey);
+  useEffect(()=>{
+    if(previousRestrictions.current!==restrictionKey){
+      previousRestrictions.current=restrictionKey;
+      const active=request.current;request.current=null;active?.abort();
+      if(pending)setDraft(pending);setPending('');contextStart.current=messages.length;
+      setAssessment(initialAssessment??null);setError('饮食限制已更新，后续回复按最新设置；之前的对话仅供回看。');
+    }
+  },[restrictionKey]);
   useEffect(() => { const log = end.current?.parentElement; if (open && log) log.scrollTop = log.scrollHeight; }, [messages, pending, open]);
   const send = async () => {
     const text = draft.trim(); if (!text || !configured || request.current) return;
