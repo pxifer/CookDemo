@@ -1,0 +1,301 @@
+{
+  "id": "nci-body-recuration-v1",
+  "sourceId": "nci-cooked-meats-2017",
+  "sourceHash": "0c3ddbad4d9ba5587f0cce17a1c1b2f7465c44a78b791666a9479d5d5a2bf19e",
+  "parserPolicy": "document-parsing-v3",
+  "parserCodeHash": "af13a7b0edf8f891bea0e7e2b8914875c63a69b70b6c2515e03f57ae618f9b9a",
+  "dependencies": {
+    "pdfplumber": "0.11.9",
+    "pdfminer.six": "20251230",
+    "lxml": "6.1.1",
+    "Pillow": "13.0.0",
+    "pypdfium2": "5.14.0",
+    "cryptography": "50.0.2",
+    "charset-normalizer": "3.5.2",
+    "cffi": "2.1.1",
+    "pycparser": "3.12"
+  },
+  "enhancedTextHash": "d02c1f02a1efd891933d8388a996420a1248fc4681064b012d5e106328ff9aa4",
+  "bodyLocator": "/html/body/div/div[2]/div/div[2]/main/article",
+  "oldNavigationProof": {
+    "method": "exact_legacy_stream_and_removed_dom_nodes",
+    "legacyNormalizedTextHash": "30002daaa9b36039481d68d80ed3f326c16ae2e37af3ac38fd69f0cd64651b1a",
+    "verifiedOldStart": 1103,
+    "verifiedOldEnd": 1127,
+    "atoms": [
+      {
+        "id": "html:52",
+        "locator": {
+          "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/nav/ul/li[5]/a/p",
+          "slot": "text",
+          "rawHash": "46e43151afa7863cee3035f74120d377c6baa122250ed4d3f2945bcfdd5fae48"
+        }
+      }
+    ]
+  },
+  "replacedEvidenceIds": [
+    "ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb",
+    "ev:5e1d26b211264fe779b255df7fcd38a7c012085ed71a8e39e5107f23b6d57633",
+    "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b"
+  ],
+  "blocks": [
+    {
+      "evidenceId": "ev:5e79422a028ba85240dc7731c384413743284d9adfd8ba81491d5e1b61dd9bb4",
+      "key": "nci-formation-body-v3",
+      "enhancedStart": 572,
+      "enhancedEnd": 1050,
+      "spanHash": "4d3dc496103ff9743d9ca833ad34ead91d3f1acd73a092e86494f3713ebdddcc",
+      "atoms": [
+        {
+          "id": "html:58",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]",
+            "slot": "text",
+            "rawHash": "8751b3dd16f82a05391a4d0f9ee082e4464b359eb2ad3cbdfab5ef22fcfbc738"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:59",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[1]",
+            "slot": "text",
+            "rawHash": "a269c6c498db126fda75f3379c17bb5a88bc3beab7bc305fdb34178182ca8368"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:60",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[1]",
+            "rawHash": "d274302d2b582f03bac9b873b379011be295e9199aff8795e0dbbd8c2ff59304"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:61",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[2]",
+            "slot": "text",
+            "rawHash": "775b2233d3a863496217a13f96676ab11a1d973787bbe7e66e05c5c1c5d66a0f"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:62",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[2]",
+            "rawHash": "e1a3e78cb5c8858631bf81f94369a0be3fd2aebb9e852e66368b381c8feef91f"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:63",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[3]",
+            "slot": "text",
+            "rawHash": "d11a2e5ffb2b20419018b95bb9c18ede175286182a77c9e8356be17085149113"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:64",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[3]",
+            "rawHash": "c87c677519424cbcb550e40aa5757f80ba054e401b99fa4335fb2a561fc9d9a8"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:65",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[4]",
+            "slot": "text",
+            "rawHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        },
+        {
+          "id": "html:66",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]/a[4]",
+            "rawHash": "c4b2896a2081395e282313d6683f07c81e3339ef8b9d2b5a299ea5b626a0998f"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[1]/div/p[2]"
+        }
+      ],
+      "role": "body",
+      "extraction": "complete_unique_dom_block"
+    },
+    {
+      "evidenceId": "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+      "key": "nci-human-limits-body-v3",
+      "enhancedStart": 2719,
+      "enhancedEnd": 3481,
+      "spanHash": "ab9c5c33f18195eb611aa1e4a82bcdca7d9e5a042e5d9e5e1fe713e784e379ae",
+      "atoms": [
+        {
+          "id": "html:91",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[3]/div/p[2]/a",
+            "slot": "text",
+            "rawHash": "9308d5bb1a0b16fe483e0c32be9bfb4e5b6d79287b427fc095bb673e4f5a7348"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[3]/div/p[2]"
+        },
+        {
+          "id": "html:92",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[3]/div/p[2]",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[3]/div/p[2]/a",
+            "rawHash": "991b2657a43345229014c316db36c212a0b2fecf24f87bad320d7de7bf1fac0a"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[3]/div/p[2]"
+        }
+      ],
+      "role": "body",
+      "extraction": "complete_unique_dom_block"
+    },
+    {
+      "evidenceId": "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36",
+      "key": "nci-no-intake-threshold-body-v3",
+      "enhancedStart": 4372,
+      "enhancedEnd": 4749,
+      "spanHash": "f7d3c7327b0b7b000d1488d8f734de424e4db8bf64b450c46e01470d88dcd346",
+      "atoms": [
+        {
+          "id": "html:114",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p",
+            "slot": "text",
+            "rawHash": "19937f31296ac26e88a487f3be3abdcfa800635e2d6d6278c59609b48fd7c539"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p"
+        },
+        {
+          "id": "html:115",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p/a",
+            "slot": "text",
+            "rawHash": "59e19706d51d39f66711c2653cd7eb1291c94d9b55eb14bda74ce4dc636d015a"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p"
+        },
+        {
+          "id": "html:116",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p/a",
+            "rawHash": "c4b2896a2081395e282313d6683f07c81e3339ef8b9d2b5a299ea5b626a0998f"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[4]/div/p"
+        }
+      ],
+      "role": "body",
+      "extraction": "complete_unique_dom_block"
+    },
+    {
+      "evidenceId": "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+      "key": "nci-microwave-body-v3",
+      "enhancedStart": 5150,
+      "enhancedEnd": 5357,
+      "spanHash": "72c704b1955ad8880648988e39cb68b7ad84299ec19129f0c7b9100b590a5c0c",
+      "atoms": [
+        {
+          "id": "html:122",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]",
+            "slot": "text",
+            "rawHash": "6234510dad97c9851bb0b561ad177b570834b77e8f533f076c6b9bb732b48772"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]"
+        },
+        {
+          "id": "html:123",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]/a",
+            "slot": "text",
+            "rawHash": "35135aaa6cc23891b40cb3f378c53a17a1127210ce60e125ccf03efcfdaec458"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]"
+        },
+        {
+          "id": "html:124",
+          "locator": {
+            "domPath": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]",
+            "slot": "tail-after:/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]/a",
+            "rawHash": "c4b2896a2081395e282313d6683f07c81e3339ef8b9d2b5a299ea5b626a0998f"
+          },
+          "blockKey": "/html/body/div/div[2]/div/div[2]/main/article/div/div/section[5]/div/ul/li[2]"
+        }
+      ],
+      "role": "body",
+      "extraction": "complete_unique_dom_block"
+    }
+  ],
+  "affectedFacts": [
+    {
+      "factId": "fact:high-heat-hca",
+      "oldSupportIds": [
+        "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b"
+      ],
+      "supportIds": [
+        "ev:5e79422a028ba85240dc7731c384413743284d9adfd8ba81491d5e1b61dd9bb4"
+      ],
+      "qualifyingIds": [
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ]
+    },
+    {
+      "factId": "fact:flame-pah",
+      "oldSupportIds": [
+        "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b"
+      ],
+      "supportIds": [
+        "ev:5e79422a028ba85240dc7731c384413743284d9adfd8ba81491d5e1b61dd9bb4"
+      ],
+      "qualifyingIds": [
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ]
+    },
+    {
+      "factId": "fact:smoking-pah",
+      "oldSupportIds": [
+        "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b"
+      ],
+      "supportIds": [
+        "ev:5e79422a028ba85240dc7731c384413743284d9adfd8ba81491d5e1b61dd9bb4"
+      ],
+      "qualifyingIds": [
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ]
+    },
+    {
+      "factId": "fact:microwave-hca",
+      "oldSupportIds": [
+        "ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb"
+      ],
+      "supportIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec"
+      ],
+      "qualifyingIds": [
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ]
+    }
+  ],
+  "reviewOrigin": "project_source_recheck",
+  "independentClinicalReview": null,
+  "scope": "Four process facts only; no new disease/food action or nutrition threshold.",
+  "livePageCheckedDate": "2026-11-12",
+  "livePageHashClaimed": false,
+  "attributionUrl": "https://www.cancer.gov/about-cancer/causes-prevention/risk/diet/cooked-meats-fact-sheet",
+  "reusePolicyUrl": "https://www.cancer.gov/policies/copyright-reuse"
+}

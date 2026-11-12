@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-12",
+  "base": "bfa1567ccb43ca02e2a42f75c57e521a250d105d",
+  "markdownLinksChecked": 126,
+  "brokenLinks": [],
+  "agentsLines": 102,
+  "unit": {
+    "total": 353,
+    "passed": 351,
+    "skipped": 2,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 2,
+    "syntheticProviderOnly": true
+  },
+  "realLocalEmbeddingVectors": 99,
+  "realLocalPG": true,
+  "retrievalContractChecks": [
+    {
+      "id": "qualified-a1",
+      "passed": true,
+      "status": "answered",
+      "factIds": [
+        "fact:microwave-hca"
+      ],
+      "evidenceIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ],
+      "reason": null
+    },
+    {
+      "id": "qualified-dense",
+      "passed": true,
+      "status": "answered",
+      "factIds": [
+        "fact:microwave-hca"
+      ],
+      "evidenceIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ],
+      "reason": null
+    },
+    {
+      "id": "qualified-hybrid",
+      "passed": true,
+      "status": "answered",
+      "factIds": [
+        "fact:microwave-hca"
+      ],
+      "evidenceIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ],
+      "reason": null
+    },
+    {
+      "id": "unknown-preheating",
+      "passed": true,
+      "status": "needs_confirmation",
+      "reason": "RAG_REQUIRED_CONDITIONS_UNKNOWN"
+    },
+    {
+      "id": "legacy-navigation-required",
+      "passed": true,
+      "status": "insufficient_evidence",
+      "reason": "RAG_REQUIRED_EVIDENCE_UNAVAILABLE"
+    }
+  ],
+  "actualCatalogRecipes": 341,
+  "guidanceCases": 12,
+  "mealCases": 10,
+  "newPaidGenerationCalls": 0,
+  "independentQualityScore": null,
+  "clinicalReview": null,
+  "productionDeployment": false
+}

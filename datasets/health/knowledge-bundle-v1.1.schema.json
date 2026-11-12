@@ -1,0 +1,725 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "shiwei-health-knowledge-v1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "clinicalRelease",
+    "createdDate",
+    "sources",
+    "entities",
+    "evidence",
+    "facts",
+    "ruleDrafts",
+    "conflicts",
+    "revocations",
+    "recipeBindings",
+    "boundaries"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "research_ready"
+    },
+    "clinicalRelease": {
+      "type": "null"
+    },
+    "createdDate": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entity"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fact"
+      }
+    },
+    "ruleDrafts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rule"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "resolution",
+          "note"
+        ]
+      }
+    },
+    "revocations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "recipeBindings": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "boundaries": {
+      "type": "object",
+      "required": [
+        "personalDataIncluded",
+        "embeddingBuilt",
+        "onlineEnabled",
+        "fullTextRedistribution"
+      ],
+      "properties": {
+        "personalDataIncluded": {
+          "const": false
+        },
+        "embeddingBuilt": {
+          "const": false
+        },
+        "onlineEnabled": {
+          "const": false
+        },
+        "fullTextRedistribution": {
+          "const": false
+        }
+      }
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "version",
+        "kind",
+        "publisher",
+        "publicationDate",
+        "doi",
+        "url",
+        "retrievedDate",
+        "sourceHash",
+        "pageCount",
+        "status",
+        "reuseScope",
+        "license",
+        "verification"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "national_guideline",
+            "peer_reviewed_composition",
+            "peer_reviewed_experiment",
+            "national_institute_summary"
+          ]
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "publicationDate": {
+          "type": "string"
+        },
+        "doi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "retrievedDate": {
+          "type": "string"
+        },
+        "sourceHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "pageCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "active",
+            "withdrawn"
+          ]
+        },
+        "reuseScope": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "verification": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "archiveMember": {
+          "type": "string"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "aliases",
+        "form",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "disease",
+            "component",
+            "food",
+            "food_group",
+            "process"
+          ]
+        },
+        "aliases": {
+          "$ref": "#/$defs/ids"
+        },
+        "form": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "key",
+        "sourceId",
+        "sourceVersion",
+        "sourceHash",
+        "locator",
+        "originalSpan",
+        "spanHash",
+        "summary",
+        "retrievalText",
+        "chunkerVersion",
+        "verification",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ev:[a-f0-9]{64}$"
+        },
+        "key": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "sourceVersion": {
+          "type": "string"
+        },
+        "sourceHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "spanHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "originalSpan": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string"
+        },
+        "retrievalText": {
+          "type": "string"
+        },
+        "chunkerVersion": {
+          "enum": [
+            "proposition-v1",
+            "curated-complete-body-block-v1"
+          ]
+        },
+        "verification": {
+          "enum": [
+            "source_checked",
+            "project_body_source_rechecked_not_clinical_review"
+          ]
+        },
+        "status": {
+          "enum": [
+            "active",
+            "withdrawn"
+          ]
+        },
+        "locator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "pdfPage",
+            "printedPage",
+            "section",
+            "start",
+            "end",
+            "normalization"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "pdf_normalized_text",
+                "pdf_visual",
+                "html_normalized_text",
+                "html_visual",
+                "html_cleaned_body"
+              ]
+            },
+            "pdfPage": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1
+            },
+            "printedPage": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "section": {
+              "type": "string"
+            },
+            "start": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "end": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "normalization": {
+              "enum": [
+                "remove_unicode_whitespace_v1",
+                "document-parsing-v3-enhanced-blocks"
+              ]
+            },
+            "verifiedPageImageHash": {
+              "$ref": "#/$defs/hash"
+            },
+            "assetUrl": {
+              "type": "string",
+              "pattern": "^https://"
+            },
+            "imageRegion": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "locator": {
+                "properties": {
+                  "kind": {
+                    "const": "html_cleaned_body"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "chunkerVersion": {
+                "const": "curated-complete-body-block-v1"
+              },
+              "verification": {
+                "const": "project_body_source_rechecked_not_clinical_review"
+              },
+              "locator": {
+                "properties": {
+                  "normalization": {
+                    "const": "document-parsing-v3-enhanced-blocks"
+                  },
+                  "pdfPage": {
+                    "type": "null"
+                  },
+                  "printedPage": {
+                    "type": "null"
+                  },
+                  "start": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "end": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "chunkerVersion": {
+                "const": "proposition-v1"
+              },
+              "verification": {
+                "const": "source_checked"
+              },
+              "locator": {
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "pdf_normalized_text",
+                      "pdf_visual",
+                      "html_normalized_text",
+                      "html_visual"
+                    ]
+                  },
+                  "normalization": {
+                    "const": "remove_unicode_whitespace_v1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "values"
+      ],
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "quantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "value",
+        "lower",
+        "upper",
+        "upperExclusive",
+        "unit",
+        "basisAmount",
+        "basisUnit",
+        "category",
+        "method"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "classification_range",
+            "reported_measurement"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "lower": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "upper": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "upperExclusive": {
+          "type": "boolean"
+        },
+        "unit": {
+          "const": "mg"
+        },
+        "basisAmount": {
+          "const": 100
+        },
+        "basisUnit": {
+          "const": "g"
+        },
+        "category": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "method": {
+          "type": "string"
+        },
+        "sourceFoodLabel": {
+          "type": "string"
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "kind",
+        "subjectId",
+        "objectId",
+        "predicate",
+        "statement",
+        "conditions",
+        "quantity",
+        "doseDependent",
+        "evidenceIds",
+        "qualifyingEvidenceIds",
+        "sourceVersions",
+        "reviewState",
+        "clinicalReview",
+        "validFrom",
+        "withdrawnAt",
+        "scope",
+        "directness"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "disease_component",
+            "food_component",
+            "food_guidance",
+            "cooking_effect"
+          ]
+        },
+        "subjectId": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "predicate": {
+          "enum": [
+            "adverse",
+            "beneficial_tendency",
+            "conditional",
+            "contains",
+            "may_contain",
+            "prefer",
+            "limit",
+            "avoid",
+            "insufficient_evidence",
+            "may_transfer",
+            "may_redistribute",
+            "mostly_retained",
+            "may_decrease",
+            "may_form",
+            "may_deposit"
+          ]
+        },
+        "statement": {
+          "type": "string"
+        },
+        "directness": {
+          "enum": [
+            "project_interpretation",
+            "sample_measurement",
+            "guideline_classification",
+            "source_statement"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/condition"
+          }
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/quantity"
+            }
+          ]
+        },
+        "doseDependent": {
+          "type": "boolean"
+        },
+        "evidenceIds": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/ids"
+            }
+          ],
+          "minItems": 1
+        },
+        "qualifyingEvidenceIds": {
+          "$ref": "#/$defs/ids"
+        },
+        "sourceVersions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "reviewState": {
+          "enum": [
+            "source_checked",
+            "project_body_source_rechecked"
+          ]
+        },
+        "clinicalReview": {
+          "const": "pending"
+        },
+        "validFrom": {
+          "type": "string"
+        },
+        "withdrawnAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": "string"
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "factId",
+        "status",
+        "reviewer"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "factId": {
+          "type": "string"
+        },
+        "status": {
+          "const": "draft"
+        },
+        "reviewer": {
+          "type": "null"
+        }
+      }
+    }
+  }
+}

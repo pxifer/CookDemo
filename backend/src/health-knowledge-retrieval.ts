@@ -1,4 +1,5 @@
 import type { KnowledgeBundle, KnowledgeEntity, KnowledgeFact } from '../../shared/health-knowledge';
+import { effectiveKnowledgeRevocations } from './health-knowledge-policy';
 
 export interface KnowledgeSearchOptions {
   diseaseId?: string; limit?: number; context?: Record<string,string|undefined>; revoked?: ReadonlySet<string>;
@@ -83,7 +84,7 @@ export function searchKnowledgeA1(bundle:KnowledgeBundle,query:string,options:Kn
   const foodIds=new Set(analysis.matched.filter(e=>e.kind==='food'||e.kind==='food_group').map(e=>e.id));
   const componentIds=new Set(analysis.matched.filter(e=>e.kind==='component').map(e=>e.id));
   const processIds=new Set(analysis.matched.filter(e=>e.kind==='process').map(e=>e.id));
-  const blocked=new Set([...bundle.revocations,...options.revoked??[]]);
+  const blocked=effectiveKnowledgeRevocations(bundle,options.revoked);
   const evidenceActive=(id:string)=>{
     const e=index.evidence.get(id),s=e&&index.sources.get(e.sourceId);
     return !!(e&&s&&e.status==='active'&&s.status==='active'&&!blocked.has(bundle.id)&&![id,s.id,`${s.id}@${s.version}`,s.sourceHash].some(x=>blocked.has(x)));

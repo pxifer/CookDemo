@@ -1,0 +1,577 @@
+{
+  "id": "food-guidance-mappings-v3",
+  "policy": "Explicit canonical-name membership only; unlisted objects stay unmapped. No broad alias, medical benefit or nutrient quantity inference.",
+  "objects": {
+    "f:salt": {
+      "names": [
+        "盐",
+        "食盐"
+      ],
+      "note": "plain table salt only"
+    },
+    "f:soy-sauce": {
+      "names": [
+        "生抽",
+        "老抽",
+        "酱油"
+      ],
+      "note": "listed sauces only, no quantity claim"
+    },
+    "f:chicken-seasoning": {
+      "names": [
+        "鸡精"
+      ],
+      "note": "canonical name"
+    },
+    "f:msg": {
+      "names": [
+        "味精"
+      ],
+      "note": "canonical name"
+    },
+    "f:oyster-sauce": {
+      "names": [
+        "蚝油"
+      ],
+      "note": "canonical name"
+    },
+    "f:tofu": {
+      "names": [
+        "豆腐",
+        "北豆腐",
+        "南豆腐",
+        "老豆腐",
+        "嫩豆腐",
+        "白豆腐",
+        "内酯豆腐"
+      ],
+      "note": "plain named tofu, not fermented condiment"
+    },
+    "f:soy-products": {
+      "names": [
+        "豆腐",
+        "北豆腐",
+        "南豆腐",
+        "老豆腐",
+        "嫩豆腐",
+        "豆腐干",
+        "豆干",
+        "腐竹",
+        "千张",
+        "豆腐皮",
+        "白豆腐",
+        "内酯豆腐"
+      ],
+      "note": "explicit product membership, no soy sauce expansion"
+    },
+    "f:fresh-vegetables": {
+      "names": [
+        "西红柿",
+        "番茄",
+        "菠菜",
+        "西兰花",
+        "黄瓜",
+        "胡萝卜",
+        "青椒",
+        "白菜",
+        "包菜",
+        "卷心菜",
+        "冬瓜",
+        "茄子",
+        "菜花",
+        "莴笋",
+        "芹菜",
+        "油麦菜",
+        "生菜",
+        "油菜",
+        "空心菜",
+        "小白菜",
+        "西葫芦",
+        "丝瓜",
+        "苦瓜",
+        "南瓜",
+        "白萝卜",
+        "白菜心",
+        "娃娃菜",
+        "花菜",
+        "瓠瓜",
+        "莲藕",
+        "藕",
+        "茭白",
+        "西蓝花",
+        "生菜叶",
+        "新鲜菜心",
+        "新鲜空心菜",
+        "紫甘蓝",
+        "秋葵",
+        "长茄子",
+        "圆茄子",
+        "松花菜",
+        "青笋",
+        "西芹",
+        "芦笋",
+        "青瓜"
+      ],
+      "note": "named vegetables only, not processed pickles"
+    },
+    "f:fish": {
+      "names": [
+        "鱼",
+        "鲈鱼",
+        "鲫鱼",
+        "草鱼",
+        "鳜鱼",
+        "带鱼",
+        "鲳鱼",
+        "鲤鱼",
+        "鲢鱼",
+        "鳕鱼",
+        "昂刺鱼",
+        "鳊鱼",
+        "武昌鱼",
+        "小黄鱼",
+        "黄花鱼",
+        "黄鱼",
+        "石斑鱼肉",
+        "桂鱼",
+        "龙利鱼",
+        "龙利鱼肉",
+        "带鳞草鱼",
+        "翘嘴鱼"
+      ],
+      "note": "explicit fish names, not generic seafood or shellfish"
+    },
+    "f:egg": {
+      "names": [
+        "鸡蛋"
+      ],
+      "note": "whole egg does not imply egg-white-only evidence"
+    },
+    "f:egg-white": {
+      "names": [
+        "鸡蛋蛋白",
+        "蛋白",
+        "鸡蛋清"
+      ],
+      "note": "do not map whole eggs"
+    },
+    "f:beef": {
+      "names": [
+        "牛肉"
+      ],
+      "note": "protein-source mapping does not establish lean cut"
+    },
+    "f:milk": {
+      "names": [
+        "牛奶",
+        "纯牛奶"
+      ],
+      "note": "no fat-content inference"
+    },
+    "f:low-fat-milk": {
+      "names": [
+        "低脂牛奶",
+        "脱脂牛奶",
+        "低脂奶",
+        "脱脂奶"
+      ],
+      "note": "generic milk must remain unmapped for this object"
+    },
+    "f:skinless-poultry": {
+      "names": [
+        "去皮鸡肉",
+        "去皮鸡胸肉",
+        "去皮鸭肉"
+      ],
+      "note": "generic chicken or breast alias cannot prove skinlessness"
+    },
+    "f:lean-meat": {
+      "names": [
+        "猪瘦肉",
+        "牛瘦肉",
+        "瘦猪肉",
+        "瘦牛肉"
+      ],
+      "note": "generic pork/beef aliases cannot prove lean meat"
+    },
+    "f:liver": {
+      "names": [
+        "猪肝",
+        "鸡肝",
+        "鸭肝",
+        "牛肝"
+      ],
+      "note": "explicit organ names"
+    },
+    "f:kidney": {
+      "names": [
+        "猪腰",
+        "猪肾",
+        "牛肾"
+      ],
+      "note": "explicit organ names"
+    },
+    "f:organ-meat": {
+      "names": [
+        "猪肝",
+        "鸡肝",
+        "鸭肝",
+        "牛肝",
+        "猪腰",
+        "猪肾",
+        "牛肾",
+        "猪心",
+        "鸡心",
+        "猪肺"
+      ],
+      "note": "explicit organ membership"
+    },
+    "f:bacon": {
+      "names": [
+        "培根"
+      ],
+      "note": "canonical name"
+    },
+    "f:cured-meat": {
+      "names": [
+        "腊肉"
+      ],
+      "note": "canonical name"
+    },
+    "f:sausage": {
+      "names": [
+        "香肠",
+        "腊肠"
+      ],
+      "note": "explicit sausage names"
+    },
+    "f:fermented-bean-curd": {
+      "names": [
+        "腐乳",
+        "红腐乳",
+        "白腐乳"
+      ],
+      "note": "not plain tofu"
+    },
+    "f:pickles": {
+      "names": [
+        "咸菜",
+        "榨菜",
+        "梅干菜",
+        "雪菜"
+      ],
+      "note": "named salted vegetables, no sodium concentration assertion"
+    },
+    "f:mung-starch-noodles": {
+      "names": [
+        "绿豆粉丝"
+      ],
+      "note": "generic vermicelli source unknown is not equivalent"
+    },
+    "f:low-protein-rice": {
+      "names": [
+        "低蛋白大米"
+      ],
+      "note": "not generic rice"
+    },
+    "f:plain-yogurt": {
+      "names": [
+        "无糖酸奶"
+      ],
+      "note": "not generic yogurt"
+    },
+    "f:low-sodium-potassium-salt": {
+      "names": [
+        "高钾低钠盐",
+        "低钠盐"
+      ],
+      "note": "research object explicitly potassium salt; clinical applicability separate"
+    },
+    "f:added-sugar": {
+      "names": [
+        "白糖",
+        "白砂糖",
+        "绵白糖"
+      ],
+      "note": "goal interpretation for added ingredient, not whole-dish high-sugar classification"
+    },
+    "p:steam-boil": {
+      "names": [],
+      "processRule": "steam-boil-primary",
+      "note": "primary steps only; no assumption about quantities or alternate methods"
+    },
+    "p:fry": {
+      "names": [],
+      "processRule": "fry-primary",
+      "note": "positive cooking-event wording only"
+    },
+    "p:boil-discard": {
+      "names": [],
+      "processRule": "blanch-discard-primary",
+      "note": "both blanching and explicit discarding required"
+    },
+    "p:vegetable-blanch-discard": {
+      "names": [],
+      "note": "await ingredient-specific process binding; generic blanch alone insufficient"
+    }
+  },
+  "parentId": "food-guidance-mappings-v2",
+  "projectReview": {
+    "date": "2026-11-12",
+    "origin": "project_agent_canonical_catalog_recheck",
+    "professionalReview": "pending",
+    "scope": "19 named vegetables, 12 named fish and 2 plain-tofu names; 35 object/name memberships. No unreviewed aliases or compound-food expansion."
+  },
+  "membershipReview": [
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-f87ff17102cd5fcd",
+      "canonicalName": "娃娃菜",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-a9f421d1a777f653",
+      "canonicalName": "花菜",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-7cdc6f317b12d21c",
+      "canonicalName": "瓠瓜",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-7a1ff1d6aaefe49a",
+      "canonicalName": "莲藕",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-26c8b5731957825a",
+      "canonicalName": "藕",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-0c0d12fc4a6e74bb",
+      "canonicalName": "茭白",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-94e1bf1fc27f8d04",
+      "canonicalName": "西蓝花",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-62a7a8dc9f1d0f18",
+      "canonicalName": "生菜叶",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-e3c48cb53d2e47ba",
+      "canonicalName": "新鲜菜心",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-1d785d540715bee0",
+      "canonicalName": "新鲜空心菜",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-f4f4f0e88e87974a",
+      "canonicalName": "紫甘蓝",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-9977c96335b7a609",
+      "canonicalName": "秋葵",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-82c0132213ee2b8a",
+      "canonicalName": "长茄子",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-6045839096440f52",
+      "canonicalName": "圆茄子",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-5b1d344a39b2a314",
+      "canonicalName": "松花菜",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-e5225ea9e980d8c4",
+      "canonicalName": "青笋",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-f3d38f18a43706f5",
+      "canonicalName": "西芹",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-221823c13c77846e",
+      "canonicalName": "芦笋",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fresh-vegetables",
+      "catalogFoodId": "gallery-food-46d1e2172adb6f9d",
+      "canonicalName": "青瓜",
+      "basis": "explicit_named_fresh_vegetable",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-a3c70925d9cc526e",
+      "canonicalName": "昂刺鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-669e714d5a5027fd",
+      "canonicalName": "鳊鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-5c433fcb6b32aa1d",
+      "canonicalName": "武昌鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-bb1ba914fe526077",
+      "canonicalName": "小黄鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-757411a83bf1a0c4",
+      "canonicalName": "黄花鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-8bb040bbb117b9fd",
+      "canonicalName": "黄鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-f3e3a9b81aef83e1",
+      "canonicalName": "石斑鱼肉",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-982aa51e6712af49",
+      "canonicalName": "桂鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-df0854f1e464d52d",
+      "canonicalName": "龙利鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-267f17426186131e",
+      "canonicalName": "龙利鱼肉",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-9d8a15ffb460e7c8",
+      "canonicalName": "带鳞草鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:fish",
+      "catalogFoodId": "gallery-food-ddc8f1f8344af119",
+      "canonicalName": "翘嘴鱼",
+      "basis": "explicit_named_fish",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:tofu",
+      "catalogFoodId": "gallery-food-972f780b17db3d0d",
+      "canonicalName": "白豆腐",
+      "basis": "explicit_named_plain_tofu",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:tofu",
+      "catalogFoodId": "gallery-food-85039697b023da15",
+      "canonicalName": "内酯豆腐",
+      "basis": "explicit_named_plain_tofu",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:soy-products",
+      "catalogFoodId": "gallery-food-972f780b17db3d0d",
+      "canonicalName": "白豆腐",
+      "basis": "explicit_named_plain_tofu",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    },
+    {
+      "objectId": "f:soy-products",
+      "catalogFoodId": "gallery-food-85039697b023da15",
+      "canonicalName": "内酯豆腐",
+      "basis": "explicit_named_plain_tofu",
+      "excludes": "No nutrient quantity, lean/skinless/low-fat claim, whole-dish suitability or allergy override."
+    }
+  ],
+  "catalogReference": {
+    "version": "gallery-listed-foods-20261026-v28",
+    "snapshotHash": "934becbc991b93946f19d71224328d9ce70b895b909e70cbc11a73bc71bb5ab1",
+    "coverageScope": "341-recipe public offline cache; not current online status"
+  }
+}

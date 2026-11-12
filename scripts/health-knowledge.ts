@@ -36,8 +36,9 @@ if (command === 'verify') {
       await repo.initializeResearchSchema();
       const result = await repo.importResearch(bundle,manifest);
       const report = {state:'local_research_imported',...result,counts:manifest.counts,databasePath:localDir,clinicalRelease:null,onlineEnabled:false};
-      await mkdir(join(root,'artifacts/acceptance/health-knowledge-2026-10-28-v2'),{recursive:true});
-      await writeFile(join(root,`artifacts/acceptance/health-knowledge-2026-10-28-v2/local-import-${version}.json`),JSON.stringify(report,null,2)+'\n');
+      const reportDirectory=join(root,`artifacts/acceptance/health-knowledge-${version}`);
+      await mkdir(reportDirectory,{recursive:true});
+      await writeFile(join(reportDirectory,`local-import-${version}.json`),JSON.stringify(report,null,2)+'\n');
       console.log(JSON.stringify(report,null,2));
     } else {
       console.log(JSON.stringify(await repo.search(bundle.id,args.join(' ')),null,2));

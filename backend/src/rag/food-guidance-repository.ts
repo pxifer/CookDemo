@@ -1,16 +1,15 @@
 import { readFile } from 'node:fs/promises';
 import { connectDatabase, type Database } from '../db';
 import { HealthKnowledgeRepository } from '../health-knowledge-repository';
-import { canonicalKnowledgeHash, sha256, validateKnowledgeBundle } from '../health-knowledge';
+import { canonicalKnowledgeHash, sha256 } from '../health-knowledge';
+import { readKnowledgeAssets } from '../health-knowledge-assets';
 import { createFoodGuidanceProvider, type GoalKnowledge, type GuidanceMappings } from './food-guidance';
 import type { FoodGuidanceProvider } from '../../../shared/food-guidance';
 
 const data=(path:string)=>new URL(`../../../datasets/health/${path}`,import.meta.url);
-export async function readFoodGuidanceAssets(mappingVersion:1|2=2){
-  if(mappingVersion!==1&&mappingVersion!==2)throw Error('GUIDANCE_MAPPING_VERSION_INVALID');
-  const directory='2026-10-28-v2',manifest=JSON.parse(await readFile(data(`${directory}/manifest.json`),'utf8'));
-  for(const [file,hash] of Object.entries(manifest.files))if(!/^[\w.-]+$/.test(file)||sha256(await readFile(data(`${directory}/${file}`)))!==hash)throw Error('GUIDANCE_BUNDLE_INTEGRITY');
-  const bundle=validateKnowledgeBundle(JSON.parse(await readFile(data(`${directory}/knowledge-bundle.json`),'utf8')));
+export async function readFoodGuidanceAssets(mappingVersion:1|2|3=3){
+  if(mappingVersion!==1&&mappingVersion!==2&&mappingVersion!==3)throw Error('GUIDANCE_MAPPING_VERSION_INVALID');
+  const {bundle,manifest}=await readKnowledgeAssets();
   const goalManifest=JSON.parse(await readFile(data('goal-guidance-2026-11-04-v1/manifest.json'),'utf8'));
   const raw=await readFile(data('goal-guidance-2026-11-04-v1/knowledge.json'));
   if(sha256(raw)!==goalManifest.files['knowledge.json'])throw Error('GUIDANCE_GOAL_INTEGRITY');

@@ -1,11 +1,14 @@
 import { createHash } from 'node:crypto';
 import Ajv from 'ajv';
 import schema from '../../datasets/health/knowledge-bundle.schema.json';
+import bodySchema from '../../datasets/health/knowledge-bundle-v1.1.schema.json';
 import type { KnowledgeBundle, KnowledgeFact } from '../../shared/health-knowledge';
+import { effectiveKnowledgeRevocations } from './health-knowledge-policy';
 import { knowledgeLookup, searchKnowledgeA1, type KnowledgeSearchOptions } from './health-knowledge-retrieval';
 export { resolveKnowledgeQuery } from './health-knowledge-retrieval';
 
 const validate = new Ajv({ allErrors: true, strict: false }).compile<KnowledgeBundle>(schema);
+const validateBody = new Ajv({ allErrors: true, strict: false }).compile<KnowledgeBundle>(bodySchema);
 export const sha256 = (value: string | Uint8Array) => createHash('sha256').update(value).digest('hex');
 export function canonicalKnowledgeHash(value: unknown): string {
   const compare=(a:string,b:string)=>a<b?-1:a>b?1:0;
@@ -23,7 +26,8 @@ export function canonicalKnowledgeHash(value: unknown): string {
 const fail = (reason: string): never => { throw new Error(`HEALTH_KNOWLEDGE_INVALID: ${reason}`); };
 
 export function validateKnowledgeBundle(raw: unknown): KnowledgeBundle {
-  if (!validate(raw)) fail(JSON.stringify(validate.errors));
+  const validator=raw&&typeof raw==='object'&&(raw as Record<string,unknown>).schemaVersion==='1.1.0'?validateBody:validate;
+  if (!validator(raw)) fail(JSON.stringify(validator.errors));
   const bundle = raw as KnowledgeBundle;
   function unique<T extends { id: string }>(rows: T[]) {
     const map = new Map(rows.map(row => [row.id, row]));
@@ -80,7 +84,7 @@ export function validateKnowledgeBundle(raw: unknown): KnowledgeBundle {
 
 export function factAvailability(bundle: KnowledgeBundle, fact: KnowledgeFact, context: Record<string, string | undefined> = {}, revoked: ReadonlySet<string> = new Set()) {
   const lookup = knowledgeLookup(bundle);
-  const blocked = new Set([...bundle.revocations, ...revoked]);
+  const blocked = effectiveKnowledgeRevocations(bundle, revoked);
   if (blocked.has(bundle.id) || blocked.has(fact.id) || blocked.has(`${fact.id}@${fact.version}`) || fact.withdrawnAt) return 'withdrawn';
   for (const id of [...fact.evidenceIds, ...fact.qualifyingEvidenceIds]) {
     const e = lookup.evidence.get(id);

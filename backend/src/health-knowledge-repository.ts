@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import type { Database } from './db';
 import type { KnowledgeBundle, KnowledgeEvidence } from '../../shared/health-knowledge';
 import { searchKnowledge, sha256, validateKnowledgeBundle, canonicalKnowledgeHash } from './health-knowledge';
+import { effectiveKnowledgeRevocations } from './health-knowledge-policy';
 
 /** Controlled dictionary tokens, not PG's default Chinese segmentation or BM25. */
 export function evidenceTokens(bundle: KnowledgeBundle, evidence: KnowledgeEvidence): string {
@@ -33,6 +34,8 @@ export class HealthKnowledgeRepository {
       await db.exec('BEGIN');
       try {
         if (this.db.withSession) await db.query('SELECT pg_advisory_xact_lock(1936226167, 28)');
+        // Existing releases also receive newly known withdrawals; immutable payloads are not rewritten.
+        for (const id of effectiveKnowledgeRevocations(bundle)) await db.query('INSERT INTO health_kb.health_revocations(target_id,reason) VALUES($1,$2) ON CONFLICT DO NOTHING',[id,'bundle or source-recheck revocation']);
         const found = await db.query<{bundle_hash:string}>('SELECT bundle_hash FROM health_kb.health_releases WHERE id=$1',[bundle.id]);
         if (found.rows.length) {
           if (found.rows[0].bundle_hash !== hash) throw new Error('HEALTH_BUNDLE_IMMUTABLE');
@@ -53,7 +56,6 @@ export class HealthKnowledgeRepository {
         }
         for (const r of bundle.ruleDrafts) await db.query('INSERT INTO health_kb.health_rule_versions VALUES($1,$2,$3,$4,$5,NULL)',[bundle.id,r.id,r.version,r.factId,r.status]);
         for (const c of bundle.conflicts) await db.query('INSERT INTO health_kb.health_conflicts VALUES($1,$2,$3::jsonb)',[bundle.id,c.id,JSON.stringify(c)]);
-        for (const id of bundle.revocations) await db.query('INSERT INTO health_kb.health_revocations(target_id,reason) VALUES($1,$2) ON CONFLICT DO NOTHING',[id,'bundle revocation']);
         await db.query('INSERT INTO health_kb.health_index_manifests VALUES($1,$2,$3,NULL,$4::jsonb)',[bundle.id,'structured_plus_controlled_keywords','lexical-v1',JSON.stringify(manifest.index ?? {})]);
         await saveSnapshot(db);
         await db.exec('COMMIT'); return {id:bundle.id,imported:true,hash};

@@ -1,4 +1,5 @@
 import { canonicalKnowledgeHash, factAvailability, searchKnowledge, sha256 } from '../health-knowledge';
+import { effectiveKnowledgeRevocations } from '../health-knowledge-policy';
 import { resolveKnowledgeQuery } from '../health-knowledge-retrieval';
 import { estimatedTokens } from '../../../shared/context-budget';
 import type { KnowledgeBundle, KnowledgeFact } from '../../../shared/health-knowledge';
@@ -24,7 +25,7 @@ function retrievalQuestion(question: string) {
 export function evidenceActive(bundle: KnowledgeBundle, id: string, revoked: ReadonlySet<string>) {
   const evidence = bundle.evidence.find(row => row.id === id);
   const source = evidence && bundle.sources.find(row => row.id === evidence.sourceId);
-  const blocked = new Set([...bundle.revocations, ...revoked]);
+  const blocked = effectiveKnowledgeRevocations(bundle, revoked);
   return Boolean(evidence && source && evidence.status === 'active' && source.status === 'active'
     && ![bundle.id, evidence.id, source.id, `${source.id}@${source.version}`, source.sourceHash].some(value => blocked.has(value)));
 }
@@ -53,7 +54,7 @@ export async function retrieveRagContext(bundle: KnowledgeBundle, store: RagVect
   if (request.context && (Object.keys(request.context).length > 30 || Object.entries(request.context).some(([key, value]) => !/^[A-Za-z][A-Za-z0-9_]{0,63}$/.test(key) || value !== undefined && (typeof value !== 'string' || value.length > 120)))) return empty('unavailable', 'RAG_CONTEXT_INVALID');
   if (request.diseaseId && !bundle.entities.some(e => e.id === request.diseaseId && e.kind === 'disease')) return empty('unavailable', 'RAG_DISEASE_UNKNOWN');
   if (request.mode && !['a1', 'dense', 'hybrid'].includes(request.mode)) return empty('unavailable', 'RAG_MODE_INVALID');
-  const revoked = new Set([...(await store.revocations()), ...options.revoked ?? []]);
+  const revoked = effectiveKnowledgeRevocations(bundle, [...(await store.revocations()), ...options.revoked ?? []]);
   if ([bundle.id, indexId].some(id => revoked.has(id) || bundle.revocations.includes(id))) return empty('insufficient_evidence', 'RAG_INDEX_OR_BUNDLE_WITHDRAWN');
   const required = request.requiredEvidenceIds ?? [];
   if (required.length > 100 || required.some(id => !evidenceActive(bundle, id, revoked))) return empty('insufficient_evidence', 'RAG_REQUIRED_EVIDENCE_UNAVAILABLE');
