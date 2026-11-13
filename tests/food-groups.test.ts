@@ -26,6 +26,11 @@ test('具体部位归并到可覆盖菜品的宽食材',()=>{
   assert.equal(canonicalIngredientName('花蛤'),'贝类');
   assert.equal(canonicalIngredientName('鸭腿'),'鸭肉');
   assert.equal(canonicalIngredientName('西红柿'),'番茄');
+  assert.equal(canonicalIngredientName('猪大肠'),'猪肉');
+  assert.equal(canonicalIngredientName('羊里脊'),'羊肉');
+  assert.equal(canonicalIngredientName('樱桃谷鸭子'),'鸭肉');
+  assert.equal(canonicalIngredientName('仔鸡'),'鸡肉');
+  assert.equal(canonicalIngredientName('猪油'),'猪油');
 });
 
 test('下拉不会为同一宽食材重复列出多个部位',()=>{
