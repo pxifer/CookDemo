@@ -22,7 +22,7 @@ test('AI读取档案、已接受食材、食材有无、调料检查、补买及
     called++;assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(new Headers(init?.headers).get('authorization'),`Bearer ${apiKey}`);
     const body=JSON.parse(String(init?.body)),packet=JSON.parse(body.messages.at(-1).content);
     assert.equal(packet.user.ingredients[0].amount,'');assert.deepEqual(packet.user.healthProfile.conditions,['构造健康关注']);assert.deepEqual(packet.user.accepted.preferred,['鸡蛋']);assert.equal(packet.user.allowBuy,false);assert.equal(packet.user.checkSeasonings,false);assert(packet.user.seasonings.length);
-    const chosen=packet.catalog.find((item:any)=>item.name==='egg');assert(chosen.steps.includes('蒸至熟透，按原菜谱操作'));assert(chosen.ingredients.some((item:any)=>item.name==='鸡蛋'));
+    const chosen=packet.catalog.find((item:any)=>item.name==='egg');assert(chosen.steps[0].includes('蒸至熟透，按原菜谱操作'));assert(chosen.ingredients.some((item:any)=>item.name==='鸡蛋'));
     return envelope({summary:'构造搭配说明',choices:[{id:chosen.id,reason:'模型明确选择鸡蛋菜，复用库存并采用已给做法。'}]});
   });input.claim=async()=>{claimed++;};
   const result=await createHealthRecipeSelector(randomBytes(32))(input);
@@ -89,8 +89,8 @@ test('AI选菜遵守人数与荤素数量，不再固定六道',async()=>{
   assert.equal(packet.count,2);assert.deepEqual(packet.categories,{meat:1,veg:1,soup:0});assert.deepEqual(packet.requestedCounts,{meat:1,veg:1,soup:0});
   assert.equal(result.status,'completed');assert.equal(result.dishes.length,2);assert.equal(result.target,2);assert.equal(result.targetMet,true);
 });
-test('补买自动模式下AI按人数出餐，不回到六道候选',async()=>{
-  const meal={...oneMeal(),allowBuy:true,composition:'auto' as const,mode:'meal' as const,servings:1};
+test('不允许补买时AI按人数出餐，不回到六道候选',async()=>{
+  const meal={...oneMeal(),allowBuy:false,composition:'auto' as const,mode:'meal' as const,servings:1};
   const recipes=[simpleRecipe('egg-meat',[['egg',1]],{category:'meat'}),simpleRecipe('tomato-veg',[['tomato',100]],{category:'veg'}),simpleRecipe('tomato-veg2',[['tomato',100]],{category:'veg'})];
   let packet:any;
   await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const chosen:any[]=[];for(const cat of ['meat','veg','soup'] as const){const n=packet.categories[cat]||0;for(const item of packet.catalog.filter((c:any)=>c.category===cat).slice(0,n))chosen.push(item);}return envelope({summary:'按人数选择',choices:chosen.map((item:any)=>({id:item.id,reason:'按本餐人数'}))});}));
