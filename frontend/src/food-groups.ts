@@ -45,6 +45,7 @@ export function groupedFoods(foods:Food[],usage?:Map<string,number>){
   const unique=new Map<string,Food>();
   for(const food of foods){
     if(usage&&!usage.has(food.id))continue;
+    if(/腌料|调味料/.test(food.name))continue;
     if(!isSeasoningFood(food)&&!isCookingWater(food.name)&&!/^(g|ml|瓣)$/.test(food.name)&&!unique.has(food.name))unique.set(food.name,food);
   }
   const available=[...unique.values()].sort((a,b)=>(usage?.get(b.id)??0)-(usage?.get(a.id)??0)||a.name.localeCompare(b.name,'zh-CN'));
