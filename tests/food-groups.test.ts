@@ -51,8 +51,8 @@ test('调料按烹饪角色分组，不再全部堆进其他调料',()=>{
 });
 
 test('数量/单位/碎片不会被当作食材',()=>{
-  for(const name of ['一大块','一到','一朵','中等','适量','少许','一根','半个','900g','几个','几颗','二颗','二棵','十几','很多','数颗']) assert.equal(isInvalidFoodName(name),true,name);
-  for(const name of ['八角','五花肉','鸡蛋','马铃薯','海虹','干海带','阿胶']) assert.equal(isInvalidFoodName(name),false,name);
+  for(const name of ['一大块','一到','一朵','中等','适量','少许','一根','半个','900g','几个','几颗','二颗','二棵','十几','很多','数颗','瓣','一根','一小把']) assert.equal(isInvalidFoodName(name),true,name);
+  for(const name of ['八角','五花肉','鸡蛋','马铃薯','海虹','干海带','阿胶','千张','百叶','二荆条','十三香']) assert.equal(isInvalidFoodName(name),false,name);
   assert.equal(isInvalidFoodName('鸡蛋'),false);
   assert.equal(canonicalIngredientName('蛋液'),'鸡蛋');
   assert.equal(canonicalIngredientName('土鸡蛋'),'鸡蛋');
