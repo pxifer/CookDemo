@@ -28,6 +28,7 @@
 - `shared/recommendation-input.ts`：普通/AI选菜统一去除用户填写量并仅核对食材有无；显示原件与菜谱原用量保留，数量编辑不使当前结果和游标失效，见 D19-13。
 - `backend/src/app.ts`：Fastify API；`backend/src/recommendation.ts`：普通推荐；`backend/src/health-recipe-selection.ts`：AI 选菜及程序复核。
 - `backend/src/cloudbase-accounts.ts`、`frontend/src/account-store.ts`：真实账户与加密设置同步；`backend/src/cloudbase-content.ts`：Data API 公开内容读取。
+- 用户2026-11-13明确授权KB-001开发云端知识接线并发布；`publishedKnowledge`保留个人Key/共享认领，读取版本化公开资料及撤回状态；不同于`foodGuidance`本地模拟研究入口，不等同临床疾病准入。见[云知识接线](docs/development/cloud-knowledge.md)。
 - `backend/src/main.ts` 是本地/原生 PG 入口；`deployment/cloudbase/http-main.ts` 是当前云端入口，两者的配置与验证范围不能混用。
 - `backend/src/migrations`、`deployment/cloudbase`、`deployment/db`：数据库及云端 SQL；`scripts/`、`deployment`：开发、核验与发布工具。
 - `datasets/health`、`backend/src/health-knowledge*`：公共研究知识与检索；`tests/`、`artifacts/acceptance`：测试和历史证据。

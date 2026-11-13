@@ -1,3 +1,4 @@
+import {createCloudKnowledge} from '../../backend/src/rag/cloud-knowledge';
 import {readImageModelConfig} from '../../backend/src/image-recognition';
 import { createApp } from '../../backend/src/app';
 import { CloudBaseGalleryRepository } from '../../backend/src/cloudbase-content';
@@ -19,7 +20,8 @@ export async function startHttpFunction(env=process.env) {
   if(profileKey&&(profileKey.equals(sessionSecret)||profileKey.equals(csrfSecret)))throw new Error('ACCOUNT_ENCRYPTION_CONFIGURATION');
   const baseAccounts=profileKey?new CloudBaseAccounts({envId:target.envId,allowedEnvIds:target.stage==='staging'?[target.envId]:undefined,cookieKey:createHmac('sha256',sessionSecret).update('account-cookie-v1').digest(),profileKey,keyVersion:env.PROFILE_KEY_VERSION??'profile-20261024-v1',registrationEnabled:env.PUBLIC_REGISTRATION_ENABLED==='1',recoveryEnabled:env.PASSWORD_RECOVERY_ENABLED==='1',recoveryAllowedEmails:target.stage==='staging'?target.testRecoveryEmails:undefined}):undefined;
   const accounts=baseAccounts&&target.stage==='staging'?stagingAccounts(baseAccounts,target.testUsers,{passwordRecoveryEnabled:target.testRecoveryEmails.length>0}):baseAccounts;
-  const app=await createApp({imageModel:readImageModelConfig(env),environment:'preview',origin,sessionSecret,csrfSecret,contentSource:'cloudbase',contentRelease:GALLERY_RELEASE,contentRepository,accounts,sharedRecommendationTasks:env.RECOMMENDATION_TASKS_ENABLED==='1',staticRoot:resolve(env.STATIC_ROOT??'build/web')});
+  const publishedKnowledge=env.KNOWLEDGE_RELEASE_ID?createCloudKnowledge({envId:target.envId,key:env.CLOUDBASE_PUBLISHABLE_KEY??'',releaseId:env.KNOWLEDGE_RELEASE_ID,hash:env.KNOWLEDGE_RELEASE_SHA256??''}):undefined;
+  const app=await createApp({publishedKnowledge,imageModel:readImageModelConfig(env),environment:'preview',origin,sessionSecret,csrfSecret,contentSource:'cloudbase',contentRelease:GALLERY_RELEASE,contentRepository,accounts,sharedRecommendationTasks:env.RECOMMENDATION_TASKS_ENABLED==='1',staticRoot:resolve(env.STATIC_ROOT??'build/web')});
   // Keep static bytes on the environment's existing free static hosting.
   app.get('/assets/recipes/*',async(req,reply)=>{
     if(!/^\/assets\/recipes\/[a-zA-Z0-9_.-]+\.(?:png|webp)$/.test(req.url.split('?')[0]))return reply.code(404).send();

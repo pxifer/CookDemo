@@ -2,7 +2,7 @@ import { healthChatRecipes, expandFoodSuggestions, withoutExistingRestrictions, 
 import { healthTopics } from '../../shared/health-topics';
 import { createHealthRecipeSelector } from './health-recipe-selection';
 import type { FoodGuidanceProvider } from '../../shared/food-guidance';
-import { researchFoodChat } from './rag/food-guidance-chat';
+import { balancedFoodSuggestions, researchFoodChat } from './rag/food-guidance-chat';
 import {recommendationMeal} from '../../shared/recommendation-input';
 import Fastify, { type FastifyRequest } from 'fastify';
 import fastifyStatic from '@fastify/static';
@@ -85,8 +85,10 @@ export async function createApp(options: {
   healthRecipeFetch?: typeof fetch;
   healthRecipeObserve?: (diagnostics:import('./health-recipe-selection').SelectionDiagnostics)=>void;
   foodGuidance?:FoodGuidanceProvider;
+  publishedKnowledge?:FoodGuidanceProvider;
   sharedRecommendationTasks?:boolean;
 } = {}) {
+  if(options.foodGuidance&&options.publishedKnowledge)throw new Error('Choose one guidance provider');
   if(options.foodGuidance&&(options.environment!=='local'||!options.origin||!['127.0.0.1','localhost','[::1]'].includes(new URL(options.origin).hostname)))throw new Error('Research food guidance requires explicit local loopback configuration');
   if(options.contentSource==='local-cache'&&(options.environment!=='local'||!options.origin||!['127.0.0.1','localhost','[::1]'].includes(new URL(options.origin).hostname)||!options.contentRepository||!options.contentRelease))throw new Error('Local cached content requires explicit local loopback configuration');
   if(options.contentSource==='cloudbase' && (options.environment!=='preview'||!options.contentRepository||options.contentRelease!==GALLERY_RELEASE||!options.origin?.startsWith('https:')||!options.sessionSecret||!options.csrfSecret||options.localTestFeatures))throw new Error('CloudBase preview configuration required');
@@ -109,7 +111,7 @@ export async function createApp(options: {
   const secret = options.sessionSecret ?? randomBytes(32), csrfSecret = options.csrfSecret ?? randomBytes(32);
   if (secret.length !== 32 || csrfSecret.length !== 32) throw new Error('Invalid session configuration');
   const recommendationCursorSecret = createHmac('sha256', secret).update('shiwei/recommendation-cursor/v1').digest();
-  const selectHealthRecipes=createHealthRecipeSelector(recommendationCursorSecret,options.foodGuidance);
+  const selectHealthRecipes=createHealthRecipeSelector(recommendationCursorSecret,options.foodGuidance??options.publishedKnowledge);
   const sign = (s: string) => createHmac('sha256', secret).update(s).digest('base64url');
   const signCsrf = (s: string) => createHmac('sha256', csrfSecret).update(s).digest('base64url');
   const equal = (a: string, b: string) => Buffer.byteLength(a) === Buffer.byteLength(b) && timingSafeEqual(Buffer.from(a), Buffer.from(b));
@@ -195,7 +197,7 @@ export async function createApp(options: {
     const id = session(req.headers.cookie) ?? randomBytes(16).toString('hex');
     reply.header('Set-Cookie', `shiwei_guest=${id}.${sign(id)}; HttpOnly; SameSite=Strict; Path=/; Max-Age=1800${options.origin?.startsWith('https:') ? '; Secure' : ''}`);
     const loggedIn = Boolean(testSession(req.headers.cookie));
-    const modelCapabilities = { imageRecognitionProvider:options.imageModel?.provider??"deepseek", erasureAvailable:Boolean(options.accounts?.erasureAvailable&&options.accounts.eraseAccount),recoveryAvailable:Boolean(options.accounts?.recoveryAvailable&&options.accounts.recoveryCode&&options.accounts.recoverPassword),healthChatAvailable, healthModelAvailable: Boolean(options.healthModel),...(options.foodGuidance?{healthGuidanceResearch:true}:{}), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
+    const modelCapabilities = { imageRecognitionProvider:options.imageModel?.provider??"deepseek", erasureAvailable:Boolean(options.accounts?.erasureAvailable&&options.accounts.eraseAccount),recoveryAvailable:Boolean(options.accounts?.recoveryAvailable&&options.accounts.recoveryCode&&options.accounts.recoverPassword),healthChatAvailable, healthModelAvailable: Boolean(options.healthModel),...(options.foodGuidance?{healthGuidanceResearch:true}:{}),...(options.publishedKnowledge?{healthKnowledgeAvailable:true}:{}), ...(options.healthModel?.providerLabel ? { healthModelProvider: options.healthModel.providerLabel } : {}) };
     const account=await options.accounts?.authenticate(req.headers.cookie);
     if(account)return {...modelCapabilities,identity:'account',userId:account.userId,displayName:account.displayName,mustChangePassword:account.mustChangePassword,csrfToken:signCsrf(`csrf:${id}`),accountAvailable:true,registrationAvailable:registrationAvailable(),localTestFeatures:false,...((req.query as {state?:string}).state==='1'&&!account.mustChangePassword?{accountSnapshot:await options.accounts!.load(account)}:{})};
     return { ...modelCapabilities,identity: loggedIn ? 'local-test' : 'guest', ...(loggedIn ? { displayName: '本机测试账号' } : {}), csrfToken: signCsrf(`csrf:${id}`), accountAvailable: localTestFeatures||Boolean(options.accounts),registrationAvailable:registrationAvailable(), localTestFeatures };
@@ -362,7 +364,14 @@ export async function createApp(options: {
       const staleRestrictions=identity&&restrictionKey(req.body.mealContext?.restrictions??[])!==restrictionKey(currentRestrictions);
       const messages=identity&&(staleRestrictions||JSON.stringify(contextValue(req.body.profile))!==JSON.stringify(contextValue(currentProfile)))?req.body.messages.slice(-1):req.body.messages;
       const chatBody={...req.body,messages,apiKey,diseases:identity?stored?.profile?.conditions??[]:req.body.diseases,profile:contextValue(currentProfile),mealContext:{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:currentRestrictions,aiFoodPreferences:identity?stored?.preferences:req.body.mealContext?.aiFoodPreferences}};
-      const result=await during(options.foodGuidance?researchFoodChat(chatBody,chatContext,options.foodGuidance):requestHealthChat(chatBody,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0,healthTopics(stored?.profile,stored?.preferences)),signal);
+      const sourcePacket=options.publishedKnowledge?await during(options.publishedKnowledge.prepare({profile:chatBody.profile,content:chatContext,currentText:messages.at(-1)!.content}),signal):undefined;
+      const result=await during(options.foodGuidance?researchFoodChat(chatBody,chatContext,options.foodGuidance):requestHealthChat(chatBody,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0,healthTopics(stored?.profile,stored?.preferences),sourcePacket),signal);
+      if(sourcePacket){
+        await during(options.publishedKnowledge!.assertCurrent(sourcePacket),signal);
+        if(result.assessment){result.assessment.suggestions=balancedFoodSuggestions(sourcePacket,chatContext,[]);if(result.assessment.suggestions.length)result.assessment.stage='advice';}
+        const titles=[...new Set(sourcePacket.evidence.map(e=>e.title))].slice(0,3);
+        if(titles.length)result.message.content+='\n依据：'+titles.join('；')+'。';
+      }
       if(identity){
         const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
         if(!active||active.userId!==identity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
@@ -384,7 +393,7 @@ export async function createApp(options: {
       }
       const active=identity?await during(options.accounts!.authenticate(req.headers.cookie),signal):testSession(req.headers.cookie);
       if(!active||(identity&&(typeof active!=='object'||active.userId!==identity.userId||active.mustChangePassword)))throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
-      if(result.researchGuidance)await options.foodGuidance!.assertCurrent(result.researchGuidance);
+      if(result.researchGuidance)await (options.foodGuidance??options.publishedKnowledge)!.assertCurrent(result.researchGuidance);
       return result;
     }finally{if(reserved)chatsInFlight--;reply.raw.removeListener('close',onClose);}
   });
@@ -495,7 +504,7 @@ export async function createApp(options: {
       const sharedCurrent=!sharedTask||await during(options.accounts!.recommendationTaskCurrent!(modelIdentity!,req.body.taskId!,req.body.meal.version,req.body.operationId),signal);
       if (!sharedCurrent||newest?.operation !== req.body.operationId || newest?.version !== req.body.meal.version) result = { ...result, healthAssessment: undefined,selectionScope:undefined,cursor:'',dishes: [], checks: [], status: 'cancelled', reasons: ['旧操作已被新条件取代'] };
       const publicResult={...result,dishes:result.dishes.map(publicDish)};
-      if(result.researchGuidance)await options.foodGuidance!.assertCurrent(result.researchGuidance);
+      if(result.researchGuidance)await (options.foodGuidance??options.publishedKnowledge)!.assertCurrent(result.researchGuidance);
       if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'result', result:publicResult }) + '\n'); return; }
       return publicResult;
     } catch (e) {
