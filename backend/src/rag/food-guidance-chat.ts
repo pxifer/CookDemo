@@ -23,6 +23,7 @@ function explicitFollowup(body:HealthChatRequest){
   if(key==='ckdStage'&&/^G[1-5]$/i.test(last))return `我已知分期${last.toUpperCase()}`;
   if(key==='diabetesType'){
     if(/^(1型|2型|一型|二型)(糖尿病)?[。！!]?$/u.test(last))return `我有${last.replace(/[。！!]/g,'').replace(/糖尿病$/,'')}糖尿病`;
+    if(/(?:不清楚|不知道|不确定)/.test(last)&&/(?:几型|分型|哪种型)/.test(last))return '我不清楚糖尿病分型';
     if(/^(不清楚|不知道)[。！!]?$/u.test(last))return '我不清楚糖尿病分型';
   }
   if(key==='lipidPattern'){
@@ -68,9 +69,14 @@ export async function researchFoodChat(body:HealthChatRequest,content:ContentCon
   const suggestions=balancedFoodSuggestions(packet,content,names);
   const known=reportedConditions(profile.notes,text);
   const labels={...conditionLabels,...nutritionConditionLabels};
-  const missing=[...(packet.topicCoverage??[]).filter(t=>t.status==='needs_topic_detail').flatMap(t=>t.missingConditions),...packet.guidance.filter(g=>g.applicability==='needs_confirmation'&&g.mapping.status==='mapped').flatMap(g=>g.missingConditions)].find(key=>labels[key]&&known[key]!=='unknown');
+  const pending=[...(packet.topicCoverage??[]).filter(t=>t.status==='needs_topic_detail').flatMap(t=>t.missingConditions),...packet.guidance.filter(g=>g.applicability==='needs_confirmation'&&g.mapping.status==='mapped').flatMap(g=>g.missingConditions)].find(key=>labels[key]&&known[key]!=='unknown');
+  const lastUser=body.messages.at(-1)?.content??'',unsure=/(?:不清楚|不知道|不确定|没查|没做|没检查|不记得|不在身边)/.test(lastUser);
+  // A clarification the user cannot answer must not be repeated in the next turn.
+  const missing=unsure?undefined:pending;
+  const unknownDetails=[...new Set([...(packet.topicCoverage??[]).filter(t=>t.status==='needs_topic_detail').flatMap(t=>t.missingConditions)].filter(key=>labels[key]&&known[key]==='unknown'))];
+  const boundary=unknownDetails.length?`已记录${unknownDetails.map(key=>labels[key].split('（')[0]).join('、')}未知：只保留一般饮食提示，不再重复询问；补充信息后可再评估。${unknownDetails.includes('diabetesType')?'分型未知时不套用1型/2型的具体指导。':''}`:'';
   const question=missing?`还需确认：${labels[missing]}。`:packet.missingConditions.length?'尚不明确的条件只保留相关判断，你之后可以补充。':'';
-  const reply=suggestions.length?`已按当前疾病或目标整理有来源的食材建议，可分别接受或取消，再结合本餐食材选择菜品。${question}`:packet.guidance.some(g=>g.applicability==='applicable')?`已有适用的做法指导，实际选菜时会核对配方步骤。${question}`:question||'当前资料尚未覆盖可用于本餐的指导，请明确疾病或饮食目标；未自动改动你的设置。';
+  const reply=suggestions.length?`已按当前疾病或目标整理有来源的食材建议，可分别接受或取消，再结合本餐食材选择菜品。${question}${boundary}`:packet.guidance.some(g=>g.applicability==='applicable')?`已有适用的做法指导，实际选菜时会核对配方步骤。${question}${boundary}`:(question+boundary)||'当前资料尚未覆盖可用于本餐的指导，请明确疾病或饮食目标；未自动改动你的设置。';
   await provider.assertCurrent(packet);
   return {operationId:body.operationId,knowledge:'research_rag',message:{role:'assistant',content:reply},assessment:{profile,stage:suggestions.length?'advice':'clarify',suggestions:suggestions.slice(0,20)},researchGuidance:packet};
 }
