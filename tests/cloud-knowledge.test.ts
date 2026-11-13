@@ -29,14 +29,15 @@ test('公开知识RLS：未发布不可读、匿名不可写；内容不可变�
 test('网站真实账户路径继续要求个人Key与共享认领，模型收到知识；重复请求和撤回拒绝',async()=>{
  const {db,accounts}=await fixture();let calls=0,available=true;
  const knowledge=createCloudKnowledge({envId:'shiwei-test',key:'public-test',releaseId:'knowledge-test-v1',hash,fetch:async()=>Response.json(available?[{checksum:hash,revocations:[],payload}]:[])});
- const app=await createApp({accounts,publishedKnowledge:knowledge,healthChatFetch:async(_u,init)=>{calls++;assert(JSON.parse(String(init?.body)).messages.some((m:any)=>m.content.includes(assets.expansion.id)));return Response.json({id:'mock-knowledge',model:'deepseek-flash',usage:{prompt_tokens:20,completion_tokens:20,total_tokens:40},choices:[{finish_reason:'stop',message:{content:JSON.stringify({reply:'按给定来源作参考。',stage:'advice',suggestions:[]})}}]});}});
+ const app=await createApp({accounts,publishedKnowledge:knowledge,healthChatFetch:async(_u,init)=>{calls++;assert(JSON.parse(String(init?.body)).messages.some((m:any)=>m.content.includes(assets.expansion.id)));return Response.json({id:'mock-knowledge',model:'deepseek-flash',usage:{prompt_tokens:20,completion_tokens:20,total_tokens:40},choices:[{finish_reason:'stop',message:{content:JSON.stringify({reply:'按给定来源作参考。',stage:'advice',suggestions:[],profile:{conditions:JSON.parse(String(init?.body)).messages.at(-1).content==='我有便秘'?['便秘']:[],goals:[],notes:''}})}}]});}});
  try{
  const code=await accounts.registrationCode!('cloud-kb@example.invalid','kb-test');const id=await accounts.register!({username:'cloud-kb-test',password:'Cloud!Test123',code:'123456',challenge:code.challenge},'kb-test');await accounts.setHealthKey(id,0,'sk-local-cloud-kb-test-1234567890');
  const session=await app.inject('/api/v1/auth/session'),headers={cookie:`${String(session.headers['set-cookie']).split(';')[0]}; ${accounts.cookie(id).split(';')[0]}`,origin:'http://localhost:80','x-csrf-token':session.json().csrfToken};
  const body={operationId:crypto.randomUUID(),messages:[{role:'user',content:'我有便秘'}],diseases:[]};
  const response=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:body});assert.equal(response.statusCode,200,response.body);assert.equal(response.json().knowledge,'source_rag');assert.equal(response.json().researchGuidance.mode,'source_guidance');assert.equal(calls,1);
  assert.equal((await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:body})).statusCode,409);assert.equal(calls,1);
- available=false;assert.notEqual((await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:{...body,operationId:crypto.randomUUID()}})).statusCode,200);assert.equal(calls,1);
+ const cleared=await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:{...body,operationId:crypto.randomUUID(),messages:[{role:'user',content:'我没有便秘了'}]}});assert.equal(cleared.statusCode,200,cleared.body);assert.equal(cleared.json().assessment.suggestions.length,0);assert(!cleared.json().researchGuidance.topics.some((t:any)=>t.inputName==='便秘'));assert.equal(calls,2);
+ available=false;assert.notEqual((await app.inject({method:'POST',url:'/api/v1/health/chat',headers,payload:{...body,operationId:crypto.randomUUID()}})).statusCode,200);assert.equal(calls,2);
  }finally{await app.close();await db.close();}
 });
 test('云知识只读、完整性、显式条件、撤回及故障均不能沿用旧依据',async()=>{

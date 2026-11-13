@@ -364,9 +364,10 @@ export async function createApp(options: {
       const staleRestrictions=identity&&restrictionKey(req.body.mealContext?.restrictions??[])!==restrictionKey(currentRestrictions);
       const messages=identity&&(staleRestrictions||JSON.stringify(contextValue(req.body.profile))!==JSON.stringify(contextValue(currentProfile)))?req.body.messages.slice(-1):req.body.messages;
       const chatBody={...req.body,messages,apiKey,diseases:identity?stored?.profile?.conditions??[]:req.body.diseases,profile:contextValue(currentProfile),mealContext:{ingredients:[],seasonings:[],allowBuy:false,...req.body.mealContext,restrictions:currentRestrictions,aiFoodPreferences:identity?stored?.preferences:req.body.mealContext?.aiFoodPreferences}};
-      const sourcePacket=options.publishedKnowledge?await during(options.publishedKnowledge.prepare({profile:chatBody.profile,content:chatContext,currentText:messages.at(-1)!.content}),signal):undefined;
+      let sourcePacket=options.publishedKnowledge?await during(options.publishedKnowledge.prepare({profile:chatBody.profile,content:chatContext,currentText:messages.at(-1)!.content}),signal):undefined;
       const result=await during(options.foodGuidance?researchFoodChat(chatBody,chatContext,options.foodGuidance):requestHealthChat(chatBody,signal,options.healthChatFetch,name=>chatContext.restrictionTargets(name).length>0,healthTopics(stored?.profile,stored?.preferences),sourcePacket),signal);
       if(sourcePacket){
+        if(result.assessment?.profile&&JSON.stringify(result.assessment.profile)!==JSON.stringify(chatBody.profile)){sourcePacket=await during(options.publishedKnowledge!.prepare({profile:result.assessment.profile,content:chatContext,currentText:messages.at(-1)!.content}),signal);result.researchGuidance=sourcePacket;}
         await during(options.publishedKnowledge!.assertCurrent(sourcePacket),signal);
         if(result.assessment){result.assessment.suggestions=balancedFoodSuggestions(sourcePacket,chatContext,[]);if(result.assessment.suggestions.length)result.assessment.stage='advice';}
         const titles=[...new Set(sourcePacket.evidence.map(e=>e.title))].slice(0,3);
