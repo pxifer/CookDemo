@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {groupedFoods,recipeFoodUsage} from '../frontend/src/food-groups';
-import {canonicalIngredientName} from '../shared/ingredient-matching';
+import {canonicalIngredientName,isInvalidFoodName} from '../shared/ingredient-matching';
 import {seasoningGroup} from '../shared/pantry';
 
 const foods:any[]=[{id:'egg',name:'鸡蛋'},{id:'tomato',name:'番茄'},{id:'salt',name:'食盐'},{id:'unused',name:'奥尔良鸡翅腌料'}];
@@ -48,4 +48,14 @@ test('调料按烹饪角色分组，不再全部堆进其他调料',()=>{
   assert.equal(seasoningGroup('水淀粉'),'鲜味与勾芡');
   assert.equal(seasoningGroup('菜籽油'),'油与脂');
   assert.equal(seasoningGroup('食用盐'),'盐与基础调味');
+});
+
+test('数量/单位/碎片不会被当作食材',()=>{
+  for(const name of ['一大块','一到','一朵','中等','适量','少许','一根','半个','900g']) assert.equal(isInvalidFoodName(name),true,name);
+  assert.equal(isInvalidFoodName('鸡蛋'),false);
+  assert.equal(canonicalIngredientName('蛋液'),'鸡蛋');
+  assert.equal(canonicalIngredientName('土鸡蛋'),'鸡蛋');
+  assert.equal(canonicalIngredientName('咸鸭蛋'),'鸭蛋');
+  assert.equal(canonicalIngredientName('筒子骨'),'猪肉');
+  assert.equal(canonicalIngredientName('小肠'),'猪肉');
 });

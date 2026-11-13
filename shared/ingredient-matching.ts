@@ -9,7 +9,7 @@ export type IngredientMatch = { ingredient: Ingredient; kind: 'exact' | 'broad' 
  * not become interchangeable with vermicelli.
  */
 const families: { id: string; name: string; inputs: string[]; recipeNames: RegExp; excludedRecipeNames?: RegExp }[] = [
-  { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'], recipeNames: /猪|五花肉|里脊|梅花肉|排骨|肋排|猪排|猪蹄|猪肘|肘子|肉馅|肉末/,
+  { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'], recipeNames: /猪|五花肉|里脊|梅花肉|排骨|肋排|猪排|猪蹄|猪肘|肘子|肉馅|肉末|筒子骨|扇骨|龙骨|小排|大肠|小肠/,
     excludedRecipeNames: /猪油|猪皮|牛|羊|鸡|鸭|鹅|鱼|虾/ },
   { id: 'chicken', name: '鸡肉', inputs: ['鸡肉', '鸡'], recipeNames: /鸡/,
     excludedRecipeNames: /鸡蛋|鸡精|鸡粉|鸡汤|鸡油|鸡枞|鸡腿菇/ },
@@ -41,8 +41,19 @@ const families: { id: string; name: string; inputs: string[]; recipeNames: RegEx
   { id: 'cauliflower', name: '花菜', inputs: ['花菜', '菜花'], recipeNames: /(?:花菜|菜花)/, excludedRecipeNames: /黄花菜/ },
 ];
 
+const quantityNames = /^(?:一到|一大块|一小块|大块|小块|中等|中等大小|适量|少许|若干|一些|少量|半个|数个|一把|一小把|一根|一个|一块|一片|一条|一只|一颗|一粒|一勺|一杯|一碗|一朵|[0-9一二三四五六七八九十百]+(?:个|块|片|根|颗|粒|勺|杯|碗|把|朵|条|只))$/;
+const unitNames = /^[0-9]+(?:\.[0-9]+)?(?:g|kg|ml|l|克|毫升|斤|两)$/i;
+const fragmentNames = /^(?:大|小|中)?(?:块|片|根|颗|粒|朵|条|只|个)$/;
+export function isInvalidFoodName(name:string):boolean{
+  const term=name.normalize('NFKC').trim();
+  return !term||quantityNames.test(term)||unitNames.test(term)||fragmentNames.test(term);
+}
 export function canonicalIngredientName(name:string):string{
   const normalized=normalizeIngredientName(name);
+  if(!/猪油|猪皮|牛|羊|鸡|鸭|鹅|鱼|虾/.test(normalized)&&/猪|五花|里脊|梅花|排骨|肋排|筒子骨|扇骨|龙骨|小排|大肠|小肠|猪肚|猪血|猪肝|猪肺|猪心|猪腰|猪耳|猪舌|猪尾/.test(normalized))return '猪肉';
+  if(/小根蒜/.test(normalized))return '蒜';
+  if(/鸡蛋|蛋液|鸡蛋黄|蛋黄|蛋清|土鸡蛋|笨鸡蛋|常温鸡蛋|鸡蛋干|^蛋$/.test(normalized))return '鸡蛋';
+  if(/鸭蛋/.test(normalized))return '鸭蛋';
   const family=families.find(item=>item.recipeNames.test(normalized)&&!item.excludedRecipeNames?.test(normalized));
   if(family)return family.name;
   const synonyms=inputSynonyms.find(group=>group.includes(normalized));
