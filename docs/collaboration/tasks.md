@@ -38,6 +38,7 @@
 
 | RAG-015 | 当前 RAG 开发 chat（DSH 接管） | 去掉选菜路径重复的知识断言，读取 3→2 次 | `agent/rag/RAG-015-ai-reads` | 单元/类型通过；撤回仍在返回前拒绝 | 已发布 v57；审核 65d2cf4，合并 ea5d202；[发布记录](../releases/ACCEPTANCE-main-v57-2026-11-13.md) |
 | RAG-016 | 当前 RAG 开发 chat（DSH 接管） | 纠正补买规则（补买=现有食材候选，不补买=人数出餐）；提示只带主料/做法类型/两步摘要；实测知识耗时 | `agent/rag/RAG-016-ai-rules` | 规则回归、410 单元、类型/构建；线上 hash 一致 | 已发布 v58；审核 156bf77，合并 28b3bcd；实测知识冷启 1.1s、热 84ms，非 7–8s 主因；[发布记录](../releases/ACCEPTANCE-main-v58-2026-11-13.md) |
+| RAG-017 | 当前 RAG 开发 chat（DSH 接管） | 健康说明按 coverage 分层（营养指标/缺条件/无资料/有建议但未匹配）；同一主料最多两道 | `agent/rag/RAG-017-ai-diversity` | 单元/类型/构建；说明与去重回归 | 已发布 v59；审核 4f89325，合并 5e0758c；[发布记录](../releases/ACCEPTANCE-main-v59-2026-11-13.md) |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
