@@ -46,9 +46,10 @@ export function groupedFoods(foods:Food[],usage?:Map<string,number>){
   const unique=new Map<string,{food:Food;count:number}>();
   for(const food of foods){
     if(usage&&!usage.has(food.id))continue;
+    if(/腌料|调味料/.test(food.name))continue;
+    if(isSeasoningFood(food)||isCookingWater(food.name))continue;
     const name=canonicalIngredientName(food.name);
-    if(/腌料|调味料/.test(name))continue;
-    if(isSeasoningFood({id:food.id,name})||isCookingWater(name)||/^(g|ml|瓣)$/.test(name))continue;
+    if(/^(g|ml|瓣)$/.test(name))continue;
     const count=usage?.get(food.id)??0;
     const current=unique.get(name);
     if(current)current.count+=count;
