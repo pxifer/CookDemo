@@ -1,0 +1,26 @@
+{
+  "id": "thyroid-iodine-explanation-2026-11-13-v1",
+  "files": {
+    "knowledge.json": "6c2cdc3f545dd11654ffc369d6fd06f57f32bade6682e71544a8791a7c9368c9"
+  },
+  "counts": {
+    "sources": 3,
+    "evidence": 6,
+    "facts": 4,
+    "limitations": 2
+  },
+  "parserPolicy": "document-parsing-v3",
+  "parserCodeHash": "af13a7b0edf8f891bea0e7e2b8914875c63a69b70b6c2515e03f57ae618f9b9a",
+  "dependencies": {
+    "pdfplumber": "0.11.9",
+    "pdfminer.six": "20251230",
+    "lxml": "6.1.1",
+    "Pillow": "13.0.0",
+    "pypdfium2": "5.14.0",
+    "cryptography": "50.0.2",
+    "charset-normalizer": "3.5.2",
+    "cffi": "2.1.1",
+    "pycparser": "3.12"
+  },
+  "clinicalRelease": null
+}
