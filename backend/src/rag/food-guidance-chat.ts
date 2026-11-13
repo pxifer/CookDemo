@@ -6,7 +6,7 @@ import { guidanceProfile, reportedConditions } from './food-guidance';
 import { nutritionProfile } from './nutrition-guidance-provider';
 import { nutritionConditionLabels, nutritionFollowupPairs } from '../../../shared/nutrition-conditions';
 
-const conditionLabels:Record<string,string>={adult:'是否为成年人',healthyExerciser:'是否属于无已知疾病的健康运动人群',resistanceTraining:'是否进行抗阻/力量训练',complexComorbidity:'是否有复杂合并症',pregnantOrLactating:'是否处于妊娠或哺乳期',renalFunction:'肾功能情况',hyperkalemia:'是否存在高钾血症',ckdStage:'慢性肾病分期',dialysis:'是否透析',clinicianNutritionPlan:'是否有个体营养方案',lipidPattern:'血脂异常分型（高胆固醇、高甘油三酯或混合型；不清楚可直接说不清楚）'};
+const conditionLabels:Record<string,string>={diabetesType:'糖尿病分型（1型、2型或其他；不清楚可直接说明）',adult:'是否为成年人',healthyExerciser:'是否属于无已知疾病的健康运动人群',resistanceTraining:'是否进行抗阻/力量训练',complexComorbidity:'是否有复杂合并症',pregnantOrLactating:'是否处于妊娠或哺乳期',renalFunction:'肾功能情况',hyperkalemia:'是否存在高钾血症',ckdStage:'慢性肾病分期',dialysis:'是否透析',clinicianNutritionPlan:'是否有个体营养方案',lipidPattern:'血脂异常分型（高胆固醇、高甘油三酯或混合型；不清楚可直接说不清楚）'};
 function explicitFollowup(body:HealthChatRequest){
   const last=body.messages.at(-1)!.content.trim(),previous=body.messages.at(-2);
   if(previous?.role!=='assistant')return last;
@@ -21,6 +21,10 @@ function explicitFollowup(body:HealthChatRequest){
   if(key==='adult'&&/^(不清楚|不知道)/.test(last))return '我不清楚是否为成年人';
   if(key==='healthyExerciser'&&/^(不清楚|不知道)/.test(last))return '我不清楚是否健康';
   if(key==='ckdStage'&&/^G[1-5]$/i.test(last))return `我已知分期${last.toUpperCase()}`;
+  if(key==='diabetesType'){
+    if(/^(1型|2型|一型|二型)(糖尿病)?[。！!]?$/u.test(last))return `我有${last.replace(/[。！!]/g,'').replace(/糖尿病$/,'')}糖尿病`;
+    if(/^(不清楚|不知道)[。！!]?$/u.test(last))return '我不清楚糖尿病分型';
+  }
   if(key==='lipidPattern'){
     if(/^(高胆固醇(?:血症)?|高甘油三酯(?:血症)?|混合型)[。！!]?$/u.test(last))return `我已知血脂分型是${last.replace(/[。！!]/g,'')}`;
     if(/^(不清楚|不知道|尚未检查)[。！!]?$/u.test(last))return '我不清楚血脂分型';
@@ -64,7 +68,7 @@ export async function researchFoodChat(body:HealthChatRequest,content:ContentCon
   const suggestions=balancedFoodSuggestions(packet,content,names);
   const known=reportedConditions(profile.notes,text);
   const labels={...conditionLabels,...nutritionConditionLabels};
-  const missing=packet.guidance.filter(g=>g.applicability==='needs_confirmation'&&g.mapping.status==='mapped').flatMap(g=>g.missingConditions).find(key=>labels[key]&&known[key]!=='unknown');
+  const missing=[...(packet.topicCoverage??[]).filter(t=>t.status==='needs_topic_detail').flatMap(t=>t.missingConditions),...packet.guidance.filter(g=>g.applicability==='needs_confirmation'&&g.mapping.status==='mapped').flatMap(g=>g.missingConditions)].find(key=>labels[key]&&known[key]!=='unknown');
   const question=missing?`还需确认：${labels[missing]}。`:packet.missingConditions.length?'尚不明确的条件只保留相关判断，你之后可以补充。':'';
   const reply=suggestions.length?`已按当前疾病或目标整理有来源的食材建议，可分别接受或取消，再结合本餐食材选择菜品。${question}`:packet.guidance.some(g=>g.applicability==='applicable')?`已有适用的做法指导，实际选菜时会核对配方步骤。${question}`:question||'当前资料尚未覆盖可用于本餐的指导，请明确疾病或饮食目标；未自动改动你的设置。';
   await provider.assertCurrent(packet);
