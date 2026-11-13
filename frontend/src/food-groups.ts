@@ -1,6 +1,6 @@
 import type { Food, Recipe } from '../../shared/types';
 import { isCookingWater, isSeasoningFood } from '../../shared/pantry';
-import { canonicalIngredientName } from '../../shared/ingredient-matching';
+import { canonicalIngredientName, isInvalidFoodName } from '../../shared/ingredient-matching';
 import navigation from '../../datasets/recipes/food-navigation-overrides.json';
 
 const overrides=new Map(Object.entries(navigation.groups).flatMap(([group,names])=>names.map(name=>[name,group] as const)));
@@ -49,7 +49,7 @@ export function groupedFoods(foods:Food[],usage?:Map<string,number>){
     if(/腌料|调味料/.test(food.name))continue;
     if(isSeasoningFood(food)||isCookingWater(food.name))continue;
     const name=canonicalIngredientName(food.name);
-    if(/^(g|ml|瓣)$/.test(name))continue;
+    if(isInvalidFoodName(name)||isSeasoningFood({id:food.id,name})||/^(g|ml|瓣)$/.test(name))continue;
     const count=usage?.get(food.id)??0;
     const current=unique.get(name);
     if(current)current.count+=count;
