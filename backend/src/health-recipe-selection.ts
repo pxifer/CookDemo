@@ -143,7 +143,6 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     scope.offeredParents=catalog.length;scope.offeredVariants=catalog.length;scope.complete=catalog.length===qualifiedVariants;packet.min=options?Math.min(6,catalog.length):Math.min(count,catalog.length);packet.max=options?Math.min(18,catalog.length):Math.min(count,catalog.length);
     if(inputSize()>selectionInputBudget)throw new DomainError('AI_INPUT_TOO_LARGE',422,'本餐配方与档案内容过长，请减少搭配数量或精简备注后再试；尚未调用模型');
     signal.throwIfAborted();await input.claim();input.progress('AI 正在阅读本餐食材、健康建议和菜谱做法，挑选菜品…');
-    await current();
     const response=await requestDeepSeekJson(apiKey,[{role:'system',content:prompt},{role:'user',content:JSON.stringify(packet)}],signal,input.fetcher,options?1600:Math.min(1600,300+count*100));
     await current();
     const observe=(stage:SelectionDiagnostics['stage'])=>{try{input.observe?.({stage,qualifiedParents:parents.length,offeredParents:catalog.length,estimatedInputTokens:inputSize(),elapsedMs:Math.round(performance.now()-started),invocation:response.invocation});}catch{/* Observability must never change a paid operation's outcome. */}};

@@ -505,7 +505,6 @@ export async function createApp(options: {
       const sharedCurrent=!sharedTask||await during(options.accounts!.recommendationTaskCurrent!(modelIdentity!,req.body.taskId!,req.body.meal.version,req.body.operationId),signal);
       if (!sharedCurrent||newest?.operation !== req.body.operationId || newest?.version !== req.body.meal.version) result = { ...result, healthAssessment: undefined,selectionScope:undefined,cursor:'',dishes: [], checks: [], status: 'cancelled', reasons: ['旧操作已被新条件取代'] };
       const publicResult={...result,dishes:result.dishes.map(publicDish)};
-      if(result.researchGuidance)await (options.foodGuidance??options.publishedKnowledge)!.assertCurrent(result.researchGuidance);
       if (stream) { if (!reply.raw.destroyed) reply.raw.end(JSON.stringify({ type: 'result', result:publicResult }) + '\n'); return; }
       return publicResult;
     } catch (e) {
