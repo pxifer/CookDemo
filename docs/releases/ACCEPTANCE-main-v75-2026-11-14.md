@@ -25,7 +25,24 @@ v74 把问题当作"展示层出现了脏词"。实际是**构建期把用量写
 
 - **341 道基础包冻结**：其 `瓣` 一行（辣椒炒肉片）属于已审核原文，按测试要求逐字节保留，由下拉过滤（已能挡住）。`verifyGalleryBundle` 的基础包 deepEqual 断言仍通过。
 - 本轮只改内容与解析，未改 UI 代码，未做浏览器回归。
-- 新内容版本 `gallery-listed-foods-1000-20261114-v2`，hash `ffc8388d54a1fecb3da994b3403985b128db4dd8cbe0e54d40a30146fbd5e59e`。**尚未发布**。
+- 新内容版本 `gallery-listed-foods-1000-20261114-v2`，hash `ffc8388d54a1fecb3da994b3403985b128db4dd8cbe0e54d40a30146fbd5e59e`。**已发布**（见下节）。
+
+## 发布（2026-11-14 02:17）
+
+发布链路此前是断的，本轮一并修复（详见[部署手册](../operations/DEPLOYMENT-CLOUDBASE-HTTP.md)）：
+
+- 13 个发布脚本引用了不存在的 `@deployment/cloudbase/cli`，实际安装为官方 `@cloudbase/cli` 3.8.7；已全部改正。
+- `tcb db pg migration up` 会把本地全部迁移一起上传（当前 13.6MB），超过 API 10MiB 上限；只带新迁移又被 15 条历史冲突挡住。约 5MB 的内容行改为进程内调用同一 CLI 的 `db execute`（端点/角色/凭证不变，只绕开操作系统参数长度限制）。
+- 新增 `scripts/prepare-content-release.ts` 与 `scripts/publish-content-release.ts`，把打包与"先内容行、再函数"的顺序固化为可审查命令。
+
+执行结果：
+
+1. 内容行已写入并校验：`release_id=gallery-listed-foods-1000-20261114-v2`，`checksum` 与 manifest 一致，`published=true`；旧 v1 行保留未改。
+2. 函数 `shiwei-http-preview` 已部署：`Nodejs24.11`、`Timeout=60`、`CONTENT_BUNDLE_ID/CONTENT_BUNDLE_SHA256` 指向 v2。
+3. 只读核对：`/healthz` 200；`/readyz` 200 且 `contentVersion=gallery-listed-foods-1000-20261114-v2`；首页 `index-BwIUTq3Y.js`、`index-MiMYkjjf.css` 与本地产物一致。
+4. 真实接口核验 `/api/v1/catalog/recipes`：1000 道、1116 个食品名，19 个脏名全部消失，`千张` 在位；`家常烤鱼`、`黄豆粉菠菜汤`、`焗烤豆腐` 的配料行已正确（用量留在展示文本，如 `鱼段 一大块`、`菠菜 几颗`）。
+
+发布期间环境曾开启超额计费（`EnableOverrun=true`），脚本按设计拒绝执行；用户关闭后继续，未绕过守卫。
 
 ## 验证
 

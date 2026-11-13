@@ -1,4 +1,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
+import { writeFileSync, unlinkSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { randomUUID } from 'node:crypto';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
@@ -51,15 +54,22 @@ function parse(text: string, label: string): any {
 /** Normal CLI call; arguments fit comfortably on the command line. */
 function runCli(cloudArgs: string[], cwd?: string): any {
   const result = spawnSync(node, [cliEntry, ...cloudArgs, '--json'], { encoding: 'utf8', cwd, env: { ...process.env, TCB_NO_BROWSER: 'true' } });
-  return parse(result.stdout + result.stderr, 'CLI');
+  return parse((result.stdout ?? '') + (result.stderr ?? ''), 'CLI');
 }
 
-/** Same CLI command, but the SQL stays in memory instead of going through argv. */
+/** Same CLI command, but the SQL stays in a temp script file instead of argv:
+ * a 5MB statement is far beyond the OS command line limit. */
 function executeLarge(sql: string): any {
   const argv = [node, 'tcb', 'db', 'execute', '-e', environmentId, '--region', region, '--role', 'cloudbase_postgres', '--sql', sql, '--json'];
   const script = `process.argv=${JSON.stringify(argv)};require(${JSON.stringify(cliMain)});`;
-  const result = spawnSync(node, ['-e', script], { encoding: 'utf8', env: { ...process.env, TCB_NO_BROWSER: 'true' } });
-  return parse(result.stdout + result.stderr, 'EXECUTE');
+  const file = join(tmpdir(), `shiwei-publish-${randomUUID()}.cjs`);
+  writeFileSync(file, script, { mode: 0o600 });
+  try {
+    const result = spawnSync(node, [file], { encoding: 'utf8', env: { ...process.env, TCB_NO_BROWSER: 'true' } });
+    return parse((result.stdout ?? '') + (result.stderr ?? ''), 'EXECUTE');
+  } finally {
+    unlinkSync(file);
+  }
 }
 
 const environments = runCli(['env', 'list', '--region', region]);
@@ -72,16 +82,19 @@ if (target.EnableOverrun === true && !flags.has('accept-overrun')) {
 
 if (!flags.has('function-only')) {
   const migrationDir = join(packageDir, 'migration', 'cloudbase', 'migrations');
-  const files = (await readdir(migrationDir)).filter(name => name.endsWith('.sql'));
-  if (files.length !== 1) throw new Error('MIGRATION_FILE_COUNT');
-  const sql = (await readFile(join(migrationDir, files[0]!), 'utf8')).replace(/^--[^\n]*\n/, '');
+  const files = (await readdir(migrationDir)).filter(name => name.endsWith('.sql')).sort();
+  if (!files.length) throw new Error('MIGRATION_FILE_MISSING');
+  // Fetched history may sit next to the new file; the newest version is this release.
+  const sql = (await readFile(join(migrationDir, files[files.length - 1]!), 'utf8')).replace(/^--[^\n]*\n/, '');
+  if (!sql.includes(manifest.contentReleased) || !sql.includes(manifest.contentHash)) throw new Error('MIGRATION_CONTENT_MISMATCH');
   executeLarge(sql);
   const check = executeLarge(`SELECT release_id, checksum, published FROM public.shiwei_gallery_releases WHERE release_id='${manifest.contentReleased}';`);
   const rows = (check.Rows ?? []).map((row: any) => (typeof row === 'string' ? JSON.parse(row) : row));
   const row = rows.find((item: any) => (Array.isArray(item) ? item[0] : item?.release_id) === manifest.contentReleased);
   const checksum = Array.isArray(row) ? row[1] : row?.checksum;
   const published = Array.isArray(row) ? row[2] : row?.published;
-  if (!row || checksum !== manifest.contentHash || published !== true) throw new Error('CONTENT_ROW_NOT_PUBLISHED');
+  // The HTTP API returns every cell as text, so `published` arrives as "true".
+  if (!row || checksum !== manifest.contentHash || String(published) !== 'true') throw new Error('CONTENT_ROW_NOT_PUBLISHED');
 }
 
 if (!flags.has('content-only')) {
