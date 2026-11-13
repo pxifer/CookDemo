@@ -41,16 +41,28 @@ const families: { id: string; name: string; inputs: string[]; recipeNames: RegEx
   { id: 'cauliflower', name: '花菜', inputs: ['花菜', '菜花'], recipeNames: /(?:花菜|菜花)/, excludedRecipeNames: /黄花菜/ },
 ];
 
-const quantityNames = /^(?:一到|一大块|一小块|大块|小块|中等|中等大小|适量|少许|若干|一些|少量|半个|数个|一把|一小把|一根|一个|一块|一片|一条|一只|一颗|一粒|一勺|一杯|一碗|一朵|[0-9一二三四五六七八九十百]+(?:个|块|片|根|颗|粒|勺|杯|碗|把|朵|条|只))$/;
-const unitNames = /^[0-9]+(?:\.[0-9]+)?(?:g|kg|ml|l|克|毫升|斤|两)$/i;
-const fragmentNames = /^(?:大|小|中)?(?:块|片|根|颗|粒|朵|条|只|个)$/;
+// Parser leakage from recipe text: counts ("几个"、"二颗") followed a quantifier, so match the
+// quantifier anywhere, not only as a whole token. Keep real foods (八角、五花肉) out of the
+// blacklist by requiring the counting word right after the quantifier.
+const countingUnits = '个|颗|粒|块|片|根|条|只|朵|把|勺|杯|碗|串|张|节|段|颗|棵|株|枝|瓣|枚|双|对|斤|两|克|毫升';
+const quantityNames = new RegExp(`^(?:[0-9０-９一二两三四五六七八九十百千半几些好多数]{1,4})(?:${countingUnits})?(?:左右|大小|多个|若干)?$`
+  + `|^(?:适量|少许|少量|若干|一些|些许|少许|适度|按需|随意|略|待定|若干|中等|中等大小|大块|小块|一大块|一小块|大|小|中)$`
+  + `|^(?:[0-9]{1,4})(?:g|kg|ml|l|克|克重|毫升|升|斤|两)(?:左右)?$`);
+const fragmentNames = /^(?:大|小|中|去)?(?:块|片|根|颗|粒|朵|条|只|个|段|节|张|串|把|勺|杯|碗)$|^(?:若干|几个|几颗|数个|少许|适量|随便|任意|其他|其它|以上|以下|如下|同上|以上材料|全部|所有|各种|各类|各种材料)$/;
 export function isInvalidFoodName(name:string):boolean{
   const term=name.normalize('NFKC').trim();
-  return !term||quantityNames.test(term)||unitNames.test(term)||fragmentNames.test(term);
+  if(!term)return true;
+  if(/[0-9０-９]/.test(term)&&term.length<=6&&new RegExp(`(?:${countingUnits}|g|kg|ml)$`,'i').test(term))return true;
+  // Chinese counts/amounts with no real noun left: 一到、二棵、几个、十几、半把.
+  const head=term.replace(/[0-9０-９一二两三四五六七八九十百千半几些好多数多很\s~～\-到至左右大小]+/gu,'');
+  if(term.length<=4&&!head)return true;
+  if(head&&new RegExp(`^(?:${countingUnits})$`).test(head))return true;
+  return quantityNames.test(term)||fragmentNames.test(term);
 }
 export function canonicalIngredientName(name:string):string{
   const normalized=normalizeIngredientName(name);
   if(!/猪油|猪皮|牛|羊|鸡|鸭|鹅|鱼|虾/.test(normalized)&&/猪|五花|里脊|梅花|排骨|肋排|筒子骨|扇骨|龙骨|小排|大肠|小肠|猪肚|猪血|猪肝|猪肺|猪心|猪腰|猪耳|猪舌|猪尾/.test(normalized))return '猪肉';
+  if(/大骨棒|棒骨|筒骨/.test(normalized))return '猪肉';
   if(/小根蒜/.test(normalized))return '蒜';
   if(/鸡蛋|蛋液|鸡蛋黄|蛋黄|蛋清|土鸡蛋|笨鸡蛋|常温鸡蛋|鸡蛋干|^蛋$/.test(normalized))return '鸡蛋';
   if(/鸭蛋/.test(normalized))return '鸭蛋';
