@@ -1,0 +1,432 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "D:\\codex_AI\\菜谱推荐\\input-003\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/photo-input.spec.ts"
+    ],
+    "configFile": "D:\\codex_AI\\菜谱推荐\\input-003\\playwright.config.ts",
+    "rootDir": "D:/codex_AI/菜谱推荐/input-003/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/input-003/artifacts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/codex_AI/菜谱推荐/input-003/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/codex_AI/菜谱推荐/input-003/artifacts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/codex_AI/菜谱推荐/input-003/tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\input-003\\artifacts\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\input-003\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\input-003\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4175",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "serviceWorkers": "block",
+          "proxy": {
+            "server": "http://127.0.0.1:9",
+            "bypass": "127.0.0.1,localhost,[::1]"
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\codex_AI\\菜谱推荐\\input-003\\artifacts\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\codex_AI\\菜谱推荐\\input-003\\tests",
+        "snapshotDir": "D:\\codex_AI\\菜谱推荐\\input-003\\tests",
+        "testIgnore": [
+          "**/ui-revision.spec.ts",
+          "**/resume.spec.ts",
+          "**/cloudbase-preview.spec.ts",
+          "**/account-cloud.spec.ts",
+          "**/registration-browser.spec.ts",
+          "**/registration-live.spec.ts",
+          "**/composition-v2-browser.spec.ts",
+          "**/health-chat-browser.spec.ts"
+        ],
+        "testMatch": "**/*.spec.ts",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4175",
+          "channel": "msedge",
+          "headless": true,
+          "locale": "zh-CN",
+          "reducedMotion": "reduce",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "serviceWorkers": "block",
+          "proxy": {
+            "server": "http://127.0.0.1:9",
+            "bypass": "127.0.0.1,localhost,[::1]"
+          },
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "isMobile": true,
+          "hasTouch": true
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/acceptance/input-003/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "\"C:\\Users\\彭霄\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe\" --import tsx backend/src/main.ts",
+      "url": "http://127.0.0.1:4175/healthz",
+      "reuseExistingServer": false,
+      "env": {
+        "LOCAL_TEST_FEATURES": "1",
+        "APP_ENV": "local",
+        "HOST": "127.0.0.1",
+        "PORT": "4175",
+        "APP_ORIGIN": "http://127.0.0.1:4175",
+        "CONTENT_SOURCE": "constructed"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "photo-input.spec.ts",
+      "file": "photo-input.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "INPUT-001 图片确认后添加、不确定项不加入，普通推荐继续可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1498,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T09:31:29.548Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "448964dda101ec4c2a88-d443cb5bb5e8868efb19",
+          "file": "photo-input.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "INPUT-001 识别迟到时移除图片，结果不能重新加入界面",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 767,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T09:31:31.558Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "448964dda101ec4c2a88-cca81bf56b045eb6ee54",
+          "file": "photo-input.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "INPUT-002 含糊食材可直接点选具体名称，无需手动改字",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T09:31:32.344Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "448964dda101ec4c2a88-0c809efa811d04bf14bf",
+          "file": "photo-input.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "INPUT-001 图片确认后添加、不确定项不加入，普通推荐继续可用",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1883,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T09:31:34.488Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "448964dda101ec4c2a88-8a35952c692845621653",
+          "file": "photo-input.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "INPUT-001 识别迟到时移除图片，结果不能重新加入界面",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 953,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T09:31:36.846Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "448964dda101ec4c2a88-d8212746588910c7e967",
+          "file": "photo-input.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "INPUT-002 含糊食材可直接点选具体名称，无需手动改字",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 977,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T09:31:37.814Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "448964dda101ec4c2a88-42037052fc52cfbe63a0",
+          "file": "photo-input.spec.ts",
+          "line": 33,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-13T09:31:27.161Z",
+    "duration": 13509.148000000001,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

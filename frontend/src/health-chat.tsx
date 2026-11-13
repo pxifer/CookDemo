@@ -56,7 +56,6 @@ export function HealthChat({ configured, research=false, last4, profile, initial
     <header className="health-chat-heading"><div><span className="eyebrow">饮食助手</span><h2>这一餐，吃得更合适</h2><p>说说健康情况或饮食目标，我来帮你选食材。</p></div><button aria-expanded={open} aria-controls="health-chat-content" onClick={() => setOpen(!open)}>{open ? '收起对话' : '展开对话'}</button></header>
     <details className="health-profile-summary"><summary>我的饮食档案 <span>{profile?[...profile.conditions,...profile.goals].join(' · ')||'已保存':savedFoods.length?`${savedFoods.length} 项排除`:'尚未整理'}</span></summary>{accepted&&<p className="small subtle">已接受：推荐 {accepted.preferred.length} 项 · 少选 {accepted.limited.length} 项 · 避开 {accepted.excluded.length} 项</p>}<AiFoodList choices={choices} onApply={onApply} savedFoods={savedFoods} onSave={onSave}/><button onClick={configure}>管理健康档案</button></details>
     <div id="health-chat-content" hidden={!open}>
-      <details className="health-chat-note"><summary>关于这次对话</summary><p>{research?'本次食材建议依据本地研究资料整理，不调用生成模型；请 AI 搭配、重推或换菜时，仍会将所需档案、本餐设置、菜谱和依据提供给 DeepSeek，使用个人模型额度。资料仅覆盖部分疾病和目标，必要条件不明时会保留判断；不代表整菜营养达标。':'发送消息或请 AI 搭配时，会将健康档案、本餐设置及所需菜谱提供给 DeepSeek；对话还会带上当前消息，AI 搭配、重推和换菜也使用个人模型额度；建议仅作饮食参考，本站RAG尚未接入。'}翻页、看做法和手选口味不调用模型。健康情况、目标及食材建议会加密保存在账户；完整对话不保存。</p></details>
       <div className="health-chat-tools"><button onClick={configure}>模型设置</button><button onClick={clear} disabled={!messages.length && !pending && !draft}>清空本页对话</button></div>
       <div className={`health-chat-messages${!messages.length&&!pending&&hasProfile?' is-restored':''}`} role="log" aria-label="对话消息" aria-live="polite" aria-relevant="additions text">
         {!messages.length&&!pending&&hasProfile&&!profile?.suggestions.length&&<p className="small subtle">已保留你的健康关注与目标。可以补充情况，或请 AI 按当前档案重新整理食材建议。</p>}
@@ -68,7 +67,7 @@ export function HealthChat({ configured, research=false, last4, profile, initial
       </div>
 
       {error && <p role="alert" className="health-chat-error">{error}</p>}
-      {contextReduced&&<p className="small subtle">较早对话已压缩或省略，当前饮食档案和本餐设置仍会核对；关键提醒请更新到档案或再次说明。</p>}
+
       {!configured && <p role="status">请先到个人设置填写 DeepSeek Key，再开始对话。</p>}
       <form className="health-chat-compose" onSubmit={event => { event.preventDefault(); void send(); }}>
         <label className="sr-only" htmlFor="health-chat-message">给AI的消息</label>

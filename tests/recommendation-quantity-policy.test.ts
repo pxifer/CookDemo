@@ -46,9 +46,9 @@ test('AI只接收食材有无，输入用量不送模型；只改量翻页也不
  const meal={...mealWith('土豆1g'),health:true,allowBuy:true,mode:'candidates' as const};
  const start={request:request(meal),owner:'quantity-policy',apiKey:'synthetic-test-only-key',context,signal:AbortSignal.timeout(10000),claim:async()=>{},progress:()=>{},present:(d:any)=>d,fetcher:async(_u:any,init:any)=>{
   calls++;const packet=JSON.parse(JSON.parse(String(init.body)).messages[1].content);assert(packet.user.ingredients.every((i:any)=>i.amount===''));assert(packet.catalog[0].ingredients.some((i:any)=>i.amount===100));
-  return Response.json({id:'fixture-quantity-policy',model:'deepseek-flash',usage:{prompt_tokens:100,completion_tokens:40,total_tokens:140},choices:[{finish_reason:'stop',message:{content:JSON.stringify({summary:'构造选菜',choices:packet.catalog.map((c:any)=>({id:c.id,reason:'仅核对食材有无'}))})}}]});
+  return Response.json({id:'fixture-quantity-policy',model:'deepseek-flash',usage:{prompt_tokens:100,completion_tokens:40,total_tokens:140},choices:[{finish_reason:'stop',message:{content:JSON.stringify({summary:'构造选菜',choices:packet.catalog.slice(0,packet.count).map((c:any)=>({id:c.id,reason:'仅核对食材有无'}))})}}]});
  }};
- const first=await selector(start);const changed=structuredClone(meal);changed.ingredients[0].amount='999kg';const page=await selector({...start,request:request(changed,{action:'page',page:1,cursor:first.cursor})});assert.equal(page.dishes.length,1);assert.equal(calls,1);
+ const first=await selector(start);const changed=structuredClone(meal);changed.ingredients[0].amount='999kg';const page=await selector({...start,request:request(changed,{action:'page',page:0,cursor:first.cursor})});assert.equal(page.dishes.length,first.dishes.length);assert.equal(calls,1);
 });
 
 test('真实API入口同样忽略客户端填写用量，不能绕过统一规则',async()=>{
