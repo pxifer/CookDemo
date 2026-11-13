@@ -1,5 +1,6 @@
 import type { Food, Recipe } from '../../shared/types';
 import { isCookingWater, isSeasoningFood } from '../../shared/pantry';
+import { canonicalIngredientName } from '../../shared/ingredient-matching';
 import navigation from '../../datasets/recipes/food-navigation-overrides.json';
 
 const overrides=new Map(Object.entries(navigation.groups).flatMap(([group,names])=>names.map(name=>[name,group] as const)));
@@ -42,13 +43,18 @@ export function recipeFoodUsage(recipes:Recipe[]){
   return usage;
 }
 export function groupedFoods(foods:Food[],usage?:Map<string,number>){
-  const unique=new Map<string,Food>();
+  const unique=new Map<string,{food:Food;count:number}>();
   for(const food of foods){
     if(usage&&!usage.has(food.id))continue;
-    if(/腌料|调味料/.test(food.name))continue;
-    if(!isSeasoningFood(food)&&!isCookingWater(food.name)&&!/^(g|ml|瓣)$/.test(food.name)&&!unique.has(food.name))unique.set(food.name,food);
+    const name=canonicalIngredientName(food.name);
+    if(/腌料|调味料/.test(name))continue;
+    if(isSeasoningFood({id:food.id,name})||isCookingWater(name)||/^(g|ml|瓣)$/.test(name))continue;
+    const count=usage?.get(food.id)??0;
+    const current=unique.get(name);
+    if(current)current.count+=count;
+    else unique.set(name,{food:{...food,name,id:`canonical:${name}`},count});
   }
-  const available=[...unique.values()].sort((a,b)=>(usage?.get(b.id)??0)-(usage?.get(a.id)??0)||a.name.localeCompare(b.name,'zh-CN'));
+  const available=[...unique.values()].sort((a,b)=>b.count-a.count||a.food.name.localeCompare(b.food.name,'zh-CN')).map(item=>item.food);
   return ['肉禽','鱼虾海鲜','蛋类','蔬菜','菌菇','豆制品','主食杂粮','奶类','水果','豆类坚果','其他食材']
     .map(name=>({name,foods:available.filter(food=>foodGroup(food.name)===name)})).filter(group=>group.foods.length);
 }

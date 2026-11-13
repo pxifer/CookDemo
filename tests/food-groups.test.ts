@@ -1,6 +1,7 @@
-﻿import test from 'node:test';
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import {groupedFoods,recipeFoodUsage} from '../frontend/src/food-groups';
+import {canonicalIngredientName} from '../shared/ingredient-matching';
 import {seasoningGroup} from '../shared/pantry';
 
 const foods:any[]=[{id:'egg',name:'鸡蛋'},{id:'tomato',name:'番茄'},{id:'salt',name:'食盐'},{id:'unused',name:'奥尔良鸡翅腌料'}];
@@ -13,6 +14,26 @@ test('食材下拉只按菜谱真实主料/辅料分类，未使用或仅作调�
   const names=groups.flatMap(group=>group.foods.map(food=>food.name));
   assert(names.includes('鸡蛋')&&names.includes('番茄'));
   assert(!names.includes('奥尔良鸡翅腌料')&&!names.includes('食盐'));
+});
+
+test('具体部位归并到可覆盖菜品的宽食材',()=>{
+  assert.equal(canonicalIngredientName('五花肉'),'猪肉');
+  assert.equal(canonicalIngredientName('肥瘦猪肉馅'),'猪肉');
+  assert.equal(canonicalIngredientName('带皮鸡腿肉'),'鸡肉');
+  assert.equal(canonicalIngredientName('本地鸡'),'鸡肉');
+  assert.equal(canonicalIngredientName('海鱼'),'鱼');
+  assert.equal(canonicalIngredientName('河虾'),'虾');
+  assert.equal(canonicalIngredientName('花蛤'),'贝类');
+  assert.equal(canonicalIngredientName('鸭腿'),'鸭肉');
+  assert.equal(canonicalIngredientName('西红柿'),'番茄');
+});
+
+test('下拉不会为同一宽食材重复列出多个部位',()=>{
+  const cuts:any[]=[{id:'a',name:'五花肉'},{id:'b',name:'里脊'},{id:'c',name:'肥瘦猪肉馅'}];
+  const usage=new Map([['a',3],['b',2],['c',1]]);
+  const groups=groupedFoods(cuts,usage);
+  const pork=groups.flatMap(group=>group.foods).filter(food=>food.name==='猪肉');
+  assert.equal(pork.length,1);
 });
 
 test('调料按烹饪角色分组，不再全部堆进其他调料',()=>{

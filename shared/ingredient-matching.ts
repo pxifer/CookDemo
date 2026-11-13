@@ -11,8 +11,12 @@ export type IngredientMatch = { ingredient: Ingredient; kind: 'exact' | 'broad' 
 const families: { id: string; name: string; inputs: string[]; recipeNames: RegExp; excludedRecipeNames?: RegExp }[] = [
   { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'], recipeNames: /(?:猪肉|瘦肉|五花肉|里脊肉?|梅花肉|梅头猪肉|二刀肉|排骨|肋排|猪排|猪蹄|猪肘|猪前肘|肘子|肉馅|肉末)/,
     excludedRecipeNames: /牛|羊|鸡|鸭|鹅|鱼|虾/ },
-  { id: 'chicken', name: '鸡肉', inputs: ['鸡肉', '鸡'], recipeNames: /(?:鸡肉|鸡腿|鸡翅|鸡爪|鸡肝|鸡胸|鸡全翅|手枪腿|^鸡$)/,
-    excludedRecipeNames: /鸡蛋|鸡精|鸡粉|鸡汤|鸡油/ },
+  { id: 'chicken', name: '鸡肉', inputs: ['鸡肉', '鸡'], recipeNames: /(?:鸡肉|鸡腿|鸡翅|鸡爪|鸡肝|鸡胸|鸡全翅|手枪腿|本地鸡|鸡架|鸡脚|鸡蓉|鸡脯|^鸡$)/,
+    excludedRecipeNames: /鸡蛋|鸡精|鸡粉|鸡汤|鸡油|鸡枞/ },
+  { id: 'duck', name: '鸭肉', inputs: ['鸭肉', '鸭'], recipeNames: /(?:鸭肉|鸭腿|鸭翅|鸭胸|鸭架|鸭掌|鸭脖|^鸭$)/,
+    excludedRecipeNames: /鸭蛋|鸭血|鸭油/ },
+  { id: 'goose', name: '鹅肉', inputs: ['鹅肉', '鹅'], recipeNames: /(?:鹅肉|鹅腿|鹅翅|鹅胸|^鹅$)/,
+    excludedRecipeNames: /鹅蛋|鹅油/ },
   { id: 'beef', name: '牛肉', inputs: ['牛肉'], recipeNames: /(?:牛肉|牛腩|肥牛|牛里脊|牛排|牛筋|牛腱)/,
     excludedRecipeNames: /牛奶|牛油|牛肉高汤/ },
   { id: 'lamb', name: '羊肉', inputs: ['羊肉'], recipeNames: /(?:羊肉|羊腩|羊排|羊腿|羊蝎子|羊杂)/ },
@@ -20,6 +24,10 @@ const families: { id: string; name: string; inputs: string[]; recipeNames: RegEx
     excludedRecipeNames: /鱼露|鱼丸|鱼豆腐|鱼粉|鱼皮|鱼籽/ },
   { id: 'shrimp', name: '虾', inputs: ['虾', '大虾', '鲜虾'], recipeNames: /虾/,
     excludedRecipeNames: /虾皮|虾酱|虾粉|虾米/ },
+  { id: 'crab', name: '蟹', inputs: ['蟹', '螃蟹'], recipeNames: /蟹/,
+    excludedRecipeNames: /蟹味菇|蟹棒|蟹柳|蟹黄酱/ },
+  { id: 'shellfish', name: '贝类', inputs: ['贝类', '贝', '蛤蜊', '花蛤', '扇贝', '蚝'], recipeNames: /贝|蛤|蛏|蚝|蚬|螺|鲍|蛎/,
+    excludedRecipeNames: /螺蛳粉|贝壳粉/ },
   { id: 'vermicelli', name: '粉条', inputs: ['粉条', '粉丝'], recipeNames: /(?:粉条|粉丝|宽粉)/,
     excludedRecipeNames: /米粉|面粉|淀粉/ },
   { id: 'mushroom', name: '蘑菇', inputs: ['蘑菇', '菌菇'], recipeNames: /(?:菇|口蘑|白蘑)/ },
@@ -32,6 +40,13 @@ const families: { id: string; name: string; inputs: string[]; recipeNames: RegEx
   { id: 'cauliflower', name: '花菜', inputs: ['花菜', '菜花'], recipeNames: /(?:花菜|菜花)/, excludedRecipeNames: /黄花菜/ },
 ];
 
+export function canonicalIngredientName(name:string):string{
+  const normalized=normalizeIngredientName(name);
+  const family=families.find(item=>item.recipeNames.test(normalized)&&!item.excludedRecipeNames?.test(normalized));
+  if(family)return family.name;
+  const synonyms=inputSynonyms.find(group=>group.includes(normalized));
+  return synonyms?.[0]??name;
+}
 export const normalizeIngredientName = (name: string) => name.normalize('NFKC').toLowerCase().replace(/\s+/g, '').trim();
 const isQueryName = (name: string) => /^[\p{Script=Han}a-z]{2,24}$/u.test(name);
 // Name containment describes a variety or preparation, not an arbitrary product
