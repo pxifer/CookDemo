@@ -10,8 +10,8 @@ import { reportedNutritionConditions } from '../../../shared/nutrition-condition
 export const businessPolicyVersion='food-guidance-business-v3-20261113';
 export const guidanceHash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const guidanceTextHash=(value:string)=>createHash('sha256').update(value).digest('hex');
-const packetRevocationsMap=new WeakMap<FoodGuidancePacket,Set<string>>();
-export const packetRevocations=(packet:FoodGuidancePacket)=>packetRevocationsMap.get(packet);
+const packetRevocationsMap=new WeakMap<object,Set<string>>();
+export const packetRevocations=(packet:Pick<FoodGuidancePacket,'fingerprint'>)=>packetRevocationsMap.get(packet);
 const norm=(value:string)=>value.normalize('NFKC').trim();
 export interface GoalKnowledge {
   id:string; topics:{id:string;name:string;aliases:string[]}[]; evidence:GuidanceEvidence[];
