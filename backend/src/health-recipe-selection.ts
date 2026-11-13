@@ -2,7 +2,7 @@ import { createHmac } from 'node:crypto';
 import { seal, open, type Envelope } from './crypto';
 import { checkDish, checkSet, DomainError, qualifiedDishes, recommend } from './recommendation';
 import { requestDeepSeekJson } from './deepseek-json';
-import { aiFoodRank, effectiveAiChoices } from '../../shared/ai-food-choices';
+import { aiFoodMatch, aiFoodRank, effectiveAiChoices } from '../../shared/ai-food-choices';
 import type { ContentContext } from '../../shared/content';
 import type { Category, Dish, Meal, RecommendationRequest, RecommendationResult } from '../../shared/types';
 import { estimatedTokens, selectionInputBudget } from '../../shared/context-budget';
@@ -82,6 +82,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
       const grounded=research?checked.dishes.filter(dish=>bindDish(dish).matches.length).length:0;
       const coverage=grounded===0?'unmatched' as const:grounded===checked.dishes.length?'matched' as const:'partial' as const;
       const reasons=new Map(chosen.map(choice=>[choice.recipeId,choice.reason]));
+      const acceptedChoices=effectiveAiChoices(meal);
       return {...checked,elapsedMs:Math.round(performance.now()-started),search:plan.scope.complete?'complete' as const:'incomplete' as const,selectionScope:plan.scope,cursor:token(plan,owner),page:req.page,total:plan.choices.length,target:plan.options?6:plan.target,targetMet:plan.options?chosen.length===6:plan.targetMet,
         dishes:checked.dishes.map(dish=>{
           const choice=chosen.find(c=>c.recipeId===dish.recipe.id)!;
@@ -92,7 +93,11 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
           const pantryNames=[...new Set(pantryMatches.map(m=>m.ingredient.name))].slice(0,4).join('、');
           const confirmations=[...new Set(pantryMatches.filter(m=>m.kind==='broad').map(m=>`配方需${m.recipeName}；你填写的是${m.ingredient.name}，具体部位或形态待确认。`))];
           const practical=pantryNames?`用上现有${pantryNames}。`:'按已允许的补买条件选择。';
-          const reason=proof?practical+confirmations.join('')+(hasHealthConcern?(guidanceReason(research!,proof,ids)||'暂时没有足够资料判断这道菜是否适合你。'):''):changed?'已按你选择的口味重新核对本餐条件。':reasons.get(dish.recipe.id);
+          const preferredHits=acceptedChoices.preferred.filter(name=>aiFoodMatch(dish.variant,name,context));
+          const limitedHits=acceptedChoices.limited.filter(name=>aiFoodMatch(dish.variant,name,context));
+          const choiceNote=preferredHits.length?`含你优先选择的${preferredHits.slice(0,3).join('、')}。`:limitedHits.length?`含你选择少选的${limitedHits.slice(0,3).join('、')}。`:acceptedChoices.preferred.length||acceptedChoices.limited.length?'没有命中你标记的优先或较少食材。':'';
+          const guidance=proof&&hasHealthConcern?(guidanceReason(research!,proof,ids)||(choiceNote?'':'暂时没有足够资料判断这道菜是否适合你。')):'';
+          const reason=proof?practical+confirmations.join('')+choiceNote+guidance:changed?'已按你选择的口味重新核对本餐条件。':reasons.get(dish.recipe.id);
           const limits=research&&proof?[...new Set(proof.matches.filter(m=>m.direction==='limit').map(m=>research.guidance.find(g=>g.id===m.guidanceId)!.objectName))]:[];
           return {...dish,aiReason:reason,...(proof?{aiGrounding:proof}:{}),aiBasis:[...(pantryNames?[`复用本餐食材：${pantryNames}`]:[]),...confirmations,...(limits.length?[`含${limits.join('、')}，建议少选；没有计算具体含量。`]:[]),`已核对配料、过敏忌口和补买条件；做法是“${dish.variant.flavor}”版本。`]};
         }),

@@ -33,6 +33,34 @@ export function foodGroup(name:string):string{
   }
   return groups.find(([,pattern])=>pattern.test(name))?.[0]??'其他食材';
 }
+export function foodSubgroup(name:string):string{
+  const group=foodGroup(name);
+  if(group==='肉禽'){
+    if(/猪/.test(name))return '猪肉';
+    if(/牛/.test(name))return '牛肉';
+    if(/羊/.test(name))return '羊肉';
+    if(/鸡|鸭|鹅|禽|翅|腿/.test(name))return '禽肉';
+    return '其他肉类';
+  }
+  if(group==='鱼虾海鲜'){
+    if(/虾/.test(name))return '虾类';
+    if(/蟹/.test(name))return '蟹类';
+    if(/贝|蛤|蛏|蚝|蚬|螺|鲍|蛎/.test(name))return '贝类';
+    if(/鱼/.test(name))return '鱼类';
+    return '其他海鲜';
+  }
+  if(group==='蔬菜'){
+    if(/菜|菠菜|生菜|白菜|芹|韭|香菜|茼蒿|芥|甘蓝|西兰花|西蓝花|花椰/.test(name))return '叶菜与花菜';
+    if(/瓜|茄|椒|番茄|西红柿|秋葵|西葫芦|苦瓜|丝瓜|冬瓜|南瓜/.test(name))return '瓜茄类';
+    if(/萝卜|土豆|山药|芋|藕|笋|荸荠|马蹄|红薯|洋葱|葱|蒜|姜/.test(name))return '根茎类';
+    return '其他蔬菜';
+  }
+  if(group==='主食杂粮'){
+    if(/米|面|粉|年糕|馒头|饼|意面/.test(name))return '米面';
+    return '杂粮';
+  }
+  return group;
+}
 export function recipeFoodUsage(recipes:Recipe[]){
   const usage=new Map<string,number>();
   for(const recipe of recipes)for(const variant of recipe.variants)for(const line of variant.lines){
@@ -49,6 +77,6 @@ export function groupedFoods(foods:Food[],usage?:Map<string,number>){
     if(!isSeasoningFood(food)&&!isCookingWater(food.name)&&!/^(g|ml|瓣)$/.test(food.name)&&!unique.has(food.name))unique.set(food.name,food);
   }
   const available=[...unique.values()].sort((a,b)=>(usage?.get(b.id)??0)-(usage?.get(a.id)??0)||a.name.localeCompare(b.name,'zh-CN'));
-  return ['肉禽','鱼虾海鲜','蛋类','蔬菜','菌菇','豆制品','主食杂粮','奶类','水果','豆类坚果','其他食材']
-    .map(name=>({name,foods:available.filter(food=>foodGroup(food.name)===name)})).filter(group=>group.foods.length);
+  return ['猪肉','牛肉','羊肉','禽肉','其他肉类','鱼类','虾类','蟹类','贝类','其他海鲜','蛋类','叶菜与花菜','瓜茄类','根茎类','其他蔬菜','菌菇','豆制品','米面','杂粮','奶类','水果','豆类坚果','其他食材']
+    .map(name=>({name,foods:available.filter(food=>foodSubgroup(food.name)===name)})).filter(group=>group.foods.length);
 }
