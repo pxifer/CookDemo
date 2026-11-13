@@ -3,12 +3,13 @@ import { fixture } from './registration-fixture';
 import { resolve } from 'node:path';
 import {readFoodGuidanceAssets} from '../backend/src/rag/food-guidance-repository';
 import {createFoodGuidanceProvider} from '../backend/src/rag/food-guidance';
+import {createNutritionGuidanceProvider} from '../backend/src/rag/nutrition-guidance-provider';
 if(process.env.HEALTH_CHAT_E2E!=='1')throw Error('TEST_SERVER_DISABLED');
 const port=Number(process.env.HEALTH_CHAT_TEST_PORT??4198);
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('HEALTH_CHAT_TEST_PORT_INVALID');
 const {db,accounts}=await fixture();
 const assets=process.env.HEALTH_GUIDANCE_RESEARCH_E2E==='1'?await readFoodGuidanceAssets():undefined;
-const foodGuidance=assets?createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set()):undefined;
+const foodGuidance=assets?createNutritionGuidanceProvider(createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set()),assets.expansion,async()=>new Set()):undefined;
 const app=await createApp({accounts,foodGuidance,origin:`http://127.0.0.1:${port}`,environment:'local',staticRoot:resolve('artifacts/build/web'),healthChatFetch:async(_url,init)=>{
   const key=new Headers(init?.headers).get('authorization')??'';
   if(key.includes('rejected'))return new Response('private upstream error',{status:401});

@@ -1,0 +1,23 @@
+{
+  "id": "nutrition-guidance-2026-11-13-v1",
+  "counts": {
+    "sources": 9,
+    "evidence": 36,
+    "topics": 11,
+    "objects": 27,
+    "facts": 42,
+    "principles": 5,
+    "foods": 91,
+    "nutrients": 32,
+    "values": 2912,
+    "reportedValues": 2756,
+    "missingValues": 156
+  },
+  "localPostgres": true,
+  "importedAndReadBack": true,
+  "idempotentSecondImport": true,
+  "hash": "84b148086e894a347a22736f5b0924a59b90ebb0b5dbe3edb0649857b8140468",
+  "clinicalRelease": null,
+  "newEmbeddingBuilt": false,
+  "realPaidCalls": 0
+}

@@ -21,6 +21,8 @@
     "scripts/verify-health-refresh.ts",
     "scripts/preview-rag.ts",
     "scripts/trace-business-rag.ts",
-    "scripts/rag-quality.ts"
+    "scripts/rag-quality.ts",
+    "scripts/nutrition-knowledge.ts",
+    "scripts/evaluate-nutrition-rag.ts"
   ]
 }

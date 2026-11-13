@@ -1,0 +1,655 @@
+{
+  "date": "2026-11-13",
+  "mode": "project_authored_public_local_acceptance",
+  "realPostgres": true,
+  "actualCatalog": {
+    "version": "gallery-listed-foods-20261026-v28",
+    "recipes": 341,
+    "foods": 666,
+    "hash": "04b9245de784906073e85b51cad67374fefce21ec7cdfe9ee0cc1730bef99199"
+  },
+  "expansion": {
+    "id": "nutrition-guidance-2026-11-13-v1",
+    "hash": "84b148086e894a347a22736f5b0924a59b90ebb0b5dbe3edb0649857b8140468"
+  },
+  "guidanceResults": [
+    {
+      "id": "constipation",
+      "expected": "applicable",
+      "actual": "applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "broccoli",
+        "carrot",
+        "gallery-food-6a72140844472522"
+      ],
+      "boundRecipeVariants": 23,
+      "exampleBinding": {
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "recipeId": "gallery-7b38b489a1b09b42",
+        "recipeVersion": "local-business-gallery-v1",
+        "variantId": "gallery-7b38b489a1b09b42-r264",
+        "methodId": "primary",
+        "recipeHash": "81a3d97e68f3a916c64dafdbf93c3405f06b1ee97508bc9eaaf180f982cfe427",
+        "methodHash": "391c4197c20d835cf991f62296b4fdfc80e85f26d0548618494b824f68e5fe17",
+        "guidanceFingerprint": "5aabfa9959a21b64678b8bfa6b12694804192d4fe5665b25f7dfc6f2db69bb1e",
+        "matches": [
+          {
+            "guidanceId": "guide:nx-fact:constipation-veg",
+            "direction": "prefer",
+            "foodIds": [
+              "carrot"
+            ],
+            "lineIndexes": [
+              3
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gerd-unknown",
+      "expected": "needs_confirmation",
+      "actual": "needs_confirmation",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "tomato"
+      ],
+      "boundRecipeVariants": 0,
+      "exampleBinding": null
+    },
+    {
+      "id": "gerd-personal-tomato",
+      "expected": "applicable",
+      "actual": "applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "tomato"
+      ],
+      "boundRecipeVariants": 18,
+      "exampleBinding": {
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "recipeId": "gallery-681cfcbbd5107b13",
+        "recipeVersion": "local-business-gallery-v1",
+        "variantId": "gallery-681cfcbbd5107b13-r259",
+        "methodId": "primary",
+        "recipeHash": "63ad8fc7f952763475b8e9e8fabccd5516483a2a68ee8364320dcd9d21d9369c",
+        "methodHash": "6eef6ee5e71a0172cb12061dcd6f69beb7f8f3781839aa2dc7519c358aa8cf34",
+        "guidanceFingerprint": "5aabfa9959a21b64678b8bfa6b12694804192d4fe5665b25f7dfc6f2db69bb1e",
+        "matches": [
+          {
+            "guidanceId": "guide:nx-fact:gerd-tomato",
+            "direction": "limit",
+            "foodIds": [
+              "tomato"
+            ],
+            "lineIndexes": [
+              3
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lactose-tolerance-unknown",
+      "expected": "needs_confirmation",
+      "actual": "needs_confirmation",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "gallery-food-2c5a7d381a0fc1e4",
+        "gallery-food-92ceff4f82808148"
+      ],
+      "boundRecipeVariants": 0,
+      "exampleBinding": null
+    },
+    {
+      "id": "nafld",
+      "expected": "applicable",
+      "actual": "applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [],
+      "boundRecipeVariants": 0,
+      "exampleBinding": null
+    },
+    {
+      "id": "iron-deficiency",
+      "expected": "applicable",
+      "actual": "applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "egg",
+        "spinach",
+        "tofu",
+        "gallery-food-5d0a727235792b93",
+        "gallery-food-2a4a86a0ca06bc7f",
+        "gallery-food-6a72140844472522",
+        "gallery-food-842ecea841dc0c6b",
+        "gallery-food-7fdb987684d08b23"
+      ],
+      "boundRecipeVariants": 79,
+      "exampleBinding": {
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "recipeId": "gallery-73249985a26e9027",
+        "recipeVersion": "local-business-gallery-v1",
+        "variantId": "gallery-73249985a26e9027-r298",
+        "methodId": "primary",
+        "recipeHash": "4529455fda375f6b5ea0275766793a21d0d49c5ef4cd930295677a0cf9692e9b",
+        "methodHash": "c846235b7e99d7b60424d2e3d14bbf14f63471c20a544ac055334fcffdaf0618",
+        "guidanceFingerprint": "5aabfa9959a21b64678b8bfa6b12694804192d4fe5665b25f7dfc6f2db69bb1e",
+        "matches": [
+          {
+            "guidanceId": "guide:nx-fact:anemia-iron",
+            "direction": "prefer",
+            "foodIds": [
+              "egg"
+            ],
+            "lineIndexes": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "maintain-weight",
+      "expected": "applicable",
+      "actual": "applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [],
+      "boundRecipeVariants": 0,
+      "exampleBinding": null
+    },
+    {
+      "id": "gain-weight-unintentional-loss",
+      "expected": "not_applicable",
+      "actual": "not_applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "peanut",
+        "gallery-food-6c8af530965989df"
+      ],
+      "boundRecipeVariants": 0,
+      "exampleBinding": null
+    },
+    {
+      "id": "recovery-healthy",
+      "expected": "applicable",
+      "actual": "applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "egg",
+        "peanut",
+        "shrimp",
+        "gallery-food-5b926df8c961666a",
+        "gallery-food-92ceff4f82808148",
+        "gallery-food-2a4a86a0ca06bc7f",
+        "gallery-food-842ecea841dc0c6b",
+        "gallery-food-7fdb987684d08b23"
+      ],
+      "boundRecipeVariants": 66,
+      "exampleBinding": {
+        "contentVersion": "gallery-listed-foods-20261026-v28",
+        "recipeId": "gallery-73249985a26e9027",
+        "recipeVersion": "local-business-gallery-v1",
+        "variantId": "gallery-73249985a26e9027-r298",
+        "methodId": "primary",
+        "recipeHash": "4529455fda375f6b5ea0275766793a21d0d49c5ef4cd930295677a0cf9692e9b",
+        "methodHash": "c846235b7e99d7b60424d2e3d14bbf14f63471c20a544ac055334fcffdaf0618",
+        "guidanceFingerprint": "5aabfa9959a21b64678b8bfa6b12694804192d4fe5665b25f7dfc6f2db69bb1e",
+        "matches": [
+          {
+            "guidanceId": "guide:nx-fact:exercise-recovery-protein",
+            "direction": "prefer",
+            "foodIds": [
+              "egg"
+            ],
+            "lineIndexes": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "muscle-with-gout",
+      "expected": "not_applicable",
+      "actual": "not_applicable",
+      "passed": true,
+      "evidenceClosed": true,
+      "mappedFoodIds": [
+        "egg",
+        "peanut",
+        "shrimp",
+        "gallery-food-5b926df8c961666a",
+        "gallery-food-92ceff4f82808148",
+        "gallery-food-2a4a86a0ca06bc7f",
+        "gallery-food-842ecea841dc0c6b",
+        "gallery-food-7fdb987684d08b23"
+      ],
+      "boundRecipeVariants": 0,
+      "exampleBinding": null
+    }
+  ],
+  "queryResults": [
+    {
+      "id": "生西兰花维生素C",
+      "passed": true,
+      "nutrients": [
+        "vitamin-c"
+      ],
+      "firstFoods": [
+        {
+          "name": "生西兰花",
+          "form": "raw",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "vitamin-c",
+              "value": 89.2,
+              "unit": "MG",
+              "status": "source_reported",
+              "csvRow": 235192
+            }
+          ]
+        }
+      ],
+      "pendingRules": 0
+    },
+    {
+      "id": "干香菇维生素D",
+      "passed": true,
+      "nutrients": [
+        "vitamin-d"
+      ],
+      "firstFoods": [
+        {
+          "name": "干香菇",
+          "form": "dried",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "vitamin-d",
+              "value": 3.9,
+              "unit": "UG",
+              "status": "source_reported",
+              "csvRow": 76739
+            }
+          ]
+        }
+      ],
+      "pendingRules": 0
+    },
+    {
+      "id": "维生素B12",
+      "passed": true,
+      "nutrients": [
+        "vitamin-b12"
+      ],
+      "firstFoods": [
+        {
+          "name": "生混合品种蛤蜊",
+          "form": "raw_mixed_species",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "vitamin-b12",
+              "value": 11.28,
+              "unit": "UG",
+              "status": "source_reported",
+              "csvRow": 557177
+            }
+          ]
+        },
+        {
+          "name": "生养殖大西洋鲑鱼",
+          "form": "raw_farmed_atlantic",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "vitamin-b12",
+              "value": 3.23,
+              "unit": "UG",
+              "status": "source_reported",
+              "csvRow": 634453
+            }
+          ]
+        },
+        {
+          "name": "生野生大西洋鲑鱼",
+          "form": "raw_wild_atlantic",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "vitamin-b12",
+              "value": 3.18,
+              "unit": "UG",
+              "status": "source_reported",
+              "csvRow": 514442
+            }
+          ]
+        }
+      ],
+      "pendingRules": 0
+    },
+    {
+      "id": "维生素B7",
+      "passed": true,
+      "nutrients": [
+        "biotin"
+      ],
+      "firstFoods": [
+        {
+          "name": "去皮生柠檬",
+          "form": "raw_without_peel",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "biotin",
+              "value": null,
+              "unit": "UG",
+              "status": "not_reported",
+              "csvRow": null
+            }
+          ]
+        },
+        {
+          "name": "生草莓",
+          "form": "raw",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "biotin",
+              "value": null,
+              "unit": "UG",
+              "status": "not_reported",
+              "csvRow": null
+            }
+          ]
+        },
+        {
+          "name": "生西瓜",
+          "form": "raw",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "biotin",
+              "value": null,
+              "unit": "UG",
+              "status": "not_reported",
+              "csvRow": null
+            }
+          ]
+        }
+      ],
+      "pendingRules": 0
+    },
+    {
+      "id": "增肌",
+      "passed": true,
+      "nutrients": [
+        "energy",
+        "protein",
+        "fat",
+        "carbohydrate"
+      ],
+      "firstFoods": [
+        {
+          "name": "燕麦籽粒",
+          "form": "dry_grain",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "energy",
+              "value": 389,
+              "unit": "KCAL",
+              "status": "source_reported",
+              "csvRow": 179316
+            },
+            {
+              "nutrientId": "protein",
+              "value": 16.89,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 179292
+            },
+            {
+              "nutrientId": "fat",
+              "value": 6.9,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 179314
+            },
+            {
+              "nutrientId": "carbohydrate",
+              "value": 66.27,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 179315
+            }
+          ]
+        },
+        {
+          "name": "未强化干燕麦片",
+          "form": "dry_unfortified",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "energy",
+              "value": 379,
+              "unit": "KCAL",
+              "status": "source_reported",
+              "csvRow": 531357
+            },
+            {
+              "nutrientId": "protein",
+              "value": 13.15,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 531367
+            },
+            {
+              "nutrientId": "fat",
+              "value": 6.52,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 531355
+            },
+            {
+              "nutrientId": "carbohydrate",
+              "value": 67.7,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 531356
+            }
+          ]
+        },
+        {
+          "name": "生长粒糙米",
+          "form": "raw",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "energy",
+              "value": 367,
+              "unit": "KCAL",
+              "status": "source_reported",
+              "csvRow": 179027
+            },
+            {
+              "nutrientId": "protein",
+              "value": 7.54,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 179072
+            },
+            {
+              "nutrientId": "fat",
+              "value": 3.2,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 179025
+            },
+            {
+              "nutrientId": "carbohydrate",
+              "value": 76.25,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 179026
+            }
+          ]
+        }
+      ],
+      "pendingRules": 2
+    },
+    {
+      "id": "健康增重",
+      "passed": true,
+      "nutrients": [
+        "energy",
+        "protein"
+      ],
+      "firstFoods": [
+        {
+          "name": "生全鸡蛋",
+          "form": "raw",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "energy",
+              "value": 143,
+              "unit": "KCAL",
+              "status": "source_reported",
+              "csvRow": 313954
+            },
+            {
+              "nutrientId": "protein",
+              "value": 12.56,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 314011
+            }
+          ]
+        },
+        {
+          "name": "切达奶酪",
+          "form": "cheddar",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "energy",
+              "value": 403,
+              "unit": "KCAL",
+              "status": "source_reported",
+              "csvRow": 493132
+            },
+            {
+              "nutrientId": "protein",
+              "value": 22.87,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 493148
+            }
+          ]
+        },
+        {
+          "name": "生养殖大西洋鲑鱼",
+          "form": "raw_farmed_atlantic",
+          "basis": {
+            "unit": "g",
+            "amount": 100,
+            "portion": "edible_portion"
+          },
+          "values": [
+            {
+              "nutrientId": "energy",
+              "value": 208,
+              "unit": "KCAL",
+              "status": "source_reported",
+              "csvRow": 634412
+            },
+            {
+              "nutrientId": "protein",
+              "value": 20.42,
+              "unit": "G",
+              "status": "source_reported",
+              "csvRow": 634460
+            }
+          ]
+        }
+      ],
+      "pendingRules": 2
+    },
+    {
+      "id": "source-hash-revocation",
+      "passed": true,
+      "simulatedInMemory": true,
+      "persistedGlobalRevocationsChanged": false
+    }
+  ],
+  "passed": true,
+  "newVectors": false,
+  "realPaidCalls": 0,
+  "independentClinicalReview": false,
+  "sourceFingerprint": "eeaeb58c7e1242e6acf0e9c24feb95eb61544689e5a2dec72df4aed6f40082d6"
+}

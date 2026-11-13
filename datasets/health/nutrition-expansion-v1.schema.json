@@ -1,0 +1,836 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "clinicalRelease",
+    "professionalReview",
+    "createdDate",
+    "sources",
+    "evidence",
+    "topics",
+    "objects",
+    "facts",
+    "principles",
+    "foods",
+    "nutrients",
+    "values",
+    "boundaries",
+    "exclusions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^nutrition-guidance-\\d{4}-\\d{2}-\\d{2}-v\\d+$"
+    },
+    "status": {
+      "const": "local_research"
+    },
+    "clinicalRelease": {
+      "type": "null"
+    },
+    "professionalReview": {
+      "const": "pending"
+    },
+    "createdDate": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "publisher",
+          "url",
+          "version",
+          "reviewedDate",
+          "reviewDue",
+          "acquisition",
+          "cacheFile",
+          "license",
+          "reuseNote",
+          "sourceHash",
+          "retrievedDate",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewedDate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewDue": {
+            "type": "boolean"
+          },
+          "acquisition": {
+            "enum": [
+              "official_csv_archive",
+              "html_visible_text",
+              "web_tool_rendered_excerpt"
+            ]
+          },
+          "cacheFile": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reuseNote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "retrievedDate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "const": "active"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sourceId",
+          "title",
+          "version",
+          "url",
+          "sourceHash",
+          "originalSpan",
+          "spanHash",
+          "locator"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "originalSpan": {
+            "type": "string",
+            "minLength": 1
+          },
+          "spanHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "locator": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "normalization",
+              "section",
+              "start",
+              "end"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "html_visible_text",
+                  "web_tool_rendered_excerpt"
+                ]
+              },
+              "normalization": {
+                "const": "public_visible_text_v1"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "aliases"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "condition",
+              "goal"
+            ]
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "names"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "food",
+              "food_group"
+            ]
+          },
+          "names": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "topicId",
+          "statement",
+          "conditions",
+          "evidenceIds",
+          "qualifyingEvidenceIds",
+          "clinicalReview",
+          "objectId",
+          "direction",
+          "basis"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "topicId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "key",
+                "values"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "evidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "qualifyingEvidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "clinicalReview": {
+            "const": "pending"
+          },
+          "objectId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "enum": [
+              "prefer",
+              "limit",
+              "avoid"
+            ]
+          },
+          "basis": {
+            "const": "source_statement"
+          }
+        }
+      }
+    },
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "topicId",
+          "statement",
+          "conditions",
+          "evidenceIds",
+          "qualifyingEvidenceIds",
+          "clinicalReview",
+          "metricIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "topicId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "key",
+                "values"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "evidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "qualifyingEvidenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "clinicalReview": {
+            "const": "pending"
+          },
+          "metricIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "foods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "fdcId",
+          "ndbNumber",
+          "name",
+          "aliases",
+          "form",
+          "sourceDescription",
+          "sourceId",
+          "publicationDate",
+          "basis",
+          "scope"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fdcId": {
+            "type": "string",
+            "pattern": "^\\d+$"
+          },
+          "ndbNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "form": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceDescription": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publicationDate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "basis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "amount",
+              "unit",
+              "portion"
+            ],
+            "properties": {
+              "amount": {
+                "const": 100
+              },
+              "unit": {
+                "const": "g"
+              },
+              "portion": {
+                "const": "edible_portion"
+              }
+            }
+          },
+          "scope": {
+            "const": "US_SR_Legacy_reference_not_Chinese_food_measurement"
+          }
+        }
+      }
+    },
+    "nutrients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "usdaId",
+          "name",
+          "aliases",
+          "kind",
+          "unit",
+          "sourceName"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "usdaId": {
+            "type": "string",
+            "pattern": "^\\d*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "kind": {
+            "enum": [
+              "energy",
+              "macronutrient",
+              "vitamin",
+              "mineral",
+              "other"
+            ]
+          },
+          "unit": {
+            "enum": [
+              "KCAL",
+              "G",
+              "MG",
+              "UG"
+            ]
+          },
+          "sourceName": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "foodId",
+          "nutrientId",
+          "value",
+          "amountText",
+          "unit",
+          "status",
+          "sourceRow",
+          "csvRow",
+          "rowHash",
+          "derivation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "foodId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nutrientId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "amountText": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d+(\\.\\d+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unit": {
+            "enum": [
+              "KCAL",
+              "G",
+              "MG",
+              "UG"
+            ]
+          },
+          "status": {
+            "enum": [
+              "source_reported",
+              "not_reported"
+            ]
+          },
+          "sourceRow": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "csvRow": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rowHash": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "derivation": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "code",
+                  "description",
+                  "source_id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "code": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_id": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "personalDataIncluded",
+        "newEmbeddingBuilt",
+        "onlineEnabled",
+        "personalEnergyPrescription",
+        "recipeNutritionCalculated"
+      ],
+      "properties": {
+        "personalDataIncluded": {
+          "const": false
+        },
+        "newEmbeddingBuilt": {
+          "const": false
+        },
+        "onlineEnabled": {
+          "const": false
+        },
+        "personalEnergyPrescription": {
+          "const": false
+        },
+        "recipeNutritionCalculated": {
+          "const": false
+        }
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "reason"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "topic",
+              "reason"
+            ],
+            "properties": {
+              "topic": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "nutrient",
+              "reason"
+            ],
+            "properties": {
+              "nutrient": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

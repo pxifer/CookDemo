@@ -5,6 +5,7 @@ import type { HealthContext } from '../../../shared/health-chat';
 import type { Recipe, Variant } from '../../../shared/types';
 import type { FoodGuidance, FoodGuidancePacket, FoodGuidanceProvider, GuidanceEvidence, GuidanceInput, GuidanceTopic, RecipeGuidanceBinding } from '../../../shared/food-guidance';
 import { factAvailability, canonicalKnowledgeHash } from '../health-knowledge';
+import { reportedNutritionConditions } from '../../../shared/nutrition-conditions';
 
 export const businessPolicyVersion='food-guidance-business-v2';
 export const guidanceHash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -18,7 +19,7 @@ export interface GuidanceMappings {id:string; objects:Record<string,{names:strin
 
 /** Only explicit self reports; absence is never turned into a negative diagnosis. */
 export function reportedConditions(notes:string, currentText=''):Record<string,string>{
-  const parse=(text:string)=>{const result:Record<string,string>={};
+  const parse=(text:string)=>{const result:Record<string,string>=reportedNutritionConditions(text);
   const ages=[...text.matchAll(/(?:我(?:今年|是)?|年龄[:：]?)(\d{1,3})岁/g)].map(m=>Number(m[1]));
   if(/(?:本人|我)(?:已成年|是成年人|是成人)/.test(text)||ages.some(n=>n>=18&&n<=120))result.adult='yes';
   if(/(?:本人|我)(?:未成年|是未成年人)/.test(text)||ages.some(n=>n<18))result.adult='no';

@@ -1,0 +1,21 @@
+{
+  "sourceId": "usda-sr-2018",
+  "archiveHash": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+  "archiveUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+  "memberHashes": {
+    "FoodData_Central_sr_legacy_food_csv_2018-04/sr_legacy_food.csv": "ff0fe85a469aa6d6702d68348850fc79dee35e9515324026964f1209a0e3544d",
+    "FoodData_Central_sr_legacy_food_csv_2018-04/nutrient.csv": "466ab9d011094cc1ad8d939b246693988b56817c42d0e40a98820723695c6084",
+    "FoodData_Central_sr_legacy_food_csv_2018-04/food_nutrient_derivation.csv": "f2b18b55d77bd7e7421de59d8a519c0edfb70fea6e064231983fd991e318a99d",
+    "FoodData_Central_sr_legacy_food_csv_2018-04/food.csv": "de8b0390058db4f102368c9fbdfde144790b480ff4cb0507c0e060ef99805dee",
+    "FoodData_Central_sr_legacy_food_csv_2018-04/food_nutrient.csv": "6d07e6fc062b09750c4d95112be5a5cdb56a2346efcfd0c96b7a7d705812d4bd"
+  },
+  "basisDefinition": {
+    "member": "FoodData_Central_sr_legacy_food_csv_2018-04/Download & API Field Descriptions-2019-10-11-16-22.xlsx",
+    "sha256": "6d18c66bd1f259b36432f514178cd15c2708ae22a212ca27bdd0d685e225961d",
+    "xmlPart": "xl/sharedStrings.xml",
+    "stringIndex": 154,
+    "originalSpan": "Amount of the nutrient per 100g of food. Specified in unit defined in the nutrient table."
+  },
+  "rowNumberSemantics": "CSV record ordinal including header as row 1; not physical text line number",
+  "valueSemantics": "Source-reported reference composition; retain analytical/calculated/imputed derivation metadata. Zero does not establish absolute absence."
+}

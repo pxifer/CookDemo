@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-13",
+  "mode": "public_local_research_only",
+  "baseSha": "05d853fd54e6a0202b698050d1686e0a1492c1ad",
+  "finalSourceFingerprint": "ec24b519b401ce47554dbc5941dec4d3f2ddc36c963f188c09027e803a0c7a3b",
+  "postgresAcceptanceSourceFingerprint": "eeaeb58c7e1242e6acf0e9c24feb95eb61544689e5a2dec72df4aed6f40082d6",
+  "knowledgeJsonSha256": "f34d979547a7a9d346549e626365679e4467e0994db9f8c6f4fec66cd0502391",
+  "checks": {
+    "unit": {
+      "passed": 375,
+      "skipped": 2,
+      "failed": 0
+    },
+    "nutritionTargeted": {
+      "passed": 21,
+      "failed": 0
+    },
+    "build": "passed",
+    "acceptanceTypes": "passed",
+    "browser": {
+      "passed": 2,
+      "failed": 0
+    },
+    "businessGuidance": 12,
+    "businessMeals": 10,
+    "postgresGuidance": 10,
+    "postgresQueries": 6,
+    "postgresInMemoryRevocation": 1,
+    "frozenLegacyFilesUnchanged": 31
+  },
+  "finalPostgresRepeat": {
+    "executed": false,
+    "reason": "automatic approval review unavailable: usage limit; no unsafe determination"
+  },
+  "realPaidCalls": 0,
+  "newVectors": false,
+  "onlineDeployed": false,
+  "independentClinicalReview": false
+}
