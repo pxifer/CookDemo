@@ -26,14 +26,14 @@ const envelope=(choices:unknown[],summary='构造建议')=>Response.json({id:'re
 const meal=()=>({...mealWith('西红柿600g鸡蛋5个'),health:true,allowBuy:true,composition:'custom' as const,counts:{meat:0,veg:1,soup:0}});
 const selectorInput=(recipes:ReturnType<typeof simpleRecipe>[],fetcher:typeof fetch)=>({request:request(meal()),owner:'review-test',apiKey:'sk-review-test-only-1234567890',context:{...constructedContent,recipes,contentVersion:'review-fixture'},signal:new AbortController().signal,fetcher,present:(dish:any)=>dish,claim:async()=>{},progress:()=>{}});
 
-test('大候选池拒选是未完成；范围与完整做法进入请求，模型只调用一次并保留真实usage',async()=>{
+test('大候选池拒选是未完成；做法摘要与类型进入请求，模型只调用一次并保留真实usage',async()=>{
   const recipes=Array.from({length:64},(_,i)=>simpleRecipe(`r${i}`,[['tomato',1]]));
   for(const recipe of recipes)recipe.variants[0].steps=Array.from({length:9},(_,i)=>`第${i+1}步`+(i===8?'最后沥去汤汁，不能省略此步':'按原文操作'));
   let calls=0;const diagnostics:SelectionDiagnostics[]=[];
   const input=selectorInput(recipes,async(_url,init)=>{
     calls++;const body=JSON.parse(String(init?.body)),packet=JSON.parse(body.messages.at(-1).content);
     assert.equal(packet.scope.complete,false);assert.equal(packet.scope.qualifiedParents,64);assert(packet.catalog.length<=48);
-    assert(packet.catalog.every((c:any)=>c.steps.length===9&&c.steps[8].includes('沥去汤汁')));
+    assert(packet.catalog.every((c:any)=>c.steps.length<=2&&c.steps.every((s:string)=>s.length<=71)&&Array.isArray(c.methods)));
     assert(estimatedTokens(body.messages.map((m:any)=>m.content).join(''))<=selectionInputBudget);
     return envelope([],'整个目录都不适合（构造不可靠断言）');
   });
@@ -43,11 +43,11 @@ test('大候选池拒选是未完成；范围与完整做法进入请求，模�
   assert(!JSON.stringify(diagnostics).includes(input.apiKey));assert(!JSON.stringify(diagnostics).includes('健康关注'));
 });
 
-test('过长的必需配方在认领/调用前终止，不能截断最后做法凑预算',async()=>{
-  const recipe=simpleRecipe('huge',[['tomato',1]]);recipe.variants[0].steps=['字'.repeat(14000)];let claims=0,calls=0;
-  const input=selectorInput([recipe],async()=>{calls++;return envelope([]);});input.claim=async()=>{claims++;};
-  await assert.rejects(createHealthRecipeSelector(randomBytes(32))(input),error=>(error as {code:string}).code==='AI_INPUT_TOO_LARGE');
-  assert.equal(claims,0);assert.equal(calls,0);
+test('超长做法原文不撑爆提示，按摘要发送且完整菜谱保留在服务端',async()=>{
+  const recipe=simpleRecipe('huge',[['tomato',1]]);recipe.variants[0].steps=['字'.repeat(14000)];let claims=0,calls=0,packet:any;
+  const input=selectorInput([recipe],async(_url,init)=>{calls++;const body=JSON.parse(String(init?.body));packet=JSON.parse(body.messages[1].content);return envelope([],'构造不选');});input.claim=async()=>{claims++;};
+  await createHealthRecipeSelector(randomBytes(32))(input);
+  assert.equal(claims,1);assert.equal(calls,1);assert(packet.catalog[0].steps[0].length<=71);assert(packet.catalog[0].steps[0].endsWith('…'));
 });
 
 test('合法JSON但非法目录ID仍记录已消耗usage，不降级返回普通菜谱',async()=>{
