@@ -15,5 +15,12 @@ test('研究RAG：明确条件→有来源建议→实际菜品依据，桌面�
   const body=await(await response).text();const result=body.trim().split('\n').map(line=>JSON.parse(line)).find(event=>event.type==='result')?.result;
   expect(result?.status).toBe('completed');expect(result.researchGuidance.mode).toBe('local_research');expect(result.dishes.some((dish:any)=>dish.aiGrounding.matches.length)).toBe(true);
   await expect(page.locator('.ai-meal-summary')).toContainText('有来源');await expect(page.locator('.ai-recipe-reason').filter({hasText:'增肌'}).first()).toBeVisible();
+  await chat.getByRole('button',{name:'展开对话',exact:true}).click();
+  const diseaseReplyPromise=page.waitForResponse(r=>r.url().endsWith('/api/v1/health/chat')&&r.request().method()==='POST');
+  await page.getByLabel('给AI的消息',{exact:true}).fill('我是成年人，我有胃食管反流病，我已确认番茄诱发反流');await chat.getByRole('button',{name:'发送消息',exact:true}).click();
+  const diseaseReply=await(await diseaseReplyPromise).json();expect(diseaseReply.assessment.profile.conditions).toContain('胃食管反流病');
+  expect(diseaseReply.researchGuidance.guidance.some((g:any)=>g.factId==='nx-fact:gerd-tomato'&&g.applicability==='applicable')).toBe(true);
+  expect(diseaseReply.researchGuidance.guidance.some((g:any)=>g.factId==='nx-fact:gerd-citrus'&&g.applicability==='needs_confirmation')).toBe(true);
+  await expect(guidance).toContainText('西红柿');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);await page.screenshot({path:`${evidence}/${info.project.name}-business-rag.png`});
 });

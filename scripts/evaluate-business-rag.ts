@@ -3,6 +3,7 @@ import {join} from 'node:path';
 import {randomBytes} from 'node:crypto';
 import {readFoodGuidanceAssets,createLocalFoodGuidanceProvider} from '../backend/src/rag/food-guidance-repository';
 import {createFoodGuidanceProvider,guidanceHash} from '../backend/src/rag/food-guidance';
+import {createNutritionGuidanceProvider} from '../backend/src/rag/nutrition-guidance-provider';
 import {createHealthRecipeSelector} from '../backend/src/health-recipe-selection';
 import {contentContext,type ContentSnapshot} from '../shared/content';
 import {defaultMeal,type Meal} from '../shared/types';
@@ -16,7 +17,7 @@ for(let i=0;i<args.length;i++){if(args[i]==='--pg')pg=true;else if(args[i]==='--
 if(!pg&&databaseUrlFile!=='.local-data/rag/database-url')throw Error('BUSINESS_RAG_DATABASE_FILE_REQUIRES_PG');
 await mkdir(output,{recursive:true});
 const assets=await readFoodGuidanceAssets();
-const provider=pg?await createLocalFoodGuidanceProvider(databaseUrlFile):createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set());
+const provider=pg?await createLocalFoodGuidanceProvider(databaseUrlFile):createNutritionGuidanceProvider(createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set()),assets.expansion,async()=>new Set());
 try{
   let snapshot:ContentSnapshot=JSON.parse(await readFile('datasets/health/recipe-research/recipe-snapshot.json','utf8'));
   if(gallery){const directory='.local-data/cloudbase-http/listed-foods-20261026-v28';const manifest=JSON.parse(await readFile(join(directory,'manifest.json'),'utf8'));snapshot=verifyGalleryBundle(JSON.parse(await readFile(join(directory,'gallery-bundle.json'),'utf8')),manifest.hash);}
@@ -65,7 +66,7 @@ try{
   if(!quantityEquivalent)throw Error('BUSINESS_QUANTITY_EQUIVALENCE_FAILED');
   const hashes=await sourceHashes();
   const report={date:new Date().toISOString().slice(0,10),mode:'local_research_structured_RAG_with_synthetic_selection_supplier',realPaidCalls:0,realPg:pg,actualCatalog:{version:content.contentVersion,recipes:content.recipes.length,sha256:guidanceHash(snapshot)},knowledge:{base:assets.bundle.id,goal:assets.goals.id,diseaseFoodGuidance:assets.bundle.facts.filter(f=>f.kind==='food_guidance').length,goalFacts:assets.goals.facts.length,goalEvidence:assets.goals.evidence.length,newGoalVectors:false},dataset:{id:dataset.id,sha256:guidanceHash(dataset),independentHumanReview:false,acceptanceCasesUsedForDebugging:true},guidanceResults,mealResults,passed:guidanceResults.every(r=>r.passed)&&mealResults.every(r=>r.passed),humanQualityReview:'pending; program grounding and project source extraction are not independent clinical review',limitations:['Goal knowledge is a narrow qualitative research slice, not complete sports nutrition or personalized intake planning.','Business path retrieves explicit food guidance; existing vector Q&A remains separate and is not credited for these decisions.','Canonical mappings leave uncertain category, food form and composition cases unmapped.'],sourceFingerprint:sourceFingerprint(hashes),sourceFileCount:Object.keys(hashes).length};
-  await writeFile(join(output,'report.json'),JSON.stringify(report,null,2)+'\n');
+  await writeFile(join(output,'report.json'),JSON.stringify({...report,nutritionExpansion:{id:assets.expansion.id,facts:assets.expansion.facts.length,evidence:assets.expansion.evidence.length,compositionValues:assets.expansion.values.length,newVectors:false}},null,2)+'\n');
   await writeFile(join(output,'quantity-equivalence.json'),JSON.stringify({sameOperationIdInFixtureOnly:true,userPacketEqual:true,catalogEqual:true,quantityEquivalent,source:'quantity-small vs quantity-large; fixed selection secret; no real provider'},null,2)+'\n');
   console.log(JSON.stringify({report:join(output,'report.json'),realPg:pg,recipes:content.recipes.length,guidancePassed:guidanceResults.filter(r=>r.passed).length,guidanceTotal:guidanceResults.length,mealResults:mealResults.map(r=>({id:r.id,status:r.actual,passed:r.passed,error:r.error})),realPaidCalls:0}));
   if(!report.passed)process.exitCode=1;

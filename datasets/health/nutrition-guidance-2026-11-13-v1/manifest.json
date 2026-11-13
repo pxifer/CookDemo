@@ -1,0 +1,25 @@
+{
+  "id": "nutrition-guidance-2026-11-13-v1",
+  "schemaVersion": "1.0.0",
+  "clinicalRelease": null,
+  "counts": {
+    "sources": 9,
+    "evidence": 36,
+    "topics": 11,
+    "objects": 27,
+    "facts": 42,
+    "principles": 5,
+    "foods": 91,
+    "nutrients": 32,
+    "values": 2912,
+    "reportedValues": 2756,
+    "missingValues": 156
+  },
+  "files": {
+    "knowledge.json": "f34d979547a7a9d346549e626365679e4467e0994db9f8c6f4fec66cd0502391",
+    "composition-provenance.json": "cccab6006ed460b190682865586cee81bfafdeb2bce38ad88a6073c415c96bfe"
+  },
+  "sourceLockHash": "f75a87e307eafd45d6c6f65806c16917b0fbf67e53ec05410084d5dc8bf8b39d",
+  "curationHash": "751768fc7488e52e75d9d5f73bfce4b8f5491b847b7914b8ffa5f93833c08f5f",
+  "builderVersion": "nutrition-offline-v1"
+}

@@ -1,0 +1,14 @@
+{
+  "frozenLegacyFiles": 31,
+  "allLegacyBytesUnchanged": true,
+  "python311RebuildByteIdentical": true,
+  "rebuildFiles": [
+    "knowledge.json",
+    "manifest.json",
+    "composition-provenance.json"
+  ],
+  "sourceCacheOutputOverlapRejected": true,
+  "knowledgeSha256": "f34d979547a7a9d346549e626365679e4467e0994db9f8c6f4fec66cd0502391",
+  "paidCalls": 0,
+  "newVectors": false
+}

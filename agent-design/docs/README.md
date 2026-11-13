@@ -4,6 +4,7 @@
 
 | 遇到的需求 | 查阅文件 |
 | --- | --- |
+| 扩展常见疾病、B/C/D等营养指标、增肌/减脂/维持/增重/恢复等目标；查询具体形态的每100g组成 | [RAG-009执行说明](nutrition-expansion-2026-11-13.md)、[数据与命令](../../datasets/health/nutrition-guidance-2026-11-13-v1/README.md)；组成和直接食物指导分开，新包未向量化 |
 | 核对当前v3默认知识、NCI旧支持隔离/完整正文、新索引与常用成员、本餐回归 | [RAG-008执行记录](evidence-refresh-2026-11-12.md)、[知识v3](../../datasets/health/README-v3.md)及[映射v3](../../datasets/health/food-guidance-mappings-v3.md)；原98条测量与旧模型样例保留快照口径 |
 | 学习/讲解本项目AI、Agent、RAG全链路；准备面试、核对参数/实验/真实难点及外部题库覆盖 | [工程与面试手册](interview/README.md)、[离线阅读器](interview/reader.html)；112题按实际/研究/方案标状态，附来源映射，不编造对比收益 |
 | 继续解决食谱业务断点、目标知识、正文/表格/OCR、检索偏题、独立评测与人工审核集 | [后续行动 TODO](todo.md)，含优先级、动作、验收及依赖 |

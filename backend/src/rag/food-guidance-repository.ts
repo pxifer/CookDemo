@@ -5,6 +5,9 @@ import { canonicalKnowledgeHash, sha256 } from '../health-knowledge';
 import { readKnowledgeAssets } from '../health-knowledge-assets';
 import { createFoodGuidanceProvider, type GoalKnowledge, type GuidanceMappings } from './food-guidance';
 import type { FoodGuidanceProvider } from '../../../shared/food-guidance';
+import { readNutritionExpansion } from './nutrition-knowledge';
+import { persistNutritionExpansion } from './nutrition-knowledge-repository';
+import { createNutritionGuidanceProvider } from './nutrition-guidance-provider';
 
 const data=(path:string)=>new URL(`../../../datasets/health/${path}`,import.meta.url);
 export async function readFoodGuidanceAssets(mappingVersion:1|2|3=3){
@@ -18,7 +21,8 @@ export async function readFoodGuidanceAssets(mappingVersion:1|2|3=3){
   if(mappings.id!==`food-guidance-mappings-v${mappingVersion}`)throw Error('GUIDANCE_MAPPING_ID_INVALID');
   if(goals.id!==goalManifest.id||!goals.facts.length||new Set(goals.facts.map(f=>f.id)).size!==goals.facts.length)throw Error('GUIDANCE_ASSETS_INVALID');
   for(const f of goals.facts)if(!['prefer','limit','avoid'].includes(f.direction)||!goals.topics.some(t=>t.id===f.topicId)||[...f.evidenceIds,...f.qualifyingEvidenceIds].some(id=>!goals.evidence.some(e=>e.id===id)))throw Error('GUIDANCE_ASSETS_INVALID');
-  return {bundle,manifest,goals,mappings};
+  const {bundle:expansion}=await readNutritionExpansion();
+  return {bundle,manifest,goals,mappings,expansion};
 }
 export async function persistGuidanceAssets(db:Database,assets:Awaited<ReturnType<typeof readFoodGuidanceAssets>>){
   const repository=new HealthKnowledgeRepository(db);await repository.initializeResearchSchema();await repository.importResearch(assets.bundle,assets.manifest);
@@ -29,6 +33,7 @@ export async function persistGuidanceAssets(db:Database,assets:Awaited<ReturnTyp
     const row=(await db.query<{sha256:string;payload:unknown}>('SELECT sha256,payload FROM health_kb.guidance_assets WHERE id=$1 AND kind=$2',[payload.id,kind])).rows[0];
     if(!row||row.sha256!==hash||canonicalKnowledgeHash(row.payload)!==canonicalKnowledgeHash(payload))throw Error('GUIDANCE_ASSET_IMMUTABLE_USE_NEW_VERSION');
   }
+  await persistNutritionExpansion(db,assets.expansion);
   return repository;
 }
 export async function createLocalFoodGuidanceProvider(urlFile='.local-data/rag/database-url'):Promise<FoodGuidanceProvider>{
@@ -45,6 +50,7 @@ export async function createLocalFoodGuidanceProvider(urlFile='.local-data/rag/d
       return new Set((await db.query<{target_id:string}>('SELECT target_id FROM health_kb.health_revocations')).rows.map(r=>r.target_id));
     };
     const revocations=()=>{const work=tail.then(readRevocations,readRevocations);tail=work.catch(()=>{});return work;};
-    return {...createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,revocations),close:()=>db.close()};
+    const base=createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,revocations);
+    return {...createNutritionGuidanceProvider(base,assets.expansion,revocations),close:()=>db.close()};
   }catch(error){await db.close();throw error;}
 }

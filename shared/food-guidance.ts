@@ -21,6 +21,7 @@ export interface FoodGuidancePacket {
   topics:GuidanceTopic[]; guidance:FoodGuidance[]; evidence:GuidanceEvidence[];
   uncoveredTopics:string[]; missingConditions:string[]; conflicts:{objectId:string;guidanceIds:string[]}[];
   mappingCoverage:{total:number;mapped:number;unmappedObjects:string[]};
+  nutritionPrinciples?:(import('./nutrition-knowledge').NutritionPrinciple&{applicability:FoodGuidance['applicability']})[];
 }
 export interface GuidanceInput { profile:HealthContext; content:ContentContext; conditions?:Record<string,string>; currentText?:string }
 export interface FoodGuidanceProvider {

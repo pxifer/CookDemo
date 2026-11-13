@@ -1,0 +1,3216 @@
+{
+  "sources": [
+    {
+      "id": "usda-sr-2018",
+      "title": "FoodData Central SR Legacy, April 2018",
+      "publisher": "USDA Agricultural Research Service",
+      "url": "https://fdc.nal.usda.gov/download-datasets/",
+      "version": "SR-Legacy-April-2018-FDC-2019-04-01",
+      "reviewedDate": "2018-04",
+      "reviewDue": false,
+      "acquisition": "official_csv_archive",
+      "cacheFile": "usda-sr-2018.zip",
+      "license": "USDA_public_domain_CC0",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "niddk-constipation",
+      "title": "Eating, Diet, & Nutrition for Constipation",
+      "publisher": "NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2018-05",
+      "reviewDue": false,
+      "acquisition": "html_visible_text",
+      "cacheFile": "niddk-constipation.html",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "niddk-gerd",
+      "title": "Eating, Diet, & Nutrition for GER & GERD in Adults",
+      "publisher": "NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/eating-diet-nutrition",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2020-07",
+      "reviewDue": false,
+      "acquisition": "html_visible_text",
+      "cacheFile": "niddk-gerd.html",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "niddk-lactose",
+      "title": "Eating, Diet, & Nutrition for Lactose Intolerance",
+      "publisher": "NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/lactose-intolerance/eating-diet-nutrition",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2018-02",
+      "reviewDue": false,
+      "acquisition": "html_visible_text",
+      "cacheFile": "niddk-lactose.html",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "niddk-nafld",
+      "title": "Eating, Diet, & Nutrition for NAFLD & NASH",
+      "publisher": "NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/eating-diet-nutrition",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2021-04",
+      "reviewDue": false,
+      "acquisition": "html_visible_text",
+      "cacheFile": "niddk-nafld.html",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "nhlbi-iron-anemia",
+      "title": "Anemia: Iron-Deficiency Anemia",
+      "publisher": "NIH NHLBI",
+      "url": "https://www.nhlbi.nih.gov/health/anemia/iron-deficiency-anemia",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2022-03-24",
+      "reviewDue": false,
+      "acquisition": "html_visible_text",
+      "cacheFile": "nhlbi-iron-anemia.html",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "niddk-weight",
+      "title": "Eating & Physical Activity to Lose or Maintain Weight",
+      "publisher": "NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/eating-physical-activity",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2023-05",
+      "reviewDue": false,
+      "acquisition": "html_visible_text",
+      "cacheFile": "niddk-weight.html",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained."
+    },
+    {
+      "id": "ods-exercise-snapshot",
+      "title": "Dietary Supplements for Exercise and Athletic Performance: Health Professional Fact Sheet",
+      "publisher": "NIH Office of Dietary Supplements",
+      "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2024-04-01",
+      "reviewDue": false,
+      "acquisition": "web_tool_rendered_excerpt",
+      "cacheFile": "ods-exercise-snapshot.web.txt",
+      "license": "US_federal_public_information",
+      "reuseNote": "Attributed project paraphrase; no agency endorsement; original evidence retained. Direct HTML acquisition encountered Cloudflare challenge; use preserved public web-tool rendered excerpt, not original-HTML provenance. No supplement efficacy rules extracted."
+    },
+    {
+      "id": "nhs-weight-gain",
+      "title": "Healthy ways to gain weight",
+      "publisher": "NHS",
+      "url": "https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/healthy-ways-to-gain-weight/",
+      "version": "snapshot-2026-11-13",
+      "reviewedDate": "2023-03-28",
+      "reviewDue": true,
+      "acquisition": "html_visible_text",
+      "cacheFile": "nhs-weight-gain.html",
+      "license": "Open_Government_Licence_v3",
+      "reuseNote": "Contains public sector information licensed under the Open Government Licence v3.0. Chinese project adaptation; not NHS-approved clinical content. Next review 2026-03-28 overdue at capture."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "nx-ev:constipation-gradual",
+      "sourceId": "niddk-constipation",
+      "originalSpan": "Be sure to add fiber to your diet a little at a time so your body gets used to the change.",
+      "bodyHeading": "What should I eat and drink if I’m constipated?",
+      "section": "Fiber"
+    },
+    {
+      "id": "nx-ev:constipation-wholegrains",
+      "sourceId": "niddk-constipation",
+      "originalSpan": "whole grains, such as whole wheat bread and pasta, oatmeal, and bran flake cereals",
+      "bodyHeading": "What should I eat and drink if I’m constipated?",
+      "section": "Good sources of fiber"
+    },
+    {
+      "id": "nx-ev:constipation-legumes",
+      "sourceId": "niddk-constipation",
+      "originalSpan": "legumes, such as lentils, black beans, kidney beans, soybeans, and chickpeas",
+      "bodyHeading": "What should I eat and drink if I’m constipated?",
+      "section": "Good sources of fiber"
+    },
+    {
+      "id": "nx-ev:constipation-fruit",
+      "sourceId": "niddk-constipation",
+      "originalSpan": "fruits, such as berries, apples with the skin on, oranges, and pears",
+      "bodyHeading": "What should I eat and drink if I’m constipated?",
+      "section": "Good sources of fiber"
+    },
+    {
+      "id": "nx-ev:constipation-veg",
+      "sourceId": "niddk-constipation",
+      "originalSpan": "vegetables, such as carrots, broccoli, green peas, and collard greens",
+      "bodyHeading": "What should I eat and drink if I’m constipated?",
+      "section": "Good sources of fiber"
+    },
+    {
+      "id": "nx-ev:constipation-nuts",
+      "sourceId": "niddk-constipation",
+      "originalSpan": "nuts, such as almonds, peanuts, and pecans",
+      "bodyHeading": "What should I eat and drink if I’m constipated?",
+      "section": "Good sources of fiber"
+    },
+    {
+      "id": "nx-ev:gerd-individual",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "Some people who have GERD find that certain foods or drinks trigger symptoms or make symptoms worse. Foods and drinks that have been commonly linked to GERD symptoms include",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Individual symptom triggers"
+    },
+    {
+      "id": "nx-ev:gerd-citrus",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "acidic foods, such as citrus fruits and tomatoes",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Foods commonly linked to symptoms"
+    },
+    {
+      "id": "nx-ev:gerd-coffee",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "coffee and other sources of caffeine",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Foods commonly linked to symptoms"
+    },
+    {
+      "id": "nx-ev:gerd-chocolate",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "chocolate",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Foods commonly linked to symptoms"
+    },
+    {
+      "id": "nx-ev:gerd-mint",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "mint",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Foods commonly linked to symptoms"
+    },
+    {
+      "id": "nx-ev:gerd-spicy",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "spicy foods",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Foods commonly linked to symptoms"
+    },
+    {
+      "id": "nx-ev:gerd-alcohol",
+      "sourceId": "niddk-gerd",
+      "originalSpan": "alcoholic drinks",
+      "bodyHeading": "What should I avoid eating if I have GERD symptoms?",
+      "section": "Foods commonly linked to symptoms"
+    },
+    {
+      "id": "nx-ev:lactose-free",
+      "sourceId": "niddk-lactose",
+      "originalSpan": "Using lactose-free and lactose-reduced milk and milk products may help you lower the amount of lactose in your diet. These products are available in many grocery stores and are just as healthy for you as regular milk and milk products.",
+      "bodyHeading": "Lactose-free and lactose-reduced milk and milk products",
+      "section": "Lactose-free and lactose-reduced milk and milk products"
+    },
+    {
+      "id": "nx-ev:lactose-yogurt",
+      "sourceId": "niddk-lactose",
+      "originalSpan": "try eating yogurt and hard cheeses, like cheddar or Swiss, which are lower in lactose than other milk products",
+      "bodyHeading": "Eating, Diet, & Nutrition for Lactose Intolerance",
+      "section": "Personal tolerance"
+    },
+    {
+      "id": "nx-ev:lactose-greens",
+      "sourceId": "niddk-lactose",
+      "originalSpan": "broccoli and leafy green vegetables",
+      "bodyHeading": "Calcium and Vitamin D",
+      "section": "Non-lactose calcium sources"
+    },
+    {
+      "id": "nx-ev:nafld-wholefoods",
+      "sourceId": "niddk-nafld",
+      "originalSpan": "eating more low-glycemic index foods—such as most fruits, vegetables, and whole grains. These foods affect your blood glucose less than high-glycemic index foods, such as white bread, white rice, and potatoes.",
+      "bodyHeading": "How can my diet help prevent or treat NAFLD?",
+      "section": "Diet changes"
+    },
+    {
+      "id": "nx-ev:nafld-sugary",
+      "sourceId": "niddk-nafld",
+      "originalSpan": "avoiding foods and drinks that contain large amounts of simple sugars, especially fructose. Fructose is found in sweetened soft drinks, sports drinks, sweetened tea, and juices. Table sugar, called sucrose, is rapidly changed to glucose and fructose during digestion and is therefore a major source of fructose.",
+      "bodyHeading": "How can my diet help prevent or treat NAFLD?",
+      "section": "Simple sugars"
+    },
+    {
+      "id": "nx-ev:nafld-alcohol",
+      "sourceId": "niddk-nafld",
+      "originalSpan": "If you have NAFLD, you should minimize alcohol use, which can further damage your liver.",
+      "bodyHeading": "How can my diet help prevent or treat NAFLD?",
+      "section": "Alcohol"
+    },
+    {
+      "id": "nx-ev:anemia-iron",
+      "sourceId": "nhlbi-iron-anemia",
+      "originalSpan": "Good sources of iron include beans, dried fruits, eggs, lean red meat, salmon, iron-fortified breads and cereals, peas, tofu, and dark green leafy vegetables.",
+      "bodyHeading": "How do you prevent iron-deficiency anemia?",
+      "section": "Dietary iron sources"
+    },
+    {
+      "id": "nx-ev:anemia-vitc",
+      "sourceId": "nhlbi-iron-anemia",
+      "originalSpan": "Vitamin C-rich foods such as oranges, strawberries, and tomatoes help your body absorb iron.",
+      "bodyHeading": "How do you prevent iron-deficiency anemia?",
+      "section": "Vitamin C and iron absorption"
+    },
+    {
+      "id": "nx-ev:weight-wholegrains",
+      "sourceId": "niddk-weight",
+      "originalSpan": "whole grains, such as brown rice, oats, and whole-wheat bread",
+      "bodyHeading": "Eating & Physical Activity to Lose or Maintain Weight",
+      "section": "Healthy eating plan"
+    },
+    {
+      "id": "nx-ev:weight-veg",
+      "sourceId": "niddk-weight",
+      "originalSpan": "vegetables of all types",
+      "bodyHeading": "Eating & Physical Activity to Lose or Maintain Weight",
+      "section": "Healthy eating plan"
+    },
+    {
+      "id": "nx-ev:weight-fruit",
+      "sourceId": "niddk-weight",
+      "originalSpan": "fruits, especially whole fruits rather than fruit juices",
+      "bodyHeading": "Eating & Physical Activity to Lose or Maintain Weight",
+      "section": "Healthy eating plan"
+    },
+    {
+      "id": "nx-ev:weight-protein",
+      "sourceId": "niddk-weight",
+      "originalSpan": "protein from foods such as lean meats, poultry, and eggs; seafood; beans, peas, and lentils; and nuts, seeds, and soy products",
+      "bodyHeading": "Eating & Physical Activity to Lose or Maintain Weight",
+      "section": "Healthy eating plan"
+    },
+    {
+      "id": "nx-ev:weight-dairy",
+      "sourceId": "niddk-weight",
+      "originalSpan": "dairy, including fat-free or low-fat milk, yogurt, and cheese, or similar products such as soy beverages with added calcium, vitamin A, and vitamin D",
+      "bodyHeading": "Eating & Physical Activity to Lose or Maintain Weight",
+      "section": "Healthy eating plan"
+    },
+    {
+      "id": "nx-ev:weight-energy",
+      "sourceId": "niddk-weight",
+      "originalSpan": "The 2020–2025 Dietary Guidelines for Americans notes that adults who want to lose weight and keep it off should reduce the number of calories they take in from foods and beverages.",
+      "bodyHeading": "Eating & Physical Activity to Lose or Maintain Weight",
+      "section": "Energy reduction for weight loss"
+    },
+    {
+      "id": "nx-ev:exercise-protein",
+      "sourceId": "ods-exercise-snapshot",
+      "originalSpan": "Many foods—including meats, poultry, seafood, eggs, dairy products, beans, and nuts—contain protein.",
+      "bodyHeading": "### Protein",
+      "section": "Protein: Implications for use"
+    },
+    {
+      "id": "nx-ev:exercise-repair",
+      "sourceId": "ods-exercise-snapshot",
+      "originalSpan": "Adequate protein in the diet is required to provide the EAAs necessary for muscle-protein synthesis and to minimize muscle-protein breakdown. Dietary protein consumption increases the concentration of amino acids in the blood, which muscle cells then take up. Sufficient protein is necessary primarily to optimize the training response to, and the recovery period after, exercise [,].",
+      "bodyHeading": "### Protein",
+      "section": "Protein: Efficacy"
+    },
+    {
+      "id": "nx-ev:exercise-energy",
+      "sourceId": "ods-exercise-snapshot",
+      "originalSpan": "Athletes require adequate daily amounts of calories, fluids, carbohydrates (to maintain blood glucose levels and replace muscle glycogen; typically 1.4 to 4.5 g/lb body weight [3 to 10 g/kg body weight]), protein (0.55 to 0.9 g/lb body weight [1.2 to 2.0 g/kg body weight]), fat (20% to 35% of total calories), and vitamins and minerals [].",
+      "bodyHeading": "## Introduction",
+      "section": "Energy and nutrient adequacy"
+    },
+    {
+      "id": "nx-ev:exercise-wholefoods",
+      "sourceId": "ods-exercise-snapshot",
+      "originalSpan": "  * Includes a variety of vegetables; fruits; grains (at least half whole grains); fat-free and low-fat milk, yogurt, and cheese; and oils",
+      "bodyHeading": "Choosing a Sensible Approach",
+      "section": "Dietary foundation"
+    },
+    {
+      "id": "nx-ev:gain-calories",
+      "sourceId": "nhs-weight-gain",
+      "originalSpan": "add extra calories to your meals with cheese, nuts, and seeds",
+      "bodyHeading": "Healthy ways to gain weight",
+      "section": "Things you can do"
+    },
+    {
+      "id": "nx-ev:gain-protein",
+      "sourceId": "nhs-weight-gain",
+      "originalSpan": "add protein to your meals with beans, pulses, fish, eggs and lean meat",
+      "bodyHeading": "Healthy ways to gain weight",
+      "section": "Things you can do"
+    },
+    {
+      "id": "nx-ev:gain-gradual",
+      "sourceId": "nhs-weight-gain",
+      "originalSpan": "gain weight gradually by adding healthy calories – adults could try adding around 300 to 500 extra calories a day",
+      "bodyHeading": "Healthy ways to gain weight",
+      "section": "Gradual healthy energy"
+    },
+    {
+      "id": "nx-ev:maintain-habits",
+      "sourceId": "niddk-weight",
+      "originalSpan": "Continue to make healthy food choices and follow your healthy eating plan as a lifelong habit. Find healthy food options that you prefer and enjoy, as this will make you more likely to stick with your eating plan.",
+      "bodyHeading": "How can I maintain weight loss?",
+      "section": "Stick to your healthy eating plan"
+    },
+    {
+      "id": "nx-ev:gain-unintentional-loss",
+      "sourceId": "nhs-weight-gain",
+      "originalSpan": "you've lost weight suddenly",
+      "bodyHeading": "Non-urgent advice: Speak to a GP if:",
+      "section": "Sudden or unexplained weight loss"
+    }
+  ],
+  "topics": [
+    {
+      "id": "nx-d:constipation",
+      "name": "便秘",
+      "kind": "condition",
+      "aliases": []
+    },
+    {
+      "id": "nx-d:gerd",
+      "name": "胃食管反流病",
+      "kind": "condition",
+      "aliases": [
+        "胃食管反流",
+        "GERD"
+      ]
+    },
+    {
+      "id": "nx-d:lactose-intolerance",
+      "name": "乳糖不耐受",
+      "kind": "condition",
+      "aliases": [
+        "乳糖不耐"
+      ]
+    },
+    {
+      "id": "nx-d:nafld",
+      "name": "非酒精性脂肪性肝病",
+      "kind": "condition",
+      "aliases": [
+        "非酒精性脂肪肝",
+        "代谢功能障碍相关脂肪性肝病",
+        "MASLD",
+        "NAFLD"
+      ]
+    },
+    {
+      "id": "nx-d:iron-deficiency-anemia",
+      "name": "缺铁性贫血",
+      "kind": "condition",
+      "aliases": []
+    },
+    {
+      "id": "goal:fat-loss",
+      "name": "减脂",
+      "kind": "goal",
+      "aliases": [
+        "瘦身",
+        "减肥"
+      ]
+    },
+    {
+      "id": "goal:muscle-gain",
+      "name": "增肌",
+      "kind": "goal",
+      "aliases": [
+        "增加肌肉"
+      ]
+    },
+    {
+      "id": "goal:weight-maintenance",
+      "name": "维持体重",
+      "kind": "goal",
+      "aliases": [
+        "保持体重",
+        "体重维持"
+      ]
+    },
+    {
+      "id": "goal:weight-gain",
+      "name": "健康增重",
+      "kind": "goal",
+      "aliases": [
+        "增重",
+        "增加体重"
+      ]
+    },
+    {
+      "id": "goal:exercise-recovery",
+      "name": "运动恢复",
+      "kind": "goal",
+      "aliases": [
+        "训练恢复"
+      ]
+    },
+    {
+      "id": "goal:balanced-diet",
+      "name": "均衡饮食",
+      "kind": "goal",
+      "aliases": [
+        "营养均衡"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "nx-food:wholegrains",
+      "name": "全谷物",
+      "kind": "food_group",
+      "names": [
+        "燕麦",
+        "燕麦片",
+        "糙米",
+        "全麦面包"
+      ]
+    },
+    {
+      "id": "nx-food:legumes",
+      "name": "豆类",
+      "kind": "food_group",
+      "names": [
+        "黄豆",
+        "黑豆",
+        "红腰豆",
+        "鹰嘴豆",
+        "小扁豆"
+      ]
+    },
+    {
+      "id": "nx-food:constipation-fruit",
+      "name": "原文列举的含纤维水果",
+      "kind": "food_group",
+      "names": [
+        "带皮苹果",
+        "橙子",
+        "梨",
+        "草莓",
+        "蓝莓"
+      ]
+    },
+    {
+      "id": "nx-food:constipation-veg",
+      "name": "胡萝卜、西兰花和青豌豆",
+      "kind": "food_group",
+      "names": [
+        "胡萝卜",
+        "西兰花",
+        "青豌豆",
+        "豌豆"
+      ]
+    },
+    {
+      "id": "nx-food:nuts",
+      "name": "坚果",
+      "kind": "food_group",
+      "names": [
+        "扁桃仁",
+        "花生",
+        "核桃",
+        "碧根果"
+      ]
+    },
+    {
+      "id": "nx-food:constipation-nuts",
+      "name": "扁桃仁、花生和碧根果",
+      "kind": "food_group",
+      "names": [
+        "扁桃仁",
+        "花生",
+        "碧根果"
+      ]
+    },
+    {
+      "id": "nx-food:citrus-tomato",
+      "name": "柑橘类水果",
+      "kind": "food_group",
+      "names": [
+        "橙子",
+        "柠檬",
+        "葡萄柚",
+        "柚子"
+      ]
+    },
+    {
+      "id": "nx-food:coffee",
+      "name": "咖啡",
+      "kind": "food_group",
+      "names": [
+        "咖啡",
+        "黑咖啡"
+      ]
+    },
+    {
+      "id": "nx-food:chocolate",
+      "name": "巧克力",
+      "kind": "food_group",
+      "names": [
+        "巧克力",
+        "黑巧克力"
+      ]
+    },
+    {
+      "id": "nx-food:mint",
+      "name": "薄荷",
+      "kind": "food_group",
+      "names": [
+        "薄荷"
+      ]
+    },
+    {
+      "id": "nx-food:spicy",
+      "name": "辛辣食物",
+      "kind": "food_group",
+      "names": [
+        "辣椒",
+        "小米椒",
+        "辣椒粉",
+        "辣椒油"
+      ]
+    },
+    {
+      "id": "nx-food:alcohol",
+      "name": "含酒精饮品",
+      "kind": "food_group",
+      "names": [
+        "白酒",
+        "啤酒",
+        "葡萄酒",
+        "黄酒"
+      ]
+    },
+    {
+      "id": "nx-food:lactose-free",
+      "name": "明确标注的无乳糖或低乳糖牛奶",
+      "kind": "food_group",
+      "names": [
+        "无乳糖牛奶",
+        "低乳糖牛奶"
+      ]
+    },
+    {
+      "id": "nx-food:yogurt",
+      "name": "酸奶",
+      "kind": "food_group",
+      "names": [
+        "酸奶",
+        "原味酸奶"
+      ]
+    },
+    {
+      "id": "nx-food:hard-cheese",
+      "name": "切达或瑞士硬奶酪",
+      "kind": "food_group",
+      "names": [
+        "切达奶酪",
+        "瑞士奶酪"
+      ]
+    },
+    {
+      "id": "nx-food:calcium-greens",
+      "name": "西兰花和绿叶菜",
+      "kind": "food_group",
+      "names": [
+        "西兰花",
+        "菠菜",
+        "小白菜",
+        "油菜"
+      ]
+    },
+    {
+      "id": "nx-food:non-starchy-veg",
+      "name": "非淀粉类蔬菜（保守映射）",
+      "kind": "food_group",
+      "names": [
+        "白菜",
+        "小白菜",
+        "油菜",
+        "菠菜",
+        "芹菜",
+        "西兰花",
+        "花菜",
+        "花椰菜",
+        "黄瓜",
+        "茄子",
+        "生菜",
+        "番茄",
+        "西红柿",
+        "胡萝卜",
+        "娃娃菜"
+      ]
+    },
+    {
+      "id": "nx-food:sugary-drinks",
+      "name": "含大量添加糖的饮料",
+      "kind": "food_group",
+      "names": [
+        "含糖汽水",
+        "加糖饮料",
+        "甜茶",
+        "含糖运动饮料"
+      ]
+    },
+    {
+      "id": "nx-food:iron-foods",
+      "name": "原文列举的含铁食物",
+      "kind": "food_group",
+      "names": [
+        "豆腐",
+        "黄豆",
+        "黑豆",
+        "红腰豆",
+        "鹰嘴豆",
+        "鸡蛋",
+        "瘦牛肉",
+        "瘦羊肉",
+        "三文鱼",
+        "青豌豆",
+        "豌豆",
+        "菠菜",
+        "油菜"
+      ]
+    },
+    {
+      "id": "nx-food:vitamin-c-foods",
+      "name": "橙子、草莓和番茄",
+      "kind": "food_group",
+      "names": [
+        "橙子",
+        "草莓",
+        "番茄",
+        "西红柿"
+      ]
+    },
+    {
+      "id": "nx-food:whole-fruit",
+      "name": "完整水果",
+      "kind": "food_group",
+      "names": [
+        "苹果",
+        "梨",
+        "橙子",
+        "草莓",
+        "香蕉",
+        "猕猴桃",
+        "葡萄",
+        "桃",
+        "西瓜"
+      ]
+    },
+    {
+      "id": "nx-food:protein-foods",
+      "name": "多样化蛋白质食物",
+      "kind": "food_group",
+      "names": [
+        "去皮鸡胸肉",
+        "鸡蛋",
+        "鱼肉",
+        "三文鱼",
+        "鳕鱼",
+        "虾",
+        "黄豆",
+        "黑豆",
+        "鹰嘴豆",
+        "小扁豆",
+        "豆腐",
+        "瘦牛肉",
+        "瘦猪肉"
+      ]
+    },
+    {
+      "id": "nx-food:low-fat-dairy",
+      "name": "明确标注的低脂或脱脂奶",
+      "kind": "food_group",
+      "names": [
+        "低脂牛奶",
+        "脱脂牛奶",
+        "低脂酸奶"
+      ]
+    },
+    {
+      "id": "nx-food:energy-foods",
+      "name": "奶酪、坚果和种子",
+      "kind": "food_group",
+      "names": [
+        "奶酪",
+        "切达奶酪",
+        "扁桃仁",
+        "核桃",
+        "花生",
+        "芝麻",
+        "南瓜籽"
+      ]
+    },
+    {
+      "id": "nx-food:gain-protein",
+      "name": "豆类、鱼、蛋和瘦肉",
+      "kind": "food_group",
+      "names": [
+        "黄豆",
+        "黑豆",
+        "鹰嘴豆",
+        "小扁豆",
+        "鱼肉",
+        "三文鱼",
+        "鳕鱼",
+        "鸡蛋",
+        "瘦牛肉",
+        "瘦猪肉"
+      ]
+    },
+    {
+      "id": "nx-food:sport-protein",
+      "name": "原文列举的食物蛋白来源",
+      "kind": "food_group",
+      "names": [
+        "去皮鸡胸肉",
+        "瘦牛肉",
+        "瘦猪肉",
+        "鱼肉",
+        "三文鱼",
+        "鳕鱼",
+        "虾",
+        "鸡蛋",
+        "牛奶",
+        "酸奶",
+        "黄豆",
+        "黑豆",
+        "鹰嘴豆",
+        "扁桃仁",
+        "花生",
+        "核桃"
+      ]
+    },
+    {
+      "id": "nx-food:gerd-tomato",
+      "name": "番茄",
+      "kind": "food",
+      "names": [
+        "番茄",
+        "西红柿"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "id": "nx-fact:constipation-wholegrains",
+      "topicId": "nx-d:constipation",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "可逐步选择全谷物作为纤维来源，如燕麦、全麦面包。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:constipation-wholegrains"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:constipation-gradual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:constipation-legumes",
+      "topicId": "nx-d:constipation",
+      "objectId": "nx-food:legumes",
+      "direction": "prefer",
+      "statement": "豆类可作为纤维来源，逐步增加并留意腹胀及个人耐受。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:constipation-legumes"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:constipation-gradual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:constipation-fruit",
+      "topicId": "nx-d:constipation",
+      "objectId": "nx-food:constipation-fruit",
+      "direction": "prefer",
+      "statement": "原文列举带皮苹果、橙、梨和浆果等纤维来源；不能把去皮或果汁当作同一形态。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:constipation-fruit"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:constipation-gradual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:constipation-veg",
+      "topicId": "nx-d:constipation",
+      "objectId": "nx-food:constipation-veg",
+      "direction": "prefer",
+      "statement": "胡萝卜、西兰花和青豌豆可作为纤维来源，逐步增加。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:constipation-veg"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:constipation-gradual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:constipation-nuts",
+      "topicId": "nx-d:constipation",
+      "objectId": "nx-food:constipation-nuts",
+      "direction": "prefer",
+      "statement": "扁桃仁、花生、碧根果是原文列举的纤维来源；过敏限制仍需优先检查。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:constipation-nuts"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:constipation-gradual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-citrus",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:citrus-tomato",
+      "direction": "limit",
+      "statement": "仅在本人已确认柑橘类水果诱发反流症状时考虑减少，并与医生讨论；不能从番茄触发推断柑橘触发。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerCitrus",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-citrus"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-coffee",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:coffee",
+      "direction": "limit",
+      "statement": "仅在本人已确认咖啡诱发反流症状时考虑减少，并与医生讨论；不是所有患者的统一禁食清单。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerCoffee",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-coffee"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-chocolate",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:chocolate",
+      "direction": "limit",
+      "statement": "仅在本人已确认巧克力诱发反流症状时考虑减少，并与医生讨论；不是所有患者的统一禁食清单。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerChocolate",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-chocolate"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-mint",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:mint",
+      "direction": "limit",
+      "statement": "仅在本人已确认薄荷诱发反流症状时考虑减少，并与医生讨论；不是所有患者的统一禁食清单。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerMint",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-mint"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-spicy",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:spicy",
+      "direction": "limit",
+      "statement": "仅在本人已确认辛辣食物诱发反流症状时考虑减少，并与医生讨论；不是所有患者的统一禁食清单。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerSpicy",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-spicy"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-alcohol",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:alcohol",
+      "direction": "limit",
+      "statement": "仅在本人已确认含酒精饮品诱发反流症状时考虑减少，并与医生讨论；不是所有患者的统一禁食清单。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerAlcohol",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-alcohol"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:lactose-free",
+      "topicId": "nx-d:lactose-intolerance",
+      "objectId": "nx-food:lactose-free",
+      "direction": "prefer",
+      "statement": "可考虑明确标注无乳糖或低乳糖的奶类以减少乳糖摄入；仍含乳蛋白，不能作为乳蛋白过敏替代品。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:lactose-free"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:lactose-yogurt",
+      "topicId": "nx-d:lactose-intolerance",
+      "objectId": "nx-food:yogurt",
+      "direction": "prefer",
+      "statement": "酸奶可能比其他乳品更易耐受；仅在本人已知可耐受时作为选择。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "yogurtTolerance",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:lactose-yogurt"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:lactose-hard-cheese",
+      "topicId": "nx-d:lactose-intolerance",
+      "objectId": "nx-food:hard-cheese",
+      "direction": "prefer",
+      "statement": "切达或瑞士硬奶酪乳糖较低；按个人耐受选择，不能概括为所有奶酪。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "hardCheeseTolerance",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:lactose-yogurt"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:lactose-greens",
+      "topicId": "nx-d:lactose-intolerance",
+      "objectId": "nx-food:calcium-greens",
+      "direction": "prefer",
+      "statement": "西兰花和绿叶菜可提供钙，是不含乳糖的食物来源之一，不代表与牛奶等量等钙。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:lactose-greens"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:nafld-wholegrains",
+      "topicId": "nx-d:nafld",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "在医生的整体膳食方案中，可选择蔬菜、全谷物等低血糖生成指数食物；不按单种食物推断脂肪肝治疗效果。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:nafld-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:nafld-veg",
+      "topicId": "nx-d:nafld",
+      "objectId": "nx-food:non-starchy-veg",
+      "direction": "prefer",
+      "statement": "在医生的整体膳食方案中，可选择蔬菜、全谷物等低血糖生成指数食物；不按单种食物推断脂肪肝治疗效果。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:nafld-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:nafld-sugary",
+      "topicId": "nx-d:nafld",
+      "objectId": "nx-food:sugary-drinks",
+      "direction": "limit",
+      "statement": "减少含大量简单糖的饮料，如加糖汽水、甜茶和含糖运动饮料。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:nafld-sugary"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:nafld-alcohol",
+      "topicId": "nx-d:nafld",
+      "objectId": "nx-food:alcohol",
+      "direction": "limit",
+      "statement": "应尽量减少饮酒，酒精可能进一步损害肝脏；该主题不包含酒精性脂肪肝的病因判断。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:nafld-alcohol"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:anemia-iron",
+      "topicId": "nx-d:iron-deficiency-anemia",
+      "objectId": "nx-food:iron-foods",
+      "direction": "prefer",
+      "statement": "可将豆类、蛋、瘦红肉、鲑鱼、豆腐和深绿叶菜等铁来源纳入饮食；须查明缺铁原因，食物不能替代医生制定的补铁治疗。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:anemia-iron"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:anemia-vitc",
+      "topicId": "nx-d:iron-deficiency-anemia",
+      "objectId": "nx-food:vitamin-c-foods",
+      "direction": "prefer",
+      "statement": "橙子、草莓、番茄等富含维生素C的食物有助铁吸收；不据此推导个人补充剂剂量。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:anemia-vitc"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:fat-loss-wholegrains",
+      "topicId": "goal:fat-loss",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "全谷物如糙米、燕麦、全麦面包可纳入可长期坚持的健康膳食。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-wholegrains"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:weight-maintenance-wholegrains",
+      "topicId": "goal:weight-maintenance",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "全谷物如糙米、燕麦、全麦面包可纳入可长期坚持的健康膳食。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-wholegrains"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:fat-loss-veg",
+      "topicId": "goal:fat-loss",
+      "objectId": "nx-food:non-starchy-veg",
+      "direction": "prefer",
+      "statement": "选择多样化蔬菜作为整体健康膳食的一部分。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-veg"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:weight-maintenance-veg",
+      "topicId": "goal:weight-maintenance",
+      "objectId": "nx-food:non-starchy-veg",
+      "direction": "prefer",
+      "statement": "选择多样化蔬菜作为整体健康膳食的一部分。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-veg"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:fat-loss-fruit",
+      "topicId": "goal:fat-loss",
+      "objectId": "nx-food:whole-fruit",
+      "direction": "prefer",
+      "statement": "可优先完整水果，而不是把果汁作为等价替代。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-fruit"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:weight-maintenance-fruit",
+      "topicId": "goal:weight-maintenance",
+      "objectId": "nx-food:whole-fruit",
+      "direction": "prefer",
+      "statement": "可优先完整水果，而不是把果汁作为等价替代。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-fruit"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:fat-loss-protein",
+      "topicId": "goal:fat-loss",
+      "objectId": "nx-food:protein-foods",
+      "direction": "prefer",
+      "statement": "安排多样化蛋白质食物来源，避免只靠单一食物。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-protein"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:weight-maintenance-protein",
+      "topicId": "goal:weight-maintenance",
+      "objectId": "nx-food:protein-foods",
+      "direction": "prefer",
+      "statement": "安排多样化蛋白质食物来源，避免只靠单一食物。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-protein"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:fat-loss-dairy",
+      "topicId": "goal:fat-loss",
+      "objectId": "nx-food:low-fat-dairy",
+      "direction": "prefer",
+      "statement": "可选择明确标注的低脂或脱脂乳品；普通牛奶不能自动归为低脂。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-dairy"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:weight-maintenance-dairy",
+      "topicId": "goal:weight-maintenance",
+      "objectId": "nx-food:low-fat-dairy",
+      "direction": "prefer",
+      "statement": "可选择明确标注的低脂或脱脂乳品；普通牛奶不能自动归为低脂。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-dairy"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:muscle-gain-protein",
+      "topicId": "goal:muscle-gain",
+      "objectId": "nx-food:sport-protein",
+      "direction": "prefer",
+      "statement": "在健康成人训练人群中，肉禽、海鲜、蛋、乳品、豆类、坚果可提供蛋白质；需结合实际训练和整体饮食，不承诺仅靠高蛋白增肌或修复损伤。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "exerciseTraining",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "resistanceTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-protein"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:exercise-repair"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:muscle-gain-grains",
+      "topicId": "goal:muscle-gain",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "运动膳食基础应包括谷物，至少一半为全谷物；同时保证足够能量，不能据每100克成分值计算个人训练补给量。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "exerciseTraining",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "resistanceTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:exercise-energy"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:exercise-recovery-protein",
+      "topicId": "goal:exercise-recovery",
+      "objectId": "nx-food:sport-protein",
+      "direction": "prefer",
+      "statement": "在健康成人训练人群中，肉禽、海鲜、蛋、乳品、豆类、坚果可提供蛋白质；需结合实际训练和整体饮食，不承诺仅靠高蛋白增肌或修复损伤。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "exerciseTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-protein"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:exercise-repair"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:exercise-recovery-grains",
+      "topicId": "goal:exercise-recovery",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "运动膳食基础应包括谷物，至少一半为全谷物；同时保证足够能量，不能据每100克成分值计算个人训练补给量。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "exerciseTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:exercise-energy"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:balanced-non-starchy-veg",
+      "topicId": "goal:balanced-diet",
+      "objectId": "nx-food:non-starchy-veg",
+      "direction": "prefer",
+      "statement": "均衡饮食需多样化食物，包括蔬果、全谷物及低脂乳品；单项营养含量不能代表整餐营养达标。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:balanced-whole-fruit",
+      "topicId": "goal:balanced-diet",
+      "objectId": "nx-food:whole-fruit",
+      "direction": "prefer",
+      "statement": "均衡饮食需多样化食物，包括蔬果、全谷物及低脂乳品；单项营养含量不能代表整餐营养达标。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:balanced-wholegrains",
+      "topicId": "goal:balanced-diet",
+      "objectId": "nx-food:wholegrains",
+      "direction": "prefer",
+      "statement": "均衡饮食需多样化食物，包括蔬果、全谷物及低脂乳品；单项营养含量不能代表整餐营养达标。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:balanced-low-fat-dairy",
+      "topicId": "goal:balanced-diet",
+      "objectId": "nx-food:low-fat-dairy",
+      "direction": "prefer",
+      "statement": "均衡饮食需多样化食物，包括蔬果、全谷物及低脂乳品；单项营养含量不能代表整餐营养达标。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-wholefoods"
+      ],
+      "qualifyingEvidenceIds": [],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gain-calories",
+      "topicId": "goal:weight-gain",
+      "objectId": "nx-food:energy-foods",
+      "direction": "prefer",
+      "statement": "可用奶酪、坚果和种子增加餐食能量，循序渐进；不能忽略其他疾病或过敏限制。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "unintentionalWeightLoss",
+          "values": [
+            "no"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gain-calories"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gain-unintentional-loss"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gain-protein",
+      "topicId": "goal:weight-gain",
+      "objectId": "nx-food:gain-protein",
+      "direction": "prefer",
+      "statement": "可用豆类、鱼、蛋和瘦肉增加餐食蛋白质，配合整体健康增重计划。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "unintentionalWeightLoss",
+          "values": [
+            "no"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gain-protein"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gain-unintentional-loss"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-fact:gerd-tomato",
+      "topicId": "nx-d:gerd",
+      "objectId": "nx-food:gerd-tomato",
+      "direction": "limit",
+      "statement": "仅在本人已确认番茄诱发反流症状时考虑减少；不自动扩大为其他酸性食物禁食。",
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "gerdTriggerTomato",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gerd-citrus"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gerd-individual"
+      ],
+      "basis": "source_statement",
+      "clinicalReview": "pending"
+    }
+  ],
+  "principles": [
+    {
+      "id": "nx-principle:fat-loss-energy",
+      "topicId": "goal:fat-loss",
+      "statement": "成人减重需要在整体方案中减少食物和饮料的总能量；不将某种低能量食物等同于全天热量缺口，不生成个人每日热量目标。",
+      "metricIds": [
+        "energy"
+      ],
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:weight-energy"
+      ],
+      "qualifyingEvidenceIds": [],
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-principle:maintenance",
+      "topicId": "goal:weight-maintenance",
+      "statement": "体重维持阶段继续健康食物选择，并把可坚持的健康膳食作为长期习惯；不自动生成个人能量目标。",
+      "metricIds": [
+        "energy"
+      ],
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:maintain-habits"
+      ],
+      "qualifyingEvidenceIds": [],
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-principle:muscle-gain-energy",
+      "topicId": "goal:muscle-gain",
+      "statement": "运动者需要足够能量、碳水化合物、蛋白质、脂肪、维生素矿物质和水；实际需要随活动强度与时间变化。",
+      "metricIds": [
+        "energy",
+        "carbohydrate",
+        "protein",
+        "fat"
+      ],
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "exerciseTraining",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "resistanceTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-energy"
+      ],
+      "qualifyingEvidenceIds": [],
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-principle:exercise-recovery-energy",
+      "topicId": "goal:exercise-recovery",
+      "statement": "运动者需要足够能量、碳水化合物、蛋白质、脂肪、维生素矿物质和水；实际需要随活动强度与时间变化。",
+      "metricIds": [
+        "energy",
+        "carbohydrate",
+        "protein",
+        "fat"
+      ],
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "healthyExerciser",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "exerciseTraining",
+          "values": [
+            "yes"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:exercise-energy"
+      ],
+      "qualifyingEvidenceIds": [],
+      "clinicalReview": "pending"
+    },
+    {
+      "id": "nx-principle:gain-energy",
+      "topicId": "goal:weight-gain",
+      "statement": "通过健康食物逐渐增加能量；原文平均额外能量示例不作为个人目标。突然或非自愿体重下降应先就医查因。",
+      "metricIds": [
+        "energy",
+        "protein"
+      ],
+      "conditions": [
+        {
+          "key": "adult",
+          "values": [
+            "yes"
+          ]
+        },
+        {
+          "key": "unintentionalWeightLoss",
+          "values": [
+            "no"
+          ]
+        }
+      ],
+      "evidenceIds": [
+        "nx-ev:gain-gradual"
+      ],
+      "qualifyingEvidenceIds": [
+        "nx-ev:gain-unintentional-loss"
+      ],
+      "clinicalReview": "pending"
+    }
+  ],
+  "foods": [
+    {
+      "fdcId": "170379",
+      "name": "生西兰花",
+      "aliases": [
+        "西兰花",
+        "绿花菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Broccoli, raw"
+    },
+    {
+      "fdcId": "169967",
+      "name": "水煮沥干西兰花（无盐）",
+      "aliases": [
+        "熟西兰花"
+      ],
+      "form": "cooked_boiled_drained_no_salt",
+      "sourceDescription": "Broccoli, cooked, boiled, drained, without salt"
+    },
+    {
+      "fdcId": "169986",
+      "name": "生花椰菜",
+      "aliases": [
+        "花菜",
+        "花椰菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Cauliflower, raw"
+    },
+    {
+      "fdcId": "169975",
+      "name": "生圆白菜",
+      "aliases": [
+        "圆白菜",
+        "包菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Cabbage, raw"
+    },
+    {
+      "fdcId": "169979",
+      "name": "生大白菜",
+      "aliases": [
+        "白菜",
+        "大白菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Cabbage, chinese (pe-tsai), raw"
+    },
+    {
+      "fdcId": "169980",
+      "name": "水煮沥干大白菜（无盐）",
+      "aliases": [
+        "熟大白菜"
+      ],
+      "form": "cooked_boiled_drained_no_salt",
+      "sourceDescription": "Cabbage, chinese (pe-tsai), cooked, boiled, drained, without salt"
+    },
+    {
+      "fdcId": "170390",
+      "name": "生小白菜",
+      "aliases": [
+        "小白菜",
+        "青江菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Cabbage, chinese (pak-choi), raw"
+    },
+    {
+      "fdcId": "168462",
+      "name": "生菠菜",
+      "aliases": [
+        "菠菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Spinach, raw"
+    },
+    {
+      "fdcId": "170393",
+      "name": "生胡萝卜",
+      "aliases": [
+        "胡萝卜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Carrots, raw"
+    },
+    {
+      "fdcId": "170457",
+      "name": "生红番茄",
+      "aliases": [
+        "番茄",
+        "西红柿"
+      ],
+      "form": "raw",
+      "sourceDescription": "Tomatoes, red, ripe, raw, year round average"
+    },
+    {
+      "fdcId": "168409",
+      "name": "带皮生黄瓜",
+      "aliases": [
+        "黄瓜"
+      ],
+      "form": "raw_with_peel",
+      "sourceDescription": "Cucumber, with peel, raw"
+    },
+    {
+      "fdcId": "169228",
+      "name": "生茄子",
+      "aliases": [
+        "茄子"
+      ],
+      "form": "raw",
+      "sourceDescription": "Eggplant, raw"
+    },
+    {
+      "fdcId": "170108",
+      "name": "生红甜椒",
+      "aliases": [
+        "红甜椒"
+      ],
+      "form": "raw",
+      "sourceDescription": "Peppers, sweet, red, raw"
+    },
+    {
+      "fdcId": "170427",
+      "name": "生绿甜椒",
+      "aliases": [
+        "绿甜椒"
+      ],
+      "form": "raw",
+      "sourceDescription": "Peppers, sweet, green, raw"
+    },
+    {
+      "fdcId": "169291",
+      "name": "带皮生西葫芦",
+      "aliases": [
+        "西葫芦"
+      ],
+      "form": "raw_with_skin",
+      "sourceDescription": "Squash, summer, zucchini, includes skin, raw"
+    },
+    {
+      "fdcId": "169251",
+      "name": "生白蘑菇",
+      "aliases": [
+        "白蘑菇",
+        "口蘑"
+      ],
+      "form": "raw",
+      "sourceDescription": "Mushrooms, white, raw"
+    },
+    {
+      "fdcId": "169242",
+      "name": "生鲜香菇",
+      "aliases": [
+        "鲜香菇",
+        "香菇"
+      ],
+      "form": "raw",
+      "sourceDescription": "Mushrooms, shiitake, raw"
+    },
+    {
+      "fdcId": "168436",
+      "name": "干香菇",
+      "aliases": [
+        "干香菇",
+        "香菇"
+      ],
+      "form": "dried",
+      "sourceDescription": "Mushrooms, shiitake, dried"
+    },
+    {
+      "fdcId": "170026",
+      "name": "带皮生土豆",
+      "aliases": [
+        "土豆",
+        "马铃薯"
+      ],
+      "form": "raw_flesh_and_skin",
+      "sourceDescription": "Potatoes, flesh and skin, raw"
+    },
+    {
+      "fdcId": "168482",
+      "name": "生红薯",
+      "aliases": [
+        "红薯",
+        "甘薯"
+      ],
+      "form": "raw",
+      "sourceDescription": "Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "170000",
+      "name": "生洋葱",
+      "aliases": [
+        "洋葱"
+      ],
+      "form": "raw",
+      "sourceDescription": "Onions, raw"
+    },
+    {
+      "fdcId": "169988",
+      "name": "生芹菜",
+      "aliases": [
+        "芹菜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Celery, raw"
+    },
+    {
+      "fdcId": "169230",
+      "name": "生大蒜",
+      "aliases": [
+        "大蒜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Garlic, raw"
+    },
+    {
+      "fdcId": "169231",
+      "name": "生姜",
+      "aliases": [
+        "姜",
+        "生姜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Ginger root, raw"
+    },
+    {
+      "fdcId": "170419",
+      "name": "生青豌豆",
+      "aliases": [
+        "青豌豆",
+        "豌豆"
+      ],
+      "form": "raw",
+      "sourceDescription": "Peas, green, raw"
+    },
+    {
+      "fdcId": "169961",
+      "name": "生四季豆",
+      "aliases": [
+        "四季豆",
+        "菜豆"
+      ],
+      "form": "raw",
+      "sourceDescription": "Beans, snap, green, raw"
+    },
+    {
+      "fdcId": "169998",
+      "name": "生黄色甜玉米",
+      "aliases": [
+        "甜玉米",
+        "玉米"
+      ],
+      "form": "raw",
+      "sourceDescription": "Corn, sweet, yellow, raw"
+    },
+    {
+      "fdcId": "171688",
+      "name": "带皮生苹果",
+      "aliases": [
+        "苹果",
+        "带皮苹果"
+      ],
+      "form": "raw_with_skin",
+      "sourceDescription": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "173944",
+      "name": "生香蕉",
+      "aliases": [
+        "香蕉"
+      ],
+      "form": "raw",
+      "sourceDescription": "Bananas, raw"
+    },
+    {
+      "fdcId": "169097",
+      "name": "生橙子",
+      "aliases": [
+        "橙子"
+      ],
+      "form": "raw",
+      "sourceDescription": "Oranges, raw, all commercial varieties"
+    },
+    {
+      "fdcId": "167762",
+      "name": "生草莓",
+      "aliases": [
+        "草莓"
+      ],
+      "form": "raw",
+      "sourceDescription": "Strawberries, raw"
+    },
+    {
+      "fdcId": "168153",
+      "name": "生绿肉猕猴桃",
+      "aliases": [
+        "猕猴桃"
+      ],
+      "form": "raw",
+      "sourceDescription": "Kiwifruit, green, raw"
+    },
+    {
+      "fdcId": "169118",
+      "name": "生梨",
+      "aliases": [
+        "梨"
+      ],
+      "form": "raw",
+      "sourceDescription": "Pears, raw"
+    },
+    {
+      "fdcId": "174683",
+      "name": "生红或绿葡萄",
+      "aliases": [
+        "葡萄"
+      ],
+      "form": "raw",
+      "sourceDescription": "Grapes, red or green (European type, such as Thompson seedless), raw"
+    },
+    {
+      "fdcId": "167765",
+      "name": "生西瓜",
+      "aliases": [
+        "西瓜"
+      ],
+      "form": "raw",
+      "sourceDescription": "Watermelon, raw"
+    },
+    {
+      "fdcId": "171705",
+      "name": "生牛油果",
+      "aliases": [
+        "牛油果"
+      ],
+      "form": "raw",
+      "sourceDescription": "Avocados, raw, all commercial varieties"
+    },
+    {
+      "fdcId": "167746",
+      "name": "去皮生柠檬",
+      "aliases": [
+        "柠檬"
+      ],
+      "form": "raw_without_peel",
+      "sourceDescription": "Lemons, raw, without peel"
+    },
+    {
+      "fdcId": "169705",
+      "name": "燕麦籽粒",
+      "aliases": [
+        "燕麦"
+      ],
+      "form": "dry_grain",
+      "sourceDescription": "Oats (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "173904",
+      "name": "未强化干燕麦片",
+      "aliases": [
+        "燕麦片"
+      ],
+      "form": "dry_unfortified",
+      "sourceDescription": "Cereals, oats, regular and quick, not fortified, dry"
+    },
+    {
+      "fdcId": "173905",
+      "name": "水煮未强化燕麦粥（无盐）",
+      "aliases": [
+        "燕麦粥"
+      ],
+      "form": "cooked_water_no_salt",
+      "sourceDescription": "Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt"
+    },
+    {
+      "fdcId": "169756",
+      "name": "未强化生长粒白米",
+      "aliases": [
+        "大米",
+        "白米"
+      ],
+      "form": "raw_unenriched",
+      "sourceDescription": "Rice, white, long-grain, regular, raw, unenriched"
+    },
+    {
+      "fdcId": "169757",
+      "name": "无盐未强化熟长粒白米饭",
+      "aliases": [
+        "米饭",
+        "白米饭"
+      ],
+      "form": "cooked_no_salt_unenriched",
+      "sourceDescription": "Rice, white, long-grain, regular, unenriched, cooked without salt"
+    },
+    {
+      "fdcId": "169703",
+      "name": "生长粒糙米",
+      "aliases": [
+        "糙米"
+      ],
+      "form": "raw",
+      "sourceDescription": "Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "169704",
+      "name": "熟长粒糙米饭",
+      "aliases": [
+        "糙米饭"
+      ],
+      "form": "cooked",
+      "sourceDescription": "Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "168893",
+      "name": "全麦面粉",
+      "aliases": [
+        "全麦面粉"
+      ],
+      "form": "dry",
+      "sourceDescription": "Wheat flour, whole-grain (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "169761",
+      "name": "未强化中筋白面粉",
+      "aliases": [
+        "面粉",
+        "中筋面粉"
+      ],
+      "form": "dry_unenriched",
+      "sourceDescription": "Wheat flour, white, all-purpose, unenriched"
+    },
+    {
+      "fdcId": "170286",
+      "name": "荞麦籽粒",
+      "aliases": [
+        "荞麦"
+      ],
+      "form": "dry_grain",
+      "sourceDescription": "Buckwheat"
+    },
+    {
+      "fdcId": "169702",
+      "name": "生小米",
+      "aliases": [
+        "小米"
+      ],
+      "form": "raw",
+      "sourceDescription": "Millet, raw"
+    },
+    {
+      "fdcId": "168874",
+      "name": "生藜麦",
+      "aliases": [
+        "藜麦"
+      ],
+      "form": "raw",
+      "sourceDescription": "Quinoa, uncooked"
+    },
+    {
+      "fdcId": "170283",
+      "name": "去壳大麦",
+      "aliases": [
+        "大麦"
+      ],
+      "form": "hulled_dry",
+      "sourceDescription": "Barley, hulled"
+    },
+    {
+      "fdcId": "171287",
+      "name": "生全鸡蛋",
+      "aliases": [
+        "鸡蛋"
+      ],
+      "form": "raw",
+      "sourceDescription": "Egg, whole, raw, fresh"
+    },
+    {
+      "fdcId": "173424",
+      "name": "水煮全鸡蛋",
+      "aliases": [
+        "水煮蛋"
+      ],
+      "form": "cooked_hard_boiled",
+      "sourceDescription": "Egg, whole, cooked, hard-boiled"
+    },
+    {
+      "fdcId": "172183",
+      "name": "生鸡蛋蛋白",
+      "aliases": [
+        "蛋清"
+      ],
+      "form": "raw",
+      "sourceDescription": "Egg, white, raw, fresh"
+    },
+    {
+      "fdcId": "172217",
+      "name": "未添加维生素A/D全脂牛奶",
+      "aliases": [
+        "全脂牛奶"
+      ],
+      "form": "fluid_unfortified_3_25_percent_fat",
+      "sourceDescription": "Milk, whole, 3.25% milkfat, without added vitamin A and vitamin D"
+    },
+    {
+      "fdcId": "171265",
+      "name": "添加维生素D全脂牛奶",
+      "aliases": [
+        "维生素D强化全脂牛奶"
+      ],
+      "form": "fluid_vitamin_D_fortified_3_25_percent_fat",
+      "sourceDescription": "Milk, whole, 3.25% milkfat, with added vitamin D"
+    },
+    {
+      "fdcId": "172205",
+      "name": "未添加维生素A/D的2%脂肪牛奶",
+      "aliases": [
+        "未强化2%脂肪牛奶"
+      ],
+      "form": "fluid_unfortified_2_percent_fat",
+      "sourceDescription": "Milk, reduced fat, fluid, 2% milkfat, without added vitamin A and vitamin D"
+    },
+    {
+      "fdcId": "173432",
+      "name": "未添加维生素A/D脱脂牛奶",
+      "aliases": [
+        "未强化脱脂牛奶"
+      ],
+      "form": "fluid_unfortified_nonfat",
+      "sourceDescription": "Milk, nonfat, fluid, without added vitamin A and vitamin D (fat free or skim)"
+    },
+    {
+      "fdcId": "171284",
+      "name": "原味全脂酸奶",
+      "aliases": [
+        "原味全脂酸奶"
+      ],
+      "form": "plain_whole_milk",
+      "sourceDescription": "Yogurt, plain, whole milk"
+    },
+    {
+      "fdcId": "173414",
+      "name": "切达奶酪",
+      "aliases": [
+        "切达奶酪"
+      ],
+      "form": "cheddar",
+      "sourceDescription": "Cheese, cheddar (Includes foods for USDA's Food Distribution Program)"
+    },
+    {
+      "fdcId": "171077",
+      "name": "生去皮去骨鸡胸肉",
+      "aliases": [
+        "去皮鸡胸肉"
+      ],
+      "form": "raw_skinless_boneless",
+      "sourceDescription": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw"
+    },
+    {
+      "fdcId": "171477",
+      "name": "烤鸡胸肉（仅肉）",
+      "aliases": [
+        "熟鸡胸肉"
+      ],
+      "form": "cooked_roasted_meat_only",
+      "sourceDescription": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+    },
+    {
+      "fdcId": "168249",
+      "name": "生猪里脊（可分离瘦肉）",
+      "aliases": [
+        "瘦猪里脊"
+      ],
+      "form": "raw_lean_only",
+      "sourceDescription": "Pork, fresh, loin, tenderloin, separable lean only, raw"
+    },
+    {
+      "fdcId": "168250",
+      "name": "烤猪里脊（可分离瘦肉）",
+      "aliases": [
+        "熟瘦猪里脊"
+      ],
+      "form": "cooked_roasted_lean_only",
+      "sourceDescription": "Pork, fresh, loin, tenderloin, separable lean only, cooked, roasted"
+    },
+    {
+      "fdcId": "175167",
+      "name": "生养殖大西洋鲑鱼",
+      "aliases": [
+        "三文鱼",
+        "养殖大西洋鲑鱼"
+      ],
+      "form": "raw_farmed_atlantic",
+      "sourceDescription": "Fish, salmon, Atlantic, farmed, raw"
+    },
+    {
+      "fdcId": "175168",
+      "name": "干热熟养殖大西洋鲑鱼",
+      "aliases": [
+        "熟三文鱼"
+      ],
+      "form": "cooked_dry_heat_farmed_atlantic",
+      "sourceDescription": "Fish, salmon, Atlantic, farmed, cooked, dry heat"
+    },
+    {
+      "fdcId": "173686",
+      "name": "生野生大西洋鲑鱼",
+      "aliases": [
+        "野生大西洋鲑鱼"
+      ],
+      "form": "raw_wild_atlantic",
+      "sourceDescription": "Fish, salmon, Atlantic, wild, raw"
+    },
+    {
+      "fdcId": "171955",
+      "name": "生大西洋鳕鱼",
+      "aliases": [
+        "大西洋鳕鱼"
+      ],
+      "form": "raw_atlantic",
+      "sourceDescription": "Fish, cod, Atlantic, raw"
+    },
+    {
+      "fdcId": "175179",
+      "name": "生虾",
+      "aliases": [
+        "虾"
+      ],
+      "form": "raw",
+      "sourceDescription": "Crustaceans, shrimp, raw"
+    },
+    {
+      "fdcId": "175180",
+      "name": "熟虾",
+      "aliases": [
+        "熟虾"
+      ],
+      "form": "cooked",
+      "sourceDescription": "Crustaceans, shrimp, cooked"
+    },
+    {
+      "fdcId": "174214",
+      "name": "生混合品种蛤蜊",
+      "aliases": [
+        "蛤蜊"
+      ],
+      "form": "raw_mixed_species",
+      "sourceDescription": "Mollusks, clam, mixed species, raw"
+    },
+    {
+      "fdcId": "174270",
+      "name": "干黄豆",
+      "aliases": [
+        "黄豆"
+      ],
+      "form": "raw_mature_seed",
+      "sourceDescription": "Soybeans, mature seeds, raw"
+    },
+    {
+      "fdcId": "174271",
+      "name": "水煮黄豆（无盐）",
+      "aliases": [
+        "熟黄豆"
+      ],
+      "form": "cooked_boiled_no_salt",
+      "sourceDescription": "Soybeans, mature cooked, boiled, without salt"
+    },
+    {
+      "fdcId": "173734",
+      "name": "干黑菜豆",
+      "aliases": [
+        "黑菜豆"
+      ],
+      "form": "raw_mature_seed",
+      "sourceDescription": "Beans, black, mature seeds, raw"
+    },
+    {
+      "fdcId": "173735",
+      "name": "水煮黑菜豆（无盐）",
+      "aliases": [
+        "熟黑菜豆"
+      ],
+      "form": "cooked_boiled_no_salt",
+      "sourceDescription": "Beans, black, mature seeds, cooked, boiled, without salt"
+    },
+    {
+      "fdcId": "173756",
+      "name": "干鹰嘴豆",
+      "aliases": [
+        "鹰嘴豆"
+      ],
+      "form": "raw_mature_seed",
+      "sourceDescription": "Chickpeas (garbanzo beans, bengal gram), mature seeds, raw"
+    },
+    {
+      "fdcId": "173757",
+      "name": "水煮鹰嘴豆（无盐）",
+      "aliases": [
+        "熟鹰嘴豆"
+      ],
+      "form": "cooked_boiled_no_salt",
+      "sourceDescription": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt"
+    },
+    {
+      "fdcId": "172420",
+      "name": "干小扁豆",
+      "aliases": [
+        "小扁豆"
+      ],
+      "form": "raw_mature_seed",
+      "sourceDescription": "Lentils, raw"
+    },
+    {
+      "fdcId": "172421",
+      "name": "水煮小扁豆（无盐）",
+      "aliases": [
+        "熟小扁豆"
+      ],
+      "form": "cooked_boiled_no_salt",
+      "sourceDescription": "Lentils, mature seeds, cooked, boiled, without salt"
+    },
+    {
+      "fdcId": "172475",
+      "name": "硫酸钙凝固生硬豆腐",
+      "aliases": [
+        "硫酸钙硬豆腐",
+        "硬豆腐"
+      ],
+      "form": "raw_firm_calcium_sulfate",
+      "sourceDescription": "Tofu, raw, firm, prepared with calcium sulfate"
+    },
+    {
+      "fdcId": "172476",
+      "name": "硫酸钙凝固生普通豆腐",
+      "aliases": [
+        "硫酸钙豆腐",
+        "豆腐"
+      ],
+      "form": "raw_regular_calcium_sulfate",
+      "sourceDescription": "Tofu, raw, regular, prepared with calcium sulfate"
+    },
+    {
+      "fdcId": "174290",
+      "name": "卤水凝固生特硬豆腐",
+      "aliases": [
+        "卤水特硬豆腐"
+      ],
+      "form": "raw_extra_firm_nigari",
+      "sourceDescription": "Tofu, extra firm, prepared with nigari"
+    },
+    {
+      "fdcId": "170567",
+      "name": "扁桃仁（almond）",
+      "aliases": [
+        "扁桃仁",
+        "美国大杏仁"
+      ],
+      "form": "unroasted",
+      "sourceDescription": "Nuts, almonds"
+    },
+    {
+      "fdcId": "170187",
+      "name": "英国核桃仁",
+      "aliases": [
+        "核桃",
+        "核桃仁"
+      ],
+      "form": "unroasted",
+      "sourceDescription": "Nuts, walnuts, english"
+    },
+    {
+      "fdcId": "170150",
+      "name": "干整粒芝麻",
+      "aliases": [
+        "芝麻"
+      ],
+      "form": "dried_whole",
+      "sourceDescription": "Seeds, sesame seeds, whole, dried"
+    },
+    {
+      "fdcId": "170556",
+      "name": "干南瓜籽仁",
+      "aliases": [
+        "南瓜籽"
+      ],
+      "form": "dried_kernels",
+      "sourceDescription": "Seeds, pumpkin and squash seed kernels, dried"
+    },
+    {
+      "fdcId": "174263",
+      "name": "生西班牙型花生",
+      "aliases": [
+        "花生"
+      ],
+      "form": "raw_spanish",
+      "sourceDescription": "Peanuts, spanish, raw"
+    },
+    {
+      "fdcId": "171413",
+      "name": "橄榄油",
+      "aliases": [
+        "橄榄油"
+      ],
+      "form": "salad_or_cooking_oil",
+      "sourceDescription": "Oil, olive, salad or cooking"
+    },
+    {
+      "fdcId": "171411",
+      "name": "大豆油",
+      "aliases": [
+        "大豆油"
+      ],
+      "form": "salad_or_cooking_oil",
+      "sourceDescription": "Oil, soybean, salad or cooking"
+    },
+    {
+      "fdcId": "172336",
+      "name": "低芥酸菜籽油",
+      "aliases": [
+        "低芥酸菜籽油"
+      ],
+      "form": "canola_oil",
+      "sourceDescription": "Oil, canola"
+    },
+    {
+      "fdcId": "169655",
+      "name": "白砂糖",
+      "aliases": [
+        "白砂糖"
+      ],
+      "form": "granulated",
+      "sourceDescription": "Sugars, granulated"
+    },
+    {
+      "fdcId": "173468",
+      "name": "食盐",
+      "aliases": [
+        "食盐",
+        "盐"
+      ],
+      "form": "table_salt",
+      "sourceDescription": "Salt, table"
+    }
+  ],
+  "nutrients": [
+    {
+      "id": "energy",
+      "usdaId": "1008",
+      "name": "能量",
+      "aliases": [
+        "热量",
+        "卡路里"
+      ],
+      "kind": "energy",
+      "unit": "KCAL"
+    },
+    {
+      "id": "protein",
+      "usdaId": "1003",
+      "name": "蛋白质",
+      "aliases": [
+        "蛋白"
+      ],
+      "kind": "macronutrient",
+      "unit": "G"
+    },
+    {
+      "id": "fat",
+      "usdaId": "1004",
+      "name": "总脂肪",
+      "aliases": [
+        "脂肪"
+      ],
+      "kind": "macronutrient",
+      "unit": "G"
+    },
+    {
+      "id": "carbohydrate",
+      "usdaId": "1005",
+      "name": "碳水化合物（差减法）",
+      "aliases": [
+        "碳水",
+        "碳水化合物"
+      ],
+      "kind": "macronutrient",
+      "unit": "G"
+    },
+    {
+      "id": "fiber",
+      "usdaId": "1079",
+      "name": "膳食纤维",
+      "aliases": [
+        "纤维"
+      ],
+      "kind": "macronutrient",
+      "unit": "G"
+    },
+    {
+      "id": "saturated-fat",
+      "usdaId": "1258",
+      "name": "饱和脂肪酸",
+      "aliases": [
+        "饱和脂肪"
+      ],
+      "kind": "macronutrient",
+      "unit": "G"
+    },
+    {
+      "id": "vitamin-a-rae",
+      "usdaId": "1106",
+      "name": "维生素A（RAE）",
+      "aliases": [
+        "维生素A",
+        "维A"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "vitamin-b1",
+      "usdaId": "1165",
+      "name": "维生素B1（硫胺素）",
+      "aliases": [
+        "维生素B1",
+        "维B1",
+        "B1",
+        "硫胺素"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "vitamin-b2",
+      "usdaId": "1166",
+      "name": "维生素B2（核黄素）",
+      "aliases": [
+        "维生素B2",
+        "维B2",
+        "B2",
+        "核黄素"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "vitamin-b3",
+      "usdaId": "1167",
+      "name": "烟酸（非烟酸当量）",
+      "aliases": [
+        "烟酸",
+        "维生素B3",
+        "B3"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "vitamin-b5",
+      "usdaId": "1170",
+      "name": "泛酸",
+      "aliases": [
+        "维生素B5",
+        "B5",
+        "泛酸"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "vitamin-b6",
+      "usdaId": "1175",
+      "name": "维生素B6",
+      "aliases": [
+        "维生素B6",
+        "维B6",
+        "B6"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "biotin",
+      "usdaId": "",
+      "name": "生物素（本源缺项）",
+      "aliases": [
+        "维生素B7",
+        "B7",
+        "生物素"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "folate-total",
+      "usdaId": "1177",
+      "name": "总叶酸",
+      "aliases": [
+        "总叶酸",
+        "维生素B9",
+        "B9",
+        "叶酸"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "folate-food",
+      "usdaId": "1187",
+      "name": "天然食物叶酸",
+      "aliases": [
+        "食物叶酸"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "folate-dfe",
+      "usdaId": "1190",
+      "name": "膳食叶酸当量（DFE）",
+      "aliases": [
+        "叶酸DFE",
+        "膳食叶酸当量"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "vitamin-b12",
+      "usdaId": "1178",
+      "name": "维生素B12",
+      "aliases": [
+        "维生素B12",
+        "维B12",
+        "B12"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "vitamin-c",
+      "usdaId": "1162",
+      "name": "维生素C（总抗坏血酸）",
+      "aliases": [
+        "维生素C",
+        "维C",
+        "VC"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "vitamin-d",
+      "usdaId": "1114",
+      "name": "维生素D（D2+D3）",
+      "aliases": [
+        "维生素D",
+        "维D",
+        "VD"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "vitamin-e",
+      "usdaId": "1109",
+      "name": "维生素E（α-生育酚）",
+      "aliases": [
+        "维生素E",
+        "维E"
+      ],
+      "kind": "vitamin",
+      "unit": "MG"
+    },
+    {
+      "id": "vitamin-k",
+      "usdaId": "1185",
+      "name": "维生素K（叶绿醌）",
+      "aliases": [
+        "维生素K",
+        "维K"
+      ],
+      "kind": "vitamin",
+      "unit": "UG"
+    },
+    {
+      "id": "calcium",
+      "usdaId": "1087",
+      "name": "钙",
+      "aliases": [
+        "钙元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "iron",
+      "usdaId": "1089",
+      "name": "铁",
+      "aliases": [
+        "铁元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "magnesium",
+      "usdaId": "1090",
+      "name": "镁",
+      "aliases": [
+        "镁元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "phosphorus",
+      "usdaId": "1091",
+      "name": "磷",
+      "aliases": [
+        "磷元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "potassium",
+      "usdaId": "1092",
+      "name": "钾",
+      "aliases": [
+        "钾元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "sodium",
+      "usdaId": "1093",
+      "name": "钠",
+      "aliases": [
+        "钠元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "zinc",
+      "usdaId": "1095",
+      "name": "锌",
+      "aliases": [
+        "锌元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "copper",
+      "usdaId": "1098",
+      "name": "铜",
+      "aliases": [
+        "铜元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "manganese",
+      "usdaId": "1101",
+      "name": "锰",
+      "aliases": [
+        "锰元素"
+      ],
+      "kind": "mineral",
+      "unit": "MG"
+    },
+    {
+      "id": "selenium",
+      "usdaId": "1103",
+      "name": "硒",
+      "aliases": [
+        "硒元素"
+      ],
+      "kind": "mineral",
+      "unit": "UG"
+    },
+    {
+      "id": "choline",
+      "usdaId": "1180",
+      "name": "胆碱",
+      "aliases": [
+        "胆碱"
+      ],
+      "kind": "other",
+      "unit": "MG"
+    }
+  ],
+  "exclusions": [
+    {
+      "url": "https://medlineplus.gov/ency/article/002458.htm",
+      "reason": "A.D.A.M. third-party content prohibits dataset/index/embedding/RAG reuse; excluded entirely."
+    },
+    {
+      "topic": "general anemia / general fatty liver",
+      "reason": "No alias broadening to iron-deficiency anemia or NAFLD; source-specific diagnosis required."
+    },
+    {
+      "nutrient": "biotin",
+      "reason": "SR Legacy selected source has no mapped biotin field; all values explicitly not_reported, never zero."
+    }
+  ]
+}
