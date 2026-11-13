@@ -58,7 +58,7 @@ export class CloudBaseGalleryRepository {
       const response=await (this.options.fetch??fetch)(url,{headers:{Authorization:`Bearer ${this.options.publishableKey}`},signal:AbortSignal.timeout(8000),redirect:'error'});
       if(!response.ok)throw new Error('CONTENT_READ_FAILED');
       const text=await response.text();
-      if(Buffer.byteLength(text)>5*1024*1024)throw new Error('CONTENT_TOO_LARGE');
+      if(Buffer.byteLength(text)>12*1024*1024)throw new Error('CONTENT_TOO_LARGE');
       const rows=JSON.parse(text);
       if(!Array.isArray(rows)||rows.length!==1)throw new Error('CONTENT_WITHDRAWN');
       return rows[0].payload;

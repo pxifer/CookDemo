@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/bimissing/recipeData/main/recipeData.zip",
+    "sha256": "1afdc0aff114d52dc9a313170d777cc87d30d1707d77186ac1b7a4d7a62833d2",
+    "bytes": 9761720,
+    "retrieved": "2026-11-13"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/bimissing/recipeData/main/recipeData-new1.json.zip",
+    "sha256": "1c9a1e660995bbc523dcc33271cc3b4229c5ec46fe33117a3fd6a980acfde927",
+    "bytes": 5221323,
+    "retrieved": "2026-11-13"
+  }
+]
