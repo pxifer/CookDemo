@@ -1,0 +1,19 @@
+{
+  "releaseId": "gallery-listed-foods-1000-20261113-v1",
+  "hash": "87d334eedc6662775bbc16916c66832a181052d13762aefed952ed77e4ff8b89",
+  "baseHash": "45341dca1168ad63ffb5cf68a55c396a6c2b5b387911c71071000c8a039fc496",
+  "sourceHash": "c14f62e15b939f1c6947169a52886eb08f625a954acff361dc4d5ec37f0a073a",
+  "recipes": 1000,
+  "previousRecipes": 341,
+  "addedRecipes": 659,
+  "variants": 1004,
+  "bytes": 5042084,
+  "missingImages": 659,
+  "imagesDeferredByUser": true,
+  "source": "https://github.com/bimissing/recipeData",
+  "sourceFiles": [
+    "recipeData.zip",
+    "recipeData-new1.json.zip"
+  ],
+  "checks": "source-field/identity/structure consistency; not independent manual or medical review"
+}

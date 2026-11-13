@@ -16,7 +16,7 @@ if(process.env.LOCAL_RAG_PREVIEW!=='1'||process.versions.node.split('.')[0]!=='2
 if(process.env.SHIWEI_LOCAL_TEST_ONLY==='1')throw Error('REAL_PREVIEW_CANNOT_USE_OFFLINE_TEST_ENVIRONMENT');
 const port=Number(process.env.LOCAL_RAG_PREVIEW_PORT??15199);
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('LOCAL_PREVIEW_PORT_INVALID');
-const origin=`http://127.0.0.1:${port}`,directory='.local-data/cloudbase-http/listed-foods-20261026-v28';
+const origin=`http://127.0.0.1:${port}`,directory=process.env.LOCAL_RECIPE_RELEASE==='1000'?'datasets/recipes/expansion-1000':'.local-data/cloudbase-http/listed-foods-20261026-v28';
 const manifest=JSON.parse(await readFile(join(directory,'manifest.json'),'utf8'));
 const bundle=JSON.parse(await readFile(join(directory,'gallery-bundle.json'),'utf8')) as GalleryBundle;
 const snapshot=verifyGalleryBundle(bundle,manifest.hash);
