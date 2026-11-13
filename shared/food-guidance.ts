@@ -17,10 +17,11 @@ export interface FoodGuidance {
   basis:'source_statement'|'project_interpretation'; clinicalReview:'pending';
 }
 export interface FoodGuidancePacket {
-  mode:'local_research'; clinicalRelease:null; knowledgeVersion:string; fingerprint:string;
+  mode:'local_research'|'source_guidance'; clinicalRelease:null; knowledgeVersion:string; fingerprint:string;
   topics:GuidanceTopic[]; guidance:FoodGuidance[]; evidence:GuidanceEvidence[];
   uncoveredTopics:string[]; missingConditions:string[]; conflicts:{objectId:string;guidanceIds:string[]}[];
   mappingCoverage:{total:number;mapped:number;unmappedObjects:string[]};
+  nutritionReference?:Record<string,unknown>;
   nutritionPrinciples?:(import('./nutrition-knowledge').NutritionPrinciple&{applicability:FoodGuidance['applicability']})[];
 }
 export interface GuidanceInput { profile:HealthContext; content:ContentContext; conditions?:Record<string,string>; currentText?:string }
@@ -34,6 +35,6 @@ export interface RecipeGuidanceBinding {
   methodId:'primary'; recipeHash:string; methodHash:string; guidanceFingerprint:string;
   matches:{guidanceId:string;direction:GuidanceDirection;foodIds:string[];lineIndexes:number[];processRule?:string}[];
 }
-export interface ResearchMealGrounding { mode:'local_research'; knowledgeVersion:string;fingerprint:string;coverage?:'matched'|'partial'|'unmatched';uncoveredTopics:string[];missingConditions:string[];clinicalRelease:null }
+export interface ResearchMealGrounding { mode:'local_research'|'source_guidance'; knowledgeVersion:string;fingerprint:string;coverage?:'matched'|'partial'|'unmatched';uncoveredTopics:string[];missingConditions:string[];clinicalRelease:null }
 export interface GuidanceMealInput { meal:Meal;content:ContentContext;packet:FoodGuidancePacket }
 export type GuidanceVariant = Variant;

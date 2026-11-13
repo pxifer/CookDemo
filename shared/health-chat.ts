@@ -16,7 +16,7 @@ export interface HealthChatRequest {
   profile?:HealthContext;
   mealContext?: { ingredients: string[]; seasonings: string[]; restrictions: string[]; allowBuy: boolean;checkSeasonings?:boolean;servings?:number;aiFoodChoices?:AiFoodChoices;aiExcludedFoods?:string[];aiFoodPreferences?:AiFoodChoices };
 }
-export interface HealthChatReply { operationId: string; message: ChatMessage; knowledge: 'general_model'|'research_rag'; assessment?: DietAssessment; invocation?: ProviderInvocation;accountSnapshot?:import('./account').AccountSnapshot;saveError?:string;researchGuidance?:import('./food-guidance').FoodGuidancePacket }
+export interface HealthChatReply { operationId: string; message: ChatMessage; knowledge: 'general_model'|'research_rag'|'source_rag'; assessment?: DietAssessment; invocation?: ProviderInvocation;accountSnapshot?:import('./account').AccountSnapshot;saveError?:string;researchGuidance?:import('./food-guidance').FoodGuidancePacket }
 export const healthChatSchema = {
   type: 'object', additionalProperties: false, required: ['operationId', 'messages', 'diseases'],
   properties: {
