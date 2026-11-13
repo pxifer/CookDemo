@@ -15,3 +15,5 @@ RAG-009纳入前两项后的集成仅解决任务登记文档冲突，保留双�
 证据位于独立审核目录忽略路径：`.local-data/management/reviews/2026-11-13T09-00-27-881Z-post-merge-f1c801547a0a/`、`recipe-docs-audit.json`、`recipe1000-browser/results.json`、`browser-ports-1794560505228/report.json`、`RAG-009-combined-pg/`；独立离线重建在 `baseline-review/.local-data/management/RAG-009-rebuild/`。
 
 本地集成完成。用户本轮另已要求上线，发布证据另行记录；不将此审核报告视为已部署。营养研究无新向量/真实生成/专业签认，云端疾病RAG、找回密码、注销、共享任务保持关闭；659道新增菜暂用缺图占位。
+
+用户本轮授权的发布已完成，线上1000菜谱与7项只读核验通过；详见[main-v50发布记录](../../releases/ACCEPTANCE-main-v50-2026-11-13.md)。
