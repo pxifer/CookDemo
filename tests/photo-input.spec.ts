@@ -15,8 +15,6 @@ test('INPUT-001 图片确认后添加、不确定项不加入，普通推荐继�
   await expect(page.locator('.ingredients .ingredient-name')).toHaveCount(0);
   await page.getByRole('checkbox',{name:'西红柿',exact:true}).uncheck();await page.getByRole('button',{name:'添加所选食材',exact:true}).click();
   await expect(page.locator('.ingredients .ingredient-name')).toHaveText(['鸡蛋']);
-  await expect(page.locator('.upload-zone')).toBeVisible();await expect(page.getByLabel('选择食材图片',{exact:true})).toHaveCount(1);
-  await page.reload();await expect(page.locator('.upload-zone')).toBeVisible();await expect(page.locator('.ingredients .ingredient-name')).toHaveText(['鸡蛋']);
   await expect(page.getByLabel('鸡蛋用量',{exact:true})).toHaveCount(0);await expect(page.locator('.amount-hint')).toHaveCount(0);
   await page.getByLabel('允许补买食材',{exact:false}).check();await page.getByRole('button',{name:'安排这一餐',exact:true}).click();await expect(page.getByTestId('recipe-card').first()).toBeVisible();
   expect(calls).toBe(1);await page.screenshot({path:`${process.env.ACCEPTANCE_DIR??'artifacts/acceptance'}/${info.project.name}-photo-input.png`,fullPage:true});

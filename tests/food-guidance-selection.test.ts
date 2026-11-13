@@ -62,9 +62,9 @@ test('分页与手选口味重新核对配方，无新增模型调用；知识/�
   const meal={...base(),allowBuy:true,mode:'candidates' as const,composition:'auto' as const};
   const recipes=Array.from({length:8},(_,i)=>simpleRecipe('egg-'+i,[['egg',1]]));for(const r of recipes)r.variants.push({...r.variants[0],id:r.id+'-other',flavor:'微辣',steps:['煎至熟透']});
   let calls=0;const revoked=new Set<string>(),selector=createHealthRecipeSelector(randomBytes(32),repo(revoked));
-  const start=input(meal,recipes,async(_u,init)=>{calls++;const p=JSON.parse(JSON.parse(String(init?.body)).messages[1].content);return envelope({summary:'构造8候选',choices:p.catalog.slice(0,p.count).map((c:any)=>({id:c.id,reason:'构造',guidanceIds:c.guidanceIds.slice(0,3)}))});});
-  const first=await selector(start);assert.equal(first.total,first.dishes.length);
-  const page=await selector({...start,request:request(meal,{action:'page',page:0,cursor:first.cursor})});assert.equal(page.dishes.length,first.dishes.length);assert.equal(calls,1);
+  const start=input(meal,recipes,async(_u,init)=>{calls++;const p=JSON.parse(JSON.parse(String(init?.body)).messages[1].content);return envelope({summary:'构造8候选',choices:p.catalog.map((c:any)=>({id:c.id,reason:'构造',guidanceIds:c.guidanceIds.slice(0,3)}))});});
+  const first=await selector(start);assert.equal(first.total,8);
+  const page=await selector({...start,request:request(meal,{action:'page',page:1,cursor:first.cursor})});assert.equal(page.dishes.length,2);assert.equal(calls,1);
   const chosen=first.dishes[0];const changed=await selector({...start,request:request({...meal,overrides:{[chosen.recipe.id]:chosen.recipe.id+'-other'}},{action:'variant',cursor:first.cursor,selected:first.dishes.map(d=>({recipeId:d.recipe.id,variantId:d.variant.id}))})});
   assert.equal(changed.dishes[0].aiGrounding!.variantId,chosen.recipe.id+'-other');assert.equal(calls,1);
   revoked.add('goal-ev:exercise-scope');await assert.rejects(selector({...start,request:request(meal,{action:'page',page:1,cursor:first.cursor})}),/过期/);assert.equal(calls,1);

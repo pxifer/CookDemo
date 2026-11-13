@@ -37,7 +37,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
   };
   return async(input:{request:RecommendationRequest;owner:string;apiKey:string;context:ContentContext;signal:AbortSignal;fetcher?:typeof fetch;present:(dish:Dish)=>Pick<Dish,'variant'|'reused'|'checks'>&{recipe:Pick<Dish['recipe'],'name'|'category'>};claim:()=>Promise<void>;progress:(text:string)=>void;observe?:(diagnostics:SelectionDiagnostics)=>void}):Promise<RecommendationResult>=>{
     const started=performance.now();
-    const {owner,apiKey,context,signal}=input,req={...input.request,meal:{...recommendationMeal(input.request.meal),mode:'meal' as Meal['mode']}},meal=req.meal;
+    const {owner,apiKey,context,signal}=input,req={...input.request,meal:recommendationMeal(input.request.meal)},meal=req.meal;
     const research=guidanceProvider?await guidanceProvider.prepare({profile:meal.healthProfile??{conditions:meal.diseases,goals:[],notes:''},content:context}):undefined;
     const binding=bind(meal,context,apiKey,research?.fingerprint);
     const current=async()=>{if(research)try{await guidanceProvider!.assertCurrent(research);}catch{throw new DomainError('HEALTH_GUIDANCE_CHANGED',409,'食材依据已变化，请按当前条件重新搭配；未自动重发');}};
@@ -71,7 +71,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
         ...(research?{researchGuidance:{mode:research.mode,knowledgeVersion:research.knowledgeVersion,fingerprint:research.fingerprint,coverage,uncoveredTopics:research.uncoveredTopics,missingConditions:research.missingConditions,clinicalRelease:null}}:{}),
         healthAssessment:{state:'model_selected' as const,message:summary(coverage)??plan.summary},reasons:!plan.options&&!plan.targetMet?['按当前条件提供可行菜品，尚未达到原搭配数量。']:[]};
     };
-    if(req.action==='page'){const plan=restore(req.cursor,owner,binding);if(!plan.options&&req.page!==0)throw new DomainError('PAGE_EXPIRED',409,'这一餐已全部展示，请重新搭配');return publish(plan);}
+    if(req.action==='page')return publish(restore(req.cursor,owner,binding));
     if(req.action==='variant'){
       if(!req.cursor?.startsWith('ai1.'))return recommend(eligibleRecipes,req,{context,signal,conversationOnly:true});
       const plan=restore(req.cursor,owner,binding),expected=plan.options?plan.choices.slice(req.page*6,req.page*6+6):plan.choices;

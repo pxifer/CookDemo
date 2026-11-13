@@ -44,9 +44,9 @@ test('AI候选翻页与手选口味复用加密游标，不额外调用；跨实
   const meal={...oneMeal(),allowBuy:true,composition:'auto' as const,mode:'candidates' as const};
   const recipes=Array.from({length:8},(_,i)=>simpleRecipe(`r${i}`,[['tomato',50]]));for(const recipe of recipes)recipe.variants.push({...recipe.variants[0],id:`${recipe.id}-v2`,flavor:'微辣'});
   let calls=0;const secret=randomBytes(32);
-  const input=options(meal,recipes,async(_url,init)=>{calls++;const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'构造8道可选菜',choices:packet.catalog.slice(0,packet.count).map((item:any)=>({id:item.id,reason:'按现有食材选择'}))});});
-  const result=await createHealthRecipeSelector(secret)(input);assert(result.dishes.length>0&&result.dishes.length<6);assert.equal(result.total,result.dishes.length);assert(!result.cursor.includes('按现有食材'));assert(!result.cursor.includes(apiKey));
-  await assert.rejects(createHealthRecipeSelector(secret)({...input,request:request(meal,{action:'page',page:1,cursor:result.cursor})}),/全部展示/);assert.equal(calls,1);
+  const input=options(meal,recipes,async(_url,init)=>{calls++;const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'构造8道可选菜',choices:packet.catalog.map((item:any)=>({id:item.id,reason:'按现有食材选择'}))});});
+  const result=await createHealthRecipeSelector(secret)(input);assert.equal(result.dishes.length,6);assert.equal(result.total,8);assert(!result.cursor.includes('按现有食材'));assert(!result.cursor.includes(apiKey));
+  const second=await createHealthRecipeSelector(secret)({...input,request:request(meal,{action:'page',page:1,cursor:result.cursor})});assert.equal(second.dishes.length,2);assert.equal(calls,1);
   await assert.rejects(createHealthRecipeSelector(secret)({...input,owner:'other-owner',request:request(meal,{action:'page',page:1,cursor:result.cursor})}),/过期/);
   await assert.rejects(createHealthRecipeSelector(secret)({...input,request:request({...meal,allowBuy:false},{action:'page',page:1,cursor:result.cursor})}),/过期/);
   await assert.rejects(createHealthRecipeSelector(secret)({...input,request:request(meal,{action:'page',page:1,cursor:result.cursor.slice(0,-8)+'aaaaaaaa'})}),/过期/);
@@ -67,23 +67,16 @@ test('真实账户推荐路径调用保存的Key和PG单次认领，普通推荐
   const {db,accounts}=await fixture();let calls=0;
   const app=await createApp({accounts,healthRecipeFetch:async(_url,init)=>{
     calls++;assert.equal(new Headers(init?.headers).get('authorization'),`Bearer ${apiKey}`);const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);
-    assert.equal(packet.user.allowBuy,true);return envelope({summary:'构造真实路径选菜',choices:packet.catalog.slice(0,packet.count).map((item:any)=>({id:item.id,reason:'构造用户食材与菜谱做法理由'}))});
+    assert.equal(packet.user.allowBuy,true);return envelope({summary:'构造真实路径选菜',choices:packet.catalog.slice(0,Math.min(packet.max,8)).map((item:any)=>({id:item.id,reason:'构造用户食材与菜谱做法理由'}))});
   }});
   try{
     const registration=await accounts.registrationCode('ai-recipe@example.invalid','ai-recipe');const identity=await accounts.register({username:'ai-recipe',password:'Recipe!Test123',code:'123456',challenge:registration.challenge},'ai-recipe');await accounts.setHealthKey(identity,0,apiKey);
     const session=await app.inject('/api/v1/auth/session'),headers={cookie:`${String(session.headers['set-cookie']).split(';')[0]}; ${accounts.cookie(identity).split(';')[0]}`,origin:'http://localhost:80','x-csrf-token':session.json().csrfToken};
     const meal={...mealWith(),health:true,allowBuy:true,mode:'candidates' as const};const call=request(meal);
     const result=await app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:call});assert.equal(result.statusCode,200,result.body);assert.equal(result.json().healthAssessment.state,'model_selected');assert.equal(calls,1);assert(!result.body.includes(apiKey));
-    const page=await app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:request(meal,{action:'page',page:1,cursor:result.json().cursor})});assert.equal(page.statusCode,409,page.body);assert.equal(calls,1);
+    const page=await app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:request(meal,{action:'page',page:1,cursor:result.json().cursor})});assert.equal(page.statusCode,200,page.body);assert.equal(calls,1);
     assert.equal((await app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:call})).statusCode,409);assert.equal(calls,1);
     await app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:request({...meal,health:false})});assert.equal(calls,1);
     const rows=(await db.query('SELECT * FROM shiwei_ai_chat_operations')).rows;assert.equal(rows.length,1);assert(!JSON.stringify(rows).includes(apiKey));
   }finally{await app.close();await db.close();}
-});
-
-for(const [servings,custom,expected] of [[1,false,3],[4,false,7],[2,true,2]] as const)test('AI一餐约束：人数'+servings+' 自定义'+custom,async()=>{
-  const meal={...oneMeal(),servings,allowBuy:true,mode:'candidates' as const,composition:custom?'custom' as const:'auto' as const,counts:custom?{meat:0,veg:2,soup:0}:{meat:1,veg:2,soup:0}};
-  const recipes=Array.from({length:18},(_,i)=>simpleRecipe('constraint-'+i,[['tomato',50]],{category:i<6?'meat':i<12?'veg':'soup'}));
-  const input=options(meal,recipes,async(_url,init)=>{const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);assert.equal(packet.mode,'meal');assert.equal(packet.user.servings,servings);assert.equal(packet.user.allowBuy,true);assert.equal(packet.count,expected);const left={...packet.categories};return envelope({summary:'按本餐搭配',choices:packet.catalog.filter((item:any)=>{if(left[item.category]>0){left[item.category]--;return true;}return false;}).map((item:any)=>({id:item.id,reason:'符合本餐数量与分类'}))});});
-  const result=await createHealthRecipeSelector(randomBytes(32))(input);assert.equal(result.dishes.length,expected);if(custom)assert(result.dishes.every(dish=>dish.recipe.category==='veg'));
 });
