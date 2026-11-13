@@ -60,6 +60,9 @@
 
 ## 2. 论文、官方文档与成熟产品
 
+<a id="e19"></a>
+- **E19 当前工程增量（保留上述历史快照）**：[RAG-008执行记录](../evidence-refresh-2026-11-12.md)、[知识v3](../../../datasets/health/README-v3.md)、[映射v3](../../../datasets/health/food-guidance-mappings-v3.md)、[本地验收](../../../artifacts/acceptance/rag-evidence-refresh-2026-11-12/README.md)。新Qwen索引99条，不改写原98条两模型对比或原参数测量；来源清单的历史hash仍绑定bfa1567，新增overlay单独登记。
+
 用于方法解释，不以外部产品结果冒充本项目对比。上游默认值有版本范围；查阅日期不是复现其全部代码。
 
 <a id="s01"></a>

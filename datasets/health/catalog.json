@@ -1,6 +1,6 @@
 {
-  "defaultBundle": "2026-10-28-v2",
-  "versions": ["2026-10-28-v1", "2026-10-28-v2"],
+  "defaultBundle": "2026-11-12-v3",
+  "versions": ["2026-10-28-v1", "2026-10-28-v2", "2026-11-12-v3"],
   "localDatabase": "shared",
   "clinicalRelease": null
 }

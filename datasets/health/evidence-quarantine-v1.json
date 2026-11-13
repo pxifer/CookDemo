@@ -1,0 +1,12 @@
+{
+  "id": "health-evidence-quarantine-v1",
+  "date": "2026-11-12",
+  "policy": "Additive withdrawals across research bundle versions. Preserve frozen originals; never relabel old navigation or incomplete fragments as approved body evidence.",
+  "entries": [
+    {"evidenceId": "ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb", "key": "nci-reduce", "reason": "legacy_navigation_question_not_support"},
+    {"evidenceId": "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b", "key": "nci-formation", "reason": "fragment_does_not_cover_all_attached_process_statements"},
+    {"evidenceId": "ev:5e1d26b211264fe779b255df7fcd38a7c012085ed71a8e39e5107f23b6d57633", "key": "nci-limits", "reason": "fragment_missing_exposure_and_human_population_context"}
+  ],
+  "replacementPolicy": "Complete body excerpts with new IDs and explicit conditions/qualifiers; failed originals stay frozen, never self-approved as clinical guidance.",
+  "review": {"origin": "project_source_recheck", "independentClinicalReview": null}
+}

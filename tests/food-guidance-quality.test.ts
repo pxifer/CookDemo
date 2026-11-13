@@ -6,7 +6,8 @@ import {researchFoodChat,balancedFoodSuggestions} from '../backend/src/rag/food-
 import {constructedContent} from '../shared/catalog';
 import {contentContext} from '../shared/content';
 import {simpleRecipe} from './fixtures';
-const assets=await readFoodGuidanceAssets();
+// Preserve the v2-specific regression independently of the current mapping default.
+const assets=await readFoodGuidanceAssets(2);
 const added=[...new Set(Object.values(assets.mappings.objects).flatMap(x=>x.names))].filter(name=>!constructedContent.foods.some(f=>f.name===name));
 const content=contentContext({...constructedContent,foods:[...constructedContent.foods,...added.map((name,i)=>({id:`quality-food-${i}`,name,aliases:[],unit:'g' as const,form:'raw' as const,allergens:[],componentsComplete:true,nutrition:{}}))]});
 const profile={conditions:['高脂血症'],goals:[],notes:'我是成年人'};

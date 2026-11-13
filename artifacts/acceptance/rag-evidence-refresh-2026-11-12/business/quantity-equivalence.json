@@ -1,0 +1,7 @@
+{
+  "sameOperationIdInFixtureOnly": true,
+  "userPacketEqual": true,
+  "catalogEqual": true,
+  "quantityEquivalent": true,
+  "source": "quantity-small vs quantity-large; fixed selection secret; no real provider"
+}

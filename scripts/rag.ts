@@ -27,11 +27,11 @@ interface EvaluationRow {
   ranks: number[]; topFacts: string[]; reason: string | null; elapsedMs: number;
 }
 if (process.argv.includes('--help')) {
-  console.log('RAG: index|query|evaluate|smoke; --index-id ID --case-id ID --question TEXT --context JSON --mode a1|dense|hybrid --output DIR --limit N. Default generation is an offline extractive fixture. Live public cases require --live plus RAG_ALLOW_LIVE=1 and a fresh active, bounded authorization. See agent-design/docs/runbook.md.');
+  console.log('RAG: index|query|evaluate|smoke; --index-id ID --case-id ID --question TEXT --context JSON --mode a1|dense|hybrid --output DIR --limit N --embedding-url LOOPBACK_HTTP_URL. Default generation is an offline extractive fixture. Live public cases require --live plus RAG_ALLOW_LIVE=1 and a fresh active, bounded authorization. See agent-design/docs/runbook.md.');
   process.exit(0);
 }
 const args = process.argv.slice(2), task = args.shift();
-const allowed = new Set(['--question', '--context', '--index-id', '--case-id', '--mode', '--output', '--limit', '--live']);
+const allowed = new Set(['--question', '--context', '--index-id', '--case-id', '--mode', '--output', '--limit', '--live', '--embedding-url']);
 const flags = new Map<string, string>();
 for (let i = 0; i < args.length; i++) {
   const name = args[i]; if (!allowed.has(name) || flags.has(name)) throw Error('RAG_ARGUMENT_INVALID');
@@ -44,7 +44,7 @@ const runId = new Date().toISOString().replace(/[:.]/g, '-');
 const interactive = task === 'query' && !flags.has('--case-id');
 const output = flags.get('--output') ?? (interactive ? `.local-data/rag/queries/${runId}` : `artifacts/acceptance/rag-${task}-${runId}`);
 if (interactive && !resolve(output).startsWith(resolve('.local-data/rag/queries') + sep)) throw Error('RAG_INTERACTIVE_OUTPUT_MUST_BE_PRIVATE');
-const provider = new LocalEmbeddingProvider();
+const provider = new LocalEmbeddingProvider(flags.get('--embedding-url'));
 class MemoProvider implements EmbeddingProvider {
   private cache = new Map<string, Promise<EmbeddingBatch>>();
   readonly observations: { inputHash: string; elapsedMs: number; tokens: number }[] = [];

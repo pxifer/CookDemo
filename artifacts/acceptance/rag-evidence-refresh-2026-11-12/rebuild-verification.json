@@ -1,0 +1,75 @@
+{
+  "newVersionFiles": [
+    {
+      "file": "conflicts.jsonl",
+      "sha256": "dce8250bf0ffe392814f6c30cce80ead628e7bd580cc0bea627829c942e0bd6a"
+    },
+    {
+      "file": "entities.jsonl",
+      "sha256": "c7292aae286eeae22529231bc3a7e29f885a27607a07567ae4bdb98593aab72d"
+    },
+    {
+      "file": "evidence.jsonl",
+      "sha256": "19a8ecb358c10d90829bcf009ef551b3f797986f92f59cc7445ddf937c075349"
+    },
+    {
+      "file": "facts.jsonl",
+      "sha256": "43ee662d08a9bf986cce725503e3b14c42706d866c4ba6ba9b995a9ad1566b65"
+    },
+    {
+      "file": "knowledge-bundle.json",
+      "sha256": "4e226467e26b27a2fb6fac34c1b3c0d968b60c1a7580cab5c94b286518c84597"
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "3f283f98d7489e36b657e227c35ab83dab34e7345008a2efaf59be8db934a41d"
+    },
+    {
+      "file": "relations.csv",
+      "sha256": "b7a61598638c87347ba84936feabddea68a003632c7f8b5eed916c1ca6e14a40"
+    },
+    {
+      "file": "rule-drafts.jsonl",
+      "sha256": "be4b845f58ea6afb98d4a5e8c4974e35d6b7dd714fc11fdde9d6d1b525456c49"
+    },
+    {
+      "file": "source-recuration.json",
+      "sha256": "657875a5677106ac12f9bc2504d75340c374c18fe5522c48094ba627912ab7aa"
+    },
+    {
+      "file": "sources.jsonl",
+      "sha256": "d2b8d89346541975c58d7c685ca20bc2442bf067b9e8c9bb1f7ecef4cf765498"
+    }
+  ],
+  "twoIndependentRebuildsByteIdentical": true,
+  "frozenFilesUnchanged": [
+    "datasets/health/2026-10-28-v1/conflicts.jsonl",
+    "datasets/health/2026-10-28-v1/entities.jsonl",
+    "datasets/health/2026-10-28-v1/evidence.jsonl",
+    "datasets/health/2026-10-28-v1/facts.jsonl",
+    "datasets/health/2026-10-28-v1/knowledge-bundle.json",
+    "datasets/health/2026-10-28-v1/manifest.json",
+    "datasets/health/2026-10-28-v1/relations.csv",
+    "datasets/health/2026-10-28-v1/rule-drafts.jsonl",
+    "datasets/health/2026-10-28-v1/sources.jsonl",
+    "datasets/health/2026-10-28-v2/conflicts.jsonl",
+    "datasets/health/2026-10-28-v2/entities.jsonl",
+    "datasets/health/2026-10-28-v2/evidence.jsonl",
+    "datasets/health/2026-10-28-v2/facts.jsonl",
+    "datasets/health/2026-10-28-v2/knowledge-bundle.json",
+    "datasets/health/2026-10-28-v2/manifest.json",
+    "datasets/health/2026-10-28-v2/relations.csv",
+    "datasets/health/2026-10-28-v2/rule-drafts.jsonl",
+    "datasets/health/2026-10-28-v2/sources.jsonl",
+    "datasets/health/goal-guidance-2026-11-04-v1/knowledge.json",
+    "datasets/health/goal-guidance-2026-11-04-v1/manifest.json",
+    "datasets/health/goal-guidance-2026-11-04-v1/README.md",
+    "datasets/health/food-guidance-mappings-v1.json",
+    "datasets/health/food-guidance-mappings-v2.json",
+    "datasets/health/knowledge-bundle.schema.json"
+  ],
+  "newEvidence": 4,
+  "revisedFacts": 4,
+  "unchangedOtherEvidence": 95,
+  "clinicalReview": null
+}

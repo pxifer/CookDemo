@@ -42,6 +42,7 @@
 - 食材指导接入本地聊天/选菜的当前契约及实测见[业务RAG记录](agent-design/docs/business-rag-execution-2026-11-04.md)：显式local/loopback研究开关、直接指导及动态配方绑定；新增目标未向量化，真实生成质量与专业审核仍待完成。
 - 当前真实界面链路及5次样例见[2026-11-05例子](agent-design/docs/business-rag-example-2026-11-05.md)：无健康依据不全局拦截合格菜，保留健康判断；模型只选目录ID，程序按真实配方绑定证据，不采信模型自由填写引用。独立/专业质量评测仍未完成。
 - `backend/src/rag/` 为研究 RAG 实现，`backend/rag-runtime/` 为本机 Embedding 推理；`rag:prepare/index/query/evaluate/smoke` 从根目录运行，研究凭证、权重和账本仅在 `.local-data/rag/`。
+- 当前研究默认[v3知识](datasets/health/README-v3.md)与[映射v3](datasets/health/food-guidance-mappings-v3.md)；旧NCI短摘跨版本隔离，99条证据的新索引不能混用旧包。重整/入库/常用映射及本餐回归见[RAG-008实测](agent-design/docs/evidence-refresh-2026-11-12.md)，不外推为全库审核或线上疾病发布。
 - `artifacts/build/web` 是构建输出；`legacy/prototype` 是保留的手写历史原型源码，禁止删除或覆盖。上级 `demo/` 是另一份材料，不自动同步。
 - 详细入口见[文档索引](docs/README.md)、[当前架构](docs/architecture/overview.md)；按任务阅读，不要求每次重读全部文档。
 - 目录迁移、清理与恢复见[整理记录](docs/maintenance/reorganization-2026-11-03/README.md)；正式图片在 `frontend/public/`，本地配置及发布缓存留在 `.local-data/`，历史证据不按缓存清理。

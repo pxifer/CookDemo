@@ -1,0 +1,323 @@
+{
+  "date": "2026-11-12",
+  "mode": "real_loopback_pg_and_local_qwen_with_extractive_fixture_only",
+  "knowledgeId": "health-kb-2026-11-12-v3",
+  "knowledgeHash": "97b29dd8ace522233523d748c127dd4059e1e29b08bf63007f95685b68ab8711",
+  "counts": {
+    "sources": 11,
+    "entities": 137,
+    "evidence": 99,
+    "facts": 260,
+    "ruleDrafts": 124,
+    "conflicts": 5,
+    "recipeBindings": 0
+  },
+  "index": {
+    "id": "qwen-20261112-v3-body-r1",
+    "bundleId": "health-kb-2026-11-12-v3",
+    "bundleHash": "97b29dd8ace522233523d748c127dd4059e1e29b08bf63007f95685b68ab8711",
+    "identity": {
+      "modelId": "Qwen/Qwen3-Embedding-0.6B",
+      "pooling": "lasttoken",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimensions": 1024,
+      "normalization": "l2",
+      "runtimeVersion": "python/3.11.9;torch/2.7.1+cpu;transformers/4.57.1;sentence-transformers/5.1.2",
+      "queryInstruction": "Instruct: Given a Chinese dietary evidence question, retrieve passages that provide relevant evidence including applicable conditions and exceptions.\nQuery: ",
+      "documentInstruction": "",
+      "representationVersion": "health-evidence-retrieval-text-v1"
+    },
+    "chunks": 99,
+    "state": "ready",
+    "createdAt": "2026-11-12T14:34:37.007Z"
+  },
+  "archivedIndexesUnchanged": true,
+  "knownWithdrawals": [
+    "ev:43d79e745cba17763b49c836a2fab5cd49acddf921ac68f48ae626b16aeb72eb",
+    "ev:cc606688350896c2c33d16da188201b12627ec746a870d012d63de107535187b",
+    "ev:5e1d26b211264fe779b255df7fcd38a7c012085ed71a8e39e5107f23b6d57633"
+  ],
+  "checks": [
+    {
+      "id": "qualified-a1",
+      "passed": true,
+      "status": "answered",
+      "factIds": [
+        "fact:microwave-hca"
+      ],
+      "evidenceIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ],
+      "reason": null
+    },
+    {
+      "id": "qualified-dense",
+      "passed": true,
+      "status": "answered",
+      "factIds": [
+        "fact:microwave-hca"
+      ],
+      "evidenceIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ],
+      "reason": null
+    },
+    {
+      "id": "qualified-hybrid",
+      "passed": true,
+      "status": "answered",
+      "factIds": [
+        "fact:microwave-hca"
+      ],
+      "evidenceIds": [
+        "ev:3d2cd06bde2a98f6e43725a07526a2b3001608d10aa710afa85e87fd4f5740ec",
+        "ev:9fcd084e07f061db903f39d0e35b5ee17ed13ebc38a2744ec6dd2209bf5f96e0",
+        "ev:cb1a2381b0fde905b3029c7289ec5b7ed05d81b2becae7002d03233cafe84c36"
+      ],
+      "reason": null
+    },
+    {
+      "id": "unknown-preheating",
+      "passed": true,
+      "status": "needs_confirmation",
+      "reason": "RAG_REQUIRED_CONDITIONS_UNKNOWN"
+    },
+    {
+      "id": "legacy-navigation-required",
+      "passed": true,
+      "status": "insufficient_evidence",
+      "reason": "RAG_REQUIRED_EVIDENCE_UNAVAILABLE"
+    }
+  ],
+  "paidGenerationCalls": 0,
+  "clinicalRelease": null,
+  "independentQualityScore": null,
+  "mapping": {
+    "from": "food-guidance-mappings-v2",
+    "to": "food-guidance-mappings-v3",
+    "catalogVersion": "gallery-listed-foods-20261026-v28",
+    "recipes": 341,
+    "variants": 345,
+    "beforeGroundedVariants": 337,
+    "afterGroundedVariants": 337,
+    "variantsWithAdditionalBindings": 35,
+    "gained": [
+      {
+        "recipeId": "gallery-5e51391c8af2e2fd",
+        "variantId": "gallery-5e51391c8af2e2fd-r354",
+        "name": "上汤娃娃菜",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-002f95f26e415096",
+        "variantId": "gallery-002f95f26e415096-r359",
+        "name": "小炒脆藕丁",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-a82bb88b771166a3",
+        "variantId": "gallery-a82bb88b771166a3-r349",
+        "name": "干锅花菜",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-409141104436781c",
+        "variantId": "gallery-409141104436781c-r390",
+        "name": "昂刺鱼豆腐汤",
+        "matches": 2
+      },
+      {
+        "recipeId": "gallery-ced1de5a054d38d9",
+        "variantId": "gallery-ced1de5a054d38d9-r318",
+        "name": "清炒花菜",
+        "matches": 3
+      },
+      {
+        "recipeId": "gallery-de8b31dcd19279be",
+        "variantId": "gallery-de8b31dcd19279be-r383",
+        "name": "清蒸鳜鱼",
+        "matches": 2
+      },
+      {
+        "recipeId": "gallery-f1170fb2fa821995",
+        "variantId": "gallery-f1170fb2fa821995-r376",
+        "name": "白灼菜心",
+        "matches": 6
+      },
+      {
+        "recipeId": "gallery-ac6bf9a794d64329",
+        "variantId": "gallery-ac6bf9a794d64329-r333",
+        "name": "茭白炒肉",
+        "matches": 3
+      },
+      {
+        "recipeId": "gallery-8883ddef2db706c9",
+        "variantId": "gallery-8883ddef2db706c9-r416",
+        "name": "葱煎豆腐",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-671f9949c4d9b31f",
+        "variantId": "gallery-671f9949c4d9b31f-r355",
+        "name": "蒜蓉空心菜",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-9e86be6df5686af9",
+        "variantId": "gallery-9e86be6df5686af9-r357",
+        "name": "蚝油三鲜菇",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-eef9ad8f4ee8333c",
+        "variantId": "gallery-eef9ad8f4ee8333c-r378",
+        "name": "香煎翘嘴鱼",
+        "matches": 8
+      },
+      {
+        "recipeId": "gallery-fca25d2873cf7fb2",
+        "variantId": "gallery-fca25d2873cf7fb2-r301",
+        "name": "鳊鱼炖豆腐",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-902e943027a6fccd",
+        "variantId": "gallery-902e943027a6fccd-r412",
+        "name": "麻婆豆腐",
+        "matches": 3
+      },
+      {
+        "recipeId": "gallery-d4e94bd41fefd079",
+        "variantId": "gallery-d4e94bd41fefd079-r048",
+        "name": "凉拌紫甘蓝",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-82c89a5d4112a9c1",
+        "variantId": "gallery-82c89a5d4112a9c1-r088",
+        "name": "秋葵鸡蛋羹",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-fb26c4a975c6f0fd",
+        "variantId": "gallery-fb26c4a975c6f0fd-r240",
+        "name": "蒜蓉粉丝龙利鱼",
+        "matches": 2
+      },
+      {
+        "recipeId": "gallery-1e83e2dc31f3193d",
+        "variantId": "gallery-1e83e2dc31f3193d-r127",
+        "name": "凉拌秋葵",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-284e6242da77fa35",
+        "variantId": "gallery-284e6242da77fa35-r147",
+        "name": "凉拌藕片",
+        "matches": 7
+      },
+      {
+        "recipeId": "gallery-b45f245d1263f86c",
+        "variantId": "gallery-b45f245d1263f86c-r179",
+        "name": "茭白小炒肉",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-74dfa4b3b77e27ad",
+        "variantId": "gallery-74dfa4b3b77e27ad-r223",
+        "name": "培根紫苏炒秋葵",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-717722d36642fb86",
+        "variantId": "gallery-717722d36642fb86-r035",
+        "name": "海南黄椒石斑鱼片",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-aaa5127d7e48a04e",
+        "variantId": "gallery-aaa5127d7e48a04e-r202",
+        "name": "墨鱼仔炒花菜",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-ebc9038d53f710cc",
+        "variantId": "gallery-ebc9038d53f710cc-r105",
+        "name": "秋耳炒笋片",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-f7fbcd273ea88b5b",
+        "variantId": "gallery-f7fbcd273ea88b5b-r123",
+        "name": "外婆菜炒茭白",
+        "matches": 3
+      },
+      {
+        "recipeId": "gallery-a74fba5f9a5c2c4d",
+        "variantId": "gallery-a74fba5f9a5c2c4d-r013",
+        "name": "响油娃娃菜",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-64a7eb12cfd57ca3",
+        "variantId": "gallery-64a7eb12cfd57ca3-r183",
+        "name": "赛螃蟹",
+        "matches": 3
+      },
+      {
+        "recipeId": "gallery-6c7c55a05a6d010e",
+        "variantId": "gallery-6c7c55a05a6d010e-r156",
+        "name": "鲜椒水煮鱼",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-e88c18fda1dc376d",
+        "variantId": "gallery-e88c18fda1dc376d-r117",
+        "name": "酸汤龙利鱼",
+        "matches": 3
+      },
+      {
+        "recipeId": "gallery-15a18d9de09f10af",
+        "variantId": "gallery-15a18d9de09f10af-r115",
+        "name": "香煎藕饼",
+        "matches": 6
+      },
+      {
+        "recipeId": "gallery-f4e673aed081e739",
+        "variantId": "gallery-f4e673aed081e739-r249",
+        "name": "酱烧小黄鱼",
+        "matches": 4
+      },
+      {
+        "recipeId": "gallery-dac76544ef410400",
+        "variantId": "gallery-dac76544ef410400-r165",
+        "name": "酱香肉末茄子",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-a680aa8da7c4baa4",
+        "variantId": "gallery-a680aa8da7c4baa4-r159",
+        "name": "梅菜蒸武昌鱼",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-49cab9b4581c1ff7",
+        "variantId": "gallery-49cab9b4581c1ff7-r162",
+        "name": "芦笋炒猪肝",
+        "matches": 5
+      },
+      {
+        "recipeId": "gallery-873d1a70fe8bda7b",
+        "variantId": "gallery-873d1a70fe8bda7b-r079",
+        "name": "鱼香肉丝",
+        "matches": 4
+      }
+    ],
+    "scope": "Mapping/binding coverage on a fixed public cache only; not medical accuracy, user satisfaction or online catalog coverage."
+  },
+  "passed": true
+}
