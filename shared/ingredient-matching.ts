@@ -57,10 +57,13 @@ const fragmentNames = /^(?:大|小|中|去)?(?:块|片|根|颗|粒|朵|条|只|�
 const amountLookalikeFoods = new Set(['千张','百叶','八角','二荆条','三文鱼','五花肉','十三香','丁香','三杯鸡','一品鲜']);
 const entireAmount = new RegExp(`^[${amountPrefix}]+(?:大|小|中)?(?:${countingUnits})$`);
 const standaloneUnit = new RegExp(`^(?:${countingUnits})$`);
+// A bare unit left behind when a source writes "200 g" / "10 ml" with a space.
+const bareUnit = /^(?:g|kg|ml|l|克|毫升|升|斤|两)$/i;
 export function isInvalidFoodName(name:string):boolean{
   const term=name.normalize('NFKC').trim();
   if(!term)return true;
   if(amountLookalikeFoods.has(term))return false;
+  if(bareUnit.test(term))return true;
   if(standaloneUnit.test(term))return true;
   if(/[0-9０-９]/.test(term)&&term.length<=6&&new RegExp(`(?:${countingUnits}|g|kg|ml)$`,'i').test(term))return true;
   // Chinese counts/amounts with no real noun left: 一到、二棵、几个、十几、半把、很多.

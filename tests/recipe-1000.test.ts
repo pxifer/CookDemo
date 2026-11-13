@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {sourceIngredients} from '../scripts/lib/recipe-source-ingredients';
+import {mergeSourceIngredients} from '../scripts/lib/recipe-source-ingredients';
 import {listedIngredients} from '../scripts/lib/listed-food-curation';
+import {isInvalidFoodName} from '../shared/ingredient-matching';
 import {readFile} from 'node:fs/promises';
 import {verifyGalleryBundle,type GalleryBundle} from '../backend/src/cloudbase-content';
 import {recipeImage} from '../shared/recipe-images';
@@ -13,7 +15,17 @@ test('1000道发布包：来源原字段一致、原341道ID/配方不变，659�
  const bundle:GalleryBundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8')),manifest=JSON.parse(await readFile(`${root}/manifest.json`,'utf8'));
  const base:GalleryBundle=JSON.parse(await readFile(`${root}/base-bundle.json`,'utf8')),records=JSON.parse(await readFile(`${root}/source-records.json`,'utf8'));
  const snapshot=verifyGalleryBundle(bundle,manifest.hash);assert.equal(snapshot.recipes.length,1000);assert.equal(new Set(snapshot.recipes.map(r=>r.id)).size,1000);assert.equal(new Set(snapshot.recipes.map(r=>r.name)).size,1000);
- for(const r of base.listedFoodSnapshot!.recipes)assert.deepEqual(snapshot.recipes.find(n=>n.id===r.id),{...r,imageUrl:recipeImage(r.name,r.imageUrl)});
+ for(const r of base.listedFoodSnapshot!.recipes){
+  // The base keeps its reviewed text; only parse artefacts (g/ml/瓣) are dropped, so the
+  // comparison applies the same filter instead of pretending the base is untouched.
+  const invalid=new Set(base.listedFoodSnapshot!.foods.filter(f=>isInvalidFoodName(f.name)).map(f=>f.id));
+  const expected={...r,imageUrl:recipeImage(r.name,r.imageUrl),variants:r.variants.map(v=>({...v,lines:v.lines.filter(l=>!invalid.has(l.foodId))}))};
+  assert.deepEqual(snapshot.recipes.find(n=>n.id===r.id),expected);
+ }
+ for(const recipe of snapshot.recipes)for(const variant of recipe.variants)for(const line of variant.lines){
+  const name=snapshot.foods.find(f=>f.id===line.foodId)!.name;
+  assert(!isInvalidFoodName(name),`${recipe.name}/${name}`);
+ }
  for(const r of records){const row=bundle.rows.find(row=>row.raw_record.id===`mi-${r.recipeID}`)!;assert(row);assert.deepEqual(row.raw_record.steps,r.instructions.map((i:any)=>i.description.trim()));assert.deepEqual(row.raw_record.main,r.ingredients.map((i:any)=>`${i.name} ${i.weight}`));assert.deepEqual(row.raw_record.seasonings,r.seasonings);assert.equal(row.image_url,null);}
  assert.equal(manifest.missingImages,659);assert(manifest.bytes<12*1024*1024);
 });
@@ -23,6 +35,10 @@ test('用量不变成食材：结构化用量与粘连量词都在源头拆开',
  assert.deepEqual(items.map(i=>i.name),['菠菜','莲藕','豆腐','大蒜','食用油','娃娃菜','盐','葱']);
  assert(items.find(i=>i.name==='菠菜')!.sourceText.includes('几颗'));
  assert(items.find(i=>i.name==='大蒜')!.sourceText==='大蒜几瓣');
+});
+test('调料串是句子时整段丢弃，不猜食材形态',()=>{
+ const items=mergeSourceIngredients(listedIngredients({seasonings:['辣椒按口味放','淡奶看口味吧','喜欢奶油口味就多放点','起士能吧你盛豆腐的器皿口铺满','食盐适量']}),['辣椒','淡奶','干辣椒']);
+ assert.deepEqual(items.map(i=>i.name),['食盐']);
 });
 test('1000道发布包：新增659道没有用量词混进食材，真实食材不被误删',async()=>{
  const bundle:GalleryBundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8')),manifest=JSON.parse(await readFile(`${root}/manifest.json`,'utf8'));

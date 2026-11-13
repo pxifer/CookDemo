@@ -6,6 +6,7 @@ import {galleryBundleHash,verifyGalleryBundle,type GalleryBundle} from '../backe
 import {listedIngredients,type ListedIngredient} from './lib/listed-food-curation';
 import {mergeSourceIngredients} from './lib/recipe-source-ingredients';
 import {ingredientNames,candidateFoodNames} from '../shared/candidate-food-names';
+import {isInvalidFoodName} from '../shared/ingredient-matching';
 
 const root='datasets/recipes/expansion-1000';
 const base:GalleryBundle=JSON.parse(await readFile(`${root}/base-bundle.json`,'utf8'));
@@ -30,8 +31,17 @@ for(const row of rows)for(const step of row.raw_record.steps!)for(const name of 
  row.raw_record.ingredients!.push({name:name==='油'?'食用油':name,role:'auxiliary',sourceText:`${name}（做法中使用）`,optional:false});
 }
 const snapshot=galleryContent(previous,rows);
+// The frozen 341 base still carries parser artefacts from "猪肉片 200 g"-style spacing:
+// `g`, `ml` and `瓣` became ingredient rows. They are not ingredients, so drop the lines
+// and the foods they leave orphaned, rather than editing the reviewed base snapshot.
+const invalidFoodIds=new Set(snapshot.foods.filter(food=>isInvalidFoodName(food.name)).map(food=>food.id));
+if(invalidFoodIds.size){
+  for(const recipe of snapshot.recipes)for(const variant of recipe.variants)variant.lines=variant.lines.filter(line=>!invalidFoodIds.has(line.foodId));
+  const used=new Set(snapshot.recipes.flatMap(recipe=>recipe.variants.flatMap(variant=>variant.lines.map(line=>line.foodId))));
+  snapshot.foods=snapshot.foods.filter(food=>used.has(food.id));
+}
 snapshot.recipes.sort((a,b)=>{const x=previous.recipes.findIndex(r=>r.id===a.id),y=previous.recipes.findIndex(r=>r.id===b.id);return (x<0?99999:x)-(y<0?99999:y)||a.id.localeCompare(b.id);});
-snapshot.contentVersion='gallery-listed-foods-1000-20261114-v2';snapshot.restrictionScope='listed-foods';
+snapshot.contentVersion='gallery-listed-foods-1000-20261114-v3';snapshot.restrictionScope='listed-foods';
 const variants=snapshot.recipes.flatMap(r=>r.variants);
 const bundle:GalleryBundle={base:base.base,rows:[...base.rows,...rows].map(row=>({...row,image_url:recipeImage(row.dish_key,row.image_url)??null})),listedFoodSnapshot:snapshot,foodLevelReview:{version:'listed-foods-v1',recipes:snapshot.recipes.length,variants:variants.length,ingredientRows:variants.reduce((n,v)=>n+v.lines.length,0),checkedAt:'2026-11-13'}};
 const hash=galleryBundleHash(bundle);verifyGalleryBundle(bundle,hash);
