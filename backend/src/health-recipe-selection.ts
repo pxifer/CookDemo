@@ -66,6 +66,8 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
       if(gaps.length)parts.push(`暂时没有「${gaps.slice(0,3).join('、')}」的饮食资料。`);
       if(nutrition.length)parts.push(`「${nutrition.slice(0,3).join('、')}」属于营养指标，暂不能按疾病或目标判断本餐；可先按食材和限制选菜。`);
       if(missing.length)parts.push(`关于「${missing.slice(0,3).join('、')}」，还需要确认是否成年人、运动情况等条件；确认后可再判断。`);
+      const acceptedChoices=effectiveAiChoices(meal),acceptedParts=[acceptedChoices.preferred.length?`优先${acceptedChoices.preferred.slice(0,4).join('、')}`:'',acceptedChoices.limited.length?`少选${acceptedChoices.limited.slice(0,4).join('、')}`:'',acceptedChoices.excluded.length?`排除${acceptedChoices.excluded.slice(0,4).join('、')}`:''].filter(Boolean);
+      if(acceptedParts.length)parts.push(`已参考你接受的食材选择：${acceptedParts.join('；')}。`);
       return parts.join('');
     };
     const options=meal.mode==='candidates'&&meal.composition==='auto';
@@ -97,7 +99,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
           return {...dish,aiReason:reason,...(proof?{aiGrounding:proof}:{}),aiBasis:[...(pantryNames?[`复用本餐食材：${pantryNames}`]:[]),...confirmations,...(limits.length?[`含${limits.join('、')}，建议少选；没有计算具体含量。`]:[]),`已核对配料、过敏忌口和补买条件；做法是“${dish.variant.flavor}”版本。`]};
         }),
         ...(research?{researchGuidance:{mode:research.mode,knowledgeVersion:research.knowledgeVersion,fingerprint:research.fingerprint,coverage,uncoveredTopics:research.uncoveredTopics,missingConditions:research.missingConditions,clinicalRelease:null}}:{}),
-        healthAssessment:{state:'model_selected' as const,message:summary(coverage)??plan.summary},reasons:!plan.options&&!plan.targetMet?['这次先提供能做的菜，还没达到你指定的数量。']:[]};
+        healthAssessment:{state:'model_selected' as const,message:summary(coverage)??plan.summary},reasons:!plan.options&&!plan.targetMet?(()=>{const picked=counts(checked.dishes),labels:{meat:string;veg:string;soup:string}={meat:'荤菜',veg:'素菜',soup:'汤'};const short=(['meat','veg','soup'] as const).flatMap(category=>{const missing=desiredCounts[category]-picked[category];return missing>0?[`还缺${missing}道${labels[category]}`]:[];});return [`这次先给出 ${checked.dishes.length} 道；${short.join('、')}。可以补买或调整数量。`];})():[]};
     };
     if(req.action==='page')return publish(restore(req.cursor,owner,binding));
     if(req.action==='variant'){
@@ -141,10 +143,11 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     const desiredTotal=meal.composition==='custom'?Object.values(meal.counts).reduce((a,b)=>a+b,0):reference.total;
     const count=replacing?1:options?6:desiredTotal;
     const baseOffered=[...seeds,...(research?[...remaining.filter(d=>bindDish(d).matches.length),...rotated.filter(d=>!bindDish(d).matches.length)]:rotated)];
-    // Keep the page varied: no more than two dishes sharing the same primary main ingredient.
-    const primaryMain=(dish:Dish)=>dish.variant.lines.find(line=>line.role==='main')?.foodId??('recipe:'+dish.recipe.id);
-    const limited:Dish[]=[],overflow:Dish[]=[],perMain=new Map<string,number>();
-    for(const dish of baseOffered){const key=primaryMain(dish),n=perMain.get(key)??0;if(!options&&n>=2){overflow.push(dish);continue;}perMain.set(key,n+1);limited.push(dish);}
+    // Prefer different main ingredients and cooking methods, but allow repeats when the pantry
+    // really only supports one group (e.g. pork is the only meat).
+    const groupOf=(dish:Dish)=>{const main=dish.variant.lines.find(line=>line.role==='main')?.foodId??('recipe:'+dish.recipe.id);const method=dish.variant.steps.join(' ').match(/蒸|煮|炖|炒|煸|煎|炸|烤|凉拌|焯/)?.[0]??'其他';return main+'|'+method;};
+    const limited:Dish[]=[],overflow:Dish[]=[],perGroup=new Map<string,number>();
+    for(const dish of baseOffered){const key=groupOf(dish),n=perGroup.get(key)??0;if(!options&&n>=2){overflow.push(dish);continue;}perGroup.set(key,n+1);limited.push(dish);}
     const target=options?18:12;let offered=limited.slice(0,target);if(offered.length<count)offered=[...offered,...overflow].slice(0,target);
     // Keep the feasible baseline's exact variant, rather than the last variant of a parent.
     for(let i=0;i<offered.length;i++)offered[i]=seeds.find(dish=>dish.recipe.id===offered[i].recipe.id)??offered[i];
@@ -166,7 +169,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     scope.offeredParents=catalog.length;scope.offeredVariants=catalog.length;scope.complete=catalog.length===qualifiedVariants;packet.min=options?Math.min(6,catalog.length):Math.min(count,catalog.length);packet.max=options?Math.min(18,catalog.length):Math.min(count,catalog.length);
     if(inputSize()>selectionInputBudget)throw new DomainError('AI_INPUT_TOO_LARGE',422,'本餐配方与档案内容过长，请减少搭配数量或精简备注后再试；尚未调用模型');
     signal.throwIfAborted();await input.claim();input.progress('AI 正在阅读本餐食材、健康建议和菜谱做法，挑选菜品…');
-    const response=await requestDeepSeekJson(apiKey,[{role:'system',content:prompt},{role:'user',content:JSON.stringify(packet)}],signal,input.fetcher,options?1600:Math.min(1600,300+count*100));
+    const response=await requestDeepSeekJson(apiKey,[{role:'system',content:prompt},{role:'user',content:JSON.stringify(packet)}],signal,input.fetcher,options?2000:Math.min(2000,600+count*200));
     await current();
     const observe=(stage:SelectionDiagnostics['stage'])=>{try{input.observe?.({stage,qualifiedParents:parents.length,offeredParents:catalog.length,estimatedInputTokens:inputSize(),elapsedMs:Math.round(performance.now()-started),invocation:response.invocation});}catch{/* Observability must never change a paid operation's outcome. */}};
     let terminal:SelectionDiagnostics['stage']='invalid';
@@ -174,17 +177,25 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     let output:any;try{output=JSON.parse(response.content);}catch{throw fail('AI 选菜回复不完整，请主动重试；未自动重发');}
     if(!output||typeof output.summary!=='string'||!output.summary.trim()||output.summary.length>160||!Array.isArray(output.choices)||output.choices.length>(options?18:20))throw fail();
     if(!output.choices.length){if(research)throw fail('这次没有选出菜；可以重新选择，条件没有被改动。');terminal='declined';return {...baseline,status:scope.complete?'no_results':'unavailable',selectionScope:scope,dishes:[],checks:[],total:0,search:scope.complete?'complete':'incomplete',targetMet:false,cursor:'',healthAssessment:{state:'model_selected',message:scope.complete?output.summary.trim():'这次没有选出合适的菜。'},reasons:[scope.complete?'AI 本次未选出合适菜品。':'这次只比较了部分菜谱，暂时不能判断全部菜谱是否合适；可以重新选择。']};}
-    const choices:Choice[]=[],seen=new Set<string>();
+    const parsed:Choice[]=[],seen=new Set<string>();
     for(const choice of output.choices){
       const index=catalog.findIndex(item=>item.id===choice?.id),dish=offered[index];
       if(index<0||!dish||seen.has(dish.recipe.id)||typeof choice.reason!=='string'||!choice.reason.trim()||choice.reason.length>80)throw fail();
       const associated=research?bindDish(dish).matches.filter(m=>m.direction!=='avoid').map(m=>m.guidanceId).slice(0,3):undefined;
       if(research)try{guidanceReason(research,bindDish(dish),associated!);}catch{throw fail();}
-      seen.add(dish.recipe.id);choices.push({recipeId:dish.recipe.id,variantId:dish.variant.id,reason:choice.reason.trim(),...(research?{guidanceIds:associated}:{} )});
+      seen.add(dish.recipe.id);parsed.push({recipeId:dish.recipe.id,variantId:dish.variant.id,reason:choice.reason.trim().slice(0,80),...(research?{guidanceIds:associated}:{} )});
     }
-    if(options&&choices.length<Math.min(6,catalog.length)||!options&&choices.length!==count)throw fail();
+        const maxChoices=options?18:count,picked={meat:0,veg:0,soup:0},choices:Choice[]=[];
+    for(const choice of parsed){
+      if(choices.length>=maxChoices)break;
+      const dish=offered.find(item=>item.recipe.id===choice.recipeId&&item.variant.id===choice.variantId);
+      if(!dish)continue;
+      if(!options&&picked[dish.recipe.category]>=desiredCounts[dish.recipe.category])continue;
+      picked[dish.recipe.category]++;choices.push(choice);
+    }
+    if(!choices.length)throw fail();
     const selected=choices.map(choice=>offered.find(dish=>keyOf(dish)===`${choice.recipeId}:${choice.variantId}`)!);
-    if(!options&&JSON.stringify(counts(selected))!==JSON.stringify(replacing?counts(seeds):desiredCounts))throw fail();
+    if(!options){const picked=counts(selected),limit=replacing?counts(seeds):desiredCounts;for(const category of ['meat','veg','soup'] as const)if(picked[category]>limit[category])throw fail();}
     const finalChoices=replacing?req.selected.map(item=>item.recipeId===req.replaceId?choices[0]:{...item,reason:previousPlan?.choices.find(choice=>choice.recipeId===item.recipeId)?.reason??'保留本餐已选菜品。',...(research?{guidanceIds:previousPlan?.choices.find(choice=>choice.recipeId===item.recipeId)?.guidanceIds??bindDish(locked.find(d=>d.recipe.id===item.recipeId)!).matches.map(m=>m.guidanceId).slice(0,3)}:{})}):choices;
     if(req.action==='reroll'&&finalChoices.map(choice=>choice.recipeId).sort().join(',')===[...req.previous].sort().join(','))throw fail('AI 本次仍选择了相同搭配，请调整条件后主动重试；未自动重发');
     const result=await publish({binding,expires:Date.now()+15*60*1000,choices:finalChoices,summary:output.summary.trim(),target:options?6:desiredTotal,targetMet:options?false:choices.length===desiredTotal&&JSON.stringify(counts(selected))===JSON.stringify(desiredCounts),options,scope});terminal='selected';return result;
