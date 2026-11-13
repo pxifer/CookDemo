@@ -1,0 +1,74 @@
+{
+  "schema_version": "proposed-independent-judge-review-v1",
+  "document_status": "离线建议模板；未评分，当前网站评分接口不接受此完整结构",
+  "review_id": null,
+  "round_id": "handoff-review-20261113-r1",
+  "package_id": "judge-handoff-2026-11-13-v1",
+  "rubric_version": null,
+  "rubric_status": "待评委在评分前拟定并冻结",
+  "case_id": "m01",
+  "run_id": "2026-11-13T06-23-02-232Z-8c112c2f",
+  "sample_id": "S01",
+  "product_version": "workspace:0ea2932b5a5d419a6b66ff916d066c93567716651bd00a7fcf1ed932507eeb07",
+  "input_hash": "22573863d026821bb4db8d90231d6b6055d3dcfbdfc04ba0840e516b3fbcf87d",
+  "output_hash": "40ce36f8703179ce2a57d7aba17dc765bc887ca5b42a8b36435db8d95095e5c4",
+  "hash_scheme": "sha256(canonical-json-v1: UTF-8, sorted keys, no extra whitespace, unescaped Unicode)",
+  "judge": {
+    "reviewer_code": null,
+    "role": "agent_product_and_evidence_reviewer",
+    "independence_claim": "not_declared",
+    "professional_identity_verified": false
+  },
+  "scored_at": null,
+  "dimensions": {
+    "goalFit": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    },
+    "factualCorrectness": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    },
+    "evidenceSupport": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    },
+    "conditionsAndUnknowns": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    },
+    "actionability": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    },
+    "clarity": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    },
+    "engineeringNormal": {
+      "score": null,
+      "status": "not_scored",
+      "basis": [],
+      "unverifiable_reason": null
+    }
+  },
+  "critical_failures": [],
+  "claim_checks": [],
+  "decision": null,
+  "limitations": [],
+  "supersedes_review_id": null,
+  "idempotency_key": null,
+  "idempotency_note": "建议按round_id/rubric_version/run_id/output_hash/reviewer_code生成；新标准或更正另建记录。模板所有null为未填写，不代表0分。"
+}

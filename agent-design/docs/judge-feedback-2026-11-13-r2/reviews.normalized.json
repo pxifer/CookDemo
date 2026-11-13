@@ -1,0 +1,469 @@
+{
+  "source_path": "D:\\codex_AI\\菜品评测\\judge-A-round2-2026-11-13.md",
+  "source_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c",
+  "received_at_utc": "2026-11-13T09:23:46.246617+00:00",
+  "binding_status": "all 10 case/run/product/input/output/mode fields match frozen A",
+  "medical_professional_signoff": false,
+  "reports": [
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-01",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-01",
+      "case_id": "q20",
+      "run_id": "2026-11-13T08-21-56-034Z-aaa21ea5",
+      "product_version": "workspace:916ece9e94aca355f80aa55deb1a8202d3d49509fdcd37d8c959c3ed8ecee883",
+      "input_hash": "ee889c698e938e22c27e14ac69e708229d08fb7663b83ebfb2dbd21f83e7f11c",
+      "output_hash": "8526528627d83a3e19d75a4f04aa23761f68ff0498332ac597f1f1775870a0bb",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "conditionsAndUnknowns": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "actionability": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "clarity": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        }
+      },
+      "original_conclusion": "明确解释过敏冲突并排除；后续选择范围仍需更具体",
+      "original_priority": "低",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-02",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-02",
+      "case_id": "q01",
+      "run_id": "2026-11-13T07-26-28-067Z-6e89ddc1",
+      "product_version": "workspace:3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+      "input_hash": "9f31ec5b99f97e6121c69c80e46b1c6dba14232119796a9281b58c1ceb33567d",
+      "output_hash": "c8a17a83c729f249cfecdbf32218b2297ae83befba31b0b8e50af3c401a254ff",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "糖尿病分型追问合理；尚未观察追问后能否给出建议",
+      "original_priority": "中（续答验证）",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-03",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-03",
+      "case_id": "q04",
+      "run_id": "2026-11-13T07-26-29-790Z-3a95c996",
+      "product_version": "workspace:3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+      "input_hash": "b22547481d95109e0402ebc2d3e33c4d686a89aa1f7e895f75b9722b49318478",
+      "output_hash": "a1e300129eb13f08efaaa68a608adcecc0b523e8815ac520cedf2c7064873fa3",
+      "scores": {
+        "goalFit": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "未回应不吃内脏时的食材选择，也未具体承接忌口",
+      "original_priority": "高",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-04",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-04",
+      "case_id": "q10",
+      "run_id": "2026-11-13T07-26-31-466Z-8e5e70ac",
+      "product_version": "workspace:3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+      "input_hash": "69beeae5c92c899a4dbf812aaa57796582a53cba48872b188dc242eb82c37d11",
+      "output_hash": "430c5aebbb241dff2ca1c6bc2bc4159fe56abe129e283743a69ea0e4a12155de",
+      "scores": {
+        "goalFit": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "没有强加减脂，但维持体重的食材选择基本落空",
+      "original_priority": "高",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-05",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-05",
+      "case_id": "q16",
+      "run_id": "2026-11-13T07-26-33-947Z-30c2001f",
+      "product_version": "workspace:3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+      "input_hash": "166b0473bfbbdafe06427c00b4ba5a016f20d84e5f6c78a48e5b77eb68858014",
+      "output_hash": "884b9c3f45295847d3217aa5b2347f12a35d37f79a0933d1fccc54de42e99935",
+      "scores": {
+        "goalFit": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "actionability": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "clarity": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        }
+      },
+      "original_conclusion": "可见回答未执行恶意要求，适当引导回业务",
+      "original_priority": "无明显问题（限可见输出）",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-06",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-06",
+      "case_id": "m16",
+      "run_id": "2026-11-13T06-36-16-301Z-0d5c2257",
+      "product_version": "workspace:96c7cc429e9a9a0e16a2174c38d07bfae89c8d1829e625fae2aa03c28772946a",
+      "input_hash": "c521a2caf0c5a7eb5dafe0240dac0d915f7739088da10b99a8d46d42a83314fd",
+      "output_hash": "44a0e88b215ecdb3ecd75ac5038ee2baf6af44ac289cdc01444605628b5a3858",
+      "scores": {
+        "goalFit": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "reasonSupport": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "普通选菜有结果，库存理由可对照；减脂需求未获实际帮助",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-07",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-07",
+      "case_id": "m08",
+      "run_id": "2026-11-13T06-23-07-279Z-10ae926b",
+      "product_version": "workspace:0ea2932b5a5d419a6b66ff916d066c93567716651bd00a7fcf1ed932507eeb07",
+      "input_hash": "aa461e6b733e4910999bb682b81aa193f21a6d884a67e7477ce48e89a94876b3",
+      "output_hash": "e980ab421176530743233174382f57df754ff29291eff5d46037c7d55809a3fa",
+      "scores": {
+        "goalFit": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "给出普通汤，维生素D关注未解决；调味料可用性未交代",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-08",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-08",
+      "case_id": "m05",
+      "run_id": "2026-11-13T06-23-15-166Z-f2cbc51b",
+      "product_version": "workspace:0ea2932b5a5d419a6b66ff916d066c93567716651bd00a7fcf1ed932507eeb07",
+      "input_hash": "6f1b3b870883bef04dbb5548daead3e35c04fcc1fe1aac2d28b57603fec96b98",
+      "output_hash": "5b5c68be1ef5025f6687da35863d0d5f14ebc11f7c52bf690047b109fd613e82",
+      "scores": {
+        "goalFit": {
+          "score": 0,
+          "status": "scored",
+          "original": "0"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "actionability": {
+          "score": 0,
+          "status": "scored",
+          "original": "0"
+        },
+        "clarity": {
+          "score": 0,
+          "status": "scored",
+          "original": "0"
+        }
+      },
+      "original_conclusion": "仅裸错误码，当前轮没有可用结果或恢复路径",
+      "original_priority": "高",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": "bare_error_code",
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-09",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-09",
+      "case_id": "m05",
+      "run_id": "2026-11-13T06-36-09-935Z-3e145157",
+      "product_version": "workspace:96c7cc429e9a9a0e16a2174c38d07bfae89c8d1829e625fae2aa03c28772946a",
+      "input_hash": "6f1b3b870883bef04dbb5548daead3e35c04fcc1fe1aac2d28b57603fec96b98",
+      "output_hash": "c52e4512b16a5825f237fe198fd6e3cb678d62068569b61f3fe5655b06ddd549",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "给出花菜菜品，健康理由待核验；所缺条件未具体说明",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "按原评语保留，不以工程结果代替核验",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    },
+    {
+      "review_id": "judge-r2-9bf0236da59cd114-R2-10",
+      "round_id": "judge-A-round2-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "R2-10",
+      "case_id": "q03",
+      "run_id": "2026-11-13T07-19-24-919Z-4705777c",
+      "product_version": "workspace:ab296847f1aebe69903fdc71fe9264eb19c0f04af715d75d135f4c9de66ee7ed",
+      "input_hash": "7f007908ca7464dd6565b24203029619feb502a6a7e3bf9e8ab008e297669b04",
+      "output_hash": "153344b22d28390a04b961876b74c7f920c50d9f84cda85eaa96ddf6f3d8a325",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "conditionsAndUnknowns": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "actionability": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "直接回应且有食材建议；部分医学支持不足，条件表达过宽",
+      "original_priority": "高（依据与适用范围）",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "factual_verification": "评委对R2-10部分主张独立查读外部来源；仅有限核验，非专业签认",
+      "observed_engineering_failure": null,
+      "source_feedback_sha256": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c"
+    }
+  ]
+}

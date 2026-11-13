@@ -1,0 +1,851 @@
+{
+  "status": "A层配方核验材料，非界面观察证明",
+  "records": [
+    {
+      "sample_id": "S01",
+      "run_id": "2026-11-13T06-23-02-232Z-8c112c2f",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-f3dc92744e6a6c37",
+      "recipe_name": "白菜豆腐汤",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-f3dc92744e6a6c37-r039",
+      "flavor": "清鲜",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "姜适量"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "鸡精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "白胡椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "开水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        }
+      ],
+      "steps": [
+        "姜切丝，豆腐和白菜切成小块。",
+        "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+        "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "S02",
+      "run_id": "2026-11-13T06-36-12-177Z-8f7bb224",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-e82f11e4d8e3e45a",
+      "recipe_name": "板栗蒸肉饼",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-e82f11e4d8e3e45a-r103",
+      "flavor": "咸鲜",
+      "ingredients": [
+        {
+          "name": "板栗",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "板栗"
+        },
+        {
+          "name": "五花肉馅",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "五花肉馅"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": null,
+          "unit": "g",
+          "role": "auxiliary",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "鸡蛋"
+        },
+        {
+          "name": "葱",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "葱姜"
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "葱姜"
+        },
+        {
+          "name": "栗子",
+          "amount": null,
+          "unit": "g",
+          "role": "auxiliary",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "栗子（用量未注明）"
+        },
+        {
+          "name": "青蒜",
+          "amount": null,
+          "unit": "g",
+          "role": "auxiliary",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "青蒜（用量未注明）"
+        },
+        {
+          "name": "花椒粉",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "花椒粉"
+        },
+        {
+          "name": "白糖",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "糖"
+        },
+        {
+          "name": "料酒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "料酒"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐"
+        },
+        {
+          "name": "鸡粉",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "鸡粉"
+        },
+        {
+          "name": "蒸鱼豉油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "蒸鱼豉油（用量未注明）"
+        },
+        {
+          "name": "胡椒粉",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "胡椒粉（用量未注明）"
+        },
+        {
+          "name": "蛋液",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "蛋液（用量未注明）"
+        },
+        {
+          "name": "水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "水（用量未注明）"
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "油（做法中使用）"
+        },
+        {
+          "name": "肉馅",
+          "amount": null,
+          "unit": "g",
+          "role": "auxiliary",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "肉馅（做法中使用）"
+        }
+      ],
+      "steps": [
+        "锅内添水，下板栗煮制，肥瘦比例1:1的五花肉馅中添葱姜米、盐、糖，胡椒粉、料酒抓匀，添少许全蛋液抓匀，摔打上劲。",
+        "煮熟的栗子捞起压碎，添五花肉馅中拌匀。",
+        "盘中倒少许油，肉馅铺在盘中，蒸锅上汽下锅中，蒸制十分钟，取出后添蒸鱼豉油和青蒜，起锅装盘。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "S02",
+      "run_id": "2026-11-13T06-36-12-177Z-8f7bb224",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-f3dc92744e6a6c37",
+      "recipe_name": "白菜豆腐汤",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-f3dc92744e6a6c37-r039",
+      "flavor": "清鲜",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "姜适量"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "鸡精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "白胡椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "开水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        }
+      ],
+      "steps": [
+        "姜切丝，豆腐和白菜切成小块。",
+        "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+        "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "S02",
+      "run_id": "2026-11-13T06-36-12-177Z-8f7bb224",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-60e5ebb11282d8ac",
+      "recipe_name": "炝拌白菜心",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-60e5ebb11282d8ac-r095",
+      "flavor": "咸鲜带辣",
+      "ingredients": [
+        {
+          "name": "白菜心",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜心"
+        },
+        {
+          "name": "香菜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "香菜（用量未注明）"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐"
+        },
+        {
+          "name": "米醋",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "醋"
+        },
+        {
+          "name": "干辣椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "干辣椒"
+        },
+        {
+          "name": "花椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "花椒"
+        },
+        {
+          "name": "辣椒油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "辣椒油（用量未注明）"
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "油（做法中使用）"
+        }
+      ],
+      "steps": [
+        "白菜心切成细丝。",
+        "锅内放少许底油烧热，加入花椒炝香。",
+        "将辣椒段放入勺中，倒入热油制成辣椒油。",
+        "把辣椒油浇在白菜心上，加入盐、米醋和香菜拌匀。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "S10",
+      "run_id": "2026-11-13T06-53-34-060Z-eef5c4cf",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-f3dc92744e6a6c37",
+      "recipe_name": "白菜豆腐汤",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-f3dc92744e6a6c37-r039",
+      "flavor": "清鲜",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "姜适量"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "鸡精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "白胡椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "开水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        }
+      ],
+      "steps": [
+        "姜切丝，豆腐和白菜切成小块。",
+        "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+        "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "R2-06",
+      "run_id": "2026-11-13T06-36-16-301Z-0d5c2257",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-792e3eb4b73947d0",
+      "recipe_name": "番茄炒蛋",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-792e3eb4b73947d0-r056",
+      "flavor": "咸鲜",
+      "ingredients": [
+        {
+          "name": "西红柿",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "番茄、鸡蛋各适量"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "番茄、鸡蛋各适量"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐适量"
+        }
+      ],
+      "steps": [
+        "番茄切块，鸡蛋打散并加盐；选成熟度稍低的番茄。",
+        "鸡蛋先炒熟，盛出备用。",
+        "番茄下锅快速翻炒，再加入鸡蛋合炒。",
+        "补盐调味，番茄和鸡蛋均成熟后装盘。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "R2-07",
+      "run_id": "2026-11-13T06-23-07-279Z-10ae926b",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-f3dc92744e6a6c37",
+      "recipe_name": "白菜豆腐汤",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-f3dc92744e6a6c37-r039",
+      "flavor": "清鲜",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "豆腐",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "白菜、豆腐各适量"
+        },
+        {
+          "name": "生姜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "姜适量"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "鸡精",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "白胡椒",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "香油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        },
+        {
+          "name": "开水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐、鸡精、白胡椒粉、香油、开水适量"
+        }
+      ],
+      "steps": [
+        "姜切丝，豆腐和白菜切成小块。",
+        "锅中倒入开水，放姜丝、豆腐及白菜，以盐、鸡精和白胡椒粉调味。",
+        "小火煮开，煮至白菜与豆腐成熟，出锅前淋香油。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    },
+    {
+      "sample_id": "R2-09",
+      "run_id": "2026-11-13T06-36-09-935Z-3e145157",
+      "catalog_version": "gallery-listed-foods-20261026-v28",
+      "catalog_file_sha256": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+      "recipe_id": "gallery-ced1de5a054d38d9",
+      "recipe_name": "清炒花菜",
+      "recipe_version": "local-business-gallery-v1",
+      "variant_id": "gallery-ced1de5a054d38d9-r318",
+      "flavor": "咸鲜",
+      "ingredients": [
+        {
+          "name": "花菜",
+          "amount": null,
+          "unit": "g",
+          "role": "main",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "花菜 约 300 g （约 1/2 中等大小的花菜）"
+        },
+        {
+          "name": "饮用水",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "饮用水 50 ml （用于炒制过程）"
+        },
+        {
+          "name": "大蒜",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "大蒜 2-3 瓣"
+        },
+        {
+          "name": "盐",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "盐 3 g"
+        },
+        {
+          "name": "食用油",
+          "amount": null,
+          "unit": "g",
+          "role": "seasoning",
+          "basis": "unknown",
+          "form": "raw",
+          "optional": false,
+          "sourceText": "食用油 15 ml"
+        }
+      ],
+      "steps": [
+        "将 花菜 洗净，用刀或手掰成小朵，粗茎部分可以切片，备用。",
+        "将 大蒜 去皮，切成蒜片，备用。",
+        "锅中加入 1000 ml 饮用水，大火烧开。",
+        "放入 花菜 朵，煮 2-3 分钟，至花菜颜色变浅，口感稍微软化。",
+        "将 煮好的 花菜 捞出，沥干水分，备用。",
+        "热锅，加入 15 ml 食用油，大火烧热。",
+        "放入 蒜片，快速煸炒出香味。",
+        "放入 焯好水的 花菜 朵，转中大火，快速翻炒约 2 分钟，使花菜均匀受热。",
+        "加入 3 g 盐，继续翻炒均匀。",
+        "沿锅边淋入 50 ml 饮用水，盖上锅盖，焖 1 分钟，帮助花菜完全熟透入味。",
+        "开盖，快速翻炒均匀，即可出锅。"
+      ],
+      "method_options": null,
+      "omitted": [],
+      "data_status": "原报告配方与同版本目录逐字段一致；不是新生成或营养审核",
+      "visible_ui_status": "没有逐屏观察；不证明用户实际看到了入口或步骤"
+    }
+  ]
+}

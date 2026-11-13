@@ -1,0 +1,128 @@
+{
+  "captured_at_utc": "2026-11-13T07:56:39.162565+00:00",
+  "workspace": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008",
+  "branch": "agent/rag/RAG-009-output-evaluation",
+  "base_HEAD": "e2aedb393cef7140869414bf6e55e31da24e079d",
+  "dirty_workspace": true,
+  "exact_product_version_note": "HEAD不包含RAG-009未提交实现；实际评测版本按各run的sourceFingerprint。此清单是交接时文件字节hash，不能倒推运行时逐文件状态。",
+  "record_inventory": {
+    "report_count": 92,
+    "by_mode": {
+      "deterministic_guidance": 16,
+      "fixture": 33,
+      "live": 29,
+      "replay": 14
+    },
+    "live_unique_cases": 18,
+    "fixed_cases": 48,
+    "custom_inputs": 1,
+    "included_samples": 10
+  },
+  "files": [
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\AGENTS.md",
+      "relative_path": "AGENTS.md",
+      "sha256": "463b8c10e1e6d52b51519a004622870b9b64a69e1987a0b77f566adc1bbb8e85"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\docs\\product\\PRD.md",
+      "relative_path": "docs/product/PRD.md",
+      "sha256": "22a10283ca50bc92c193aad5686d097c973745f49f1489feb8aecf6c633b7f08"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\docs\\product\\decision-log.md",
+      "relative_path": "docs/product/decision-log.md",
+      "sha256": "5e4ca0a7f4e04496ef25e516473835ade7ba9317ac9fdf45d3c58de1632f8e1c"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\agent-design\\docs\\quality-annotation-protocol.md",
+      "relative_path": "agent-design/docs/quality-annotation-protocol.md",
+      "sha256": "87bd56631bf7d1616118978470f954513a2a18e56b79ac7fb29bc8a1f8456c27"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\agent-design\\docs\\output-evaluation-2026-11-13.md",
+      "relative_path": "agent-design/docs/output-evaluation-2026-11-13.md",
+      "sha256": "0d4974cd6acb9bc28e788528d5c550d92041a6a9daf227d699d2a8793ab248ad"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\scripts\\ui\\output-evaluation.html",
+      "relative_path": "scripts/ui/output-evaluation.html",
+      "sha256": "66049906e4d1546b903ee2aef04f03b0ab45e170487c33eb8ddc1c757e0a109c"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\scripts\\preview-output-evaluation.ts",
+      "relative_path": "scripts/preview-output-evaluation.ts",
+      "sha256": "9f097e484a0c6d6cb0967fffa34768fd0f8db53953ddf55f4295346fb5f9511f"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\scripts\\recipe-output-worker.ts",
+      "relative_path": "scripts/recipe-output-worker.ts",
+      "sha256": "e312ae44287ae27fb18d6344ab7db199852f6fb036f003c9e24f47794ac01030"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\scripts\\lib\\recipe-output-evaluation.ts",
+      "relative_path": "scripts/lib/recipe-output-evaluation.ts",
+      "sha256": "70ac576be95892c7b3541a5b1f9fcb267ca3d1f92dd6506581eb1eb63269ffce"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\scripts\\lib\\source-fingerprint.ts",
+      "relative_path": "scripts/lib/source-fingerprint.ts",
+      "sha256": "3a73e691a2987a32b97e42f48a0ccb83c5b68caf9f375e054f124bbbb3fee7d6"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\scripts\\lib\\output-evaluation-budget.ts",
+      "relative_path": "scripts/lib/output-evaluation-budget.ts",
+      "sha256": "8b26608f5268dcab622ea99ba8ed4a1f174ed10fccaa040af7e47c97322e3269"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\backend\\src\\health-input-understanding.ts",
+      "relative_path": "backend/src/health-input-understanding.ts",
+      "sha256": "fa28edea521abf941fb56c95766665afb2843895989e91391e45b850c52fa8bf"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\backend\\src\\health-recipe-selection.ts",
+      "relative_path": "backend/src/health-recipe-selection.ts",
+      "sha256": "9a2445680682737e16bb7739d48befcd8879219f60cbec802a96015963cfdf4d"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\backend\\src\\rag\\food-guidance.ts",
+      "relative_path": "backend/src/rag/food-guidance.ts",
+      "sha256": "aa34fe516ea0a97d863fd00c8e3c679378ecb897ff98cc6e2e0524feac682ff4"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\backend\\src\\rag\\food-guidance-chat.ts",
+      "relative_path": "backend/src/rag/food-guidance-chat.ts",
+      "sha256": "c566064b1e124866e49436a5b35842f85baf329fd0cfc0d95da16ec359b9094e"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\backend\\src\\rag\\topic-explanation.ts",
+      "relative_path": "backend/src/rag/topic-explanation.ts",
+      "sha256": "f4df0c0400f518277d92ff00c03a7da28e1e4dd3c25202e76350bfe8e5ffc3ec"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\datasets\\evaluation\\recipe-output-v1.inputs.json",
+      "relative_path": "datasets/evaluation/recipe-output-v1.inputs.json",
+      "sha256": "7b4cddb823321b7c7646f1514d734ec89c87c47d472ea08f742c501847fd8bac"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\datasets\\evaluation\\recipe-output-v1.labels.json",
+      "relative_path": "datasets/evaluation/recipe-output-v1.labels.json",
+      "sha256": "1bb43bc2b83b71aeac587239e8620d15a60c3cde40bfdde4a730f01810d30e18"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\datasets\\evaluation\\open-input-v1.inputs.json",
+      "relative_path": "datasets/evaluation/open-input-v1.inputs.json",
+      "sha256": "4bdee49ba3d6a505fd60e56a9c224ac6b02de659cf950d32ef46065e68f5f268"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\datasets\\evaluation\\open-input-v1.labels.json",
+      "relative_path": "datasets/evaluation/open-input-v1.labels.json",
+      "sha256": "9c54836603d88c08a64bfbf71c94441183c9cb035690fc814139671ce071dc9e"
+    },
+    {
+      "path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\datasets\\evaluation\\rag-exposure-registry-v1.json",
+      "relative_path": "datasets/evaluation/rag-exposure-registry-v1.json",
+      "sha256": "9476e7afbfa4a813657801be0b6ab211f3a8e0de8104b5703ee77dcf1f1637ac"
+    }
+  ]
+}

@@ -15,6 +15,7 @@ HERE = Path(__file__).resolve().parent
 DOCS = [
     ("intro", "开始阅读", "README.md"),
     ("refresh", "当前增量：知识v3 / 映射", "../evidence-refresh-2026-11-12.md"),
+    ("evaluation-loop", "当前增量：开放评测 / 人工反馈", "../output-evaluation-2026-11-13.md"),
     ("story", "项目与真实链路", "project-story.md"),
     ("business", "001–015 业务 / 数据 / 切块", "qa-01-business-data.md"),
     ("retrieval", "016–035 检索 / 增强 / 生成", "qa-02-retrieval-generation.md"),

@@ -2473,5 +2473,11 @@
     "path": "../evidence-refresh-2026-11-12.md",
     "sha256": "bb15be61699475b60f40268bd0afa5e6a6c3350207649fe6ffdbd8d693b3d37d",
     "scope": "NCI4 facts/body blocks; cross-version quarantine; v3 99 Qwen vectors/local PG; mappings 33 names/35 memberships. Historical projectBase/hash entries and old two-model metrics remain original snapshot; no v3 ablation or independent clinical review."
+  },
+  "evaluationEngineeringOverlay": {
+    "date": "2026-11-13",
+    "path": "../output-evaluation-2026-11-13.md",
+    "sha256": "0d4974cd6acb9bc28e788528d5c550d92041a6a9daf227d699d2a8793ab248ad",
+    "scope": "48 fixed cases and custom inputs; true generation vs replay separated; no independent professional accuracy; old metrics remain historical."
   }
 }

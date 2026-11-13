@@ -1,0 +1,16 @@
+{
+  "package_id": "judge-round-2026-11-13-r3-v1",
+  "round_id": "outside-in-20261113-base",
+  "rubric_version": "judge-product-v0.1",
+  "files_sha256": {
+    "binding.json": "95c24b2cfb7a00f9e4c944731dda2da81e1713d154877dd5f6457866417d9ddf",
+    "cases.json": "6ba85feb3c7d9d27cbd56f74f9042b88de5a037c53b3a08d357f0e5f90f68061",
+    "cases.md": "f406492d994c8a40f6457d2d5219f323f922c85e62290868e9de47973d550c30",
+    "not-run.json": "e37b2aed238d3d6e9f611a2a5231b90e21d73edbb9b8f4ee2b8dbe3ef9c41229",
+    "product.md": "a204381ba22053ca999c9799cc190867adcff9ab1824bb2b997255659849570c",
+    "README.md": "4ea1cbb10c9c5fab56e9284f3818d016650656f6b0fc58655579e58b2c005a04",
+    "requirements-sources.md": "e6b4c8938bd57151d7230024d7b281e11fc05aacf806f76ac3c534e81ab86a64",
+    "rubric.md": "07cc14b4679848763ecf25fc93956197f9cc0ebd4db0ea797d4b9c2e86272475"
+  },
+  "status": "unscored development outputs; no clinical signoff"
+}

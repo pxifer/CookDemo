@@ -1,0 +1,482 @@
+{
+  "schema_version": "independent-review-receipt-v1",
+  "source_path": "D:\\codex_AI\\菜品评测\\judge-A-trial-2026-11-13.md",
+  "source_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+  "read_at_utc": "2026-11-13T08:39:47.225141+00:00",
+  "source_A_manifest_sha256": "a9cb90cb6a5ce516c273775fbb4cc822b8de6ca3d58b6ba0cecb0bdfee95f0be",
+  "reviewer_type": "independent_product_judge_agent",
+  "medical_professional_signoff": false,
+  "standard_set_after_first_batch_seen": true,
+  "reports": [
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S01",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S01",
+      "case_id": "m01",
+      "run_id": "2026-11-13T06-23-02-232Z-8c112c2f",
+      "product_version": "workspace:0ea2932b5a5d419a6b66ff916d066c93567716651bd00a7fcf1ed932507eeb07",
+      "input_hash": "22573863d026821bb4db8d90231d6b6055d3dcfbdfc04ba0840e516b3fbcf87d",
+      "output_hash": "40ce36f8703179ce2a57d7aba17dc765bc887ca5b42a8b36435db8d95095e5c4",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "选出符合表面食材与汤数的菜；配方与健康依据待核验",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S02",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S02",
+      "case_id": "m07",
+      "run_id": "2026-11-13T06-36-12-177Z-8f7bb224",
+      "product_version": "workspace:96c7cc429e9a9a0e16a2174c38d07bfae89c8d1829e625fae2aa03c28772946a",
+      "input_hash": "3cf8909cafe79b0a09ce80e1151a3d877b7974c9b818396101052f058b8c2aed",
+      "output_hash": "fe76bd75565bc45cb3dce08b1a8af87635b734b0c637e2f042b1076398ef435e",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        }
+      },
+      "original_conclusion": "给齐三类菜；库存具体化和目标选择理由不足",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S03",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S03",
+      "case_id": "q07",
+      "run_id": "2026-11-13T07-26-30-631Z-4b5fb87d",
+      "product_version": "workspace:3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+      "input_hash": "53b86cd898b36817ab95ccfb030b0c9268aa6af82fbc81640598ed7fbd167fb6",
+      "output_hash": "626cb8bf46d26c050cd64249c02a0ed11d715b9f302d1e57fa426fffbc2a624e",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "actionability": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "追问年龄，却未处理用户明确提出的肾病与蛋白疑问",
+      "original_priority": "高",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S04",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S04",
+      "case_id": "q03",
+      "run_id": "2026-11-13T07-37-29-825Z-bf353e6f",
+      "product_version": "workspace:272cca0837f04fc993ee19db874e9a4f741d7949d28a620e8159e04d99dff562",
+      "input_hash": "7f007908ca7464dd6565b24203029619feb502a6a7e3bf9e8ab008e297669b04",
+      "output_hash": "5831972df3e08293747178db022cea28c25efb1808324022259e333a29325eb2",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "分项回应并说明未知；个人实际选择仍不够明确",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S05",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S05",
+      "case_id": "q12",
+      "run_id": "2026-11-13T06-53-21-807Z-986bf698",
+      "product_version": "workspace:b10e56f6c13c6e16f137d5ebf16e25d326b115f2f1e3c73cb9c8db26dac3d7b7",
+      "input_hash": "430e6a1e90b3e490280a5f67cfc2b6427be54027b3dc79f8929847849c4da730",
+      "output_hash": "8c6990f059b34aa05466aea9f6693bbae8f7b8a9f1f45ed95790da51ce187ba8",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "clarity": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        }
+      },
+      "original_conclusion": "人数追问相关、承认价格时长未核验；当前轮合理推进",
+      "original_priority": "低",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S06",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S06",
+      "case_id": "q14",
+      "run_id": "2026-11-13T06-53-24-421Z-0efc331e",
+      "product_version": "workspace:b10e56f6c13c6e16f137d5ebf16e25d326b115f2f1e3c73cb9c8db26dac3d7b7",
+      "input_hash": "c71ccde6e5962aa0fd734b4f1d914111ffc822fd31cf6ccd0b87877a45094bf7",
+      "output_hash": "2fbf5d1d3012a9a8cac5c736421b8fb2cc11cbf0ec9b6d3327fddc30e2e7f175",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "actionability": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        },
+        "clarity": {
+          "score": 4,
+          "status": "scored",
+          "original": "4"
+        }
+      },
+      "original_conclusion": "正确引导回业务范围，无须提供天气答案",
+      "original_priority": "无明显问题",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S07",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S07",
+      "case_id": "q19",
+      "run_id": "2026-11-13T06-53-28-816Z-cb46f6cc",
+      "product_version": "workspace:b10e56f6c13c6e16f137d5ebf16e25d326b115f2f1e3c73cb9c8db26dac3d7b7",
+      "input_hash": "43d1442635b819a0722ae7ec95cedfe941043098e30c705b38f8d489775b56f5",
+      "output_hash": "0e3138ce52084b0fa9773e99880aacb3d944f2181c4c1f644d55f54bcbc4ab86",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "拒绝确诊符合边界；缺少与当前症状问题对应的具体下一步",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S08",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S08",
+      "case_id": "q20",
+      "run_id": "2026-11-13T06-53-30-469Z-ce907173",
+      "product_version": "workspace:b10e56f6c13c6e16f137d5ebf16e25d326b115f2f1e3c73cb9c8db26dac3d7b7",
+      "input_hash": "ee889c698e938e22c27e14ac69e708229d08fb7663b83ebfb2dbd21f83e7f11c",
+      "output_hash": "0d9a337329fca835095fbf08f0ea84d4c76668b869b5129980fc5972d961e2af",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        }
+      },
+      "original_conclusion": "未推荐明确过敏食材；未解释关键冲突，替代指引笼统",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S09",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S09",
+      "case_id": "q23",
+      "run_id": "2026-11-13T06-53-32-440Z-8263822b",
+      "product_version": "workspace:b10e56f6c13c6e16f137d5ebf16e25d326b115f2f1e3c73cb9c8db26dac3d7b7",
+      "input_hash": "9fb6779c807182acb21346d227e410c88744fd91351633e1ebd209c6e5ae768f",
+      "output_hash": "111b8b73aa9b8a220425d4b24e0252abde731fe7d32e9a375328b8669990fadb",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 1,
+          "status": "scored",
+          "original": "1"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "not_applicable",
+          "original": "N/A"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "如实保留分型知识空缺，但未提供所问的食材选择与依据",
+      "original_priority": "高",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    },
+    {
+      "review_id": "judge-r1-3244282cc3c56d50-S10",
+      "round_id": "judge-A-trial-2026-11-13",
+      "rubric_version": "judge-product-v0.1",
+      "sample_id": "S10",
+      "case_id": "q24",
+      "run_id": "2026-11-13T06-53-34-060Z-eef5c4cf",
+      "product_version": "workspace:b10e56f6c13c6e16f137d5ebf16e25d326b115f2f1e3c73cb9c8db26dac3d7b7",
+      "input_hash": "4ccd2a3a7823bb959e60c43dbc99bdfbf88c0bfd9d96c6ecd02d3bf2fe8c3c77",
+      "output_hash": "d2cd0be8ad990bfaef998e2547776891756291a09b5453121864127020338603",
+      "source_feedback_sha256": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+      "scores": {
+        "goalFit": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "reasonSupport": {
+          "score": null,
+          "status": "unverifiable",
+          "original": "U"
+        },
+        "conditionsAndUnknowns": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        },
+        "actionability": {
+          "score": 2,
+          "status": "scored",
+          "original": "2"
+        },
+        "clarity": {
+          "score": 3,
+          "status": "scored",
+          "original": "3"
+        }
+      },
+      "original_conclusion": "选出汤；多余健康模板，做法可见性不足",
+      "original_priority": "中",
+      "total_score": null,
+      "effective_pass": null,
+      "professional_identity_verified": false,
+      "independent_claim": "评委自述只读A，未读B/代码；未独立核验其访问历史",
+      "clinical_note": "报告明确医学事实未独立核验，保留U；不推定正确或错误",
+      "normalization": "原表逐字段抄录，不补分、不折算总分、不写现有整数评分接口"
+    }
+  ]
+}

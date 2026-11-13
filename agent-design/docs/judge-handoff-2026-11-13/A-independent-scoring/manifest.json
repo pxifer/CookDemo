@@ -1,0 +1,16 @@
+{
+  "package_id": "judge-handoff-2026-11-13-v1",
+  "role": "independent-scoring",
+  "created_at_utc": "2026-11-13T08:04:11.911961+00:00",
+  "files_sha256": {
+    "cases.json": "b0fe701cdeb2a540572e8c0fe0d8f9a40c668c4667f4b373eb3b8e39f1ec4163",
+    "cases.md": "0bb85f08c0c2e80b5d2fd8ed8c947fc513be23c9e8f44dec8fc4986c07cc729f",
+    "README.md": "3f95ef9fd14d22b2b9f3c21ca299655968500950a611f28b44e187db81b0e4b6",
+    "reference-index.json": "6e830eafe9fedde9b75458f9fa4e3c87fe314fef849cf3b46d8d2ffc07760317",
+    "references.md": "55f3019cc88f6d692fe4c93d7645cbc7a1a3319f51cbd0c37aebf4d433cd043d",
+    "requirements-sources.md": "e6b4c8938bd57151d7230024d7b281e11fc05aacf806f76ac3c534e81ab86a64"
+  },
+  "hash_note": "文件字节SHA-256，只证明字节一致；不是临床正确性或完整运行验收。",
+  "scoring_standard_status": "not_yet_frozen_by_independent_judge",
+  "only_existing_records": true
+}
