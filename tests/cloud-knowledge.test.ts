@@ -62,3 +62,14 @@ test('源库提示保留事实及限定证据，个人Key单次调用；过大�
  const reference=b7.nutritionReference as any;assert(reference);assert(reference.foods.every((f:any)=>f.values.every((v:any)=>v.status==='not_reported'&&v.value===null)));assert(reference.interpretation.includes('缺失不等于零'));
  await assert.rejects(requestHealthChat(body,new AbortController().signal,fetcher,()=>true,[],{...packet,uncoveredTopics:['x'.repeat(41000)]}));assert.equal(calls,1);
 });
+
+test('健康请求复用同一次撤回读取，断言仍重新读取并在撤回后拒绝',async()=>{
+ let revoked:string[]=[],calls=0;
+ const p=createCloudKnowledge({envId:'shiwei-test',key:'public-test',releaseId:'knowledge-test-v1',hash,fetch:async()=>{calls++;return Response.json([{checksum:hash,revocations:revoked,payload}]);}});
+ const packet=await p.prepare({profile:{conditions:['便秘'],goals:[],notes:''},content:constructedContent});
+ assert.equal(calls,2);// payload load + one revocation read; nutrition composition reuses it
+ await p.assertCurrent(packet);await p.assertCurrent(packet);
+ assert.equal(calls,4);// exactly one fresh gateway read per assertion
+ revoked=['withdrawn'];
+ await assert.rejects(p.assertCurrent(packet));
+});

@@ -10,6 +10,8 @@ import { reportedNutritionConditions } from '../../../shared/nutrition-condition
 export const businessPolicyVersion='food-guidance-business-v3-20261113';
 export const guidanceHash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const guidanceTextHash=(value:string)=>createHash('sha256').update(value).digest('hex');
+const packetRevocationsMap=new WeakMap<object,Set<string>>();
+export const packetRevocations=(packet:Pick<FoodGuidancePacket,'fingerprint'>)=>packetRevocationsMap.get(packet);
 const norm=(value:string)=>value.normalize('NFKC').trim();
 export interface GoalKnowledge {
   id:string; topics:{id:string;name:string;aliases:string[]}[]; evidence:GuidanceEvidence[];
@@ -111,9 +113,10 @@ export function createFoodGuidanceProvider(bundle:KnowledgeBundle,goals:GoalKnow
       }
       for(const topic of topics)if(!applicable.some(g=>g.topic.id===topic.id)&&!uncoveredTopics.includes(`${topic.kind}:${topic.inputName}`))uncoveredTopics.push(`${topic.kind}:${topic.inputName}`);
       const conflicts=[...new Set(applicable.map(g=>g.objectId))].flatMap(objectId=>{const items=applicable.filter(g=>g.objectId===objectId);return items.some(g=>g.direction==='prefer')&&items.some(g=>g.direction!=='prefer')?[{objectId,guidanceIds:items.map(g=>g.id)}]:[];});
-      return {mode:'local_research',clinicalRelease:null,knowledgeVersion:`${bundle.id}+${goals.id}+${mappings.id}`,fingerprint:fingerprint(revoked),topics,guidance,topicCoverage,evidence:selectedEvidence.flatMap(id=>evidenceById.has(id)?[evidenceById.get(id)!]:[]),uncoveredTopics,missingConditions:[...new Set(topicCoverage.flatMap(t=>t.missingConditions))],conflicts,mappingCoverage:{total:guidance.length,mapped:guidance.filter(g=>g.mapping.status==='mapped').length,unmappedObjects:[...new Set(guidance.filter(g=>g.mapping.status==='unmapped').map(g=>g.objectId))]}};
+      const packet:FoodGuidancePacket={mode:'local_research',clinicalRelease:null,knowledgeVersion:`${bundle.id}+${goals.id}+${mappings.id}`,fingerprint:fingerprint(revoked),topics,guidance,topicCoverage,evidence:selectedEvidence.flatMap(id=>evidenceById.has(id)?[evidenceById.get(id)!]:[]),uncoveredTopics,missingConditions:[...new Set(topicCoverage.flatMap(t=>t.missingConditions))],conflicts,mappingCoverage:{total:guidance.length,mapped:guidance.filter(g=>g.mapping.status==='mapped').length,unmappedObjects:[...new Set(guidance.filter(g=>g.mapping.status==='unmapped').map(g=>g.objectId))]}};
+      packetRevocationsMap.set(packet,revoked);return packet;
     },
-    async assertCurrent(packet){if(packet.fingerprint!==fingerprint(new Set([...bundle.revocations,...await revocations()])))throw Error('GUIDANCE_EVIDENCE_CHANGED');},
+    async assertCurrent(packet,revoked){const current=revoked?new Set([...bundle.revocations,...revoked]):new Set([...bundle.revocations,...await revocations()]);if(packet.fingerprint!==fingerprint(current))throw Error('GUIDANCE_EVIDENCE_CHANGED');},
   };
 }
 const processMatches=(rule:string,variant:Variant)=>{

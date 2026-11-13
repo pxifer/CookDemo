@@ -322,7 +322,7 @@ export async function createApp(options: {
   };
   app.post<{Body:HealthChatRequest}>('/api/v1/health/chat',{schema:{body:healthChatSchema}},async(req,reply)=>{
     if(!healthChatAvailable)throw new DomainError('CHAT_NOT_READY',503,'AI 对话暂时无法连接，请稍后再试');
-    const controller=new AbortController(),signal=AbortSignal.any([controller.signal,AbortSignal.timeout(17000)]);
+    const controller=new AbortController(),signal=AbortSignal.any([controller.signal,AbortSignal.timeout(45000)]);
     const onClose=()=>{if(!reply.raw.writableEnded)controller.abort();};reply.raw.on('close',onClose);
     let reserved=false;
     try{
@@ -431,7 +431,7 @@ export async function createApp(options: {
   });
   app.post<{ Body: RecommendationRequest }>('/api/v1/recommendations', { schema: { body: recommendationSchema } }, async (req, reply) => {
     req.body={...req.body,meal:recommendationMeal(req.body.meal)};
-    const budget=AbortSignal.timeout(17000);
+    const budget=AbortSignal.timeout(45000);
     const subject = session(req.headers.cookie)!;
     const context = contextFor(req);
     const modelHealth = req.body.meal.health && Boolean(options.healthModel) && !options.accounts?.claimAiChat;

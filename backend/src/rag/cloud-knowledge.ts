@@ -28,9 +28,8 @@ export function createCloudKnowledge(options:{envId:string;key:string;releaseId:
  const load=async()=>{if(!assets){loading??=read(true).then(()=>{}).catch(e=>{loading=undefined;throw e;});await loading;}return assets!;};
  const provider=async()=>{const a=await load();return createNutritionGuidanceProvider(createFoodGuidanceProvider(a.bundle,a.goals,a.mappings,read),a.expansion,read);};
  // One composite provider per immutable release; assertCurrent re-reads cloud withdrawal state.
- let instance:Promise<FoodGuidanceProvider>|undefined;
- const get=()=>instance??=provider().catch(e=>{instance=undefined;throw e;});
+ let instance:Promise<FoodGuidanceProvider>|undefined; const get=()=>instance??=provider().catch(e=>{instance=undefined;throw e;});
  return {async prepare(input){const a=await load(),p=await get();const profile=guidanceProfile(input.profile,input.currentText??'',a.bundle,a.goals);const packet=await p.prepare({...input,profile});const text=input.currentText??'';let nutritionReference:Record<string,unknown>|undefined;
  if(text&&text.length<=1000&&/维生素|矿物质|热量|能量|蛋白质|脂肪|碳水|含钙|含铁|含锌|营养/.test(text)){const result=searchNutritionKnowledge(a.expansion,text,{limit:2,revoked:await read()});nutritionReference={version:result.knowledgeVersion,scope:result.lookupScope,interpretation:result.interpretation,nutrients:result.nutrients,foods:result.foods.map(f=>({...f,values:f.values.map(({sourceRow,...v})=>v)})),sources:result.sources.map(({id,title,url,version,sourceHash,reviewDue})=>({id,title,url,version,sourceHash,reviewDue}))};}
- return {...packet,mode:'source_guidance',...(nutritionReference?{nutritionReference}:{})};},async assertCurrent(packet){await read();await(await get()).assertCurrent(packet);}};
+ return {...packet,mode:'source_guidance',...(nutritionReference?{nutritionReference}:{})};},async assertCurrent(packet){const a=await load(),revoked=new Set([...a.bundle.revocations,...await read()]);await(await get()).assertCurrent(packet,revoked);}};
 }
