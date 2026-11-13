@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomBytes } from 'node:crypto';
 import { createHealthRecipeSelector } from '../backend/src/health-recipe-selection';
+import { readFoodGuidanceAssets } from '../backend/src/rag/food-guidance-repository';
+import { createFoodGuidanceProvider } from '../backend/src/rag/food-guidance';
 import { constructedContent } from '../shared/catalog';
 import { mealWith, request, simpleRecipe } from './fixtures';
 import { createApp } from '../backend/src/app';
@@ -95,4 +97,27 @@ test('不允许补买时AI按人数出餐，不回到六道候选',async()=>{
   let packet:any;
   await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const chosen:any[]=[];for(const cat of ['meat','veg','soup'] as const){const n=packet.categories[cat]||0;for(const item of packet.catalog.filter((c:any)=>c.category===cat).slice(0,n))chosen.push(item);}return envelope({summary:'按人数选择',choices:chosen.map((item:any)=>({id:item.id,reason:'按本餐人数'}))});}));
   assert.equal(packet.count,3);assert.deepEqual(packet.categories,{meat:1,veg:2,soup:0});
+});
+
+test('AI候选同一主料最多两道，避免整页同一种食材的变体',async()=>{
+  const meal={...oneMeal(),composition:'custom' as const,counts:{meat:0,veg:1,soup:0},servings:1,allowBuy:false};
+  const recipes:any[]=[];
+  for(let i=0;i<6;i++)recipes.push(simpleRecipe(`egg-${i}`,[['egg',1]],{category:'veg'}));
+  for(let i=0;i<6;i++)recipes.push(simpleRecipe(`tomato-${i}`,[['tomato',100]],{category:'veg'}));
+  let packet:any;
+  await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'按本餐',choices:[{id:packet.catalog[0].id,reason:'按本餐'}]});}));
+  const eggCount=packet.catalog.filter((item:any)=>item.ingredients.some((line:any)=>line.name==='鸡蛋')).length;
+  assert(eggCount<=2,`egg dishes ${eggCount}`);
+});
+
+test('结果说明区分营养指标、缺条件与无资料，不再笼统说没有可用依据',async()=>{
+  const assets=await readFoodGuidanceAssets();
+  const provider=createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set());
+  const meal:any={...oneMeal(),composition:'custom' as const,counts:{meat:0,veg:1,soup:0},servings:1,allowBuy:false,healthProfile:{conditions:['维生素D不足'],goals:['瘦身'],notes:''}};
+  const recipes=[simpleRecipe('tomato',[['tomato',100]],{category:'veg'})];
+  let packet:any;
+  const result=await createHealthRecipeSelector(randomBytes(32),provider)(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'按本餐',choices:[{id:packet.catalog[0].id,reason:'按本餐'}]});}));
+  const message=result.healthAssessment!.message;
+  assert(!message.includes('没有可用的疾病或目标依据'),message);
+  assert(message.includes('属于营养指标'),message);
 });

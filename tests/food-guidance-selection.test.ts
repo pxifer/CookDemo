@@ -35,7 +35,7 @@ test('模型仍只能选择提供的目录ID，程序绑定不允许伪造菜谱
 test('未知条件或未匹配依据只保留健康判断，正常本餐仍交给模型选择，不伪装有依据',async()=>{
   for(const meal of [{...base(),healthProfile:{...base().healthProfile!,notes:''}},{...base(),healthProfile:{...base().healthProfile!,conditions:['慢性肾病']}},base()]){
     let calls=0;const result=await createHealthRecipeSelector(randomBytes(32),repo())(input(meal,[simpleRecipe('tomato',[['tomato',100]])],async(_u,init)=>{calls++;const p=JSON.parse(JSON.parse(String(init?.body)).messages[1].content);return envelope({summary:'只按本餐条件选择，不作健康结论',choices:[{id:p.catalog[0].id,reason:'复用现有食材',guidanceIds:[]}]});}));
-    assert.equal(calls,1);assert.equal(result.status,'completed');assert.equal(result.researchGuidance?.coverage,'unmatched');assert.equal(result.dishes[0].aiGrounding!.matches.length,0);assert.match(result.dishes[0].aiReason!,/暂时没有足够资料判断/);assert.match(result.healthAssessment!.message,/不做健康判断/);
+    assert.equal(calls,1);assert.equal(result.status,'completed');assert.equal(result.researchGuidance?.coverage,'unmatched');assert.equal(result.dishes[0].aiGrounding!.matches.length,0);assert.match(result.dishes[0].aiReason!,/暂时没有足够资料判断/);assert.match(result.healthAssessment!.message,/只作饮食参考|不作判断|暂时没有|还需要确认|没有匹配到对应做法/);
   }
 });
 test('少选不是硬禁：减脂含糖候选保留但明确提示，不能以含白糖宣称整菜高糖',async()=>{
