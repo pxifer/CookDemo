@@ -1,0 +1,12 @@
+{
+  "package_id": "judge-feedback-2026-11-13-r1-2026-11-13-v1",
+  "files_sha256": {
+    "README.md": "1723cb13468d404bb85d26530f8da33fddb1172ffc9f38ae79b5aac29924eb3d",
+    "received-original.md": "3244282cc3c56d50a3be889220bf0870ba4f3f312351d8120760fbfddb152c6f",
+    "reviews.normalized.json": "307a559f7346e477f47f375d3009ba0beb50e6aa50752e1a9c20aaf4c8700a4d",
+    "rubric-judge-product-v0.1.original.md": "07cc14b4679848763ecf25fc93956197f9cc0ebd4db0ea797d4b9c2e86272475",
+    "verification.json": "9e0c2e80ee0b6cc83be6163cfbd93f0290c13876f0062b61e52d456b209c7c91"
+  },
+  "purpose": "文件一致性；不是临床正确性证明",
+  "rubric_version": "judge-product-v0.1"
+}

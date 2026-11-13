@@ -1,0 +1,10 @@
+{
+  "package_id": "judge-feedback-2026-11-13-r2-v1",
+  "files_sha256": {
+    "README.md": "39bb1d73eabc46165647f90610efe7623144ae8698067d7c82b684d765572eb6",
+    "received-original.md": "9bf0236da59cd11435d54acc917442bf12a738ef22c1d08928ff6e24eab0b74c",
+    "reviews.normalized.json": "5c0fc4f1b20ef1438be4da0b42adea2037f25e26fdc29a96e572117a46886976",
+    "verification.json": "95d2cc6c65d00e2ae3a5e7de6bcd3b19cc452c5e6e58e5c960b2fa38446cc130"
+  },
+  "professional_signoff": false
+}

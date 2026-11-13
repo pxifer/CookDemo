@@ -1,0 +1,22 @@
+{
+  "id":"recipe-output-v1-labels",
+  "inputDataset":"recipe-output-v1",
+  "origin":"project_agent",
+  "independent":false,
+  "clinicalReview":"pending",
+  "labels": {
+    "g01":{"factId":"fact:ht-limit-salt","direction":"limit","applicability":"applicable"},
+    "g02":{"factId":"goal:fat-loss-limit-sugar","direction":"limit","noDiseaseTopic":true},
+    "g03":{"factId":"goal:muscle-prefer-egg","direction":"prefer","applicability":"applicable"},
+    "g04":{"factId":"goal:muscle-prefer-egg","applicability":"needs_confirmation"},
+    "g05":{"factId":"goal:muscle-prefer-egg","applicability":"not_applicable"},
+    "g06":{"uncoveredTopic":"condition:维生素D不足"},
+    "g07":{"factId":"goal:fat-loss-limit-sugar","applicability":"not_applicable"},
+    "g08":{"factId":"fact:ht-limit-salt","applicability":"needs_confirmation"},
+    "m01":{"status":"completed"},"m02":{"status":"completed"},"m03":{"status":"completed"},"m04":{"status":"completed"},
+    "m05":{"status":"completed"},"m06":{"status":"completed"},"m07":{"status":"completed"},"m08":{"status":"completed","uncoveredTopic":"condition:维生素D不足"},
+    "m09":{"status":"no_results","noModelCall":true},"m10":{"status":"no_results","noModelCall":true},
+    "m11":{"status":"completed","equivalentTo":"m12"},"m12":{"status":"completed","equivalentTo":"m11"},
+    "m13":{"status":"completed"},"m14":{"status":"needs_confirmation","noModelCall":true},"m15":{"status":"no_results","noModelCall":true},"m16":{"status":"completed"}
+  }
+}

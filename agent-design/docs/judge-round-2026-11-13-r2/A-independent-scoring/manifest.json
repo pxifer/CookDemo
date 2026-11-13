@@ -1,0 +1,17 @@
+{
+  "package_id": "A-independent-scoring-2026-11-13-v1",
+  "files_sha256": {
+    "cases.json": "d5c08e3facf91d61faf48ed269ac9a7d9f4a85b4178484f687b3e2ae54db66f2",
+    "cases.md": "4824c56a70dcb56624e2d96a6bfbac7924a61946f70506c4b1768db7bb849cab",
+    "product.md": "a204381ba22053ca999c9799cc190867adcff9ab1824bb2b997255659849570c",
+    "README.md": "09a88eca909ffd021a6ca4d4a8ab2854a39cc700c19bb04029ba7fdd82c4869b",
+    "recipe-support.json": "d099df685c92958156ac3931a0e17b33b13a9a7def5dce82a6ca97ef80e17334",
+    "recipe-support.md": "972fa47e017b1c7dcb8ea663b950db62e75ac3abbb046dfcd3f80eed25e0ea96",
+    "reference-index.json": "6e830eafe9fedde9b75458f9fa4e3c87fe314fef849cf3b46d8d2ffc07760317",
+    "references.md": "55f3019cc88f6d692fe4c93d7645cbc7a1a3319f51cbd0c37aebf4d433cd043d",
+    "requirements-sources.md": "e6b4c8938bd57151d7230024d7b281e11fc05aacf806f76ac3c534e81ab86a64",
+    "rubric-judge-product-v0.1.original.md": "07cc14b4679848763ecf25fc93956197f9cc0ebd4db0ea797d4b9c2e86272475"
+  },
+  "purpose": "文件一致性；不是临床正确性证明",
+  "rubric_version": "judge-product-v0.1"
+}

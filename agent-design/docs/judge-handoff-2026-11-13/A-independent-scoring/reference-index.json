@@ -1,0 +1,54 @@
+{
+  "status": "既有原始来源索引；未完成独立参考答案审核",
+  "sources": [
+    {
+      "title": "体重管理指导原则（2024年版）",
+      "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+      "source_version": "2024",
+      "retrieved_date": null,
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    },
+    {
+      "title": "成人慢性肾脏病食养指南（2024年版）",
+      "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+      "source_version": "2024",
+      "retrieved_date": null,
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    },
+    {
+      "title": "高血压营养和运动指导原则（2024年版）",
+      "url": "https://www.gov.cn/zhengce/zhengceku/202407/P020240701700333981869.pdf",
+      "source_version": "2024",
+      "retrieved_date": null,
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    },
+    {
+      "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+      "source_version": "2017",
+      "retrieved_date": null,
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    },
+    {
+      "title": "Hypothyroidism (Underactive Thyroid)",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+      "source_version": null,
+      "retrieved_date": "2026-11-13",
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    },
+    {
+      "title": "Hashimoto’s Disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+      "source_version": null,
+      "retrieved_date": "2026-11-13",
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    },
+    {
+      "title": "Iodine in Food — Report No.77",
+      "url": "https://www.cfs.gov.hk/english/programme/programme_rafs/programme_rafs_n_01_34_Iodine_in_Food_2025_report77.html",
+      "source_version": null,
+      "retrieved_date": "2026-11-13",
+      "status": "运行记录关联的原始出处；不是独立金标准，URL未必展示在主回答"
+    }
+  ]
+}

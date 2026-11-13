@@ -1,0 +1,440 @@
+{
+  "id": "thyroid-iodine-explanation-2026-11-13-v1",
+  "status": "local_research_explanation_candidate",
+  "clinicalRelease": null,
+  "professionalReview": "pending",
+  "topic": {
+    "id": "topic:thyroid-iodine",
+    "conditionAliases": [
+      "甲减",
+      "甲状腺功能减退",
+      "甲状腺功能减退症",
+      "桥本",
+      "桥本甲状腺炎"
+    ],
+    "foodAliases": [
+      "海带",
+      "海藻",
+      "紫菜",
+      "海苔"
+    ],
+    "scope": "Iodine/seaweed explanation only; not comprehensive hypothyroidism treatment or executable food exclusion"
+  },
+  "sources": [
+    {
+      "id": "niddk-hypothyroidism",
+      "title": "Hypothyroidism (Underactive Thyroid)",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+      "retrievedDate": "2026-11-13",
+      "sourceHash": "6f1ca80d48f3643f73c096ee4d50f5689cdea82f7fe83cc78d0773aecfb7c401",
+      "license": "NIH/NIDDK public health information; attribution; no images or full HTML redistributed."
+    },
+    {
+      "id": "niddk-hashimoto",
+      "title": "Hashimoto’s Disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+      "retrievedDate": "2026-11-13",
+      "sourceHash": "a6bf012436b1cd01a28eef7ca453271b109ecf0f3854e3499fe0078768856ab2",
+      "license": "NIH/NIDDK public health information; attribution; no images or full HTML redistributed."
+    },
+    {
+      "id": "hk-cfs-iodine-2025",
+      "title": "Iodine in Food — Report No.77",
+      "url": "https://www.cfs.gov.hk/english/programme/programme_rafs/programme_rafs_n_01_34_Iodine_in_Food_2025_report77.html",
+      "retrievedDate": "2026-11-13",
+      "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+      "license": "Background/public-advice sentences only, acknowledged to CFS/FEHD. No research measurements, datasets, figures or tables reproduced; research-data reuse permission is not claimed."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc",
+      "key": "autoimmune-seaweed",
+      "sourceId": "niddk-hypothyroidism",
+      "sourceHash": "6f1ca80d48f3643f73c096ee4d50f5689cdea82f7fe83cc78d0773aecfb7c401",
+      "originalSpan": "Your thyroid uses iodine to make thyroid hormones. However, if you have Hashimoto’s disease or other types of autoimmune thyroid disorders, you may be sensitive to iodine’s harmful side effects. Eating foods that have large amounts of iodine—such as kelp, dulse, or other kinds of seaweed—may cause or worsen hypothyroidism. Taking iodine supplements can have the same effect.",
+      "spanHash": "bd0a844a1a4b36c4c5d716e5268b224ea92af650bf783b47bdc3e2d74400a2e2",
+      "locator": {
+        "normalization": "document-parsing-v3-enhanced-blocks",
+        "start": 8416,
+        "end": 8792,
+        "parentStart": 8416,
+        "parentEnd": 8792,
+        "parentHash": "bd0a844a1a4b36c4c5d716e5268b224ea92af650bf783b47bdc3e2d74400a2e2",
+        "bodyLocator": "/html/body/div/main/div/div[2]/article",
+        "atoms": [
+          {
+            "id": "html:277",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+              "slot": "text",
+              "rawHash": "6bc6b15294a53652ccbef501a9bf9e9eb76330f441e88c7c164507d4b2d3b035"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          },
+          {
+            "id": "html:278",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[1]",
+              "slot": "text",
+              "rawHash": "4509828efbad122ab1132d5a6cedf510c61ef726c2dfeb9788a046a22488624c"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          },
+          {
+            "id": "html:279",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+              "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[1]",
+              "rawHash": "3de11c88f4aa50348d8318ecea7be70a77bd59bc077f6475af30e5d8a10fdda0"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          },
+          {
+            "id": "html:280",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[2]",
+              "slot": "text",
+              "rawHash": "a83a6270dbe60f5905d49826b7d4cb38ec0f5e118d1c318e28926694f5fc0ee1"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          },
+          {
+            "id": "html:281",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+              "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[2]",
+              "rawHash": "18eceb383254f8f0ce141d3b5e563a5791945551476727835bdd00ad09e0613b"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          },
+          {
+            "id": "html:282",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[3]",
+              "slot": "text",
+              "rawHash": "6aeb2a4f5c9ed292647eb6f64bf1ee23debb76460fb376656cf11da8588071d0"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          },
+          {
+            "id": "html:283",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+              "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[3]",
+              "rawHash": "7ac089948c03393ebee922c41673c581141c263a5c6169581a1a84f3bdbef346"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          }
+        ]
+      },
+      "extraction": "complete_unique_body_block",
+      "verification": "project_source_recheck_not_independent_clinical_review"
+    },
+    {
+      "id": "topic-ev:8bc222fb2f9b8f4c3d577f551c5d18336a17ef3ea9b8da084c391a55a20ca337",
+      "key": "pregnancy-qualifier",
+      "sourceId": "niddk-hashimoto",
+      "sourceHash": "a6bf012436b1cd01a28eef7ca453271b109ecf0f3854e3499fe0078768856ab2",
+      "originalSpan": "However, if you are pregnant, you need to take enough iodine because the baby gets iodine from your diet. Too much iodine can cause problems as well, such as a goiter in the baby. If you are pregnant, talk with your doctor about how much iodine you need.",
+      "spanHash": "52e254d2c64a00e4e7bfd1b27e6ca00f2fc9b4f9ddb8bd5a04b78c4117b4b5f6",
+      "locator": {
+        "normalization": "document-parsing-v3-enhanced-blocks",
+        "start": 8045,
+        "end": 8299,
+        "parentStart": 8045,
+        "parentEnd": 8299,
+        "parentHash": "52e254d2c64a00e4e7bfd1b27e6ca00f2fc9b4f9ddb8bd5a04b78c4117b4b5f6",
+        "bodyLocator": "/html/body/div/main/div/div[2]/article",
+        "atoms": [
+          {
+            "id": "html:262",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+              "slot": "text",
+              "rawHash": "52e254d2c64a00e4e7bfd1b27e6ca00f2fc9b4f9ddb8bd5a04b78c4117b4b5f6"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+          }
+        ]
+      },
+      "extraction": "complete_unique_body_block",
+      "verification": "project_source_recheck_not_independent_clinical_review"
+    },
+    {
+      "id": "topic-ev:fa8ae51adf0594d289b8c8a930d47074e9982142d3ea93842aed1f38ed6785fd",
+      "key": "selenium-not-established",
+      "sourceId": "niddk-hashimoto",
+      "sourceHash": "a6bf012436b1cd01a28eef7ca453271b109ecf0f3854e3499fe0078768856ab2",
+      "originalSpan": "Researchers are looking at other ways in which diet and supplements—such as vitamin D and selenium—may affect Hashimoto’s disease.2 However, no specific guidance is currently available.3",
+      "spanHash": "b77ade3a58d9da42e0d8d035edc2c5061a1aefbd9ffed610000ad42d349bccd6",
+      "locator": {
+        "normalization": "document-parsing-v3-enhanced-blocks",
+        "start": 8300,
+        "end": 8486,
+        "parentStart": 8300,
+        "parentEnd": 8486,
+        "parentHash": "b77ade3a58d9da42e0d8d035edc2c5061a1aefbd9ffed610000ad42d349bccd6",
+        "bodyLocator": "/html/body/div/main/div/div[2]/article",
+        "atoms": [
+          {
+            "id": "html:263",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]",
+              "slot": "text",
+              "rawHash": "41e0cea90487e358ad55b224ce4c6930b1f35107d84dc1725da523ab63f19535"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:264",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]/a[1]",
+              "slot": "text",
+              "rawHash": "59195ee68cee165e009bbb942ebb5b4bd49e51b88b6db772eb3ce103ec8a1512"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:265",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]",
+              "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[29]/a[1]",
+              "rawHash": "9377501cc5e3aff911b30bdf455b1e904733d27f5248a8614bc5590468a0ed36"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:266",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]/a[2]",
+              "slot": "text",
+              "rawHash": "e684a3e94efd46f9c5fa0ea83c600cbad6fb47dc9cf2620a62f83fbd3552cbbe"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:267",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]",
+              "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[29]/a[2]",
+              "rawHash": "4b281623d49f120f11a5f320a126baeaa8a5f4e7e3b2fbd75ece54abf12a4e3c"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:268",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]/sup[1]",
+              "slot": "text",
+              "rawHash": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:269",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]",
+              "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[29]/sup[1]",
+              "rawHash": "9227475709a1fc5e2a8a13df90582fb554d17b947e7e9edb33330ab0e0bc8685"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          },
+          {
+            "id": "html:270",
+            "locator": {
+              "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[29]/sup[2]",
+              "slot": "text",
+              "rawHash": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+            },
+            "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[29]"
+          }
+        ]
+      },
+      "extraction": "complete_unique_body_block",
+      "verification": "project_source_recheck_not_independent_clinical_review"
+    },
+    {
+      "id": "topic-ev:5c092a822449abf9e7f0197a146c29d0dc23d2fbb678b03fb846c52ae6341705",
+      "key": "species-variability",
+      "sourceId": "hk-cfs-iodine-2025",
+      "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+      "originalSpan": "However, the iodine content of seaweed varies with different species; it is generally greater in brown seaweeds (kelps) than the green or red varieties.",
+      "spanHash": "afb8b79d3f1a0c7178f5edbbdc588a15022302a3a33e9083432e6d4a6fc367e1",
+      "locator": {
+        "normalization": "document-parsing-v3-enhanced-blocks",
+        "start": 14332,
+        "end": 14484,
+        "parentStart": 13481,
+        "parentEnd": 14484,
+        "parentHash": "f5f5e332d50ec573adeab7afce031d7917115f651876fa04c9f0cc8bc167e808",
+        "bodyLocator": "/html",
+        "atoms": [
+          {
+            "id": "html:86",
+            "locator": {
+              "domPath": "/html/body/div/p[14]",
+              "slot": "text",
+              "rawHash": "f5f5e332d50ec573adeab7afce031d7917115f651876fa04c9f0cc8bc167e808"
+            },
+            "blockKey": "/html/body/div/p[14]"
+          }
+        ]
+      },
+      "extraction": "complete_sentence_with_body_parent",
+      "verification": "project_source_recheck_not_independent_clinical_review"
+    },
+    {
+      "id": "topic-ev:07436df0804efb521d14c9caba582ad60d135d0f7c9d8548cef4f839c151d8cd",
+      "key": "food-source-context",
+      "sourceId": "hk-cfs-iodine-2025",
+      "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+      "originalSpan": "Examples of iodine-rich foods or ingredients are seafood (e.g., seaweed or kelp, marine fish, crustaceans, molluscs), eggs, dairy, and their products.",
+      "spanHash": "4d939442ce0aa068f2b0a6d538c2b65ba51573c7d3600c11f348de6c9498259c",
+      "locator": {
+        "normalization": "document-parsing-v3-enhanced-blocks",
+        "start": 7368,
+        "end": 7518,
+        "parentStart": 7171,
+        "parentEnd": 7518,
+        "parentHash": "da66a12f484e2423938a2a062e02c9b6c0b7e3d2b45400f180a6a3edc00cfdf9",
+        "bodyLocator": "/html",
+        "atoms": [
+          {
+            "id": "html:48",
+            "locator": {
+              "domPath": "/html/body/div/div[3]/ol/li[2]",
+              "slot": "text",
+              "rawHash": "da66a12f484e2423938a2a062e02c9b6c0b7e3d2b45400f180a6a3edc00cfdf9"
+            },
+            "blockKey": "/html/body/div/div[3]/ol/li[2]"
+          }
+        ]
+      },
+      "extraction": "complete_sentence_with_body_parent",
+      "verification": "project_source_recheck_not_independent_clinical_review"
+    },
+    {
+      "id": "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783",
+      "key": "thyroid-individual-qualifier",
+      "sourceId": "hk-cfs-iodine-2025",
+      "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+      "originalSpan": "Persons with existing medical conditions or thyroid problems are advised to consult healthcare professionals concerning the intake of iodine.",
+      "spanHash": "4809ed4809a80fcdb9cd35855930ce5fcafd06d42a6b90a2a6f7a35b34c1baab",
+      "locator": {
+        "normalization": "document-parsing-v3-enhanced-blocks",
+        "start": 7697,
+        "end": 7838,
+        "parentStart": 7697,
+        "parentEnd": 7838,
+        "parentHash": "4809ed4809a80fcdb9cd35855930ce5fcafd06d42a6b90a2a6f7a35b34c1baab",
+        "bodyLocator": "/html",
+        "atoms": [
+          {
+            "id": "html:50",
+            "locator": {
+              "domPath": "/html/body/div/div[3]/ol/li[4]",
+              "slot": "text",
+              "rawHash": "4809ed4809a80fcdb9cd35855930ce5fcafd06d42a6b90a2a6f7a35b34c1baab"
+            },
+            "blockKey": "/html/body/div/div[3]/ol/li[4]"
+          }
+        ]
+      },
+      "extraction": "complete_unique_body_block",
+      "verification": "project_source_recheck_not_independent_clinical_review"
+    }
+  ],
+  "facts": [
+    {
+      "id": "thyroid-autoimmune-seaweed",
+      "section": "能否吃",
+      "statement": "不能只凭“甲减”一律判定能吃或禁吃海带。若属于桥本等自身免疫性甲状腺病，大量高碘海藻或自行补碘可能造成不利影响；应先确认病因和医生给出的限碘要求。",
+      "evidenceIds": [
+        "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc"
+      ],
+      "qualifyingEvidenceIds": [
+        "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783"
+      ],
+      "conditions": [
+        "仅描述自身免疫性甲状腺病的高碘风险，不推断所有甲减均缺碘或均需低碘"
+      ],
+      "kind": "conditional_explanation"
+    },
+    {
+      "id": "thyroid-food-source-context",
+      "section": "食材选择",
+      "statement": "鱼虾、蛋类和奶类也属于含碘食物来源，不必把补碘等同于必须吃海带。这里是食物来源信息，不是甲减宜吃清单；是否适合或需要限制，应结合病因、过敏和个体饮食方案。",
+      "evidenceIds": [
+        "topic-ev:07436df0804efb521d14c9caba582ad60d135d0f7c9d8548cef4f839c151d8cd"
+      ],
+      "qualifyingEvidenceIds": [
+        "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783",
+        "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc"
+      ],
+      "conditions": [
+        "公共食物来源知识，不能转成甲减患者应增加摄入的指令"
+      ],
+      "kind": "food_source_context_only"
+    },
+    {
+      "id": "thyroid-pregnancy-qualifier",
+      "section": "特殊条件",
+      "statement": "妊娠期既要考虑足够的碘，也不能过量；不能把普通甲减或海带限量建议直接套用，应由医生明确个人碘需要。",
+      "evidenceIds": [
+        "topic-ev:8bc222fb2f9b8f4c3d577f551c5d18336a17ef3ea9b8da084c391a55a20ca337"
+      ],
+      "qualifyingEvidenceIds": [],
+      "conditions": [
+        "妊娠相关限定，不据此开补充剂或营养处方"
+      ],
+      "kind": "exception"
+    },
+    {
+      "id": "thyroid-supplement-boundary",
+      "section": "补充剂",
+      "statement": "不能把正在研究的硒或维生素D补充推成桥本患者已有明确适用方案，不给出自行补充剂量。",
+      "evidenceIds": [
+        "topic-ev:fa8ae51adf0594d289b8c8a930d47074e9982142d3ea93842aed1f38ed6785fd"
+      ],
+      "qualifyingEvidenceIds": [],
+      "conditions": [
+        "来源未给特定方案，不声称其他后续指南也均无方案"
+      ],
+      "kind": "evidence_limit"
+    }
+  ],
+  "limitations": [
+    {
+      "id": "thyroid-frequency-not-established",
+      "section": "频率",
+      "statement": "本批核验资料未提供适用于你的海带每周次数，不能据此把“每周几次”作为个人安全承诺。",
+      "evidenceIds": [
+        "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc",
+        "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783"
+      ],
+      "origin": "project_source_coverage_limit",
+      "patientFrequencyPerWeek": null
+    },
+    {
+      "id": "thyroid-portion-not-established",
+      "section": "量",
+      "statement": "海藻含碘量随品种而变化；缺少具体产品含碘量与个人目标，不能把通用碘摄入参考换算成你的海带克数。当前没有可核验的个人份量。",
+      "evidenceIds": [
+        "topic-ev:5c092a822449abf9e7f0197a146c29d0dc23d2fbb678b03fb846c52ae6341705",
+        "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783"
+      ],
+      "origin": "project_source_coverage_limit",
+      "patientPortionGrams": null,
+      "conversionAllowed": false
+    }
+  ],
+  "followup": "你的甲减病因是否已明确为桥本等自身免疫性疾病？",
+  "boundaries": {
+    "newExecutableRules": false,
+    "newVectors": false,
+    "pgImported": false,
+    "personalDataIncluded": false,
+    "generalPopulationSourcesNotPatientPrescription": true
+  }
+}

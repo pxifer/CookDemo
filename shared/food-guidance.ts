@@ -4,6 +4,10 @@ import type { Meal, Variant } from './types';
 
 export type GuidanceDirection = 'prefer' | 'limit' | 'avoid';
 export interface GuidanceTopic { id:string; kind:'condition'|'goal'; name:string; inputName:string }
+export interface GuidanceTopicCoverage {
+  input:string;status:'available'|'missing_conditions'|'not_applicable'|'withdrawn'|'knowledge_gap'|'needs_topic_detail';
+  factCount:number;applicableCount:number;missingConditions:string[];
+}
 export interface GuidanceEvidence {
   id:string; sourceId:string; title:string; version:string; url:string; sourceHash:string;
   originalSpan:string; locator:Record<string,unknown>; spanHash:string;
@@ -19,6 +23,7 @@ export interface FoodGuidance {
 export interface FoodGuidancePacket {
   mode:'local_research'|'source_guidance'; clinicalRelease:null; knowledgeVersion:string; fingerprint:string;
   topics:GuidanceTopic[]; guidance:FoodGuidance[]; evidence:GuidanceEvidence[];
+  topicCoverage?:GuidanceTopicCoverage[];
   uncoveredTopics:string[]; missingConditions:string[]; conflicts:{objectId:string;guidanceIds:string[]}[];
   mappingCoverage:{total:number;mapped:number;unmappedObjects:string[]};
   nutritionReference?:Record<string,unknown>;

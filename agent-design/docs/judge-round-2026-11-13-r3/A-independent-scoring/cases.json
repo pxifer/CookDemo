@@ -1,0 +1,410 @@
+{
+  "round_id": "outside-in-20261113-base",
+  "rubric_version": "judge-product-v0.1",
+  "exposure": "development-not-blind",
+  "cases": [
+    {
+      "sample_id": "outside-in-20261113-base-u26-t1",
+      "scenario_id": "u26",
+      "case_id": "custom-sim-e3683137764d58deb49612d4",
+      "run_id": "2026-11-13T09-22-56-287Z-c5a92449",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我有肾结石，结石成分不清楚，能不能照网上低草酸食谱选菜？"
+      },
+      "input_hash": "bf24a2efe7fa084033a39be07c21624f384e29041b3bb8ad3da916de29ad9945",
+      "output": {
+        "message": "我已理解你的饮食关注。当前核验资料尚未覆盖肾结石、结石成分不清楚，这部分不能给出有据的健康结论。仍可按现有食材、过敏忌口与做饭偏好选择普通菜品，健康判断保留。",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "dabd65f89c05eafac39de822eeae40f8b8487faf0168ec28d77d96ab23c6a6e4",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u34-t1",
+      "scenario_id": "u34",
+      "case_id": "custom-sim-65514f784e6c1ed2199e66e3",
+      "run_id": "2026-11-13T09-22-58-834Z-ad0532b5",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我在准备半马，想提高耐力，不是增肌，长跑训练后的晚餐怎么选？"
+      },
+      "input_hash": "591df575c0bf462eec2047a41f6b782c4776c73c012406450cf011bfdb13aefd",
+      "output": {
+        "message": "我已理解你的饮食关注。当前核验资料尚未覆盖提高耐力，这部分不能给出有据的健康结论。仍可按现有食材、过敏忌口与做饭偏好选择普通菜品，健康判断保留。已理解本次偏好：长跑训练后的晚餐、不是增肌。价格、时长等未有精确核验时不会宣称已满足。",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "4135cd57a174ac4fcad502d6c2aaa72ac8ff3e2c64840f7c9607d423fd627ac9",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u01-t1",
+      "scenario_id": "u01",
+      "case_id": "custom-sim-4c8910aa938bd9deef378811",
+      "run_id": "2026-11-13T09-23-01-188Z-c4274563",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "今晚两个人吃，只有鸡蛋、土豆和青椒，不补买，想省事做一荤一素。"
+      },
+      "input_hash": "d51be63ce3cc4c86f39516780e9e94039772f9029286cfe5e36a84da932631f9",
+      "output": {
+        "message": "已按本餐条件选出真实菜品。已理解本次偏好：省事。价格、时长等未有精确核验时不会宣称已满足。",
+        "dishes": [
+          {
+            "name": "虎皮青椒",
+            "flavor": "咸鲜",
+            "reason": "用上现有青椒。",
+            "basis": [
+              "复用本餐食材：青椒",
+              "已核对明列配料、过敏忌口与本餐补买条件；做法采用“咸鲜”版本。"
+            ]
+          }
+        ],
+        "suggestions": []
+      },
+      "output_hash": "2396f86262bf905bb49d272e2991d85118fd4acee8bdda66f90f4a672ac77f53",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [
+        {
+          "name": "虎皮青椒",
+          "flavor": "咸鲜",
+          "steps": [
+            "去掉青椒蒂，用自来水冲洗干净。",
+            "青椒切长片，平均一个青椒纵向切成 3-4 片即可。",
+            "大蒜去皮，切成碎末，体积在 2mm x 2mm x 2mm 即可。",
+            "调料 1：拿一个小碗倒入 20ml 油，将大蒜末放入其中。",
+            "调料 2：白糖、生抽、醋、盐全部倒入砵（碗）等容器，搅拌。",
+            "将 调料 1 倒入锅中，开火加热 5 成放入青椒，青椒片不要叠在一起，单独成片放置锅中。",
+            "用锅铲不停的按压青椒，合适的时候翻面。",
+            "翻炒约 2 分钟，待青椒表皮出现褶皱时，倒入 调料 2。",
+            "加大火候继续翻炒 30s 后即可出锅盛入盘中。"
+          ],
+          "lines": [
+            {
+              "foodId": "pepper",
+              "amount": null,
+              "unit": "g",
+              "role": "main",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "青椒 5 个",
+              "name": "青椒"
+            },
+            {
+              "foodId": "garlic",
+              "amount": null,
+              "unit": "g",
+              "role": "seasoning",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "大蒜 2-3 瓣",
+              "name": "大蒜"
+            },
+            {
+              "foodId": "oil",
+              "amount": null,
+              "unit": "g",
+              "role": "seasoning",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "油 20ml",
+              "name": "食用油"
+            },
+            {
+              "foodId": "sugar",
+              "amount": null,
+              "unit": "g",
+              "role": "seasoning",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "白糖 15g",
+              "name": "白糖"
+            },
+            {
+              "foodId": "soy",
+              "amount": null,
+              "unit": "g",
+              "role": "seasoning",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "生抽 15ml",
+              "name": "生抽"
+            },
+            {
+              "foodId": "gallery-food-4206e6b2129d88b4",
+              "amount": null,
+              "unit": "g",
+              "role": "seasoning",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "香醋 15ml",
+              "name": "香醋"
+            },
+            {
+              "foodId": "salt",
+              "amount": null,
+              "unit": "g",
+              "role": "seasoning",
+              "basis": "unknown",
+              "form": "raw",
+              "optional": false,
+              "sourceText": "盐 4g",
+              "name": "盐"
+            }
+          ],
+          "catalogNameVerified": true,
+          "status": "程序返回的原配方；不是用户可见性或临床证明"
+        }
+      ],
+      "meal_settings": {
+        "checkSeasonings": false,
+        "seasonings": [
+          "oil",
+          "salt",
+          "soy",
+          "garlic"
+        ],
+        "allowBuy": false,
+        "servings": 2,
+        "counts": {
+          "meat": 1,
+          "veg": 1,
+          "soup": 0
+        }
+      },
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u14-t1",
+      "scenario_id": "u14",
+      "case_id": "custom-sim-100c4e14f35c53d9199d3514",
+      "run_id": "2026-11-13T09-23-05-041Z-acbbfb6e",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我给七十多岁的父亲做饭，他嚼不动硬东西，不想喝粥，能给一些软一点的菜吗？"
+      },
+      "input_hash": "cf81d7eb5fcbaf6207129c0d3cb64985e68a49990f1e1d5bb15dc284e5d3cd24",
+      "output": {
+        "message": "已理解本次偏好：嚼不动硬东西、不想喝粥、软一点的菜。价格、时长等未有精确核验时不会宣称已满足。可以按你的需求继续安排菜品。想要几道菜、荤素怎么搭配？",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "d6458ec8676de0a06f86cd588d0aa806c5b744aabe7a3a077c939eb006a01842",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u49-t1",
+      "scenario_id": "u49",
+      "case_id": "custom-sim-5748bac8c77a2ce1efcbb816",
+      "run_id": "2026-11-13T09-23-07-374Z-95a62d42",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我有糖尿病，平时晚餐食材怎么选？"
+      },
+      "input_hash": "f3a595b3b2cebdc6fc852079086c531a4e876a7c8ae814e2632ee9d7d2d127dc",
+      "output": {
+        "message": "还需确认：糖尿病分型（1型、2型或其他；不清楚可直接说明）。",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "3b54b74449163a062e5b7abab1215bbac13f90131da18b528e25b87699fb3a60",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u20-t1",
+      "scenario_id": "u20",
+      "case_id": "custom-sim-83f425286127d76291a62510",
+      "run_id": "2026-11-13T09-23-09-521Z-263ce427",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我有胆囊结石，今晚想吃清淡但不想只吃水煮菜，有什么食材和菜品方向？"
+      },
+      "input_hash": "d734fb9aef4ae636eb4827d25ceecde8c36dc8bd77f7c8ffbba536291c153f56",
+      "output": {
+        "message": "已理解本次偏好：清淡、不想只吃水煮菜。价格、时长等未有精确核验时不会宣称已满足。可以按你的需求继续安排菜品。你手头有哪些食材？",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "5567a2e6c015036c1fdeb2067f75e8a3e073d6a1d329aa6fac477d75160615cc",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u32-t1",
+      "scenario_id": "u32",
+      "case_id": "custom-sim-abee6be061a0efd55fa636d5",
+      "run_id": "2026-11-13T09-23-11-681Z-5eafe1af",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我不是要减肥，是想维持体重，平常怎么选食材，别默认给我热量赤字。"
+      },
+      "input_hash": "076dd23d6d44607f0f0890534d5ead8cacaab210bece33c24fabd344ed2e5f3f",
+      "output": {
+        "message": "这次未能可靠理解你的要求。请核对疾病、目标或本餐限制后重新发送；没有自动重试。",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "4c87d1feebb3c09c97b27359d118b83e05d47e8691a6db0d88b0a7cd09acdab6",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u06-t1",
+      "scenario_id": "u06",
+      "case_id": "custom-sim-aa57ce03a4d50efa7fa01f7e",
+      "run_id": "2026-11-13T09-23-13-737Z-39d71db2",
+      "turn": 1,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "家里什么菜都没了，也不想买，能不能给我安排一顿？"
+      },
+      "input_hash": "71e91971e395f69620e41a68ad71935f15d04845e400971f526c5280a8858793",
+      "output": {
+        "message": "家里完全没有食材也不打算买，是想让我给出用常备主食/调料凑一顿的思路，还是先确认一下手边到底还剩什么？",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "9ae32959176a5fd95538f48237f0aab5d954bb86e5957700db1681efe7570beb",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    },
+    {
+      "sample_id": "outside-in-20261113-base-u49-t2",
+      "scenario_id": "u49",
+      "case_id": "custom-sim-371e5a3f2d73d1d8865dbdfc",
+      "run_id": "2026-11-13T09-24-59-287Z-3f8c8cc5",
+      "turn": 2,
+      "mode": "live",
+      "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我不知道是几型，检查单现在不在身边。先告诉我能提供哪些帮助，不要再问同一个分型问题。",
+        "history": [
+          {
+            "role": "user",
+            "content": "我有糖尿病，平时晚餐食材怎么选？"
+          },
+          {
+            "role": "assistant",
+            "content": "还需确认：糖尿病分型（1型、2型或其他；不清楚可直接说明）。"
+          }
+        ],
+        "parentRunId": "2026-11-13T09-23-07-374Z-95a62d42"
+      },
+      "input_hash": "dc9584fcbb591791a2b86f46c1d823a0d12f0345f0dbbe9c42be364a65cc93ce",
+      "output": {
+        "message": "还需确认：糖尿病分型（1型、2型或其他；不清楚可直接说明）。",
+        "dishes": [],
+        "suggestions": []
+      },
+      "output_hash": "3b54b74449163a062e5b7abab1215bbac13f90131da18b528e25b87699fb3a60",
+      "rubric_version": "judge-product-v0.1",
+      "recipe_evidence": [],
+      "meal_settings": null,
+      "associated_sources": [],
+      "display_evidence": "评测台字段与原始返回；本条未逐屏观察",
+      "scoring_status": "unscored"
+    }
+  ]
+}

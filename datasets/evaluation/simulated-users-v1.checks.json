@@ -1,0 +1,607 @@
+{
+  "inputDataset": "simulated-users-v1",
+  "independent": false,
+  "checks": {
+    "u01": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u02": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u03": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u04": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u05": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u06": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u07": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u08": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u09": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u10": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u11": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u12": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u13": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u14": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u15": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u16": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u17": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u18": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u19": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u20": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u21": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u22": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u23": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u24": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u25": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u26": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u27": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u28": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u29": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u30": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u31": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u32": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u33": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u34": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u35": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u36": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u37": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u38": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u39": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u40": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u41": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u42": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u43": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u44": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u45": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u46": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u47": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u48": {
+      "product_requirements": [
+        "回应用户实际任务，不把目标或症状自动认定疾病",
+        "尊重原话中的限制、否定和补买许可",
+        "有依据地给可执行帮助；必要未知明确保留"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u49": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u50": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u51": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u52": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u53": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u54": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u55": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u56": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u57": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u58": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u59": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    },
+    "u60": {
+      "product_requirements": [
+        "用实际上一轮回答衔接，不伪造助手历史",
+        "最新明确纠正应生效，未取消的硬限制保持",
+        "不反复询问用户已经回答或明确不知道的信息"
+      ],
+      "clinical_reference_status": "not_established",
+      "origin": "project_authored_development",
+      "independent": false
+    }
+  },
+  "note": "产品观察要点，不是医学参考答案，不送推理；不能把来源不足视为任务完成"
+}

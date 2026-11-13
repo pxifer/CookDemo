@@ -10,11 +10,12 @@ details.card{border:1px solid var(--line);border-radius:8px;margin:15px 0;backgr
 @media(max-width:950px){.sidebar{width:235px}.main{margin-left:235px;padding:24px 20px 50px}.sidebar a{font-size:13px;padding:8px}h2{font-size:23px}}
 @media(max-width:700px){.sidebar{position:static;width:100%;padding:14px 18px}.sidebar nav{display:none;margin-top:12px}.sidebar.open nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.brand{font-size:20px}.sub{margin:2px 0 0}.scope{display:none}.menu{display:block;position:absolute;right:16px;top:17px;border:1px solid #6c91a4;background:#244c5c;color:#fff;border-radius:6px;padding:3px 10px}.main{margin:0;padding:20px 12px 45px}.chapter{padding:18px 15px}header p{font-size:13px}.tools{padding:8px 0}.tools button{padding:6px 9px;font-size:13px}h2{font-size:22px}h3{font-size:20px}h4{font-size:17px}.card-body{padding:0 13px 12px}summary{padding:13px;font-size:16px}table{min-width:640px}.pills{gap:6px}.pill{font-size:12px;padding:3px 9px}}
 @media print{.sidebar,.tools,.result,.menu,header,.source-return{display:none!important}.main{margin:0;padding:0}.chapter{border:0;padding:0;break-before:page}.chapter[hidden]{display:block!important}details[hidden]{display:block!important}details{break-inside:avoid}.card-body{display:block!important}.table-wrap{overflow:visible}table{min-width:0;font-size:10px}a{color:#000}pre{white-space:pre-wrap;color:#000;background:#eee}}
-</style></head><body><aside class="sidebar"><p class="brand">拾味 · AI工程手册</p><p class="sub">从真实代码讲到面试追问</p><button class="menu" aria-expanded="false" aria-label="展开章节目录">目录</button><nav aria-label="章节"><a href="#intro">开始阅读</a><a href="#refresh">当前增量：知识v3 / 映射</a><a href="#story">项目与真实链路</a><a href="#business">001–015 业务 / 数据 / 切块</a><a href="#retrieval">016–035 检索 / 增强 / 生成</a><a href="#agent">036–057 Agent / 评测</a><a href="#engineering">058–084 模型 / 协议 / 工程</a><a href="#scenarios">085–112 上下文 / 异常</a><a href="#experiments">实验与选型账本</a><a href="#failures">真实问题与亮点</a><a href="#foundations">理论与亲手练习</a><a href="#sources">来源与逐题覆盖</a><a href="#parameters">附录：全部参数实测</a></nav><p class="scope">基线 bfa1567 · 2026-11-12<br>已实现 / 本地研究 / 候选 / 方案<br>独立评测与重排仍有缺口<br>无需联网，不调用模型</p></aside><main class="main"><div class="wrap"><header><div class="eyebrow">项目事实 · 选择理由 · 参数 · 实验 · 失败复盘</div><h1>把每一步讲明白，也讲清依据</h1><p>围绕菜谱推荐：从资料与向量存储，到检索增强、生成、约束、评测及工程边界。</p><div class="pills"><span class="pill">112张问答卡</span><span class="pill">全部参数实测附录</span><span class="pill">真实链路与失败记录</span><span class="pill">逐题来源覆盖</span></div></header><div class="tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="搜索全部手册" placeholder="搜索 RRF / 切块 / 512 / Q112 …（按 / 聚焦）"></label><button id="clear">清空</button><button id="expand">展开本页问答</button><button id="collapse">折叠问答</button></div><p class="result" id="result" role="status" aria-live="polite"></p><div class="empty" id="empty" hidden>没有匹配内容。可尝试简称或题号。</div><section class="chapter" id="intro" data-label="开始阅读" hidden><h2 id="intro-h1">拾味 AI / Agent / RAG 工程与面试手册</h2>
+</style></head><body><aside class="sidebar"><p class="brand">拾味 · AI工程手册</p><p class="sub">从真实代码讲到面试追问</p><button class="menu" aria-expanded="false" aria-label="展开章节目录">目录</button><nav aria-label="章节"><a href="#intro">开始阅读</a><a href="#refresh">当前增量：知识v3 / 映射</a><a href="#evaluation-loop">当前增量：开放评测 / 人工反馈</a><a href="#story">项目与真实链路</a><a href="#business">001–015 业务 / 数据 / 切块</a><a href="#retrieval">016–035 检索 / 增强 / 生成</a><a href="#agent">036–057 Agent / 评测</a><a href="#engineering">058–084 模型 / 协议 / 工程</a><a href="#scenarios">085–112 上下文 / 异常</a><a href="#experiments">实验与选型账本</a><a href="#failures">真实问题与亮点</a><a href="#foundations">理论与亲手练习</a><a href="#sources">来源与逐题覆盖</a><a href="#parameters">附录：全部参数实测</a></nav><p class="scope">基线 bfa1567 · 2026-11-12<br>已实现 / 本地研究 / 候选 / 方案<br>独立评测与重排仍有缺口<br>无需联网，不调用模型</p></aside><main class="main"><div class="wrap"><header><div class="eyebrow">项目事实 · 选择理由 · 参数 · 实验 · 失败复盘</div><h1>把每一步讲明白，也讲清依据</h1><p>围绕菜谱推荐：从资料与向量存储，到检索增强、生成、约束、评测及工程边界。</p><div class="pills"><span class="pill">112张问答卡</span><span class="pill">全部参数实测附录</span><span class="pill">真实链路与失败记录</span><span class="pill">逐题来源覆盖</span></div></header><div class="tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="搜索全部手册" placeholder="搜索 RRF / 切块 / 512 / Q112 …（按 / 聚焦）"></label><button id="clear">清空</button><button id="expand">展开本页问答</button><button id="collapse">折叠问答</button></div><p class="result" id="result" role="status" aria-live="polite"></p><div class="empty" id="empty" hidden>没有匹配内容。可尝试简称或题号。</div><section class="chapter" id="intro" data-label="开始阅读" hidden><h2 id="intro-h1">拾味 AI / Agent / RAG 工程与面试手册</h2>
 <p>核对日：2026-11-12；代码事实基线：<code>bfa1567ccb43ca02e2a42f75c57e521a250d105d</code>。这是学习与讲解材料，不改变产品行为、知识包、索引或部署。</p>
 <p><strong>当前工程增量</strong>：<a href="#refresh">RAG-008执行记录</a>补充v3的99条证据、新Qwen索引、旧支持隔离和映射v3；已纳入INPUT-002及RAG-007合并后的main <code>aae56d1</code>。下文98条、两模型与27题成绩仍属于原基线，不能当作v3测量。相关卡片标注增量；完整参数消融与独立评测仍待后续。</p>
 <p><strong>先从<a href="#intro">离线阅读器</a>打开</strong>：可搜索、按章节阅读、折叠112张问答卡；无需联网、账号或API。Markdown是正文来源，阅读器由同目录 <code>render.py</code> 生成。</p>
 <h3 id="intro-h2">怎样读</h3>
+<p>2026-11-13当前增量：<a href="#evaluation-loop">输出评测与反馈闭环</a>。新增48固定题与自由输入、30次真实调用及可区分的程序回放；保留失败、用户q03原答2/4和知识缺口，尚无独立专业准确率。该增量不改写下面的历史27题与98条模型对比。</p>
 <div class="table-wrap" tabindex="0"><table><thead><tr><th>需要解决的问题</th><th>入口</th></tr></thead><tbody>
 <tr><td>先知道项目做什么、真实输入怎么变成菜</td><td><a href="#story">项目讲述与全链路</a></td></tr>
 <tr><td>业务、数据、清洗、切块（Q001～015）</td><td><a href="#business">第一组</a></td></tr>
@@ -79,7 +80,59 @@ node node_modules/tsx/dist/cli.mjs scripts/verify-health-refresh.ts --database-u
 </ul>
 <p>新clone首次基线缺构建页面，且默认Python不是要求的3.11；显式复用已有锁定环境、完成构建后全套通过，无安装/升级依赖。Docker最初未运行，用户恢复后才完成真实PG；不将PGlite当真实PG。核验脚本首次把调用参数次序写错，返回unavailable而未生成错误答案；已修正并把该脚本加入验收类型检查，失败记录保存在忽略目录。没有提高超时、删断言或让测试吞掉语义错误。</p>
 <h3 id="refresh-h6">5. 仍待完成</h3>
-<p>本批只重整NCI四条工艺事实，不覆盖全部3717结构块、11条原图待核或全库事实审核。减脂/增肌新知识量及食品/工艺映射仍有限；独立/专业审核、参数消融与真实生成广覆盖未完成。已合入的RAG-007手册保留bfa1567历史指标，并链接本批更新，不将旧98条统计重写成新验收。没有修改线上接口、数据库迁移、部署、依赖或付费授权。</p></section><section class="chapter" id="story" data-label="项目与真实链路" hidden><h2 id="story-h1">项目讲述：一顿可做的饭，怎样连接公共知识与模型</h2>
+<p>本批只重整NCI四条工艺事实，不覆盖全部3717结构块、11条原图待核或全库事实审核。减脂/增肌新知识量及食品/工艺映射仍有限；独立/专业审核、参数消融与真实生成广覆盖未完成。已合入的RAG-007手册保留bfa1567历史指标，并链接本批更新，不将旧98条统计重写成新验收。没有修改线上接口、数据库迁移、部署、依赖或付费授权。</p></section><section class="chapter" id="evaluation-loop" data-label="当前增量：开放评测 / 人工反馈" hidden><h2 id="evaluation-loop-h1">菜品推荐输出评测与优化闭环</h2>
+<p>2026-11-13新任务RAG-009，依赖RAG-008提交e2aedb3；后者已由管理合入main c202387，不把研究功能当已上线能力。用户本日授权本轮DeepSeek API累计不超过5元，并愿意协助人工打分；旧5元/1元专项均不重开。价格以当日官方表最高时段计，失败和未知消耗保留预留，不自动重试或改模型。</p>
+<h3 id="evaluation-loop-h2">1. 先固定任务，而不是先调参数</h3>
+<ul>
+<li>输入：明确疾病/目标、必要条件、本餐食材名称、过敏/忌口、补买、调料、人数及类别数量；用户填写量不影响候选。全用构造档案，不复制当前账户健康信息。</li>
+<li>输出：适用食材指导、真实目录中的菜品/变体、做法、逐菜理由、来源/限定、未覆盖与需确认状态。候选可有多个正确解，不以固定一句话或单一菜名判对错。</li>
+<li>线上普通模型与本地研究RAG分别建基线。本地业务是结构化指导＋配方绑定，当前向量问答另走研究入口；不能用业务分数宣布RRF/向量更优。</li>
+</ul>
+<h3 id="evaluation-loop-h3">2. 第一版数据和评分</h3>
+<p>原24条仅作为回归：8条食材指导、16条本餐。用户指出不能按已支持能力反向出题后，另加24条从用户需求出发的开放问题，含糖尿病分型、痛风、甲减、贫血、肠易激、妊娠、肾病、多病并存、睡眠/维持/耐力、价格/时间/素食、天气/代码/注入、症状不确诊等。总计48条固定题；均保留未支持场景，不因低覆盖删除。</p>
+<p>另可在评测台自由添加原话、本餐库存和期望。问题及期望分文件，推理只读输入；医学和未知主题不得靠模型生成答案反填gold。自由输入保存在忽略目录，默认不进Git/公共知识库。旧公开题改写、代理出题或用户产品评分均不能声称独立专业盲测。</p>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>层次</th><th>怎么判</th><th>如何使用</th></tr></thead><tbody>
+<tr><td>硬门禁</td><td>目录/变体真实、限制未放宽、无授权补买、数量/类别、不造引用或治疗承诺</td><td>任一失败单列，不能被均分抵消</td></tr>
+<tr><td>自动工程分</td><td>预期终态、完成请求、真实配方/引用闭包、合理保留未知</td><td>记录每项分母，缺证据/未运行不是满分；不是医学正确率</td></tr>
+<tr><td>人工0～4分</td><td>目标契合、理由支持、条件/未知处理、可执行性、表达清晰</td><td>每项提供锚点和理由；项目代理预标与用户评分分开，未评分保留空值</td></tr>
+<tr><td>效率</td><td>模型调用数、input/output tokens、延迟、失败、保守预留</td><td>同一输入/资料/代码版本比较；一次样本不证明稳定改善</td></tr>
+</tbody></table></div>
+<p>人工总分为五项等权换算100分，权重是本轮工程初值，非经过实验的最优值。总分至少75且目标契合/理由支持/条件处理各至少3分、没有硬失败才记本轮产品通过；未评分为null。用户可先文字反馈产品实用性，不要求其给不熟悉的医学事实签认；营养/医学结论的专业审核仍需相应人员，不让DeepSeek同时充当唯一裁判和答题者。</p>
+<p>0分=严重错误/无帮助；1分=主要不满足；2分=部分满足且需明显修改；3分=满足主要要求，仅小缺陷；4分=满足要求且清楚可执行。理由支持另看原文是否真的蕴含结论，引用ID存在不等于支持充分。</p>
+<h3 id="evaluation-loop-h4">3. 执行顺序与预算</h3>
+<ol>
+<li>冻结案例/评分规则与公开菜谱快照hash，先运行免费指导及构造供应商，验证评分器会识别坏输出。</li>
+<li>本地评测台仅绑定回环；Key由用户界面填写，仅进程内保存。每次真实调用前持久化预算预留，串行执行，无隐式重试；给出原始模型输出、程序终态和提示/证据追踪。</li>
+<li>对相同构造输入比较一般模型选择与研究RAG选择，记录差异；预期答案不进提示。保留模型/知识/目录/源码和Prompt指纹。</li>
+<li>从真实失败定位：解析/主题理解→知识缺口→适用性→映射→候选→增强→模型→程序复核→展示。先修确定缺陷，再在原失败及相邻反例复测。</li>
+<li>只在需要时改变一个因素；不能同时改清洗、top-k、RRF和Prompt后宣称某一项贡献。调过的题归开发/回归，后续由用户另提供未见问题做验收。</li>
+</ol>
+<p>本轮以检索相关、回答忠实和任务相关分别检查的思路参考<a href="https://aclanthology.org/2024.eacl-demo.16/" target="_blank" rel="noopener noreferrer">RAGAS论文</a>和<a href="https://docs.ragas.io/en/latest/concepts/metrics/available_metrics/" target="_blank" rel="noopener noreferrer">指标文档</a>。未安装框架或增加模型评委调用；结构检查不能冒充faithfulness，更不能冒充临床有效率。</p>
+<p>本轮5元是全部阶段共用累计上限，不是每阶段5元。优先小批真实输入/输出，不为花完预算重复调用；当前最高价按输入2元/百万tokens、输出8元/百万tokens预留，来源<a href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing/" target="_blank" rel="noopener noreferrer">官方价格</a>。不启用搜索/Fetch付费工具，不自动部署、训练或换模型。</p>
+<h3 id="evaluation-loop-h5">4. 交付与当前状态</h3>
+<p>交付数据输入/期望、自动评分器、本地人工评审台、每轮基线/变更/复测及预算报告。当前工程用例不冒充独立专业gold；真正效果结论必须附实际输出、人工评分状态与对比范围。线上观察和本地修改不能混成同一版本“已修复上线”。</p>
+<h3 id="evaluation-loop-h6">5. 实际发现、修复与仍存在的缺口</h3>
+<div class="table-wrap" tabindex="0"><table><thead><tr><th>观察</th><th>定位及处理</th><th>证据边界</th></tr></thead><tbody>
+<tr><td>首轮免费回归23/24；未知完整名称被拆成菠菜</td><td>评测适配器错误，改用界面名称匹配与合并逻辑；保留未知完整名称</td><td>期望不改；重跑24/24。不是把脚本错误宣称为模型进步</td></tr>
+<tr><td>m05只需1道却返回6道；30个供选项29个未复用现有食材</td><td>meal中误带min=6/max=18，且候选尾部混入未复用主料项</td><td>固定数量与候选资格分别补回归；真实复测选1道清炒花菜。属于打包修复，未做单因素消融</td></tr>
+<tr><td>m07肉末炒胡萝卜被绑定蒸煮指导</td><td>豌豆“煮熟留用”被当整菜主做法</td><td>排除备用步骤及正向炒/煸/油焖/烤等混合热处理；有不确定性只取消健康依据，不删除普通菜</td></tr>
+<tr><td>RAG理由只有重复的健康保留句</td><td>模型原理由不宜直接发布，但程序丢了可核验本餐信息</td><td>增加真实复用食材名称，仍由程序绑定健康依据；不发布自由疗效</td></tr>
+<tr><td>肾病/增肌因条件不足被称为库未覆盖</td><td>旧uncoveredTopics合并了多种未形成可执行指导的状态</td><td>新topicCoverage区分知识缺口、缺条件、不适用、撤回与待明确分型，保留旧字段兼容；业务指纹升v3使旧游标失效</td></tr>
+<tr><td>泛称糖尿病无法直接套成人2型资料</td><td>属于分型不足，不能简单新增“糖尿病→2型”别名</td><td>提示确认分型；1型/妊娠期保持未覆盖，不从词向量近似默认2型</td></tr>
+</tbody></table></div>
+<p>开放原话由固定DeepSeek先做受Schema/原文约束的意图及实体理解，区分本人/他人、疾病/目标/生活偏好、否定和医疗请求；理解不是事实审核。再查适用指导：医疗请求保持边界，无关内容简短引导；未覆盖部分明确保留，已有库存可继续普通选菜；缺库存只问必要问题。此候选只接入本地评测worker，没有启用线上路由。</p>
+<p>真实首批一般模型/研究选择及开放输入累计30次；保守预留1.353090元，具体收据/汇总见本轮验收目录。12个开放输入样本的意图/字段检查通过，但多项健康需求没有知识支持；这不是12项医学推荐有效。甲减、缺铁性贫血、维持体重、1型糖尿病等缺口明确保留，价格/时长也没有精确支持。普通模型对甲减回答更丰富，但没有本库证据，不能凭丰富程度或工程分宣布哪条路线医学更好。</p>
+<p>当前知识只有8个疾病实体、11来源/99证据；目标另为2主题/5事实/4证据。PG/向量结构没有“只能这些主题”的容量限制，受限的是实际资料、事实适用范围、规范映射及产品能力。后续按用户需求与人工差评补来源、正文/限定、事实和映射，再用原题与邻近反例复测；不能只加Embedding或调RRF来弥补没有知识的主题。</p>
+<p>无新模型调用的回放：固定原请求、参数、输入及真实供应商响应，匹配后仅重新执行程序；新报告标replay与原run ID，实际API调用0，绝不当作新生成验收。知识/Prompt改变导致请求不同则拒绝回放。本轮用其确认分型问题不会被其他未覆盖目标的提示吞掉。</p>
+<h3 id="evaluation-loop-h7">6. 用户2分反馈后的资料补充</h3>
+<p>用户对原q03需求满足度评分2/4；认为没有编造回答是对的，希望知识补齐后能回应能否吃、频率、量和食材建议。此为用户产品反馈，其他维度未评，不能补成独立专业分。</p>
+<p>已建立<a href="../../../datasets/health/thyroid-iodine-explanation-2026-11-13-v1/README.md">甲减/碘说明知识候选</a>：3来源、6证据、4说明事实、2覆盖限制，复用当前锁定正文解析并保留原件/父段/短摘定位与hash。仅本地说明检索，不修改基础v3包或99条PG向量，不变成一律禁海带的规则。未使用受访问保护阻断的原件或复制CFS研究数据。</p>
+<p>新版按所问主题/食材检索，不按q03 ID返回固定答案；邻近桥本、孕期及补充剂问题保留限定，甲亢/贫血和甲减问无关食品不冒充命中。能否吃说明自身免疫等前提，食材项说明一般含碘来源不是患者宜吃清单；频率/量按本批证据覆盖明确缺口，不填个人次数/克数。原题用相同真实理解请求/响应无付费回放后，从“未覆盖”变为有据的定性说明；新版需求满足度继续等用户复评，未自行加分。</p>
+<h3 id="evaluation-loop-h8">7. 本地使用</h3>
+<pre aria-label="powershell"><code>$env:LOCAL_RAG_OUTPUT_EVALUATION=&#x27;1&#x27;
+node node_modules/tsx/dist/cli.mjs scripts/preview-output-evaluation.ts
+# 仅127.0.0.1:15260；启动不调用模型。Key在页面保存，仅本进程内有效。</code></pre>
+<p>先添加自由问题或选择q类开放问题，选择真实/构造及一般模型/研究路线，主动运行。点击记录查看原话、实际回复、菜品、理解、覆盖、原Prompt及回执，再人工评分；g/m回归通过不等于开放需求满足。原件、失败、回放与新结果都保留版本指纹；不重写历史成绩。</p></section><section class="chapter" id="story" data-label="项目与真实链路" hidden><h2 id="story-h1">项目讲述：一顿可做的饭，怎样连接公共知识与模型</h2>
 <p>事实基线与状态见<a href="#intro">入口</a>。学习时先分清两条真实链，不要拼成一条并不存在的“全自动医疗Agent”。</p>
 <h3 id="story-h2">1. 30秒和3分钟怎样讲</h3>
 <p><strong>30秒</strong>：拾味是菜谱推荐应用。用户给疾病或减脂/增肌目标、本餐食材及过敏忌口，系统从已发布的实际菜谱中选出可做的菜，并说明当前能对应的食材/做法依据。程序管资格、限制和证据归属，模型在受控候选中做语言与选择。疾病RAG目前是本地研究接入，未完成专业签认或正式疾病发布。</p>

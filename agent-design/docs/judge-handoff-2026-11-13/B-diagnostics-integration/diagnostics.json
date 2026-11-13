@@ -1,0 +1,3886 @@
+{
+  "content_type": "UNTRUSTED_DIAGNOSTIC_DATA",
+  "purpose": "仅评分完成后的定位；不能修改已冻结标准或覆盖原评语",
+  "cases": [
+    {
+      "sample_id": "S01",
+      "case_id": "m01",
+      "run_id": "2026-11-13T06-23-02-232Z-8c112c2f",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-23-02-232Z-8c112c2f\\report.json",
+      "mode": "live",
+      "latency_ms": 1744,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": "completed",
+      "selection_scope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "understanding": null,
+      "coverage": null,
+      "unmet_needs": null,
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+        "topics": [
+          {
+            "id": "goal:fat-loss",
+            "kind": "goal",
+            "name": "减脂",
+            "inputName": "减脂"
+          }
+        ],
+        "guidance": [
+          {
+            "id": "guide:goal:fat-loss-limit-sugar",
+            "factId": "goal:fat-loss-limit-sugar",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "f:added-sugar",
+            "objectName": "白糖",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "sugar",
+                "gallery-food-4f7a2bfbb8b66631",
+                "gallery-food-8926045c491adf47"
+              ],
+              "status": "mapped"
+            },
+            "basis": "project_interpretation",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:fat-loss-steam-boil",
+            "factId": "goal:fat-loss-steam-boil",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "p:steam-boil",
+            "objectName": "蒸煮汆制",
+            "objectKind": "process",
+            "direction": "prefer",
+            "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "processRule": "steam-boil-primary",
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:fat-loss-limit-fry",
+            "factId": "goal:fat-loss-limit-fry",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "p:fry",
+            "objectName": "油炸或煎制",
+            "objectKind": "process",
+            "direction": "limit",
+            "statement": "体重管理少选来源列举的煎炸做法；不从菜名推断实际工艺、摄入能量或减脂效果。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "processRule": "fry-primary",
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "goal-ev:weight-food-method",
+            "sourceId": "nhc-weight-management-2024",
+            "title": "体重管理指导原则（2024年版）",
+            "version": "2024",
+            "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+            "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+            "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 10,
+              "normalization": "remove_unicode_whitespace_v1",
+              "section": "四、体重管理策略/合理膳食",
+              "start": 101,
+              "end": 137
+            },
+            "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+          }
+        ],
+        "uncoveredTopics": [],
+        "missingConditions": [],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 3,
+          "mapped": 3,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [
+        {
+          "recipe_id": "gallery-f3dc92744e6a6c37",
+          "variant_id": "gallery-f3dc92744e6a6c37-r039",
+          "grounding": {
+            "contentVersion": "gallery-listed-foods-20261026-v28",
+            "recipeId": "gallery-f3dc92744e6a6c37",
+            "recipeVersion": "local-business-gallery-v1",
+            "variantId": "gallery-f3dc92744e6a6c37-r039",
+            "methodId": "primary",
+            "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+            "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+            "guidanceFingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+            "matches": [
+              {
+                "guidanceId": "guide:goal:fat-loss-steam-boil",
+                "direction": "prefer",
+                "foodIds": [],
+                "lineIndexes": [],
+                "processRule": "steam-boil-primary"
+              }
+            ]
+          }
+        }
+      ],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "recipe_selection",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 2400
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 1448,
+              "content_sha256": "de2986cd0bc27d9a38a20bc667b9eedd623e6de8b92015e9a28a748bb42f32d7"
+            },
+            {
+              "role": "user",
+              "characters": 2867,
+              "content_sha256": "d6e7bb26465580e417ed3828c14698d460e3f58535f85663579178d5e3a1bf7d"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "af0f8bcc-ba9c-42d4-9849-3488ed16c287",
+          "usage": {
+            "prompt_tokens": 1792,
+            "completion_tokens": 93,
+            "total_tokens": 1885,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 1792
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "expected_terminal_state",
+            "passed": true,
+            "points": 40,
+            "detail": ""
+          },
+          {
+            "id": "catalog_and_variant_integrity",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "allergy_and_stock_rules",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "requested_counts",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 100,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S02",
+      "case_id": "m07",
+      "run_id": "2026-11-13T06-36-12-177Z-8f7bb224",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-36-12-177Z-8f7bb224\\report.json",
+      "mode": "live",
+      "latency_ms": 3356,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": "completed",
+      "selection_scope": {
+        "qualifiedParents": 152,
+        "offeredParents": 22,
+        "qualifiedVariants": 153,
+        "offeredVariants": 22,
+        "complete": false,
+        "methodTextComplete": true
+      },
+      "understanding": null,
+      "coverage": null,
+      "unmet_needs": null,
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+        "topics": [
+          {
+            "id": "goal:fat-loss",
+            "kind": "goal",
+            "name": "减脂",
+            "inputName": "减脂"
+          }
+        ],
+        "guidance": [
+          {
+            "id": "guide:goal:fat-loss-limit-sugar",
+            "factId": "goal:fat-loss-limit-sugar",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "f:added-sugar",
+            "objectName": "白糖",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "sugar",
+                "gallery-food-4f7a2bfbb8b66631",
+                "gallery-food-8926045c491adf47"
+              ],
+              "status": "mapped"
+            },
+            "basis": "project_interpretation",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:fat-loss-steam-boil",
+            "factId": "goal:fat-loss-steam-boil",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "p:steam-boil",
+            "objectName": "蒸煮汆制",
+            "objectKind": "process",
+            "direction": "prefer",
+            "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "processRule": "steam-boil-primary",
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:fat-loss-limit-fry",
+            "factId": "goal:fat-loss-limit-fry",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "p:fry",
+            "objectName": "油炸或煎制",
+            "objectKind": "process",
+            "direction": "limit",
+            "statement": "体重管理少选来源列举的煎炸做法；不从菜名推断实际工艺、摄入能量或减脂效果。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "processRule": "fry-primary",
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "goal-ev:weight-food-method",
+            "sourceId": "nhc-weight-management-2024",
+            "title": "体重管理指导原则（2024年版）",
+            "version": "2024",
+            "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+            "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+            "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 10,
+              "normalization": "remove_unicode_whitespace_v1",
+              "section": "四、体重管理策略/合理膳食",
+              "start": 101,
+              "end": 137
+            },
+            "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+          }
+        ],
+        "uncoveredTopics": [],
+        "missingConditions": [],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 3,
+          "mapped": 3,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [
+        {
+          "recipe_id": "gallery-e82f11e4d8e3e45a",
+          "variant_id": "gallery-e82f11e4d8e3e45a-r103",
+          "grounding": {
+            "contentVersion": "gallery-listed-foods-20261026-v28",
+            "recipeId": "gallery-e82f11e4d8e3e45a",
+            "recipeVersion": "local-business-gallery-v1",
+            "variantId": "gallery-e82f11e4d8e3e45a-r103",
+            "methodId": "primary",
+            "recipeHash": "a87d4492e0dc0ef2f45a0cb7a0b7b5849f58aa92af3cf1566332da855ef9678b",
+            "methodHash": "9e8b0f9525babfc835ad1dad3b6ed244132f2b27a737fdb8dcf86b70ad202616",
+            "guidanceFingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+            "matches": [
+              {
+                "guidanceId": "guide:goal:fat-loss-limit-sugar",
+                "direction": "limit",
+                "foodIds": [
+                  "sugar"
+                ],
+                "lineIndexes": [
+                  8
+                ]
+              },
+              {
+                "guidanceId": "guide:goal:fat-loss-steam-boil",
+                "direction": "prefer",
+                "foodIds": [],
+                "lineIndexes": [],
+                "processRule": "steam-boil-primary"
+              }
+            ]
+          }
+        },
+        {
+          "recipe_id": "gallery-f3dc92744e6a6c37",
+          "variant_id": "gallery-f3dc92744e6a6c37-r039",
+          "grounding": {
+            "contentVersion": "gallery-listed-foods-20261026-v28",
+            "recipeId": "gallery-f3dc92744e6a6c37",
+            "recipeVersion": "local-business-gallery-v1",
+            "variantId": "gallery-f3dc92744e6a6c37-r039",
+            "methodId": "primary",
+            "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+            "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+            "guidanceFingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+            "matches": [
+              {
+                "guidanceId": "guide:goal:fat-loss-steam-boil",
+                "direction": "prefer",
+                "foodIds": [],
+                "lineIndexes": [],
+                "processRule": "steam-boil-primary"
+              }
+            ]
+          }
+        },
+        {
+          "recipe_id": "gallery-60e5ebb11282d8ac",
+          "variant_id": "gallery-60e5ebb11282d8ac-r095",
+          "grounding": {
+            "contentVersion": "gallery-listed-foods-20261026-v28",
+            "recipeId": "gallery-60e5ebb11282d8ac",
+            "recipeVersion": "local-business-gallery-v1",
+            "variantId": "gallery-60e5ebb11282d8ac-r095",
+            "methodId": "primary",
+            "recipeHash": "bb8e107d32faa350b2e0b7498becaf3387021a35a1699e38826351d65d65a91c",
+            "methodHash": "afbc7060515f22e7ddb7035188913ccc90e0c96228668bd537de5e736676e3fb",
+            "guidanceFingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+            "matches": []
+          }
+        }
+      ],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "recipe_selection",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 2400
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 1448,
+              "content_sha256": "de2986cd0bc27d9a38a20bc667b9eedd623e6de8b92015e9a28a748bb42f32d7"
+            },
+            {
+              "role": "user",
+              "characters": 32363,
+              "content_sha256": "427dd8b36c1644c8bc664b0e2090756ba0433198cb4f7ef556b3b1b9bc68fecf"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "cfccb13f-8a9f-43e0-9076-a6b4e8845a05",
+          "usage": {
+            "prompt_tokens": 12599,
+            "completion_tokens": 176,
+            "total_tokens": 12775,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 11959
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "expected_terminal_state",
+            "passed": true,
+            "points": 40,
+            "detail": ""
+          },
+          {
+            "id": "catalog_and_variant_integrity",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "allergy_and_stock_rules",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "requested_counts",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 100,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S03",
+      "case_id": "q07",
+      "run_id": "2026-11-13T07-26-30-631Z-4b5fb87d",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-26-30-631Z-4b5fb87d\\report.json",
+      "mode": "replay",
+      "latency_ms": 35,
+      "actual_provider_calls": 0,
+      "replay_of": "2026-11-13T06-53-18-019Z-c8608789",
+      "attempts": 1,
+      "error": null,
+      "result_status": null,
+      "selection_scope": null,
+      "understanding": {
+        "intent": "food_guidance",
+        "subject": "self",
+        "conditions": [
+          "慢性肾病"
+        ],
+        "goals": [
+          "增肌"
+        ],
+        "preferences": [],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [],
+          "servings": null,
+          "counts": null,
+          "allowBuy": null
+        },
+        "question": "医生对你的蛋白质摄入量或肾病分期有说明吗？"
+      },
+      "coverage": "needs_confirmation",
+      "unmet_needs": [
+        "condition:慢性肾病",
+        "goal:增肌"
+      ],
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "7ca2dbc7e43edcd6b34e5fd7e4bd9d13c1406e495d43c4050be5a8cac2840630",
+        "topics": [
+          {
+            "id": "d:ckd",
+            "kind": "condition",
+            "name": "成人慢性肾脏病",
+            "inputName": "慢性肾病"
+          },
+          {
+            "id": "goal:muscle-gain",
+            "kind": "goal",
+            "name": "增肌",
+            "inputName": "增肌"
+          }
+        ],
+        "guidance": [
+          {
+            "id": "guide:fact:ck-limit-salt",
+            "factId": "fact:ck-limit-salt",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:salt",
+            "objectName": "食盐",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "限制盐和高钠调味品；未据此生成统一每餐钠阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult"
+            ],
+            "evidenceIds": [
+              "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "salt"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-limit-soy-sauce",
+            "factId": "fact:ck-limit-soy-sauce",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:soy-sauce",
+            "objectName": "酱油",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "限制盐和高钠调味品；未据此生成统一每餐钠阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult"
+            ],
+            "evidenceIds": [
+              "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "dark-soy",
+                "soy"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-limit-chicken-seasoning",
+            "factId": "fact:ck-limit-chicken-seasoning",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:chicken-seasoning",
+            "objectName": "鸡精",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "限制盐和高钠调味品；未据此生成统一每餐钠阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult"
+            ],
+            "evidenceIds": [
+              "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "chicken-powder"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-limit-msg",
+            "factId": "fact:ck-limit-msg",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:msg",
+            "objectName": "味精",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "限制盐和高钠调味品；未据此生成统一每餐钠阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult"
+            ],
+            "evidenceIds": [
+              "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "msg"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-phosphate-food",
+            "factId": "fact:ck-phosphate-food",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:phosphate-additives-food",
+            "objectName": "含磷添加剂较多的加工食品",
+            "objectKind": "food_group",
+            "direction": "limit",
+            "statement": "阅读标签，避免选择含磷添加剂较多的食品；品牌组成须有标签事实。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult"
+            ],
+            "evidenceIds": [
+              "ev:b68b09e759b0816323d0c9d8f0db271bdb53c62758a002f7311733650e44b792"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-early-whole-grains",
+            "factId": "fact:ck-early-whole-grains",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:whole-grains",
+            "objectName": "全谷物",
+            "objectKind": "food_group",
+            "direction": "prefer",
+            "statement": "1–2期总体建议中的食物选择，不外推至所有晚期或透析患者。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G1",
+                  "G2"
+                ]
+              },
+              {
+                "key": "dialysis",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:2c5c36dec996ad8d0e964968235d0541ada262bd2ce8a4adeb340631d3d178c5"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-early-pulses",
+            "factId": "fact:ck-early-pulses",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:pulses",
+            "objectName": "杂豆",
+            "objectKind": "food_group",
+            "direction": "prefer",
+            "statement": "1–2期总体建议中的食物选择，不外推至所有晚期或透析患者。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G1",
+                  "G2"
+                ]
+              },
+              {
+                "key": "dialysis",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:2c5c36dec996ad8d0e964968235d0541ada262bd2ce8a4adeb340631d3d178c5"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-early-soy-products",
+            "factId": "fact:ck-early-soy-products",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:soy-products",
+            "objectName": "大豆制品",
+            "objectKind": "food_group",
+            "direction": "prefer",
+            "statement": "1–2期总体建议中的食物选择，不外推至所有晚期或透析患者。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G1",
+                  "G2"
+                ]
+              },
+              {
+                "key": "dialysis",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:2c5c36dec996ad8d0e964968235d0541ada262bd2ce8a4adeb340631d3d178c5"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "tofu",
+                "gallery-food-e930a9da55b4ac2d",
+                "gallery-food-972f780b17db3d0d",
+                "gallery-food-75f53b5e47261724",
+                "gallery-food-4bee13f9774a4b84",
+                "gallery-food-85039697b023da15",
+                "gallery-food-1fa7ad4b79d90c19",
+                "gallery-food-c4543828e66649bb",
+                "gallery-food-0e918b32cebf9606",
+                "gallery-food-9f104c5ac5211557"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-late-low-protein-rice",
+            "factId": "fact:ck-late-low-protein-rice",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:low-protein-rice",
+            "objectName": "低蛋白大米",
+            "objectKind": "food",
+            "direction": "prefer",
+            "statement": "在3–5期非透析且专业计划明确低蛋白主食替换时采用，不调整药物或全天蛋白处方。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G3",
+                  "G4",
+                  "G5"
+                ]
+              },
+              {
+                "key": "dialysis",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+              "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-late-mung-starch-noodles",
+            "factId": "fact:ck-late-mung-starch-noodles",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:mung-starch-noodles",
+            "objectName": "绿豆粉丝",
+            "objectKind": "food",
+            "direction": "prefer",
+            "statement": "在3–5期非透析且专业计划明确低蛋白主食替换时采用，不调整药物或全天蛋白处方。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G3",
+                  "G4",
+                  "G5"
+                ]
+              },
+              {
+                "key": "dialysis",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+              "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-late-starch-roots",
+            "factId": "fact:ck-late-starch-roots",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:starch-roots",
+            "objectName": "低蛋白淀粉类主食",
+            "objectKind": "food_group",
+            "direction": "prefer",
+            "statement": "在3–5期非透析且专业计划明确低蛋白主食替换时采用，不调整药物或全天蛋白处方。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G3",
+                  "G4",
+                  "G5"
+                ]
+              },
+              {
+                "key": "dialysis",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+              "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-produce-fresh-vegetables",
+            "factId": "fact:ck-produce-fresh-vegetables",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:fresh-vegetables",
+            "objectName": "新鲜蔬菜",
+            "objectKind": "food_group",
+            "direction": "prefer",
+            "statement": "未合并水肿或高钾且已有个性化方案时，可纳入适量蔬果。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "edema",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "hyperkalemia",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "edema",
+              "hyperkalemia",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:5bd9e8354eb8e221bff148b42db4c4695dfef7dbba18daabd31a8a51afe6276b"
+            ],
+            "qualifyingEvidenceIds": [
+              "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156"
+            ],
+            "mapping": {
+              "foodIds": [
+                "broccoli",
+                "cabbage",
+                "carrot",
+                "cucumber",
+                "pepper",
+                "spinach",
+                "tomato",
+                "winter-melon",
+                "gallery-food-f87ff17102cd5fcd",
+                "gallery-food-53f356a4dfae8657",
+                "gallery-food-1354bbffdcdce7c5",
+                "gallery-food-a9f421d1a777f653",
+                "gallery-food-7cdc6f317b12d21c",
+                "gallery-food-9cf831318b256277",
+                "gallery-food-7a1ff1d6aaefe49a",
+                "gallery-food-e0468aa0c2c927b2",
+                "gallery-food-e2adfbdf8ad05988",
+                "gallery-food-844bb771219ba31c",
+                "gallery-food-1d740e0aaa9de330",
+                "gallery-food-e3c48cb53d2e47ba",
+                "gallery-food-0c0d12fc4a6e74bb",
+                "gallery-food-1d785d540715bee0",
+                "gallery-food-94e1bf1fc27f8d04",
+                "gallery-food-437d9112a26dbe2e",
+                "gallery-food-62a7a8dc9f1d0f18",
+                "gallery-food-36977dd6259e593e",
+                "gallery-food-4afe991ead408694",
+                "gallery-food-5d0a727235792b93",
+                "gallery-food-78e2582d80b5b855",
+                "gallery-food-f4f4f0e88e87974a",
+                "gallery-food-9977c96335b7a609",
+                "gallery-food-82c0132213ee2b8a",
+                "gallery-food-26c8b5731957825a",
+                "gallery-food-cbe62979975930dd",
+                "gallery-food-c35f1a0c32046f11",
+                "gallery-food-5b1d344a39b2a314",
+                "gallery-food-e5225ea9e980d8c4",
+                "gallery-food-d273b4076f1d7226",
+                "gallery-food-46d1e2172adb6f9d",
+                "gallery-food-6045839096440f52",
+                "gallery-food-f3d38f18a43706f5",
+                "gallery-food-221823c13c77846e"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-produce-fresh-fruit",
+            "factId": "fact:ck-produce-fresh-fruit",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:fresh-fruit",
+            "objectName": "完整新鲜水果",
+            "objectKind": "food_group",
+            "direction": "prefer",
+            "statement": "未合并水肿或高钾且已有个性化方案时，可纳入适量蔬果。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "edema",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "hyperkalemia",
+                "values": [
+                  "no"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "edema",
+              "hyperkalemia",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:5bd9e8354eb8e221bff148b42db4c4695dfef7dbba18daabd31a8a51afe6276b"
+            ],
+            "qualifyingEvidenceIds": [
+              "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156"
+            ],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-high-k-stew-broth",
+            "factId": "fact:ck-high-k-stew-broth",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:stew-broth",
+            "objectName": "肉汤",
+            "objectKind": "food",
+            "direction": "avoid",
+            "statement": "高钾血症下避免相关汤汁或高钾低钠盐；不能用这一条件禁所有肾病食物。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "hyperkalemia",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "hyperkalemia"
+            ],
+            "evidenceIds": [
+              "ev:d104418e66e822f56df293a503bff81e15905ff4c46884fffbabf05baf5df654"
+            ],
+            "qualifyingEvidenceIds": [
+              "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156"
+            ],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-high-k-vegetable-broth",
+            "factId": "fact:ck-high-k-vegetable-broth",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:vegetable-broth",
+            "objectName": "菜汤",
+            "objectKind": "food",
+            "direction": "avoid",
+            "statement": "高钾血症下避免相关汤汁或高钾低钠盐；不能用这一条件禁所有肾病食物。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "hyperkalemia",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "hyperkalemia"
+            ],
+            "evidenceIds": [
+              "ev:d104418e66e822f56df293a503bff81e15905ff4c46884fffbabf05baf5df654"
+            ],
+            "qualifyingEvidenceIds": [
+              "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156"
+            ],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-high-k-low-sodium-potassium-salt",
+            "factId": "fact:ck-high-k-low-sodium-potassium-salt",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:low-sodium-potassium-salt",
+            "objectName": "高钾低钠盐",
+            "objectKind": "food",
+            "direction": "avoid",
+            "statement": "高钾血症下避免相关汤汁或高钾低钠盐；不能用这一条件禁所有肾病食物。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "hyperkalemia",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "hyperkalemia"
+            ],
+            "evidenceIds": [
+              "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9"
+            ],
+            "qualifyingEvidenceIds": [
+              "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156"
+            ],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-blanch",
+            "factId": "fact:ck-blanch",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "p:vegetable-blanch-discard",
+            "objectName": "蔬菜浸泡焯水弃汤",
+            "objectKind": "process",
+            "direction": "prefer",
+            "statement": "高钾血症情况下按专业计划浸泡焯水弃汤；不保证全部去钾。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "hyperkalemia",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "clinicianNutritionPlan",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "hyperkalemia",
+              "clinicianNutritionPlan"
+            ],
+            "evidenceIds": [
+              "ev:5bd9e8354eb8e221bff148b42db4c4695dfef7dbba18daabd31a8a51afe6276b",
+              "ev:d104418e66e822f56df293a503bff81e15905ff4c46884fffbabf05baf5df654"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-alcohol-general",
+            "factId": "fact:ck-alcohol-general",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:alcohol",
+            "objectName": "含酒精饮品",
+            "objectKind": "food_group",
+            "direction": "limit",
+            "statement": "慢性肾病一般限酒或不饮酒。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult"
+            ],
+            "evidenceIds": [
+              "ev:8cbf9cf0e7cfb98a405d06c784a021305e1bfcf3390e986085fb641265b49f24"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:fact:ck-alcohol-late",
+            "factId": "fact:ck-alcohol-late",
+            "topic": {
+              "id": "d:ckd",
+              "kind": "condition",
+              "name": "成人慢性肾脏病",
+              "inputName": "慢性肾病"
+            },
+            "objectId": "f:alcohol",
+            "objectName": "含酒精饮品",
+            "objectKind": "food_group",
+            "direction": "avoid",
+            "statement": "3–5期指南明确不应饮酒。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "ckdStage",
+                "values": [
+                  "G3",
+                  "G4",
+                  "G5"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "adult",
+              "ckdStage"
+            ],
+            "evidenceIds": [
+              "ev:8cbf9cf0e7cfb98a405d06c784a021305e1bfcf3390e986085fb641265b49f24"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "status": "unmapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:muscle-prefer-egg",
+            "factId": "goal:muscle-prefer-egg",
+            "topic": {
+              "id": "goal:muscle-gain",
+              "kind": "goal",
+              "name": "增肌",
+              "inputName": "增肌"
+            },
+            "objectId": "f:egg",
+            "objectName": "鸡蛋",
+            "objectKind": "food",
+            "direction": "prefer",
+            "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "healthyExerciser",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "resistanceTraining",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "not_applicable",
+            "missingConditions": [
+              "adult",
+              "resistanceTraining"
+            ],
+            "evidenceIds": [
+              "goal-ev:exercise-egg"
+            ],
+            "qualifyingEvidenceIds": [
+              "goal-ev:exercise-scope"
+            ],
+            "mapping": {
+              "foodIds": [
+                "egg"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:muscle-prefer-beef",
+            "factId": "goal:muscle-prefer-beef",
+            "topic": {
+              "id": "goal:muscle-gain",
+              "kind": "goal",
+              "name": "增肌",
+              "inputName": "增肌"
+            },
+            "objectId": "f:beef",
+            "objectName": "牛肉",
+            "objectKind": "food",
+            "direction": "prefer",
+            "statement": "在健康成年且进行抗阻训练的本轮范围中，牛肉可作为膳食蛋白来源候选；不据此宣称低脂、疾病适宜性或个人定量达标。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "healthyExerciser",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "resistanceTraining",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "not_applicable",
+            "missingConditions": [
+              "adult",
+              "resistanceTraining"
+            ],
+            "evidenceIds": [
+              "goal-ev:exercise-beef"
+            ],
+            "qualifyingEvidenceIds": [
+              "goal-ev:exercise-scope"
+            ],
+            "mapping": {
+              "foodIds": [
+                "beef"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          }
+        ],
+        "topicCoverage": [
+          {
+            "input": "condition:慢性肾病",
+            "status": "missing_conditions",
+            "factCount": 19,
+            "applicableCount": 0,
+            "missingConditions": [
+              "adult",
+              "ckdStage",
+              "dialysis",
+              "clinicianNutritionPlan",
+              "edema",
+              "hyperkalemia"
+            ]
+          },
+          {
+            "input": "goal:增肌",
+            "status": "not_applicable",
+            "factCount": 2,
+            "applicableCount": 0,
+            "missingConditions": []
+          }
+        ],
+        "evidence": [
+          {
+            "id": "ev:e2c4ad364542820f428b13f6159c8cd751d811bfb341c85a08742249dc67b287",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "控制饮食中盐的摄入量有利于改善慢性肾脏病患者的血压，减轻蛋白尿和水肿。推荐慢性肾脏病患者每日盐摄入量不超过5g，避免进食烟熏、烧烤、腌制等过度加工食品，限制酱油、味精、鸡精、各种酱料等调味品的摄入，尽量选择天然味道，如山楂、柠檬、辣椒、花椒、醋等。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 11,
+              "printedPage": 9,
+              "section": "三（五）少盐和调味品",
+              "start": 35,
+              "end": 159,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "b6634f1156cc39046b15a9f2cf73a63382347d9015dad1dbdc3b91d0e9570070"
+          },
+          {
+            "id": "ev:b68b09e759b0816323d0c9d8f0db271bdb53c62758a002f7311733650e44b792",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "在选择加工食品时，要通过阅读食品标签，避免选择含磷添加剂较多的食品。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 12,
+              "printedPage": 10,
+              "section": "三（五）磷添加剂",
+              "start": 11,
+              "end": 45,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "f434f279e8c1646a6470a6d0fab89cb246f25f942cfd8541eb08b4826dda867e"
+          },
+          {
+            "id": "ev:2c5c36dec996ad8d0e964968235d0541ada262bd2ce8a4adeb340631d3d178c5",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "慢性肾脏病1～2期患者总体膳食建议：强调植物性食物为主，主食来源以全谷物、杂豆类、薯类及水生蔬菜等为主；餐餐有蔬菜，每天应达300～500g，其中深色蔬菜占一半以上；水果应适量；常吃奶类、大豆及其制品，适量吃鱼、禽、蛋、畜肉；尽量不吃烟熏、烧烤、腌制等过度加工食品；",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 7,
+              "printedPage": 5,
+              "section": "三（一）1–2期",
+              "start": 190,
+              "end": 323,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "8022df5cb909da2f77f65494c83d042e7583bba4be8b49828d032caecf5f3f28"
+          },
+          {
+            "id": "ev:6f69c4fec7e63c1c7f49be40c396e08433dae1f4cf97c78217cd113a6cc52199",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "慢性肾脏病3～5期患者总体膳食建议：遵守植物性食物为主的膳食原则，实施低蛋白饮食，蛋白质摄入总量为每日每公斤理想体重0.6g（理想体重（kg）=身高（cm）-105，如患者身高为165cm，则其理想体重为165-105=60kg，推荐蛋白质总摄入量为60*0.6g=36g）。主食兼顾蛋白质的用量（可选择淀粉含量高、蛋白质含量低的食物如红薯、土豆、莲藕、山药、绿豆粉丝等食物代替部分或全部谷类食物）；餐餐有蔬菜；水果应适量；常吃大豆及其制品，适量鱼、禽、蛋、奶、畜肉；尽量不吃烟熏、烧烤、腌制等过度加工食品；控制盐、油、糖和调味品的使用量。慢性肾脏病5期透析阶段仍然实施植物性食物为主的膳食，依情况适当调整动物性食物、豆类、蔬菜和水果摄入量。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 8,
+              "printedPage": 6,
+              "section": "三（一）3–5期与透析",
+              "start": 17,
+              "end": 338,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "f67aa7e4886081232ad9ba6bc189aa1d831cbeae4161b3be50b113c9d579d9f7"
+          },
+          {
+            "id": "ev:796f8640b96bf777f63bc0cc262bd0f0b71f9a34154dcd9059b0beef4b245d06",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "蛋白质对于维持机体的组织更新和机体功能十分重要，大部分慢性肾脏病患者存在蛋白丢失，而摄入过多蛋白质会增加慢性肾脏病患者的肾脏负担，加速疾病进展。因此，临床营养师或专科医生应根据慢性肾脏病患者的疾病分期来选择其摄入食物的蛋白质种类和摄入量（具体推荐量见附录），其中优质蛋白应占蛋白质总量的50%以上，优质蛋白通常富含于动物性食物和大豆中。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 9,
+              "printedPage": 7,
+              "section": "三（三）蛋白类型和量",
+              "start": 365,
+              "end": 533,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "52af8c92dac243c948189afb08ffd251cb82387d29555f8974656b3756f0d8e6"
+          },
+          {
+            "id": "ev:5bd9e8354eb8e221bff148b42db4c4695dfef7dbba18daabd31a8a51afe6276b",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "当患者出现水肿或高钾血症时，则需谨慎选择蔬菜和水果，并计算其中的含水量和含钾量，蔬菜推荐清水浸泡并飞水弃汤后进食，水果则可根据具体情况选用，必要时咨询临床营养师或专科医生。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 10,
+              "printedPage": 8,
+              "section": "三（四）蔬果/水肿高钾",
+              "start": 290,
+              "end": 376,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "6409557fdd5b46667de5354a141973b2d87109f80d5f44fec1d79629e5bc334f"
+          },
+          {
+            "id": "ev:2388ef2a9e888bbbea0fdd7b22a63794065c29b2d89e256d9edf8dd52a77a156",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "若慢性肾脏病患者无高钾血症，且每日能排尿1000mL以上，可不用担心摄入过多钾而导致高钾血症。建议慢性肾脏病患者根据具体情况个体化调整钾摄入量。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 12,
+              "printedPage": 10,
+              "section": "三（五）钾的例外",
+              "start": 207,
+              "end": 279,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "c340ae4bc1e1faf557ef903c421e38a9d774e9124597bfca79899c448ed269b7"
+          },
+          {
+            "id": "ev:d104418e66e822f56df293a503bff81e15905ff4c46884fffbabf05baf5df654",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "出现高钾血症的患者应及时就医，同时严格控制高钾食物摄入（见附录），每日钾摄入量不超过2000～3000mg，维持血钾浓度在3.5～5.5mmol/L范围，避免摄入浓肉汤、老火汤、菜汤，推荐烹调时先飞水弃汤后食用。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 12,
+              "printedPage": 10,
+              "section": "三（五）高钾条件",
+              "start": 279,
+              "end": 385,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "0741597164f1e267934a894330d852110fd478c16338af9d3e0f8d4a84e8bab9"
+          },
+          {
+            "id": "ev:0d9177028b4b53e1cc53e61bf2a4e500306842f74ff606ebd33ac18a497539a9",
+            "sourceId": "nhc-hypertension-principles-2024",
+            "title": "高血压营养和运动指导原则（2024年版）",
+            "version": "2024",
+            "url": "https://www.gov.cn/zhengce/zhengceku/202407/P020240701700333981869.pdf",
+            "sourceHash": "a3057e7ed7c2e4dfd16486bf171b208e5f9162920271465709cfc47b31dd1173",
+            "originalSpan": "(三)限制钠的摄入量。每人每日食盐摄入量逐步降至5g以下，控制高钠食物摄入，增加富含钾的食物摄入，可以选择低钠盐(肾病、高钾血症除外)。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 2,
+              "printedPage": 4,
+              "section": "一（三）限钠与低钠盐",
+              "start": 116,
+              "end": 184,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "92f265bc02a0b0f48efe9f1a7582df82cf8e66844e2846b8756a1f896f2fa858"
+          },
+          {
+            "id": "ev:8cbf9cf0e7cfb98a405d06c784a021305e1bfcf3390e986085fb641265b49f24",
+            "sourceId": "nhc-ckd-2024",
+            "title": "成人慢性肾脏病食养指南（2024年版）",
+            "version": "2024",
+            "url": "https://www.hncdc.com/upload/1/cms/content/editor/1741857710741.pdf",
+            "sourceHash": "35df6e62cec5f3d30fbdfe8cf52c3e9465e58ae443ba3a44378e37048196aef9",
+            "originalSpan": "因此，慢性肾脏病患者应限制饮酒，尽量减少饮酒或不饮酒，慢性肾脏病3～5期患者不应饮酒。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 14,
+              "printedPage": 12,
+              "section": "三（九）饮酒分期",
+              "start": 291,
+              "end": 334,
+              "normalization": "remove_unicode_whitespace_v1"
+            },
+            "spanHash": "9fcad3c3fee149e2ff2d2236e484c9d8ffae82ab0bee035762186d0636fb0d0b"
+          },
+          {
+            "id": "goal-ev:exercise-egg",
+            "sourceId": "issn-protein-exercise-2017",
+            "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+            "version": "2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+            "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+            "originalSpan": "eggs are an excellent source of protein for athletes.",
+            "locator": {
+              "kind": "html_normalized_text",
+              "normalization": "collapse_whitespace_v1",
+              "section": "Egg proteins",
+              "start": 77514,
+              "end": 77567
+            },
+            "spanHash": "8b1b3c7dcfbab62c86a324dddfb2e568342d7acd8c50a0b7228e2e5b0aa6aca2"
+          },
+          {
+            "id": "goal-ev:exercise-scope",
+            "sourceId": "issn-protein-exercise-2017",
+            "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+            "version": "2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+            "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+            "originalSpan": "healthy, exercising individuals",
+            "locator": {
+              "kind": "html_normalized_text",
+              "normalization": "collapse_whitespace_v1",
+              "section": "Position statement",
+              "start": 8453,
+              "end": 8484
+            },
+            "spanHash": "59c397fccc63a82902a84b235b5d7fb8ad95890782971d52468678f999f7e97f"
+          },
+          {
+            "id": "goal-ev:exercise-beef",
+            "sourceId": "issn-protein-exercise-2017",
+            "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+            "version": "2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+            "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+            "originalSpan": "Beef is a common source of dietary protein",
+            "locator": {
+              "kind": "html_normalized_text",
+              "normalization": "collapse_whitespace_v1",
+              "section": "Beef and other flesh proteins",
+              "start": 79967,
+              "end": 80009
+            },
+            "spanHash": "6d0e1511183babd7e52b5551ae878ff1ff7b0f663ef5baff9e36685e17b7bb4d"
+          }
+        ],
+        "uncoveredTopics": [
+          "condition:慢性肾病",
+          "goal:增肌"
+        ],
+        "missingConditions": [
+          "adult",
+          "ckdStage",
+          "dialysis",
+          "clinicianNutritionPlan",
+          "edema",
+          "hyperkalemia"
+        ],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 21,
+          "mapped": 8,
+          "unmappedObjects": [
+            "f:phosphate-additives-food",
+            "f:whole-grains",
+            "f:pulses",
+            "f:low-protein-rice",
+            "f:mung-starch-noodles",
+            "f:starch-roots",
+            "f:fresh-fruit",
+            "f:stew-broth",
+            "f:vegetable-broth",
+            "f:low-sodium-potassium-salt",
+            "p:vegetable-blanch-discard",
+            "f:alcohol"
+          ]
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 41,
+              "content_sha256": "cec7677eb7f686e1fa2222da34d1b9a5ebf55d132e78a2e73792a2e93ee3d9ac"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "2fcab09a-d604-4350-99e2-6d09c10b7666",
+          "usage": {
+            "prompt_tokens": 518,
+            "completion_tokens": 82,
+            "total_tokens": 600,
+            "prompt_tokens_details": {
+              "cached_tokens": 256
+            },
+            "prompt_cache_hit_tokens": 256,
+            "prompt_cache_miss_tokens": 262
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": false,
+          "stored_response_reused": true,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 85,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S04",
+      "case_id": "q03",
+      "run_id": "2026-11-13T07-37-29-825Z-bf353e6f",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-37-29-825Z-bf353e6f\\report.json",
+      "mode": "replay",
+      "latency_ms": 48,
+      "actual_provider_calls": 0,
+      "replay_of": "2026-11-13T06-53-13-958Z-bbb292ec",
+      "attempts": 1,
+      "error": null,
+      "result_status": null,
+      "selection_scope": null,
+      "understanding": {
+        "intent": "food_guidance",
+        "subject": "self",
+        "conditions": [
+          "甲减"
+        ],
+        "goals": [],
+        "preferences": [],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [],
+          "servings": null,
+          "counts": null,
+          "allowBuy": null
+        },
+        "question": ""
+      },
+      "coverage": "qualitative_explanation_only",
+      "unmet_needs": [
+        "patient_specific_frequency_and_grams",
+        "no_executable_hypothyroid_food_rules"
+      ],
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "7ca2dbc7e43edcd6b34e5fd7e4bd9d13c1406e495d43c4050be5a8cac2840630",
+        "topics": [],
+        "guidance": [],
+        "topicCoverage": [
+          {
+            "input": "condition:甲减",
+            "status": "knowledge_gap",
+            "factCount": 0,
+            "applicableCount": 0,
+            "missingConditions": []
+          }
+        ],
+        "evidence": [],
+        "uncoveredTopics": [
+          "condition:甲减"
+        ],
+        "missingConditions": [],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 0,
+          "mapped": 0,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": {
+        "id": "thyroid-iodine-explanation-2026-11-13-v1",
+        "sha256": "6c2cdc3f545dd11654ffc369d6fd06f57f32bade6682e71544a8791a7c9368c9",
+        "answer": "能否吃：不能只凭“甲减”一律判定能吃或禁吃海带。若属于桥本等自身免疫性甲状腺病，大量高碘海藻或自行补碘可能造成不利影响；应先确认病因和医生给出的限碘要求。\n频率：本批核验资料未提供适用于你的海带每周次数，不能据此把“每周几次”作为个人安全承诺。\n量：海藻含碘量随品种而变化；缺少具体产品含碘量与个人目标，不能把通用碘摄入参考换算成你的海带克数。当前没有可核验的个人份量。\n食材选择：鱼虾、蛋类和奶类也属于含碘食物来源，不必把补碘等同于必须吃海带。这里是食物来源信息，不是甲减宜吃清单；是否适合或需要限制，应结合病因、过敏和个体饮食方案。\n出处：NIH/NIDDK、香港食物安全中心。\n还需确认：你的甲减病因是否已明确为桥本等自身免疫性疾病？",
+        "facts": [
+          {
+            "id": "thyroid-autoimmune-seaweed",
+            "section": "能否吃",
+            "statement": "不能只凭“甲减”一律判定能吃或禁吃海带。若属于桥本等自身免疫性甲状腺病，大量高碘海藻或自行补碘可能造成不利影响；应先确认病因和医生给出的限碘要求。",
+            "evidenceIds": [
+              "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc"
+            ],
+            "qualifyingEvidenceIds": [
+              "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783"
+            ],
+            "conditions": [
+              "仅描述自身免疫性甲状腺病的高碘风险，不推断所有甲减均缺碘或均需低碘"
+            ],
+            "kind": "conditional_explanation"
+          },
+          {
+            "id": "thyroid-frequency-not-established",
+            "section": "频率",
+            "statement": "本批核验资料未提供适用于你的海带每周次数，不能据此把“每周几次”作为个人安全承诺。",
+            "evidenceIds": [
+              "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc",
+              "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783"
+            ],
+            "origin": "project_source_coverage_limit",
+            "patientFrequencyPerWeek": null
+          },
+          {
+            "id": "thyroid-portion-not-established",
+            "section": "量",
+            "statement": "海藻含碘量随品种而变化；缺少具体产品含碘量与个人目标，不能把通用碘摄入参考换算成你的海带克数。当前没有可核验的个人份量。",
+            "evidenceIds": [
+              "topic-ev:5c092a822449abf9e7f0197a146c29d0dc23d2fbb678b03fb846c52ae6341705",
+              "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783"
+            ],
+            "origin": "project_source_coverage_limit",
+            "patientPortionGrams": null,
+            "conversionAllowed": false
+          },
+          {
+            "id": "thyroid-food-source-context",
+            "section": "食材选择",
+            "statement": "鱼虾、蛋类和奶类也属于含碘食物来源，不必把补碘等同于必须吃海带。这里是食物来源信息，不是甲减宜吃清单；是否适合或需要限制，应结合病因、过敏和个体饮食方案。",
+            "evidenceIds": [
+              "topic-ev:07436df0804efb521d14c9caba582ad60d135d0f7c9d8548cef4f839c151d8cd"
+            ],
+            "qualifyingEvidenceIds": [
+              "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783",
+              "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc"
+            ],
+            "conditions": [
+              "公共食物来源知识，不能转成甲减患者应增加摄入的指令"
+            ],
+            "kind": "food_source_context_only"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "topic-ev:0f921b012a56f846446752eae71381336382ed5d2d51a0c8ac7c601bef33a4cc",
+            "key": "autoimmune-seaweed",
+            "sourceId": "niddk-hypothyroidism",
+            "sourceHash": "6f1ca80d48f3643f73c096ee4d50f5689cdea82f7fe83cc78d0773aecfb7c401",
+            "originalSpan": "Your thyroid uses iodine to make thyroid hormones. However, if you have Hashimoto’s disease or other types of autoimmune thyroid disorders, you may be sensitive to iodine’s harmful side effects. Eating foods that have large amounts of iodine—such as kelp, dulse, or other kinds of seaweed—may cause or worsen hypothyroidism. Taking iodine supplements can have the same effect.",
+            "spanHash": "bd0a844a1a4b36c4c5d716e5268b224ea92af650bf783b47bdc3e2d74400a2e2",
+            "locator": {
+              "normalization": "document-parsing-v3-enhanced-blocks",
+              "start": 8416,
+              "end": 8792,
+              "parentStart": 8416,
+              "parentEnd": 8792,
+              "parentHash": "bd0a844a1a4b36c4c5d716e5268b224ea92af650bf783b47bdc3e2d74400a2e2",
+              "bodyLocator": "/html/body/div/main/div/div[2]/article",
+              "atoms": [
+                {
+                  "id": "html:277",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+                    "slot": "text",
+                    "rawHash": "6bc6b15294a53652ccbef501a9bf9e9eb76330f441e88c7c164507d4b2d3b035"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                },
+                {
+                  "id": "html:278",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[1]",
+                    "slot": "text",
+                    "rawHash": "4509828efbad122ab1132d5a6cedf510c61ef726c2dfeb9788a046a22488624c"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                },
+                {
+                  "id": "html:279",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+                    "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[1]",
+                    "rawHash": "3de11c88f4aa50348d8318ecea7be70a77bd59bc077f6475af30e5d8a10fdda0"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                },
+                {
+                  "id": "html:280",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[2]",
+                    "slot": "text",
+                    "rawHash": "a83a6270dbe60f5905d49826b7d4cb38ec0f5e118d1c318e28926694f5fc0ee1"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                },
+                {
+                  "id": "html:281",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+                    "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[2]",
+                    "rawHash": "18eceb383254f8f0ce141d3b5e563a5791945551476727835bdd00ad09e0613b"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                },
+                {
+                  "id": "html:282",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[3]",
+                    "slot": "text",
+                    "rawHash": "6aeb2a4f5c9ed292647eb6f64bf1ee23debb76460fb376656cf11da8588071d0"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                },
+                {
+                  "id": "html:283",
+                  "locator": {
+                    "domPath": "/html/body/div/main/div/div[2]/article/div[1]/p[28]",
+                    "slot": "tail-after:/html/body/div/main/div/div[2]/article/div[1]/p[28]/a[3]",
+                    "rawHash": "7ac089948c03393ebee922c41673c581141c263a5c6169581a1a84f3bdbef346"
+                  },
+                  "blockKey": "/html/body/div/main/div/div[2]/article/div[1]/p[28]"
+                }
+              ]
+            },
+            "extraction": "complete_unique_body_block",
+            "verification": "project_source_recheck_not_independent_clinical_review"
+          },
+          {
+            "id": "topic-ev:5c092a822449abf9e7f0197a146c29d0dc23d2fbb678b03fb846c52ae6341705",
+            "key": "species-variability",
+            "sourceId": "hk-cfs-iodine-2025",
+            "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+            "originalSpan": "However, the iodine content of seaweed varies with different species; it is generally greater in brown seaweeds (kelps) than the green or red varieties.",
+            "spanHash": "afb8b79d3f1a0c7178f5edbbdc588a15022302a3a33e9083432e6d4a6fc367e1",
+            "locator": {
+              "normalization": "document-parsing-v3-enhanced-blocks",
+              "start": 14332,
+              "end": 14484,
+              "parentStart": 13481,
+              "parentEnd": 14484,
+              "parentHash": "f5f5e332d50ec573adeab7afce031d7917115f651876fa04c9f0cc8bc167e808",
+              "bodyLocator": "/html",
+              "atoms": [
+                {
+                  "id": "html:86",
+                  "locator": {
+                    "domPath": "/html/body/div/p[14]",
+                    "slot": "text",
+                    "rawHash": "f5f5e332d50ec573adeab7afce031d7917115f651876fa04c9f0cc8bc167e808"
+                  },
+                  "blockKey": "/html/body/div/p[14]"
+                }
+              ]
+            },
+            "extraction": "complete_sentence_with_body_parent",
+            "verification": "project_source_recheck_not_independent_clinical_review"
+          },
+          {
+            "id": "topic-ev:07436df0804efb521d14c9caba582ad60d135d0f7c9d8548cef4f839c151d8cd",
+            "key": "food-source-context",
+            "sourceId": "hk-cfs-iodine-2025",
+            "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+            "originalSpan": "Examples of iodine-rich foods or ingredients are seafood (e.g., seaweed or kelp, marine fish, crustaceans, molluscs), eggs, dairy, and their products.",
+            "spanHash": "4d939442ce0aa068f2b0a6d538c2b65ba51573c7d3600c11f348de6c9498259c",
+            "locator": {
+              "normalization": "document-parsing-v3-enhanced-blocks",
+              "start": 7368,
+              "end": 7518,
+              "parentStart": 7171,
+              "parentEnd": 7518,
+              "parentHash": "da66a12f484e2423938a2a062e02c9b6c0b7e3d2b45400f180a6a3edc00cfdf9",
+              "bodyLocator": "/html",
+              "atoms": [
+                {
+                  "id": "html:48",
+                  "locator": {
+                    "domPath": "/html/body/div/div[3]/ol/li[2]",
+                    "slot": "text",
+                    "rawHash": "da66a12f484e2423938a2a062e02c9b6c0b7e3d2b45400f180a6a3edc00cfdf9"
+                  },
+                  "blockKey": "/html/body/div/div[3]/ol/li[2]"
+                }
+              ]
+            },
+            "extraction": "complete_sentence_with_body_parent",
+            "verification": "project_source_recheck_not_independent_clinical_review"
+          },
+          {
+            "id": "topic-ev:395aa2d8c5b484b2786d6d8e25a4b9c73484cd6708075b5e589ac9f1ce536783",
+            "key": "thyroid-individual-qualifier",
+            "sourceId": "hk-cfs-iodine-2025",
+            "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+            "originalSpan": "Persons with existing medical conditions or thyroid problems are advised to consult healthcare professionals concerning the intake of iodine.",
+            "spanHash": "4809ed4809a80fcdb9cd35855930ce5fcafd06d42a6b90a2a6f7a35b34c1baab",
+            "locator": {
+              "normalization": "document-parsing-v3-enhanced-blocks",
+              "start": 7697,
+              "end": 7838,
+              "parentStart": 7697,
+              "parentEnd": 7838,
+              "parentHash": "4809ed4809a80fcdb9cd35855930ce5fcafd06d42a6b90a2a6f7a35b34c1baab",
+              "bodyLocator": "/html",
+              "atoms": [
+                {
+                  "id": "html:50",
+                  "locator": {
+                    "domPath": "/html/body/div/div[3]/ol/li[4]",
+                    "slot": "text",
+                    "rawHash": "4809ed4809a80fcdb9cd35855930ce5fcafd06d42a6b90a2a6f7a35b34c1baab"
+                  },
+                  "blockKey": "/html/body/div/div[3]/ol/li[4]"
+                }
+              ]
+            },
+            "extraction": "complete_unique_body_block",
+            "verification": "project_source_recheck_not_independent_clinical_review"
+          }
+        ],
+        "sources": [
+          {
+            "id": "niddk-hypothyroidism",
+            "title": "Hypothyroidism (Underactive Thyroid)",
+            "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+            "retrievedDate": "2026-11-13",
+            "sourceHash": "6f1ca80d48f3643f73c096ee4d50f5689cdea82f7fe83cc78d0773aecfb7c401",
+            "license": "NIH/NIDDK public health information; attribution; no images or full HTML redistributed."
+          },
+          {
+            "id": "niddk-hashimoto",
+            "title": "Hashimoto’s Disease",
+            "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+            "retrievedDate": "2026-11-13",
+            "sourceHash": "a6bf012436b1cd01a28eef7ca453271b109ecf0f3854e3499fe0078768856ab2",
+            "license": "NIH/NIDDK public health information; attribution; no images or full HTML redistributed."
+          },
+          {
+            "id": "hk-cfs-iodine-2025",
+            "title": "Iodine in Food — Report No.77",
+            "url": "https://www.cfs.gov.hk/english/programme/programme_rafs/programme_rafs_n_01_34_Iodine_in_Food_2025_report77.html",
+            "retrievedDate": "2026-11-13",
+            "sourceHash": "f85f23e21692c0be8e5fe562c9144955787ee31227ca91a7370c90425e35e3c2",
+            "license": "Background/public-advice sentences only, acknowledged to CFS/FEHD. No research measurements, datasets, figures or tables reproduced; research-data reuse permission is not claimed."
+          }
+        ],
+        "clinicalRelease": null,
+        "professionalReview": "pending",
+        "coverage": "qualitative_explanation_only",
+        "scope": "Iodine/seaweed explanation only; not comprehensive hypothyroidism treatment or executable food exclusion",
+        "unmetNeeds": [
+          "patient_specific_frequency_and_grams",
+          "no_executable_hypothyroid_food_rules"
+        ],
+        "newVectors": false,
+        "pgImported": false
+      },
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 34,
+              "content_sha256": "c2295c08570bc18446be76d74ec31ea9e5d4be4f0119dc156478aa284e5f2c90"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "cb1b06d4-b4fc-4610-99e8-62866b0acb48",
+          "usage": {
+            "prompt_tokens": 515,
+            "completion_tokens": 68,
+            "total_tokens": 583,
+            "prompt_tokens_details": {
+              "cached_tokens": 256
+            },
+            "prompt_cache_hit_tokens": 256,
+            "prompt_cache_miss_tokens": 259
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": false,
+          "stored_response_reused": true,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": null,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 65,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S05",
+      "case_id": "q12",
+      "run_id": "2026-11-13T06-53-21-807Z-986bf698",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-53-21-807Z-986bf698\\report.json",
+      "mode": "live",
+      "latency_ms": 1730,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": null,
+      "selection_scope": null,
+      "understanding": {
+        "intent": "meal",
+        "subject": "unspecified",
+        "conditions": [],
+        "goals": [],
+        "preferences": [
+          "二十元以内",
+          "十分钟能做好"
+        ],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [],
+          "servings": null,
+          "counts": null,
+          "allowBuy": null
+        },
+        "question": "晚餐是几个人吃？"
+      },
+      "coverage": "no_applicable_evidence",
+      "unmet_needs": [
+        "pantry_not_provided"
+      ],
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+        "topics": [],
+        "guidance": [],
+        "evidence": [],
+        "uncoveredTopics": [],
+        "missingConditions": [],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 0,
+          "mapped": 0,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 40,
+              "content_sha256": "18245bd1339029e73d99ceba231aa5b0dcc0c04640b4418fb30cf48be2eaf70d"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "7ae84a12-ed13-4473-93c2-445de0f3068d",
+          "usage": {
+            "prompt_tokens": 517,
+            "completion_tokens": 75,
+            "total_tokens": 592,
+            "prompt_tokens_details": {
+              "cached_tokens": 256
+            },
+            "prompt_cache_hit_tokens": 256,
+            "prompt_cache_miss_tokens": 261
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": null,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 65,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S06",
+      "case_id": "q14",
+      "run_id": "2026-11-13T06-53-24-421Z-0efc331e",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-53-24-421Z-0efc331e\\report.json",
+      "mode": "live",
+      "latency_ms": 1283,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": null,
+      "selection_scope": null,
+      "understanding": {
+        "intent": "off_topic",
+        "subject": "unspecified",
+        "conditions": [],
+        "goals": [],
+        "preferences": [],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [],
+          "servings": null,
+          "counts": null,
+          "allowBuy": null
+        },
+        "question": ""
+      },
+      "coverage": "not_retrieval_task",
+      "unmet_needs": [],
+      "packet": null,
+      "supplemental_explanation": null,
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 21,
+              "content_sha256": "b545858e264d5735babfc77001460d84301e0021a53cf7a042453e214c0fb4d1"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "36c80b79-14e4-4da4-9fbe-3ea5eb217109",
+          "usage": {
+            "prompt_tokens": 505,
+            "completion_tokens": 65,
+            "total_tokens": 570,
+            "prompt_tokens_details": {
+              "cached_tokens": 256
+            },
+            "prompt_cache_hit_tokens": 256,
+            "prompt_cache_miss_tokens": 249
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": null,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 65,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S07",
+      "case_id": "q19",
+      "run_id": "2026-11-13T06-53-28-816Z-cb46f6cc",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-53-28-816Z-cb46f6cc\\report.json",
+      "mode": "live",
+      "latency_ms": 895,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": null,
+      "selection_scope": null,
+      "understanding": {
+        "intent": "medical_request",
+        "subject": "self",
+        "conditions": [],
+        "goals": [],
+        "preferences": [],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [],
+          "servings": null,
+          "counts": null,
+          "allowBuy": null
+        },
+        "question": ""
+      },
+      "coverage": "not_retrieval_task",
+      "unmet_needs": [],
+      "packet": null,
+      "supplemental_explanation": null,
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 37,
+              "content_sha256": "4b6d1b70284c8f463678bdae4d09e97a0b44e8d160a9da29e7df351aa7f62caf"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "1c3ee628-a51a-4205-a22c-9ff114b5b09f",
+          "usage": {
+            "prompt_tokens": 515,
+            "completion_tokens": 63,
+            "total_tokens": 578,
+            "prompt_tokens_details": {
+              "cached_tokens": 256
+            },
+            "prompt_cache_hit_tokens": 256,
+            "prompt_cache_miss_tokens": 259
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": null,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 65,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S08",
+      "case_id": "q20",
+      "run_id": "2026-11-13T06-53-30-469Z-ce907173",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-53-30-469Z-ce907173\\report.json",
+      "mode": "live",
+      "latency_ms": 1194,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": "no_results",
+      "selection_scope": null,
+      "understanding": {
+        "intent": "meal",
+        "subject": "self",
+        "conditions": [],
+        "goals": [
+          "减脂",
+          "增肌"
+        ],
+        "preferences": [],
+        "allergies": [
+          "豆腐"
+        ],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [
+            "白菜",
+            "豆腐"
+          ],
+          "servings": null,
+          "counts": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "allowBuy": false
+        },
+        "question": ""
+      },
+      "coverage": "partial",
+      "unmet_needs": [
+        "goal:增肌"
+      ],
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+        "topics": [
+          {
+            "id": "goal:fat-loss",
+            "kind": "goal",
+            "name": "减脂",
+            "inputName": "减脂"
+          },
+          {
+            "id": "goal:muscle-gain",
+            "kind": "goal",
+            "name": "增肌",
+            "inputName": "增肌"
+          }
+        ],
+        "guidance": [
+          {
+            "id": "guide:goal:fat-loss-limit-sugar",
+            "factId": "goal:fat-loss-limit-sugar",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "f:added-sugar",
+            "objectName": "白糖",
+            "objectKind": "food",
+            "direction": "limit",
+            "statement": "按体重管理的少高糖方向提示添加白糖原料；不以含糖认定整菜高糖，不生成全天或每餐阈值。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [
+                "sugar",
+                "gallery-food-4f7a2bfbb8b66631",
+                "gallery-food-8926045c491adf47"
+              ],
+              "status": "mapped"
+            },
+            "basis": "project_interpretation",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:fat-loss-steam-boil",
+            "factId": "goal:fat-loss-steam-boil",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "p:steam-boil",
+            "objectName": "蒸煮汆制",
+            "objectKind": "process",
+            "direction": "prefer",
+            "statement": "体重管理可优先采用来源列举的蒸煮做法；实际配方、其他步骤与本餐条件仍须核对。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "processRule": "steam-boil-primary",
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:fat-loss-limit-fry",
+            "factId": "goal:fat-loss-limit-fry",
+            "topic": {
+              "id": "goal:fat-loss",
+              "kind": "goal",
+              "name": "减脂",
+              "inputName": "减脂"
+            },
+            "objectId": "p:fry",
+            "objectName": "油炸或煎制",
+            "objectKind": "process",
+            "direction": "limit",
+            "statement": "体重管理少选来源列举的煎炸做法；不从菜名推断实际工艺、摄入能量或减脂效果。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "applicable",
+            "missingConditions": [],
+            "evidenceIds": [
+              "goal-ev:weight-food-method"
+            ],
+            "qualifyingEvidenceIds": [],
+            "mapping": {
+              "foodIds": [],
+              "processRule": "fry-primary",
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:muscle-prefer-egg",
+            "factId": "goal:muscle-prefer-egg",
+            "topic": {
+              "id": "goal:muscle-gain",
+              "kind": "goal",
+              "name": "增肌",
+              "inputName": "增肌"
+            },
+            "objectId": "f:egg",
+            "objectName": "鸡蛋",
+            "objectKind": "food",
+            "direction": "prefer",
+            "statement": "在健康成年且进行抗阻训练的本轮范围中，鸡蛋可作为膳食蛋白来源候选；不是整菜增肌保证，不推定个人蛋白需求或无限量摄入。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "healthyExerciser",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "resistanceTraining",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "healthyExerciser",
+              "resistanceTraining"
+            ],
+            "evidenceIds": [
+              "goal-ev:exercise-egg"
+            ],
+            "qualifyingEvidenceIds": [
+              "goal-ev:exercise-scope"
+            ],
+            "mapping": {
+              "foodIds": [
+                "egg"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          },
+          {
+            "id": "guide:goal:muscle-prefer-beef",
+            "factId": "goal:muscle-prefer-beef",
+            "topic": {
+              "id": "goal:muscle-gain",
+              "kind": "goal",
+              "name": "增肌",
+              "inputName": "增肌"
+            },
+            "objectId": "f:beef",
+            "objectName": "牛肉",
+            "objectKind": "food",
+            "direction": "prefer",
+            "statement": "在健康成年且进行抗阻训练的本轮范围中，牛肉可作为膳食蛋白来源候选；不据此宣称低脂、疾病适宜性或个人定量达标。",
+            "conditions": [
+              {
+                "key": "adult",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "healthyExerciser",
+                "values": [
+                  "yes"
+                ]
+              },
+              {
+                "key": "resistanceTraining",
+                "values": [
+                  "yes"
+                ]
+              }
+            ],
+            "applicability": "needs_confirmation",
+            "missingConditions": [
+              "healthyExerciser",
+              "resistanceTraining"
+            ],
+            "evidenceIds": [
+              "goal-ev:exercise-beef"
+            ],
+            "qualifyingEvidenceIds": [
+              "goal-ev:exercise-scope"
+            ],
+            "mapping": {
+              "foodIds": [
+                "beef"
+              ],
+              "status": "mapped"
+            },
+            "basis": "source_statement",
+            "clinicalReview": "pending"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "goal-ev:weight-food-method",
+            "sourceId": "nhc-weight-management-2024",
+            "title": "体重管理指导原则（2024年版）",
+            "version": "2024",
+            "url": "https://www.nhc.gov.cn/wjw/ylyjs/202412/b3d40e0141834897808ce6c9dce76a60.shtml",
+            "sourceHash": "7a801bfd1cb5a40653a99f731aeaf7c061be63d7d983ff35415d450eeef3d02c",
+            "originalSpan": "减少高糖、高油、高盐食物。选择蒸、煮、炖、拌，减少煎、烤、炸等烹饪方式。",
+            "locator": {
+              "kind": "pdf_normalized_text",
+              "pdfPage": 10,
+              "normalization": "remove_unicode_whitespace_v1",
+              "section": "四、体重管理策略/合理膳食",
+              "start": 101,
+              "end": 137
+            },
+            "spanHash": "d1fc9f5ac23b9c68bbddfeac2219663d89da74508947ef8d565822442721b1a1"
+          },
+          {
+            "id": "goal-ev:exercise-egg",
+            "sourceId": "issn-protein-exercise-2017",
+            "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+            "version": "2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+            "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+            "originalSpan": "eggs are an excellent source of protein for athletes.",
+            "locator": {
+              "kind": "html_normalized_text",
+              "normalization": "collapse_whitespace_v1",
+              "section": "Egg proteins",
+              "start": 77514,
+              "end": 77567
+            },
+            "spanHash": "8b1b3c7dcfbab62c86a324dddfb2e568342d7acd8c50a0b7228e2e5b0aa6aca2"
+          },
+          {
+            "id": "goal-ev:exercise-scope",
+            "sourceId": "issn-protein-exercise-2017",
+            "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+            "version": "2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+            "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+            "originalSpan": "healthy, exercising individuals",
+            "locator": {
+              "kind": "html_normalized_text",
+              "normalization": "collapse_whitespace_v1",
+              "section": "Position statement",
+              "start": 8453,
+              "end": 8484
+            },
+            "spanHash": "59c397fccc63a82902a84b235b5d7fb8ad95890782971d52468678f999f7e97f"
+          },
+          {
+            "id": "goal-ev:exercise-beef",
+            "sourceId": "issn-protein-exercise-2017",
+            "title": "International Society of Sports Nutrition Position Stand: protein and exercise",
+            "version": "2017",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+            "sourceHash": "c43806ab1a71305df028204876ab56c51f4a944cdaee2e2c18f51e75c026eed9",
+            "originalSpan": "Beef is a common source of dietary protein",
+            "locator": {
+              "kind": "html_normalized_text",
+              "normalization": "collapse_whitespace_v1",
+              "section": "Beef and other flesh proteins",
+              "start": 79967,
+              "end": 80009
+            },
+            "spanHash": "6d0e1511183babd7e52b5551ae878ff1ff7b0f663ef5baff9e36685e17b7bb4d"
+          }
+        ],
+        "uncoveredTopics": [
+          "goal:增肌"
+        ],
+        "missingConditions": [
+          "healthyExerciser",
+          "resistanceTraining"
+        ],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 5,
+          "mapped": 5,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 52,
+              "content_sha256": "3b1a995104c2e39bf9303f08ccdb1c5cd81183ff25fc6e1c2ecb837418b4bbd1"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "4738f0cf-0510-4550-a6f6-b62584859865",
+          "usage": {
+            "prompt_tokens": 530,
+            "completion_tokens": 87,
+            "total_tokens": 617,
+            "prompt_tokens_details": {
+              "cached_tokens": 384
+            },
+            "prompt_cache_hit_tokens": 384,
+            "prompt_cache_miss_tokens": 146
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": null,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": true,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "meal_terminal",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 85,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S09",
+      "case_id": "q23",
+      "run_id": "2026-11-13T06-53-32-440Z-8263822b",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-53-32-440Z-8263822b\\report.json",
+      "mode": "live",
+      "latency_ms": 840,
+      "actual_provider_calls": 1,
+      "replay_of": null,
+      "attempts": 1,
+      "error": null,
+      "result_status": null,
+      "selection_scope": null,
+      "understanding": {
+        "intent": "food_guidance",
+        "subject": "self",
+        "conditions": [
+          "1型糖尿病"
+        ],
+        "goals": [],
+        "preferences": [],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [],
+          "servings": null,
+          "counts": null,
+          "allowBuy": null
+        },
+        "question": ""
+      },
+      "coverage": "uncovered",
+      "unmet_needs": [
+        "condition:1型糖尿病"
+      ],
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+        "topics": [],
+        "guidance": [],
+        "evidence": [],
+        "uncoveredTopics": [
+          "condition:1型糖尿病"
+        ],
+        "missingConditions": [],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 0,
+          "mapped": 0,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 41,
+              "content_sha256": "fb9d1d35515dd34a08d6514af173cba63a251b6fb882bc9b526d81812259670e"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "f61b3df5-e456-4c6d-9f1b-ac1041909d7a",
+          "usage": {
+            "prompt_tokens": 518,
+            "completion_tokens": 69,
+            "total_tokens": 587,
+            "prompt_tokens_details": {
+              "cached_tokens": 384
+            },
+            "prompt_cache_hit_tokens": 384,
+            "prompt_cache_miss_tokens": 134
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": null,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 80,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    },
+    {
+      "sample_id": "S10",
+      "case_id": "q24",
+      "run_id": "2026-11-13T06-53-34-060Z-eef5c4cf",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-53-34-060Z-eef5c4cf\\report.json",
+      "mode": "live",
+      "latency_ms": 2768,
+      "actual_provider_calls": 2,
+      "replay_of": null,
+      "attempts": 2,
+      "error": null,
+      "result_status": "completed",
+      "selection_scope": {
+        "qualifiedParents": 1,
+        "offeredParents": 1,
+        "qualifiedVariants": 1,
+        "offeredVariants": 1,
+        "complete": true,
+        "methodTextComplete": true
+      },
+      "understanding": {
+        "intent": "meal",
+        "subject": "self",
+        "conditions": [],
+        "goals": [],
+        "preferences": [],
+        "allergies": [],
+        "avoids": [],
+        "mealRequest": {
+          "ingredients": [
+            "白菜",
+            "豆腐"
+          ],
+          "servings": null,
+          "counts": {
+            "meat": 0,
+            "veg": 0,
+            "soup": 1
+          },
+          "allowBuy": false
+        },
+        "question": ""
+      },
+      "coverage": "no_applicable_evidence",
+      "unmet_needs": [],
+      "packet": {
+        "mode": "local_research",
+        "clinicalRelease": null,
+        "knowledgeVersion": "health-kb-2026-11-12-v3+goal-guidance-2026-11-04-v1+food-guidance-mappings-v3",
+        "fingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+        "topics": [],
+        "guidance": [],
+        "evidence": [],
+        "uncoveredTopics": [],
+        "missingConditions": [],
+        "conflicts": [],
+        "mappingCoverage": {
+          "total": 0,
+          "mapped": 0,
+          "unmappedObjects": []
+        }
+      },
+      "supplemental_explanation": null,
+      "dish_groundings": [
+        {
+          "recipe_id": "gallery-f3dc92744e6a6c37",
+          "variant_id": "gallery-f3dc92744e6a6c37-r039",
+          "grounding": {
+            "contentVersion": "gallery-listed-foods-20261026-v28",
+            "recipeId": "gallery-f3dc92744e6a6c37",
+            "recipeVersion": "local-business-gallery-v1",
+            "variantId": "gallery-f3dc92744e6a6c37-r039",
+            "methodId": "primary",
+            "recipeHash": "0d2ff4bc1c4fbb6277e52f639a3b6098ab58344575c9141401c5ca446871ce56",
+            "methodHash": "8242fc63e0d94f55a35c44ff3309a4bc60dd6d236eb19835286d939eb10ebd29",
+            "guidanceFingerprint": "5340b7237729124ca6ed21deaebf9aedf2be3b733b621eb3e50adb351f345947",
+            "matches": []
+          }
+        }
+      ],
+      "model_call_metadata": [
+        {
+          "sequence": 1,
+          "request_stage": "input_understanding",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 1200
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 977,
+              "content_sha256": "15676d7674d6a13ad65e9e9927b80795337062b1a4311ec7179df87c3ab240a5"
+            },
+            {
+              "role": "user",
+              "characters": 36,
+              "content_sha256": "2fcb3b30adc8b8a7cda48873541e9c27dba583c9e5c43d5948c813ed2466b503"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "1c710cb2-d2c5-4aed-a0cb-9a846ccb47d9",
+          "usage": {
+            "prompt_tokens": 518,
+            "completion_tokens": 79,
+            "total_tokens": 597,
+            "prompt_tokens_details": {
+              "cached_tokens": 384
+            },
+            "prompt_cache_hit_tokens": 384,
+            "prompt_cache_miss_tokens": 134
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        },
+        {
+          "sequence": 2,
+          "request_stage": "recipe_selection",
+          "model": "deepseek-flash",
+          "parameters": {
+            "model": "deepseek-flash",
+            "stream": false,
+            "thinking": {
+              "type": "disabled"
+            },
+            "response_format": {
+              "type": "json_object"
+            },
+            "max_tokens": 2400
+          },
+          "messages_metadata": [
+            {
+              "role": "system",
+              "characters": 1448,
+              "content_sha256": "de2986cd0bc27d9a38a20bc667b9eedd623e6de8b92015e9a28a748bb42f32d7"
+            },
+            {
+              "role": "user",
+              "characters": 1688,
+              "content_sha256": "577bbd4137455ad7a6e138e7940839b21927597391caf98d2c00f00536bb2927"
+            }
+          ],
+          "response_model": "deepseek-flash",
+          "response_id": "de29a803-d99d-43b3-8d3f-3e326ae115b3",
+          "usage": {
+            "prompt_tokens": 1367,
+            "completion_tokens": 86,
+            "total_tokens": 1453,
+            "prompt_tokens_details": {
+              "cached_tokens": 640
+            },
+            "prompt_cache_hit_tokens": 640,
+            "prompt_cache_miss_tokens": 727
+          },
+          "finish_reasons": [
+            "stop"
+          ],
+          "response_error": null,
+          "new_paid_call_in_this_report": true,
+          "stored_response_reused": false,
+          "redaction": "不导出messages、模型自由推理字段、系统提示词、认证头或凭据；需要时在评分后按最小范围查看原report"
+        }
+      ],
+      "runtime_tool_trace": "原report未记录通用Agent工具调用、逐段召回名次/向量距离/RRF分数；这里的packet是实际返回的指导与证据，不能补称完整向量检索trace",
+      "developer_engineering_checks": {
+        "checks": [
+          {
+            "id": "intent",
+            "passed": true,
+            "points": 25,
+            "detail": "无独立意图输出时不填满分；人工核对最终回复是否回应需求"
+          },
+          {
+            "id": "explicit_conditions",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          },
+          {
+            "id": "explicit_goals",
+            "passed": null,
+            "points": 20,
+            "detail": ""
+          },
+          {
+            "id": "subject_and_negative_conditions",
+            "passed": null,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "usable_terminal_reply",
+            "passed": true,
+            "points": 15,
+            "detail": ""
+          },
+          {
+            "id": "meal_terminal",
+            "passed": true,
+            "points": 25,
+            "detail": ""
+          }
+        ],
+        "hardFailures": [],
+        "engineeringScore": 100,
+        "scoreDenominator": 90,
+        "functionalPass": true,
+        "humanScore": null,
+        "effectivePass": null,
+        "clinicalReview": "pending",
+        "scope": "工程一致性，不是医学有效率；原因是否被原文支持待人工核对"
+      },
+      "clinical_review": "现有工程结果不构成医学/独立评委签认"
+    }
+  ]
+}

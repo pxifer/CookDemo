@@ -1,0 +1,30 @@
+{
+  "received_reviews": 10,
+  "bindings": "all fields match frozen round2 A",
+  "rubric": "judge-product-v0.1",
+  "new_corpus_scenarios": 60,
+  "user_turns": 72,
+  "targeted_tests": {
+    "passed": 27,
+    "failed": 0
+  },
+  "main_build": "passed",
+  "acceptance_types": "passed",
+  "fixture_workflow_runs": 3,
+  "fixture_sent_to_quality_judge": 0,
+  "new_live_scenarios": 8,
+  "new_live_turns": 9,
+  "new_provider_calls": 10,
+  "cumulative_provider_calls": 40,
+  "reservedCny": 1.602422,
+  "receiptCostUpperEstimateCny": 0.2036,
+  "money_ceiling_cny": 5,
+  "original_authorization_sha256": "4fbe4b26e70b8b5d6a43223685dae39e1b69c44c0b12eaca92bca282059ac4e2",
+  "simulation_execution_policy_sha256": "e82cfe4d67edca11ed1892935ec0d012cc173e4a2752396f8bc00523a0f3a54c",
+  "reviewed_knowledge_commit": "20dfacb8f8cbc4624230b68907a99ddaf46220ef",
+  "latest_main_observed": "13f2d6fd237646ec08d9053e4cf24e0341043628",
+  "current_evaluation_branch_integrated_new_knowledge": false,
+  "deployment_by_this_task": false,
+  "next_step": "安全集成已审核main；新建轮次，不把新库/1000菜变化混入本批基线",
+  "local_links": "passed; original feedback keeps original-directory relative links"
+}

@@ -1,0 +1,7 @@
+{
+  "round_id": "outside-in-20261113-base",
+  "standard_sha256": "297675aa0eebb5a7f0a7ebcef87464949f1c0aedd29257ab7bb4241125b98003",
+  "cases_sha256": "a31c2f5f9a55eaa58595cbeeb87c2eb44f97201050383b35e982748abf72b922",
+  "product_version": "workspace:931edd55ba11afbd676becd79afb30e623752cb8d49205c9eb7597be7c4b2fe8",
+  "interpretation": "冻结当次版本；不得将fixture/未运行当作答案或通过"
+}

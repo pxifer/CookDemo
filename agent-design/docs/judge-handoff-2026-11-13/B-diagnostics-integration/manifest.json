@@ -1,0 +1,17 @@
+{
+  "package_id": "judge-handoff-2026-11-13-v1",
+  "role": "post-scoring-diagnostics",
+  "created_at_utc": "2026-11-13T08:04:11.918317+00:00",
+  "files_sha256": {
+    "bindings.json": "d4402d394c09e4842205efe1331b9b8cc40c307b080342f5a0a2b21ba3a484e0",
+    "diagnostics.json": "1c9e2e12da92eb375b07e0f1f73e5c4e742d3f0eacb375c93f457ccd43b2a9a1",
+    "exposure-and-next-round.md": "1353ab282dbe1d305805321bf0312b32d1518494c1a06aabfe9aa8b9ce1801ef",
+    "integration.md": "953cf370a0ecbab4c303aa4d9570e6d20d61afe12dc8413e556947765f260c0c",
+    "README.md": "ae0cfe725704e9375f5b18de137190793b6511912e732e79178ab736f08bf9cd",
+    "review-template.json": "ee16d298a0418746a3604e612eb5a5f282b598a9cc319eec78fbe63c7de74338",
+    "source-inventory.json": "20e1ff11dc8a56e1c104be8c65dbbdbdd0abb2ae8f5698e6b063d971872a8713"
+  },
+  "hash_note": "文件字节SHA-256，只证明字节一致；不是临床正确性或完整运行验收。",
+  "scoring_standard_status": "not_yet_frozen_by_independent_judge",
+  "only_existing_records": true
+}

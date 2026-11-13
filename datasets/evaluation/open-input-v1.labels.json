@@ -1,0 +1,29 @@
+{
+ "id":"open-input-v1-labels","origin":"project_agent","independent":false,"clinicalReview":"pending",
+ "labels":{
+  "q01":{"intents":["food_guidance"],"conditions":["糖尿病"]},
+  "q02":{"intents":["food_guidance"],"conditions":["痛风","高尿酸血症"]},
+  "q03":{"intents":["food_guidance"],"conditions":["甲减"]},
+  "q04":{"intents":["food_guidance"],"conditions":["缺铁性贫血"]},
+  "q05":{"intents":["food_guidance"],"conditions":["肠易激综合征"]},
+  "q06":{"intents":["food_guidance"],"conditions":["妊娠期糖尿病"]},
+  "q07":{"intents":["food_guidance"],"conditions":["慢性肾病"],"goals":["增肌"]},
+  "q08":{"intents":["food_guidance"],"subject":"other","conditions":["糖尿病"]},
+  "q09":{"intents":["food_guidance","meal"],"goals":["改善睡眠"]},
+  "q10":{"intents":["food_guidance"],"goals":["维持体重"],"forbiddenGoals":["减脂","减肥"]},
+  "q11":{"intents":["food_guidance"],"forbiddenGoals":["增肌"]},
+  "q12":{"intents":["meal"],"noDisease":true},
+  "q13":{"intents":["meal"],"noDisease":true},
+  "q14":{"intents":["off_topic"],"noDisease":true},
+  "q15":{"intents":["off_topic"],"noDisease":true},
+  "q16":{"intents":["off_topic"],"noDisease":true},
+  "q17":{"intents":["clarify","meal"],"noDisease":true},
+  "q18":{"intents":["medical_request"]},
+  "q19":{"intents":["medical_request"],"noDisease":true},
+  "q20":{"intents":["meal"],"goals":["减脂","增肌"],"mealStatus":"no_results"},
+  "q21":{"intents":["food_guidance"],"conditions":["糖尿病","慢性胃炎"]},
+  "q22":{"intents":["food_guidance","medical_request"],"conditions":["三相星尘代谢病"]},
+  "q23":{"intents":["food_guidance"],"conditions":["1型糖尿病"],"forbiddenConditions":["2型糖尿病"]},
+  "q24":{"intents":["meal"],"noDisease":true,"mealStatus":"completed"}
+ }
+}

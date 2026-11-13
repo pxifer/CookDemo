@@ -4,6 +4,11 @@
 
 | 遇到的需求 | 查阅文件 |
 | --- | --- |
+| 知识库变化后调整评测、更多模拟用户/真实多轮、版本冻结与对照、决定改流程还是参数 | [模拟用户评测闭环](user-simulation-evaluation.md)：60场景/72轮，开发与留出分开；[第二批处理](judge-feedback-2026-11-13-r2/README.md)、[第三批A](judge-round-2026-11-13-r3/A-independent-scoring/README.md) |
+| 用户说“评测好了”、读取独立评委回件与确认默认存放位置 | [评委回件约定](judge-feedback-routing.md)，默认 `D:\codex_AI\菜品评测\judge-*.md`，核对轮次与回答绑定 |
+| 查看首批独立评分的实际处理、未解决高优先级项，或交付下一批待评分内容 | [首批回件及整改](judge-feedback-2026-11-13-r1/README.md)、[第二批A评分包](judge-round-2026-11-13-r2/A-independent-scoring/README.md)，保留U/N/A与版本，待核项不算通过 |
+| 将网站输出交给独立评委评分，隔离开发解释/标签，查阅既有输入输出与接入协议 | [独立评委交接包](judge-handoff-2026-11-13/README.md)：先只交 A 评分包，评分后按需交 B 诊断包；本次仅资料整理 |
+| 验证输出是否有效；开放疾病/目标/无关输入、自由用例、人工评分、5元专项、失败定位及回放 | [输出评测与优化闭环](output-evaluation-2026-11-13.md)；48固定题＋自由添加，工程分不等于需求满足或医学有效，输入/知识/适用性/执行分别记录 |
 | 扩展常见疾病、B/C/D等营养指标、增肌/减脂/维持/增重/恢复等目标；查询具体形态的每100g组成 | [RAG-009执行说明](nutrition-expansion-2026-11-13.md)、[数据与命令](../../datasets/health/nutrition-guidance-2026-11-13-v1/README.md)；组成和直接食物指导分开，新包未向量化 |
 | 核对当前v3默认知识、NCI旧支持隔离/完整正文、新索引与常用成员、本餐回归 | [RAG-008执行记录](evidence-refresh-2026-11-12.md)、[知识v3](../../datasets/health/README-v3.md)及[映射v3](../../datasets/health/food-guidance-mappings-v3.md)；原98条测量与旧模型样例保留快照口径 |
 | 学习/讲解本项目AI、Agent、RAG全链路；准备面试、核对参数/实验/真实难点及外部题库覆盖 | [工程与面试手册](interview/README.md)、[离线阅读器](interview/reader.html)；112题按实际/研究/方案标状态，附来源映射，不编造对比收益 |

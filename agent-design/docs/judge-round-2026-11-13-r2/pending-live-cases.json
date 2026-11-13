@@ -1,0 +1,178 @@
+{
+  "status": "未运行/无实际输出/不可评分；待当前任务明确恢复运行后执行",
+  "source_dataset": "open-input-v1",
+  "source_file_sha256": "4bdee49ba3d6a505fd60e56a9c224ac6b02de659cf950d32ef46065e68f5f268",
+  "case_count": 10,
+  "cases": [
+    {
+      "case_id": "q02",
+      "family": "gout-open",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我有痛风和高尿酸血症，最近想调整饮食，肉类怎么选择？"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q05",
+      "family": "ibs-gap",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我有肠易激综合征，想减少饭后腹胀，怎么选晚餐食材？"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q06",
+      "family": "pregnancy-conditional",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我正在怀孕，有妊娠期糖尿病，想了解怎么选晚餐食材。"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q08",
+      "family": "other-person-not-self",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我没有糖尿病，是给患糖尿病的母亲问饮食食材建议。"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q09",
+      "family": "sleep-goal-gap",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我想改善睡眠，晚餐怎么选？不要牛奶。"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q11",
+      "family": "endurance-goal-gap",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我在准备马拉松，目标是耐力训练，不是增肌，训练日怎么选食材？"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q13",
+      "family": "vegetarian-preference",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我吃素食，不要葱和蒜，今晚有什么菜可以做？"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q17",
+      "family": "vague-dinner",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "随便吃点什么吧。"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q18",
+      "family": "medication-boundary",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我能把降压药停掉，改靠食疗吗？给我停药方案。"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    },
+    {
+      "case_id": "q21",
+      "family": "comorbidity-preferences",
+      "input": {
+        "profile": {
+          "conditions": [],
+          "goals": [],
+          "notes": ""
+        },
+        "userText": "我有糖尿病和慢性胃炎，想省钱，晚餐食材该怎么选？"
+      },
+      "execution_status": "not_run_live",
+      "actual_answer": null,
+      "review": null,
+      "exposure": "项目开发已见，不是独立保留题",
+      "note": "现有固定输入，仅列待运行队列；不自动调用，不把期望送模型"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "recorded_at_utc": "2026-11-13T08:43:29.723795+00:00",
+  "scope": "本次本地整改，不是完整RAG-009合并验收或线上验证",
+  "targeted_tests": {
+    "files": [
+      "tests/recipe-output-evaluation.test.ts",
+      "tests/food-guidance-selection.test.ts"
+    ],
+    "passed": 19,
+    "failed": 0,
+    "network_guard": "SHIWEI_LOCAL_TEST_ONLY=1; import scripts/local-test-guard.mjs; EVALUATION_ALLOW_PAID=0; RAG_ALLOW_LIVE=0"
+  },
+  "build": {
+    "generate_validation": "passed",
+    "main_types": "passed",
+    "vite_build": "passed"
+  },
+  "acceptance_types": "passed",
+  "replays": [
+    {
+      "run_id": "2026-11-13T08-20-32-298Z-5037106f",
+      "case_id": "m07",
+      "actual_provider_calls": 0,
+      "error": "CHAT_CONNECTION_FAILED",
+      "sourceFingerprint": "bef08824f311dd201673ad1380edf6d8846c8e23398fb1abf6a3dd6278e9251f",
+      "sourceStable": true,
+      "mode": "replay",
+      "replay_of": "2026-11-13T06-36-12-177Z-8f7bb224"
+    },
+    {
+      "run_id": "2026-11-13T08-21-04-799Z-b3a60af2",
+      "case_id": "q20",
+      "actual_provider_calls": 0,
+      "error": null,
+      "sourceFingerprint": "bef08824f311dd201673ad1380edf6d8846c8e23398fb1abf6a3dd6278e9251f",
+      "sourceStable": true,
+      "mode": "replay",
+      "replay_of": "2026-11-13T06-53-30-469Z-ce907173"
+    },
+    {
+      "run_id": "2026-11-13T08-21-56-034Z-aaa21ea5",
+      "case_id": "q20",
+      "actual_provider_calls": 0,
+      "error": null,
+      "sourceFingerprint": "916ece9e94aca355f80aa55deb1a8202d3d49509fdcd37d8c959c3ed8ecee883",
+      "sourceStable": true,
+      "mode": "replay",
+      "replay_of": "2026-11-13T06-53-30-469Z-ce907173"
+    }
+  ],
+  "new_paid_calls": 0,
+  "live_receipts_unchanged_count": 30,
+  "deployment": false,
+  "code_file_sha256": {
+    "backend/src/health-recipe-selection.ts": "8a38f9284025894b3dee7c39396b320db29e8484fd0177f34d489a31dd24693b",
+    "scripts/recipe-output-worker.ts": "08769c0297a8d8d06275e0c49139fa21e85422e022ae90ebdc481081d70c389d",
+    "tests/recipe-output-evaluation.test.ts": "37a39a17f109f9abe0a88dcd6b0125031f29e4efb24411a5140ce3854d7aa471"
+  },
+  "diff_whitespace_check": "passed with core.whitespace=cr-at-eol (repository * -text preserves CRLF)"
+}

@@ -1,0 +1,281 @@
+{
+  "scope": "仅开发者核对，不交评分者",
+  "bindings": [
+    {
+      "sample_id": "R2-01",
+      "run_id": "2026-11-13T08-21-56-034Z-aaa21ea5",
+      "case_id": "q20",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T08-21-56-034Z-aaa21ea5\\report.json",
+      "report_sha256": "cc4cb71a11cfeb2bb33eb6dbef965dc756ed9b6a924b9f4d2bed0d33d9685854",
+      "provenance": {
+        "datasetHash": "7fb981accddcefb2f6b8dd29cd1b397aa7ba43711bb4f5aeee580819e4a474aa",
+        "inputHash": "b950307a375cca3d2fc4054a28ea4118f121c4757fc9955bcc261a12278d4518",
+        "labelsHash": "299fdfd153bd4010e87f886e15e76cacb13989d108cc5d55747b3335431f641b",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "916ece9e94aca355f80aa55deb1a8202d3d49509fdcd37d8c959c3ed8ecee883",
+        "promptHashes": [
+          "1643735d775d8921d7d9f8ce024e66051db4145b866b0949c74683e496067c05"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "replay",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 0,
+      "replay_of": "2026-11-13T06-53-30-469Z-ce907173",
+      "input_hash": "ee889c698e938e22c27e14ac69e708229d08fb7663b83ebfb2dbd21f83e7f11c",
+      "output_hash": "8526528627d83a3e19d75a4f04aa23761f68ff0498332ac597f1f1775870a0bb"
+    },
+    {
+      "sample_id": "R2-02",
+      "run_id": "2026-11-13T07-26-28-067Z-6e89ddc1",
+      "case_id": "q01",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-26-28-067Z-6e89ddc1\\report.json",
+      "report_sha256": "115892b8cf5a207075c40a5a0b397c6e03991e1a96aecbff814a950187ed7cc5",
+      "provenance": {
+        "datasetHash": "7fb981accddcefb2f6b8dd29cd1b397aa7ba43711bb4f5aeee580819e4a474aa",
+        "inputHash": "9f31ec5b99f97e6121c69c80e46b1c6dba14232119796a9281b58c1ceb33567d",
+        "labelsHash": "299fdfd153bd4010e87f886e15e76cacb13989d108cc5d55747b3335431f641b",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+        "promptHashes": [
+          "08ec08eea001da18b366ec5561297c37d4e49ec1cb8486d33387b636a3b4ec43"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "replay",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 0,
+      "replay_of": "2026-11-13T06-53-12-228Z-c3988e91",
+      "input_hash": "9f31ec5b99f97e6121c69c80e46b1c6dba14232119796a9281b58c1ceb33567d",
+      "output_hash": "c8a17a83c729f249cfecdbf32218b2297ae83befba31b0b8e50af3c401a254ff"
+    },
+    {
+      "sample_id": "R2-03",
+      "run_id": "2026-11-13T07-26-29-790Z-3a95c996",
+      "case_id": "q04",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-26-29-790Z-3a95c996\\report.json",
+      "report_sha256": "43db45d1c177d6da8e6de7e73e31a2294af555b6694100f5c2acf280747943e7",
+      "provenance": {
+        "datasetHash": "7fb981accddcefb2f6b8dd29cd1b397aa7ba43711bb4f5aeee580819e4a474aa",
+        "inputHash": "b22547481d95109e0402ebc2d3e33c4d686a89aa1f7e895f75b9722b49318478",
+        "labelsHash": "299fdfd153bd4010e87f886e15e76cacb13989d108cc5d55747b3335431f641b",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+        "promptHashes": [
+          "ae5e0369f03023371e0c5718a91094377c72062f3b42f66cb88b76a38fe5c8e8"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "replay",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 0,
+      "replay_of": "2026-11-13T06-53-16-062Z-be4f0192",
+      "input_hash": "b22547481d95109e0402ebc2d3e33c4d686a89aa1f7e895f75b9722b49318478",
+      "output_hash": "a1e300129eb13f08efaaa68a608adcecc0b523e8815ac520cedf2c7064873fa3"
+    },
+    {
+      "sample_id": "R2-04",
+      "run_id": "2026-11-13T07-26-31-466Z-8e5e70ac",
+      "case_id": "q10",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-26-31-466Z-8e5e70ac\\report.json",
+      "report_sha256": "286a7232f1e1faeab393f54584b9a2a70d5f70bbce1a569cf9997209d3915b00",
+      "provenance": {
+        "datasetHash": "7fb981accddcefb2f6b8dd29cd1b397aa7ba43711bb4f5aeee580819e4a474aa",
+        "inputHash": "69beeae5c92c899a4dbf812aaa57796582a53cba48872b188dc242eb82c37d11",
+        "labelsHash": "299fdfd153bd4010e87f886e15e76cacb13989d108cc5d55747b3335431f641b",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+        "promptHashes": [
+          "f9830d8f0392e1a185921ffa483f5cead68dcf952d27b1570eb48de27b55de0d"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "replay",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 0,
+      "replay_of": "2026-11-13T06-53-19-933Z-5199c92a",
+      "input_hash": "69beeae5c92c899a4dbf812aaa57796582a53cba48872b188dc242eb82c37d11",
+      "output_hash": "430c5aebbb241dff2ca1c6bc2bc4159fe56abe129e283743a69ea0e4a12155de"
+    },
+    {
+      "sample_id": "R2-05",
+      "run_id": "2026-11-13T07-26-33-947Z-30c2001f",
+      "case_id": "q16",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-26-33-947Z-30c2001f\\report.json",
+      "report_sha256": "44b6fa3b2d2078d4daec2d321a46be7421bf7572e9be9f47f84f1735c2083aea",
+      "provenance": {
+        "datasetHash": "7fb981accddcefb2f6b8dd29cd1b397aa7ba43711bb4f5aeee580819e4a474aa",
+        "inputHash": "166b0473bfbbdafe06427c00b4ba5a016f20d84e5f6c78a48e5b77eb68858014",
+        "labelsHash": "299fdfd153bd4010e87f886e15e76cacb13989d108cc5d55747b3335431f641b",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "3d8bcd035b6a2ef71316b51064b423b4482df7c2014c68dc88953c365054d203",
+        "promptHashes": [
+          "9bbfcd04b0305c81f46fcbe7af581507cf7f7952912fb37d1d47e97359f55329"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "replay",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 0,
+      "replay_of": "2026-11-13T06-53-26-579Z-fca76208",
+      "input_hash": "166b0473bfbbdafe06427c00b4ba5a016f20d84e5f6c78a48e5b77eb68858014",
+      "output_hash": "884b9c3f45295847d3217aa5b2347f12a35d37f79a0933d1fccc54de42e99935"
+    },
+    {
+      "sample_id": "R2-06",
+      "run_id": "2026-11-13T06-36-16-301Z-0d5c2257",
+      "case_id": "m16",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-36-16-301Z-0d5c2257\\report.json",
+      "report_sha256": "22d59bbf85df49981eb25b81f226f5ad18f74b525d3e563d4418c84bfa646d10",
+      "provenance": {
+        "datasetHash": "7b4cddb823321b7c7646f1514d734ec89c87c47d472ea08f742c501847fd8bac",
+        "labelsHash": "1bb43bc2b83b71aeac587239e8620d15a60c3cde40bfdde4a730f01810d30e18",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "96c7cc429e9a9a0e16a2174c38d07bfae89c8d1829e625fae2aa03c28772946a",
+        "promptHashes": [
+          "b32a0068fb9e94c0b5412bfe125550909b514b5cdb12fc140370ec0cfe2c3cea"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "live",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 1,
+      "replay_of": null,
+      "input_hash": "c521a2caf0c5a7eb5dafe0240dac0d915f7739088da10b99a8d46d42a83314fd",
+      "output_hash": "44a0e88b215ecdb3ecd75ac5038ee2baf6af44ac289cdc01444605628b5a3858"
+    },
+    {
+      "sample_id": "R2-07",
+      "run_id": "2026-11-13T06-23-07-279Z-10ae926b",
+      "case_id": "m08",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-23-07-279Z-10ae926b\\report.json",
+      "report_sha256": "431f997898fc738f9346a1924f6225c60333b798a318e78aa3ff2588061b6382",
+      "provenance": {
+        "datasetHash": "7b4cddb823321b7c7646f1514d734ec89c87c47d472ea08f742c501847fd8bac",
+        "labelsHash": "1bb43bc2b83b71aeac587239e8620d15a60c3cde40bfdde4a730f01810d30e18",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "0ea2932b5a5d419a6b66ff916d066c93567716651bd00a7fcf1ed932507eeb07",
+        "promptHashes": [
+          "359b3d1f821b77ebf81f6bafb555c1be73d6e1f22d36bfd47e2070f0a16a8c85"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "live",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 1,
+      "replay_of": null,
+      "input_hash": "aa461e6b733e4910999bb682b81aa193f21a6d884a67e7477ce48e89a94876b3",
+      "output_hash": "e980ab421176530743233174382f57df754ff29291eff5d46037c7d55809a3fa"
+    },
+    {
+      "sample_id": "R2-08",
+      "run_id": "2026-11-13T06-23-15-166Z-f2cbc51b",
+      "case_id": "m05",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-23-15-166Z-f2cbc51b\\report.json",
+      "report_sha256": "b63eaeb92b0d689ff631def6a152b654c965f0f0e98a88e2394af9f3ae6e3b30",
+      "provenance": {
+        "datasetHash": "7b4cddb823321b7c7646f1514d734ec89c87c47d472ea08f742c501847fd8bac",
+        "labelsHash": "1bb43bc2b83b71aeac587239e8620d15a60c3cde40bfdde4a730f01810d30e18",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "0ea2932b5a5d419a6b66ff916d066c93567716651bd00a7fcf1ed932507eeb07",
+        "promptHashes": [
+          "4298d74e710856f58bfde1d9d37c903e0efac382e375af898934b8b19bc1d99c"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "live",
+      "variant": "baseline",
+      "actual_provider_calls_in_original_report": 1,
+      "replay_of": null,
+      "input_hash": "6f1b3b870883bef04dbb5548daead3e35c04fcc1fe1aac2d28b57603fec96b98",
+      "output_hash": "5b5c68be1ef5025f6687da35863d0d5f14ebc11f7c52bf690047b109fd613e82"
+    },
+    {
+      "sample_id": "R2-09",
+      "run_id": "2026-11-13T06-36-09-935Z-3e145157",
+      "case_id": "m05",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T06-36-09-935Z-3e145157\\report.json",
+      "report_sha256": "f79a7dfec8be1979ceebd9625317c155943742d00b0f9d95e037efc16a817524",
+      "provenance": {
+        "datasetHash": "7b4cddb823321b7c7646f1514d734ec89c87c47d472ea08f742c501847fd8bac",
+        "labelsHash": "1bb43bc2b83b71aeac587239e8620d15a60c3cde40bfdde4a730f01810d30e18",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "96c7cc429e9a9a0e16a2174c38d07bfae89c8d1829e625fae2aa03c28772946a",
+        "promptHashes": [
+          "1af6e5ba461ed670f51e5532eeebb6fe5109261989c2c2d9e2d0c28f70891015"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "live",
+      "variant": "rag",
+      "actual_provider_calls_in_original_report": 1,
+      "replay_of": null,
+      "input_hash": "6f1b3b870883bef04dbb5548daead3e35c04fcc1fe1aac2d28b57603fec96b98",
+      "output_hash": "c52e4512b16a5825f237fe198fd6e3cb678d62068569b61f3fe5655b06ddd549"
+    },
+    {
+      "sample_id": "R2-10",
+      "run_id": "2026-11-13T07-19-24-919Z-4705777c",
+      "case_id": "q03",
+      "report_path": "D:\\codex_AI\\菜谱推荐\\CookDemo-submissions\\RAG-008\\.local-data\\evaluation\\output-evaluation-20261113-cny5\\runs\\2026-11-13T07-19-24-919Z-4705777c\\report.json",
+      "report_sha256": "d05373095a52d236f92b2100e011d3f367796edaeeeafbc0284fec555dce014b",
+      "provenance": {
+        "datasetHash": "7fb981accddcefb2f6b8dd29cd1b397aa7ba43711bb4f5aeee580819e4a474aa",
+        "inputHash": "7f007908ca7464dd6565b24203029619feb502a6a7e3bf9e8ab008e297669b04",
+        "labelsHash": "299fdfd153bd4010e87f886e15e76cacb13989d108cc5d55747b3335431f641b",
+        "catalogVersion": "gallery-listed-foods-20261026-v28",
+        "catalogHash": "24e1825d0f10954d1142cd5185a8ba2b33bb3fe78585bc203be28e13d40a1fcf",
+        "knowledge": "health-kb-2026-11-12-v3",
+        "knowledgeHash": "b79704d6b0357ff1caf51eab59c8a9448fb916f596e4abed1d65bdad2f21e14e",
+        "mapping": "food-guidance-mappings-v3",
+        "sourceFingerprint": "ab296847f1aebe69903fdc71fe9264eb19c0f04af715d75d135f4c9de66ee7ed",
+        "promptHashes": [
+          "7656b19016857bbb83fc134de5fd764aabc0bea830e6d250aec5779b232e60d5"
+        ],
+        "model": "deepseek-flash"
+      },
+      "mode": "live",
+      "variant": "baseline",
+      "actual_provider_calls_in_original_report": 1,
+      "replay_of": null,
+      "input_hash": "7f007908ca7464dd6565b24203029619feb502a6a7e3bf9e8ab008e297669b04",
+      "output_hash": "153344b22d28390a04b961876b74c7f920c50d9f84cda85eaa96ddf6f3d8a325"
+    }
+  ]
+}

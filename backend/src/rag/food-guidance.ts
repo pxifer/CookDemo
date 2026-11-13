@@ -3,11 +3,11 @@ import type { KnowledgeBundle, KnowledgeFact } from '../../../shared/health-know
 import type { ContentContext } from '../../../shared/content';
 import type { HealthContext } from '../../../shared/health-chat';
 import type { Recipe, Variant } from '../../../shared/types';
-import type { FoodGuidance, FoodGuidancePacket, FoodGuidanceProvider, GuidanceEvidence, GuidanceInput, GuidanceTopic, RecipeGuidanceBinding } from '../../../shared/food-guidance';
+import type { FoodGuidance, FoodGuidancePacket, FoodGuidanceProvider, GuidanceEvidence, GuidanceInput, GuidanceTopic, GuidanceTopicCoverage, RecipeGuidanceBinding } from '../../../shared/food-guidance';
 import { factAvailability, canonicalKnowledgeHash } from '../health-knowledge';
 import { reportedNutritionConditions } from '../../../shared/nutrition-conditions';
 
-export const businessPolicyVersion='food-guidance-business-v2';
+export const businessPolicyVersion='food-guidance-business-v3-20261113';
 export const guidanceHash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const guidanceTextHash=(value:string)=>createHash('sha256').update(value).digest('hex');
 const norm=(value:string)=>value.normalize('NFKC').trim();
@@ -43,6 +43,7 @@ export function reportedConditions(notes:string, currentText=''):Record<string,s
   const lipid=text.match(/(?:本人|我)(?:已知|确诊的)?血脂(?:异常)?分型(?:为|是|[:：])\s*(高胆固醇(?:血症)?|高甘油三酯(?:血症)?|混合型)/);
   if(lipid)result.lipidPattern=lipid[1].startsWith('高胆固醇')?'high_cholesterol':lipid[1].startsWith('高甘油三酯')?'high_triglycerides':'mixed';
   if(/(?:本人|我)(?:不清楚|不知道)血脂(?:异常)?分型/.test(text))result.lipidPattern='unknown';
+  if(/(?:本人|我)(?:不清楚|不知道)糖尿病分型/.test(text))result.diabetesType='unknown';
   const stage=text.match(/(?:已知|确诊|分期(?:为|是)?|慢性肾病|CKD)\s*(G[1-5])/i);if(stage)result.ckdStage=stage[1].toUpperCase();
   return result;};
   return Object.assign({},...norm(notes+'。'+currentText).split(/[。；，\n]/).map(parse));
@@ -55,6 +56,7 @@ function selfReport(text:string,name:string){
 export function guidanceProfile(profile:HealthContext,text:string,bundle:KnowledgeBundle,goals:GoalKnowledge):HealthContext{
   const result=structuredClone(profile);
   for(const entity of bundle.entities.filter(e=>e.kind==='disease'))for(const name of [entity.name,...entity.aliases])if(selfReport(text,name)&&!result.conditions.includes(entity.name))result.conditions.push(entity.name);
+  if(result.conditions.some(n=>['成人2型糖尿病','2型糖尿病','二型糖尿病','T2DM'].includes(n)))result.conditions=result.conditions.filter(n=>n!=='糖尿病');
   for(const goal of goals.topics)for(const name of [goal.name,...goal.aliases])if(selfReport(text,name)&&!result.goals.includes(goal.name))result.goals.push(goal.name);
   return result;
 }
@@ -71,10 +73,13 @@ export function createFoodGuidanceProvider(bundle:KnowledgeBundle,goals:GoalKnow
       const conditions={...reportedConditions(profile.notes,input.currentText),...input.conditions};
       // A disease profile cannot be silently treated as the healthy exercise population.
       if(profile.conditions.length)conditions.healthyExerciser='no';
-      const topics:GuidanceTopic[]=[],uncoveredTopics:string[]=[],guidance:FoodGuidance[]=[];
+      const topics:GuidanceTopic[]=[],uncoveredTopics:string[]=[],guidance:FoodGuidance[]=[],topicCoverage:GuidanceTopicCoverage[]=[];
       for(const [kind,names] of [['condition',profile.conditions],['goal',profile.goals]] as const)for(const inputName of names){
         const candidates=kind==='condition'?bundle.entities.filter(e=>e.kind==='disease'&&[e.name,...e.aliases].some(n=>norm(n)===norm(inputName))):goals.topics.filter(e=>[e.name,...e.aliases].some(n=>norm(n)===norm(inputName)));
-        if(candidates.length!==1){uncoveredTopics.push(`${kind}:${inputName}`);continue;}
+        if(candidates.length!==1){
+          const input=`${kind}:${inputName}`,needsType=kind==='condition'&&norm(inputName)==='糖尿病'&&bundle.entities.some(e=>e.id==='d:type2-diabetes');
+          uncoveredTopics.push(input);topicCoverage.push({input,status:needsType?'needs_topic_detail':'knowledge_gap',factCount:0,applicableCount:0,missingConditions:needsType?['diabetesType']:[]});continue;
+        }
         const entity=candidates[0];if(topics.some(t=>t.id===entity.id))continue;
         const topic={id:entity.id,kind,name:entity.name,inputName};topics.push(topic);
         if(entity.id==='d:type2-diabetes')conditions.diabetesType='type2';
@@ -99,9 +104,14 @@ export function createFoodGuidanceProvider(bundle:KnowledgeBundle,goals:GoalKnow
       }
       const selectedEvidence=[...new Set(guidance.filter(g=>g.applicability!=='withdrawn').flatMap(g=>[...g.evidenceIds,...g.qualifyingEvidenceIds]))];
       const applicable=guidance.filter(g=>g.applicability==='applicable');
+      for(const topic of topics){
+        const rows=guidance.filter(g=>g.topic.id===topic.id),available=rows.filter(g=>g.applicability==='applicable');
+        const status:GuidanceTopicCoverage['status']=!rows.length?'knowledge_gap':available.length?'available':rows.some(g=>g.applicability==='needs_confirmation')?'missing_conditions':rows.every(g=>g.applicability==='withdrawn')?'withdrawn':'not_applicable';
+        topicCoverage.push({input:`${topic.kind}:${topic.inputName}`,status,factCount:rows.length,applicableCount:available.length,missingConditions:[...new Set(rows.filter(g=>g.applicability==='needs_confirmation').flatMap(g=>g.missingConditions))]});
+      }
       for(const topic of topics)if(!applicable.some(g=>g.topic.id===topic.id)&&!uncoveredTopics.includes(`${topic.kind}:${topic.inputName}`))uncoveredTopics.push(`${topic.kind}:${topic.inputName}`);
       const conflicts=[...new Set(applicable.map(g=>g.objectId))].flatMap(objectId=>{const items=applicable.filter(g=>g.objectId===objectId);return items.some(g=>g.direction==='prefer')&&items.some(g=>g.direction!=='prefer')?[{objectId,guidanceIds:items.map(g=>g.id)}]:[];});
-      return {mode:'local_research',clinicalRelease:null,knowledgeVersion:`${bundle.id}+${goals.id}+${mappings.id}`,fingerprint:fingerprint(revoked),topics,guidance,evidence:selectedEvidence.flatMap(id=>evidenceById.has(id)?[evidenceById.get(id)!]:[]),uncoveredTopics,missingConditions:[...new Set(guidance.filter(g=>g.applicability==='needs_confirmation').flatMap(g=>g.missingConditions))],conflicts,mappingCoverage:{total:guidance.length,mapped:guidance.filter(g=>g.mapping.status==='mapped').length,unmappedObjects:[...new Set(guidance.filter(g=>g.mapping.status==='unmapped').map(g=>g.objectId))]}};
+      return {mode:'local_research',clinicalRelease:null,knowledgeVersion:`${bundle.id}+${goals.id}+${mappings.id}`,fingerprint:fingerprint(revoked),topics,guidance,topicCoverage,evidence:selectedEvidence.flatMap(id=>evidenceById.has(id)?[evidenceById.get(id)!]:[]),uncoveredTopics,missingConditions:[...new Set(topicCoverage.flatMap(t=>t.missingConditions))],conflicts,mappingCoverage:{total:guidance.length,mapped:guidance.filter(g=>g.mapping.status==='mapped').length,unmappedObjects:[...new Set(guidance.filter(g=>g.mapping.status==='unmapped').map(g=>g.objectId))]}};
     },
     async assertCurrent(packet){if(packet.fingerprint!==fingerprint(new Set([...bundle.revocations,...await revocations()])))throw Error('GUIDANCE_EVIDENCE_CHANGED');},
   };
@@ -111,7 +121,12 @@ const processMatches=(rule:string,variant:Variant)=>{
   // Require positive action wording; names, alternate methods and “不要油炸” are not events.
   const positive=text.split(/[。；\n]/).filter(s=>!/(?:不要|不宜|不能|禁止|避免|不需)[^。；\n]{0,8}(?:蒸|煮|炸|煎)/.test(s)).join('\n');
   const fried=/油炸至|炸至|下油锅|煎至|煎炸/.test(positive);
-  if(rule==='steam-boil-primary')return /放入蒸锅|上锅蒸|蒸至|蒸熟|煮至|煮熟|汆熟|汆煮|沸水汆/.test(positive)&&!fried;
+  // A boiled auxiliary ingredient does not establish the whole dish's primary method.
+  // Mixed frying/stir-frying/roasting stays unclassified; this removes a health
+  // reason, never the ordinary recipe's eligibility.
+  const otherHeat=/炒|煸|油焖|烤|烙|煎|油炸/.test(positive);
+  const primary=positive.split('\n').filter(s=>!/备用|留用|待用/.test(s)).join('\n');
+  if(rule==='steam-boil-primary')return /放入蒸锅|上锅蒸|蒸至|蒸熟|煮至|煮熟|汆熟|汆煮|沸水汆/.test(primary)&&!fried&&!otherHeat;
   if(rule==='fry-primary')return fried;
   if(rule==='blanch-discard-primary')return /焯水|汆|煮/.test(text)&&/弃汤|倒掉.*水|倒掉.*汤|沥干/.test(text);
   return false;
