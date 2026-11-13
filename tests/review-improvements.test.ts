@@ -38,7 +38,7 @@ test('大候选池拒选是未完成；范围与完整做法进入请求，模�
     return envelope([],'整个目录都不适合（构造不可靠断言）');
   });
   const result=await createHealthRecipeSelector(randomBytes(32))({...input,observe:d=>diagnostics.push(d)});
-  assert.equal(result.status,'unavailable');assert.equal(result.search,'incomplete');assert.match(result.reasons.join(''),/部分候选/);assert.equal(calls,1);
+  assert.equal(result.status,'unavailable');assert.equal(result.search,'incomplete');assert.match(result.reasons.join(''),/部分菜谱/);assert.equal(calls,1);
   assert.equal(diagnostics.length,1);assert.equal(diagnostics[0].stage,'declined');assert.equal(diagnostics[0].invocation.totalTokens,120);
   assert(!JSON.stringify(diagnostics).includes(input.apiKey));assert(!JSON.stringify(diagnostics).includes('健康关注'));
 });

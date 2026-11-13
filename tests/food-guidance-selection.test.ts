@@ -30,12 +30,12 @@ test('硬限制优先，程序给真实配方绑定依据；模型填写的伪�
 
 test('模型仍只能选择提供的目录ID，程序绑定不允许伪造菜谱或重复父菜',async()=>{
   let calls=0;const start=input(base(),[simpleRecipe('egg',[['egg',1]])],async()=>{calls++;return envelope({summary:'构造目录外ID',choices:[{id:'not-in-catalog',reason:'构造'}]});});
-  await assert.rejects(createHealthRecipeSelector(randomBytes(32),repo())(start),/未通过/);assert.equal(calls,1);
+  await assert.rejects(createHealthRecipeSelector(randomBytes(32),repo())(start),/没能按你的数量/);assert.equal(calls,1);
 });
 test('未知条件或未匹配依据只保留健康判断，正常本餐仍交给模型选择，不伪装有依据',async()=>{
   for(const meal of [{...base(),healthProfile:{...base().healthProfile!,notes:''}},{...base(),healthProfile:{...base().healthProfile!,conditions:['慢性肾病']}},base()]){
     let calls=0;const result=await createHealthRecipeSelector(randomBytes(32),repo())(input(meal,[simpleRecipe('tomato',[['tomato',100]])],async(_u,init)=>{calls++;const p=JSON.parse(JSON.parse(String(init?.body)).messages[1].content);return envelope({summary:'只按本餐条件选择，不作健康结论',choices:[{id:p.catalog[0].id,reason:'复用现有食材',guidanceIds:[]}]});}));
-    assert.equal(calls,1);assert.equal(result.status,'completed');assert.equal(result.researchGuidance?.coverage,'unmatched');assert.equal(result.dishes[0].aiGrounding!.matches.length,0);assert.match(result.dishes[0].aiReason!,/未形成.*健康适宜性结论/);assert.match(result.healthAssessment!.message,/未作.*适宜性结论/);
+    assert.equal(calls,1);assert.equal(result.status,'completed');assert.equal(result.researchGuidance?.coverage,'unmatched');assert.equal(result.dishes[0].aiGrounding!.matches.length,0);assert.match(result.dishes[0].aiReason!,/暂时没有足够资料判断/);assert.match(result.healthAssessment!.message,/不做健康判断/);
   }
 });
 test('少选不是硬禁：减脂含糖候选保留但明确提示，不能以含白糖宣称整菜高糖',async()=>{
@@ -51,7 +51,7 @@ test('真实预览回归：不能因油量未知/没有证据拒绝唯一合格�
   await assert.rejects(createHealthRecipeSelector(randomBytes(32),repo())(input(meal,[simpleRecipe('plain-tomato',[['tomato',100]])],async(_u,init)=>{
     calls++;const body=JSON.parse(String(init?.body));assert(body.messages[0].content.includes('少选不是避开'));assert(body.messages[0].content.includes('不得默认超标'));
     return envelope({summary:'油量未知所以与减脂冲突，因此不选',choices:[]});
-  })),/存在.*合格.*未完成选择/);assert.equal(calls,1);
+  })),/没有选出菜/);assert.equal(calls,1);
 });
 test('撤回发生在生成期间时丢弃回答；翻页水位变化使旧游标失效且不额外调用',async()=>{
   const withdrawn=new Set<string>(),p=repo(withdrawn),selector=createHealthRecipeSelector(randomBytes(32),p);let calls=0;

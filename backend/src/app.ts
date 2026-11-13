@@ -487,7 +487,7 @@ export async function createApp(options: {
         const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
         if(!active||active.userId!==modelIdentity.userId||active.mustChangePassword)throw new DomainError('LOGIN_REQUIRED',401,'登录已失效，请重新登录');
         const current=await during(options.accounts!.healthKey!(active),signal);
-        if(JSON.stringify(current)!==JSON.stringify(stored))throw new DomainError('CHAT_PROFILE_CHANGED',409,'健康档案或食材选择已改变，请按当前条件重新搭配；本次未覆盖新设置');
+        if(JSON.stringify(current)!==JSON.stringify(stored))throw new DomainError('CHAT_PROFILE_CHANGED',409,'健康档案或食材选择已改变，请按当前条件重新搭配；本次没有使用你更新后的设置');
       }
       if (modelHealth && result.status === 'unavailable' && !controller.signal.aborted) {
         if (stream && !reply.raw.destroyed) reply.raw.write(JSON.stringify({ type: 'progress', stage: '正在整理疾病信息与证据检索词' }) + '\n');

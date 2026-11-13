@@ -76,7 +76,7 @@ export async function researchFoodChat(body:HealthChatRequest,content:ContentCon
   const unknownDetails=[...new Set([...(packet.topicCoverage??[]).filter(t=>t.status==='needs_topic_detail').flatMap(t=>t.missingConditions)].filter(key=>labels[key]&&known[key]==='unknown'))];
   const boundary=unknownDetails.length?`已记录${unknownDetails.map(key=>labels[key].split('（')[0]).join('、')}未知：只保留一般饮食提示，不再重复询问；补充信息后可再评估。${unknownDetails.includes('diabetesType')?'分型未知时不套用1型/2型的具体指导。':''}`:'';
   const question=missing?`还需确认：${labels[missing]}。`:packet.missingConditions.length?'尚不明确的条件只保留相关判断，你之后可以补充。':'';
-  const reply=suggestions.length?`已按当前疾病或目标整理有来源的食材建议，可分别接受或取消，再结合本餐食材选择菜品。${question}${boundary}`:packet.guidance.some(g=>g.applicability==='applicable')?`已有适用的做法指导，实际选菜时会核对配方步骤。${question}${boundary}`:(question+boundary)||'当前资料尚未覆盖可用于本餐的指导，请明确疾病或饮食目标；未自动改动你的设置。';
+  const reply=suggestions.length?`已按当前疾病或目标整理有来源的食材建议，可分别接受或取消，再结合本餐食材选择菜品。${question}${boundary}`:packet.guidance.some(g=>g.applicability==='applicable')?`已有适用的做法指导，实际选菜时会核对配方步骤。${question}${boundary}`:(question+boundary)||'暂时没有找到适合你情况的饮食建议。可以补充疾病或目标后再试，你的设置没有被改动。';
   await provider.assertCurrent(packet);
   return {operationId:body.operationId,knowledge:'research_rag',message:{role:'assistant',content:reply},assessment:{profile,stage:suggestions.length?'advice':'clarify',suggestions:suggestions.slice(0,20)},researchGuidance:packet};
 }

@@ -34,7 +34,7 @@ test('过敏、AI已接受避开及不补买不能被模型绕过，填写用量
   const recipes=[simpleRecipe('tomato-a',[['tomato',400]]),simpleRecipe('tomato-b',[['tomato',400]]),simpleRecipe('peanut',[['peanut',10]]),simpleRecipe('beef',[['beef',100]])];
   let calls=0;
   const base=options(meal,recipes,async(_url,init)=>{calls++;const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);assert(!packet.catalog.some((item:any)=>['peanut','beef'].includes(item.name)));return envelope({summary:'构造',choices:[{id:'invented',reason:'编造'}]});});
-  await assert.rejects(createHealthRecipeSelector(randomBytes(32))(base),/未通过/);assert.equal(calls,1);
+  await assert.rejects(createHealthRecipeSelector(randomBytes(32))(base),/没能按你的数量/);assert.equal(calls,1);
   base.fetcher=async()=>{calls++;throw Error('private upstream '+apiKey);};await assert.rejects(createHealthRecipeSelector(randomBytes(32))(base),error=>!/sk-recipe/.test(String(error)));assert.equal(calls,2);
   const two={...meal,counts:{meat:0,veg:2,soup:0}};const enough=options(two,[...recipes,simpleRecipe('egg',[['egg',1]])],async(_url,init)=>{const packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'构造累计用量冲突',choices:packet.catalog.filter((item:any)=>item.name.startsWith('tomato')).map((item:any)=>({id:item.id,reason:'构造'}))});});
   const quantityIndependent=await createHealthRecipeSelector(randomBytes(32))(enough);assert.equal(quantityIndependent.status,'completed');assert.equal(quantityIndependent.dishes.length,2);
@@ -79,4 +79,13 @@ test('真实账户推荐路径调用保存的Key和PG单次认领，普通推荐
     await app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:request({...meal,health:false})});assert.equal(calls,1);
     const rows=(await db.query('SELECT * FROM shiwei_ai_chat_operations')).rows;assert.equal(rows.length,1);assert(!JSON.stringify(rows).includes(apiKey));
   }finally{await app.close();await db.close();}
+});
+
+test('AI选菜遵守人数与荤素数量，不再固定六道',async()=>{
+  const meal={...oneMeal(),composition:'custom' as const,counts:{meat:1,veg:1,soup:0},servings:2,allowBuy:true};
+  const recipes=[simpleRecipe('egg-meat',[['egg',1]],{category:'meat'}),simpleRecipe('tomato-veg',[['tomato',100]],{category:'veg'})];
+  let packet:any;
+  const result=await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const meat=packet.catalog.find((item:any)=>item.category==='meat'),veg=packet.catalog.find((item:any)=>item.category==='veg');return envelope({summary:'按荤素数量选择',choices:[meat,veg].map((item:any)=>({id:item.id,reason:'按本餐数量'}))});}));
+  assert.equal(packet.count,2);assert.deepEqual(packet.categories,{meat:1,veg:1,soup:0});assert.deepEqual(packet.requestedCounts,{meat:1,veg:1,soup:0});
+  assert.equal(result.status,'completed');assert.equal(result.dishes.length,2);assert.equal(result.target,2);assert.equal(result.targetMet,true);
 });
