@@ -47,6 +47,7 @@
 | RAG-029 | 当前 RAG 开发 chat（DSH 接管） | 食材下拉按宽食材归并（猪肉覆盖部位、鱼虾蟹贝、番茄同义），仍只含 1000 菜谱真实食材 | `agent/rag/RAG-029-canonical-picker` | 单元 416/414；类型、构建；线上资产核验 | 已发布 v71；审核 4e2d059，合并 b6117db；[发布记录](../releases/ACCEPTANCE-main-v71-2026-11-14.md) |
 | RAG-030 | 当前 RAG 开发 chat（DSH 接管） | 物种级宽食材归并；瘦身/增肌一般饮食倾向；对话去依据并补条件追问 | `agent/rag/RAG-030-goal-tendency` | 单元 416/414；类型、构建；线上资产核验 | 已发布 v72；审核 4ccb053，合并 691a648；[发布记录](../releases/ACCEPTANCE-main-v72-2026-11-14.md) |
 | RAG-031 | 当前 RAG 开发 chat（DSH 接管） | 食材下拉过滤数量/单位/碎片；蛋类与猪部位归并；收敛猪肉匹配正则 | `agent/rag/RAG-031-picker-audit` | 单元 417/415；类型、构建；341 快照回归 | 已发布 v73；审核 8b22a6c，合并 30ca4d4；[发布记录](../releases/ACCEPTANCE-main-v73-2026-11-14.md) |
+| RAG-032 | 当前 RAG 开发 chat（DSH 接管） | 彻底过滤几个/几颗/二棵等数量词；大骨棒归并猪肉 | `agent/rag/RAG-032-quantity-tokens` | 单元 417/415；类型、构建；规则用例 | 已发布 v74；审核 9a96b94，合并 00cd5db；[发布记录](../releases/ACCEPTANCE-main-v74-2026-11-14.md) |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
