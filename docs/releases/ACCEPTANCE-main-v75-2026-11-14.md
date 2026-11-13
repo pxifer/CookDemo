@@ -25,7 +25,7 @@ v74 把问题当作"展示层出现了脏词"。实际是**构建期把用量写
 
 - **341 道基础包冻结**：其 `瓣` 一行（辣椒炒肉片）属于已审核原文，按测试要求逐字节保留，由下拉过滤（已能挡住）。`verifyGalleryBundle` 的基础包 deepEqual 断言仍通过。
 - 本轮只改内容与解析，未改 UI 代码，未做浏览器回归。
-- 新内容版本 `gallery-listed-foods-1000-20261114-v2`，hash `5307e4ad0db1bb551125eb7fa8a54b7d7b3540d27d5de8e1e013bcbd0035a55c`。**尚未发布**。
+- 新内容版本 `gallery-listed-foods-1000-20261114-v2`，hash `ffc8388d54a1fecb3da994b3403985b128db4dd8cbe0e54d40a30146fbd5e59e`。**尚未发布**。
 
 ## 验证
 
