@@ -45,10 +45,13 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     const binding=bind(meal,context,apiKey,research?.fingerprint);
     const current=async()=>{if(research)try{await guidanceProvider!.assertCurrent(research);}catch{throw new DomainError('HEALTH_GUIDANCE_CHANGED',409,'食材依据已变化，请按当前条件重新搭配；未自动重发');}};
     const bindDish=(dish:Dish)=>bindRecipeGuidance(research!,context,dish.recipe,dish.variant,dish.omitted);
+    const bindingCache=new Map<string,ReturnType<typeof bindRecipeGuidance>>();
+    const bindVariant=(recipe:Dish['recipe'],variant:Dish['variant'])=>{const key=recipe.id+':'+variant.id;let value=bindingCache.get(key);if(!value){value=bindRecipeGuidance(research!,context,recipe,variant);bindingCache.set(key,value);}return value;};
+    const bindCached=(dish:Dish)=>bindVariant(dish.recipe,dish.variant);
     const existingMainRequired=meal.ingredients.some(i=>i.status==='confirmed'&&i.foodId);
     const eligibleRecipes=context.recipes.map(recipe=>({...recipe,variants:recipe.variants.filter(variant=>
       (!existingMainRequired||variant.lines.some(line=>line.role==='main'&&findPantryIngredient(line,meal.ingredients,context.foodById)))
-      &&(!research||!bindRecipeGuidance(research,context,recipe,variant).matches.some(m=>m.direction==='avoid')))})).filter(recipe=>recipe.variants.length);
+      &&(!research||!bindVariant(recipe,variant).matches.some(m=>m.direction==='avoid')))})).filter(recipe=>recipe.variants.length);
     const summary=(coverage:'matched'|'partial'|'unmatched')=>{
       if(!research)return undefined;
       const accepted=effectiveAiChoices(meal);
@@ -103,6 +106,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
       return publish(plan);
     }
     const previousPlan=req.action==='replace'&&req.cursor?.startsWith('ai1.')?restore(req.cursor,owner,binding):undefined;
+    const tBaselineStart=performance.now();
     const baseline=await recommend(eligibleRecipes,{...req,cursor:undefined},{context,signal,conversationOnly:true,deadlineMs:500,maxNodes:6000});
     if(baseline.status==='no_results'){
       const allergies=meal.restrictions.filter(r=>r.kind==='allergy'&&r.status==='confirmed'&&(r.scope==='self'||meal.includeAdditional));
@@ -117,6 +121,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
         }
       }
     }
+    const tBaseline=performance.now();
     if(baseline.status!=='completed'||!baseline.dishes.length||!baseline.changed)return baseline;
     let pool=qualifiedDishes(eligibleRecipes,meal,context);
     const locked=req.action==='replace'?baseline.dishes.filter(dish=>dish.recipe.id!==req.replaceId&&req.selected.some(item=>item.recipeId===dish.recipe.id)):[];
@@ -124,7 +129,9 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     if(replacing)pool=pool.filter(dish=>dish.recipe.id!==req.replaceId&&!locked.some(item=>item.recipe.id===dish.recipe.id)&&checkSet([...locked,dish],meal,context).valid);
     else if(options)pool=pool.filter(dish=>dish.reused.length>0||!meal.ingredients.length&&meal.allowBuy);
     if(meal.composition==='custom')pool=pool.filter(dish=>meal.counts[dish.recipe.category]>0);
-    pool.sort((a,b)=>{const x=aiFoodRank(a.variant,meal,context),y=aiFoodRank(b.variant,meal,context),ga=research?bindDish(a).matches:[],gb=research?bindDish(b).matches:[];return x.limited-y.limited||ga.filter(m=>m.direction==='limit').length-gb.filter(m=>m.direction==='limit').length||y.preferred-x.preferred||gb.filter(m=>m.direction==='prefer').length-ga.filter(m=>m.direction==='prefer').length||b.reused.length-a.reused.length||Number(b.recipe.homeStyle)-Number(a.recipe.homeStyle);});
+    const tPool=performance.now();
+    pool.sort((a,b)=>{const x=aiFoodRank(a.variant,meal,context),y=aiFoodRank(b.variant,meal,context),ga=research?bindCached(a).matches:[],gb=research?bindCached(b).matches:[];return x.limited-y.limited||ga.filter(m=>m.direction==='limit').length-gb.filter(m=>m.direction==='limit').length||y.preferred-x.preferred||gb.filter(m=>m.direction==='prefer').length-ga.filter(m=>m.direction==='prefer').length||b.reused.length-a.reused.length||Number(b.recipe.homeStyle)-Number(a.recipe.homeStyle);});
+    const tSort=performance.now();
     const seeds=replacing?baseline.dishes.filter(dish=>!locked.some(item=>item.recipe.id===dish.recipe.id)):baseline.dishes;
     const parents=[...new Map([...seeds,...pool].map(dish=>[dish.recipe.id,dish])).values()];
     const seeded=new Set(seeds.map(dish=>dish.recipe.id)),remaining=parents.filter(dish=>!seeded.has(dish.recipe.id));
@@ -145,9 +152,10 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     const target=options?18:12;let offered=limited.slice(0,target);if(offered.length<count)offered=[...offered,...overflow].slice(0,target);
     // Keep the feasible baseline's exact variant, rather than the last variant of a parent.
     for(let i=0;i<offered.length;i++)offered[i]=seeds.find(dish=>dish.recipe.id===offered[i].recipe.id)??offered[i];
+    const tCatalog=performance.now();
     const describe=(raw:Dish,id:string)=>{
       const dish=input.present(raw);
-      return {id,name:dish.recipe.name,category:dish.recipe.category,flavor:dish.variant.flavor,...(research?{guidanceIds:bindDish(raw).matches.map(m=>m.guidanceId)}:{}),ingredients:dish.variant.lines.map(line=>({name:context.foodById.get(line.foodId)?.name,role:line.role,...(line.optional?{optional:true}:{})})),steps:dish.variant.steps.slice(0,2).map(step=>step.length>70?step.slice(0,70)+'…':step),methods:[...new Set(dish.variant.steps.join(' ').match(/蒸|煮|炖|炒|煸|煎|炸|烤|凉拌|焯/g)??[])],methodOptions:dish.variant.methodOptions?.map(method=>method.label),reused:dish.reused.map(id=>context.foodById.get(id)?.name),shopping:dish.checks.filter(check=>['missing','shortage'].includes(check.state)).map(check=>check.name)};
+      return {id,name:dish.recipe.name,category:dish.recipe.category,flavor:dish.variant.flavor,...(research?{guidanceIds:bindCached(raw).matches.map(m=>m.guidanceId)}:{}),ingredients:dish.variant.lines.map(line=>({name:context.foodById.get(line.foodId)?.name,role:line.role,...(line.optional?{optional:true}:{})})),steps:dish.variant.steps.slice(0,2).map(step=>step.length>70?step.slice(0,70)+'…':step),methods:[...new Set(dish.variant.steps.join(' ').match(/蒸|煮|炖|炒|煸|煎|炸|烤|凉拌|焯/g)??[])],methodOptions:dish.variant.methodOptions?.map(method=>method.label),reused:dish.reused.map(id=>context.foodById.get(id)?.name),shopping:dish.checks.filter(check=>['missing','shortage'].includes(check.state)).map(check=>check.name)};
     };
     let catalog=offered.map((dish,index)=>describe(dish,`c${index+1}`));
     const qualifiedVariants=new Set([...seeds,...pool].map(keyOf)).size;
@@ -165,7 +173,7 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     signal.throwIfAborted();await input.claim();input.progress('AI 正在阅读本餐食材、健康建议和菜谱做法，挑选菜品…');
     const modelStart=performance.now();
     const response=await requestDeepSeekJson(apiKey,[{role:'system',content:prompt},{role:'user',content:JSON.stringify(packet)}],signal,input.fetcher,options?2000:Math.min(2000,600+count*200));
-    console.log('AI_SELECT_TIMING',JSON.stringify({prepareMs:Math.round(modelStart-started),modelMs:Math.round(performance.now()-modelStart),totalTokens:response.invocation.totalTokens,catalog:catalog.length,count,options}));
+    console.log('AI_SELECT_TIMING',JSON.stringify({prepareMs:Math.round(modelStart-started),baselineMs:Math.round(tBaseline-tBaselineStart),eligibleMs:Math.round(tBaselineStart-started),poolMs:Math.round(tPool-tBaseline),sortMs:Math.round(tSort-tPool),catalogMs:Math.round(tCatalog-tSort),bindings:bindingCache.size,modelMs:Math.round(performance.now()-modelStart),totalTokens:response.invocation.totalTokens,catalog:catalog.length,count,options}));
     await current();
     const observe=(stage:SelectionDiagnostics['stage'])=>{try{input.observe?.({stage,qualifiedParents:parents.length,offeredParents:catalog.length,estimatedInputTokens:inputSize(),elapsedMs:Math.round(performance.now()-started),invocation:response.invocation});}catch{/* Observability must never change a paid operation's outcome. */}};
     let terminal:SelectionDiagnostics['stage']='invalid';
