@@ -3,7 +3,7 @@ $projectRoot=(Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $envId='shiwei-d2gmiun66b7dc6a4f';$region='ap-shanghai'
 $nodeExecutable=Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'
 if(-not(Test-Path -LiteralPath $nodeExecutable)){$nodeExecutable=(Get-Command node -ErrorAction Stop).Source}
-$cliRoot=Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli';$cli=Join-Path $cliRoot 'bin/tcb'
+$cliRoot=Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli';$cli=Join-Path $cliRoot 'bin/tcb'
 $sql="SELECT coalesce(jsonb_agg(jsonb_build_object('release_id',release_id,'checksum',checksum,'published',published) ORDER BY release_id),'[]'::jsonb) AS result FROM public.shiwei_gallery_releases WHERE release_id LIKE 'composition-review-20261024-v%';"
 Push-Location $projectRoot
 try{
