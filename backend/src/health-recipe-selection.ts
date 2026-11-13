@@ -51,23 +51,17 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
       &&(!research||!bindRecipeGuidance(research,context,recipe,variant).matches.some(m=>m.direction==='avoid')))})).filter(recipe=>recipe.variants.length);
     const summary=(coverage:'matched'|'partial'|'unmatched')=>{
       if(!research)return undefined;
-      if(!hasHealthConcern)return '已按现有食材、过敏忌口和补买条件选菜。';
-      const parts=[coverage==='unmatched'?'已按现有食材、过敏忌口和补买条件选菜。':coverage==='partial'?'已按本餐条件选菜；部分菜品有饮食建议依据，其余没有单独判断。':'已结合你的饮食建议和本餐条件选菜；建议只作饮食参考。'];
-      const gaps:string[]=[],missing:string[]=[],nutrition:string[]=[];let availableUnbound=false;
-      for(const topic of research.topicCoverage??[]){
-        const name=topic.input.replace(/^(condition|goal):/,'');
-        if(topic.status==='available')availableUnbound=true;
-        else if(topic.status==='missing_conditions')missing.push(name);
-        else if(topic.status==='knowledge_gap'||topic.status==='needs_topic_detail'){if(/维生素|矿物质|钙|铁|锌|蛋白质|能量|热量|膳食纤维/.test(name))nutrition.push(name);else gaps.push(name);}
-        else if(topic.status==='not_applicable')parts.push(`「${name}」的现有资料不适用于你当前情况，所以不作判断。`);
-        else if(topic.status==='withdrawn')parts.push(`「${name}」的资料已撤回，本次不作判断。`);
-      }
-      if(availableUnbound&&coverage==='unmatched')parts.push('有可用的饮食建议，但本餐菜品没有匹配到对应做法；可以换菜或调整食材后再试。');
-      if(gaps.length)parts.push(`暂时没有「${gaps.slice(0,3).join('、')}」的饮食资料。`);
-      if(nutrition.length)parts.push(`「${nutrition.slice(0,3).join('、')}」属于营养指标，暂不能按疾病或目标判断本餐；可先按食材和限制选菜。`);
-      if(missing.length)parts.push(`关于「${missing.slice(0,3).join('、')}」，还需要确认是否成年人、运动情况等条件；确认后可再判断。`);
-      const acceptedChoices=effectiveAiChoices(meal),acceptedParts=[acceptedChoices.preferred.length?`优先${acceptedChoices.preferred.slice(0,4).join('、')}`:'',acceptedChoices.limited.length?`少选${acceptedChoices.limited.slice(0,4).join('、')}`:'',acceptedChoices.excluded.length?`排除${acceptedChoices.excluded.slice(0,4).join('、')}`:''].filter(Boolean);
-      if(acceptedParts.length)parts.push(`已参考你接受的食材选择：${acceptedParts.join('；')}。`);
+      const accepted=effectiveAiChoices(meal);
+      const acceptedText=accepted.preferred.length||accepted.limited.length||accepted.excluded.length?'已参考你接受的食材选择，':'';
+      const missing=(research.topicCoverage??[]).filter(t=>t.status==='missing_conditions').map(t=>t.input.replace(/^(condition|goal):/,''));
+      const nutrition=(research.topicCoverage??[]).filter(t=>t.status==='knowledge_gap'&&/维生素|矿物质|钙|铁|锌|蛋白质|能量|热量|膳食纤维/.test(t.input)).map(t=>t.input.replace(/^(condition|goal):/,''));
+      const gaps=(research.topicCoverage??[]).filter(t=>t.status==='knowledge_gap'&&!/维生素|矿物质|钙|铁|锌|蛋白质|能量|热量|膳食纤维/.test(t.input)).map(t=>t.input.replace(/^(condition|goal):/,''));
+      const parts=[`${acceptedText}按现有食材、过敏忌口和补买条件选菜。`];
+      const available=(research.topicCoverage??[]).some(t=>t.status==='available');
+      if(coverage==='unmatched'&&available)parts.push('本餐菜品没有匹配到对应做法，可以换菜或调整食材再试。');
+      if(missing.length)parts.push(`「${missing.slice(0,2).join('、')}」还需要确认成年人、运动情况等条件。`);
+      if(nutrition.length)parts.push(`「${nutrition.slice(0,2).join('、')}」属于营养指标，本次按食材和限制选菜。`);
+      if(gaps.length)parts.push(`暂时没有「${gaps.slice(0,2).join('、')}」的饮食资料。`);
       return parts.join('');
     };
     const options=meal.mode==='candidates'&&meal.composition==='auto';

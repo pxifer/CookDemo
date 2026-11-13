@@ -8,6 +8,7 @@ import { createHmac } from 'node:crypto';
 import { CloudBaseAccounts } from '../../backend/src/cloudbase-accounts';
 import { cloudTarget } from '../../backend/src/cloud-target';
 import { stagingAccounts } from '../../backend/src/staging-accounts';
+import { constructedContent } from '../../shared/catalog';
 
 export async function startHttpFunction(env=process.env) {
   const target=cloudTarget(env),origin=target.origin;
@@ -28,6 +29,9 @@ export async function startHttpFunction(env=process.env) {
     return reply.redirect(`https://shiwei-d2gmiun66b7dc6a4f-1512010497.tcloudbaseapp.com${req.url.split('?')[0]}`);
   });
   await app.listen({host:'0.0.0.0',port:9000});
+  // Warm the immutable knowledge release while the instance is idle, so the first health AI
+  // request does not pay the ~1s payload download/validation on top of the model call.
+  if(publishedKnowledge)void publishedKnowledge.prepare({profile:{conditions:[],goals:[],notes:''},content:constructedContent}).catch(()=>{});
   for(const signal of ['SIGTERM','SIGINT'] as const)process.once(signal,()=>void app.close());
   return app;
 }
