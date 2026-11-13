@@ -92,10 +92,15 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
           const pantryMatches=dish.reused.flatMap(id=>{const line=dish.variant.lines.find(l=>l.foodId===id),match=line&&findPantryIngredient(line,meal.ingredients,context.foodById);return match?[{...match,recipeName:context.foodById.get(id)!.name}]:[];});
           const pantryNames=[...new Set(pantryMatches.map(m=>m.ingredient.name))].slice(0,4).join('、');
           const confirmations=[...new Set(pantryMatches.filter(m=>m.kind==='broad').map(m=>`配方需${m.recipeName}；你填写的是${m.ingredient.name}，具体部位或形态待确认。`))];
-          const practical=pantryNames?`用上现有${pantryNames}。`:'按已允许的补买条件选择。';
+          const mainNames=dish.variant.lines.filter(line=>line.role==='main').map(line=>context.foodById.get(line.foodId)?.name).filter((name):name is string=>Boolean(name));
+          const method=dish.variant.steps.join(' ').match(/蒸|煮|炖|炒|煎|炸|烤|凉拌/)?.[0]??'';
+          const categoryLabel=dish.recipe.category==='soup'?'汤品':dish.recipe.category==='meat'?'荤菜':'素菜';
+          const practical=`${pantryNames?`用上现有${pantryNames.split('、').slice(0,2).join('、')}。`:''}${categoryLabel}${method?`，${method}制`:''}${mainNames.length?`，以${mainNames.slice(0,2).join('、')}为主`:''}。`;
           const preferredHits=acceptedChoices.preferred.filter(name=>aiFoodMatch(dish.variant,name,context));
           const limitedHits=acceptedChoices.limited.filter(name=>aiFoodMatch(dish.variant,name,context));
-          const choiceNote=preferredHits.length?`含你优先选择的${preferredHits.slice(0,3).join('、')}。`:limitedHits.length?`含你选择少选的${limitedHits.slice(0,3).join('、')}。`:acceptedChoices.preferred.length||acceptedChoices.limited.length?'没有命中你标记的优先或较少食材。':'';
+          const preferredHit=preferredHits.find(name=>mainNames.includes(name))??preferredHits[0];
+          const limitedHit=limitedHits.find(name=>mainNames.includes(name))??limitedHits[0];
+          const choiceNote=preferredHit?`含你优先的${preferredHit}。`:limitedHit?`含你少选的${limitedHit}。`:acceptedChoices.preferred.length||acceptedChoices.limited.length?'没有命中你标记的优先或较少食材。':'';
           const guidance=proof&&hasHealthConcern?(guidanceReason(research!,proof,ids)||(choiceNote?'':'暂时没有足够资料判断这道菜是否适合你。')):'';
           const reason=proof?practical+confirmations.join('')+choiceNote+guidance:changed?'已按你选择的口味重新核对本餐条件。':reasons.get(dish.recipe.id);
           const limits=research&&proof?[...new Set(proof.matches.filter(m=>m.direction==='limit').map(m=>research.guidance.find(g=>g.id===m.guidanceId)!.objectName))]:[];
