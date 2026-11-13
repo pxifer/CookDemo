@@ -27,6 +27,18 @@ const pantryIds = new Set(pantryGroups.flatMap(group => group.ids));
 export const isCookingWater = (name: string) => /^(?:水|饮用水|清水|热水|开水|冰水|凉白开水|温水|冷水|凉水|沸水|香菇水)$/.test(name);
 export const isSeasoningFood = (food: Pick<Food, 'id' | 'name'>) => pantryIds.has(food.id) || seasoningNames.has(food.name) || ['姜黄粉','香菜粉','姜粉','paprika','Masala'].includes(food.name);
 export const isAromatic = (name: string) => /^(?:大葱|小葱|香葱|葱(?:花|段|白|结|末)?|香葱段|小葱花|生姜片?|老姜|姜(?:片|末|沫)?|大蒜粒?|蒜(?:蓉|瓣|头|末|片)?)$/.test(name);
+// Group remaining pantry items by cooking role so the settings panel does not dump
+// every sauce/spice into one long "其他调料" list.
+export function seasoningGroup(name: string): string {
+  if (/酱|汁|腐乳|豆豉|鱼露|烧烤料/.test(name)) return '酱料与调味汁';
+  if (/醋|酒/.test(name)) return '醋与酒';
+  if (/糖|蜂蜜/.test(name)) return '糖与甜味';
+  if (/盐|味精|鸡精|味极鲜/.test(name)) return '盐与基础调味';
+  if (/味精|鸡精|淀粉|生粉|地瓜粉|泡打粉|蒸肉粉/.test(name)) return '鲜味与勾芡';
+  if (/油|黄油|猪油/.test(name)) return '油与脂';
+  if (/椒|孜然|八角|桂皮|香叶|五香|十三香|咖喱|姜黄|芥末|豆蔻|白芷|香果|丁香|甘草|香菜|葱|姜|蒜|芝麻|综合香料/.test(name)) return '香辛料与葱姜蒜';
+  return '其他调料';
+}
 export function seasoningStockKey(food: Pick<Food,'id'|'name'>) {
   if (!isAromatic(food.name)) return food.id;
   return /姜/.test(food.name) ? 'ginger' : /蒜/.test(food.name) ? 'garlic' : 'scallion';

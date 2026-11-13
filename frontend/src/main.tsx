@@ -20,7 +20,7 @@ import { CandidateLibrary } from './candidate-library';
 import { DishImage, RecipePhoto } from './recipe-photo';
 import { FoodPicker } from './food-picker';
 import { availableFlavors } from '../../shared/flavors';
-import { pantryGroups } from '../../shared/pantry';
+import { pantryGroups, seasoningGroup } from '../../shared/pantry';
 import { SiteHeader } from './site-header';
 import { PhotoInput } from './photo-input';
 import { suggestPantryFoods, resolvePantryFood } from '../../shared/ingredient-matching';
@@ -69,6 +69,20 @@ function ShoppingList({ items }: { items: string[] }) {
 function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 'workspace' | 'favorites' }) {
   const { recipes, foods, categories, foodById } = catalog;
   const seasoningIds = contentSeasonings(catalog);
+  const seasoningSections = useMemo(() => {
+    const explicit = pantryGroups.map(group => ({ name: group.name, ids: group.ids.filter(id => seasoningIds.includes(id)) }));
+    const used = new Set(explicit.flatMap(group => group.ids));
+    const buckets = new Map<string, string[]>();
+    for (const id of seasoningIds) {
+      if (used.has(id)) continue;
+      const name = foodById.get(id)?.name ?? '';
+      const group = seasoningGroup(name);
+      const ids = buckets.get(group) ?? [];
+      ids.push(id);
+      buckets.set(group, ids);
+    }
+    return [...explicit, ...[...buckets].map(([name, ids]) => ({ name, ids }))].filter(group => group.ids.length);
+  }, [seasoningIds, foodById]);
   const flavors = availableFlavors(recipes);
   const quickFlavors = ['不限', ...['清淡','微辣'].filter(f => flavors.includes(f))];
   const makeRestriction = (name: string, kind: Parameters<typeof makeRestrictionBase>[1], scope: 'self' | 'additional' = 'self') => makeRestrictionBase(name, kind, scope, catalog);
@@ -182,15 +196,16 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
     edit(m => ({ ...m, ingredients: mergeInput(m.ingredients, [item]) })); setEntryOpen(true);
   };
   const showSettings = (kind: 'allergy' | 'avoid') => { setNotice(''); setRestrictionText(''); setRestrictionScope('self'); setModal(kind); };
-  const addRestriction = () => {
-    const name = restrictionText.trim(); if (!name || (modal !== 'allergy' && modal !== 'avoid')) return;
+  const addRestriction = (value?: string) => {
+    const name = (value ?? restrictionText).trim(); if (!name || (modal !== 'allergy' && modal !== 'avoid')) return;
     if (meal.restrictions.length >= 50) { setNotice('最多保存 50 项饮食要求，请先移除不需要的项目'); return; }
     const restriction = makeRestriction(name, modal, restrictionScope);
     const category = categories.some(c => c.name === name || c.aliases.includes(name));
     if (restriction.targets.length && !category) restriction.status = 'confirmed';
     edit(m => ({ ...m, restrictions: m.restrictions.some(r => r.kind === restriction.kind && r.name === name && r.scope === restriction.scope) ? m.restrictions : [...m.restrictions, restriction] }));
-    setRestrictionText('');
+    if (!value) setRestrictionText('');
   };
+  const restrictionQuick = modal === 'allergy' ? ['鱼','虾','蟹','贝类','鸡蛋','牛奶','花生','大豆','小麦','坚果'] : ['香菜','葱','姜','蒜','辣椒','内脏','肥肉','羊肉','鱼腥草'];
   const generate = async (action: RecommendationRequest['action'] = 'generate', extra: Partial<RecommendationRequest> = {}, snapshot = mealRef.current) => {
     if (snapshot.health && sessionInfo?.identity === 'guest') { setLoginReturn('health'); setAuthMessage('请先登录，再继续健康模式'); setModal(sessionInfo.localTestFeatures ? 'login' : 'account'); return; }
     if (crossTab) { setNotice('另一页面修改了本餐，请先选择要保留的内容'); return; }
@@ -334,7 +349,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
             {!i.foodId && <p className="ingredient-unrecognized">请确认具体食材；确认后参与推荐</p>}
             {!i.foodId && <div className="chips" aria-label={`匹配 ${i.name}`}>{suggestPantryFoods(i.name,catalog.foodById).map(food=><button key={food.id} type="button" onClick={()=>renameIngredient(i.id,food.name)}>{food.name}</button>)}</div>}
           </li>; })}</ul>
-          <FoodPicker foods={foods} add={addManual}/>
+          <FoodPicker foods={foods} recipes={recipes} add={addManual}/>
           <datalist id="food-names">{foods.filter(f => !seasoningIds.includes(f.id)).map(f => <option key={f.id} value={f.name}/>)}</datalist>
         </section>
         <section className="panel preferences"><div className="section-heading"><h2><span className="step-number">02</span>这一餐的偏好</h2><button className="text-button" onClick={() => (setNotice(''), setModal('account'))}>个人设置 ↗</button></div>
@@ -376,11 +391,12 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
       <p>{modal === 'allergy' ? '添加会引起过敏的食物，确认后会避开相关菜谱。' : '添加不想吃或不能吃的食物，确认后会避开相关菜谱。'}</p>
       {catalog.restrictionScope==='listed-foods' && <p className="small subtle">按菜谱列出的食材和调料筛选。</p>}
       <form className="restriction-add" onSubmit={e => { e.preventDefault(); addRestriction(); }}><label>为谁设置<select aria-label="为谁设置" value={restrictionScope} onChange={e => setRestrictionScope(e.target.value as 'self' | 'additional')}><option value="self">我自己</option><option value="additional">一起吃饭的人</option></select></label><label>{modal === 'allergy' ? '过敏食物' : '忌口食物'}<input aria-label={modal === 'allergy' ? '过敏食物' : '忌口食物'} maxLength={200} value={restrictionText} onChange={e => setRestrictionText(e.target.value)} placeholder="输入食物名称"/></label><button className="primary" disabled={!restrictionText.trim()}>确认添加</button></form>
+      <div className="restriction-quick" aria-label={modal === 'allergy' ? '常见过敏食物' : '常见忌口食物'}><span className="small subtle">{modal === 'allergy' ? '常见过敏食物：' : '常见忌口：'}</span><div className="chips">{restrictionQuick.filter(name => !meal.restrictions.some(r => r.kind === modal && r.name === name && r.scope === restrictionScope)).map(name => <button key={name} type="button" onClick={() => addRestriction(name)}>{name}</button>)}</div></div>
       {notice && <p role="status" className="modal-feedback">{notice}</p>}<ul className="restrictions">{meal.restrictions.filter(r => r.kind === modal || (modal === 'avoid' && r.kind === 'unclassified')).map(r => <li key={r.id}><div><strong>{r.name.replace(/^未分类：/, '')}</strong> <span className="small">{r.scope === 'self' ? '我自己' : '一起吃饭的人'}</span></div><p>{r.status === 'confirmed' ? '会避开：' : r.targets.length ? '请确认要避开的食物：' : '还没认出这个食物，请删除后换个名称。'}{r.targets.map(t => foodById.get(t)?.name).join('、')}</p>{r.targets.length > 1 && <p className="small subtle">目前可识别以上食物，如有其他需要避开的食物，请单独添加。</p>}<div className="actions">{r.targets.length > 0 && r.status === 'pending' && <button onClick={() => edit(m => ({ ...m, restrictions: m.restrictions.map(x => x.id === r.id ? { ...x, status: 'confirmed' } : x) }))}>确认避开这些食物</button>}{r.kind === 'unclassified' && r.status !== 'conflict' && <button onClick={() => { const name = r.name.replace(/^未分类：/, ''); if (meal.ingredients.length >= 100) { setNotice('食材已达 100 种，请先移除不需要的食材'); return; } edit(m => ({ ...m, restrictions: m.restrictions.filter(x => x.id !== r.id), ingredients: mergeInput(m.ingredients, [inputIngredient(name, catalog)]) })); }}>这是食材，加入清单</button>}<button onClick={() => deleteRestriction(r.id)}>移除</button></div></li>)}</ul>
       <label className="checkbox"><input type="checkbox" checked={meal.includeAdditional} onChange={e => edit({ includeAdditional: e.target.checked })}/>这顿饭也照顾同行人的过敏和忌口</label><p className="small subtle">默认只使用你的饮食要求。勾选后，一起吃饭的人的过敏和忌口也会用于本餐。</p><button onClick={() => setModal(null)}>完成</button>
     </Modal>}
     {modal === 'guide' && <Modal title="人数与配菜参考" close={() => setModal(null)}><p>人数只用于参考菜数，每道菜的做法和用量保持不变。实际菜数会随食材种类和饮食要求调整，不要求凑齐。填写用量不影响选菜。</p><table className="serving-table"><caption>1～12 人配菜参考</caption><thead><tr><th scope="col">人数</th><th scope="col">荤菜</th><th scope="col">素菜</th><th scope="col">汤品</th><th scope="col">合计</th></tr></thead><tbody>{servingReferences.map(r => <tr key={r.servings} aria-current={r.servings === meal.servings ? 'true' : undefined}><th scope="row">{r.servings} 人</th><td>{r.counts.meat}</td><td>{r.counts.veg}</td><td>{r.counts.soup || '—'}</td><td>{r.total} 道</td></tr>)}</tbody></table><p className="small subtle">这是做饭搭配参考，不是食量或营养标准。需要招待或多做几道时，可指定荤素汤数量，最多 20 道。</p><button onClick={() => setModal(null)}>知道了</button></Modal>}
-    {modal === 'seasonings' && <Modal title="调料设置" close={() => setModal(null)}><label className="checkbox"><input type="checkbox" checked={meal.checkSeasonings} onChange={e => edit({ checkSeasonings: e.target.checked })}/>只使用家里现有的调料</label><p className="small">开启后，请勾选家里有的调料；关闭时不核对调料库存。过敏和忌口始终生效。</p>{meal.checkSeasonings && <div className="pantry-groups">{[...pantryGroups, {name:"其他调料",ids:seasoningIds.filter(id=>!pantryGroups.some(g=>g.ids.includes(id)))}].map(group => { const ids=group.ids.filter(id=>seasoningIds.includes(id)); return ids.length ? <fieldset key={group.name}><legend>{group.name}</legend><div className="seasonings">{ids.map(id => <label className="checkbox" key={id}><input type="checkbox" checked={meal.seasonings.includes(id)} onChange={e => edit({ seasonings: e.target.checked ? [...meal.seasonings, id] : meal.seasonings.filter(s => s !== id) })}/>{foodById.get(id)?.name}</label>)}</div></fieldset> : null;})}</div>}<button onClick={() => setModal(null)}>完成</button></Modal>}
+    {modal === 'seasonings' && <Modal title="调料设置" close={() => setModal(null)}><label className="checkbox"><input type="checkbox" checked={meal.checkSeasonings} onChange={e => edit({ checkSeasonings: e.target.checked })}/>只使用家里现有的调料</label><p className="small">开启后，请勾选家里有的调料；关闭时不核对调料库存。过敏和忌口始终生效。</p>{meal.checkSeasonings && <div className="pantry-groups">{seasoningSections.map(group => { const ids=group.ids; return ids.length ? <fieldset key={group.name}><legend>{group.name}</legend><div className="seasonings">{ids.map(id => <label className="checkbox" key={id}><input type="checkbox" checked={meal.seasonings.includes(id)} onChange={e => edit({ seasonings: e.target.checked ? [...meal.seasonings, id] : meal.seasonings.filter(s => s !== id) })}/>{foodById.get(id)?.name}</label>)}</div></fieldset> : null;})}</div>}<button onClick={() => setModal(null)}>完成</button></Modal>}
     {modal === 'login' && <Modal title="登录" close={() => { if (!authBusy) setModal('account'); }}><div className="login-symbol" aria-hidden="true">拾</div><h3>本机测试账号</h3><p>用于体验登录和健康模式。无需填写真实个人资料，不连接正式账户服务。</p>{sessionInfo?.localTestFeatures ? <button className="primary login-submit" disabled={authBusy} onClick={() => void login()}>{authBusy ? '正在登录…' : '登录测试账号'}</button> : <p>当前服务未开启本机测试登录。</p>}{authMessage && <p role="alert">{authMessage}</p>}</Modal>}
 
     {detail && <Modal title={detail.recipe.name} close={() => setDetail(null)}><p className="detail-meta">{detail.variant.flavor}{detail.recipe.minutes !== null ? ` · ${detail.recipe.minutes} 分钟` : ''}</p>{detail.message && <p role="status" className="warning-box">{detail.message}</p>}<RecipePhoto recipe={detail.recipe} detail/>{detail.recipe.publicAttribution&&<p className="recipe-source">来源：{detail.recipe.publicAttribution.label}</p>}<h3>食材与用量</h3><ul className="detail-lines">{[...new Set(detail.variant.lines.map(l => `${recipeLineText(l,foodById)}${l.optional ? '（可选）' : ''}`))].map(text => <li key={text}>{text}</li>)}</ul><h3>{detail.variant.methodOptions?.length ? '选择一种做法' : '慢慢来，一步步做'}</h3><div className={`detail-method-grid${detail.variant.methodOptions?.length ? ' has-options' : ''}`}><section><h4>{detail.variant.methodLabel ? '做法一 · '+detail.variant.methodLabel : detail.variant.methodOptions?.length ? '做法一' : '做法'}</h4><ol className="steps">{detail.variant.steps.map(s => <li key={s}>{s}</li>)}</ol></section>{detail.variant.methodOptions?.map((method,index)=><section key={`${method.label}-${index}`}><h4>做法{index+2}{method.label ? ` · ${method.label}` : ''}</h4><ol className="steps">{method.steps.map((step,stepIndex)=><li key={`${stepIndex}-${step}`}>{step}</li>)}</ol></section>)}</div>{detail.nutrition && Object.values(detail.nutrition).some(n=>n!==null) && <div className="nutrition-box"><h3>营养参考</h3>{detail.nutrition.kcal!==null && <p>热量：{detail.nutrition.kcal} kcal</p>}{detail.nutrition.protein!==null && <p>蛋白质：{detail.nutrition.protein} g</p>}{detail.nutrition.sodium!==null && <p>钠：{detail.nutrition.sodium} mg</p>}<p className="small">标准配方整道菜的投料估算，仅供参考。</p></div>}<div className="detail-favorite-area"><FavoriteControl recipe={detail.recipe} variant={detail.variant} active={isFavorite(detail.recipe, detail.variant)} toggle={() => toggleFavorite(detail.recipe, detail.variant)}/><p className="favorite-feedback" role="status" aria-live="polite">{favoriteFeedback}</p></div></Modal>}

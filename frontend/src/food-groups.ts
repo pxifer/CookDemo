@@ -1,4 +1,4 @@
-import type { Food } from '../../shared/types';
+import type { Food, Recipe } from '../../shared/types';
 import { isCookingWater, isSeasoningFood } from '../../shared/pantry';
 import navigation from '../../datasets/recipes/food-navigation-overrides.json';
 
@@ -33,10 +33,21 @@ export function foodGroup(name:string):string{
   }
   return groups.find(([,pattern])=>pattern.test(name))?.[0]??'其他食材';
 }
-export function groupedFoods(foods:Food[]){
+export function recipeFoodUsage(recipes:Recipe[]){
+  const usage=new Map<string,number>();
+  for(const recipe of recipes)for(const variant of recipe.variants)for(const line of variant.lines){
+    if(line.role==='seasoning')continue;
+    usage.set(line.foodId,(usage.get(line.foodId)??0)+1);
+  }
+  return usage;
+}
+export function groupedFoods(foods:Food[],usage?:Map<string,number>){
   const unique=new Map<string,Food>();
-  for(const food of foods)if(!isSeasoningFood(food)&&!isCookingWater(food.name)&&!/^(g|ml|瓣)$/.test(food.name)&&!unique.has(food.name))unique.set(food.name,food);
-  const available=[...unique.values()].sort((a,b)=>a.name.localeCompare(b.name,'zh-CN'));
-  return ['肉禽','鱼虾海鲜','蛋类','蔬菜','菌菇','豆制品','主食杂粮','奶类','水果','豆类坚果','汤底饮品','调味料','其他食材']
+  for(const food of foods){
+    if(usage&&!usage.has(food.id))continue;
+    if(!isSeasoningFood(food)&&!isCookingWater(food.name)&&!/^(g|ml|瓣)$/.test(food.name)&&!unique.has(food.name))unique.set(food.name,food);
+  }
+  const available=[...unique.values()].sort((a,b)=>(usage?.get(b.id)??0)-(usage?.get(a.id)??0)||a.name.localeCompare(b.name,'zh-CN'));
+  return ['肉禽','鱼虾海鲜','蛋类','蔬菜','菌菇','豆制品','主食杂粮','奶类','水果','豆类坚果','其他食材']
     .map(name=>({name,foods:available.filter(food=>foodGroup(food.name)===name)})).filter(group=>group.foods.length);
 }
