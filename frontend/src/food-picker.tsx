@@ -1,9 +1,10 @@
 import React,{useMemo,useState} from 'react';
-import type {Food} from '../../shared/types';
-import {groupedFoods} from './food-groups';
+import type {Food,Recipe} from '../../shared/types';
+import {groupedFoods,recipeFoodUsage} from './food-groups';
 
-export function FoodPicker({foods,add}:{foods:Food[];add:(name:string)=>void}){
-  const groups=useMemo(()=>groupedFoods(foods),[foods]);
+export function FoodPicker({foods,recipes,add}:{foods:Food[];recipes?:Recipe[];add:(name:string)=>void}){
+  const usage=useMemo(()=>recipes?recipeFoodUsage(recipes):undefined,[recipes]);
+  const groups=useMemo(()=>groupedFoods(foods,usage),[foods,usage]);
   const [category,setCategory]=useState(''),[selected,setSelected]=useState(''),[name,setName]=useState('');
   const choices=category?groups.find(group=>group.name===category)?.foods??[]:groups.flatMap(group=>group.foods);
   return <div className="food-picker">
