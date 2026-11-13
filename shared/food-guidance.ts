@@ -32,7 +32,7 @@ export interface FoodGuidancePacket {
 export interface GuidanceInput { profile:HealthContext; content:ContentContext; conditions?:Record<string,string>; currentText?:string }
 export interface FoodGuidanceProvider {
   prepare(input:GuidanceInput):Promise<FoodGuidancePacket>;
-  assertCurrent(packet:Pick<FoodGuidancePacket,'fingerprint'>):Promise<void>;
+  assertCurrent(packet:Pick<FoodGuidancePacket,'fingerprint'>,revoked?:Set<string>):Promise<void>;
   close?():Promise<void>;
 }
 export interface RecipeGuidanceBinding {

@@ -2,7 +2,7 @@ import type { FoodGuidance, FoodGuidanceProvider, GuidanceInput, FoodGuidancePac
 import type { HealthContext } from '../../../shared/health-chat';
 import type { NutritionExpansion } from '../../../shared/nutrition-knowledge';
 import { canonicalKnowledgeHash } from '../health-knowledge';
-import { guidanceHash, reportedConditions } from './food-guidance';
+import { guidanceHash, packetRevocations, reportedConditions } from './food-guidance';
 import { nutritionApplicability, nutritionEvidenceBlocked } from './nutrition-knowledge';
 
 export function nutritionProfile(profile:HealthContext,text:string,bundle:NutritionExpansion):HealthContext{
@@ -23,7 +23,7 @@ export function createNutritionGuidanceProvider(base:FoodGuidanceProvider,bundle
   return {
     async prepare(input:GuidanceInput):Promise<FoodGuidancePacket>{
       const profile=nutritionProfile(input.profile,input.currentText??'',bundle);
-      const packet=await base.prepare({...input,profile}),revoked=await revocations();baseFingerprint=packet.fingerprint;
+      const packet=await base.prepare({...input,profile}),revoked=packetRevocations(packet)??await revocations();baseFingerprint=packet.fingerprint;
       const conditions={...reportedConditions(profile.notes,input.currentText),...input.conditions};
       if(conditions.resistanceTraining==='yes'&&!conditions.exerciseTraining)conditions.exerciseTraining='yes';
       if(profile.conditions.length)conditions.healthyExerciser='no';
@@ -50,9 +50,10 @@ export function createNutritionGuidanceProvider(base:FoodGuidanceProvider,bundle
       packet.knowledgeVersion+=`+${bundle.id}`;packet.fingerprint=fingerprint(baseFingerprint,revoked);
       return packet;
     },
-    async assertCurrent(packet){
-      if(!baseFingerprint||packet.fingerprint!==fingerprint(baseFingerprint,await revocations()))throw Error('GUIDANCE_EVIDENCE_CHANGED');
-      await base.assertCurrent({fingerprint:baseFingerprint});
+    async assertCurrent(packet,revoked){
+      const prepared=packetRevocations(packet),fresh=revoked??await revocations(),union=new Set([...(prepared??[]),...fresh]);
+      if(!baseFingerprint||packet.fingerprint!==fingerprint(baseFingerprint,union))throw Error('GUIDANCE_EVIDENCE_CHANGED');
+      await base.assertCurrent({fingerprint:baseFingerprint},union);
     },
     ...(base.close?{close:()=>base.close!()}:{}),
   };
