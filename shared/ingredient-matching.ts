@@ -44,19 +44,29 @@ const families: { id: string; name: string; inputs: string[]; recipeNames: RegEx
 // Parser leakage from recipe text: counts ("几个"、"二颗") followed a quantifier, so match the
 // quantifier anywhere, not only as a whole token. Keep real foods (八角、五花肉) out of the
 // blacklist by requiring the counting word right after the quantifier.
-const countingUnits = '个|颗|粒|块|片|根|条|只|朵|把|勺|杯|碗|串|张|节|段|颗|棵|株|枝|瓣|枚|双|对|斤|两|克|毫升';
-const quantityNames = new RegExp(`^(?:[0-9０-９一二两三四五六七八九十百千半几些好多数]{1,4})(?:${countingUnits})?(?:左右|大小|多个|若干)?$`
-  + `|^(?:适量|少许|少量|若干|一些|些许|少许|适度|按需|随意|略|待定|若干|中等|中等大小|大块|小块|一大块|一小块|大|小|中)$`
+const countingUnits = '个|颗|粒|块|片|根|条|只|朵|把|勺|匙|杯|碗|串|张|节|段|颗|棵|株|枝|瓣|枚|双|对|斤|两|克|毫升|盒|袋|罐|瓶|包|汤匙|茶匙|点点';
+const amountPrefix = '0-9０-９一二两三四五六七八九十百千半几些好多数点到';
+// 多/很 are vague qualifiers ("很多"), not amounts, so they only participate in stripping.
+const vaguePrefix = '多很';
+const quantityNames = new RegExp(`^(?:[${amountPrefix}]{1,4})(?:${countingUnits})?(?:左右|大小|多个|若干)?$`
+  + `|^(?:适量|少许|少量|若干|一些|些许|中等|中等大小|大块|小块|一大块|一小块|大|小|中)$`
   + `|^(?:[0-9]{1,4})(?:g|kg|ml|l|克|克重|毫升|升|斤|两)(?:左右)?$`);
 const fragmentNames = /^(?:大|小|中|去)?(?:块|片|根|颗|粒|朵|条|只|个|段|节|张|串|把|勺|杯|碗)$|^(?:若干|几个|几颗|数个|少许|适量|随便|任意|其他|其它|以上|以下|如下|同上|以上材料|全部|所有|各种|各类|各种材料)$/;
+// Real foods that read like "numeral + counting unit". Without these, 千张 (tofu skin)
+// is deleted as if it were "thousand + sheet".
+const amountLookalikeFoods = new Set(['千张','百叶','八角','二荆条','三文鱼','五花肉','十三香','丁香','三杯鸡','一品鲜']);
+const entireAmount = new RegExp(`^[${amountPrefix}]+(?:大|小|中)?(?:${countingUnits})$`);
+const standaloneUnit = new RegExp(`^(?:${countingUnits})$`);
 export function isInvalidFoodName(name:string):boolean{
   const term=name.normalize('NFKC').trim();
   if(!term)return true;
+  if(amountLookalikeFoods.has(term))return false;
+  if(standaloneUnit.test(term))return true;
   if(/[0-9０-９]/.test(term)&&term.length<=6&&new RegExp(`(?:${countingUnits}|g|kg|ml)$`,'i').test(term))return true;
-  // Chinese counts/amounts with no real noun left: 一到、二棵、几个、十几、半把.
-  const head=term.replace(/[0-9０-９一二两三四五六七八九十百千半几些好多数多很\s~～\-到至左右大小]+/gu,'');
+  // Chinese counts/amounts with no real noun left: 一到、二棵、几个、十几、半把、很多.
+  const head=term.replace(new RegExp(`[${amountPrefix}${vaguePrefix}\\s~～\\-至左右大小]+`,'gu'),'');
   if(term.length<=4&&!head)return true;
-  if(head&&new RegExp(`^(?:${countingUnits})$`).test(head))return true;
+  if(entireAmount.test(term))return true;
   return quantityNames.test(term)||fragmentNames.test(term);
 }
 export function canonicalIngredientName(name:string):string{

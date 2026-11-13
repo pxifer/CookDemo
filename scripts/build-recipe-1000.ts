@@ -3,8 +3,8 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {galleryContent,type CandidateRow} from '../backend/src/gallery-content';
 import {galleryBundleHash,verifyGalleryBundle,type GalleryBundle} from '../backend/src/cloudbase-content';
-import {listedIngredients} from './lib/listed-food-curation';
-import {sourceIngredients} from './lib/recipe-source-ingredients';
+import {listedIngredients,type ListedIngredient} from './lib/listed-food-curation';
+import {mergeSourceIngredients} from './lib/recipe-source-ingredients';
 import {ingredientNames,candidateFoodNames} from '../shared/candidate-food-names';
 
 const root='datasets/recipes/expansion-1000';
@@ -17,10 +17,10 @@ const rows:CandidateRow[]=records.map(r=>{
  const main=r.ingredients.map(i=>`${i.name} ${i.weight}`),steps=r.instructions.map(i=>i.description.trim());
  const category=/汤|羹|煲$/.test(r.recipeName)?'soup':r.ingredients.some(i=>/猪|牛肉|牛腩|羊|鱼|虾|蟹|蛤|蚝|鱿|鸡(?!蛋|精|粉)|鸭|鹅|肉|排骨|腊肠|火腿|培根/.test(i.name))?'meat':'veg';
  const flavor=/糖醋/.test(r.recipeName)?'糖醋':/咖喱/.test(r.recipeName)?'咖喱':/辣椒|辣酱|豆瓣|干辣|小米椒/.test(r.seasonings.join(' '))?'咸鲜带辣':'咸鲜';
- return {dish_key:r.recipeName,flavor,source_uri:`https://www.haodou.com/recipe/${r.recipeID}`,image_url:null,raw_record:{id:`mi-${r.recipeID}`,category,author:'好豆菜谱（MIRecipe公开存档）',source:'mirecipe-public-archive',license:'来源未声明再发布许可证；按D17-02保留公开出处，不冒称取得许可',main,seasonings:r.seasonings,steps,ingredients:listedIngredients({main,seasonings:r.seasonings}),review_notes:['程序核对原字段与完整终态；非试做、营养或医学审核。']}};
+ return {dish_key:r.recipeName,flavor,source_uri:`https://www.haodou.com/recipe/${r.recipeID}`,image_url:null,raw_record:{id:`mi-${r.recipeID}`,category,author:'好豆菜谱（MIRecipe公开存档）',source:'mirecipe-public-archive',license:'来源未声明再发布许可证；按D17-02保留公开出处，不冒称取得许可',main,seasonings:r.seasonings,steps,ingredients:listedIngredients({main:r.ingredients.map(i=>({name:i.name,amount:i.weight})),seasonings:r.seasonings}),review_notes:['程序核对原字段与完整终态；非试做、营养或医学审核。']}};
 });
 for(const row of rows){
- row.raw_record.ingredients=sourceIngredients({main:row.raw_record.main!,seasonings:row.raw_record.seasonings!},sourceVocabulary);
+ row.raw_record.ingredients=mergeSourceIngredients(row.raw_record.ingredients as ListedIngredient[],sourceVocabulary);
 }
 const vocabulary=sourceVocabulary;
 // Food names explicitly used in source directions also participate in restrictions.
@@ -31,7 +31,7 @@ for(const row of rows)for(const step of row.raw_record.steps!)for(const name of 
 }
 const snapshot=galleryContent(previous,rows);
 snapshot.recipes.sort((a,b)=>{const x=previous.recipes.findIndex(r=>r.id===a.id),y=previous.recipes.findIndex(r=>r.id===b.id);return (x<0?99999:x)-(y<0?99999:y)||a.id.localeCompare(b.id);});
-snapshot.contentVersion='gallery-listed-foods-1000-20261113-v1';snapshot.restrictionScope='listed-foods';
+snapshot.contentVersion='gallery-listed-foods-1000-20261114-v2';snapshot.restrictionScope='listed-foods';
 const variants=snapshot.recipes.flatMap(r=>r.variants);
 const bundle:GalleryBundle={base:base.base,rows:[...base.rows,...rows].map(row=>({...row,image_url:recipeImage(row.dish_key,row.image_url)??null})),listedFoodSnapshot:snapshot,foodLevelReview:{version:'listed-foods-v1',recipes:snapshot.recipes.length,variants:variants.length,ingredientRows:variants.reduce((n,v)=>n+v.lines.length,0),checkedAt:'2026-11-13'}};
 const hash=galleryBundleHash(bundle);verifyGalleryBundle(bundle,hash);
