@@ -49,7 +49,25 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     const eligibleRecipes=context.recipes.map(recipe=>({...recipe,variants:recipe.variants.filter(variant=>
       (!existingMainRequired||variant.lines.some(line=>line.role==='main'&&findPantryIngredient(line,meal.ingredients,context.foodById)))
       &&(!research||!bindRecipeGuidance(research,context,recipe,variant).matches.some(m=>m.direction==='avoid')))})).filter(recipe=>recipe.variants.length);
-    const summary=(coverage:'matched'|'partial'|'unmatched')=>research?!hasHealthConcern?'已按现有食材、过敏忌口和补买条件选菜。':(coverage==='unmatched'?'已按食材、过敏忌口和补买条件选菜；这次没有可用的疾病或目标依据，所以不做健康判断。':coverage==='partial'?'已按本餐条件选菜；部分菜品有饮食依据，其余没有单独判断。':'已结合你的饮食建议和本餐条件选菜；不代表整道菜营养达标。')+(research.uncoveredTopics.length?'暂时没有可用资料：'+research.uncoveredTopics.slice(0,3).map(t=>t.replace(/^(condition|goal):/,'').slice(0,40)).join('、')+'。':'')+(research.missingConditions.length?'还有部分条件需要你确认。':''):undefined;
+    const summary=(coverage:'matched'|'partial'|'unmatched')=>{
+      if(!research)return undefined;
+      if(!hasHealthConcern)return '已按现有食材、过敏忌口和补买条件选菜。';
+      const parts=[coverage==='unmatched'?'已按现有食材、过敏忌口和补买条件选菜。':coverage==='partial'?'已按本餐条件选菜；部分菜品有饮食建议依据，其余没有单独判断。':'已结合你的饮食建议和本餐条件选菜；建议只作饮食参考。'];
+      const gaps:string[]=[],missing:string[]=[],nutrition:string[]=[];let availableUnbound=false;
+      for(const topic of research.topicCoverage??[]){
+        const name=topic.input.replace(/^(condition|goal):/,'');
+        if(topic.status==='available')availableUnbound=true;
+        else if(topic.status==='missing_conditions')missing.push(name);
+        else if(topic.status==='knowledge_gap'||topic.status==='needs_topic_detail'){if(/维生素|矿物质|钙|铁|锌|蛋白质|能量|热量|膳食纤维/.test(name))nutrition.push(name);else gaps.push(name);}
+        else if(topic.status==='not_applicable')parts.push(`「${name}」的现有资料不适用于你当前情况，所以不作判断。`);
+        else if(topic.status==='withdrawn')parts.push(`「${name}」的资料已撤回，本次不作判断。`);
+      }
+      if(availableUnbound&&coverage==='unmatched')parts.push('有可用的饮食建议，但本餐菜品没有匹配到对应做法；可以换菜或调整食材后再试。');
+      if(gaps.length)parts.push(`暂时没有「${gaps.slice(0,3).join('、')}」的饮食资料。`);
+      if(nutrition.length)parts.push(`「${nutrition.slice(0,3).join('、')}」属于营养指标，暂不能按疾病或目标判断本餐；可先按食材和限制选菜。`);
+      if(missing.length)parts.push(`关于「${missing.slice(0,3).join('、')}」，还需要确认是否成年人、运动情况等条件；确认后可再判断。`);
+      return parts.join('');
+    };
     const options=meal.mode==='candidates'&&meal.composition==='auto';
     const validate=async(choices:Choice[])=>{
       const checked=await recommend(eligibleRecipes,{...req,action:'variant',cursor:undefined,selected:choices.map(({recipeId,variantId})=>({recipeId,variantId}))},{context,signal,conversationOnly:true});
@@ -118,7 +136,16 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     // A fixed first 48 must not permanently hide the rest of the catalog.
     const offset=remaining.length?parseInt(createHmac('sha256',secret).update(req.operationId).digest('hex').slice(0,8),16)%remaining.length:0;
     const rotated=[...remaining.slice(offset),...remaining.slice(0,offset)];
-    const offered=[...seeds,...(research?[...remaining.filter(d=>bindDish(d).matches.length),...rotated.filter(d=>!bindDish(d).matches.length)]:rotated)].slice(0,options?18:12);
+    const reference=servingReference(meal.servings);
+    const desiredCounts=meal.composition==='custom'?meal.counts:reference.counts;
+    const desiredTotal=meal.composition==='custom'?Object.values(meal.counts).reduce((a,b)=>a+b,0):reference.total;
+    const count=replacing?1:options?6:desiredTotal;
+    const baseOffered=[...seeds,...(research?[...remaining.filter(d=>bindDish(d).matches.length),...rotated.filter(d=>!bindDish(d).matches.length)]:rotated)];
+    // Keep the page varied: no more than two dishes sharing the same primary main ingredient.
+    const primaryMain=(dish:Dish)=>dish.variant.lines.find(line=>line.role==='main')?.foodId??('recipe:'+dish.recipe.id);
+    const limited:Dish[]=[],overflow:Dish[]=[],perMain=new Map<string,number>();
+    for(const dish of baseOffered){const key=primaryMain(dish),n=perMain.get(key)??0;if(!options&&n>=2){overflow.push(dish);continue;}perMain.set(key,n+1);limited.push(dish);}
+    const target=options?18:12;let offered=limited.slice(0,target);if(offered.length<count)offered=[...offered,...overflow].slice(0,target);
     // Keep the feasible baseline's exact variant, rather than the last variant of a parent.
     for(let i=0;i<offered.length;i++)offered[i]=seeds.find(dish=>dish.recipe.id===offered[i].recipe.id)??offered[i];
     const describe=(raw:Dish,id:string)=>{
@@ -126,15 +153,11 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
       return {id,name:dish.recipe.name,category:dish.recipe.category,flavor:dish.variant.flavor,...(research?{guidanceIds:bindDish(raw).matches.map(m=>m.guidanceId)}:{}),ingredients:dish.variant.lines.map(line=>({name:context.foodById.get(line.foodId)?.name,role:line.role,...(line.optional?{optional:true}:{})})),steps:dish.variant.steps.slice(0,2).map(step=>step.length>70?step.slice(0,70)+'…':step),methods:[...new Set(dish.variant.steps.join(' ').match(/蒸|煮|炖|炒|煸|煎|炸|烤|凉拌|焯/g)??[])],methodOptions:dish.variant.methodOptions?.map(method=>method.label),reused:dish.reused.map(id=>context.foodById.get(id)?.name),shopping:dish.checks.filter(check=>['missing','shortage'].includes(check.state)).map(check=>check.name)};
     };
     let catalog=offered.map((dish,index)=>describe(dish,`c${index+1}`));
-    const reference=servingReference(meal.servings);
-    const desiredCounts=meal.composition==='custom'?meal.counts:reference.counts;
-    const desiredTotal=meal.composition==='custom'?Object.values(meal.counts).reduce((a,b)=>a+b,0):reference.total;
-    const count=replacing?1:options?Math.min(6,catalog.length):Math.min(desiredTotal,catalog.length);
     const qualifiedVariants=new Set([...seeds,...pool].map(keyOf)).size;
     const scope={qualifiedParents:parents.length,offeredParents:catalog.length,qualifiedVariants,offeredVariants:catalog.length,complete:catalog.length===qualifiedVariants,methodTextComplete:true};
     const packet={task:'recipe_selection',evidenceGuidance:undefined as {guidance:FoodGuidancePacket['guidance'];evidence:FoodGuidancePacket['evidence'];nutritionPrinciples?:FoodGuidancePacket['nutritionPrinciples'];topicCoverage?:FoodGuidancePacket['topicCoverage'];uncoveredTopics:string[];missingConditions:string[];clinicalRelease:null}|undefined,scope,mode:replacing?'replacement':options?'options':'meal',min:options?Math.min(6,catalog.length):Math.min(count,catalog.length),max:options?Math.min(18,catalog.length):Math.min(count,catalog.length),count,categories:replacing?counts(seeds):options?counts(baseline.dishes):desiredCounts,requestedCounts:options?undefined:desiredCounts,
       user:{healthProfile:meal.healthProfile,accepted:effectiveAiChoices(meal),ingredients:meal.ingredients.map(({name,amount,form,status})=>({name,amount,form,status})),seasonings:meal.seasonings.map(id=>context.foodById.get(id)?.name).filter(Boolean),checkSeasonings:meal.checkSeasonings,allowBuy:meal.allowBuy,servings:meal.servings,flavor:meal.flavor,restrictions:meal.restrictions.filter(item=>item.scope==='self'||meal.includeAdditional).map(({name,kind})=>({name,kind}))},locked:locked.map((dish,i)=>describe(dish,`locked${i+1}`)),previous:req.previous.map(id=>context.recipes.find(recipe=>recipe.id===id)?.name),catalog};
-    const prompt=research?system.replace('建议仅为一般饮食参考，不是本站RAG核验或医疗结论。',research.mode==='source_guidance'?'本次使用版本化公开食材/做法依据，仅作饮食参考，不是整菜健康准入或医疗结论。':'本次使用本地研究食材/做法依据，仅作饮食参考，不是整菜健康准入或医疗结论。').replace('目录已通过初步资格检查，但你仍要结合用户健康情况判断适合程度；','目录已通过本餐资格检查，健康评价仅限提供的适用依据；').replace('没有合适项可返回空choices并解释，不用反复追问非关键资料。','请从已通过本餐硬条件的候选中完成指定数量，非关键资料未知不阻断本餐选择。')+'\n本次有evidenceGuidance，仅以其中适用指导评价当前配方。每个choice只输出id和reason，不填写guidanceIds、factId或evidenceId；程序会根据所选实际配方绑定证据，模型不得补造食材映射或引用。没有匹配依据的候选仍可按本餐条件选择，但不得作健康适宜性或疾病功效判断。只引用适用的原文和限定信息，不把未知条件补齐；不从成分推导新食物建议，不说整菜低钠/低脂、营养达标或保证增肌。未覆盖关注保持未知。reason只写本餐选择说明，最终健康理由由程序绑定生成。\n少选不是避开，推荐和少选均是排序及提醒，不是硬禁。菜谱未列油盐克数，不得默认超标；含油、含糖、煎炒或制作葱油，不自动等于与减脂冲突。catalog已保留一套按本餐硬条件可行的候选；请完成指定count/categories或min/max的选择，不得仅因缺健康证据、油量未知或自己的无来源营养判断返回空choices。唯一合格候选也可按本餐条件选择并保留健康判断。只允许实际目录ID，不编造新菜。完整结构：{"summary":"本餐选择说明","choices":[{"id":"catalog中的实际id","reason":"本餐理由"}]}。':system;
+    const prompt=research?system.replace('建议仅为一般饮食参考，不是本站RAG核验或医疗结论。',research.mode==='source_guidance'?'本次使用版本化公开食材/做法依据，仅作饮食参考，不是整菜健康准入或医疗结论。':'本次使用本地研究食材/做法依据，仅作饮食参考，不是整菜健康准入或医疗结论。').replace('目录已通过初步资格检查，但你仍要结合用户健康情况判断适合程度；','目录已通过本餐资格检查，健康评价仅限提供的适用依据；').replace('没有合适项可返回空choices并解释，不用反复追问非关键资料。','请从已通过本餐硬条件的候选中完成指定数量，非关键资料未知不阻断本餐选择。')+'\n本次有evidenceGuidance，仅以其中适用指导评价当前配方。每个choice只输出id和reason，不填写guidanceIds、factId或evidenceId；程序会根据所选实际配方绑定证据，模型不得补造食材映射或引用。没有匹配依据的候选仍可按本餐条件选择，但不得作健康适宜性或疾病功效判断。只引用适用的原文和限定信息，不把未知条件补齐；不从成分推导新食物建议，不说整菜低钠/低脂、营养达标或保证增肌。未覆盖关注保持未知。reason只写本餐选择说明，最终健康理由由程序绑定生成。\n少选不是避开，推荐和少选均是排序及提醒，不是硬禁。菜谱未列油盐克数，不得默认超标；含油、含糖、煎炒或制作葱油，不自动等于与减脂冲突。catalog已保留一套按本餐硬条件可行的候选；请完成指定count/categories或min/max的选择，不得仅因缺健康证据、油量未知或自己的无来源营养判断返回空choices。唯一合格候选也可按本餐条件选择并保留健康判断。同一主料最多两道，优先不同主料和不同做法，避免整页都是同一种食材的变体。只允许实际目录ID，不编造新菜。完整结构：{"summary":"本餐选择说明","choices":[{"id":"catalog中的实际id","reason":"本餐理由"}]}。':system;
     const inputSize=()=>{
       if(research){const ids=new Set([...catalog,...packet.locked].flatMap(c=>c.guidanceIds??[]));const guidance=research.guidance.filter(g=>ids.has(g.id));const nutritionPrinciples=research.nutritionPrinciples?.filter(p=>p.applicability==='applicable');const evidenceIds=new Set([...guidance,...(nutritionPrinciples??[])].flatMap(g=>[...g.evidenceIds,...g.qualifyingEvidenceIds]));packet.evidenceGuidance={guidance,evidence:research.evidence.filter(e=>evidenceIds.has(e.id)),topicCoverage:research.topicCoverage,...(nutritionPrinciples?{nutritionPrinciples}:{}),uncoveredTopics:research.uncoveredTopics,missingConditions:research.missingConditions,clinicalRelease:null};}
       return estimatedTokens(prompt)+estimatedTokens(JSON.stringify(packet));
