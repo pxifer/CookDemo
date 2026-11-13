@@ -68,6 +68,14 @@ CLI实际调用方式以已安装工具为准。只在更新本项目既有同�
 
 按需使用 `playwright.cloudbase.config.ts`、`playwright.account-cloud.config.ts` 或专项核验脚本。只运行本地测试不等于线上已验证，Git提交不等于已部署。
 
+## 发布工具链现状（2026-11-14 只读核验）
+
+- **CLI 身份**：实际安装在 `.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli`（官方 `@cloudbase/cli` 3.8.7）。此前 13 个脚本引用了不存在的 `@deployment/cloudbase/cli`，全部在启动时即崩溃；已统一改为官方包名，并保留版本校验。
+- **环境事实**：`PackageId=baas_personal`、`EnableOverrun=true`、`IsAutoRenew=false`、`Status=NORMAL`、到期 `2026-12-13`。前两项与本项目"免费/禁超额"的既有前提不符，`cloudbase.ps1` 与发布脚本会因此停止操作；报错现在会列出这些非敏感字段。是否恢复需由用户在控制台处理或明确接受，不由脚本自动放宽。
+- **内容发布不再依赖一次性手工操作**：`scripts/prepare-content-release.ts` 生成函数包、web 产物、新 `CONTENT_BUNDLE_ID/SHA256`（其余配置与密钥原样保留）和内容迁移 SQL；`scripts/publish-content-release.ts` 先插内容行、再部署函数，并在部署前回读发布行校验 checksum 与 published。
+- **迁移 API 的 10MiB 限制**：`db pg migration up` 会把本地全部迁移一起上传。当前累积历史已 13.6MB（含 3MB 的 `listed_food_expansion` 与 5MB 新内容），超过 10MiB 上限；只带新迁移又会被 15 条"远端历史本地缺失"冲突挡住。因此约 5MB 的内容行改用进程内调用同一 CLI 执行 `db execute`（网络端点、角色与凭证不变，仅绕开操作系统命令行长度限制）。这也是此前 1000 道内容无法用迁移复现的原因。
+- **顺序**：内容行先落库并验证，再部署函数指向新版本；顺序颠倒会让全站 `/api` 返回 `CONTENT_NOT_READY`（503）。
+
 ## 撤回与仍未完成项
 
 内容撤回须按版本/有效发布状态执行，仓库读取失败不得回退构造目录。旧内容与包保留，但不自动将旧函数代码回退当成账户恢复，也不能复活已撤回证据或发布。必要时关闭既有HTTP路由停止入口，不擅自删除数据库、函数或图片。

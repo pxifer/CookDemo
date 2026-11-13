@@ -7,9 +7,9 @@ $nodeExecutable = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primar
 if (-not (Test-Path -LiteralPath $nodeExecutable)) { $nodeExecutable = (Get-Command node -ErrorAction Stop).Source }
 $selectedNodeVersion = & $nodeExecutable --version
 if ($LASTEXITCODE -ne 0 -or $selectedNodeVersion -notmatch '^v24\.') { throw '需要Node.js 24' }
-$cliRoot = Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli'
+$cliRoot = Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli'
 $cliPackage = Get-Content -LiteralPath (Join-Path $cliRoot 'package.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-if ($cliPackage.name -ne '@deployment/cloudbase/cli' -or $cliPackage.version -ne '3.8.7') { throw '需要已核验的官方CloudBase CLI 3.8.7，见操作手册' }
+if ($cliPackage.name -ne '@cloudbase/cli' -or $cliPackage.version -ne '3.8.7') { throw '需要已核验的官方CloudBase CLI 3.8.7，见操作手册' }
 $cliEntry = Join-Path $cliRoot 'bin/tcb'
 $env:TCB_NO_BROWSER = 'true'
 
@@ -43,7 +43,9 @@ try {
   $target = @($environmentResponse.data | Where-Object { $_.EnvId -eq $targetEnv })
   if ($target.Count -ne 1) { throw '未找到唯一目标环境；停止操作' }
   if ($target[0].PackageId -ne 'baas_trial' -or $target[0].EnableOverrun -ne $false -or $target[0].IsAutoRenew -ne $false -or $target[0].Status -ne 'NORMAL') {
-    throw '环境不再满足已核验的免费/按量关闭/自动续费关闭条件；停止操作'
+    # Surface the non-secret facts so the operator can see which condition changed.
+    $planFacts = "PackageId=$($target[0].PackageId); EnableOverrun=$($target[0].EnableOverrun); IsAutoRenew=$($target[0].IsAutoRenew); Status=$($target[0].Status); ExpireTime=$($target[0].ExpireTime)"
+    throw "环境不再满足已核验的免费/按量关闭/自动续费关闭条件（$planFacts）；停止操作"
   }
   if ($Task -in @('Plan','Apply')) {
     & $nodeExecutable --import tsx (Join-Path $projectRoot 'scripts/build-cloudbase-migrations.ts') | Out-Null

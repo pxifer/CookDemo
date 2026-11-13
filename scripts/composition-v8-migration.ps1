@@ -6,9 +6,9 @@ $migrationRoot=Join-Path $projectRoot '.local-data/cloudbase-http/composition-re
 $nodeExecutable=Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'
 if(-not(Test-Path -LiteralPath $nodeExecutable)){$nodeExecutable=(Get-Command node -ErrorAction Stop).Source}
 if((& $nodeExecutable -p 'process.versions.node.split(".")[0]') -ne '24'){throw '需要Node.js 24'}
-$cliRoot=Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@deployment/cloudbase/cli'
+$cliRoot=Join-Path $projectRoot '.local-data/tooling/cloudbase-cli/node_modules/@cloudbase/cli'
 $pkg=Get-Content -LiteralPath (Join-Path $cliRoot 'package.json') -Raw -Encoding UTF8|ConvertFrom-Json
-if($pkg.name -ne '@deployment/cloudbase/cli' -or $pkg.version -ne '3.8.7'){throw '需要已核验的CloudBase CLI 3.8.7'}
+if($pkg.name -ne '@cloudbase/cli' -or $pkg.version -ne '3.8.7'){throw '需要已核验的CloudBase CLI 3.8.7'}
 $cli=Join-Path $cliRoot 'bin/tcb';$env:TCB_NO_BROWSER='true'
 function Invoke-Cloud([string[]]$cloudArguments){
   $output=& $nodeExecutable $cli @cloudArguments;$exit=$LASTEXITCODE;$joined=$output -join "`n";$start=$joined.IndexOf('{')
