@@ -42,6 +42,7 @@
 | RAG-018 | 当前 RAG 开发 chat（DSH 接管） | 接受食材选择写入说明；模型多选按配额裁剪并报缺口；主料+做法分组去重；提高输出上限；真实 Key 实测 | `agent/rag/RAG-018-ai-constraints` | 单元/类型/构建；真实冷 4.05s/热 3.1s 记录 | 已发布 v60；审核 691b495，合并 1c81747；[发布记录](../releases/ACCEPTANCE-main-v60-2026-11-13.md) |
 | RAG-019 | 当前 RAG 开发 chat（DSH 接管） | 去开发者提示/重复按钮、结果说明压缩、58s 看门狗、函数启动预热知识 | `agent/rag/RAG-019-ui-cleanup` | 单元/类型/构建；线上 JS 字符串核验 | 已发布 v61；审核 203bee3，合并 db59b16；[发布记录](../releases/ACCEPTANCE-main-v61-2026-11-13.md) |
 | RAG-025 | 当前 RAG 开发 chat（DSH 接管） | 食材下拉按菜谱主料/辅料分类；调料按角色分组；忌口/过敏快捷添加 | `agent/rag/RAG-025-ui-groups` | 单元 414/412；类型、构建；线上资产核验 | 已发布 v67/v68；审核 763927c/b470aac，合并 a8089df/628ed60；[发布记录](../releases/ACCEPTANCE-main-v68-2026-11-13.md) |
+| RAG-027 | 当前 RAG 开发 chat（DSH 接管） | 单菜理由按已接受优先/少选食材判定；食材下拉细分类（猪肉/鱼类/虾类等） | `agent/rag/RAG-027-ai-grounding` | 单元 414/412；类型、构建；线上资产核验 | 已发布 v69；审核 c946915，合并 3fe1809；[发布记录](../releases/ACCEPTANCE-main-v69-2026-11-14.md) |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
