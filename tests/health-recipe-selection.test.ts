@@ -89,3 +89,10 @@ test('AI选菜遵守人数与荤素数量，不再固定六道',async()=>{
   assert.equal(packet.count,2);assert.deepEqual(packet.categories,{meat:1,veg:1,soup:0});assert.deepEqual(packet.requestedCounts,{meat:1,veg:1,soup:0});
   assert.equal(result.status,'completed');assert.equal(result.dishes.length,2);assert.equal(result.target,2);assert.equal(result.targetMet,true);
 });
+test('补买自动模式下AI按人数出餐，不回到六道候选',async()=>{
+  const meal={...oneMeal(),allowBuy:true,composition:'auto' as const,mode:'meal' as const,servings:1};
+  const recipes=[simpleRecipe('egg-meat',[['egg',1]],{category:'meat'}),simpleRecipe('tomato-veg',[['tomato',100]],{category:'veg'}),simpleRecipe('tomato-veg2',[['tomato',100]],{category:'veg'})];
+  let packet:any;
+  await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const chosen:any[]=[];for(const cat of ['meat','veg','soup'] as const){const n=packet.categories[cat]||0;for(const item of packet.catalog.filter((c:any)=>c.category===cat).slice(0,n))chosen.push(item);}return envelope({summary:'按人数选择',choices:chosen.map((item:any)=>({id:item.id,reason:'按本餐人数'}))});}));
+  assert.equal(packet.count,3);assert.deepEqual(packet.categories,{meat:1,veg:2,soup:0});
+});
