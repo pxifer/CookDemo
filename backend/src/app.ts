@@ -431,6 +431,7 @@ export async function createApp(options: {
   });
   app.post<{ Body: RecommendationRequest }>('/api/v1/recommendations', { schema: { body: recommendationSchema } }, async (req, reply) => {
     req.body={...req.body,meal:recommendationMeal(req.body.meal)};
+    const tRoute=performance.now();
     const budget=AbortSignal.timeout(45000);
     const subject = session(req.headers.cookie)!;
     const context = contextFor(req);
@@ -451,6 +452,7 @@ export async function createApp(options: {
       if(!stored?.apiKey)throw new DomainError('CHAT_KEY_REQUIRED',400,'请先在个人设置中保存 DeepSeek Key，再请 AI 搭配菜品');
       req.body.meal={...req.body.meal,healthProfile:stored.profile,aiFoodPreferences:stored.preferences,aiExcludedFoods:stored.exclusions??[],restrictions:[...new Map([...(stored.restrictions??[]),...req.body.meal.restrictions].map(item=>[JSON.stringify([item.kind,item.name,item.scope]),item])).values()]};
     }
+    const tAuth=performance.now();
     assertMeal(req.body.meal,context);
     const sharedTask=Boolean(options.sharedRecommendationTasks&&chatHealth&&modelIdentity);
     if(sharedTask){
@@ -471,6 +473,7 @@ export async function createApp(options: {
       reply.raw.write(JSON.stringify({ type: 'progress', stage: '输入格式已校验，正在核对目录与库存' }) + '\n');
     }
     try {
+      const tSelect=performance.now();
       let result = chatHealth&&modelIdentity&&stored?await during(selectHealthRecipes({request:req.body,owner:modelIdentity.userId,apiKey:stored.apiKey,context,signal,fetcher:options.healthRecipeFetch??options.healthChatFetch,present:publicDish,observe:options.healthRecipeObserve,
         progress:text=>{if(stream&&!reply.raw.destroyed)reply.raw.write(JSON.stringify({type:'progress',stage:text})+'\n');},
         claim:async()=>{
@@ -482,6 +485,7 @@ export async function createApp(options: {
           if(!claim.claimed)throw new DomainError(claim.reason==='duplicate'?'CHAT_OPERATION_USED':'CHAT_RATE_LIMIT',claim.reason==='duplicate'?409:429,claim.reason==='duplicate'?'这次 AI 搭配已提交，未重复调用模型':'发送较频繁，请稍后主动重试');
         }
       }),signal):await recommend(context.recipes,req.body,{signal:controller.signal,localHealthTest,conversationOnly:chatHealth,context,cursorSecret:recommendationCursorSecret});
+      const tSelected=performance.now();
       if(chatHealth&&!modelIdentity)result={...result,healthAssessment:{state:'test_only',message:'本机测试的食材筛选结果，不代表真实 AI 选菜。'}};
       if(chatHealth&&modelIdentity){
         const active=await during(options.accounts!.authenticate(req.headers.cookie),signal);
@@ -500,6 +504,7 @@ export async function createApp(options: {
         }
       }
       if (repository && (await repository.load(options.contentRelease!)).contentVersion !== context.contentVersion) throw new DomainError('CONTENT_CHANGED',409,'菜谱已变化，请重新搭配');
+      if(chatHealth&&modelIdentity)console.log('AI_ROUTE_TIMING',JSON.stringify({authMs:Math.round(tAuth-tRoute),selectMs:Math.round(tSelected-tSelect),postMs:Math.round(performance.now()-tSelected)}));
       if ((localHealthTest || (chatHealth&&!modelIdentity)) && !testSession(req.headers.cookie)) result = { ...result, dishes: [], checks: [], status: 'cancelled', reasons: ['登录已失效，请重新登录后再试'] };
       const newest = latest.get(taskKey);
       const sharedCurrent=!sharedTask||await during(options.accounts!.recommendationTaskCurrent!(modelIdentity!,req.body.taskId!,req.body.meal.version,req.body.operationId),signal);

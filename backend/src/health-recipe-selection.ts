@@ -130,7 +130,9 @@ export function createHealthRecipeSelector(secret:Buffer,guidanceProvider?:FoodG
     else if(options)pool=pool.filter(dish=>dish.reused.length>0||!meal.ingredients.length&&meal.allowBuy);
     if(meal.composition==='custom')pool=pool.filter(dish=>meal.counts[dish.recipe.category]>0);
     const tPool=performance.now();
-    pool.sort((a,b)=>{const x=aiFoodRank(a.variant,meal,context),y=aiFoodRank(b.variant,meal,context),ga=research?bindCached(a).matches:[],gb=research?bindCached(b).matches:[];return x.limited-y.limited||ga.filter(m=>m.direction==='limit').length-gb.filter(m=>m.direction==='limit').length||y.preferred-x.preferred||gb.filter(m=>m.direction==='prefer').length-ga.filter(m=>m.direction==='prefer').length||b.reused.length-a.reused.length||Number(b.recipe.homeStyle)-Number(a.recipe.homeStyle);});
+    const rankCache=new Map<string,{limited:number;preferred:number;limit:number;prefer:number}>();
+    const rankOf=(dish:Dish)=>{const key=dish.recipe.id+':'+dish.variant.id;let value=rankCache.get(key);if(!value){const rank=aiFoodRank(dish.variant,meal,context),matches=research?bindCached(dish).matches:[];value={...rank,limit:matches.filter(m=>m.direction==='limit').length,prefer:matches.filter(m=>m.direction==='prefer').length};rankCache.set(key,value);}return value;};
+    pool.sort((a,b)=>{const x=rankOf(a),y=rankOf(b);return x.limited-y.limited||x.limit-y.limit||y.preferred-x.preferred||y.prefer-x.prefer||b.reused.length-a.reused.length||Number(b.recipe.homeStyle)-Number(a.recipe.homeStyle);});
     const tSort=performance.now();
     const seeds=replacing?baseline.dishes.filter(dish=>!locked.some(item=>item.recipe.id===dish.recipe.id)):baseline.dishes;
     const parents=[...new Map([...seeds,...pool].map(dish=>[dish.recipe.id,dish])).values()];
