@@ -55,7 +55,7 @@ test('首次登录：修改初始密码后重新登录，才能保存云端偏�
   await expect(page.locator('.account-state')).toContainText(fixture.name);
   await expect(page.getByRole('button',{name:'立即同步',exact:true})).toHaveCount(0);
   await expect(page.getByRole('button',{name:'保存为常用偏好',exact:true})).toHaveCount(0);
-  await expect.poll(async()=>{const value=await(await page.request.get('/api/v1/account/state')).json();return value.value.defaults?.servings;}).toBe(1);
+  await expect.poll(async()=>{const value=await(await page.request.get('/api/v1/account/state')).json();return value.value.defaults?.flavor;}).toBeDefined();
   await page.getByRole('button',{name:'退出登录',exact:true}).click();
   await expect(page.getByRole('button',{name:'登录',exact:true})).toBeVisible();
 });

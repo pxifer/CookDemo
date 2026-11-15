@@ -8,7 +8,7 @@ import type { ContentContext } from '../../shared/content';
 import { inventoryChecks, nutrition } from '../../shared/quantity';
 import { findPantryIngredient, resolvePantryFood } from '../../shared/ingredient-matching';
 import { seasoningStockKey } from '../../shared/pantry';
-import { compositionError, MAX_DISHES, servingReference } from '../../shared/meal-planning';
+import { compositionError, countShortfall, dishCounts, MAX_DISHES } from '../../shared/meal-planning';
 import { aiExcludedFoods, aiFoodMatch, aiFoodRank, effectiveAiChoices } from '../../shared/ai-food-choices';
 import { type Dish, type Line, type Meal, type Recipe, type RecommendationRequest, type RecommendationResult, type Variant } from '../../shared/types';
 import {recommendationMeal,recommendationChecks} from '../../shared/recommendation-input';
@@ -21,7 +21,6 @@ export class DomainError extends Error {
 export function assertMeal(meal: Meal, context: ContentContext = constructedContent) {
   if(meal.health)for(const name of [...(meal.aiFoodChoices?.preferred??[]),...(meal.aiFoodChoices?.limited??[]),...(meal.aiExcludedFoods??[]),...(meal.aiFoodChoices?.excluded??[])])if(!context.restrictionTargets(name).length)throw new DomainError('AI_FOOD_UNRESOLVED',400,'AI去疾 中有未匹配食材，请重新核对选择');
   if (meal.flavor !== '不限' && !availableFlavors(context.recipes).includes(meal.flavor)) throw new DomainError('INVALID_FLAVOR', 400, '所选口味不在当前菜谱目录中，请重新选择');
-  if (!Number.isInteger(meal.servings) || meal.servings < 1 || meal.servings > 12) throw new DomainError('INVALID_SERVINGS', 400, '人数须为 1～12 的整数');
   const countError = compositionError(meal);
   if (countError) throw new DomainError('INVALID_COMPOSITION', 400, countError);
   const ids = new Set<string>();
@@ -112,7 +111,11 @@ export function checkSet(dishes: Dish[], meal: Meal, context: ContentContext = c
   meal=recommendationMeal(meal);
   const checks = recommendationChecks(inventoryChecks(allLines(dishes, meal, context), 1, meal, context.foodById));
   const shortages = checks.some(c => c.state === 'missing' || c.state === 'shortage');
-  return { checks, valid: (meal.allowBuy || !shortages) && (dishes.some(d => d.reused.length > 0) || buyWithoutInventory(meal)) };
+  // Without buying permission every dish is fully covered by definition. With it,
+  // each dish must still reuse a confirmed main ingredient so "补买" only covers
+  // gaps instead of turning the whole meal into a shopping list.
+  const relevant = buyWithoutInventory(meal) || dishes.every(d => !meal.allowBuy || d.reused.length > 0);
+  return { checks, valid: dishes.length > 0 && (meal.allowBuy || !shortages) && relevant };
 }
 // With explicit buying consent and no declared ingredients, offer a shopping-first plan.
 function buyWithoutInventory(meal: Meal) { return meal.allowBuy && meal.ingredients.length === 0; }
@@ -146,9 +149,11 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   const start = performance.now(), meal = req.meal, context = options.context ?? constructedContent;
   const sign = (value: unknown) => fingerprint(value, options.cursorSecret ?? cursorSecret);
   assertMeal(meal, context);
-  const candidateMode = meal.mode === 'candidates' && meal.composition === 'auto';
-  const guide = servingReference(meal.servings);
-  const target = candidateMode ? 6 : meal.composition === 'auto' ? guide.total : Object.values(meal.counts).reduce((a, b) => a + b, 0);
+  // Browse by ingredient match, or assemble the exact requested 荤/素/汤 counts.
+  // Buying permission only relaxes missing-food checks; it never changes the mode.
+  const candidateMode = meal.composition === 'auto';
+  const desiredCounts = meal.counts;
+  const target = candidateMode ? 0 : Object.values(desiredCounts).reduce((a, b) => a + b, 0);
   // Each generation has a new ordering; subsequent pages carry the same seed in
   // a signed cursor. Personal conditions/content still invalidate that cursor.
   const variation = req.cursor?.split('.')[0] ?? sign(req.operationId).slice(0,16);
@@ -217,8 +222,10 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     const dishes = candidates.slice(req.page * 6, req.page * 6 + 6);
     options.beforePublish?.();
     if (dishes.some(d => !checkDish(d.recipe, d.variant, meal, context).dish)) return result({ status: 'unavailable', reasons: ['内容在发布前变化，请重新核对'] });
-    return result({ status: dishes.length ? 'completed' : 'no_results', targetMet: dishes.length === 6, dishes, total: candidates.length,
-      reasons: dishes.length ? [] : ['暂时没有找到合适的菜谱，可以调整食材或口味后再试。'] });
+    return result({ status: dishes.length ? 'completed' : 'no_results', targetMet: true, dishes, total: candidates.length,
+      reasons: dishes.length ? [] : [meal.allowBuy
+        ? '暂时没有匹配到的菜谱，可以调整食材、口味或过敏忌口后再试。'
+        : '现有食材暂时做不了任何菜谱，可以加一种食材、放宽口味，或允许补买查看更多。'] });
   }
 
   const lockedIds = req.action === 'replace' ? req.selected.filter(d => d.recipeId !== req.replaceId) : [];
@@ -233,12 +240,13 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
   }
   const effectiveTarget = req.action === 'replace' ? req.selected.length : target;
   if (effectiveTarget > MAX_DISHES) throw new DomainError('INVALID_COMPOSITION', 400, '一餐最多搭配 20 道菜');
-  const automatic = meal.composition === 'auto' && req.action !== 'replace';
-  const searchLimit = automatic ? MAX_DISHES : effectiveTarget;
+  const searchLimit = effectiveTarget;
   const footprints = new Set<string>();
   const remaining = pool.filter(d => {
     if (locked.some(k => k.recipe.id === d.recipe.id) || (req.action === 'replace' && d.recipe.id === req.replaceId)) return false;
-    if (meal.composition === 'custom' && meal.counts[d.recipe.category] === 0) return false;
+    if (desiredCounts[d.recipe.category] === 0) return false;
+    // Buying permission covers gaps only; every dish must still use something on hand.
+    if (meal.allowBuy && !buyWithoutInventory(meal) && !d.reused.length) return false;
     // Only equivalent selectable variants of the same parent are interchangeable.
     // Manual flavor overrides were already applied; locked variants are retained above.
     const footprint = sign({ parent: d.recipe.id,
@@ -247,31 +255,26 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     if (footprints.has(footprint)) return false;
     footprints.add(footprint); return true;
   });
-  let best: Dish[] = [], bestScore = -Infinity, incomplete = false,bestDistance=Infinity;
+  let best: Dish[] = [], bestScore = -Infinity, incomplete = false;
   const previousSet = [...req.previous].sort().join(',');
   const maxNodes = options.maxNodes ?? 20_000, deadline = start + (options.deadlineMs ?? 1500);
-  const counts = (set: Dish[]) => ({ meat: set.filter(d => d.recipe.category === 'meat').length, veg: set.filter(d => d.recipe.category === 'veg').length, soup: set.filter(d => d.recipe.category === 'soup').length });
+  const counts = dishCounts;
   const accept = (set: Dish[]) => {
     if (!set.length || !checkSet(set, meal, context).valid) return;
     if ((req.action === 'replace') && set.length !== effectiveTarget) return;
     if (req.action === 'reroll' && set.map(d => d.recipe.id).sort().join(',') === previousSet) return;
-    const c = counts(set);
-    const distance = meal.composition === 'auto' ? Math.abs(c.meat - guide.counts.meat) + Math.abs(c.veg - guide.counts.veg) + Math.abs(c.soup - guide.counts.soup) : 0;
     const buyItems = checkSet(set, meal, context).checks.filter(c => c.state === 'missing' || c.state === 'shortage').length;
-    const mainKinds = new Set(set.flatMap(d => d.reused)).size;
-    const primaryScore = automatic
-      ? Math.min(set.length, target) * 1_000_000 - Math.max(0, set.length - target) * 4000 - distance * 3000 + mainKinds * 3000 + set.filter(d => d.recipe.homeStyle).length * 100 - buyItems
-      : set.length * 1_000_000 - distance * 10_000 + set.filter(d => d.recipe.homeStyle).length * 100 - buyItems;
+    const primaryScore = set.length * 1_000_000 + set.filter(d => d.recipe.homeStyle).length * 100 - buyItems;
     // Diversity breaks equally good plans only; it cannot override ingredient
-    // reuse, category balance, home-style preference or fewer shopping items.
+    // reuse, home-style preference or fewer shopping items.
     const score = primaryScore + rank(set.map(d=>d.recipe.id).sort());
     const healthTotals=(dishes:Dish[])=>dishes.reduce((total,d)=>({limited:total.limited+aiRank(d).limited,preferred:total.preferred+aiRank(d).preferred}),{limited:0,preferred:0});
     const a=useAiRank?healthTotals(set):{limited:0,preferred:0},b=useAiRank?healthTotals(best):a;
-    const healthTie=useAiRank&&set.length===best.length&&distance===bestDistance?(a.limited-b.limited||b.preferred-a.preferred):0;
-    if (healthTie<0 || (healthTie===0&&score > bestScore)) { best = [...set]; bestScore = score;bestDistance=distance; }
+    const healthTie=useAiRank&&set.length===best.length?(a.limited-b.limited||b.preferred-a.preferred):0;
+    if (healthTie<0 || (healthTie===0&&score > bestScore)) { best = [...set]; bestScore = score; }
   };
   // Seed a complete plan early, so larger requests do not depend on DFS ordering.
-  const desired = meal.composition === 'custom' ? meal.counts : guide.counts;
+  const desired = desiredCounts;
   const seed = [...locked];
   const seedOrder = [...remaining].sort((a, b) => Number(b.reused.length > 0) - Number(a.reused.length > 0) || businessOrder(a, b));
   for (const d of seedOrder) {
@@ -282,40 +285,24 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     if (checkSet(next, meal, context).valid) seed.push(d);
   }
   accept(seed);
-  let phaseLimit = automatic ? effectiveTarget : searchLimit, expanding = false;
+  const phaseLimit = effectiveTarget;
   const visit = async (set: Dish[], from: number): Promise<void> => {
     if (++nodes > maxNodes || performance.now() > deadline) { incomplete = true; return; }
     if (options.signal?.aborted) return;
     if (nodes % 128 === 0) await setImmediate();
-    if (!expanding || set.length > target) accept(set);
+    accept(set);
     if (set.length >= phaseLimit) return;
     const remainingParents = remaining.slice(from).filter(d => !set.some(x => x.recipe.id === d.recipe.id));
     const currentCounts = counts(set);
-    const possibleParents = meal.composition === 'custom'
-      ? (['meat', 'veg', 'soup'] as const).reduce((sum, k) => sum + Math.min(Math.max(0, meal.counts[k] - currentCounts[k]), new Set(remainingParents.filter(d => d.recipe.category === k).map(d => d.recipe.id)).size), 0)
-      : new Set(remainingParents.map(d => d.recipe.id)).size;
-    if (!automatic && Math.min(searchLimit, set.length + possibleParents) < best.length) return;
-    if (expanding) {
-      const existingKinds = new Set(set.flatMap(d => d.reused));
-      const byParent = new Map<string, number>();
-      for (const d of remainingParents) byParent.set(d.recipe.id, Math.max(byParent.get(d.recipe.id) ?? 0, new Set(d.reused.filter(id => !existingKinds.has(id))).size));
-      const gains = [...byParent.values()].sort((a, b) => b - a);
-      const allKinds = new Set([...existingKinds, ...remainingParents.flatMap(d => d.reused)]).size;
-      let upperScore = -Infinity;
-      for (let n = Math.max(target + 1, set.length + 1); n <= Math.min(MAX_DISHES, set.length + gains.length); n++) {
-        const maxKinds = Math.min(allKinds, existingKinds.size + gains.slice(0, n - set.length).reduce((a, b) => a + b, 0));
-        // Category distance is at least abs(total - reference total).
-        upperScore = Math.max(upperScore, target * 1_000_000 - (n - target) * 7000 + maxKinds * 3000 + n * 100);
-      }
-      if (!useAiRank && upperScore + 1 <= bestScore) return;
-    }
+    const possibleParents = (['meat', 'veg', 'soup'] as const).reduce((sum, k) => sum + Math.min(Math.max(0, desired[k] - currentCounts[k]), new Set(remainingParents.filter(d => d.recipe.category === k).map(d => d.recipe.id)).size), 0);
+    if (Math.min(searchLimit, set.length + possibleParents) < best.length) return;
     for (let i = from; i < remaining.length; i++) {
       if (incomplete || options.signal?.aborted) break;
       const d = remaining[i];
       if (set.some(x => x.recipe.id === d.recipe.id)) continue;
       const next = [...set, d];
       const c = counts(next);
-      if (meal.composition === 'custom' && (['meat', 'veg', 'soup'] as const).some(k => c[k] > meal.counts[k])) continue;
+      if ((['meat', 'veg', 'soup'] as const).some(k => c[k] > desired[k])) continue;
       // Input quantities are reference-only; enforce missing-food and other hard constraints.
       const checks = checkSet(next, meal, context).checks;
       if (!meal.allowBuy && (checks.some(c => c.state === 'missing'))) continue;
@@ -323,7 +310,6 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     }
   };
   await visit(locked, 0);
-  if (automatic && !incomplete && !options.signal?.aborted) { phaseLimit = MAX_DISHES; expanding = true; await visit(locked, 0); }
   if (options.signal?.aborted) return result({ status: 'cancelled', search: 'incomplete', reasons: ['操作已取消'] });
   options.beforePublish?.();
   if (best.some(d => !checkDish(d.recipe, d.variant, meal, context).dish) || (best.length && !checkSet(best, meal, context).valid)) return result({ status: 'unavailable', reasons: ['内容在最终检查前变化，请重新生成'] });
@@ -335,16 +321,18 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
       return dish ? [dish] : [];
     })
     : [...best].sort(variedOrder);
+  const shortfall = countShortfall(counts(best), desiredCounts);
+  const missing = shortfall.meat + shortfall.veg + shortfall.soup;
   return result({ dishes: orderedBest, checks: best.length ? checkSet(best, meal, context).checks : [], total: grouped.length,
     status: best.length ? 'completed' : incomplete ? 'unavailable' : 'no_results', search: incomplete ? 'incomplete' : 'complete', target: effectiveTarget,
-    targetMet: automatic ? best.length >= effectiveTarget : best.length === effectiveTarget, changed: !replacingFailed,
+    targetMet: missing === 0 && best.length === effectiveTarget, shortfall, changed: !replacingFailed,
     reasons: [
       ...(incomplete ? [best.length ? '还可以再试一次，看看其他搭配。' : '这次查找未完成，请再试一次。'] : []),
       ...(!best.length ? [replacingFailed ? '暂时没有其他合适的方案，已保留当前搭配。' : '暂时没有找到合适的搭配，可以调整食材、口味或搭配数量后再试。'] : []),
-      ...(meal.composition === 'custom' && best.length < effectiveTarget && !incomplete ? [meal.allowBuy
-        ? `你指定了 ${effectiveTarget} 道，目前可搭配 ${best.length} 道。可以减少菜数或调整口味后再试。`
-        : `你指定了 ${effectiveTarget} 道，目前可搭配 ${best.length} 道。可以允许补买，或调整荤素汤数量。`] : []),
-      ...(meal.composition === 'custom' && best.length < effectiveTarget && incomplete ? [`你指定了 ${effectiveTarget} 道，本次已核验 ${best.length} 道；搜索尚未完成，可以重新查找`] : []),
+      ...(missing > 0 && !incomplete && req.action !== 'replace' ? [meal.allowBuy
+        ? '食材匹配到的菜品不足指定数量，可以减少荤素汤数量或改成不限数量。'
+        : '现有食材还不足以凑齐指定数量，可以允许补买、减少荤素汤数量或改成不限数量。'] : []),
+      ...(missing > 0 && incomplete ? [`本次已核验 ${best.length} 道；搜索尚未完成，可以重新查找`] : []),
     ],
   });
 }

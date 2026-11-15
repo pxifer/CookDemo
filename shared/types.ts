@@ -18,7 +18,7 @@ export interface Restriction {
 }
 export interface Extraction {
   original: string; ingredients: Ingredient[]; restrictions: Restriction[];
-  diseases: string[]; servings: number | null; unresolved: string[];
+  diseases: string[]; unresolved: string[];
   method: 'local-dictionary' | 'model';
 }
 export interface Line {
@@ -43,10 +43,12 @@ export interface Recipe {
 }
 export interface Meal {
   version: number; raw: string; ingredients: Ingredient[]; restrictions: Restriction[];
-  // Diners guide dish count only; recipe batch quantities never scale with this value.
-  servings: number; mode: 'meal' | 'candidates'; health: boolean; diseases: string[];
+  // Derived from composition; kept for UI wording and cursor binding.
+  mode: 'meal' | 'candidates'; health: boolean; diseases: string[];
   flavor: string; overrides: Record<string, string>; includeAdditional: boolean;
   checkSeasonings: boolean; seasonings: string[]; allowBuy: boolean;
+  // 'auto' = 不限菜数：按食材匹配浏览全部合格菜谱；
+  // 'custom' = 按 counts 的荤/素/汤数量凑齐。补买只决定是否允许缺料，不改变这里的语义。
   composition: 'auto' | 'custom'; counts: Record<Category, number>;
   aiFoodChoices?: import('./health-chat').AiFoodChoices;
   aiExcludedFoods?: string[];
@@ -80,6 +82,8 @@ export interface RecommendationResult {
   operationId: string; mealVersion: number; contentVersion: string;
   status: 'completed' | 'needs_confirmation' | 'no_results' | 'unavailable' | 'cancelled';
   search: 'complete' | 'incomplete'; target: number; targetMet: boolean;
+  // Per-category gap between requested counts and delivered dishes; absent when browsing.
+  shortfall?: Record<Category, number>;
   dishes: Dish[]; checks: QuantityCheck[]; reasons: string[];
   total: number; page: number; cursor: string; nodes: number; changed: boolean;
   elapsedMs: number;
@@ -87,8 +91,8 @@ export interface RecommendationResult {
 export interface Favorite { recipeId: string; variantId: string }
 export const CONTENT_VERSION = 'constructed-2026-10-19-v1';
 export const defaultMeal = (): Meal => ({
-  version: 0, raw: '', ingredients: [], restrictions: [], servings: 1,
-  mode: 'meal', health: false, diseases: [], flavor: '不限', overrides: {},
+  version: 0, raw: '', ingredients: [], restrictions: [],
+  mode: 'candidates', health: false, diseases: [], flavor: '不限', overrides: {},
   includeAdditional: false, checkSeasonings: false, seasonings: ['oil', 'salt', 'soy', 'garlic'],
-  allowBuy: false, composition: 'auto', counts: { meat: 1, veg: 2, soup: 0 },
+  allowBuy: false, composition: 'auto', counts: { meat: 1, veg: 1, soup: 0 },
 });

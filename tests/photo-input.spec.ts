@@ -6,7 +6,7 @@ test('INPUT-001 图片确认后添加、不确定项不加入，普通推荐继�
   let calls=0;
   await page.route('**/api/v1/recognitions/image',async route=>{
     calls++;const body=route.request().postDataJSON();expect(body.image).toMatch(/^data:image\/jpeg;base64,/);expect(Object.keys(body).sort()).toEqual(['contentVersion','image','operationId']);
-    await route.fulfill({json:{operationId:body.operationId,uncertain:['遮挡物'],extraction:{original:'图片识别',method:'model',ingredients:[{id:'egg-photo',foodId:'egg',name:'鸡蛋',amount:'',basis:'unknown',form:'raw',status:'pending',original:'鸡蛋'},{id:'tomato-photo',foodId:'tomato',name:'西红柿',amount:'',basis:'unknown',form:'raw',status:'pending',original:'西红柿'}],restrictions:[],diseases:[],servings:null,unresolved:[]}}});
+    await route.fulfill({json:{operationId:body.operationId,uncertain:['遮挡物'],extraction:{original:'图片识别',method:'model',ingredients:[{id:'egg-photo',foodId:'egg',name:'鸡蛋',amount:'',basis:'unknown',form:'raw',status:'pending',original:'鸡蛋'},{id:'tomato-photo',foodId:'tomato',name:'西红柿',amount:'',basis:'unknown',form:'raw',status:'pending',original:'西红柿'}],restrictions:[],diseases:[],unresolved:[]}}});
   });
   await page.goto('/');await page.getByRole('button',{name:'拍照识别',exact:true}).click();
   await page.getByLabel('选择食材图片',{exact:true}).setInputFiles({name:'ingredients.png',mimeType:'image/png',buffer:await testPhoto(page)});

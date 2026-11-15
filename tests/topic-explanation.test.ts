@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {explainKnownTopic,readTopicExplanation,validateTopicExplanation} from '../backend/src/rag/topic-explanation';
 import type {HealthInputUnderstanding} from '../backend/src/health-input-understanding';
-const input=(conditions:string[]):HealthInputUnderstanding=>({intent:'food_guidance',subject:'self',conditions,goals:[],preferences:[],allergies:[],avoids:[],mealRequest:{ingredients:[],servings:null,counts:null,allowBuy:null},question:''});
+const input=(conditions:string[]):HealthInputUnderstanding=>({intent:'food_guidance',subject:'self',conditions,goals:[],preferences:[],allergies:[],avoids:[],mealRequest:{ingredients:[],counts:null,allowBuy:null},question:''});
 test('甲减资料候选可回查原文/限定，不把未给个人量改成数字或可执行规则',async()=>{
  const {knowledge:k}=await readTopicExplanation();assert.equal(k.sources.length,3);assert.equal(k.evidence.length,6);assert.equal(k.clinicalRelease,null);
  const numeric=structuredClone(k);numeric.limitations[0].patientFrequencyPerWeek=2 as any;assert.throws(()=>validateTopicExplanation(numeric),/NOT_ESTABLISHED/);

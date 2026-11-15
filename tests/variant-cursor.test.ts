@@ -42,7 +42,7 @@ test('口味切换不能借旧游标更改硬条件、多道口味、目录或�
   const meal={...mealWith('鸡蛋20个'),mode:'candidates' as const,flavor:'清淡'},first=await recommend(candidates,request(meal)),target=first.dishes[0];
   const nextMeal={...meal,overrides:{[target.recipe.id]:target.recipe.variants[1].id}};
   const call=(input:Meal,cursor=first.cursor,catalog=candidates)=>recommend(catalog,request(input,{action:'variant',cursor,selected:selected(first)}));
-  for(const input of [{...nextMeal,allowBuy:true},{...nextMeal,servings:2},{...nextMeal,checkSeasonings:true},{...nextMeal,seasonings:[]},{...nextMeal,flavor:'微辣'},{...nextMeal,ingredients:[]},{...nextMeal,restrictions:[{id:'avoid',name:'鸡蛋',kind:'avoid' as const,scope:'self' as const,status:'confirmed' as const,targets:['egg'],original:'鸡蛋'}]},{...nextMeal,overrides:{...nextMeal.overrides,[first.dishes[1].recipe.id]:first.dishes[1].recipe.variants[1].id}}])await assert.rejects(call(input),{code:'CURSOR_EXPIRED'});
+  for(const input of [{...nextMeal,allowBuy:true},{...nextMeal,counts:{...nextMeal.counts,veg:nextMeal.counts.veg+1}},{...nextMeal,checkSeasonings:true},{...nextMeal,seasonings:[]},{...nextMeal,flavor:'微辣'},{...nextMeal,ingredients:[]},{...nextMeal,restrictions:[{id:'avoid',name:'鸡蛋',kind:'avoid' as const,scope:'self' as const,status:'confirmed' as const,targets:['egg'],original:'鸡蛋'}]},{...nextMeal,overrides:{...nextMeal.overrides,[first.dishes[1].recipe.id]:first.dishes[1].recipe.variants[1].id}}])await assert.rejects(call(input),{code:'CURSOR_EXPIRED'});
   await assert.rejects(call(nextMeal,first.cursor+'x'),{code:'CURSOR_EXPIRED'});
   await assert.rejects(call(nextMeal,first.cursor,[...candidates,simpleRecipe('new-recipe',[['egg',1]])]),{code:'CURSOR_EXPIRED'});
 });

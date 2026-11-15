@@ -60,7 +60,7 @@ test('D7-06新口径: 恢复旧本餐清除已识别食材的量冲突，不改�
   assert.equal(next.mode, 'candidates'); assert.equal(next.includeAdditional, false);
   assert.equal(next.ingredients[0].status, 'confirmed'); assert.equal(next.ingredients[0].basis, 'unknown');
   next.ingredients[0].status = 'conflict'; next.allowBuy = false;
-  const restored = normalizeInput(next); assert.equal(restored.mode, 'meal'); assert.equal(restored.ingredients[0].status, 'confirmed');
+  const restored = normalizeInput(next); assert.equal(restored.mode, 'candidates'); assert.equal(restored.ingredients[0].status, 'confirmed');
 });
 
 test('INPUT-001: 带量文字和旧草稿清除数量、单位及冲突，保留食材与过敏忌口',()=>{

@@ -6,7 +6,7 @@ import { mealWith, request, simpleRecipe } from './fixtures';
 const catalog=Array.from({length:10},(_,i)=>simpleRecipe(`variety-${i}`,[['egg',1]],{category:i<4?'meat':'veg'}));
 test('重复搭配在同等可行方案中变化组合与顺序；补买与不补买均遵守库存和限制',async()=>{
   for(const allowBuy of [false,true]){
-    const meal={...mealWith('鸡蛋20个'),allowBuy};
+    const meal={...mealWith('鸡蛋20个'),allowBuy,composition:'custom' as const,counts:{meat:1,veg:2,soup:0}};
     const sets=new Set<string>(),orders=new Set<string>();
     for(let n=0;n<8;n++){
       const result=await recommend(catalog,request(meal,{operationId:`variety-${n}`}));
@@ -32,7 +32,7 @@ test('同一轮候选翻页使用签名种子，不同操作ID仍顺序稳定且
 });
 
 test('单换首、中、末位置只替换目标卡片，保留其他菜及顺序',async()=>{
-  const meal=mealWith('鸡蛋20个');
+  const meal={...mealWith('鸡蛋20个'),composition:'custom' as const,counts:{meat:1,veg:2,soup:0}};
   const initial=await recommend(catalog,request(meal));
   assert.equal(initial.dishes.length,3);
   for(let index=0;index<initial.dishes.length;index++){

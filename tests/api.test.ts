@@ -11,11 +11,14 @@ test('V-01 / V-09: 运行时Schema、来源和CSRF拒绝、无秘密错误输出
     const headers = { cookie, origin: 'http://localhost:80', 'x-csrf-token': token };
     assert.equal((await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: request() })).statusCode, 401);
     assert.equal((await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: request(), headers: { ...headers, origin: 'https://evil.invalid' } })).statusCode, 403);
-    for (const fields of [{ servings: 1.5 }, { servings: '2' }, { servings: 0 }, { mode: 'unknown' }, { allowBuy: 'true' }]) {
+    for (const fields of [{ mode: 'unknown' }, { allowBuy: 'true' }, { servings: 2 }]) {
       const req = request(); Object.assign(req.meal, fields);
       const res = await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: req, headers });
       assert.equal(res.statusCode, 400, res.body); assert.equal(res.json().error.code, 'INVALID_REQUEST');
     }
+    const zero = request(); zero.meal.composition = 'custom'; zero.meal.counts = { meat: 0, veg: 0, soup: 0 };
+    const zeroRes = await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: zero, headers });
+    assert.equal(zeroRes.statusCode, 400); assert.equal(zeroRes.json().error.code, 'INVALID_COMPOSITION');
     const extra = await app.inject({ method: 'POST', url: '/api/v1/recognitions/text', payload: { text: '鸡蛋', execute: 'ignore safety' }, headers });
     assert.equal(extra.statusCode, 400);
     const model = await app.inject({ method: 'POST', url: '/api/v1/recognitions/image', payload: {}, headers });
@@ -31,7 +34,7 @@ test('V-04 / V-07: NDJSON唯一终态、真实完整结果、旧版本拒绝', a
   try {
     const session = await app.inject('/api/v1/auth/session');
     const headers = { cookie: session.headers['set-cookie']!.toString().split(';')[0], origin: 'http://localhost:80', 'x-csrf-token': session.json().csrfToken, accept: 'application/x-ndjson' };
-    const m = mealWith(); m.version = 10;
+    const m = mealWith(); m.version = 10; m.composition = 'custom'; m.counts = { meat: 1, veg: 2, soup: 0 };
     const res = await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: request(m), headers });
     assert.equal(res.statusCode, 200);
     const events = res.body.trim().split('\n').map(s => JSON.parse(s));

@@ -62,7 +62,7 @@ test('自助注册：无需邀请、错误码可重试、自动同步、刷新/�
   await page.evaluate(({recipe,defaults})=>{
     localStorage.setItem('shiwei:guest:favorites:v1',JSON.stringify([{recipeId:recipe.id,variantId:recipe.variants[0].id}]));
     localStorage.setItem('shiwei:guest:defaults:v1',JSON.stringify(defaults));
-  },{recipe,defaults:{...defaultMeal(),servings:2}});await page.reload();
+  },{recipe,defaults:{...defaultMeal()}});await page.reload();
   await page.getByRole('button',{name:'注册账号',exact:true}).click();
   await expect(page.locator('.account-form')).not.toContainText('受邀');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -94,7 +94,7 @@ test('自助注册：无需邀请、错误码可重试、自动同步、刷新/�
   await signup(page,username,true);
   await expect(page.locator('.sync-review')).toHaveCount(0);
   await page.reload();await expect(page.locator('.account-state')).toContainText(username);
-  const saved=await(await page.request.get('/api/v1/account/state')).json();expect(saved.value.favorites).toHaveLength(1);expect(saved.value.defaults.servings).toBe(1);
+  const saved=await(await page.request.get('/api/v1/account/state')).json();expect(saved.value.favorites).toHaveLength(1);expect(saved.value.defaults).toBeTruthy();
   const second=await browser.newContext(),other=await browser.newContext();
   try{
     const secondPage=await second.newPage();await secondPage.goto('http://127.0.0.1:4178/?settings=1');
@@ -127,7 +127,6 @@ test('个人设置自动保存恢复：不重载页面，不同步人数或草�
   await expect(page.getByRole('button',{name:'立即同步',exact:true})).toHaveCount(0);await page.keyboard.press('Escape');
   const uploads:any[]=[];page.on('request',r=>{if(r.method()==='POST'&&r.url().endsWith('/account/state'))uploads.push(r.postDataJSON());});
   await page.getByRole('button',{name:'微辣',exact:true}).click();
-  await page.getByLabel('几个人吃',{exact:true}).fill('5');
   await addManualFood(page,'鸡蛋');
   for(const [label,food] of [['过敏','花生'],['忌口','牛肉']]){
     await page.locator('.preference-shortcuts').getByRole('button',{name:new RegExp(label)}).click();
@@ -138,11 +137,13 @@ test('个人设置自动保存恢复：不重载页面，不同步人数或草�
   await expect.poll(async()=>{const data=await(await page.request.get('/api/v1/account/state')).json();return data.value.defaults;}).toMatchObject({flavor:'微辣',checkSeasonings:true,restrictions:[{name:'花生'},{name:'牛肉'}]});
   await expect.poll(()=>uploads.length).toBeGreaterThan(0);
   for(const body of uploads){expect(Object.keys(body.value.defaults).sort()).toEqual(['checkSeasonings','flavor','restrictions','seasonings']);}
-  await page.reload();await page.keyboard.press('Escape');await expect(page.getByLabel('几个人吃',{exact:true})).toHaveValue('5');await expect(page.getByRole('button',{name:'微辣',exact:true})).toHaveAttribute('aria-pressed','true');
+  await page.reload();await page.keyboard.press('Escape');await expect(page.locator('.ingredients .ingredient-name').filter({hasText:'鸡蛋'})).toBeVisible();await expect(page.getByRole('button',{name:'微辣',exact:true})).toHaveAttribute('aria-pressed','true');
   const second=await browser.newContext({baseURL:'http://127.0.0.1:4178'});try{
-    const b=await second.newPage();await b.goto('/');await b.getByLabel('几个人吃',{exact:true}).fill('3');await b.getByRole('button',{name:'个人设置',exact:true}).click();
+    const b=await second.newPage();await b.goto('/');await b.getByRole('button',{name:'个人设置',exact:true}).click();
     await b.getByLabel('用户名',{exact:true}).fill(name);await b.getByLabel('密码',{exact:true}).fill('Ab1!xyZ9');await b.getByRole('button',{name:'登录',exact:true}).click();await expect(b.locator('.account-state')).toContainText(name);await b.keyboard.press('Escape');
-    await expect(b.getByLabel('几个人吃',{exact:true})).toHaveValue('3');await expect(b.getByRole('button',{name:'微辣',exact:true})).toHaveAttribute('aria-pressed','true');
+    await expect(b.getByRole('button',{name:'微辣',exact:true})).toHaveAttribute('aria-pressed','true');
+    // 食材属于本机本餐草稿，不随个人设置跨设备同步。
+    await expect(b.locator('.ingredients .ingredient-name').filter({hasText:'鸡蛋'})).toHaveCount(0);
     await expect(b.getByLabel('鸡蛋用量',{exact:true})).toHaveCount(0);
     await b.locator('.preference-shortcuts').getByRole('button',{name:/过敏/}).click();await expect(b.locator('.restrictions')).toContainText('花生');await b.keyboard.press('Escape');
     await b.locator('.preference-shortcuts').getByRole('button',{name:/忌口/}).click();await expect(b.locator('.restrictions')).toContainText('牛肉');await b.keyboard.press('Escape');

@@ -19,7 +19,7 @@ const foodSuggestionSchema=object({foodName:{...string(40),minLength:1},directio
 export const healthProfileSchema=object({conditions:array({...string(100),minLength:1},20),goals:array({...string(100),minLength:1},20),notes:string(400),updatedAt:string(40),suggestions:array(foodSuggestionSchema,20),topics:array(object({id:string(120),kind:enumOf('condition','goal'),name:string(100),suggestions:array(foodSuggestionSchema,20),accepted:aiFoodPreferencesSchema}),40)},['topics']);
 export const mealSchema = object({
   version: integer(0, 2_147_483_647), raw: string(5000), ingredients: array(ingredientSchema), restrictions: array(restrictionSchema, 50),
-  servings: integer(1, 12), mode: enumOf('meal', 'candidates'), health: boolean, diseases: array(string(100), 20),
+  mode: enumOf('meal', 'candidates'), health: boolean, diseases: array(string(100), 20),
   flavor: { type: 'string', minLength: 1, maxLength: 100 }, overrides: { type: 'object', maxProperties: 100, additionalProperties: string(100), propertyNames: { pattern: '^[a-z0-9-]+$' } },
   includeAdditional: boolean, checkSeasonings: boolean, seasonings: array(string(80), 50), allowBuy: boolean,
   composition: enumOf('auto', 'custom'), counts: object({ meat: integer(0, 20), veg: integer(0, 20), soup: integer(0, 20) }),

@@ -14,7 +14,7 @@ import type {HealthChatReply,ChatMessage} from '../../shared/health-chat';
 import {outputCampaignDirectory} from './output-evaluation-budget';
 import {verifyGalleryBundle} from '../../backend/src/cloudbase-content';
 
-export interface OutputCase {id:string;title:string;task:'meal'|'food_guidance'|'open_input';family:string;split:'development'|'regression';input:{profile:HealthContext;userText?:string;history?:ChatMessage[];parentRunId?:string;conditions?:Record<string,string>;ingredients?:string;servings?:number;allowBuy?:boolean;allergies?:string[];avoids?:string[];onlyRecipe?:string;counts?:Record<'meat'|'veg'|'soup',number>}}
+export interface OutputCase {id:string;title:string;task:'meal'|'food_guidance'|'open_input';family:string;split:'development'|'regression';input:{profile:HealthContext;userText?:string;history?:ChatMessage[];parentRunId?:string;conditions?:Record<string,string>;ingredients?:string;allowBuy?:boolean;allergies?:string[];avoids?:string[];onlyRecipe?:string;counts?:Record<'meat'|'veg'|'soup',number>}}
 export interface OutputLabel {status?:string;factId?:string;direction?:string;applicability?:string;noDiseaseTopic?:boolean;uncoveredTopic?:string;noModelCall?:boolean;equivalentTo?:string;intents?:string[];conditions?:string[];goals?:string[];subject?:string;noDisease?:boolean;forbiddenGoals?:string[];forbiddenConditions?:string[];mealStatus?:string;humanExpectation?:string}
 export const outputHash=(value:unknown)=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(value)).digest('hex');
 const forbiddenInputKey=(x:unknown):boolean=>Boolean(x&&typeof x==='object'&&Object.entries(x).some(([k,v])=>/^(gold|expected|labels?|review|answerKey|allowedRecipes|forbiddenRecipes)$/i.test(k)||forbiddenInputKey(v)));
@@ -54,7 +54,7 @@ export function outputMeal(item:OutputCase,snapshot:ContentSnapshot){
   const parsed=extractText(name,content);
   return parsed.unresolved.length||parsed.restrictions.length||parsed.diseases.length?[inputIngredient(name,content)]:parsed.ingredients;
  });
- const meal:Meal={...defaultMeal(),raw:input.ingredients??'',health:true,composition:input.counts?'custom':'auto',counts:input.counts??defaultMeal().counts,servings:input.servings??1,allowBuy:Boolean(input.allowBuy),ingredients:mergeInput([],ingredients),healthProfile:{...input.profile,suggestions:[],updatedAt:'2026-11-13'}};
+ const meal:Meal={...defaultMeal(),raw:input.ingredients??'',health:true,composition:input.counts?'custom':'auto',counts:input.counts??defaultMeal().counts,allowBuy:Boolean(input.allowBuy),ingredients:mergeInput([],ingredients),healthProfile:{...input.profile,suggestions:[],updatedAt:'2026-11-13'}};
  meal.restrictions=[...(input.allergies??[]).map(name=>({name,kind:'allergy' as const})),...(input.avoids??[]).map(name=>({name,kind:'avoid' as const}))].map(({name,kind},i)=>{const targets=content.restrictionTargets(name);return {id:'constructed-restriction-'+i,name,kind,scope:'self' as const,targets,status:targets.length?'confirmed' as const:'unknown' as const,original:'评测明确限制'};});
  return {meal,content};
 }

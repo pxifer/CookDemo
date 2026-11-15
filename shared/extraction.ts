@@ -20,7 +20,7 @@ export function extractText(original: string, context: ContentContext = construc
   const restrictionNames = [...names, ...categories.flatMap(c => [c.name, ...c.aliases])].sort((a, b) => b.length - a.length);
   const namePattern = new RegExp(restrictionNames.map(escape).join('|'), 'g');
   const make = (name: string, kind: Restriction['kind']) => makeRestriction(name, kind, 'self', context);
-  const result: Extraction = { original, ingredients: [], restrictions: [], diseases: [], servings: null, unresolved: [], method: 'local-dictionary' };
+  const result: Extraction = { original, ingredients: [], restrictions: [], diseases: [], unresolved: [], method: 'local-dictionary' };
   const singleIngredient = (text: string): Ingredient | undefined => {
     const trailing = text.match(new RegExp(`^(.+?)\\s*(${quantity})?$`, 'i'));
     const leading = text.match(new RegExp(`^(${quantity})\\s*(.+)$`, 'i'));
@@ -41,8 +41,10 @@ export function extractText(original: string, context: ContentContext = construc
     return names.some(n => before.includes(n)) ? [before, chunk.slice(clause.index)] : [chunk];
   });
   for (let chunk of chunks) {
+    // Diners no longer set the number of dishes. Drop the phrase so it cannot
+    // surface as an unknown ingredient, and leave dish counts to the explicit control.
     const people = chunk.match(/(\d+(?:\.\d+)?)\s*个?人(?:吃|份)?/);
-    if (people) { result.servings = Number(people[1]); chunk = chunk.replace(people[0], ''); }
+    if (people) chunk = chunk.replace(people[0], '');
     const diseases = Object.keys(diseaseAliases).sort((a, b) => b.length - a.length);
     for (const n of diseases) if (chunk.includes(n)) {
       result.diseases.push(diseaseAliases[n]); chunk = chunk.replaceAll(n, '');

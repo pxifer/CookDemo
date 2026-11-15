@@ -11,6 +11,12 @@ async function generate(page: Page) {
   const button = page.getByRole('button', { name: '安排这一餐', exact: true });
   await button.click(); await expect(button).toBeEnabled();
 }
+async function chooseCounts(page: Page, meat: number, veg: number, soup: number) {
+  await page.getByRole('button', { name: '按荤素汤', exact: true }).click();
+  await page.getByLabel('荤菜道数', { exact: true }).selectOption(String(meat));
+  await page.getByLabel('素菜道数', { exact: true }).selectOption(String(veg));
+  await page.getByLabel('汤品道数', { exact: true }).selectOption(String(soup));
+}
 async function settings(page: Page, kind: '过敏' | '忌口' | '调料') {
   await page.locator('.preference-shortcuts').getByRole('button', { name: new RegExp(`^${kind}`) }).click();
   await expect(page.getByRole('dialog', { name: `${kind}设置` })).toBeVisible();
@@ -38,7 +44,7 @@ test('本机构造身份：直接登录、无账户Key不能启用AI，普通推
   await expect(page.getByLabel('DeepSeek API Key',{exact:true})).toHaveCount(0);await page.keyboard.press('Escape');
   const chat=page.getByRole('region',{name:'健康AI对话',exact:true});
   await expect(chat).toHaveCount(0);await expect(page.locator('.health-entry .switch')).not.toHaveClass(/on/);
-  await generate(page);await expect(page.getByTestId('recipe-card')).toHaveCount(3);expect(chatRequests).toBe(0);
+  await generate(page);await expect(page.getByTestId('recipe-card')).toHaveCount(6);expect(chatRequests).toBe(0);
   await page.screenshot({path:`${process.env.ACCEPTANCE_DIR??'acceptance'}/${info.project.name}-local-identity-gate.png`});
 });
 
@@ -91,31 +97,29 @@ test('B01 / D7-05: 过敏与忌口分开输入、类别范围确认、未知限�
   await generate(page); await expect(page.getByText('请确认饮食要求：未识别食物')).toBeVisible();
 });
 
-test('D7-05: 同餐人限制默认不加入，主动勾选才生效，人数不改变范围', async ({ page }) => {
+test('D7-05: 同餐人限制默认不加入，主动勾选才生效', async ({ page }) => {
   await parse(page, '鸡蛋4个西红柿500g虾300g');
   await addRestriction(page, '忌口', '鸡蛋', true); await page.keyboard.press('Escape');
   await page.getByLabel('允许补买食材', { exact: false }).check();
   await generate(page); await expect(page.getByTestId('recipe-card').filter({ hasText: '番茄炒蛋' })).toHaveCount(1);
-  await page.getByLabel('几个人吃', { exact: true }).fill('2'); await generate(page);
-  await expect(page.getByTestId('recipe-card').filter({ hasText: '番茄炒蛋' })).toHaveCount(1);
   await settings(page, '忌口'); await page.getByLabel('这顿饭也照顾同行人的过敏和忌口').check(); await page.keyboard.press('Escape');
   await generate(page); await expect(page.getByTestId('recipe-card').filter({ hasText: '番茄炒蛋' })).toHaveCount(0);
 });
 
-test('D7-06: 调料和补买分开，补买自动切候选并可翻页，关闭恢复一键搭配', async ({ page }) => {
+test('D7-06: 调料和补买分开，补买切换候选并可翻页，关闭仍按食材浏览', async ({ page }) => {
   await parse(page, ingredients);
   await settings(page, '调料'); await expect(page.getByRole('dialog')).not.toContainText('允许补买');
   await page.getByLabel('只使用家里现有的调料').check(); await page.getByRole('checkbox', { name: '生抽', exact: true }).uncheck();
   await page.keyboard.press('Escape'); await page.getByLabel('允许补买食材', { exact: false }).check();
-  await expect(page.locator('.recommendation-mode strong')).toHaveText('更多菜谱');
+  await expect(page.locator('.recommendation-mode strong')).toHaveText('不限数量');
   await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(6);
   const first = await page.getByTestId('recipe-card').locator('h4').allTextContents();
   await page.getByRole('button', { name: '下一页', exact: true }).click();
   await expect(page.getByRole('button', { name: '上一页', exact: true })).toBeEnabled();
   expect(await page.getByTestId('recipe-card').locator('h4').allTextContents()).not.toEqual(first);
   await page.getByLabel('允许补买食材', { exact: false }).uncheck();
-  await expect(page.locator('.recommendation-mode strong')).toHaveText('一键搭配');
-  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
+  await expect(page.locator('.recommendation-mode strong')).toHaveText('不限数量');
+  await generate(page); await expect(page.getByTestId('recipe-card').first()).toBeVisible();
 });
 
 test('B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置', async ({ page }) => {
@@ -132,7 +136,7 @@ test('B02 / D16-03: 游客个人设置仅本机，刷新和新一餐保留设置
 });
 
 test('AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查', async ({ page }, info) => {
-  await parse(page, ingredients); await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
+  await parse(page, ingredients); await chooseCounts(page, 1, 2, 0); await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
   const before = await page.getByTestId('recipe-card').locator('h4').allTextContents();
   await page.getByRole('button', { name: `替换 ${before[1]}`, exact: true }).click();
   await expect(page.getByTestId('recipe-card').filter({ hasText: before[1] })).toHaveCount(0);
@@ -155,7 +159,7 @@ test('AC-18/19/20/21: 单换保留其他菜、变体详情、收藏刷新复查'
 });
 
 test('单换保持卡片位置和当前滚动，加载提示只出现在目标按钮',async({page})=>{
-  await parse(page,ingredients);await generate(page);
+  await parse(page,ingredients);await chooseCounts(page,1,2,0);await generate(page);
   const cards=page.getByTestId('recipe-card');await expect(cards).toHaveCount(3);
   const before=await cards.locator('h4').allTextContents();
   await page.route('**/api/v1/recommendations',async route=>{
@@ -172,15 +176,18 @@ test('单换保持卡片位置和当前滚动，加载提示只出现在目标�
   expect(Math.abs(await page.evaluate(()=>scrollY)-scroll)).toBeLessThan(60);
 });
 
-test('B03/B04: 单位不能换算不冒充足量，非法人数拦截', async ({ page }) => {
-  await parse(page, '鸡蛋1g'); await page.getByLabel('几个人吃', { exact: true }).fill('12');
+test('B03/B04: 单位不能换算不冒充足量，非法菜数拦截', async ({ page }) => {
+  await parse(page, '鸡蛋1g');
   await page.getByLabel('允许补买食材', { exact: false }).check();
   const result=await recommendationAfter(page,()=>generate(page),'generate'),eggs=result.dishes.flatMap(dish=>dish.checks).filter(check=>check.foodId==='egg');
   expect(eggs.length).toBeGreaterThan(0);expect(eggs.every(check=>check.state==='unverified'&&check.shortage===null)).toBe(true);
   await expect(page.locator('.ingredients .ingredient-name').filter({hasText:'鸡蛋'})).toBeVisible(); await expect(page.getByLabel('鸡蛋用量',{exact:true})).toHaveCount(0);await expect(page.locator('.ingredients .ingredient-name').filter({hasText:'鸡蛋'})).toBeVisible(); await expect(page.getByLabel('鸡蛋单位',{exact:true})).toHaveCount(0);
   await expect(page.getByTestId('recipe-card').first()).not.toContainText('用量请参考菜谱');
-  await page.getByLabel('几个人吃', { exact: true }).fill('1.5'); await generate(page);
-  await expect(page.getByRole('alert').filter({ hasText: '人数须为 1～12 的整数' })).toBeVisible();
+  await page.getByRole('button', { name: '按荤素汤', exact: true }).click();
+  for (const label of ['荤菜道数', '素菜道数', '汤品道数']) await page.getByLabel(label, { exact: true }).selectOption('0');
+  await expect(page.getByRole('alert').filter({ hasText: '至少选择 1 道菜' })).toBeVisible();
+  await generate(page);
+  await expect(page.locator('.notice')).toContainText('合计 1～20 道');
 });
 
 test('V-07: 编辑后晚到结果不覆盖，断流不可成功', async ({ page }) => {
@@ -190,7 +197,7 @@ test('V-07: 编辑后晚到结果不覆盖，断流不可成功', async ({ page 
   let handled!: () => void; const settled = new Promise<void>(resolve => { handled = resolve; });
   await page.route('**/api/v1/recommendations', async route => { start(); const response = await route.fetch(); await wait; try { await route.fulfill({ response }); } catch (error) { if (!(error as Error).message.includes('already handled')) throw error; } finally { handled(); } });
   await page.getByRole('button', { name: '安排这一餐', exact: true }).click();
-  await started; await page.getByLabel('几个人吃', { exact: true }).fill('2'); release(); await settled; await expect(page.getByTestId('recipe-card')).toHaveCount(0);
+  await started; await page.getByRole('button', { name: '按荤素汤', exact: true }).click(); release(); await settled; await expect(page.getByTestId('recipe-card')).toHaveCount(0);
   await page.unroute('**/api/v1/recommendations');
   await page.route('**/api/v1/recommendations', route => route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: JSON.stringify({ type: 'progress', stage: '输入已校验' }) + '\n' }));
   await generate(page); await expect(page.getByRole('status').filter({ hasText: '结果连接中断' })).toBeVisible(); await expect(page.getByTestId('recipe-card')).toHaveCount(0);
@@ -266,7 +273,7 @@ test('本机测试：登录和刷新保留食材收藏，退出不清除本餐�
   await expect(page.locator('.account-state')).toContainText('本机测试账号');await page.keyboard.press('Escape');
   await expect(page.locator('.health-entry .switch')).not.toHaveClass(/on/);
   await expect(page.locator('.ingredients .ingredient-name').filter({hasText:'鸡蛋'})).toBeVisible(); await expect(page.getByLabel('鸡蛋用量',{exact:true})).toHaveCount(0);
-  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
+  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(6);
   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-health-test.png`, fullPage: true });
   await page.reload(); await expect(page.locator('.health-entry .switch')).not.toHaveClass(/on/);
   await page.getByRole('button', { name: '个人设置', exact: true }).click();
@@ -278,58 +285,54 @@ test('本机测试：登录和刷新保留食材收藏，退出不清除本餐�
   await page.getByRole('link', { name: '我的收藏', exact: false }).click(); await expect(page.locator('.saved-recipes')).toContainText(name);
 });
 
-test('D7-10: 人数参考表覆盖12人，自动不受残留自定义空值/超量校验影响', async ({ page }, info) => {
+test('D7-10: 菜数两态为不限数量与按荤素汤，选择持久化且互不污染', async ({ page }, info) => {
   await parse(page, ingredients);
   await expect(page.locator('.amount-hint')).toHaveCount(0);
-  await page.getByRole('button', { name: /人配菜参考 · 查看人数表/ }).click();
-  const guide = page.getByRole('dialog', { name: '人数与配菜参考', exact: true });
-  await expect(guide.locator('tbody tr')).toHaveCount(12);
-  await expect(guide.getByRole('row', { name: '2 人 2 3 — 5 道', exact: true })).toBeVisible();
-  const bounds = await guide.boundingBox(); expect(bounds!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
-  await guide.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-serving-guide.png` });
-  await page.keyboard.press('Escape');
-  await page.getByRole('button', { name: '荤素汤搭配 ⌄', exact: true }).click();
-  const custom = page.getByLabel('明确指定荤、素、汤数量', { exact: true }); await custom.check();
-  await page.getByLabel('荤菜道数', { exact: true }).fill('');
-  await generate(page); await expect(page.locator('.notice')).toContainText('合计 1～20 道');
-  await custom.uncheck(); await expect(page.locator('.notice')).toHaveCount(0);
-  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(3);
-  await page.reload(); await page.getByRole('button', { name: '荤素汤搭配 ⌄', exact: true }).click();
-  await custom.check();
-  await page.getByLabel('荤菜道数', { exact: true }).fill('10');
-  await page.getByLabel('素菜道数', { exact: true }).fill('10');
-  await page.getByLabel('汤品道数', { exact: true }).fill('1');
-  await generate(page); await expect(page.locator('.notice')).toContainText('合计 1～20 道');
-  await custom.uncheck(); await generate(page);
-  await expect(page.getByTestId('recipe-card')).toHaveCount(3); await expect(page.locator('.notice')).toHaveCount(0);
-});
-
-test('D7-11: 自定义九道不足时告知，一键允许补买后按荤素汤生成，20道不被旧上限拒绝', async ({ page }, info) => {
-  await parse(page, '土豆150g');
-  await page.getByRole('button', { name: '荤素汤搭配 ⌄', exact: true }).click();
-  await page.getByLabel('明确指定荤、素、汤数量', { exact: true }).check();
-  for (const [name, value] of [['荤菜道数', '3'], ['素菜道数', '5'], ['汤品道数', '1']]) await page.getByLabel(name, { exact: true }).fill(value);
-  await generate(page); await expect(page.locator('.result-state')).toContainText('你指定了 9 道');
-  await page.getByRole('button', { name: '允许补买，按指定数量搭配', exact: true }).click();
-  await expect(page.getByTestId('recipe-card')).toHaveCount(9);
+  await expect(page.locator('.recommendation-mode strong')).toHaveText('不限数量');
+  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(6);
+  await expect(page.getByRole('button', { name: '不限数量', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: '按荤素汤', exact: true }).click();
+  await expect(page.getByLabel('荤菜道数', { exact: true })).toHaveValue('1');
+  await expect(page.getByLabel('素菜道数', { exact: true })).toHaveValue('1');
+  await expect(page.getByLabel('汤品道数', { exact: true })).toHaveValue('0');
+  await page.getByLabel('素菜道数', { exact: true }).selectOption('2');
+  await generate(page);
   await expect(page.locator('.recommendation-mode strong')).toHaveText('按需搭配');
-  await expect(page.getByRole('button', { name: '下一页', exact: true })).toHaveCount(0);
-  const tags = page.getByTestId('recipe-card').locator('.card-tags');
-  await expect(tags.filter({ hasText: '荤菜' })).toHaveCount(3);
-  await expect(tags.filter({ hasText: '素菜' })).toHaveCount(5);
-  await expect(tags.filter({ hasText: '汤品' })).toHaveCount(1);
-  await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-custom-nine.png`, fullPage: true });
-  await page.getByLabel('荤菜道数', { exact: true }).fill('0');
-  await page.getByLabel('素菜道数', { exact: true }).fill('20');
-  await page.getByLabel('汤品道数', { exact: true }).fill('0');
-  await generate(page); await expect(page.locator('.result-state')).toContainText('你指定了 20 道');
-  await expect(page.locator('.result-state')).toContainText('目前可搭配');
-  const names=await page.getByTestId('recipe-card').locator('h4').allTextContents();expect(names.length).toBeGreaterThan(0);expect(names.length).toBeLessThan(20);
-  const catalog=(await(await page.request.get('/api/v1/catalog/recipes')).json()).recipes;expect(names.every(name=>catalog.some((recipe:{name:string})=>recipe.name===name))).toBe(true);
+  await expect(page.locator('.result-state')).toContainText('已按 1 荤 2 素 0 汤配齐');
+  await expect(page.getByTestId('recipe-card')).toHaveCount(3);
+  await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-counts.png` });
+  await page.reload();
+  await expect(page.getByRole('button', { name: '按荤素汤', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByLabel('素菜道数', { exact: true })).toHaveValue('2');
+  await page.getByRole('button', { name: '不限数量', exact: true }).click();
+  await generate(page); await expect(page.getByTestId('recipe-card')).toHaveCount(6);
   await expect(page.locator('.notice')).toHaveCount(0);
 });
 
-test('D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做法保持不变', async ({ page }, info) => {
+test('D7-11: 只够几道时按类告知缺额，补买不凭空凑数，可切不限数量', async ({ page }, info) => {
+  await parse(page, '土豆150g');
+  await chooseCounts(page, 0, 0, 20);
+  await generate(page);
+  await expect(page.locator('.result-state')).toContainText('还缺：荤菜 0 道 · 素菜 0 道 · 汤 20 道');
+  await expect(page.getByRole('button', { name: '允许补买，按指定数量搭配', exact: true })).toBeVisible();
+  const withoutBuy = await page.getByTestId('recipe-card').count();
+  expect(withoutBuy).toBeLessThan(20);
+  await page.getByRole('button', { name: '允许补买，按指定数量搭配', exact: true }).click();
+  // 补买只补缺料，不改变“每道菜要复用现有主料”，土豆解锁的汤品仍有限。
+  await expect(page.locator('.shortfall')).toBeVisible();
+  expect(await page.getByTestId('recipe-card').count()).toBeLessThan(20);
+  await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-shortfall.png`, fullPage: true });
+  await page.getByRole('button', { name: '改成不限数量看看', exact: true }).click();
+  await expect(page.locator('.recommendation-mode strong')).toHaveText('不限数量');
+  await expect(page.getByTestId('recipe-card').first()).toBeVisible();
+  const names = await page.getByTestId('recipe-card').locator('h4').allTextContents();
+  expect(names.length).toBeGreaterThan(0);
+  const catalog = (await (await page.request.get('/api/v1/catalog/recipes')).json()).recipes;
+  expect(names.every(name => catalog.some((recipe: { name: string }) => recipe.name === name))).toBe(true);
+  await expect(page.locator('.notice')).toHaveCount(0);
+});
+
+test('D7-14: 做法和收藏不标人数，切换菜数不改变做法与用量', async ({ page }, info) => {
   await parse(page, ingredients); await page.getByRole('button', { name: '微辣', exact: true }).click(); await generate(page);
   const card = page.getByTestId('recipe-card').first(), name = await card.locator('h4').innerText();
   await card.getByRole('button', { name: '看看做法', exact: false }).click();
@@ -340,22 +343,15 @@ test('D7-14: 做法和收藏不标人数，3/12人及人数暂留空时用量做
   };
   await expect(detail).not.toContainText(/人份|人数|按当前.*人/);
   await detail.getByRole('button', { name: new RegExp(`^收藏 ${name}`) }).click(); await page.keyboard.press('Escape');
-  for (const diners of ['3', '12', '']) {
-    await page.goto('/#workspace');
-    await page.getByLabel('几个人吃', { exact: true }).fill(diners);
-    await page.getByRole('link', { name: '我的收藏', exact: false }).click();
-    const favorites = page.locator('.saved-recipes');
-    await expect(favorites).not.toContainText(/人份|人数/);
-    await openSavedRecipe(page,name);
-    await expect(detail).not.toContainText(/人份|人数|按当前.*人/);
-    await expect(detail.locator('.detail-meta')).toHaveText(reference.meta, { useInnerText: true });
-    await expect(detail.locator('.detail-lines')).toHaveText(reference.amounts, { useInnerText: true });
-    await expect(detail.locator('.steps')).toHaveText(reference.steps, { useInnerText: true });
-    await expect(detail.locator('.nutrition-box')).toHaveText(reference.nutrition, { useInnerText: true });
-    if (diners === '12') await detail.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-fixed-favorite.png` });
-    await page.keyboard.press('Escape');
-    await page.getByRole('link', { name: '做饭工作台', exact: true }).click();
-    // Independent-page navigation restores the last valid draft; a blank number is not persisted.
-    await expect(page.getByLabel('几个人吃', { exact: true })).toHaveValue(diners || '12');
-  }
+  await chooseCounts(page, 1, 2, 0);
+  await page.getByRole('link', { name: '我的收藏', exact: false }).click();
+  const favorites = page.locator('.saved-recipes');
+  await expect(favorites).not.toContainText(/人份|人数/);
+  await openSavedRecipe(page, name);
+  await expect(detail).not.toContainText(/人份|人数|按当前.*人/);
+  await expect(detail.locator('.detail-meta')).toHaveText(reference.meta, { useInnerText: true });
+  await expect(detail.locator('.detail-lines')).toHaveText(reference.amounts, { useInnerText: true });
+  await expect(detail.locator('.steps')).toHaveText(reference.steps, { useInnerText: true });
+  await expect(detail.locator('.nutrition-box')).toHaveText(reference.nutrition, { useInnerText: true });
+  await detail.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-fixed-favorite.png` });
 });
