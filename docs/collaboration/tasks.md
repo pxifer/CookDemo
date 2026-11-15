@@ -54,6 +54,7 @@
 | RAG-036 | 当前 RAG 开发 chat（DSH 接管） | 公开署名只保留来源名，去掉“｜标题王刚版/（MIRecipe公开存档）”等注释 | `agent/rag/RAG-036-attribution` | 单元 423/420；类型、构建；线上 28 个署名 0 残留分隔符 | 已部署 v77（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v77-2026-11-14.md) |
 | RAG-037 | 当前 RAG 开发 chat（DSH 接管） | 署名分隔符扩到任意分隔符（：、· 等），跳过通用前缀 | `agent/rag/RAG-037-attribution-seps` | 单元 423/420；线上 28 个署名 0 个双名 | 已部署 v78（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v78-2026-11-14.md) |
 | RAG-038 | 当前 RAG 开发 chat（DSH 接管） | 肉类大类按肌肉部位匹配：二刀肉等切法命中猪肉，内脏/骨/蹄/腊制品不命中 | `agent/rag/RAG-038-meat-cuts` | 单元 424/421；25 条部位断言；线上 JS 已含新规则 | 已部署 v79（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v79-2026-11-14.md) |
+| RAG-039 | 当前 RAG 开发 chat（DSH 接管） | 下拉归并与匹配对齐；蛋类大类补全；带皮腿肉不再误判 | `agent/rag/RAG-039-picker-sync` | 单元 424/421；一致性审计 17→15；下拉 403→471 | 已部署 v80（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v80-2026-11-14.md) |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
