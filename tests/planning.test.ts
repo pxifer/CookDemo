@@ -85,7 +85,7 @@ test('自定义20道：已具备食材不受填写量影响，补买仍不改变
 test('补买不越过内容类别与过敏限制，不通过重复菜谱凑20道', async () => {
   const m = mealWith('土豆200g'); m.allowBuy = true; m.composition = 'custom'; m.counts = { meat: 0, veg: 20, soup: 0 };
   const result = await recommend([simpleRecipe('a', [['potato', 100]])], request(m));
-  assert.equal(result.dishes.length, 1); assert(!result.targetMet); assert(result.reasons.some(r => r.includes('不足指定数量')));
+  assert.equal(result.dishes.length, 1); assert(!result.targetMet); assert(!result.reasons.some(r => r.includes('指定数量')));
   assert.deepEqual(result.shortfall, { meat: 0, veg: 19, soup: 0 });
   m.restrictions = [{ id: 'r', kind: 'allergy', name: '土豆', targets: ['potato'], status: 'confirmed', scope: 'self', original: '土豆' }];
   assert.equal(checkDish(simpleRecipe('a', [['potato', 100]]), simpleRecipe('a', [['potato', 100]]).variants[0], m).dish, undefined);

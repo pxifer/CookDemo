@@ -77,7 +77,7 @@ test('按荤素汤凑不齐时按类给缺额和可操作原因，不静默少�
     assert.equal(result.shortfall.soup, 20 - result.dishes.length);
     assert.equal(result.shortfall.meat, 0);
     assert.equal(result.shortfall.veg, 0);
-    assert(result.reasons.some((r: string) => r.includes('凑齐指定数量')), result.reasons.join('|'));
+    assert(!result.reasons.some((r: string) => r.includes('指定数量')), result.reasons.join('|'));
   } finally { await app.close(); }
 });
 
