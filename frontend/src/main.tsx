@@ -25,7 +25,7 @@ import { pantryGroups, seasoningGroup } from '../../shared/pantry';
 import { SiteHeader } from './site-header';
 import { PhotoInput } from './photo-input';
 import { suggestPantryFoods, resolvePantryFood } from '../../shared/ingredient-matching';
-import { recipeLineText, shoppingList } from './recipe-presentation';
+import { recipeLineText, shoppingListSections } from './recipe-presentation';
 import { AccountBanner, AccountControls } from './account-controls';
 import { initializeAccount, setAccountCatalog, accountState, subscribeAccount, savePersonalSettings, flushHealthSettings } from './account-store';
 import { applyPersonalSettings } from '../../shared/account';
@@ -64,8 +64,13 @@ function FavoriteControl({ recipe, variant, active, toggle, compact = false }: {
     {!compact && <span>{active ? '已收藏 · 点击取消' : '收藏此口味'}</span>}
   </button>;
 }
-function ShoppingList({ items }: { items: string[] }) {
-  return items.length ? <details className="shopping-list"><summary>补买 {items.length} 项</summary><ul className="checks" aria-label="这道菜需要补买">{items.map(text => <li key={text}>{text}</li>)}</ul></details> : null;
+function ShoppingList({ sections }: { sections: { ingredients: string[]; seasonings: string[] } }) {
+  const total = sections.ingredients.length + sections.seasonings.length;
+  if (!total) return null;
+  return <details className="shopping-list"><summary>补买 {total} 项</summary>
+    {sections.ingredients.length > 0 && <><p className="shopping-group">食材</p><ul className="checks" aria-label="这道菜需要补买的食材">{sections.ingredients.map(text => <li key={text}>{text}</li>)}</ul></>}
+    {sections.seasonings.length > 0 && <><p className="shopping-group">调料</p><ul className="checks" aria-label="这道菜需要补买的调料">{sections.seasonings.map(text => <li key={text}>{text}</li>)}</ul></>}
+  </details>;
 }
 function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 'workspace' | 'favorites' }) {
   const { recipes, foods, categories, foodById } = catalog;
@@ -328,6 +333,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
   };
   const deleteRestriction = (id: string) => edit(m => ({ ...m, restrictions: m.restrictions.filter(r => r.id !== id) }));
   const nav = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const resultShopping = result ? shoppingListSections(result.dishes, meal, foodById) : { ingredients: [], seasonings: [] };
   return <>
     <a className="skip" href={page === 'workspace' ? '#workspace' : '#saved-recipes'}>跳到{page === 'workspace' ? '本餐工作台' : '我的收藏'}</a>
     <SiteHeader page={page} count={favorites.length} signedIn={sessionInfo?.identity === 'local-test'||sessionInfo?.identity === 'account'} settings={() => { setNotice(''); setModal('account'); }}/>
@@ -374,12 +380,12 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
             <div className="card-body">
               <h4>{dish.recipe.name}</h4><div className="card-tags"><span>{labels[dish.recipe.category]}</span><span>{dish.recipe.homeStyle ? '家常菜' : '换个花样'}</span>{dish.recipe.minutes !== null && <span>{dish.recipe.minutes} 分钟</span>}</div>
               <p className="card-ingredients">{[...new Set(dish.variant.lines.filter(l => l.role === 'main').map(l => foodById.get(l.foodId)?.name))].join(' · ')}</p>
-              {dish.aiReason&&<p className="ai-recipe-reason"><strong>AI 建议理由</strong>{dish.aiReason}</p>}{dish.aiBasis?.length ? <details className="small"><summary>本餐核对依据</summary>{dish.aiBasis.map(basis=><p key={basis}>{basis}</p>)}</details> : null}<div className="card-options"><label className="card-flavor"><span className="sr-only">单菜口味</span>{dish.recipe.variants.length > 1 ? <select aria-label={`${dish.recipe.name}口味`} disabled={busy} value={dish.variant.id} onChange={e => void changeVariant(dish, e.target.value)}>{dish.recipe.variants.map(v => <option key={v.id} value={v.id}>{v.flavor}</option>)}</select> : <span>{dish.variant.flavor}</span>}</label><ShoppingList items={shoppingList([dish],meal,foodById)}/></div>
+              {dish.aiReason&&<p className="ai-recipe-reason"><strong>AI 建议理由</strong>{dish.aiReason}</p>}{dish.aiBasis?.length ? <details className="small"><summary>本餐核对依据</summary>{dish.aiBasis.map(basis=><p key={basis}>{basis}</p>)}</details> : null}<div className="card-options"><label className="card-flavor"><span className="sr-only">单菜口味</span>{dish.recipe.variants.length > 1 ? <select aria-label={`${dish.recipe.name}口味`} disabled={busy} value={dish.variant.id} onChange={e => void changeVariant(dish, e.target.value)}>{dish.recipe.variants.map(v => <option key={v.id} value={v.id}>{v.flavor}</option>)}</select> : <span>{dish.variant.flavor}</span>}</label><ShoppingList sections={shoppingListSections([dish],meal,foodById)}/></div>
               {dish.nutrition.kcal !== null && <p className="nutrition-note">热量 {dish.nutrition.kcal} kcal / 整道菜</p>}
               <div className="card-actions"><button disabled={busy&&pendingRecipeId===dish.recipe.id} onClick={() => { setFavoriteFeedback(''); setDetail({ recipe: dish.recipe, variant: dish.variant, checks: dish.checks, nutrition: dish.nutrition }); }}>看看做法 <span>↗</span></button>{meal.mode === 'meal' && <button aria-label={`替换 ${dish.recipe.name}`} disabled={busy} aria-busy={busy&&pendingRecipeId===dish.recipe.id} onClick={() => void generate('replace', { replaceId: dish.recipe.id })}>{busy&&pendingRecipeId===dish.recipe.id?'更新中…':'换一道 ↻'}</button>}</div>
             </div>
           </article>)}</div>
-          {shoppingList(result.dishes,meal,foodById).length > 0 && <details className="set-checks"><summary>本餐补买清单</summary><ul className="checks">{shoppingList(result.dishes,meal,foodById).map(text => <li key={text}>{text}</li>)}</ul></details>}
+          {(resultShopping.ingredients.length > 0 || resultShopping.seasonings.length > 0) && <details className="set-checks"><summary>本餐补买清单</summary>{resultShopping.ingredients.length > 0 && <><p className="shopping-group">食材</p><ul className="checks">{resultShopping.ingredients.map(text => <li key={text}>{text}</li>)}</ul></>}{resultShopping.seasonings.length > 0 && <><p className="shopping-group">调料</p><ul className="checks">{resultShopping.seasonings.map(text => <li key={text}>{text}</li>)}</ul></>}</details>}
           {result.dishes.length > 0 && meal.mode !== 'meal' && <div className="result-actions"><button disabled={busy||result.page === 0} onClick={() => void generate('page', { page: result.page - 1, cursor: result.cursor })}>上一页</button><span>{result.page + 1} / {Math.max(1, Math.ceil(result.total / 6))}</span><button disabled={busy||(result.page + 1) * 6 >= result.total} onClick={() => void generate('page', { page: result.page + 1, cursor: result.cursor })}>{busy&&progress.startsWith('正在加载第 ')?progress.match(/^正在加载第 \d+ 页/)?.[0]:'下一页'}</button></div>}
         </>}
       </section></div>
