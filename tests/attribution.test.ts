@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { publicAttributionLabel } from '../shared/attribution';
 
-test('公开署名只保留最前面的来源名', () => {
+test('任何分隔符都只保留前一个名字', () => {
   const cases: [string, string][] = [
     ['小鹿yoyo｜标题王刚版', '小鹿yoyo'],
     ['好豆菜谱（MIRecipe公开存档）', '好豆菜谱'],
@@ -14,6 +14,10 @@ test('公开署名只保留最前面的来源名', () => {
     ['待我去买个橘子｜注明转自B站隋坡', '待我去买个橘子'],
     ['Hannie厨房小白｜注明复刻农国栋', 'Hannie厨房小白'],
     ['爷俩儿好菜｜抖音索引文稿', '爷俩儿好菜'],
+    ['小鹿yoyo：标题王刚版', '小鹿yoyo'],
+    ['王刚:米饭杀手', '王刚'],
+    ['同和居饭庄、原创', '同和居饭庄'],
+    ['账号名：美食作家王刚', '美食作家王刚'],
   ];
   for (const [author, expected] of cases) assert.equal(publicAttributionLabel(author), expected, author);
 });
