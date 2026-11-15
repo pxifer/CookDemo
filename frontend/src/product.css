@@ -59,6 +59,12 @@
 .ingredient-row .ingredient-name-edit{height:32px;min-height:32px;border:1px solid #e5e9df;border-radius:5px;background:#fffdf8;color:var(--green);font-size:13px;padding:4px 6px}.ingredient-unrecognized{margin:2px 0 2px 10px;color:#8b642e;font-size:11px;line-height:1.5}
 .shopping-list { margin: 14px 0; border: 1px solid var(--border, #e5e8dd); border-radius: 10px; padding: 10px 12px; }
 .shopping-group { font-size: 11px; color: var(--muted); margin: 8px 0 2px; }
+.shopping-section{border:1px solid #dfe6d4;border-radius:8px;padding:8px 10px;background:#fff}
+.shopping-section+.shopping-section{margin-top:8px}
+.shopping-section h4{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:12px;font-weight:600;color:var(--green);margin:0}
+.shopping-section h4 span{font-size:11px;font-weight:400;color:var(--muted)}
+.shopping-section .checks{margin:4px 0 0}
+.shopping-section .checks li:last-child{border-bottom:0}
 .shopping-list summary { cursor: pointer; font-size: .9rem; }
 .shopping-list summary span { float: right; color: #68765f; }
 .shopping-list .checks { max-height: 180px; overflow-y: auto; margin-bottom: 0; }
