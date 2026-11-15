@@ -91,7 +91,8 @@
 .food-picker-select label{display:grid;gap:5px;min-width:0;font-size:11px;color:var(--muted)}
 .food-picker-select select{width:100%;min-width:0;min-height:42px;padding:6px;border:1px solid var(--line);border-radius:6px;background:#fffdf8;color:var(--green);font-size:12px}
 .food-picker-add{min-height:42px;padding:7px 10px;border-radius:6px;background:var(--green);color:white;font-size:12px}
-.food-picker-manual{margin-top:8px;font-size:12px;color:var(--muted)}
+.food-picker-manual{margin-top:10px;font-size:12px;color:var(--muted)}
+.food-picker-manual p{margin:0 0 6px}
 .food-picker-manual>summary{cursor:pointer;min-height:32px;line-height:32px}
 .food-picker-manual .manual-add{margin-top:4px}
 .account-form { display: grid; gap: 12px; }

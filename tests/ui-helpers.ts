@@ -1,9 +1,8 @@
 import {expect,type Page,type Route} from '@playwright/test';
 import type {RecommendationResult} from '../shared/types';
 export async function addManualFood(page:Page,name:string){
-  const details=page.locator('.food-picker-manual');
-  if(!await details.evaluate(element=>element.hasAttribute('open')))await details.locator('summary').click();
-  const input=details.getByLabel('手动添加食材',{exact:true});await input.fill(name);await input.press('Enter');
+  const input=page.locator('.food-picker-manual').getByLabel('手动添加食材',{exact:true});
+  await input.fill(name);await input.press('Enter');
 }
 export async function recommendationAfter(page:Page,action:()=>Promise<unknown>,kind:'generate'|'variant'):Promise<RecommendationResult>{
   // APIResponse retains its body independently of Chromium's consumed stream.
