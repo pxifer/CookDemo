@@ -96,6 +96,26 @@ test('食材大类只匹配明确同类部位，不把粉条与米粉混淆',()=
   const item={id:'pantry-item',foodId:vermicelli.id,name:'粉条',amount:'',basis:'unknown' as const,form:'raw',status:'confirmed' as const,original:'粉条'};
   assert.equal(findPantryIngredient({foodId:riceNoodles.id,amount:null,unit:'g',role:'main',basis:'unknown',form:'raw'},[item],lookup),undefined);
 });
+test('猪肉大类覆盖肌肉部位，不覆盖内脏/骨头/蹄/腌制品',()=>{
+  const cases:[string,string,boolean][]=[
+    // muscle cuts are covered
+    ['猪肉','二刀肉',true],['猪肉','梅头肉',true],['猪肉','通脊肉',true],['猪肉','五花肉',true],
+    ['猪肉','猪颊肉',true],['猪肉','肉片',true],['猪肉','肉丝',true],['猪肉','猪瘦肉',true],
+    // offal, bones, feet, skin and cured products are bought separately
+    ['猪肉','猪肝',false],['猪肉','猪腰',false],['猪肉','猪肚',false],['猪肉','猪大肠',false],
+    ['猪肉','排骨',false],['猪肉','猪小排',false],['猪肉','筒子骨',false],['猪肉','猪蹄',false],
+    ['猪肉','猪皮',false],['猪肉','猪油',false],['猪肉','腊肉',false],['猪肉','咸五花肉',false],
+    ['牛肉','牛肚',false],['牛肉','牛小排',false],['鸡肉','鸡心',false],['鸡肉','鸡爪',false],['鱼','鱿鱼',false],
+  ];
+  for(const [pantryName,recipeName,expected] of cases){
+    const pantryFood={id:`pantry-${pantryName}`,name:pantryName,aliases:[],unit:'g' as const,form:'raw',allergens:[],componentsComplete:false,nutrition:{}};
+    const recipeFood={...pantryFood,id:`recipe-${recipeName}`,name:recipeName};
+    const lookup=new Map(foodById).set(pantryFood.id,pantryFood).set(recipeFood.id,recipeFood);
+    const item={id:'pantry-item',foodId:pantryFood.id,name:pantryName,amount:'',basis:'unknown' as const,form:'raw',status:'confirmed' as const,original:pantryName};
+    const match=findPantryIngredient({foodId:recipeFood.id,amount:null,unit:'g',role:'main',basis:'unknown',form:'raw'},[item],lookup);
+    assert.equal(Boolean(match),expected,`${pantryName} vs ${recipeName}`);
+  }
+});
 test('工作台输入“猪肉、白菜、粉条”能召回对应的具体原方，数量仍未核实',async()=>{
   const extraFoods=['五花肉','土豆干粉条'].map((name,index)=>({
     id:['gallery-pork-belly','gallery-vermicelli'][index],name,aliases:[],unit:'g' as const,form:'raw',allergens:[],componentsComplete:false,nutrition:{},

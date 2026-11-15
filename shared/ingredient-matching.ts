@@ -7,22 +7,39 @@ export type IngredientMatch = { ingredient: Ingredient; kind: 'exact' | 'broad' 
  * recipe; it never proves that a cut, variety, processing form, or quantity fits.
  * Keep these patterns narrow so unrelated staples (for example rice noodles) do
  * not become interchangeable with vermicelli.
+ *
+ * `recipeNames` also drives picker grouping; `matchNames` is the stricter test used to
+ * decide whether a pantry item covers a recipe ingredient. Holding "猪肉" means holding a
+ * piece of muscle, not the bones, offal, skin, fat or cured products sold separately.
  */
-const families: { id: string; name: string; inputs: string[]; recipeNames: RegExp; excludedRecipeNames?: RegExp }[] = [
-  { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'], recipeNames: /猪|五花肉|里脊|梅花肉|排骨|肋排|猪排|猪蹄|猪肘|肘子|肉馅|肉末|筒子骨|扇骨|龙骨|小排|大肠|小肠/,
+type Family = { id: string; name: string; inputs: string[]; recipeNames: RegExp; excludedRecipeNames?: RegExp; matchNames?: (name: string) => boolean };
+const notAPieceOfMeat = /骨|排骨|肋排|小排|肋|肝|腰|肚|肠|心|肺|血|横脷|皮|油|脚|手|蹄|尾|肘|(?:猪|牛|羊|鸡|鸭|鹅)头|脑|耳|舌|筋|爪|掌|脖|胗|杂|丸|松|腊|咸|卤|酱|叉烧|火腿|培根|香肠|午餐肉|罐头|风干|熏|汤|高汤|精|粉|蛋|奶|籽/;
+const muscle = (words: RegExp) => (name: string) => words.test(name) && !notAPieceOfMeat.test(name);
+const families: Family[] = [
+  { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'],
+    recipeNames: /猪|五花|梅花|二刀|梅头|里脊|里几|通脊|夹心|坐臀|臀尖|底板|颊肉|肥膘|瘦肉|排骨|肋排|肘子|筒子骨|扇骨|龙骨|小排|大肠|小肠|肉馅|肉末|肉片|肉丝|肉丁|肉块|^肉$/,
+    // Muscles and their everyday cut names; 二刀肉/梅头肉/通脊/底板 are pork cuts too.
+    matchNames: muscle(/猪|五花|梅花|二刀|梅头|里脊|里几|通脊|夹心|坐臀|臀尖|底板|颊肉|肥膘|瘦肉|^(?:肉|肉丝|肉片|肉末|肉馅|肉丁|肉块)$/),
     excludedRecipeNames: /猪油|猪皮|牛|羊|鸡|鸭|鹅|鱼|虾/ },
   { id: 'chicken', name: '鸡肉', inputs: ['鸡肉', '鸡'], recipeNames: /鸡/,
+    matchNames: muscle(/鸡/),
     excludedRecipeNames: /鸡蛋|鸡精|鸡粉|鸡汤|鸡油|鸡枞|鸡腿菇/ },
   { id: 'duck', name: '鸭肉', inputs: ['鸭肉', '鸭'], recipeNames: /鸭/,
+    matchNames: muscle(/鸭/),
     excludedRecipeNames: /鸭蛋|鸭油/ },
   { id: 'goose', name: '鹅肉', inputs: ['鹅肉', '鹅'], recipeNames: /鹅/,
+    matchNames: muscle(/鹅/),
     excludedRecipeNames: /鹅蛋|鹅油/ },
   { id: 'beef', name: '牛肉', inputs: ['牛肉'], recipeNames: /牛/,
+    matchNames: muscle(/牛/),
     excludedRecipeNames: /牛奶|牛油|牛油果|牛骨/ },
   { id: 'lamb', name: '羊肉', inputs: ['羊肉'], recipeNames: /羊/,
+    matchNames: muscle(/羊/),
     excludedRecipeNames: /羊奶/ },
   { id: 'fish', name: '鱼', inputs: ['鱼', '鲜鱼'], recipeNames: /鱼/,
-    excludedRecipeNames: /鱼露|鱼丸|鱼豆腐|鱼粉|鱼皮|鱼籽/ },
+    matchNames: muscle(/鱼/),
+    // 墨鱼/鱿鱼/章鱼 are molluscs, not fish.
+    excludedRecipeNames: /墨鱼|鱿鱼|章鱼|八爪|鱼露|鱼丸|鱼豆腐|鱼粉|鱼皮|鱼籽|鱼腥草/ },
   { id: 'shrimp', name: '虾', inputs: ['虾', '大虾', '鲜虾'], recipeNames: /虾/,
     excludedRecipeNames: /虾皮|虾酱|虾粉|虾米/ },
   { id: 'crab', name: '蟹', inputs: ['蟹', '螃蟹'], recipeNames: /蟹/,
@@ -100,6 +117,7 @@ function compatibleNames(pantryNames: string[], recipeNames: string[]): boolean 
   if (pantry.some(p => recipe.includes(p))) return true;
   const family = families.find(f => pantry.some(p => f.inputs.includes(p)));
   if (family) return recipe.some(r => family.recipeNames.test(r) && !family.excludedRecipeNames?.test(r)
+    && (family.matchNames ? family.matchNames(r) : true)
     && pantry.some(p => !productMismatch(p, r)));
   return pantry.some(p => isQueryName(p) && recipe.some(r => r.includes(p) && !productMismatch(p, r)));
 }
