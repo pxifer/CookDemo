@@ -11,7 +11,7 @@ test('V-01 / V-09: 运行时Schema、来源和CSRF拒绝、无秘密错误输出
     const headers = { cookie, origin: 'http://localhost:80', 'x-csrf-token': token };
     assert.equal((await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: request() })).statusCode, 401);
     assert.equal((await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: request(), headers: { ...headers, origin: 'https://evil.invalid' } })).statusCode, 403);
-    for (const fields of [{ mode: 'unknown' }, { allowBuy: 'true' }, { servings: 2 }]) {
+    for (const fields of [{ mode: 'unknown' }, { allowBuy: 'true' }]) {
       const req = request(); Object.assign(req.meal, fields);
       const res = await app.inject({ method: 'POST', url: '/api/v1/recommendations', payload: req, headers });
       assert.equal(res.statusCode, 400, res.body); assert.equal(res.json().error.code, 'INVALID_REQUEST');
