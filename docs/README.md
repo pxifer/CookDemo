@@ -18,7 +18,7 @@
 | 数据、菜谱及来源 | [数据集入口](../datasets/README.md)、[菜谱来源](../datasets/recipes/README.md)、[当前研究知识库v3](../datasets/health/README-v3.md) |
 | 当前本地测试边界与未完成事项 | [资源约定](operations/resource-preservation.md)、[验证状态](operations/validation-status.md) |
 | 云端手册与本地运维 | [HTTP 云函数](operations/DEPLOYMENT-CLOUDBASE-HTTP.md)、[本地运维](operations/DEPLOYMENT-RUNBOOK.md) |
-| 既有发布证据 | 最近为 [v92](releases/ACCEPTANCE-main-v92-2026-11-15.md)；历史见 `docs/releases/` |
+| 既有发布证据 | 最近为 [v93](releases/ACCEPTANCE-main-v93-2026-11-15.md)；历史见 `docs/releases/` |
 | 历史验收与原始运行证据 | `releases/`、[证据管理](../artifacts/README.md)；不重写旧报告的指纹与结果 |
 | 历史风险评审及讲述快照 | [归档说明](archive/README.md) |
 | 2026-11-03 目录整理与恢复 | [整理记录](maintenance/reorganization-2026-11-03/README.md) |
