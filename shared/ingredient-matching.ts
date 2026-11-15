@@ -139,7 +139,32 @@ function queryId(name: string): string {
 }
 
 // Only proven synonyms auto-resolve. Ambiguous visual labels require a user choice.
-const inputSynonyms = [ ['小番茄','小西红柿','樱桃番茄','圣女果'], ['番茄','西红柿'], ['马铃薯','土豆'], ['卷心菜','洋白菜','包菜'], ['青花菜','西兰花'] ];
+// A group means "the same shopping item under a different name", so matching is symmetric:
+// holding 圆葱 covers a recipe that asks for 洋葱, and the other way round. Names that are
+// different products (青椒 vs 红椒, 大白菜 vs 小白菜, 大葱 vs 小葱) stay apart.
+const inputSynonyms = [
+  ['小番茄','小西红柿','樱桃番茄','圣女果'],
+  ['番茄','西红柿'],
+  ['马铃薯','土豆','洋芋'],
+  ['卷心菜','洋白菜','包菜','圆白菜'],
+  ['青花菜','西兰花'],
+  ['洋葱','圆葱'],
+  ['小米辣','小米椒'],
+  ['豆角','豇豆','长豆角','长豇豆'],
+  ['红椒','红辣椒','红尖椒'],
+  ['芹菜','西芹'],
+  ['豆芽','绿豆芽','黄豆芽','黑豆芽'],
+  ['玉米','玉米粒','甜玉米粒'],
+  ['豆腐','北豆腐','老豆腐','嫩豆腐','南豆腐','内酯豆腐','水豆腐'],
+  ['白菜','娃娃菜','白菜心'],
+  ['排骨','猪排骨','肋排','猪肋排'],
+  ['花生','花生米','花生仁'],
+  ['莴笋','莴苣'],
+  ['香菜','芫荽'],
+  ['红薯','地瓜','番薯','山芋'],
+  ['蒜苔','蒜薹'],
+  ['二荆条','二荊条'],
+];
 export function suggestPantryFoods(name:string,lookup:ReadonlyMap<string,Food>):Food[] {
   const term=normalizeIngredientName(name);
   const choices:Record<string,string[]>={生肉:['猪肉','牛肉','羊肉','鸡肉'],肉:['猪肉','牛肉','羊肉','鸡肉'],干果:['核桃','杏仁','腰果','葡萄干','红枣'],坚果:['核桃','杏仁','腰果'],小西红柿:['圣女果','小番茄','西红柿']};
