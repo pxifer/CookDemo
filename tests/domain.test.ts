@@ -106,6 +106,7 @@ test('猪肉大类覆盖肌肉部位，不覆盖内脏/骨头/蹄/腌制品',()=
     ['猪肉','排骨',false],['猪肉','猪小排',false],['猪肉','筒子骨',false],['猪肉','猪蹄',false],
     ['猪肉','猪皮',false],['猪肉','猪油',false],['猪肉','腊肉',false],['猪肉','咸五花肉',false],
     ['牛肉','牛肚',false],['牛肉','牛小排',false],['鸡肉','鸡心',false],['鸡肉','鸡爪',false],['鱼','鱿鱼',false],
+    ['鸡蛋','蛋液',true],['鸡蛋','蛋清',true],['鸡蛋','蛋黄',true],['鸡蛋','皮蛋',false],['鸡蛋','咸鸭蛋',false],
   ];
   for(const [pantryName,recipeName,expected] of cases){
     const pantryFood={id:`pantry-${pantryName}`,name:pantryName,aliases:[],unit:'g' as const,form:'raw',allergens:[],componentsComplete:false,nutrition:{}};
