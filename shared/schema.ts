@@ -20,6 +20,9 @@ export const healthProfileSchema=object({conditions:array({...string(100),minLen
 export const mealSchema = object({
   version: integer(0, 2_147_483_647), raw: string(5000), ingredients: array(ingredientSchema), restrictions: array(restrictionSchema, 50),
   mode: enumOf('meal', 'candidates'), health: boolean, diseases: array(string(100), 20),
+  // Deprecated compatibility field: old clients may still send diner count during
+  // the D19-14 rollout. It is accepted and ignored; remove after the release window.
+  servings: integer(1, 12),
   flavor: { type: 'string', minLength: 1, maxLength: 100 }, overrides: { type: 'object', maxProperties: 100, additionalProperties: string(100), propertyNames: { pattern: '^[a-z0-9-]+$' } },
   includeAdditional: boolean, checkSeasonings: boolean, seasonings: array(string(80), 50), allowBuy: boolean,
   composition: enumOf('auto', 'custom'), counts: object({ meat: integer(0, 20), veg: integer(0, 20), soup: integer(0, 20) }),
@@ -27,7 +30,7 @@ export const mealSchema = object({
   aiFoodPreferences:aiFoodPreferencesSchema,
   healthProfile:healthProfileSchema,
   aiExcludedFoods: array({...string(40),minLength:1},20),
-}, ['aiFoodChoices','aiExcludedFoods','healthProfile','aiFoodPreferences']);
+}, ['aiFoodChoices','aiExcludedFoods','healthProfile','aiFoodPreferences','servings']);
 export const selectedSchema = array(object({ recipeId: string(80), variantId: string(100) }), 20);
 export const personalSettingsSchema = object({flavor:mealSchema.properties.flavor,restrictions:array(restrictionSchema,50),checkSeasonings:boolean,seasonings:array(string(80),50),aiExcludedFoods:array({...string(40),minLength:1},20),healthProfile:healthProfileSchema,aiFoodPreferences:aiFoodPreferencesSchema},['aiExcludedFoods','healthProfile','aiFoodPreferences']);
 export const recommendationSchema = object({

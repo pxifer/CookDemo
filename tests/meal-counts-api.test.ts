@@ -95,14 +95,21 @@ test('补买不能让不适用的菜凑数：只放土豆时按荤素汤仍按�
   } finally { await app.close(); }
 });
 
-test('契约层拒绝人数，并区分Schema错误与菜数语义错误', async () => {
+test('过渡版本容忍旧人数字段并忽略，仍区分Schema与菜数语义错误', async () => {
   const { app, post } = await api();
   try {
+    const baselineRes = await post(mealWith());
+    assert.equal(baselineRes.statusCode, 200, baselineRes.body);
+    const baseline = baselineRes.json();
+
     const withDiner = mealWith() as Meal & { servings?: number };
     withDiner.servings = 2;
     const legacy = await post(withDiner);
-    assert.equal(legacy.statusCode, 400);
-    assert.equal(legacy.json().error.code, 'INVALID_REQUEST');
+    assert.equal(legacy.statusCode, 200, legacy.body);
+    const legacyResult = legacy.json();
+    assert.equal(legacyResult.dishes.length, baseline.dishes.length);
+    assert.equal(legacyResult.target, baseline.target);
+    assert.equal(legacyResult.targetMet, baseline.targetMet);
 
     const zero = mealWith(); zero.composition = 'custom'; zero.counts = { meat: 0, veg: 0, soup: 0 };
     const zeroRes = await post(zero);
