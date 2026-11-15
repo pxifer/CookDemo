@@ -1,6 +1,6 @@
 import type { Dish, Food, Line, Meal } from '../../shared/types';
 import { findPantryIngredient } from '../../shared/ingredient-matching';
-import { isCookingWater } from '../../shared/pantry';
+import { isCookingWater, seasoningStockKey } from '../../shared/pantry';
 import { ingredientDisplayText } from '../../shared/recipe-copy';
 
 /** Show the original recipe quantity, never invent a dose or a stock deficit. */
@@ -26,23 +26,31 @@ function shoppingQuantity(line: Line, name: string): { amount: number; unit: str
 const formatAmount = (value: number) => String(Math.round(value * 1000) / 1000);
 const UNKNOWN_NOTE = '（另有用量未注明）';
 
-export function shoppingList(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<string, Food>): string[] {
-  if (!meal.allowBuy) return [];
-  type Item = { foodId: string; name: string; parsed: { amount: number; unit: string; label: string } | null; text: string };
+type Item = { foodId: string; name: string; parsed: { amount: number; unit: string; label: string } | null; text: string };
+
+function collect(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<string, Food>, seasoning: boolean): Item[] {
   const items: Item[] = [];
   for (const dish of dishes) for (const line of dish.variant.lines) {
-    if (line.optional || isCookingWater(lookup.get(line.foodId)!.name)) continue;
+    if ((line.role === 'seasoning') !== seasoning) continue;
     if (line.role === 'seasoning' && !meal.checkSeasonings) continue;
+    const food = lookup.get(line.foodId)!;
+    if (line.optional || isCookingWater(food.name)) continue;
     // Having an ingredient does not prove a quantity is sufficient. The engine
     // retains that distinction; the shopping display follows the user's choice
     // to show recipe amounts only for ingredients they have not selected.
     if (findPantryIngredient(line, meal.ingredients, lookup)) continue;
     if (!dish.checks.some(check => check.foodId === line.foodId && check.state === 'missing')) continue;
-    const name = lookup.get(line.foodId)?.name ?? '';
-    items.push({ foodId: line.foodId, name: name || line.foodId, parsed: shoppingQuantity(line, name), text: recipeLineText(line, lookup) });
+    // Seasonings are stock items, not ingredients: fold 姜/姜片 into one pantry key.
+    const key = seasoning ? seasoningStockKey(food) : line.foodId;
+    const name = seasoning ? (lookup.get(key)?.name ?? food.name) : (food.name || line.foodId);
+    items.push({ foodId: key, name, parsed: shoppingQuantity(line, food.name), text: recipeLineText(line, lookup) });
   }
-  // Only the same food and the same unit are summed; different units stay separate.
-  const known = new Map<string, { foodId: string; name: string; unitLabel: string; amount: number }>();
+  return items;
+}
+
+function merge(items: Item[]): string[] {
+  // Only the same item and the same unit are summed; different units stay separate.
+  const known = new Map<string, { name: string; unitLabel: string; amount: number }>();
   const unknownFoods = new Set<string>(), knownFoods = new Set<string>();
   for (const item of items) {
     if (!item.parsed) { unknownFoods.add(item.foodId); continue; }
@@ -50,7 +58,7 @@ export function shoppingList(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<str
     const key = `${item.foodId}|${item.parsed.unit}`;
     const row = known.get(key);
     if (row) row.amount += item.parsed.amount;
-    else known.set(key, { foodId: item.foodId, name: item.name, unitLabel: item.parsed.label, amount: item.parsed.amount });
+    else known.set(key, { name: item.name, unitLabel: item.parsed.label, amount: item.parsed.amount });
   }
   const emitted = new Set<string>(), emittedUnknown = new Set<string>(), noted = new Set<string>(), out: string[] = [];
   for (const item of items) {
@@ -70,4 +78,21 @@ export function shoppingList(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<str
     out.push(`${row.name} ${formatAmount(row.amount)}${row.unitLabel}${note}`);
   }
   return out;
+}
+
+export interface ShoppingSections { ingredients: string[]; seasonings: string[] }
+
+/** Buying list split by recipe role; seasonings never mix with ingredients. */
+export function shoppingListSections(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<string, Food>): ShoppingSections {
+  if (!meal.allowBuy) return { ingredients: [], seasonings: [] };
+  return {
+    ingredients: merge(collect(dishes, meal, lookup, false)),
+    seasonings: merge(collect(dishes, meal, lookup, true)),
+  };
+}
+
+/** Flat compatibility helper; UI uses shoppingListSections to keep sections apart. */
+export function shoppingList(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<string, Food>): string[] {
+  const sections = shoppingListSections(dishes, meal, lookup);
+  return [...sections.ingredients, ...sections.seasonings];
 }
