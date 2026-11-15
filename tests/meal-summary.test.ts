@@ -14,17 +14,17 @@ test('荤素汤下拉选项随其余两类联动，合计不超过20', () => {
   assert.deepEqual(countOptions({ meat: 10, veg: 5, soup: 0 }, 'soup'), Array.from({ length: 6 }, (_, i) => i));
 });
 
-test('缺额文案覆盖三类并区分配齐', () => {
+test('缺额文案覆盖非零类别并区分配齐', () => {
   assert.equal(shortfallText(undefined), '');
   assert.equal(shortfallText({ meat: 0, veg: 0, soup: 0 }), '');
-  assert.equal(shortfallText({ meat: 1, veg: 0, soup: 2 }), '还缺：荤菜 1 道 · 素菜 0 道 · 汤 2 道');
+  assert.equal(shortfallText({ meat: 1, veg: 0, soup: 2 }), '还缺：荤菜 1 道 · 汤 2 道');
 });
 
 test('结果主行区分配齐、找到数量与各种终态', () => {
   const custom = { composition: 'custom' as const, counts: { meat: 1, veg: 2, soup: 0 } };
   const unlimited = { composition: 'auto' as const, counts: { meat: 1, veg: 1, soup: 0 } };
   const base = { status: 'completed' as const, dishes: [dish('meat'), dish('veg'), dish('veg')], targetMet: true };
-  assert.equal(resultHeadline(custom, base), '已按 1 荤 2 素 0 汤配齐');
+  assert.equal(resultHeadline(custom, base), '已按目标配齐');
   assert.equal(resultHeadline(unlimited, base), '为你找到 3 道');
   assert.equal(resultHeadline(custom, { ...base, targetMet: false }), '为你找到 3 道');
   assert.equal(resultHeadline(custom, { ...base, status: 'needs_confirmation' }), '还有信息需要核对');
@@ -35,7 +35,8 @@ test('结果主行区分配齐、找到数量与各种终态', () => {
 test('结果副标题是状态句，不写每页几道', () => {
   const custom = { composition: 'custom' as const, counts: { meat: 1, veg: 2, soup: 0 } };
   const unlimited = { composition: 'auto' as const, counts: { meat: 1, veg: 1, soup: 0 } };
-  assert.equal(modeSummary(custom), '目标 1 荤 · 2 素 · 0 汤');
+  assert.equal(modeSummary(custom), '目标 1 荤 · 2 素');
+  assert.equal(modeSummary({ composition: 'custom', counts: { meat: 0, veg: 0, soup: 0 } }), '未设置数量');
   assert.equal(modeSummary(unlimited), '按现有食材匹配菜谱');
   assert.equal(modeSummary(unlimited, 43), '按食材匹配 · 共 43 道');
 });

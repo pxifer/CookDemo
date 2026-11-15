@@ -329,9 +329,6 @@ export async function recommend(catalog: Recipe[], req: RecommendationRequest, o
     reasons: [
       ...(incomplete ? [best.length ? '还可以再试一次，看看其他搭配。' : '这次查找未完成，请再试一次。'] : []),
       ...(!best.length ? [replacingFailed ? '暂时没有其他合适的方案，已保留当前搭配。' : '暂时没有找到合适的搭配，可以调整食材、口味或搭配数量后再试。'] : []),
-      ...(missing > 0 && !incomplete && req.action !== 'replace' ? [meal.allowBuy
-        ? '食材匹配到的菜品不足指定数量，可以减少荤素汤数量或改成不限数量。'
-        : '现有食材还不足以凑齐指定数量，可以允许补买、减少荤素汤数量或改成不限数量。'] : []),
       ...(missing > 0 && incomplete ? [`本次已核验 ${best.length} 道；搜索尚未完成，可以重新查找`] : []),
     ],
   });

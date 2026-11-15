@@ -298,7 +298,7 @@ test('D7-10: 菜数两态为不限数量与按荤素汤，选择持久化且互�
   await page.getByLabel('素菜道数', { exact: true }).selectOption('2');
   await generate(page);
   await expect(page.locator('.recommendation-mode strong')).toHaveText('按需搭配');
-  await expect(page.locator('.result-state')).toContainText('已按 1 荤 2 素 0 汤配齐');
+  await expect(page.locator('.result-state')).toContainText('已按目标配齐');
   await expect(page.getByTestId('recipe-card')).toHaveCount(3);
   await page.screenshot({ path: `${process.env.ACCEPTANCE_DIR ?? 'acceptance'}/${info.project.name}-counts.png` });
   await page.reload();
@@ -313,7 +313,7 @@ test('D7-11: 只够几道时按类告知缺额，补买不凭空凑数，可切�
   await parse(page, '土豆150g');
   await chooseCounts(page, 0, 0, 20);
   await generate(page);
-  await expect(page.locator('.result-state')).toContainText('还缺：荤菜 0 道 · 素菜 0 道 · 汤 20 道');
+  await expect(page.locator('.result-state')).toContainText('还缺：汤 20 道');
   await expect(page.getByRole('button', { name: '允许补买，按指定数量搭配', exact: true })).toBeVisible();
   const withoutBuy = await page.getByTestId('recipe-card').count();
   expect(withoutBuy).toBeLessThan(20);
