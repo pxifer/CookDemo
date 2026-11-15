@@ -16,7 +16,7 @@
 - 显式加载本地配置：`.\scripts\run.ps1 start -EnvFile .env.local`。
 - 本地单元回归：`.\scripts\run.ps1 test`。
 - 本地浏览器回归：`.\scripts\run.ps1 test:e2e`；健康交互用 `test:health:e2e`，注册流程用 `test:registration:e2e`。
-- 本地业务RAG：`rag:business:evaluate`（可传 `--pg --gallery`）与 `test:rag:e2e`；使用构造供应商，详见Agent运行说明，不产生真实生成验收。
+- 本地业务RAG：`rag:business:evaluate`（需要时用 `-TaskArguments '--pg','--gallery'` 传参）与 `test:rag:e2e`；使用构造供应商，详见Agent运行说明，不产生真实生成验收。
 - 必要时完整本地检查：`.\scripts\run.ps1 test:local`；环境诊断：`.\scripts\run.ps1 diagnose`。
 - 按改动选择必要检查；规则/API 改动运行相关回归及构建，UI 检查手机、桌面、键盘、弹层与溢出，纯文档检查链接、事实和行数即可。
 - 配置与数据库操作见[开发说明](docs/development/README.md)；保留测试包装器的公网拦截、数据库回环校验和模拟邮箱/模型。
@@ -33,7 +33,7 @@
 - `backend/src/migrations`、`deployment/cloudbase`、`deployment/db`：数据库及云端 SQL；`scripts/`、`deployment`：开发、核验与发布工具。
 - `datasets/health`、`backend/src/health-knowledge*`：公共研究知识与检索；`tests/`、`artifacts/acceptance`：测试和历史证据。
 - `agent-design/` 按接入、检索、增强、生成、记忆、存储、编排、评测与优化维护设计和实现导航；运行代码留在后端，不因规划目录存在而宣称向量/RAG已完成。
-- 需求涉及 RAG/Embedding、向量库选型、召回融合、上下文增强、证据问答生成、RAG 评测或优化时，先查 [Agent 文档目录](agent-design/docs/README.md)及[本轮基础 RAG 计划](agent-design/docs/basic-rag-plan-2026-11-04.md)，再定位对应模块；执行命令与当前验收状态见同目录运行说明。
+- 需求涉及 RAG/Embedding、向量库选型、召回融合、上下文增强、证据问答生成、RAG 评测或优化时，先查 [Agent 文档目录](agent-design/docs/README.md)及[基础 RAG 计划](agent-design/docs/basic-rag-plan-2026-11-04.md)（2026-11-04），再定位对应模块；执行命令与当前验收状态见同目录运行说明。
 - 需求涉及 RAG 接入食谱推荐、减脂/增肌目标知识、资料正文/表格/OCR 治理、检索偏题或独立评测与人工审核集时，先读[后续行动 TODO](agent-design/docs/todo.md)，按业务主线、资料治理、评测依赖推进并附完成证据；证据问答跑通不代表 RAG 食谱推荐闭环完成。
 - 修改资料解析/重建或评测数据时，先读[离线重建](agent-design/docs/source-rebuild-runbook.md)和[标注划分规范](agent-design/docs/quality-annotation-protocol.md)；原件/冻结定位不覆盖，gold不进模型，固定库问题评测与新来源泛化分开，候选冻结不冒充独立人审。
 - 修改HTML正文、PDF页边噪声/双栏/断行、表格结构或OCR检测时，先读[正文解析说明](agent-design/docs/document-parsing-runbook.md)及[本批实测](agent-design/docs/document-parsing-execution-2026-11-06.md)；全文留本地，转换可回查，候选/复核队列不冒充事实或OCR完成，接入须新版本。
@@ -53,7 +53,7 @@
 
 ## 4. Conventions
 
-- **多 Agent 协作**：先读[协作流程](docs/collaboration/README.md)与[任务登记](docs/collaboration/tasks.md)。使用本地 Git 提交审核，不依赖 GitHub PR；系统逻辑与 AI agent 从同一已确认本地基线，在独立 worktree、独立任务分支并行开发并提交，不能直接改 main 或自行合并。管理 chat 自主审核初始化基线及后续提交，按完整 SHA 验证、串行合并并复验本地 main；无需再等用户通知，新提交使旧结论失效。不自动推送、部署或进行云端/付费测试；初始化通过前不从未验收旧基线开工。
+- **多 Agent 协作**：先读[协作流程](docs/collaboration/README.md)与[任务登记](docs/collaboration/tasks.md)。使用本地 Git 提交审核，不依赖 GitHub PR；改动走独立任务分支并保留合并提交，并行开发时由管理 chat 按完整 SHA 审核、串行合并并复验本地 main；单代理连续作业可自行完成分支与合并，但不得省略任务分支。不自动推送、部署或进行云端/付费测试。
 
 - 开始先检查 Git 状态及相关实现，保留已有改动；沿用现有小写 kebab-case 文件名、TypeScript strict 和模块边界。
 - 依据顺序：当前用户指示与明确后续决定 → [决策日志](docs/product/decision-log.md) → 未被替代的 [PRD](docs/product/PRD.md)；历史设计、审查建议和验收只代表当时范围。
@@ -78,11 +78,9 @@
 
 ## 5. Hard Constraints
 
-- **测试只在本地。** 云端验收、压测、持续轮询、真实邮件和付费模型测试保持暂停；不以正式网站/数据库充当测试环境。Key、邮箱配置就绪或历史 5 元预算均不代表恢复调用授权。
-- **2026-11-13新输出评测授权**：用户明确允许本轮DeepSeek累计不超过5元，并协助产品评分；仅本地构造/用户主动提供的用例，复用固定适配器，按当日最高价在同一持久账本先预留，失败/未知不退款、不自动重试。不得重开旧账本、读取线上Key或个人档案、把工程/模型评分冒充独立专业签认；不含部署。命令、状态和记录见输出评测文档。
-- **2026-11-05本地界面专项**：用户可在本地预览输入个人Key并主动触发固定DeepSeek。代理获准操作已保存Key的1元专项已完成5次并结项，估算费用上界0.070274元、保守预留0.465196元；余额不自动授权后续代理调用。沿用独立账本、失败计入、无自动重试，不恢复旧预算。`scripts/preview-rag.ts` 只绑定回环，账户仅进程内保存；保留服务供用户预览，不借此发布研究能力。
-- **本轮 RAG 专项授权已关闭（2026-11-04）**：原授权仅用于公开证据/构造问题，累计上限 5 元且最多 50 次，实际完成 6 次后已结项；失败计数、无自动重试，使用专用测试 Key 与持久化预留账本。默认入口仍离线，后续真实调用须新授权、`--live` 和显式环境开关，仅接受登记的公开验收案例；不得自行重开授权或重置账本，不借用账户个人 Key，不扩展为云验收/充值/部署权限。
-- **资源与发布按当次授权。** 不新建云资源、不升级套餐、不启用超额计费或自动充值；2026-10-30 `maintenance-v46` 是一次维护发布，不授予持续部署权限，本地通过不自动上线。
+- **测试只在本地。** 云端验收、压测、持续轮询、真实邮件和付费模型测试保持暂停；不以正式网站/数据库充当测试环境。Key 或邮箱配置就绪，不代表恢复调用授权。
+- **历史专项授权与账本。** 2026-11-04 RAG 专项（5 元 / 50 次，实际 6 次）、2026-11-05 本地预览专项（1 元，5 次）、2026-11-13 输出评测（5 元累计上限）都只对当轮有效：不重开、不重置、不转移。真实模型调用须当次明确授权，走固定入口与显式开关；失败计入、不退款、不自动重试；不借用账户个人 Key；不把工程或模型评分冒充独立专业签认。
+- **资源与发布按当次授权。** 不新建云资源、不升级套餐、不启用超额计费或自动充值；每次发布都需当次明确授权，本地测试通过不等于已上线。发布前核对环境套餐与超额计费开关，条件不符即停止。
 - **秘密不外泄。** `.env`、Key、数据库凭证、个人邮箱不得进入 Git、前端 `VITE_` 配置、响应、日志、截图或验收材料；复用既有加密密钥，不在发布时重新生成。
 - **个人 Key 按 UID 加密保存。** 仅返回配置状态和末 4 位，不回传完整值或写浏览器持久存储；刷新、退出、关闭模式不删除，用户清空后停止新调用；服务端从当前账户读取凭证。
 - **个人资料隔离。** 真实健康/过敏/照片资料境内处理，原图仅请求内存；公共知识库不保存个人查询向量、候选、推荐历史或健康正文，调用账本只留不可还原绑定摘要及必要状态。
@@ -95,7 +93,7 @@
 
 ## 6. Gotchas
 
-- `start`/`dev` 通过 Fastify 提供已构建页面，前端修改后需重新构建；默认启动是本机构造目录，不是线上目录，也不会自动读取 `.env`。
+- `start` 通过 Fastify 提供已构建页面，前端修改后需重新构建；默认启动是本机构造目录，不是线上目录，也不会自动读取 `.env`。
 - `scripts/run.ps1` 的任务以 `ValidateSet` 与 `package.json` 为准；没有 `dev` 包装任务，也没有 pnpm、Prisma 或 Next.js 工作流。
 - Windows PowerShell 5.1 使用的中文入口脚本须 UTF-8 BOM；遵循 `.editorconfig`，修改后用实际 5.1 解析器检查，不能只验证 PowerShell 7。
 - 本地测试配置缺失/端口受限应报告未运行；不切换正式环境补证据。`test:cloudbase` 等命名不代表访问云端，执行范围以本地包装器和实际配置为准。
@@ -103,7 +101,7 @@
 - D19-11 已替代强制三阶段流程及全局建议归属；D19-12 已替代“健康搭配仅排序”。保存/取消、翻页、看做法、手选口味不额外调用模型；AI 分页沿用绑定 UID/Key/档案/本餐/目录的 15 分钟加密游标。
 - D19-13 已替代按用户填写量比较单菜/累计库存及推测菜数；[用量策略验收](docs/releases/ACCEPTANCE-quantity-policy-2026-11-05.md)记录1g/99999g等价检查和当前预览进程边界，勿将此前真实模型请求改写为新策略验收。
 - 普通食品级发布不因复合调料成分未知、营养缺项、未试做或旧审批指纹而一律拦截；成分级风险属于健康模式。定量营养独立计算，不把全天限量除成每餐阈值，也不让无关缺量阻断有依据的定性指导。
-- RAG v2/A1 保留；本轮基础研究 RAG 已有真实本地 Embedding、PG 证据向量及6次真实生成，具体实测见[执行报告](agent-design/docs/execution-2026-11-04.md)。重排、独立质量评测与正式疾病发布仍有缺口；研发不因未专业签认停止，研究通过不冒充临床发布。
+- RAG v2/A1 保留；2026-11-04 那轮基础研究 RAG 有真实本地 Embedding、PG 证据向量及 6 次真实生成，具体实测见[执行报告](agent-design/docs/execution-2026-11-04.md)。重排、独立质量评测与正式疾病发布仍有缺口；研发不因未专业签认停止，研究通过不冒充临床发布。
 - 不自行扩展多档案、儿童系数、全天定量营养目标或推荐历史；已有增肌/瘦身等定性目标不受此限。新图数据库、向量服务、Redis、队列或 Agent 框架须有明确收益，不因研究方案就新增线上服务。
-- 资源/测试边界见[本地测试与资源保留](docs/operations/resource-preservation.md)，最新维护部署见[发布记录](docs/releases/ACCEPTANCE-maintenance-release-2026-10-30.md)。
+- 资源/测试边界见[本地测试与资源保留](docs/operations/resource-preservation.md)，最近发布见 [v86 记录](docs/releases/ACCEPTANCE-main-v86-2026-11-15.md)。
 - 健康行为见[模型入口](agent-design/generation/health-model-api.md)与 D19-11/12；知识依据见[知识库 v2](datasets/health/README-v2.md)、[RAG 方案](agent-design/retrieval/health-rag-plan.md)，部署见[HTTP 函数手册](docs/operations/DEPLOYMENT-CLOUDBASE-HTTP.md)。
