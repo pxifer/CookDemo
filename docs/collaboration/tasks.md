@@ -59,6 +59,7 @@
 | RAG-042 | 当前 RAG 开发 chat（DSH 接管） | 高频同义词表：洋葱/圆葱、豆角/豇豆、豆腐/北豆腐 等 16 组双向匹配 | `agent/rag/RAG-042-synonyms` | 单元 429/426；新增 25 条同义词断言；一致性审计 0 | 已部署 v83（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v83-2026-11-14.md) |
 | RAG-043 | 当前 RAG 开发 chat（DSH 接管） | 自由文本与下拉同口径：肉丝/肉末/肉片 覆盖 猪里脊；不同商品不放大 | `agent/rag/RAG-043-freetext` | 成对审计 6960 对 0 不一致；单元 430/427 | 已部署 v84（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v84-2026-11-14.md) |
 | RAG-044 | 当前 RAG 开发 chat（DSH 接管） | 图片识别走同一解析链路；补 鸡蛋液/鸡蛋清/鸡蛋黄 别名；抽样召回 93% | `agent/rag/RAG-044-photo-alias` | 单元 430/427；离线抽样 155/166 | 已部署 v85（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v85-2026-11-14.md) |
+| RAG-045 | 当前 RAG 开发 chat（DSH 接管） | 花椰菜并入花菜家族；修 绿花菜 误匹配；未识别文案区分 | `agent/rag/RAG-045-photo-hint` | 单元 430/427；花椰菜→菜花且不匹配西兰花 | 已部署 v86（仅函数）；[发布记录](../releases/ACCEPTANCE-main-v86-2026-11-15.md) |
 
 新任务填写：编号、负责人 / chat、目标、可改目录 / 共享文件、明确验收、验证命令、依赖、分支、PR、风险与回退。避免多 agent 同时修改同一迁移或共享契约；必要时拆前置 PR。
 
