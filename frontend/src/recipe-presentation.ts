@@ -24,11 +24,12 @@ function shoppingQuantity(line: Line, name: string): { amount: number; unit: str
 }
 
 const formatAmount = (value: number) => String(Math.round(value * 1000) / 1000);
+const UNKNOWN_NOTE = '（另有用量未注明）';
 
 export function shoppingList(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<string, Food>): string[] {
   if (!meal.allowBuy) return [];
-  type Row = { key: string; name: string; unitLabel: string; amount: number } | { key: ''; text: string };
-  const rows: Row[] = [], groupIndex = new Map<string, number>(), rawSeen = new Set<string>();
+  type Item = { foodId: string; name: string; parsed: { amount: number; unit: string; label: string } | null; text: string };
+  const items: Item[] = [];
   for (const dish of dishes) for (const line of dish.variant.lines) {
     if (line.optional || isCookingWater(lookup.get(line.foodId)!.name)) continue;
     if (line.role === 'seasoning' && !meal.checkSeasonings) continue;
@@ -38,17 +39,35 @@ export function shoppingList(dishes: Dish[], meal: Meal, lookup: ReadonlyMap<str
     if (findPantryIngredient(line, meal.ingredients, lookup)) continue;
     if (!dish.checks.some(check => check.foodId === line.foodId && check.state === 'missing')) continue;
     const name = lookup.get(line.foodId)?.name ?? '';
-    const parsed = shoppingQuantity(line, name);
-    if (!parsed) {
-      const text = recipeLineText(line, lookup);
-      if (!rawSeen.has(text)) { rawSeen.add(text); rows.push({ key: '', text }); }
-      continue;
-    }
-    // Only the same food and the same unit are summed; different units stay separate.
-    const key = `${line.foodId}|${parsed.unit}`;
-    const at = groupIndex.get(key);
-    if (at === undefined) { groupIndex.set(key, rows.length); rows.push({ key, name: name || line.foodId, unitLabel: parsed.label, amount: parsed.amount }); }
-    else { const row = rows[at]; if ('amount' in row) row.amount += parsed.amount; }
+    items.push({ foodId: line.foodId, name: name || line.foodId, parsed: shoppingQuantity(line, name), text: recipeLineText(line, lookup) });
   }
-  return rows.map(row => 'amount' in row ? `${row.name} ${formatAmount(row.amount)}${row.unitLabel}` : row.text);
+  // Only the same food and the same unit are summed; different units stay separate.
+  const known = new Map<string, { foodId: string; name: string; unitLabel: string; amount: number }>();
+  const unknownFoods = new Set<string>(), knownFoods = new Set<string>();
+  for (const item of items) {
+    if (!item.parsed) { unknownFoods.add(item.foodId); continue; }
+    knownFoods.add(item.foodId);
+    const key = `${item.foodId}|${item.parsed.unit}`;
+    const row = known.get(key);
+    if (row) row.amount += item.parsed.amount;
+    else known.set(key, { foodId: item.foodId, name: item.name, unitLabel: item.parsed.label, amount: item.parsed.amount });
+  }
+  const emitted = new Set<string>(), emittedUnknown = new Set<string>(), noted = new Set<string>(), out: string[] = [];
+  for (const item of items) {
+    if (!item.parsed) {
+      // A food with a known amount already carries the "unknown amount" note;
+      // do not show a second bare line for it.
+      if (knownFoods.has(item.foodId) || emittedUnknown.has(item.foodId)) continue;
+      if (out.includes(item.text)) continue;
+      emittedUnknown.add(item.foodId); out.push(item.text); continue;
+    }
+    const key = `${item.foodId}|${item.parsed.unit}`;
+    if (emitted.has(key)) continue;
+    emitted.add(key);
+    const row = known.get(key)!;
+    const note = unknownFoods.has(item.foodId) && !noted.has(item.foodId) ? UNKNOWN_NOTE : '';
+    if (note) noted.add(item.foodId);
+    out.push(`${row.name} ${formatAmount(row.amount)}${row.unitLabel}${note}`);
+  }
+  return out;
 }

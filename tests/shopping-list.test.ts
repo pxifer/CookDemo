@@ -32,6 +32,16 @@ test('范围用量与无法解析的原文不参与求和，也不重复', () =>
   assert.deepEqual(shoppingList([unknown, unknown], meal, foodById), ['鸡蛋']);
 });
 
+test('同一食材有已知用量时，未注明用量的条目折叠为提示而不是第二行', () => {
+  const list = shoppingList([dish([line('egg', '鸡蛋')]), dish([line('egg', '鸡蛋 2 个')])], meal, foodById);
+  assert.deepEqual(list, ['鸡蛋 2个（另有用量未注明）']);
+});
+
+test('不同单位各自成行，未注明提示只出现一次', () => {
+  const list = shoppingList([dish([line('egg', '鸡蛋')]), dish([line('egg', '鸡蛋 2 个')]), dish([line('egg', '鸡蛋 50 g')])], meal, foodById);
+  assert.deepEqual(list, ['鸡蛋 2个（另有用量未注明）', '鸡蛋 50g']);
+});
+
 test('不补买时没有补买清单', () => {
   assert.deepEqual(shoppingList([dish([line('egg', '鸡蛋 2 个')])], { ...meal, allowBuy: false }, foodById), []);
 });
