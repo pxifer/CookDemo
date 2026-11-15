@@ -27,7 +27,7 @@ const families: Family[] = [
     excludedRecipeNames: /猪油|猪皮|牛|羊|鸡|鸭|鹅|鱼|虾/ },
   { id: 'chicken', name: '鸡肉', inputs: ['鸡肉', '鸡'], recipeNames: /鸡/,
     matchNames: muscle(/鸡/),
-    excludedRecipeNames: /鸡蛋|鸡精|鸡粉|鸡汤|鸡油|鸡枞|鸡腿菇/ },
+    excludedRecipeNames: /鸡蛋|鸡精|鸡粉|鸡汤|鸡油|鸡枞|鸡腿菇|鸡汁|鸡酱|腌料|调料/ },
   { id: 'duck', name: '鸭肉', inputs: ['鸭肉', '鸭'], recipeNames: /鸭/,
     matchNames: muscle(/鸭/),
     excludedRecipeNames: /鸭蛋|鸭油/ },
@@ -43,13 +43,13 @@ const families: Family[] = [
   { id: 'fish', name: '鱼', inputs: ['鱼', '鲜鱼'], recipeNames: /鱼/,
     matchNames: muscle(/鱼/),
     // 墨鱼/鱿鱼/章鱼 are molluscs, not fish.
-    excludedRecipeNames: /墨鱼|鱿鱼|章鱼|八爪|鱼露|鱼丸|鱼豆腐|鱼粉|鱼皮|鱼籽|鱼腥草/ },
+    excludedRecipeNames: /墨鱼|鱿鱼|章鱼|八爪|鱼露|鱼丸|鱼豆腐|鱼粉|鱼皮|鱼籽|鱼腥草|鱼汁|鱼酱/ },
   { id: 'shrimp', name: '虾', inputs: ['虾', '大虾', '鲜虾'], recipeNames: /虾/,
-    excludedRecipeNames: /虾皮|虾酱|虾粉|虾米/ },
+    excludedRecipeNames: /虾皮|虾酱|虾粉|虾米|虾油|虾汁/ },
   { id: 'crab', name: '蟹', inputs: ['蟹', '螃蟹'], recipeNames: /蟹/,
     excludedRecipeNames: /蟹味菇|蟹棒|蟹柳|蟹黄酱/ },
   { id: 'shellfish', name: '贝类', inputs: ['贝类', '贝', '蛤蜊', '花蛤', '扇贝', '蚝'], recipeNames: /贝|蛤|蛏|蚝|蚬|螺|鲍|蛎/,
-    excludedRecipeNames: /螺蛳粉|贝壳粉/ },
+    excludedRecipeNames: /螺蛳粉|贝壳粉|蚝油|贝汁|贝酱/ },
   { id: 'vermicelli', name: '粉条', inputs: ['粉条', '粉丝'], recipeNames: /(?:粉条|粉丝|宽粉)/,
     excludedRecipeNames: /米粉|面粉|淀粉/ },
   { id: 'mushroom', name: '蘑菇', inputs: ['蘑菇', '菌菇'], recipeNames: /(?:菇|口蘑|白蘑)/ },
@@ -58,7 +58,7 @@ const families: Family[] = [
     excludedRecipeNames: /酸菜|腌|泡菜|圆白菜/ },
   { id: 'pepper', name: '青椒', inputs: ['青椒'], recipeNames: /(?:青椒|螺丝椒|尖椒|菜椒|青红椒)/,
     excludedRecipeNames: /干|泡|腌/ },
-  { id: 'broccoli', name: '西兰花', inputs: ['西兰花', '西蓝花', '绿花菜'], recipeNames: /(?:西兰花|西蓝花|绿花菜)/ },
+  { id: 'broccoli', name: '西兰花', inputs: ['西兰花', '西蓝花', '绿花菜'], recipeNames: /(?:西兰花|西蓝花|绿花菜)/, excludedRecipeNames: /花胶/ },
   { id: 'cauliflower', name: '花菜', inputs: ['花菜', '菜花'], recipeNames: /(?:花菜|菜花)/, excludedRecipeNames: /黄花菜/ },
 ];
 
@@ -95,8 +95,7 @@ export function isInvalidFoodName(name:string):boolean{
 }
 export function canonicalIngredientName(name:string):string{
   const normalized=normalizeIngredientName(name);
-  if(/小根蒜/.test(normalized))return '蒜';
-  if(/鸡蛋|蛋液|鸡蛋黄|蛋黄|蛋清|土鸡蛋|笨鸡蛋|常温鸡蛋|鸡蛋干|^蛋$/.test(normalized))return '鸡蛋';
+  if(/鸡蛋|蛋液|鸡蛋黄|蛋黄|蛋清|土鸡蛋|笨鸡蛋|常温鸡蛋|^蛋$/.test(normalized)&&!/干|酱|饺|糕|挞|皮/.test(normalized))return '鸡蛋';
   if(/鸭蛋/.test(normalized))return '鸭蛋';
   // A cut collapses into the broad name only when the matcher agrees that the broad term
   // covers it. Otherwise it stays selectable on its own (排骨、猪肝、猪蹄、腊肉…), so the
@@ -121,6 +120,8 @@ function compatibleNames(pantryNames: string[], recipeNames: string[]): boolean 
   const pantry = pantryNames.map(normalizeIngredientName).filter(Boolean);
   const recipe = recipeNames.map(normalizeIngredientName).filter(Boolean);
   if (pantry.some(p => recipe.includes(p))) return true;
+  // Proven synonyms are the same food under different names (包菜 = 卷心菜).
+  if (pantry.some(p => recipe.some(r => p !== r && inputSynonyms.some(group => group.includes(p) && group.includes(r))))) return true;
   const family = families.find(f => pantry.some(p => f.inputs.includes(p)));
   if (family) return recipe.some(r => family.recipeNames.test(r) && !family.excludedRecipeNames?.test(r)
     && (family.matchNames ? family.matchNames(r) : true)
@@ -138,7 +139,7 @@ function queryId(name: string): string {
 }
 
 // Only proven synonyms auto-resolve. Ambiguous visual labels require a user choice.
-const inputSynonyms = [ ['小西红柿','小番茄','樱桃番茄','圣女果'], ['番茄','西红柿'], ['马铃薯','土豆'], ['洋白菜','卷心菜','包菜'], ['青花菜','西兰花'] ];
+const inputSynonyms = [ ['小番茄','小西红柿','樱桃番茄','圣女果'], ['番茄','西红柿'], ['马铃薯','土豆'], ['卷心菜','洋白菜','包菜'], ['青花菜','西兰花'] ];
 export function suggestPantryFoods(name:string,lookup:ReadonlyMap<string,Food>):Food[] {
   const term=normalizeIngredientName(name);
   const choices:Record<string,string[]>={生肉:['猪肉','牛肉','羊肉','鸡肉'],肉:['猪肉','牛肉','羊肉','鸡肉'],干果:['核桃','杏仁','腰果','葡萄干','红枣'],坚果:['核桃','杏仁','腰果'],小西红柿:['圣女果','小番茄','西红柿']};
