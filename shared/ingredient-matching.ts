@@ -59,7 +59,7 @@ const families: Family[] = [
   { id: 'pepper', name: '青椒', inputs: ['青椒'], recipeNames: /(?:青椒|螺丝椒|尖椒|菜椒|青红椒)/,
     excludedRecipeNames: /干|泡|腌/ },
   { id: 'broccoli', name: '西兰花', inputs: ['西兰花', '西蓝花', '绿花菜'], recipeNames: /(?:西兰花|西蓝花|绿花菜)/, excludedRecipeNames: /花胶/ },
-  { id: 'cauliflower', name: '花菜', inputs: ['花菜', '菜花'], recipeNames: /(?:花菜|菜花)/, excludedRecipeNames: /黄花菜/ },
+  { id: 'cauliflower', name: '花菜', inputs: ['花菜', '菜花', '花椰菜'], recipeNames: /(?:花菜|菜花|花椰菜)/, excludedRecipeNames: /黄花菜|西兰花|西蓝花|绿花菜/ },
 ];
 
 // Parser leakage from recipe text: counts ("几个"、"二颗") followed a quantifier, so match the

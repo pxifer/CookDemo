@@ -343,11 +343,13 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
           {(entryOpen || tab === 'image') && (tab === 'text' ? <><label className="sr-only" htmlFor="raw">输入食材与本餐信息</label><textarea id="raw" maxLength={5000} value={meal.raw} onChange={e => edit({ raw: e.target.value })} placeholder="例如：西红柿、鸡蛋、菠菜，2个人吃，对虾过敏"/><button className="button outline full organize-button" onClick={() => void organize()}>整理信息 ↗</button></> : <div className="upload-zone"><span className="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="16" cy="9" r="1.5"/><path d="m3 16 5-5 5 5 3-3 5 5"/></svg></span><strong>拍照或上传食材图片</strong><span>识别后确认食材，再加入本餐清单</span><PhotoInput onAdd={addParsed} provider={sessionInfo?.imageRecognitionProvider} userId={sessionInfo?.userId} configured={Boolean(healthKey?.configured)} version={meal.version}/><button className="text-button" onClick={() => { setTab('text'); setEntryOpen(true); }}>转到文字录入 →</button></div>)}
           <div className="ingredient-heading list-label"><strong>我的食材</strong></div>
           {!meal.ingredients.length && <div className="ingredient-empty">添加现有食材，或允许补买查看默认推荐</div>}
-          <ul className="ingredients" aria-label="我的食材">{meal.ingredients.map(i => { return <li key={i.id}><div className="ingredient-row">
+          <ul className="ingredients" aria-label="我的食材">{meal.ingredients.map(i => {
+            const matches = i.foodId ? [] : suggestPantryFoods(i.name, catalog.foodById);
+            return <li key={i.id}><div className="ingredient-row">
             {i.foodId ? <span className="ingredient-name" title={i.name}>{i.name}</span> : <input className="ingredient-name-edit" aria-label={`更正未识别名称 ${i.name}`} list="food-names" maxLength={100} value={i.name} onChange={e => renameIngredient(i.id,e.target.value)}/>}
             <button className="icon-button" aria-label={`删除食材 ${i.name}`} onClick={() => edit(m => ({ ...m, ingredients: m.ingredients.filter(x => x.id !== i.id) }))}>×</button></div>
-            {!i.foodId && <p className="ingredient-unrecognized">请确认具体食材；确认后参与推荐</p>}
-            {!i.foodId && <div className="chips" aria-label={`匹配 ${i.name}`}>{suggestPantryFoods(i.name,catalog.foodById).map(food=><button key={food.id} type="button" onClick={()=>renameIngredient(i.id,food.name)}>{food.name}</button>)}</div>}
+            {!i.foodId && <p className="ingredient-unrecognized">{matches.length ? '请确认具体食材；确认后参与推荐' : `现有菜谱暂未使用「${i.name}」，可移除或换个名称`}</p>}
+            {matches.length > 0 && <div className="chips" aria-label={`匹配 ${i.name}`}>{matches.map(food=><button key={food.id} type="button" onClick={()=>renameIngredient(i.id,food.name)}>{food.name}</button>)}</div>}
           </li>; })}</ul>
           <FoodPicker foods={foods} recipes={recipes} add={addManual}/>
           <datalist id="food-names">{foods.filter(f => !seasoningIds.includes(f.id)).map(f => <option key={f.id} value={f.name}/>)}</datalist>
