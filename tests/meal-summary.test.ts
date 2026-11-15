@@ -37,6 +37,6 @@ test('结果副标题是状态句，不写每页几道', () => {
   const unlimited = { composition: 'auto' as const, counts: { meat: 1, veg: 1, soup: 0 } };
   assert.equal(modeSummary(custom), '目标 1 荤 · 2 素');
   assert.equal(modeSummary({ composition: 'custom', counts: { meat: 0, veg: 0, soup: 0 } }), '未设置数量');
-  assert.equal(modeSummary(unlimited), '按现有食材匹配菜谱');
-  assert.equal(modeSummary(unlimited, 43), '按食材匹配 · 共 43 道');
+  assert.equal(modeSummary(unlimited), '按现有食材匹配');
+  assert.equal(modeSummary(unlimited, 43), '共 43 道');
 });

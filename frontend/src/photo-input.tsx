@@ -38,8 +38,7 @@ export function PhotoInput({onAdd,provider='deepseek',userId,configured,version}
     <input ref={gallery} type="file" accept="image/jpeg,image/png,image/webp" aria-label="选择食材图片" hidden onChange={choose}/>
     <input ref={camera} type="file" accept="image/*" capture="environment" aria-label="拍摄食材图片" hidden onChange={choose}/>
     <span className="upload-buttons"><button className="mini-button" onClick={()=>gallery.current?.click()}>选择图片</button><button className="camera-button" onClick={()=>camera.current?.click()}>手机拍照</button></span>
-    <p className="small">{provider==='zhipu'?'使用智谱免费视觉模型。':'与健康模式共用已保存的 DeepSeek Key，识别按模型用量计费。'}点击识别时上传图片，本站不保存照片；结果请核对后添加。</p>
-    {!userId&&<p className="small">请先登录，再使用图片识别。</p>}
+    <p className="small">{!userId ? '登录后可用图片识别食材。' : '图片仅用于本次识别，不保存。'}</p>
     {userId&&provider==='deepseek'&&!configured&&<p className="small">请在个人设置中保存 DeepSeek API Key。</p>}
     {error&&<p role="alert">{error}</p>}
     {photo&&<><div className="photo-preview"><img src={photo.url} alt="本次食材图片预览" onError={()=>{invalidate();setPhoto(null);setError('图片无法打开，请重新选择。');}}/><span>{photo.file.name}</span><button onClick={()=>{invalidate();setPhoto(null);setError('');}}>移除图片</button></div>
