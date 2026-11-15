@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {sourceIngredients} from '../scripts/lib/recipe-source-ingredients';
 import {mergeSourceIngredients} from '../scripts/lib/recipe-source-ingredients';
 import {listedIngredients} from '../scripts/lib/listed-food-curation';
-import {isInvalidFoodName} from '../shared/ingredient-matching';
+import {isInvalidFoodName,canonicalIngredientName,findPantryIngredient} from '../shared/ingredient-matching';
 import {readFile} from 'node:fs/promises';
 import {verifyGalleryBundle,type GalleryBundle} from '../backend/src/cloudbase-content';
 import {recipeImage} from '../shared/recipe-images';
@@ -51,6 +51,22 @@ test('1000道发布包：新增659道没有用量词混进食材，真实食材�
  for(const real of ['千张','菠菜','豆腐','大蒜','葱'])assert(names.has(real),real);
 });
 
+test('自由文本主料按同族部位匹配，与下拉归并一致',async()=>{
+ const bundle:GalleryBundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8'));
+ const snapshot=verifyGalleryBundle(bundle,JSON.parse(await readFile(`${root}/manifest.json`,'utf8')).hash);
+ const lookup=new Map(snapshot.foods.map(f=>[f.id,f]));
+ const food=(name:string)=>{const item=snapshot.foods.find(f=>f.name===name);assert(item,name);return item;};
+ const line=(id:string)=>({foodId:id,amount:null,unit:'g' as const,role:'main' as const,basis:'unknown' as const,form:'raw' as const});
+ const ingredient=(f:{id:string;name:string})=>({id:'pantry-'+f.id,foodId:f.id,name:f.name,amount:'',basis:'unknown' as const,form:'raw' as const,status:'confirmed' as const,original:f.name});
+ // Typing 肉丝 (a form) must behave like the picker's 猪肉: it covers 猪里脊.
+ for(const typed of ['肉丝','肉末','肉片']){
+  const pantry=food(typed),target=food('猪里脊');
+  assert(findPantryIngredient(line(target.id),[ingredient(pantry)],lookup),typed+' 应覆盖 猪里脊');
+ }
+ // A distinct product stays distinct: 香菇 does not become 金针菇.
+ const shiitake=food('香菇'),enoki=food('金针菇');
+ assert.equal(findPantryIngredient(line(enoki.id),[ingredient(shiitake)],lookup),undefined,'香菇 不应覆盖 金针菇');
+});
 test('1000道逐方业务校验：可推荐、补买、明列配料限制不能绕过',async()=>{
  const bundle:GalleryBundle=JSON.parse(await readFile(`${root}/gallery-bundle.json`,'utf8')),context=contentContext(bundle.listedFoodSnapshot!);let checked=0;
  for(const recipe of context.recipes){

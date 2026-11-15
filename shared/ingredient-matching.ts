@@ -122,7 +122,10 @@ function compatibleNames(pantryNames: string[], recipeNames: string[]): boolean 
   if (pantry.some(p => recipe.includes(p))) return true;
   // Proven synonyms are the same food under different names (包菜 = 卷心菜).
   if (pantry.some(p => recipe.some(r => p !== r && inputSynonyms.some(group => group.includes(p) && group.includes(r))))) return true;
-  const family = families.find(f => pantry.some(p => f.inputs.includes(p)));
+  // Free text keeps the words the user typed ("肉丝"), while the picker shows the collapsed
+  // name ("猪肉"). A family member test keeps both paths agreeing without widening the term:
+  // 肉丝 is a pork cut, while 大白菜 must not become the broader 白菜 for covering 小白菜.
+  const family = families.find(f => pantry.some(p => f.inputs.includes(p) || Boolean(f.matchNames?.(p))));
   if (family) return recipe.some(r => family.recipeNames.test(r) && !family.excludedRecipeNames?.test(r)
     && (family.matchNames ? family.matchNames(r) : true)
     && pantry.some(p => !productMismatch(p, r)));
@@ -163,6 +166,7 @@ const inputSynonyms = [
   ['香菜','芫荽'],
   ['红薯','地瓜','番薯','山芋'],
   ['蒜苔','蒜薹'],
+  ['咸鸭蛋','熟咸鸭蛋','生咸鸭蛋','咸蛋'],
   ['二荆条','二荊条'],
 ];
 export function suggestPantryFoods(name:string,lookup:ReadonlyMap<string,Food>):Food[] {
