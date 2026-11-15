@@ -24,7 +24,7 @@
 ## 3. Architecture
 
 - `frontend/src`：React 工作台、图鉴、收藏、账户和健康对话；沿用现有组件、样式和状态管理。
-- `shared/`：共享类型、运行时 Schema、食材匹配、数量、配菜和健康档案规则；跨端规则优先在此复用。
+- `shared/`：共享类型、运行时 Schema、食材匹配、数量、配菜和健康档案规则；跨端规则优先在此复用。用户输入到食材匹配的规则、同义词表与验证范围见[食材匹配](docs/architecture/ingredient-matching.md)，改匹配规则前先读。
 - `shared/recommendation-input.ts`：普通/AI选菜统一去除用户填写量并仅核对食材有无；显示原件与菜谱原用量保留，数量编辑不使当前结果和游标失效，见 D19-13。
 - `backend/src/app.ts`：Fastify API；`backend/src/recommendation.ts`：普通推荐；`backend/src/health-recipe-selection.ts`：AI 选菜及程序复核。
 - `backend/src/cloudbase-accounts.ts`、`frontend/src/account-store.ts`：真实账户与加密设置同步；`backend/src/cloudbase-content.ts`：Data API 公开内容读取。

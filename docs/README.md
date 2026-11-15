@@ -10,6 +10,7 @@
 | 本地安装、运行与测试 | [开发说明](development/README.md) |
 | 多 Agent 开发、任务登记与本地提交审核 | [协作入口](collaboration/README.md)、[任务登记](collaboration/tasks.md)、[审核手册](collaboration/review-runbook.md) |
 | 当前架构与能力边界 | [架构](architecture/overview.md) |
+| 用户输入到食材匹配（映射、同义词、图片识别） | [食材匹配](architecture/ingredient-matching.md) |
 | 产品需求与决定 | [PRD](product/PRD.md)、[决策日志](product/decision-log.md)、[协作约定](../AGENTS.md) |
 | 用户食材用量仅作参考、普通/AI统一按有无选菜 | [2026-11-05用量策略验收](releases/ACCEPTANCE-quantity-policy-2026-11-05.md)，对应 D19-13 |
 | Agent/RAG 的模块设计和实现位置 | [Agent 导航](../agent-design/README.md) |
