@@ -34,6 +34,15 @@ test('具体部位归并到可覆盖菜品的宽食材',()=>{
   assert.equal(canonicalIngredientName('猪油'),'猪油');
 });
 
+test('调味汁与加工品不折叠进肉类或蔬菜大类',()=>{
+  const cases:[string,string][]=[
+    ['蚝油','蚝油'],['鸡汁','鸡汁'],['虾油','虾油'],['蒸鱼汁','蒸鱼汁'],
+    ['鸡蛋干','鸡蛋干'],['鸡蛋酱','鸡蛋酱'],['泡发新西兰花胶','泡发新西兰花胶'],
+    // synonym heads must be names that exist in the catalogue
+    ['包菜','卷心菜'],['卷心菜','卷心菜'],['小番茄','小番茄'],['圣女果','小番茄'],
+  ];
+  for(const [name,expected] of cases) assert.equal(canonicalIngredientName(name),expected,name);
+});
 test('下拉不会为同一宽食材重复列出多个部位',()=>{
   const cuts:any[]=[{id:'a',name:'五花肉'},{id:'b',name:'里脊'},{id:'c',name:'肥瘦猪肉馅'}];
   const usage=new Map([['a',3],['b',2],['c',1]]);
