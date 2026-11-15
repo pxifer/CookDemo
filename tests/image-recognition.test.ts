@@ -68,7 +68,7 @@ test('两种视觉适配：只发送图片与食材提示，结果无用量、�
       calls++;assert.equal(String(url),provider==='deepseek'?'https://api.deepseek.com/chat/completions':'https://open.bigmodel.cn/api/paas/v4/chat/completions');assert.equal(init?.redirect,'error');
       const body=JSON.parse(String(init?.body));assert.equal(body.model,provider==='deepseek'?'deepseek-flash':'glm-4.6v-flash');assert.equal(body.thinking.type,'disabled');assert.equal(body.messages[0].content[1].image_url.url,image);return success();
     });
-    assert.equal(calls,1);assert.deepEqual(result.extraction.ingredients.map(i=>i.amount),['','']);assert.deepEqual(result.extraction.restrictions,[]);assert.equal(result.extraction.servings,null);assert.equal(result.extraction.ingredients[0].status,'pending');
+    assert.equal(calls,1);assert.deepEqual(result.extraction.ingredients.map(i=>i.amount),['','']);assert.deepEqual(result.extraction.restrictions,[]);assert.equal(result.extraction.ingredients[0].status,'pending');
   }
   let calls=0;await assert.rejects(recognizeImage(image,'op',{provider:'deepseek'},key,constructedContent,AbortSignal.timeout(5000),async()=>{calls++;return new Response('',{status:503});}));assert.equal(calls,1);
   await assert.rejects(recognizeImage(image,'op',{provider:'deepseek'},key,constructedContent,AbortSignal.timeout(5000),async()=>success(['鸡蛋2个'])));

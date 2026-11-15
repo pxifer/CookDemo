@@ -15,10 +15,10 @@ import { mergeAccountValues, reconcileAccountValues } from '../shared/account-me
 import { applyPersonalSettings, personalSettings } from '../shared/account';
 import { open } from '../backend/src/crypto';
 
-test('个人设置排除人数、食材、同餐人及补买选项，恢复时保留当前餐草稿',()=>{
-  const source={...defaultMeal(),servings:5,flavor:'微辣',allowBuy:true,raw:'鸡蛋',restrictions:[{id:'self',kind:'avoid' as const,name:'牛肉',scope:'self' as const,status:'confirmed' as const,targets:['beef'],original:'牛肉'},{id:'other',kind:'avoid' as const,name:'羊肉',scope:'additional' as const,status:'confirmed' as const,targets:['lamb'],original:'羊肉'}]};
-  const settings=personalSettings(source);assert.equal(settings.servings,1);assert.equal(settings.allowBuy,false);assert.equal(settings.raw,'');assert.equal(settings.restrictions.length,1);
-  const current={...defaultMeal(),servings:3,raw:'白菜'};const restored=applyPersonalSettings(current,settings);assert.equal(restored.servings,3);assert.equal(restored.raw,'白菜');assert.equal(restored.flavor,'微辣');
+test('个人设置排除菜数、食材、同餐人及补买选项，恢复时保留当前餐草稿',()=>{
+  const source={...defaultMeal(),composition:'custom' as const,counts:{meat:2,veg:1,soup:0},flavor:'微辣',allowBuy:true,raw:'鸡蛋',restrictions:[{id:'self',kind:'avoid' as const,name:'牛肉',scope:'self' as const,status:'confirmed' as const,targets:['beef'],original:'牛肉'},{id:'other',kind:'avoid' as const,name:'羊肉',scope:'additional' as const,status:'confirmed' as const,targets:['lamb'],original:'羊肉'}]};
+  const settings=personalSettings(source);assert.equal(settings.allowBuy,false);assert.equal(settings.raw,'');assert.equal(settings.composition,'auto');assert.deepEqual(settings.counts,defaultMeal().counts);assert.equal(settings.restrictions.length,1);
+  const current={...defaultMeal(),composition:'custom' as const,counts:{meat:1,veg:3,soup:0},raw:'白菜'};const restored=applyPersonalSettings(current,settings);assert.deepEqual(restored.counts,current.counts);assert.equal(restored.raw,'白菜');assert.equal(restored.flavor,'微辣');
 });
 
 test('自动处理并发设置：保留不同字段修改、收藏取消及明确移除，双改硬限制取并集',()=>{

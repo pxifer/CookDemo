@@ -39,5 +39,5 @@ export async function recognizeImage(image:string,operationId:string,config:Imag
   if(!value||Array.isArray(value)||Object.keys(value).some(k=>!['foods','uncertain'].includes(k))||![value.foods,value.uncertain].every(a=>Array.isArray(a)&&a.length<=30&&a.every(n=>typeof n==='string'&&n.trim()&&n.length<=30&&!/[\d\n\r<>]/.test(n))))throw bad('识别结果不合法，请换张图片');
   signal.throwIfAborted();
   const names=[...new Set<string>(value.foods.map((n:string)=>n.trim()))];
-  return {operationId,uncertain:[...new Set<string>(value.uncertain.map((n:string)=>n.trim()))],extraction:{original:'图片识别',method:'model',ingredients:names.map(name=>{const food=resolvePantryFood(name,context.foodById);return {id:crypto.randomUUID(),name:food?.name??name,foodId:food?.id??null,amount:'',basis:'unknown',form:food?.form??'raw',status:'pending',original:name};}),restrictions:[],diseases:[],servings:null,unresolved:[]}};
+  return {operationId,uncertain:[...new Set<string>(value.uncertain.map((n:string)=>n.trim()))],extraction:{original:'图片识别',method:'model',ingredients:names.map(name=>{const food=resolvePantryFood(name,context.foodById);return {id:crypto.randomUUID(),name:food?.name??name,foodId:food?.id??null,amount:'',basis:'unknown',form:food?.form??'raw',status:'pending',original:name};}),restrictions:[],diseases:[],unresolved:[]}};
 }

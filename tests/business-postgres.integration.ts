@@ -96,10 +96,9 @@ test('真实PostgreSQL本地业务：事务导入/发布/版本回退、API读�
       const calculate = async (body=request(meal)) => app.inject({method:'POST',url:'/api/v1/recommendations',headers,payload:body});
       const result = (await calculate()).json(); assert.equal(result.dishes[0].recipe.id,'local-zucchini');
       assert.deepEqual(result.dishes[0].nutrition,{kcal:20,protein:2,sodium:null});
-      meal.servings=12; const twelve=(await calculate()).json(); assert.equal(twelve.dishes[0].variant.lines[0].amount,100);
       meal.overrides={'local-zucchini':'local-zucchini-spicy'};
       const changed=(await calculate()).json(); assert.equal(changed.dishes[0].variant.lines[0].amount,150); assert.equal(changed.dishes[0].nutrition.kcal,30);
-      meal.overrides={};meal.allowBuy=true;meal.mode='candidates';
+      meal.overrides={};meal.allowBuy=true;meal.composition='custom';meal.counts={meat:0,veg:2,soup:0};
       const insufficient=(await calculate()).json(); assert.equal(insufficient.dishes.length,1); assert.equal(insufficient.targetMet,false);
       meal.restrictions=[{id:'avoid',kind:'avoid',name:'构造西葫芦',targets:['local-zucchini'],status:'confirmed',scope:'self',original:'构造西葫芦'}];
       const excluded=(await calculate()).json();assert.equal(excluded.status,'no_results');assert.equal(excluded.search,'complete');

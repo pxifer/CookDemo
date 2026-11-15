@@ -84,23 +84,23 @@ test('真实账户推荐路径调用保存的Key和PG单次认领，普通推荐
 });
 
 test('AI选菜遵守人数与荤素数量，不再固定六道',async()=>{
-  const meal={...oneMeal(),composition:'custom' as const,counts:{meat:1,veg:1,soup:0},servings:2,allowBuy:true};
+  const meal={...oneMeal(),composition:'custom' as const,counts:{meat:1,veg:1,soup:0},allowBuy:true};
   const recipes=[simpleRecipe('egg-meat',[['egg',1]],{category:'meat'}),simpleRecipe('tomato-veg',[['tomato',100]],{category:'veg'})];
   let packet:any;
   const result=await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const meat=packet.catalog.find((item:any)=>item.category==='meat'),veg=packet.catalog.find((item:any)=>item.category==='veg');return envelope({summary:'按荤素数量选择',choices:[meat,veg].map((item:any)=>({id:item.id,reason:'按本餐数量'}))});}));
   assert.equal(packet.count,2);assert.deepEqual(packet.categories,{meat:1,veg:1,soup:0});assert.deepEqual(packet.requestedCounts,{meat:1,veg:1,soup:0});
   assert.equal(result.status,'completed');assert.equal(result.dishes.length,2);assert.equal(result.target,2);assert.equal(result.targetMet,true);
 });
-test('不允许补买时AI按人数出餐，不回到六道候选',async()=>{
-  const meal={...oneMeal(),allowBuy:false,composition:'auto' as const,mode:'meal' as const,servings:1};
+test('不限数量时AI按候选浏览出餐，不套用荤素汤目标',async()=>{
+  const meal={...oneMeal(),allowBuy:false,composition:'auto' as const};
   const recipes=[simpleRecipe('egg-meat',[['egg',1]],{category:'meat'}),simpleRecipe('tomato-veg',[['tomato',100]],{category:'veg'}),simpleRecipe('tomato-veg2',[['tomato',100]],{category:'veg'})];
   let packet:any;
-  await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const chosen:any[]=[];for(const cat of ['meat','veg','soup'] as const){const n=packet.categories[cat]||0;for(const item of packet.catalog.filter((c:any)=>c.category===cat).slice(0,n))chosen.push(item);}return envelope({summary:'按人数选择',choices:chosen.map((item:any)=>({id:item.id,reason:'按本餐人数'}))});}));
-  assert.equal(packet.count,3);assert.deepEqual(packet.categories,{meat:1,veg:2,soup:0});
+  await createHealthRecipeSelector(randomBytes(32))(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);const chosen=packet.catalog.slice(0,Math.min(packet.max,6));return envelope({summary:'按候选选择',choices:chosen.map((item:any)=>({id:item.id,reason:'按本餐候选'}))});}));
+  assert.equal(packet.mode,'options');assert.equal(packet.count,6);assert.equal(packet.requestedCounts,undefined);
 });
 
 test('AI候选同一主料最多两道，避免整页同一种食材的变体',async()=>{
-  const meal={...oneMeal(),composition:'custom' as const,counts:{meat:0,veg:1,soup:0},servings:1,allowBuy:false};
+  const meal={...oneMeal(),composition:'custom' as const,counts:{meat:0,veg:1,soup:0},allowBuy:false};
   const recipes:any[]=[];
   for(let i=0;i<6;i++)recipes.push(simpleRecipe(`egg-${i}`,[['egg',1]],{category:'veg'}));
   for(let i=0;i<6;i++)recipes.push(simpleRecipe(`tomato-${i}`,[['tomato',100]],{category:'veg'}));
@@ -113,7 +113,7 @@ test('AI候选同一主料最多两道，避免整页同一种食材的变体',a
 test('结果说明区分营养指标、缺条件与无资料，不再笼统说没有可用依据',async()=>{
   const assets=await readFoodGuidanceAssets();
   const provider=createFoodGuidanceProvider(assets.bundle,assets.goals,assets.mappings,async()=>new Set());
-  const meal:any={...oneMeal(),composition:'custom' as const,counts:{meat:0,veg:1,soup:0},servings:1,allowBuy:false,healthProfile:{conditions:['维生素D不足'],goals:['瘦身'],notes:''}};
+  const meal:any={...oneMeal(),composition:'custom' as const,counts:{meat:0,veg:1,soup:0},allowBuy:false,healthProfile:{conditions:['维生素D不足'],goals:['瘦身'],notes:''}};
   const recipes=[simpleRecipe('tomato',[['tomato',100]],{category:'veg'})];
   let packet:any;
   const result=await createHealthRecipeSelector(randomBytes(32),provider)(options(meal,recipes,async(_url,init)=>{packet=JSON.parse(JSON.parse(String(init?.body)).messages.at(-1).content);return envelope({summary:'按本餐',choices:[{id:packet.catalog[0].id,reason:'按本餐'}]});}));

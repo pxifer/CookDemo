@@ -1,6 +1,6 @@
 import { constructedContent } from '../../shared/catalog';
 import type { ContentContext } from '../../shared/content';
-import { inputMode, servingReference } from '../../shared/meal-planning';
+import { compositionError, inputMode, type DishCounts } from '../../shared/meal-planning';
 import type { Extraction, Ingredient, Meal } from '../../shared/types';
 import { availableFlavors } from '../../shared/flavors';
 import { isSeasoningFood, pantryGroups, seasoningStockKey } from '../../shared/pantry';
@@ -60,6 +60,11 @@ export function contentSeasonings(context: ContentContext) {
   return [...new Set([...seasoningIds.filter(id => context.foodById.has(id)), ...context.recipes.flatMap(r => r.variants.flatMap(v => v.lines.filter(l => l.role === 'seasoning' && isSeasoningFood(context.foodById.get(l.foodId)!)).map(l => {const key=seasoningStockKey(context.foodById.get(l.foodId)!);return context.foodById.has(key)?key:l.foodId;})))])];
 }
 export function normalizeInput(meal: Meal, context: ContentContext = constructedContent): Meal {
+  // Older drafts stored a diner count and derived the category counts from it.
+  // Drop the removed field and repair stale/invalid counts before they reach the API.
+  const { servings: _legacyServings, ...draft } = meal as Meal & { servings?: unknown };
+  const counts: DishCounts = draft.counts && compositionError({ composition: 'custom', counts: draft.counts }) === ''
+    ? draft.counts : { meat: 1, veg: 1, soup: 0 };
   const seasonings = contentSeasonings(context);
   let ingredients = mergeInput([], meal.ingredients.map(item => {
     const known = item.foodId && context.foodById.get(item.foodId);
@@ -77,7 +82,7 @@ export function normalizeInput(meal: Meal, context: ContentContext = constructed
     ingredients = mergeInput(ingredients, [restored]);
     return false;
   });
-  return { ...meal, mode: inputMode(meal), counts: meal.composition === 'auto' ? { ...servingReference(meal.servings).counts } : meal.counts,
+  return { ...draft, mode: inputMode(draft), counts,
     flavor: meal.flavor === '不限' || availableFlavors(context.recipes).includes(meal.flavor) ? meal.flavor : '不限',
     overrides: Object.fromEntries(Object.entries(meal.overrides).filter(([id, variant]) => context.recipes.some(r => r.id === id && r.variants.some(v => v.id === variant)))),
     ingredients, seasonings: [...new Set(meal.seasonings.map(id=>{const food=context.foodById.get(id);return food?seasoningStockKey(food):id;}))],

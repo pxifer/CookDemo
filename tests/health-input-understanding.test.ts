@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {validateHealthInputUnderstanding,understandHealthInput} from '../backend/src/health-input-understanding';
-const base=()=>({intent:'food_guidance',subject:'self',conditions:['甲减'],goals:[],preferences:[],allergies:[],avoids:[],mealRequest:{ingredients:[],servings:null,counts:null,allowBuy:null},question:''});
+const base=()=>({intent:'food_guidance',subject:'self',conditions:['甲减'],goals:[],preferences:[],allergies:[],avoids:[],mealRequest:{ingredients:[],counts:null,allowBuy:null},question:''});
 test('开放理解允许库外原词，不允许模型补入输入中没有的疾病/食材或非法菜数',()=>{
  const input='我有甲减，怎么选食材？';assert.deepEqual(validateHealthInputUnderstanding(base(),input),base());
  assert.throws(()=>validateHealthInputUnderstanding({...base(),conditions:['高血压']},input),/UNSUPPORTED_ENTITY/);

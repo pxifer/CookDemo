@@ -16,10 +16,10 @@ test('AC-02: 连续中文拆分、约量与原文保留', () => {
   assert(x.ingredients.every(i => i.status === 'pending' && i.basis === 'unknown'));
   assert.equal(x.original, '西红柿2个鸡蛋3个菠菜一把');
 });
-test('AC-03: 混合类型、人数与疾病名称只形成候选', () => {
+test('AC-03: 混合类型、人数短语与疾病名称只形成候选', () => {
   const x = extractText('家里有番茄和鸡蛋，2个人吃，对虾过敏，有高血压和糖尿病');
   assert.deepEqual(x.ingredients.map(i => i.name), ['西红柿', '鸡蛋']);
-  assert.equal(x.servings, 2); assert.deepEqual(x.restrictions[0].targets, ['shrimp']);
+  assert(!x.unresolved.some(t => t.includes('人'))); assert.deepEqual(x.restrictions[0].targets, ['shrimp']);
   assert.deepEqual(x.diseases.sort(), ['糖尿病', '高血压']);
 });
 test('AC-07: 否定与允许表达不能变成新过敏或清除旧限制', () => {
@@ -143,7 +143,7 @@ test('用量未知时仍区分有无库存，不显示虚假的补买量', () =>
   assert.match(withInventory.reason, /原方未注明用量/);
 });
 test('B03 / AC-10: 鸡蛋克与个不可比较，允许推荐但结果标未核实', async () => {
-  const m = mealWith('鸡蛋1g'); m.mode = 'candidates'; m.servings = 12;
+  const m = mealWith('鸡蛋1g'); m.mode = 'candidates';
   const res = await recommend([simpleRecipe('egg', [['egg', 1]])], request(m));
   assert.equal(res.status, 'completed'); assert.equal(res.dishes[0].checks[0].state, 'unverified');
   assert.match(res.dishes[0].checks[0].reason, /用量仅供参考/);
@@ -175,17 +175,18 @@ test('AC-11 / AC-12: 必需调料缺失排除，可省配料明确省略', () =>
   assert(d.checks.some(c => c.foodId === 'oil' && c.state === 'missing'));
   assert(d.omitted.includes('大蒜'));
 });
-test('B04 / AC-14: 非法人数及组合被服务端拒绝', async () => {
-  for (const servings of [0, 1.5, 13, NaN]) await assert.rejects(recommend(recipes, request({ ...mealWith(), servings })), /人数/);
+test('B04 / AC-14: 非法荤素汤组合被服务端拒绝', async () => {
+  for (const counts of [{ meat: -1, veg: 2, soup: 0 }, { meat: 1.5, veg: 1, soup: 0 }, { meat: 0, veg: 0, soup: 0 }]) await assert.rejects(recommend(recipes, request({ ...mealWith(), composition: 'custom', counts })), /合计/);
   await assert.rejects(recommend(recipes, request({ ...mealWith(), composition: 'custom', counts: { meat: 10, veg: 11, soup: 0 } })), /数量|合计/);
 });
-test('用户新确认: 默认一荤两素，库存不足按可行性调整', async () => {
+test('不限数量：按食材匹配浏览，不再有默认荤素汤菜数', async () => {
   const full = await recommend(recipes, request());
-  assert.equal(full.dishes.length, 3);
-  assert.equal(full.dishes.filter(d => d.recipe.category === 'meat').length, 1);
-  assert.equal(full.dishes.filter(d => d.recipe.category === 'veg').length, 2);
-  const m = mealWith('土豆500g菠菜500g黄瓜500g');
-  assert.equal((await recommend(recipes, request(m))).dishes.length, 3);
+  assert(full.dishes.length > 0);
+  assert.equal(full.target, 0); assert.equal(full.targetMet, true);
+  assert(full.dishes.every(d => d.reused.length > 0));
+  const m = mealWith('土豆500g');
+  const potato = await recommend(recipes, request(m));
+  assert(potato.dishes.every(d => d.reused.includes('potato')));
 });
 test('AC-10新口径: 同种食材可用于多菜，用户填写用量不限制整套', async () => {
   const catalog = [simpleRecipe('a', [['egg', 2]]), simpleRecipe('b', [['egg', 2]])];
@@ -195,7 +196,7 @@ test('AC-10新口径: 同种食材可用于多菜，用户填写用量不限制�
   assert.equal(checkSet(catalog.map(r => checkDish(r, r.variants[0], m).dish!), m).valid, true);
 });
 test('B06 / D7-14新口径: 补买只列缺失食材，不根据输入量计算差额', async () => {
-  const m = mealWith('鸡肉1g香菇1g'); m.servings = 12; m.allowBuy = true; m.mode = 'candidates';
+  const m = mealWith('鸡肉1g香菇1g'); m.allowBuy = true; m.mode = 'candidates';
   const r = await recommend(recipes, request(m)); const d = r.dishes.find(d => d.recipe.id === 'chicken-mushroom')!;
   assert.equal(d.checks.find(c => c.foodId === 'chicken')?.shortage, null);
   assert.equal(d.checks.find(c => c.foodId === 'mushroom')?.shortage, null);
@@ -203,11 +204,12 @@ test('B06 / D7-14新口径: 补买只列缺失食材，不根据输入量计算�
   const unknown = await recommend(recipes, request(m));
   assert(unknown.dishes[0].checks.every(c => c.shortage === null));
 });
-test('AC-13: 套餐整体复用与候选逐道复用不同，盐油不充数', async () => {
+test('补买要求每道菜复用现有主料，盐油不充数', async () => {
   const catalog = [simpleRecipe('a', [['egg', 1]]), simpleRecipe('b', [['potato', 100]])];
   const m = mealWith('鸡蛋2个'); m.allowBuy = true; m.composition = 'custom'; m.counts = { meat: 0, veg: 2, soup: 0 };
-  assert.equal((await recommend(catalog, request(m))).dishes.length, 2);
-  m.mode = 'candidates'; m.composition = 'auto'; assert.equal((await recommend(catalog, request(m))).dishes.length, 1);
+  const result = await recommend(catalog, request(m));
+  assert.equal(result.dishes.length, 1); assert(!result.targetMet);
+  assert.deepEqual(result.shortfall, { meat: 0, veg: 1, soup: 0 });
   const onlySalt = mealWith('盐10g'); onlySalt.allowBuy = true;
   assert.equal((await recommend(catalog, request(onlySalt))).dishes.length, 0);
 });
@@ -218,13 +220,14 @@ test('AR-M02 / AC-17: 首批超过60个创意候选仍召回全部家常层，�
   const next = await recommend(catalog, request(m, { action: 'page', page: 1, cursor: first.cursor }));
   assert.equal(next.dishes.filter(d => d.recipe.homeStyle).length, 2);
   assert(!next.dishes.some(d => first.dishes.some(x => x.recipe.id === d.recipe.id)));
-  await assert.rejects(recommend(catalog, request({ ...m, servings: 2 }, { cursor: first.cursor })), /变化/);
+  await assert.rejects(recommend(catalog, request({ ...m, counts: { ...m.counts, veg: m.counts.veg + 1 } }, { cursor: first.cursor })), /变化/);
   await assert.rejects(recommend(catalog, request(m, { page: 100 })), /超出/);
   catalog[0].state = 'withdrawn';
   await assert.rejects(recommend(catalog, request(m, { cursor: first.cursor })), /变化/);
 });
 test('AC-18: 单换固定其余菜，实际更新；重推存在替代时改变组合', async () => {
-  const m = mealWith(); const first = await recommend(recipes, request(m));
+  const m = mealWith(); m.composition = 'custom'; m.counts = { meat: 1, veg: 2, soup: 0 };
+  const first = await recommend(recipes, request(m));
   const selected = first.dishes.map(d => ({ recipeId: d.recipe.id, variantId: d.variant.id }));
   const second = await recommend(recipes, request(m, { action: 'replace', selected, replaceId: selected[1].recipeId }));
   assert.equal(second.dishes.length, 3); assert(!second.dishes.some(d => d.recipe.id === selected[1].recipeId));
@@ -244,7 +247,7 @@ test('AC-19 / AC-20: 变体改变调料与步骤，手动口味优先且全套�
   assert.equal((await recommend([recipes[0]], request(m))).dishes.length, 0);
 });
 test('AR-O03 / D4-08: 搜索超限仍只发布已核验小套餐，不伪报无解；取消响应', async () => {
-  const m = mealWith();
+  const m = mealWith(); m.composition = 'custom'; m.counts = { meat: 1, veg: 2, soup: 0 };
   const res = await recommend(recipes, request(m), { maxNodes: 3 });
   assert.equal(res.search, 'incomplete'); assert(res.dishes.length > 0); assert.equal(checkSet(res.dishes, m).valid, true);
   assert(res.reasons.some(r => r.includes('再试一次'))); // Preserve incomplete feedback in concise user language.

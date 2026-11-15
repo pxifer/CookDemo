@@ -14,7 +14,7 @@ export interface HealthChatRequest {
   messages: ChatMessage[];
   diseases: string[];
   profile?:HealthContext;
-  mealContext?: { ingredients: string[]; seasonings: string[]; restrictions: string[]; allowBuy: boolean;checkSeasonings?:boolean;servings?:number;aiFoodChoices?:AiFoodChoices;aiExcludedFoods?:string[];aiFoodPreferences?:AiFoodChoices };
+  mealContext?: { ingredients: string[]; seasonings: string[]; restrictions: string[]; allowBuy: boolean;checkSeasonings?:boolean;aiFoodChoices?:AiFoodChoices;aiExcludedFoods?:string[];aiFoodPreferences?:AiFoodChoices };
 }
 export interface HealthChatReply { operationId: string; message: ChatMessage; knowledge: 'general_model'|'research_rag'|'source_rag'; assessment?: DietAssessment; invocation?: ProviderInvocation;accountSnapshot?:import('./account').AccountSnapshot;saveError?:string;researchGuidance?:import('./food-guidance').FoodGuidancePacket }
 export const healthChatSchema = {
@@ -33,7 +33,7 @@ export const healthChatSchema = {
       restrictions:{type:'array',maxItems:50,items:{type:'string',minLength:1,maxLength:200}},allowBuy:{type:'boolean'},
       aiFoodPreferences:{type:'object',additionalProperties:false,required:['preferred','limited','excluded'],properties:Object.fromEntries(['preferred','limited','excluded'].map(key=>[key,{type:'array',maxItems:20,items:{type:'string',minLength:1,maxLength:40}}]))},
       aiExcludedFoods:{type:'array',maxItems:20,items:{type:'string',minLength:1,maxLength:40}},
-      checkSeasonings:{type:'boolean'},servings:{type:'integer',minimum:1,maximum:12},
+      checkSeasonings:{type:'boolean'},
       aiFoodChoices:{type:'object',additionalProperties:false,required:['preferred','limited','excluded'],properties:Object.fromEntries(['preferred','limited','excluded'].map(key=>[key,{type:'array',maxItems:20,items:{type:'string',minLength:1,maxLength:40}}]))},
     } },
   },
