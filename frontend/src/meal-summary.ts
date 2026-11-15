@@ -36,5 +36,5 @@ export function modeSummary(meal: Pick<Meal, 'composition' | 'counts'>, total?: 
     const parts = categoryOrder.filter(key => meal.counts[key] > 0).map(key => `${meal.counts[key]} ${targetLabels[key]}`);
     return parts.length ? `目标 ${parts.join(' · ')}` : '未设置数量';
   }
-  return total === undefined ? '按现有食材匹配菜谱' : `按食材匹配 · 共 ${total} 道`;
+  return total === undefined ? '按现有食材匹配' : `共 ${total} 道`;
 }
