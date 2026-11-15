@@ -68,8 +68,8 @@ function ShoppingList({ sections }: { sections: { ingredients: string[]; seasoni
   const total = sections.ingredients.length + sections.seasonings.length;
   if (!total) return null;
   return <details className="shopping-list"><summary>补买 {total} 项</summary>
-    {sections.ingredients.length > 0 && <><p className="shopping-group">食材</p><ul className="checks" aria-label="这道菜需要补买的食材">{sections.ingredients.map(text => <li key={text}>{text}</li>)}</ul></>}
-    {sections.seasonings.length > 0 && <><p className="shopping-group">调料</p><ul className="checks" aria-label="这道菜需要补买的调料">{sections.seasonings.map(text => <li key={text}>{text}</li>)}</ul></>}
+    {sections.ingredients.length > 0 && <section className="shopping-section"><h4>食材<span>{sections.ingredients.length} 项</span></h4><ul className="checks" aria-label="这道菜需要补买的食材">{sections.ingredients.map(text => <li key={text}>{text}</li>)}</ul></section>}
+    {sections.seasonings.length > 0 && <section className="shopping-section"><h4>调料<span>{sections.seasonings.length} 项</span></h4><ul className="checks" aria-label="这道菜需要补买的调料">{sections.seasonings.map(text => <li key={text}>{text}</li>)}</ul></section>}
   </details>;
 }
 function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 'workspace' | 'favorites' }) {
@@ -385,7 +385,7 @@ function App({ catalog, page = 'workspace' }: { catalog: ContentContext; page?: 
               <div className="card-actions"><button disabled={busy&&pendingRecipeId===dish.recipe.id} onClick={() => { setFavoriteFeedback(''); setDetail({ recipe: dish.recipe, variant: dish.variant, checks: dish.checks, nutrition: dish.nutrition }); }}>看看做法 <span>↗</span></button>{meal.mode === 'meal' && <button aria-label={`替换 ${dish.recipe.name}`} disabled={busy} aria-busy={busy&&pendingRecipeId===dish.recipe.id} onClick={() => void generate('replace', { replaceId: dish.recipe.id })}>{busy&&pendingRecipeId===dish.recipe.id?'更新中…':'换一道 ↻'}</button>}</div>
             </div>
           </article>)}</div>
-          {(resultShopping.ingredients.length > 0 || resultShopping.seasonings.length > 0) && <details className="set-checks"><summary>本餐补买清单</summary>{resultShopping.ingredients.length > 0 && <><p className="shopping-group">食材</p><ul className="checks">{resultShopping.ingredients.map(text => <li key={text}>{text}</li>)}</ul></>}{resultShopping.seasonings.length > 0 && <><p className="shopping-group">调料</p><ul className="checks">{resultShopping.seasonings.map(text => <li key={text}>{text}</li>)}</ul></>}</details>}
+          {(resultShopping.ingredients.length > 0 || resultShopping.seasonings.length > 0) && <details className="set-checks"><summary>本餐补买清单</summary>{resultShopping.ingredients.length > 0 && <section className="shopping-section"><h4>食材<span>{resultShopping.ingredients.length} 项</span></h4><ul className="checks">{resultShopping.ingredients.map(text => <li key={text}>{text}</li>)}</ul></section>}{resultShopping.seasonings.length > 0 && <section className="shopping-section"><h4>调料<span>{resultShopping.seasonings.length} 项</span></h4><ul className="checks">{resultShopping.seasonings.map(text => <li key={text}>{text}</li>)}</ul></section>}</details>}
           {result.dishes.length > 0 && meal.mode !== 'meal' && <div className="result-actions"><button disabled={busy||result.page === 0} onClick={() => void generate('page', { page: result.page - 1, cursor: result.cursor })}>上一页</button><span>{result.page + 1} / {Math.max(1, Math.ceil(result.total / 6))}</span><button disabled={busy||(result.page + 1) * 6 >= result.total} onClick={() => void generate('page', { page: result.page + 1, cursor: result.cursor })}>{busy&&progress.startsWith('正在加载第 ')?progress.match(/^正在加载第 \d+ 页/)?.[0]:'下一页'}</button></div>}
         </>}
       </section></div>
