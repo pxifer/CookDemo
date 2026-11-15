@@ -1,4 +1,5 @@
 import { healthChatRecipes, expandFoodSuggestions, withoutExistingRestrictions, withoutRepeatedFoodText, mergeHealthProfile } from '../../shared/health-guidance';
+import { publicAttributionLabel } from '../../shared/attribution';
 import { healthTopics } from '../../shared/health-topics';
 import { createHealthRecipeSelector } from './health-recipe-selection';
 import type { FoodGuidanceProvider } from '../../shared/food-guidance';
@@ -41,7 +42,7 @@ const reviewedMethod=(id:string|undefined)=>{
 };
 
 const publicAttribution=(author:string|undefined,uri:string|undefined)=>uri?.startsWith('https://')&&author&&!/(拾味|候选|未试做|自编|内部|待核)/.test(author)
-  ? {label:author.replace(/\s*[·•]?\s*公开配方资料[；;]\s*保留原始出处\s*$/,'').trim(),url:uri} : undefined;
+  ? {label:publicAttributionLabel(author),url:uri} : undefined;
 const publicText=(value:string)=>fixedRecipeText(value).replace(/[（(][^）)]*(?:待核|未试做|内部候选|许可核验|原文名称)[^）)]*[）)]/g,'')
   .replace(/来源此支/g,'').replace(/按来源/g,'').replace(/来源两面/g,'两面').replace(/来源用约/g,'用约')
   .replace(/来源加盖/g,'加盖').replace(/来源两段/g,'两段').replace(/来源允许自行选加料酒、胡椒粉/g,'料酒、胡椒粉可按口味添加')
