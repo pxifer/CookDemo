@@ -13,9 +13,13 @@ export type IngredientMatch = { ingredient: Ingredient; kind: 'exact' | 'broad' 
  * piece of muscle, not the bones, offal, skin, fat or cured products sold separately.
  */
 type Family = { id: string; name: string; inputs: string[]; recipeNames: RegExp; excludedRecipeNames?: RegExp; matchNames?: (name: string) => boolean };
-const notAPieceOfMeat = /骨|排骨|肋排|小排|肋|肝|腰|肚|肠|心|肺|血|横脷|皮|油|脚|手|蹄|尾|肘|(?:猪|牛|羊|鸡|鸭|鹅)头|脑|耳|舌|筋|爪|掌|脖|胗|杂|丸|松|腊|咸|卤|酱|叉烧|火腿|培根|香肠|午餐肉|罐头|风干|熏|汤|高汤|精|粉|蛋|奶|籽/;
+const notAPieceOfMeat = /骨|排骨|肋排|小排|肋|肝|腰|肚|肠|心|肺|血|横脷|(?:猪|牛|羊|鸡|鸭|鹅|鱼)皮|皮冻|油|脚|手|蹄|尾|肘|(?:猪|牛|羊|鸡|鸭|鹅)头|脑|耳|舌|筋|爪|掌|脖|胗|杂|丸|松|腊|咸|卤|酱|叉烧|火腿|培根|香肠|午餐肉|罐头|风干|熏|汤|高汤|精|粉|蛋|奶|籽/;
 const muscle = (words: RegExp) => (name: string) => words.test(name) && !notAPieceOfMeat.test(name);
 const families: Family[] = [
+  { id: 'egg', name: '鸡蛋', inputs: ['鸡蛋', '蛋', '蛋液', '蛋清', '蛋黄', '土鸡蛋'], recipeNames: /蛋/,
+    // Parts of an egg are the egg; preserved or other birds' eggs are their own thing.
+    matchNames: (name: string) => /^(?:鸡蛋|蛋|蛋液|蛋清|蛋黄|鸡蛋清|鸡蛋黄|土鸡蛋|笨鸡蛋|常温鸡蛋)$/.test(name),
+    excludedRecipeNames: /鸭蛋|皮蛋|鹌鹑蛋|鸽子蛋|墨鱼蛋|咸蛋|鸡蛋干|蛋饺|蛋糕|蛋挞/ },
   { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'],
     recipeNames: /猪|五花|梅花|二刀|梅头|里脊|里几|通脊|夹心|坐臀|臀尖|底板|颊肉|肥膘|瘦肉|排骨|肋排|肘子|筒子骨|扇骨|龙骨|小排|大肠|小肠|肉馅|肉末|肉片|肉丝|肉丁|肉块|^肉$/,
     // Muscles and their everyday cut names; 二刀肉/梅头肉/通脊/底板 are pork cuts too.
@@ -91,12 +95,14 @@ export function isInvalidFoodName(name:string):boolean{
 }
 export function canonicalIngredientName(name:string):string{
   const normalized=normalizeIngredientName(name);
-  if(!/猪油|猪皮|牛|羊|鸡|鸭|鹅|鱼|虾/.test(normalized)&&/猪|五花|里脊|梅花|排骨|肋排|筒子骨|扇骨|龙骨|小排|大肠|小肠|猪肚|猪血|猪肝|猪肺|猪心|猪腰|猪耳|猪舌|猪尾/.test(normalized))return '猪肉';
-  if(/大骨棒|棒骨|筒骨/.test(normalized))return '猪肉';
   if(/小根蒜/.test(normalized))return '蒜';
   if(/鸡蛋|蛋液|鸡蛋黄|蛋黄|蛋清|土鸡蛋|笨鸡蛋|常温鸡蛋|鸡蛋干|^蛋$/.test(normalized))return '鸡蛋';
   if(/鸭蛋/.test(normalized))return '鸭蛋';
-  const family=families.find(item=>item.recipeNames.test(normalized)&&!item.excludedRecipeNames?.test(normalized));
+  // A cut collapses into the broad name only when the matcher agrees that the broad term
+  // covers it. Otherwise it stays selectable on its own (排骨、猪肝、猪蹄、腊肉…), so the
+  // picker and the matcher never disagree about what "猪肉" means.
+  const family=families.find(item=>item.recipeNames.test(normalized)&&!item.excludedRecipeNames?.test(normalized)
+    &&(item.matchNames?item.matchNames(normalized):true));
   if(family)return family.name;
   const synonyms=inputSynonyms.find(group=>group.includes(normalized));
   return synonyms?.[0]??name;

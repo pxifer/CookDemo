@@ -26,7 +26,8 @@ test('具体部位归并到可覆盖菜品的宽食材',()=>{
   assert.equal(canonicalIngredientName('花蛤'),'贝类');
   assert.equal(canonicalIngredientName('鸭腿'),'鸭肉');
   assert.equal(canonicalIngredientName('西红柿'),'番茄');
-  assert.equal(canonicalIngredientName('猪大肠'),'猪肉');
+  // 内脏/骨头/蹄与肉分开采购，保持独立条目，否则下拉里选不到它们。
+  assert.equal(canonicalIngredientName('猪大肠'),'猪大肠');
   assert.equal(canonicalIngredientName('羊里脊'),'羊肉');
   assert.equal(canonicalIngredientName('樱桃谷鸭子'),'鸭肉');
   assert.equal(canonicalIngredientName('仔鸡'),'鸡肉');
@@ -57,6 +58,6 @@ test('数量/单位/碎片不会被当作食材',()=>{
   assert.equal(canonicalIngredientName('蛋液'),'鸡蛋');
   assert.equal(canonicalIngredientName('土鸡蛋'),'鸡蛋');
   assert.equal(canonicalIngredientName('咸鸭蛋'),'鸭蛋');
-  assert.equal(canonicalIngredientName('筒子骨'),'猪肉');
-  assert.equal(canonicalIngredientName('小肠'),'猪肉');
+  assert.equal(canonicalIngredientName('筒子骨'),'筒子骨');
+  assert.equal(canonicalIngredientName('小肠'),'小肠');
 });
