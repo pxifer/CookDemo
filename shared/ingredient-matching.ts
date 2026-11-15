@@ -16,9 +16,9 @@ type Family = { id: string; name: string; inputs: string[]; recipeNames: RegExp;
 const notAPieceOfMeat = /骨|排骨|肋排|小排|肋|肝|腰|肚|肠|心|肺|血|横脷|(?:猪|牛|羊|鸡|鸭|鹅|鱼)皮|皮冻|油|脚|手|蹄|尾|肘|(?:猪|牛|羊|鸡|鸭|鹅)头|脑|耳|舌|筋|爪|掌|脖|胗|杂|丸|松|腊|咸|卤|酱|叉烧|火腿|培根|香肠|午餐肉|罐头|风干|熏|汤|高汤|精|粉|蛋|奶|籽/;
 const muscle = (words: RegExp) => (name: string) => words.test(name) && !notAPieceOfMeat.test(name);
 const families: Family[] = [
-  { id: 'egg', name: '鸡蛋', inputs: ['鸡蛋', '蛋', '蛋液', '蛋清', '蛋黄', '土鸡蛋'], recipeNames: /蛋/,
+  { id: 'egg', name: '鸡蛋', inputs: ['鸡蛋', '蛋', '蛋液', '蛋清', '蛋黄', '鸡蛋液', '鸡蛋清', '鸡蛋黄', '土鸡蛋'], recipeNames: /蛋/,
     // Parts of an egg are the egg; preserved or other birds' eggs are their own thing.
-    matchNames: (name: string) => /^(?:鸡蛋|蛋|蛋液|蛋清|蛋黄|鸡蛋清|鸡蛋黄|土鸡蛋|笨鸡蛋|常温鸡蛋)$/.test(name),
+    matchNames: (name: string) => /^(?:鸡蛋|蛋|蛋液|蛋清|蛋黄|鸡蛋液|鸡蛋清|鸡蛋黄|土鸡蛋|笨鸡蛋|常温鸡蛋)$/.test(name),
     excludedRecipeNames: /鸭蛋|皮蛋|鹌鹑蛋|鸽子蛋|墨鱼蛋|咸蛋|鸡蛋干|蛋饺|蛋糕|蛋挞/ },
   { id: 'pork', name: '猪肉', inputs: ['猪肉', '瘦肉'],
     recipeNames: /猪|五花|梅花|二刀|梅头|里脊|里几|通脊|夹心|坐臀|臀尖|底板|颊肉|肥膘|瘦肉|排骨|肋排|肘子|筒子骨|扇骨|龙骨|小排|大肠|小肠|肉馅|肉末|肉片|肉丝|肉丁|肉块|^肉$/,
