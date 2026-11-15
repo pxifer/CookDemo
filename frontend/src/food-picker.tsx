@@ -13,6 +13,6 @@ export function FoodPicker({foods,recipes,add}:{foods:Food[];recipes?:Recipe[];a
       <label>食材<select aria-label="选择食材" value={selected} onChange={e=>setSelected(e.target.value)}><option value="">请选择食材</option>{choices.map(food=><option key={food.id} value={food.name}>{food.name}</option>)}</select></label>
       <button type="submit" className="food-picker-add" disabled={!selected}>添加</button>
     </form>
-    <details className="food-picker-manual"><summary>搜索或直接输入食材</summary><form className="manual-add" onSubmit={e=>{e.preventDefault();if(name.trim()){add(name.trim());setName('');}}}><input aria-label="手动添加食材" list="food-names" maxLength={100} value={name} onChange={e=>setName(e.target.value)} placeholder="输入食材名称…"/><button className="text-button" disabled={!name.trim()}>＋ 添加</button></form></details>
+    <div className="food-picker-manual"><p className="small subtle">没有想要的？直接输入</p><form className="manual-add" onSubmit={e=>{e.preventDefault();if(name.trim()){add(name.trim());setName('');}}}><input aria-label="手动添加食材" list="food-names" maxLength={100} value={name} onChange={e=>setName(e.target.value)} placeholder="输入食材名称…"/><button className="text-button" disabled={!name.trim()}>＋ 添加</button></form></div>
   </div>;
 }
